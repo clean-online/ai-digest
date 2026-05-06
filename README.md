@@ -2,7 +2,7 @@
 
 追踪 Sam Altman、Guillermo Rauch、Swyx 等顶级 AI Builder 的每日动态。双语日报，英文原味 + 中文意译。
 
-🌐 **Live Site**: https://chloevchen.github.io/ai-digest/
+🌐 **Live Site**: https://clean-online.github.io/ai-digest/
 
 ---
 
