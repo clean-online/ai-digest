@@ -1,30 +1,29 @@
 # Automation Memory — AI Builders Digest Daily
 
-## Last Run: 2026-05-07
+## Last Run: 2026-05-08
 
 ### Execution Summary
 - **Status**: Success
-- **Builders tracked**: 12
-- **Tweets collected**: 25
-- **Podcasts**: 1 (Training Data — Waymo's Dmitri Dolgov)
-- **Blog posts**: 1 (Anthropic Engineering — Claude Code Auto Mode)
-- **Output**: `AI_Builders_Digest_2026-05-07.html`
-- **Deployed**: ✅ GitHub Pages — `https://clean-online.github.io/ai-digest/2026/05/07/AI_Builders_Digest_2026-05-07.html`
+- **Builders tracked**: 4 (Peter Yang, Thariq, Zara Zhang, Claude official)
+- **Tweets collected**: 8
+- **Podcasts**: 1 (Training Data — Boris Cherny: Coding's Printing Press Moment)
+- **Blog posts**: 0
+- **Output**: `AI_Builders_Digest_2026-05-08.html`
+- **Deployed**: ✅ GitHub Pages — `https://clean-online.github.io/ai-digest/2026/05/08/AI_Builders_Digest_2026-05-08.html`
 
 ### Notes
-- Content feed date was 2026-05-05 (latest available in central feed)
-- Digest date labeled as 2026-05-07 (automation run date)
-- GitHub Pages build took ~35s after push; verified 200 OK
-- Same podcast (Waymo) appeared in both 05-05 and 05-07 digests — may indicate feed lag
-- index.html ISSUES object updated; calendar now shows 2026-05-07 entry
+- Feed generated at 2026-05-07T08:48 (central feed); digest date labeled as 2026-05-08 (automation run date)
+- Garry Tan's tweet was a pop culture reference (not substantive), Dan Shipper was just "come say hi" — both skipped
+- Boris Cherny podcast is a major episode: Claude Code creator hasn't written code in 2026, runs thousands of agents nightly
+- Anthropic announced two new agent features: Outcomes (rubric-based quality loops) and Dreaming (agent memory curation)
+- Dario Amodei disclosed 80x growth in usage/revenue earlier this year
+- GitHub push succeeded, commit abe009d
 
 ### Trends to Note
-- Sam Altman teasing GPT-5.5 party follow-up
-- OpenClaw Crabbox 0.5.0 major release (WebVNC, ephemeral CI boxes)
-- Vercel open-sourcing security agent orchestrator
-- Garry Tan GBrain v0.27 with multi-model LLM support
-- Nikunj Kothari: 2023-2025 startup vintage retention wake-up call
-- Anthropic Claude Code Auto Mode (approval fatigue → real security risk)
+- Anthropic scaling story: 80x growth, compute acquisition priority, new agent infra (Outcomes + Dreaming)
+- "Coding as literacy" thesis gaining momentum (Boris Cherny, Zara Zhang)
+- Claude Code rate-limiting remains a community pain point (Thariq's post went viral)
+- Models evolving "from coding to software engineering to growing a business" (Dario)
 
 ---
-*Updated: 2026-05-07T10:02+08:00*
+*Updated: 2026-05-08T11:13+08:00*
