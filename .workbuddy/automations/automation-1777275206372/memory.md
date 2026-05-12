@@ -1,29 +1,33 @@
 # Automation Memory — AI Builders Digest Daily
 
-## Last Run: 2026-05-08
+## Last Run: 2026-05-11
 
 ### Execution Summary
 - **Status**: Success
-- **Builders tracked**: 4 (Peter Yang, Thariq, Zara Zhang, Claude official)
-- **Tweets collected**: 8
-- **Podcasts**: 1 (Training Data — Boris Cherny: Coding's Printing Press Moment)
-- **Blog posts**: 0
-- **Output**: `AI_Builders_Digest_2026-05-08.html`
-- **Deployed**: ✅ GitHub Pages — `https://clean-online.github.io/ai-digest/2026/05/08/AI_Builders_Digest_2026-05-08.html`
+- **Builders tracked**: 11 (Sam Altman, Garry Tan, Peter Yang, Peter Steinberger, Aaron Levie, Zara Zhang, Nikunj Kothari, Swyx, Guillermo Rauch, Kevin Weil, Dan Shipper)
+- **Tweets collected**: 24
+- **Podcasts**: 1 (Training Data — ElevenLabs' Mati Staniszewski: Voice as Interface)
+- **Blog posts**: 3 (Anthropic postmortem x1, Claude Blog x2)
+- **Output**: `AI_Builders_Digest_2026-05-11.html`
+- **Deployed**: ✅ GitHub Pages — `https://clean-online.github.io/ai-digest/2026/05/11/AI_Builders_Digest_2026-05-11.html`
 
 ### Notes
-- Feed generated at 2026-05-07T08:48 (central feed); digest date labeled as 2026-05-08 (automation run date)
-- Garry Tan's tweet was a pop culture reference (not substantive), Dan Shipper was just "come say hi" — both skipped
-- Boris Cherny podcast is a major episode: Claude Code creator hasn't written code in 2026, runs thousands of agents nightly
-- Anthropic announced two new agent features: Outcomes (rubric-based quality loops) and Dreaming (agent memory curation)
-- Dario Amodei disclosed 80x growth in usage/revenue earlier this year
-- GitHub push succeeded, commit abe009d
+- Feed generated at 2026-05-11T02:00 (central feed)
+- Sam Altman's GPT-5.5 "autistic genius" posts dominated the conversation — landmark naming decision
+- Garry Tan announced GBrain v0.31.1 with real MCP thin client support — client-server architecture
+- Singapore Cabinet Minister keynoting @AIDOTENGINEER Singapore, NanoClaw creator on stage (Swyx announcement)
+- Peter Yang warned about "slop compounding" in agent-generated files — community resonance
+- Anthropic published detailed post-mortem on three changes causing April Claude Code degradation
+- ElevenLabs founder Mati Staniszewski on voice-as-interface: emotional authenticity as the real moat
+- GitHub push succeeded, commit 4fea7c0
 
 ### Trends to Note
-- Anthropic scaling story: 80x growth, compute acquisition priority, new agent infra (Outcomes + Dreaming)
-- "Coding as literacy" thesis gaining momentum (Boris Cherny, Zara Zhang)
-- Claude Code rate-limiting remains a community pain point (Thariq's post went viral)
-- Models evolving "from coding to software engineering to growing a business" (Dario)
+- "Autistic genius" as a product positioning label — Altman normalizes unconventional AI personality
+- GBrain's MCP thin client turns personal AI server into a client-server model
+- Slop compounding: agent-generated content referencing prior AI slop is a growing concern
+- Anthropic's radical transparency on quality issues builds trust
+- Voice AI moat thesis: emotional validation data, not model architecture
+- Government adoption of AI agents: Singapore signing on with national-level keynotes
 
 ---
-*Updated: 2026-05-08T11:13+08:00*
+*Updated: 2026-05-11T11:50+08:00*
