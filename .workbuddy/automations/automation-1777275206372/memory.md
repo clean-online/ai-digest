@@ -1,6 +1,62 @@
 # Automation Memory — AI Builders Digest Daily
 
-## Last Run: 2026-05-13
+## Last Run: 2026-05-15
+
+### Execution Summary
+- **Status**: Success
+- **Builders tracked**: 3 (Peter Yang, Garry Tan, Nikunj Kothari)
+- **Tweets collected**: 3
+- **Podcasts**: 1 (Training Data — Suno's Mikey Shulman: Everyone Can Make Music Now)
+- **Blog posts**: 1 (Claude Blog — New in Managed Agents: dreaming, outcomes, multiagent orchestration)
+- **Output**: `AI_Builders_Digest_2026-05-15.html`
+- **Deployed**: ✅ GitHub Pages — `https://clean-online.github.io/ai-digest/2026/05/15/AI_Builders_Digest_2026-05-15.html` (HTTP 200)
+- **Commit**: c9be3c2
+
+### Notes
+- Feed generated at 2026-05-14T08:50 (central feed)
+- Peter Yang: deconstructs "AI layoffs" narrative — 80K+ tech layoffs in Q1, AI as scapegoat for zero-rate era over-hiring
+- Garry Tan: pointed critique of SF "fentanyl tourism" media coverage and misaligned-incentive nonprofits
+- Nikunj Kothari: VC has become consensus capital; obsessed founders treat rejection as learning, not verdict
+- Suno's Mikey Shulman: 90% of daily users create — flipping consumers into creators; "creation is the entertaining bit"
+- Claude Managed Agents: dreaming (self-improving memory) + outcomes (rubric-based grading) + multiagent orchestration GA
+
+### Trends to Note
+- Layoff narrative deconstruction: builders pushing back on "AI made us do it" framing
+- VC consensus risk: capital flowing to optimization-friendly founders, not contrarian conviction bets
+- Creator-as-consumer paradigm (Suno): the act of creation becomes the consumption, not the output
+- Self-improving agent infrastructure: memory + dreaming as the next layer above tool-use
+
+---
+
+*Updated: 2026-05-15T14:48+08:00*
+
+## Last Run: 2026-05-14
+
+### Execution Summary
+- **Status**: Success
+- **Builders tracked**: 0 (no new X posts from 24 tracked builders)
+- **Tweets collected**: 0
+- **Podcasts**: 1 (No Priors — Waymo Dmitri Dolgov: 20 Million Rides and Full Autonomy)
+- **Blog posts**: 1 (Anthropic Engineering — Claude Code Auto Mode)
+- **Output**: `AI_Builders_Digest_2026-05-14.html`
+- **Deployed**: ✅ GitHub Pages — `https://clean-online.github.io/ai-digest/2026/05/14/AI_Builders_Digest_2026-05-14.html`
+- **Commit**: 414f22f
+
+### Notes
+- Feed generated at 2026-05-14T02:00 (central feed)
+- X content drought today: no new tweets from tracked 24 builders
+- Podcast: Dmitri Dolgov (Waymo) — 21-year autonomy journey from DARPA Challenge to 20M rides
+- Blog: Anthropic Claude Code Auto Mode — approval fatigue as the real security risk
+- Auto Mode insight: 93% approval rate means manual prompts are theater; target the 7% genuinely dangerous
+
+### Trends to Note
+- No X activity from builders — possible feed gap or API delay
+- Waymo as a case study in long-horizon persistence (21yr) vs. hype cycle chasing
+- Agent approval fatigue becoming a recognized design problem (Auto Mode as solution)
+
+---
+
+*Updated: 2026-05-14T10:03+08:00*
 
 ### Execution Summary
 - **Status**: Success
