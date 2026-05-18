@@ -1,5 +1,40 @@
 # Automation Memory — AI Builders Digest Daily
 
+## Last Run: 2026-05-17
+
+### Execution Summary
+- **Status**: Success
+- **Builders tracked**: 11 (Peter Steinberger, Sam Altman, Guillermo Rauch, Aaron Levie, Garry Tan, Nikunj Kothari, Swyx, Peter Yang, Dan Shipper, Madhu Guru, Matt Turck)
+- **Tweets collected**: 26
+- **Podcasts**: 1 (Unsupervised Learning — Yann LeCun on Leaving Meta, Breaking The LLM Paradigm, & Why Hinton is Wrong)
+- **Blog posts**: 0
+- **Output**: `AI_Builders_Digest_2026-05-17.html`
+- **Deployed**: ✅ GitHub Pages — `https://clean-online.github.io/ai-digest/2026/05/17/AI_Builders_Digest_2026-05-17.html`
+- **Commit**: 8f7576c
+
+### Notes
+- Feed generated at 2026-05-17T02:00 (central feed)
+- Peter Steinberger: revealed OpenClaw runs ~100 Codex instances — reviewing PRs, security scanning, meeting listening, issue de-dup; shipped Clawpatch 0.1.0
+- Guillermo Rauch: "If you become exceptional at managing agents AND exceptional in fundamentals, you will be unstoppable" (1,863 likes); Grok CLI + Vercel Plugin
+- Yann LeCun (podcast): leaving Meta to start AMI; JEPA > LLM; "Five years, complete world domination"; divergence from Hinton/Bengio since 2023
+- Nikunj Kothari: /goal mode ran 2 hours autonomously through 2k+ item database (304 likes)
+- Aaron Levie: AI ≠ software; FDE becomes core competency at scale; "Headless software is the future"
+- Dan Shipper: OpenClaw extremely hard to build on as platform; one super agent per company > 1:1 agents
+- Madhu Guru (Google Gemini PM): "PMs need to be inventors now, not framework executors"
+- Swyx: Singapore building national MCP gateway for 1.3B agents in 2 years
+
+### Trends to Note
+- AI-first engineering at scale: OpenClaw running 100+ Codex instances as infrastructure layer
+- Agent + fundamentals synthesis (Rauch): the market is converging on "both" not "either"
+- Post-LLM architecture: LeCun's JEPA represents the strongest institutional challenge to the autoregressive paradigm
+- Agent deployment friction: Shipper's "extremely hard to build on" and Levie's FDE thesis point to a deployment gap between demo and production
+- National agent infrastructure: Singapore's MCP gateway as government-level commitment to agent-first governance
+- PM paradigm shift: from playbook execution to invention, as AI has no stable patterns to copy
+
+---
+
+*Updated: 2026-05-17T10:00+08:00*
+
 ## Last Run: 2026-05-15
 
 ### Execution Summary
@@ -29,61 +64,3 @@
 ---
 
 *Updated: 2026-05-15T14:48+08:00*
-
-## Last Run: 2026-05-14
-
-### Execution Summary
-- **Status**: Success
-- **Builders tracked**: 0 (no new X posts from 24 tracked builders)
-- **Tweets collected**: 0
-- **Podcasts**: 1 (No Priors — Waymo Dmitri Dolgov: 20 Million Rides and Full Autonomy)
-- **Blog posts**: 1 (Anthropic Engineering — Claude Code Auto Mode)
-- **Output**: `AI_Builders_Digest_2026-05-14.html`
-- **Deployed**: ✅ GitHub Pages — `https://clean-online.github.io/ai-digest/2026/05/14/AI_Builders_Digest_2026-05-14.html`
-- **Commit**: 414f22f
-
-### Notes
-- Feed generated at 2026-05-14T02:00 (central feed)
-- X content drought today: no new tweets from tracked 24 builders
-- Podcast: Dmitri Dolgov (Waymo) — 21-year autonomy journey from DARPA Challenge to 20M rides
-- Blog: Anthropic Claude Code Auto Mode — approval fatigue as the real security risk
-- Auto Mode insight: 93% approval rate means manual prompts are theater; target the 7% genuinely dangerous
-
-### Trends to Note
-- No X activity from builders — possible feed gap or API delay
-- Waymo as a case study in long-horizon persistence (21yr) vs. hype cycle chasing
-- Agent approval fatigue becoming a recognized design problem (Auto Mode as solution)
-
----
-
-*Updated: 2026-05-14T10:03+08:00*
-
-### Execution Summary
-- **Status**: Success
-- **Builders tracked**: 6 (Andrej Karpathy, Swyx, Kevin Weil, Peter Yang, Amanda Askell, Cat Wu)
-- **Tweets collected**: 12
-- **Podcasts**: 1 (No Priors — Long Lake CEO Alexander Taubman: Amex Global Business Travel AI Take-Private)
-- **Blog posts**: 0
-- **Output**: `AI_Builders_Digest_2026-05-13.html`
-- **Deployed**: ✅ GitHub Pages — `https://clean-online.github.io/ai-digest/2026/05/13/AI_Builders_Digest_2026-05-13.html`
-- **Commit**: b88e6c7
-
-### Notes
-- Feed generated at 2026-05-12T09:13 (central feed)
-- Karpathy's "ask LLM to structure response as HTML" tip: vision is the preferred output modality from AIs
-- Swyx flagged Thinking Machines beating GDM/OpenAI on realtime latency — industry definition of "realtime" got upgraded
-- Cat Wu shipped 3 Claude Code updates: `claude agents` control plane in terminal + Cloud multi-platform feedback drive
-- Amanda Askell released Claude's Constitution as audiobook — alignment docs treated as cultural artifacts
-- Peter Yang on agentic coding boom: "turns out everyone just loves shipping"
-- Kevin Weil signal-boost amplification of @tdrobbo thread
-
-### Trends to Note
-- Vision-first AI outputs (Karpathy): HTML/slideshow as default response medium, not markdown text
-- Realtime arms race: small well-funded labs (Thinking Machines) reset latency baseline for incumbents
-- AI-driven private equity: roll-up + AI as new playbook, growth (not cost) as the value lever
-- Labor as marginal tax on growth: AI flips service-business unit economics to look like SaaS
-- Multi-agent orchestration becoming the Claude Code surface (claude agents control plane)
-- Alignment-as-culture: Anthropic packaging "constitution" as listenable, not just compliance text
-
----
-*Updated: 2026-05-13T11:03+08:00*
