@@ -1,5 +1,39 @@
 # Automation Memory — AI Builders Digest Daily
 
+## Last Run: 2026-05-19
+
+### Execution Summary
+- **Status**: Success
+- **Builders tracked**: 12 (Sam Altman, Aaron Levie, Garry Tan, Thariq, Guillermo Rauch, Peter Yang, Nikunj Kothari, Amjad Masad, Zara Zhang, Matt Turck, Aditya Agarwal, Swyx)
+- **Tweets collected**: 21
+- **Podcasts**: 1 (AI & I by Every — Claude Code Can Be Your Second Brain with Noah Breyer)
+- **Blog posts**: 0
+- **Output**: `AI_Builders_Digest_2026-05-19.html`
+- **Deployed**: ✅ GitHub Pages — `https://clean-online.github.io/ai-digest/2026/05/19/AI_Builders_Digest_2026-05-19.html`
+- **Commit**: 11e23b2
+
+### Notes
+- Feed generated at 2026-05-19T02:01 (central feed)
+- Sam Altman: ChatGPT Images 2.0 in India, 1B+ images created (6,805 likes)
+- Aaron Levie: CS graduate job mismatch + fundamentals still matter (275 + 425 likes)
+- Garry Tan: "Ken Griffin doesn't understand the ceiling just got raised" (707 likes); ZeroEntropy top tool for personal AI
+- Thariq (Anthropic): "dual wielding" Claude Code meme (637 likes)
+- Guillermo Rauch: "The ideal [dev tool] doesn't exist" meme (345 likes)
+- Peter Yang: Google I/O hype + eval best practices (306 likes)
+- Nikunj Kothari: triple whammy warning for unicorn employees; Claude /goal mode (123 + 50 likes)
+- Noah Breyer (podcast): Obsidian + Claude Code as second brain; thinking mode vs writing mode; home server + Tailscale + Termius for phone access; Fingerspitzengefühl; tacit code sharing across repos; hallucination detection as meta-skill for kids
+
+### Trends to Note
+- AI + job market reframing: Levie's "demand shifts, doesn't disappear" narrative gaining traction
+- Personal AI infrastructure: Tan's ZeroEntropy endorsement + Breyer's home server setup signal power users building bespoke stacks
+- Thinking mode > writing mode: Breyer's "don't write, just think" discipline is the meta-pattern for advanced AI use
+- Unicorn equity transparency: Kothari's detailed breakdown of tranched valuation mechanics fills an information gap
+- Builder optimism on meaning: Aditya Agarwal's Friday/Saturday frame and Levie's fundamentals push both counter AI-anxiety narratives
+
+---
+
+*Updated: 2026-05-19T10:05+08:00*
+
 ## Last Run: 2026-05-18
 
 ### Execution Summary
