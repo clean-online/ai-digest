@@ -1,5 +1,39 @@
 # Automation Memory — AI Builders Digest Daily
 
+## Last Run: 2026-05-18
+
+### Execution Summary
+- **Status**: Success
+- **Builders tracked**: 9 (Garry Tan, Peter Yang, Peter Steinberger, Nikunj Kothari, Swyx, Madhu Guru, Dan Shipper, Zara Zhang, Thariq)
+- **Tweets collected**: 18
+- **Podcasts**: 1 (No Priors — Pax Silica: Inside the Trump Administration's Tech Strategy with Jacob Helberg)
+- **Blog posts**: 0
+- **Output**: `AI_Builders_Digest_2026-05-18.html`
+- **Deployed**: ✅ GitHub Pages — `https://clean-online.github.io/ai-digest/2026/05/18/AI_Builders_Digest_2026-05-18.html`
+- **Commit**: 143588c
+
+### Notes
+- Feed generated at 2026-05-18T02:00 (central feed)
+- Garry Tan: philosophical thread attacking Foucault & Derrida as root of America's inability to build; GBrain open-sourced under MIT (1,231 likes); "The antidote is building"
+- Peter Yang: viral post on Bay Area tech monoculture (3,090 likes) — "Don't be the person to put on your tombstone: He made D2 at FAANG"
+- Peter Steinberger: "deslop your Claude Code, switch to Codex"; BlackBar 0.2.0 for Blacksmith CI; HN comments joke (542 likes)
+- Nikunj Kothari: advice on not going into VC unless obsessed; excellence comes from embedded work, not board seats
+- Zara Zhang: "AI psychosis" tweet captures builder psychology perfectly (136 likes)
+- Dan Shipper: bicycle analogy against "AI weakens abilities" fears; all-in on Codex
+- Thariq (Anthropic Claude Code): "HTML continues to be undefeated" (64 likes)
+- Jacob Helberg (podcast): Pax Silica — 14-nation AI supply chain coalition; Philippines as first forward-deployed industrial base; private-sector-first approach
+
+### Trends to Note
+- Anti-philosophy builder movement: Tan's Foucault/Derrida critique pairs with "just build" ethic gaining mainstream resonance
+- Career existentialism: Yang's tombstone tweet and Guru's wealth/happiness reflection signal a cultural moment of tech worker reappraisal
+- Codex momentum: Steinberger ("deslop Claude Code") and Shipper ("Codex-pilling the world") signal a coding agent paradigm shift
+- AI supply chain geopolitics: Pax Silica represents institutional attempt to shape AI infrastructure along alliance lines
+- Builder mental health: Zara Zhang's "AI psychosis" meme captures the cognitive dissonance of the AI age
+
+---
+
+*Updated: 2026-05-18T10:55+08:00*
+
 ## Last Run: 2026-05-17
 
 ### Execution Summary
@@ -23,44 +57,6 @@
 - Madhu Guru (Google Gemini PM): "PMs need to be inventors now, not framework executors"
 - Swyx: Singapore building national MCP gateway for 1.3B agents in 2 years
 
-### Trends to Note
-- AI-first engineering at scale: OpenClaw running 100+ Codex instances as infrastructure layer
-- Agent + fundamentals synthesis (Rauch): the market is converging on "both" not "either"
-- Post-LLM architecture: LeCun's JEPA represents the strongest institutional challenge to the autoregressive paradigm
-- Agent deployment friction: Shipper's "extremely hard to build on" and Levie's FDE thesis point to a deployment gap between demo and production
-- National agent infrastructure: Singapore's MCP gateway as government-level commitment to agent-first governance
-- PM paradigm shift: from playbook execution to invention, as AI has no stable patterns to copy
-
 ---
 
 *Updated: 2026-05-17T10:00+08:00*
-
-## Last Run: 2026-05-15
-
-### Execution Summary
-- **Status**: Success
-- **Builders tracked**: 3 (Peter Yang, Garry Tan, Nikunj Kothari)
-- **Tweets collected**: 3
-- **Podcasts**: 1 (Training Data — Suno's Mikey Shulman: Everyone Can Make Music Now)
-- **Blog posts**: 1 (Claude Blog — New in Managed Agents: dreaming, outcomes, multiagent orchestration)
-- **Output**: `AI_Builders_Digest_2026-05-15.html`
-- **Deployed**: ✅ GitHub Pages — `https://clean-online.github.io/ai-digest/2026/05/15/AI_Builders_Digest_2026-05-15.html` (HTTP 200)
-- **Commit**: c9be3c2
-
-### Notes
-- Feed generated at 2026-05-14T08:50 (central feed)
-- Peter Yang: deconstructs "AI layoffs" narrative — 80K+ tech layoffs in Q1, AI as scapegoat for zero-rate era over-hiring
-- Garry Tan: pointed critique of SF "fentanyl tourism" media coverage and misaligned-incentive nonprofits
-- Nikunj Kothari: VC has become consensus capital; obsessed founders treat rejection as learning, not verdict
-- Suno's Mikey Shulman: 90% of daily users create — flipping consumers into creators; "creation is the entertaining bit"
-- Claude Managed Agents: dreaming (self-improving memory) + outcomes (rubric-based grading) + multiagent orchestration GA
-
-### Trends to Note
-- Layoff narrative deconstruction: builders pushing back on "AI made us do it" framing
-- VC consensus risk: capital flowing to optimization-friendly founders, not contrarian conviction bets
-- Creator-as-consumer paradigm (Suno): the act of creation becomes the consumption, not the output
-- Self-improving agent infrastructure: memory + dreaming as the next layer above tool-use
-
----
-
-*Updated: 2026-05-15T14:48+08:00*
