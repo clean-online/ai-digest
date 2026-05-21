@@ -1,10 +1,46 @@
 # Automation Memory — AI Builders Digest Daily
 
+## Last Run: 2026-05-20
+
+### Execution Summary
+- **Status**: Success
+- **Builders tracked**: 14 (Sam Altman, Claude/Anthropic, Guillermo Rauch, Aaron Levie, Garry Tan, Thariq, Ryo Lu, Peter Yang, Swyx, Nan Yu, Nikunj Kothari, Dan Shipper, Zara Zhang, Google Labs)
+- **Tweets collected**: 29
+- **Podcasts**: 1 (AI & I by Every — The Secrets of Claude's Platform From the Team Who Built It)
+- **Blog posts**: 3 (Anthropic Engineering postmortem, Claude Blog connectors, Claude Blog memory)
+- **Output**: `AI_Builders_Digest_2026-05-20.html`
+- **Deployed**: ✅ GitHub Pages — `https://clean-online.github.io/ai-digest/2026/05/20/AI_Builders_Digest_2026-05-20.html`
+- **Commit**: 9b0fe91
+
+### Notes
+- Sam Altman: ChatGPT latest update is a meaningful leap (13,029 likes) — rare understatement that speaks volumes
+- Claude official: doubled token limits across all plans; London event upcoming
+- Guillermo Rauch: Vercel Firewall now fully free, global propagation ~300ms
+- Aaron Levie: core bottleneck for enterprise AI = context quality; most AI strategy failures are data strategy failures in disguise
+- Garry Tan: G-Brain eval report + fixtures open-sourced (shared benchmark for memory systems)
+- Thariq: viral Claude Code pattern — implementation-notes.html as lightweight ADR maintained by agent itself (1,051 likes)
+- Ryo Lu: Cursor Composer 2.5 shipped — "frontier smart, next extremely efficient"
+- Peter Yang: 5 takeaways from Alex Albert on building next Claude model (model+harness coupled, Claude "dreams", evals on real user problems)
+- Nan Yu: Everlane essentially died from pandemic; brands have funny way of coming back (Ray-Ban, J.Crew all "dead" then roared back)
+- Zara Zhang: organizing Bay Area event for context management techniques; troubleshooting Claude Code socket error
+- Google Labs: "Explain your product in 5 words or less" branding exercise
+
+### Trends to Note
+- Platform self-awareness as next frontier: Angela/Caitlin (Anthropic platform team) — Claude understanding itself well enough to write itself on the fly
+- Memory systems becoming enterprise-grade infrastructure: file-based, exportable, concurrent multi-agent access with scoped permissions
+- Firewall/WAF as differentiated infra: Vercel's ~300ms global propagation as competitive moat
+- AI book quality crisis: Dan Shipper calling out "slop" in current AI book publishing
+- Middle-category fashion obliterated by COVID (wfh pajamas vs high-end flex) — analog of AI's impact on "middle" knowledge work
+
+---
+
+*Updated: 2026-05-20T11:33+08:00*
+
 ## Last Run: 2026-05-19
 
 ### Execution Summary
 - **Status**: Success
-- **Builders tracked**: 12 (Sam Altman, Aaron Levie, Garry Tan, Thariq, Guillermo Rauch, Peter Yang, Nikunj Kothari, Amjad Masad, Zara Zhang, Matt Turck, Aditya Agarwal, Swyx)
+- **Builders tracked**: 12 (Sam Altman, Aaron Levie, Garry Tan, Thariq, Guillermo Rauch, Peter Yang, Nikunj Kothari, Swyx, Kevin Weil, Matt Turck, Aditya Agarwal, Zara Zhang)
 - **Tweets collected**: 21
 - **Podcasts**: 1 (AI & I by Every — Claude Code Can Be Your Second Brain with Noah Breyer)
 - **Blog posts**: 0
