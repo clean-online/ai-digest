@@ -1,5 +1,38 @@
 # Automation Memory — AI Builders Digest Daily
 
+## Last Run: 2026-05-21
+
+### Execution Summary
+- **Status**: Success
+- **Builders tracked**: 17 (Andrej Karpathy, Sam Altman, Aaron Levie, Josh Woodward, Guillermo Rauch, Garry Tan, Peter Yang, Swyx, Nikunj Kothari, Dan Shipper, Thariq, Ryo Lu, Matt Turck, Aditya Agarwal, Nan Yu, Google Labs, Claude/Anthropic)
+- **Tweets collected**: 40
+- **Podcasts**: 1 (Training Data — Rebuilding IT From the Ground Up for the AI Age: Serval's Jake Stauch)
+- **Blog posts**: 2 (Anthropic Engineering: Scaling Managed Agents; Claude Blog: Self-hosted Sandboxes & MCP Tunnels)
+- **Output**: `AI_Builders_Digest_2026-05-21.html`
+- **Deployed**: ✅ GitHub Pages — `https://clean-online.github.io/ai-digest/2026/05/21/AI_Builders_Digest_2026-05-21.html`
+- **Commit**: 1487918
+
+### Notes
+- **Karpathy joins Anthropic** (131K likes): the dominant story of the day; Shipper's "what did karpathy see" got 1.5K likes; Matt Turck quipped "Anthropic attains sainthood"
+- **Sam Altman's tokenmaxxing**: OpenAI investing $2M in tokens per YC startup + 1-3yr capacity commitment discounts; capacity-constrained future narrative
+- **Gemini Spark**: Google's 24/7 personal AI agent, Beta for US Ultra subscribers next week
+- **Gemini 3.5 Flash**: Matt Turck and Aaron Levie both impressed by benchmark jumps; Box eval shows +22pp in healthcare, +20pp in life sciences
+- **Claude Managed Agents**: Self-hosted sandboxes (Cloudflare/Daytona/Modal/Vercel) + MCP tunnels; Anthropic Engineering published OS-analogy architecture (session/harness/sandbox)
+- **Cursor Composer 2.5**: Ryo Lu uses it for everything; Jira integration "turn backlog into reality"
+- **Swyx's AI SDLC**: 4-part framework for AI-assisted development lifecycle
+- **Nikunj Kothari**: "diffusion era" — assistant→coworker→autonomous workers progression underpriced
+
+### Trends to Note
+- AI talent concentration: Karpathy→Anthropic signals labs race intensifying at researcher level
+- Token economics becoming enterprise-critical: CIOs struggling with cost models; OpenAI formalizing capacity commitments
+- Agent infrastructure maturing: self-hosted sandboxes, MCP tunnels, managed agent frameworks = the "OS moment" for AI
+- AI-native enterprise rebuilds: Serval's ServiceNow replacement continues "start from scratch" trend
+- Google's agent offensive: Gemini Spark + Genie + AlphaEvolve ERA = multi-front agent push
+
+---
+
+*Updated: 2026-05-21T11:09+08:00*
+
 ## Last Run: 2026-05-20
 
 ### Execution Summary
