@@ -1,6 +1,39 @@
 # Automation Memory — AI Builders Digest Daily
 
-## Last Run: 2026-05-21
+## Last Run: 2026-05-22
+
+### Execution Summary
+- **Status**: Success
+- **Builders tracked**: 15 (Sam Altman, Aaron Levie, Garry Tan, Peter Steinberger, Guillermo Rauch, Swyx, Kevin Weil, Peter Yang, Nikunj Kothari, Matt Turck, Zara Zhang, Dan Shipper, Aditya Agarwal, Josh Woodward, Google Labs)
+- **Tweets collected**: 27
+- **Podcasts**: 1 (AI & I by Every — Inside Stainless: The Developer Tools Startup Anthropic Just Bought for $300M)
+- **Blog posts**: 0
+- **Output**: `AI_Builders_Digest_2026-05-22.html`
+- **Deployed**: ✅ GitHub Pages — `https://clean-online.github.io/ai-digest/2026/05/22/AI_Builders_Digest_2026-05-22.html`
+- **Commit**: f098fa6
+
+### Notes
+- **OpenAI solves major open math problem** (unit distance result): Sam Altman says "we'll be saying this a lot" — complicated feelings alongside excitement; also announces $2M credits per YC company
+- **Anthropic acquires Stainless for $300M**: biggest customers were OpenAI and Google; Dan Shipper had interviewed CEO Alex Rattray in October about MCP plumbing; key insights: lean MCP design, dynamic mode for complex APIs, company brain with Claude Code
+- **Exa search gets dual endorsement**: Garry Tan (1,102 likes) and Swyx (222 likes); 1.5hr bake-off unanimous convergence
+- **FDE durability**: Aaron Levie's long thread — AI agents unlike cloud require both technical implementation AND workflow change management (556 likes)
+- **AI-native team role inversion**: Zara Zhang — ICs think like managers, managers think like ICs (151 likes)
+- **cotypist explodes**: Peter Steinberger recommends autocomplete-everywhere tool (1,362 likes)
+- **Project Genie global launch**: all Google AI Ultra subscribers, 18+
+- **Founder vulnerability**: Nikunj Kothari's raw "chewing glass every day" thread (791 likes)
+
+### Trends to Note
+- Math as the new AI benchmark: OpenAI's unit distance result signals AI capability measurement shifting from language tasks to formal reasoning
+- API/MCP infrastructure as strategic moat: Anthropic buying Stainless = owning the plumbing layer of the AI-native internet
+- Search infrastructure consolidation: Exa emerging as the de facto search backbone for AI agents (YC + OpenClaw + Hermes)
+- Role convergence in AI-native orgs: Zara Zhang's IC↔Manager inversion captures the organizational transformation ahead
+- Autocomplete-everywhere: cotypist's 1,362 likes signal demand for AI that works across all apps, not just editors
+
+---
+
+*Updated: 2026-05-22T10:15+08:00*
+
+## Previous Run: 2026-05-21
 
 ### Execution Summary
 - **Status**: Success
