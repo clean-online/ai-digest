@@ -1,198 +1,68 @@
 # Automation Memory — AI Builders Digest Daily
 
-## Last Run: 2026-05-22
+## Last Run: 2026-05-26
 
 ### Execution Summary
 - **Status**: Success
-- **Builders tracked**: 15 (Sam Altman, Aaron Levie, Garry Tan, Peter Steinberger, Guillermo Rauch, Swyx, Kevin Weil, Peter Yang, Nikunj Kothari, Matt Turck, Zara Zhang, Dan Shipper, Aditya Agarwal, Josh Woodward, Google Labs)
-- **Tweets collected**: 27
-- **Podcasts**: 1 (AI & I by Every — Inside Stainless: The Developer Tools Startup Anthropic Just Bought for $300M)
+- **Builders tracked**: 10 (Peter Yang, Madhu Guru, Thariq, Guillermo Rauch, Aaron Levie, Garry Tan, Matt Turck, Zara Zhang, Nikunj Kothari, Dan Shipper)
+- **Tweets collected**: 23
+- **Podcasts**: 1 (Unsupervised Learning Ep 86 — Yann LeCun on Leaving Meta, Breaking The LLM Paradigm, & Why Hinton is Wrong)
 - **Blog posts**: 0
-- **Output**: `AI_Builders_Digest_2026-05-22.html`
-- **Deployed**: ✅ GitHub Pages — `https://clean-online.github.io/ai-digest/2026/05/22/AI_Builders_Digest_2026-05-22.html`
-- **Commit**: f098fa6
+- **Output**: `AI_Builders_Digest_2026-05-26.html`
+- **Deployed**: ✅ GitHub Pages — root accessible, direct file URL pending build
+- **Commit**: 1a33ebc
 
 ### Notes
-- **OpenAI solves major open math problem** (unit distance result): Sam Altman says "we'll be saying this a lot" — complicated feelings alongside excitement; also announces $2M credits per YC company
-- **Anthropic acquires Stainless for $300M**: biggest customers were OpenAI and Google; Dan Shipper had interviewed CEO Alex Rattray in October about MCP plumbing; key insights: lean MCP design, dynamic mode for complex APIs, company brain with Claude Code
-- **Exa search gets dual endorsement**: Garry Tan (1,102 likes) and Swyx (222 likes); 1.5hr bake-off unanimous convergence
-- **FDE durability**: Aaron Levie's long thread — AI agents unlike cloud require both technical implementation AND workflow change management (556 likes)
-- **AI-native team role inversion**: Zara Zhang — ICs think like managers, managers think like ICs (151 likes)
-- **cotypist explodes**: Peter Steinberger recommends autocomplete-everywhere tool (1,362 likes)
-- **Project Genie global launch**: all Google AI Ultra subscribers, 18+
-- **Founder vulnerability**: Nikunj Kothari's raw "chewing glass every day" thread (791 likes)
+- **Yann LeCun leaves Meta, launches AMI**: JEPA architecture vs LLM Scaling divide — LeCun vs Hinton/Bengio since 2023; "5 years, complete world domination" (JEPA route)
+- **Aaron Levie "AI psychosis"**: 4865 likes — CEOs prone because they only see happy-path AI results, not the 10–20 last-mile steps; must use AI hands-on to understand enterprise reality
+- **Thariq on Bun rewrite**: legacy codebases = distillation source for new forms; no more COBOL; "every game should be crossplatform, all legacy software should work on the web"
+- **Madhu Guru**: CEO AI FOMO + arms-length leadership = performative demos, no real progress; startups with hands-on leadership win
+- **Nikunj Kothari**: reverse-engineering APIs via Claude Code + browser_harness; predicts every site needs to be headless + tools.txt for agents
+- **Peter Yang**: Ryan Carson runs startup solo with AI agents (OpenClaw as chief of staff, Codex/Devin as eng team); "$2M raised, not hiring yet"
+- **Zara Zhang**: Amphetamine Mac app (699 likes); EM → IC return story; Codex is open source
+- **Matt Turck**: Yann Dubois (OpenAI): freeze models, improve harness → AGI felt in every domain
 
 ### Trends to Note
-- Math as the new AI benchmark: OpenAI's unit distance result signals AI capability measurement shifting from language tasks to formal reasoning
-- API/MCP infrastructure as strategic moat: Anthropic buying Stainless = owning the plumbing layer of the AI-native internet
-- Search infrastructure consolidation: Exa emerging as the de facto search backbone for AI agents (YC + OpenClaw + Hermes)
-- Role convergence in AI-native orgs: Zara Zhang's IC↔Manager inversion captures the organizational transformation ahead
-- Autocomplete-everywhere: cotypist's 1,362 likes signal demand for AI that works across all apps, not just editors
+- **AI research route war goes public**: LeCun's AMI + JEPA vs LLM Scaling (Hinton/Bengio) — this is the defining technical debate of the next 5 years
+- **"AI psychosis" enters builder lexicon**: Levie's framing resonates widely (4865 likes) — executives' AI hallucination as a management problem
+- **Legacy code as AI training material**: Thariq's "distillation source" concept reframes old codebases as assets, not liabilities
+- **Solo founder + agent stack**: Ryan Carson story (via Peter Yang) is a blueprint many builders will try to replicate
+- **tools.txt emerging as concept**: Nikunj Kothari anticipating agent-tool discovery protocol (analogous to llms.txt)
 
 ---
 
-*Updated: 2026-05-22T10:15+08:00*
+*Updated: 2026-05-26T10:00+08:00*
 
-## Previous Run: 2026-05-21
-
-### Execution Summary
-- **Status**: Success
-- **Builders tracked**: 17 (Andrej Karpathy, Sam Altman, Aaron Levie, Josh Woodward, Guillermo Rauch, Garry Tan, Peter Yang, Swyx, Nikunj Kothari, Dan Shipper, Thariq, Ryo Lu, Matt Turck, Aditya Agarwal, Nan Yu, Google Labs, Claude/Anthropic)
-- **Tweets collected**: 40
-- **Podcasts**: 1 (Training Data — Rebuilding IT From the Ground Up for the AI Age: Serval's Jake Stauch)
-- **Blog posts**: 2 (Anthropic Engineering: Scaling Managed Agents; Claude Blog: Self-hosted Sandboxes & MCP Tunnels)
-- **Output**: `AI_Builders_Digest_2026-05-21.html`
-- **Deployed**: ✅ GitHub Pages — `https://clean-online.github.io/ai-digest/2026/05/21/AI_Builders_Digest_2026-05-21.html`
-- **Commit**: 1487918
-
-### Notes
-- **Karpathy joins Anthropic** (131K likes): the dominant story of the day; Shipper's "what did karpathy see" got 1.5K likes; Matt Turck quipped "Anthropic attains sainthood"
-- **Sam Altman's tokenmaxxing**: OpenAI investing $2M in tokens per YC startup + 1-3yr capacity commitment discounts; capacity-constrained future narrative
-- **Gemini Spark**: Google's 24/7 personal AI agent, Beta for US Ultra subscribers next week
-- **Gemini 3.5 Flash**: Matt Turck and Aaron Levie both impressed by benchmark jumps; Box eval shows +22pp in healthcare, +20pp in life sciences
-- **Claude Managed Agents**: Self-hosted sandboxes (Cloudflare/Daytona/Modal/Vercel) + MCP tunnels; Anthropic Engineering published OS-analogy architecture (session/harness/sandbox)
-- **Cursor Composer 2.5**: Ryo Lu uses it for everything; Jira integration "turn backlog into reality"
-- **Swyx's AI SDLC**: 4-part framework for AI-assisted development lifecycle
-- **Nikunj Kothari**: "diffusion era" — assistant→coworker→autonomous workers progression underpriced
-
-### Trends to Note
-- AI talent concentration: Karpathy→Anthropic signals labs race intensifying at researcher level
-- Token economics becoming enterprise-critical: CIOs struggling with cost models; OpenAI formalizing capacity commitments
-- Agent infrastructure maturing: self-hosted sandboxes, MCP tunnels, managed agent frameworks = the "OS moment" for AI
-- AI-native enterprise rebuilds: Serval's ServiceNow replacement continues "start from scratch" trend
-- Google's agent offensive: Gemini Spark + Genie + AlphaEvolve ERA = multi-front agent push
-
----
-
-*Updated: 2026-05-21T11:09+08:00*
-
-## Last Run: 2026-05-20
+## Last Run: 2026-05-25
 
 ### Execution Summary
 - **Status**: Success
-- **Builders tracked**: 14 (Sam Altman, Claude/Anthropic, Guillermo Rauch, Aaron Levie, Garry Tan, Thariq, Ryo Lu, Peter Yang, Swyx, Nan Yu, Nikunj Kothari, Dan Shipper, Zara Zhang, Google Labs)
-- **Tweets collected**: 29
-- **Podcasts**: 1 (AI & I by Every — The Secrets of Claude's Platform From the Team Who Built It)
-- **Blog posts**: 3 (Anthropic Engineering postmortem, Claude Blog connectors, Claude Blog memory)
-- **Output**: `AI_Builders_Digest_2026-05-20.html`
-- **Deployed**: ✅ GitHub Pages — `https://clean-online.github.io/ai-digest/2026/05/20/AI_Builders_Digest_2026-05-20.html`
-- **Commit**: 9b0fe91
-
-### Notes
-- Sam Altman: ChatGPT latest update is a meaningful leap (13,029 likes) — rare understatement that speaks volumes
-- Claude official: doubled token limits across all plans; London event upcoming
-- Guillermo Rauch: Vercel Firewall now fully free, global propagation ~300ms
-- Aaron Levie: core bottleneck for enterprise AI = context quality; most AI strategy failures are data strategy failures in disguise
-- Garry Tan: G-Brain eval report + fixtures open-sourced (shared benchmark for memory systems)
-- Thariq: viral Claude Code pattern — implementation-notes.html as lightweight ADR maintained by agent itself (1,051 likes)
-- Ryo Lu: Cursor Composer 2.5 shipped — "frontier smart, next extremely efficient"
-- Peter Yang: 5 takeaways from Alex Albert on building next Claude model (model+harness coupled, Claude "dreams", evals on real user problems)
-- Nan Yu: Everlane essentially died from pandemic; brands have funny way of coming back (Ray-Ban, J.Crew all "dead" then roared back)
-- Zara Zhang: organizing Bay Area event for context management techniques; troubleshooting Claude Code socket error
-- Google Labs: "Explain your product in 5 words or less" branding exercise
-
-### Trends to Note
-- Platform self-awareness as next frontier: Angela/Caitlin (Anthropic platform team) — Claude understanding itself well enough to write itself on the fly
-- Memory systems becoming enterprise-grade infrastructure: file-based, exportable, concurrent multi-agent access with scoped permissions
-- Firewall/WAF as differentiated infra: Vercel's ~300ms global propagation as competitive moat
-- AI book quality crisis: Dan Shipper calling out "slop" in current AI book publishing
-- Middle-category fashion obliterated by COVID (wfh pajamas vs high-end flex) — analog of AI's impact on "middle" knowledge work
-
----
-
-*Updated: 2026-05-20T11:33+08:00*
-
-## Last Run: 2026-05-19
-
-### Execution Summary
-- **Status**: Success
-- **Builders tracked**: 12 (Sam Altman, Aaron Levie, Garry Tan, Thariq, Guillermo Rauch, Peter Yang, Nikunj Kothari, Swyx, Kevin Weil, Matt Turck, Aditya Agarwal, Zara Zhang)
-- **Tweets collected**: 21
-- **Podcasts**: 1 (AI & I by Every — Claude Code Can Be Your Second Brain with Noah Breyer)
-- **Blog posts**: 0
-- **Output**: `AI_Builders_Digest_2026-05-19.html`
-- **Deployed**: ✅ GitHub Pages — `https://clean-online.github.io/ai-digest/2026/05/19/AI_Builders_Digest_2026-05-19.html`
-- **Commit**: 11e23b2
-
-### Notes
-- Feed generated at 2026-05-19T02:01 (central feed)
-- Sam Altman: ChatGPT Images 2.0 in India, 1B+ images created (6,805 likes)
-- Aaron Levie: CS graduate job mismatch + fundamentals still matter (275 + 425 likes)
-- Garry Tan: "Ken Griffin doesn't understand the ceiling just got raised" (707 likes); ZeroEntropy top tool for personal AI
-- Thariq (Anthropic): "dual wielding" Claude Code meme (637 likes)
-- Guillermo Rauch: "The ideal [dev tool] doesn't exist" meme (345 likes)
-- Peter Yang: Google I/O hype + eval best practices (306 likes)
-- Nikunj Kothari: triple whammy warning for unicorn employees; Claude /goal mode (123 + 50 likes)
-- Noah Breyer (podcast): Obsidian + Claude Code as second brain; thinking mode vs writing mode; home server + Tailscale + Termius for phone access; Fingerspitzengefühl; tacit code sharing across repos; hallucination detection as meta-skill for kids
-
-### Trends to Note
-- AI + job market reframing: Levie's "demand shifts, doesn't disappear" narrative gaining traction
-- Personal AI infrastructure: Tan's ZeroEntropy endorsement + Breyer's home server setup signal power users building bespoke stacks
-- Thinking mode > writing mode: Breyer's "don't write, just think" discipline is the meta-pattern for advanced AI use
-- Unicorn equity transparency: Kothari's detailed breakdown of tranched valuation mechanics fills an information gap
-- Builder optimism on meaning: Aditya Agarwal's Friday/Saturday frame and Levie's fundamentals push both counter AI-anxiety narratives
-
----
-
-*Updated: 2026-05-19T10:05+08:00*
-
-## Last Run: 2026-05-18
-
-### Execution Summary
-- **Status**: Success
-- **Builders tracked**: 9 (Garry Tan, Peter Yang, Peter Steinberger, Nikunj Kothari, Swyx, Madhu Guru, Dan Shipper, Zara Zhang, Thariq)
+- **Builders tracked**: 8 (Thariq, Amjad Masad, Guillermo Rauch, Aaron Levie, Garry Tan, Nikunj Kothari, Peter Steinberger, Aditya Agarwal)
 - **Tweets collected**: 18
-- **Podcasts**: 1 (No Priors — Pax Silica: Inside the Trump Administration's Tech Strategy with Jacob Helberg)
+- **Podcasts**: 1 (No Priors — The Story Behind Cerebras' $63 Billion IPO with Andrew Feldman)
 - **Blog posts**: 0
-- **Output**: `AI_Builders_Digest_2026-05-18.html`
-- **Deployed**: ✅ GitHub Pages — `https://clean-online.github.io/ai-digest/2026/05/18/AI_Builders_Digest_2026-05-18.html`
-- **Commit**: 143588c
+- **Output**: `AI_Builders_Digest_2026-05-25.html`
+- **Deployed**: ✅ GitHub Pages — `https://clean-online.github.io/ai-digest/2026/05/25/AI_Builders_Digest_2026-05-25.html`
+- **Commit**: 2131b3f
 
 ### Notes
-- Feed generated at 2026-05-18T02:00 (central feed)
-- Garry Tan: philosophical thread attacking Foucault & Derrida as root of America's inability to build; GBrain open-sourced under MIT (1,231 likes); "The antidote is building"
-- Peter Yang: viral post on Bay Area tech monoculture (3,090 likes) — "Don't be the person to put on your tombstone: He made D2 at FAANG"
-- Peter Steinberger: "deslop your Claude Code, switch to Codex"; BlackBar 0.2.0 for Blacksmith CI; HN comments joke (542 likes)
-- Nikunj Kothari: advice on not going into VC unless obsessed; excellence comes from embedded work, not board seats
-- Zara Zhang: "AI psychosis" tweet captures builder psychology perfectly (136 likes)
-- Dan Shipper: bicycle analogy against "AI weakens abilities" fears; all-in on Codex
-- Thariq (Anthropic Claude Code): "HTML continues to be undefeated" (64 likes)
-- Jacob Helberg (podcast): Pax Silica — 14-nation AI supply chain coalition; Philippines as first forward-deployed industrial base; private-sector-first approach
+- **Cerebras $63B IPO**: Andrew Feldman (No Priors) — speed changes everything; fast AI inference will unlock entirely new business models (Netflix/DVD analogy)
+- **Thariq**: "please save me money" prompt actually works (463 likes); Claude Code as daily driver for legacy cleanup
+- **Amjad Masad**: Replit blew him away after Cursor; MVP in one weekend, Apple approval on first try (never happened before)
+- **Guillermo Rauch**: "Show me what you built with AI" exploded — 2195 likes, 1558 replies; OpenAI catching up to Anthropic in mindshare, but Anthropic still dominates model mentions
+- **Aaron Levie**: pushing back on "AI eliminates all jobs" — confusing task completion with eliminating whole job; job definition expands, becomes valuable in new way
+- **Garry Tan**: G-Brain evals dropped — SOTA for reranking/embedding; fine-tuned Qwen3.5-397B on Thinking Machines infra in a couple hours
+- **Peter Steinberger**: GitHub dashboard shipped (676 likes); Codex scratch-log recommendation for refactors; cryptic "Codex made a smiley? :)" hinting at emerging personality
+- **Aditya Agarwal**: grounding question — "Can you imagine 6 months ago we just chatted with LLMs?" — pace of change genuinely disorienting
 
 ### Trends to Note
-- Anti-philosophy builder movement: Tan's Foucault/Derrida critique pairs with "just build" ethic gaining mainstream resonance
-- Career existentialism: Yang's tombstone tweet and Guru's wealth/happiness reflection signal a cultural moment of tech worker reappraisal
-- Codex momentum: Steinberger ("deslop Claude Code") and Shipper ("Codex-pilling the world") signal a coding agent paradigm shift
-- AI supply chain geopolitics: Pax Silica represents institutional attempt to shape AI infrastructure along alliance lines
-- Builder mental health: Zara Zhang's "AI psychosis" meme captures the cognitive dissonance of the AI age
+- AI infrastructure IPOs accelerating: Cerebras $63B exit signals public market appetite for inference-specialized compute (not just Nvidia/GPU plays)
+- "Show me what you built" as engagement bait: Rauch's tweet is a living museum of real AI shipping — could become a weekly/anual showcase format
+- Agent memory differentiation heating up: G-Brain vs MemPalace benchmarks now public; memory architecture becoming a competitive moat
+- Job displacement narrative maturing: Levie's task-vs-job frame is gaining traction among thoughtful builders (vs doomsday takes)
+- Codex personality emerging: Steinberger's "smiley" hint suggests agents may start surprising users with unexpected behaviors/outputs
 
 ---
 
-*Updated: 2026-05-18T10:55+08:00*
+*Updated: 2026-05-25T11:39+08:00*
 
-## Last Run: 2026-05-17
-
-### Execution Summary
-- **Status**: Success
-- **Builders tracked**: 11 (Peter Steinberger, Sam Altman, Guillermo Rauch, Aaron Levie, Garry Tan, Nikunj Kothari, Swyx, Peter Yang, Dan Shipper, Madhu Guru, Matt Turck)
-- **Tweets collected**: 26
-- **Podcasts**: 1 (Unsupervised Learning — Yann LeCun on Leaving Meta, Breaking The LLM Paradigm, & Why Hinton is Wrong)
-- **Blog posts**: 0
-- **Output**: `AI_Builders_Digest_2026-05-17.html`
-- **Deployed**: ✅ GitHub Pages — `https://clean-online.github.io/ai-digest/2026/05/17/AI_Builders_Digest_2026-05-17.html`
-- **Commit**: 8f7576c
-
-### Notes
-- Feed generated at 2026-05-17T02:00 (central feed)
-- Peter Steinberger: revealed OpenClaw runs ~100 Codex instances — reviewing PRs, security scanning, meeting listening, issue de-dup; shipped Clawpatch 0.1.0
-- Guillermo Rauch: "If you become exceptional at managing agents AND exceptional in fundamentals, you will be unstoppable" (1,863 likes); Grok CLI + Vercel Plugin
-- Yann LeCun (podcast): leaving Meta to start AMI; JEPA > LLM; "Five years, complete world domination"; divergence from Hinton/Bengio since 2023
-- Nikunj Kothari: /goal mode ran 2 hours autonomously through 2k+ item database (304 likes)
-- Aaron Levie: AI ≠ software; FDE becomes core competency at scale; "Headless software is the future"
-- Dan Shipper: OpenClaw extremely hard to build on as platform; one super agent per company > 1:1 agents
-- Madhu Guru (Google Gemini PM): "PMs need to be inventors now, not framework executors"
-- Swyx: Singapore building national MCP gateway for 1.3B agents in 2 years
-
----
-
-*Updated: 2026-05-17T10:00+08:00*
