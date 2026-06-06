@@ -1,68 +1,35 @@
 # Automation Memory — AI Builders Digest Daily
 
-## Last Run: 2026-05-26
+## Last Run: 2026-06-05
 
 ### Execution Summary
 - **Status**: Success
-- **Builders tracked**: 10 (Peter Yang, Madhu Guru, Thariq, Guillermo Rauch, Aaron Levie, Garry Tan, Matt Turck, Zara Zhang, Nikunj Kothari, Dan Shipper)
-- **Tweets collected**: 23
-- **Podcasts**: 1 (Unsupervised Learning Ep 86 — Yann LeCun on Leaving Meta, Breaking The LLM Paradigm, & Why Hinton is Wrong)
-- **Blog posts**: 0
-- **Output**: `AI_Builders_Digest_2026-05-26.html`
-- **Deployed**: ✅ GitHub Pages — root accessible, direct file URL pending build
-- **Commit**: 1a33ebc
+- **Builders tracked**: 18 (Thibault Sottiaux, Cat Wu, Thariq, Peter Yang, Josh Woodward, Google Labs, Guillermo Rauch, Amjad Masad, Aaron Levie, Ryo Lu, Garry Tan, Zara Zhang, Nikunj Kothari, Peter Steinberger, Dan Shipper, Aditya Agarwal, Swyx, Claude/Anthropic)
+- **Tweets collected**: 38
+- **Podcasts**: 1 (No Priors — The Rise of the Full-Stack Builder with Satya Nadella)
+- **Blog posts**: 1 (Anthropic Engineering: How we contain Claude across products)
+- **Output**: `AI_Builders_Digest_2026-06-05.html`
+- **Deployed**: ✅ GitHub Pages — `https://clean-online.github.io/ai-digest/2026/06/05/AI_Builders_Digest_2026-06-05.html`
+- **Commit**: 8aa7e4e
 
 ### Notes
-- **Yann LeCun leaves Meta, launches AMI**: JEPA architecture vs LLM Scaling divide — LeCun vs Hinton/Bengio since 2023; "5 years, complete world domination" (JEPA route)
-- **Aaron Levie "AI psychosis"**: 4865 likes — CEOs prone because they only see happy-path AI results, not the 10–20 last-mile steps; must use AI hands-on to understand enterprise reality
-- **Thariq on Bun rewrite**: legacy codebases = distillation source for new forms; no more COBOL; "every game should be crossplatform, all legacy software should work on the web"
-- **Madhu Guru**: CEO AI FOMO + arms-length leadership = performative demos, no real progress; startups with hands-on leadership win
-- **Nikunj Kothari**: reverse-engineering APIs via Claude Code + browser_harness; predicts every site needs to be headless + tools.txt for agents
-- **Peter Yang**: Ryan Carson runs startup solo with AI agents (OpenClaw as chief of staff, Codex/Devin as eng team); "$2M raised, not hiring yet"
-- **Zara Zhang**: Amphetamine Mac app (699 likes); EM → IC return story; Codex is open source
-- **Matt Turck**: Yann Dubois (OpenAI): freeze models, improve harness → AGI felt in every domain
+- **Satya Nadella @ No Priors**: Microsoft built more Azure capacity in last 15 months than first 15 years; "full-stack builder" as new dominant archetype; next great institution may be new pedagogy, not traditional university; blast radius containment is the real engineering challenge for agent deployment
+- **Thibault Sottiaux (OpenAI Codex)**: 3 incidents in 24h → public apology + usage limit reset (8735 likes); "lots of little vectors all pointing in the same direction" hints at coordinated model/Codex improvements shipping soon
+- **Cat Wu (Anthropic)**: Data team automated 95% of business analytics queries with Claude — rare transparent look at how top AI lab operationalizes its own tooling
+- **Aaron Levie (Box)**: Jobs data shows opposite of doomsayer predictions — AI is hiring multiplier, not replacement; AI token spend per employee ($hundreds/thousands) dramatically exceeds traditional software spend ($10-50/mo), revealing true TAM for intelligence
+- **Guillermo Rauch (Vercel)**: "Generate frontends on top of business data is a killer app of coding AI"; v0 + Next.js delivering 1000x value with enterprise data; Grok Imagine Video on Vercel AI Gateway
+- **Amjad Masad (Replit)**: "App to App Store in 48 hours"; "You can run but can't hide from B2B SaaS" — bold statement about market inevitability
+- **Ryo Lu (Cursor)**: Hiring design engineers — "taste, systems thinking, deep care for fast polished experiences"; signal that best AI tools need hybrid designer/engineers
+- **Peter Steinberger (OpenClaw)**: "Build the thing that builds the thing" (MS Build talk); OpenClaw npm downloads >10-20M/week; 1300+ on waitlist for event
+- **Anthropic Engineering blog**: Claude Code auto mode introduced because users approved 93% of permission prompts (classic fatigue); Mythos Preview model too risky to ship April 2026 but broader release expected as safeguards mature
 
 ### Trends to Note
-- **AI research route war goes public**: LeCun's AMI + JEPA vs LLM Scaling (Hinton/Bengio) — this is the defining technical debate of the next 5 years
-- **"AI psychosis" enters builder lexicon**: Levie's framing resonates widely (4865 likes) — executives' AI hallucination as a management problem
-- **Legacy code as AI training material**: Thariq's "distillation source" concept reframes old codebases as assets, not liabilities
-- **Solo founder + agent stack**: Ryan Carson story (via Peter Yang) is a blueprint many builders will try to replicate
-- **tools.txt emerging as concept**: Nikunj Kothari anticipating agent-tool discovery protocol (analogous to llms.txt)
+- **"Full-stack builder" archetype goes mainstream**: Satya Nadella + Peter Steinberger both articulating the same vision — AI-amplified individuals doing work of entire teams
+- **Agent deployment safety is the new moat**: Anthropic's 93% approval fatigue stat should be wake-up call for all human-in-the-loop systems
+- **AI token economics > software licensing**: Levie's framing of TAM (token spend vs software license) is a new mental model for valuing AI
+- **Design engineering as differentiator**: Cursor + Vercel both signaling that "it works" isn't enough — user experience quality now determines AI tool adoption
+- **Infrastructure layer being rewritten**: Nadella's "build the agentic system that does Azure networking" = the cloud is becoming autonomous, not just automated
 
 ---
 
-*Updated: 2026-05-26T10:00+08:00*
-
-## Last Run: 2026-05-25
-
-### Execution Summary
-- **Status**: Success
-- **Builders tracked**: 8 (Thariq, Amjad Masad, Guillermo Rauch, Aaron Levie, Garry Tan, Nikunj Kothari, Peter Steinberger, Aditya Agarwal)
-- **Tweets collected**: 18
-- **Podcasts**: 1 (No Priors — The Story Behind Cerebras' $63 Billion IPO with Andrew Feldman)
-- **Blog posts**: 0
-- **Output**: `AI_Builders_Digest_2026-05-25.html`
-- **Deployed**: ✅ GitHub Pages — `https://clean-online.github.io/ai-digest/2026/05/25/AI_Builders_Digest_2026-05-25.html`
-- **Commit**: 2131b3f
-
-### Notes
-- **Cerebras $63B IPO**: Andrew Feldman (No Priors) — speed changes everything; fast AI inference will unlock entirely new business models (Netflix/DVD analogy)
-- **Thariq**: "please save me money" prompt actually works (463 likes); Claude Code as daily driver for legacy cleanup
-- **Amjad Masad**: Replit blew him away after Cursor; MVP in one weekend, Apple approval on first try (never happened before)
-- **Guillermo Rauch**: "Show me what you built with AI" exploded — 2195 likes, 1558 replies; OpenAI catching up to Anthropic in mindshare, but Anthropic still dominates model mentions
-- **Aaron Levie**: pushing back on "AI eliminates all jobs" — confusing task completion with eliminating whole job; job definition expands, becomes valuable in new way
-- **Garry Tan**: G-Brain evals dropped — SOTA for reranking/embedding; fine-tuned Qwen3.5-397B on Thinking Machines infra in a couple hours
-- **Peter Steinberger**: GitHub dashboard shipped (676 likes); Codex scratch-log recommendation for refactors; cryptic "Codex made a smiley? :)" hinting at emerging personality
-- **Aditya Agarwal**: grounding question — "Can you imagine 6 months ago we just chatted with LLMs?" — pace of change genuinely disorienting
-
-### Trends to Note
-- AI infrastructure IPOs accelerating: Cerebras $63B exit signals public market appetite for inference-specialized compute (not just Nvidia/GPU plays)
-- "Show me what you built" as engagement bait: Rauch's tweet is a living museum of real AI shipping — could become a weekly/anual showcase format
-- Agent memory differentiation heating up: G-Brain vs MemPalace benchmarks now public; memory architecture becoming a competitive moat
-- Job displacement narrative maturing: Levie's task-vs-job frame is gaining traction among thoughtful builders (vs doomsday takes)
-- Codex personality emerging: Steinberger's "smiley" hint suggests agents may start surprising users with unexpected behaviors/outputs
-
----
-
-*Updated: 2026-05-25T11:39+08:00*
-
+*Updated: 2026-06-05T10:00+08:00*
