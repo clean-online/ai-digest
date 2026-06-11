@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest · 2026-06-11</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255,255,255,0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 12px; padding: 32px; margin-bottom: 24px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
+  .podcast-source { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 10px; }
+  .podcast-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; color: var(--ink); margin-bottom: 24px; }
+  .takeaway { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 8px; padding: 18px 22px; margin-bottom: 24px; font-size: 15px; line-height: 1.7; color: var(--accent-deep); }
+  .takeaway-label { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; background: var(--accent); color: white; padding: 3px 8px; border-radius: 3px; margin-right: 10px; transform: translateY(-2px); }
+  .podcast-body { font-size: 15.5px; color: var(--ink-soft); line-height: 1.75; }
+  .podcast-body p { margin-bottom: 16px; }
+  .podcast-body strong { color: var(--ink); font-weight: 600; }
+  .podcast-divider { height: 1px; background: var(--line); margin: 28px 0; }
+  .podcast-zh { font-family: 'Noto Serif SC', serif; font-size: 15.5px; color: var(--ink); line-height: 1.95; }
+  .podcast-zh p { margin-bottom: 16px; }
+  .podcast-zh strong { color: var(--accent-deep); font-weight: 600; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 72px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .podcast { padding: 24px; } .podcast-title { font-size: 19px; } .topbar-inner { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="../../index.html" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 · Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest · 2026年6月11日 · 周三</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">17</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">38</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🐦</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">17 Builders</span>
+  </div>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Andrej Karpathy</span>
+      <span class="builder-role">AI Researcher / Former Tesla AI</span>
+    </div>
+    <p class="summary-en">Andrej Karpathy calls Claude Fable 5 a &quot;major-version-bump-deserving step change&quot; — the same underlying model as Mythos but with added safeguards. Qualitatively it's a significant leap forward (on the order of Opus 4.5 in November), particularly for long problem-solving sessions on very difficult problems. The Jevon's paradox kicks in: his own demand for software is growing substantially as he can now ask for anything — explainers, visualizers, dashboards, bespoke single-use apps, 10X test suites. &quot;Free your mind&quot; — really looking forward to all the things people build.</p>
+    <p class="summary-zh zh">Andrej Karpathy 称 Claude Fable 5 是&quot;值得大版本迭代的阶跃式变化&quot;——与 Mythos 相同的底层模型，但增加了安全护栏。他指出，从质量上看，这是一个显著的飞跃（堪比 11 月的 Opus 4.5），特别是对于极难问题的长时间解决会话。Jevon 悖论开始起作用：随着他现在可以要求任何东西——解释器、可视化工具、仪表板、定制的一次性应用、10 倍测试套件——他自己对软件的需求正在大幅增长。&quot;解放你的思维&quot;——非常期待人们会构建什么。</p>
+    <div class="urls"><a href="https://x.com/karpathy/status/2064409694761054332">https://x.com/karpathy/status/2064409694761054332</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Swyx</span>
+      <span class="builder-role">a16z / Latent Space Host</span>
+    </div>
+    <p class="summary-en">Swyx highlights the &quot;insane alpha&quot; of asking Claude Code to review your code for issues while using Fable — but warns you should be prepared to be in &quot;abject horror&quot; that you shipped anything to prod without a &quot;Fable Check&quot; first. He also notes it took only 34 days between signing the deal and launching the Mythos-class model GA on NVIDIA stack: &quot;you can just do things.&quot; He shares additional charts showing the vibe shift is real across multiple model tiers.</p>
+    <p class="summary-zh zh">Swyx 强调了用 Claude Code + Fable 让模型审查代码问题的&quot;惊人 alpha&quot;——但警告你应该做好&quot;深感惊恐&quot;的准备，因为你竟然在没有先做&quot;Fable 检查&quot;的情况下就把任何东西部署到了生产环境。他还指出，从签署协议到在 NVIDIA 堆栈上推出 Mythos 级模型 GA 仅用了 34 天：&quot;你就是能做得到。&quot;他分享了更多图表，显示 vibe 转变在不同模型层级都是真实的。</p>
+    <div class="urls"><a href="https://x.com/swyx/status/2064492823781789969">https://x.com/swyx/status/2064492823781789969</a>
+      <a href="https://x.com/swyx/status/2064421542503797186">https://x.com/swyx/status/2064421542503797186</a>
+      <a href="https://x.com/swyx/status/2064415059003248694">https://x.com/swyx/status/2064415059003248694</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Josh Woodward</span>
+      <span class="builder-role">Google Labs VP (Gemini)</span>
+    </div>
+    <p class="summary-en">Josh Woodward signals that &quot;the demand for software is going to be off the charts&quot; — a succinct but powerful statement about where the industry is heading as AI coding tools remove the bottleneck between intention and implementation.</p>
+    <p class="summary-zh zh">Josh Woodward 表示&quot;对软件的需求将突破天际&quot;——这是关于 AI 编程工具消除意图与实现之间的瓶颈后，行业将走向何方的简洁而有力的陈述。</p>
+    <div class="urls"><a href="https://x.com/joshwoodward/status/2064509357216428171">https://x.com/joshwoodward/status/2064509357216428171</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Boris Cherny</span>
+      <span class="builder-role">Anthropic Claude Code Lead</span>
+    </div>
+    <p class="summary-en">Boris Cherny writes that Fable 5 is the biggest step up he's felt since Opus 4.5 — Claude has stepped up from being a coding agent to a &quot;thought and design partner&quot; that has judgment, taste, and dimensionality. It's the first model where self-verification loops feel natural: Fable methodically takes measurements, adds logs, and verifies the issue is truly fixed before declaring victory — without any prompting. He also celebrates the launch and emphasizes that self-verification is the key ingredient enabling longer agentic runs.</p>
+    <p class="summary-zh zh">Boris Cherny 写道，Fable 5 是他自 Opus 4.5 以来感受到的最大跃升——Claude 已经从编程 agent 升级为具有判断力、品味和维度的&quot;思想和设计伙伴&quot;。这是第一个让自我验证循环感觉自然的模型：Fable 会系统性地测量、添加日志，并在宣布胜利之前验证问题是否真正被修复——无需任何提示。他还庆祝了发布，并强调自我验证是使更长 agentic 运行成为可能的关键要素。</p>
+    <div class="urls"><a href="https://x.com/bcherny/status/2064469227499929651">https://x.com/bcherny/status/2064469227499929651</a>
+      <a href="https://x.com/bcherny/status/2064431111154053187">https://x.com/bcherny/status/2064431111154053187</a>
+      <a href="https://x.com/bcherny/status/2064426115255730578">https://x.com/bcherny/status/2064426115255730578</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thibault Sottiaux</span>
+      <span class="builder-role">OpenAI Codex Team</span>
+    </div>
+    <p class="summary-en">Thibault Sottiaux is pushing the boundaries of agentic coding: he asks the community if they use Codex /goal occasionally or as their main workflow, and notes he's &quot;playing Codex like an orchestra&quot; — one /goal at a time. He also jokes about claiming 1% royalty fees on something (with a reference to a previous tweet about licensing/usage). The team is clearly exploring how far they can push multi-goal orchestration.</p>
+    <p class="summary-zh zh">Thibault Sottiaux 正在推进 agentic 编程的边界：他问社区是偶尔使用 Codex /goal 还是作为主要工作流，并指出他正在&quot;像指挥乐团一样演奏 Codex&quot;——一次一个 /goal。他还开玩笑说要 claim 1% 的版税（引用了之前关于许可/使用的推文）。团队显然在探索他们能将多目标编排推进到什么程度。</p>
+    <div class="urls"><a href="https://x.com/thsottiaux/status/2064572276180484475">https://x.com/thsottiaux/status/2064572276180484475</a>
+      <a href="https://x.com/thsottiaux/status/2064308436133716008">https://x.com/thsottiaux/status/2064308436133716008</a>
+      <a href="https://x.com/thsottiaux/status/2064307859903447396">https://x.com/thsottiaux/status/2064307859903447396</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">AI Builder / Educator</span>
+    </div>
+    <p class="summary-en">Peter Yang shares three distinct observations: (1) The browser use feature is really slowing Fable down for him — a practical friction point as browser automation gets integrated. (2) He asks &quot;wtf does 'big model smell' mean&quot; — a genuine question about Boris Cherny's phrase that sparked much discussion. (3) He shares the exact prompt he used to build F-Zero, a futuristic anti-gravity racer with pseudo-3D track, AI opponents, boost mechanics, and neon cyberpunk styling — a concrete example of ambitious prompting.</p>
+    <p class="summary-zh zh">Peter Yang 分享了三个不同的观察：（1）browser use 功能真的让 Fable 变慢了——这是浏览器自动化集成时的实际摩擦点。（2）他问&quot;wtf 是么意思&quot;——对 Boris Cherny 引发大量讨论的短语的真心提问。（3）他分享了用来构建 F-Zero 的确切提示词，这是一款具有伪 3D 轨道、AI 对手、加速机制和霓虹网络朋克风格的 futuristic 反重力赛车游戏——雄心勃勃提示词的具体例子。</p>
+    <div class="urls"><a href="https://x.com/petergyang/status/2064577126385459265">https://x.com/petergyang/status/2064577126385459265</a>
+      <a href="https://x.com/petergyang/status/2064563041166090672">https://x.com/petergyang/status/2064563041166090672</a>
+      <a href="https://x.com/petergyang/status/2064550073594446059">https://x.com/petergyang/status/2064550073594446059</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thariq</span>
+      <span class="builder-role">Anthropic Claude Code Team</span>
+    </div>
+    <p class="summary-en">Thariq is at Code with Claude Tokyo and invites people to say hi — a sign of the growing global Claude community. He also writes that Fable is a step-change in models and hopes it changes how you work with Claude: &quot;time to be more ambitious.&quot; The team is clearly seeing internal shifts in how they themselves use the product day to day.</p>
+    <p class="summary-zh zh">Thariq 在东京的 Code with Claude 活动现场，邀请人们来打招呼——这是不断增长的全球 Claude 社区的迹象。他还写道，Fable 是模型的一次阶跃式变化，希望它改变你与 Claude 协作的方式：&quot;是时候更有雄心了。&quot;团队显然看到了他们自己日常使用产品的方式发生了内部转变。</p>
+    <div class="urls"><a href="https://x.com/trq212/status/2064521202622960058">https://x.com/trq212/status/2064521202622960058</a>
+      <a href="https://x.com/trq212/status/2064437561930682672">https://x.com/trq212/status/2064437561930682672</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Amjad Masad</span>
+      <span class="builder-role">Replit CEO</span>
+    </div>
+    <p class="summary-en">Amjad Masad promotes trying Claude Mythos at 25% off on Replit — a clear integration announcement between Replit and Anthropic's newest model tier. This is part of the broader trend of coding platforms racing to offer the latest frontier models as soon as they drop.</p>
+    <p class="summary-zh zh">Amjad Masad 推广在 Replit 上以 75 折试用 Claude Mythos——这是 Replit 与 Anthropic 最新模型层级之间明确的集成公告。这是编程平台竞相在最新前沿模型发布后立即提供的更广泛趋势的一部分。</p>
+    <div class="urls"><a href="https://x.com/amasad/status/2064411791015432466">https://x.com/amasad/status/2064411791015432466</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">Vercel CEO</span>
+    </div>
+    <p class="summary-en">Guillermo Rauch announces that Vercel CLI now allows you to create AI Gateway API keys, set spend caps (--max-cost), and configure quota (--monthly-request-quota) — &quot;think of it as virtual credit cards for AI tokens.&quot; He also quips &quot;Opus wrote us a VM and then Mythos verified it&quot; — a nod to the increasing sophistication of what these models can produce and verify.</p>
+    <p class="summary-zh zh">Guillermo Rauch 宣布 Vercel CLI 现在允许你创建 AI Gateway API 密钥、设置支出上限（--max-cost）和配置配额（--monthly-request-quota）——&quot;把它想象成 AI token 的虚拟信用卡。&quot;他还打趣说&quot;Opus 给我们写了一个 VM，然后 Mythos 验证了它&quot;——这是对这些模型能够生成和验证的东西日益复杂的致敬。</p>
+    <div class="urls"><a href="https://x.com/rauchg/status/2064551967461114111">https://x.com/rauchg/status/2064551967461114111</a>
+      <a href="https://x.com/rauchg/status/2064419055726215438">https://x.com/rauchg/status/2064419055726215438</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Alex Albert</span>
+      <span class="builder-role">Anthropic Research Team</span>
+    </div>
+    <p class="summary-en">Alex Albert announces reset usage limits across Anthropic products and shares four tips for using Fable more effectively: (1) Give it bigger, more ambitious tasks. (2) Use xhigh/high effort as default. (3) Rework your skills and CLAUDE.mds — stale patterns from prior models anchor Fable to old behaviors. (4) Move from tasks to objectives — describe what done looks like and let Fable find the path. He also reflects that Fable made Claude feel less like a tool and more like something he collaborates with.</p>
+    <p class="summary-zh zh">Alex Albert 宣布重置 Anthropic 产品的使用限制，并分享了四条更有效使用 Fable 的建议：（1）给它更大、更有雄心的任务。（2）将 xhigh/high effort 作为默认。（3）重新制作你的 skills 和 CLAUDE.md——来自之前模型的陈旧模式将 Fable 锚定在旧行为上。（4）从任务转向目标——描述完成是什么样子，让 Fable 找到路径。他还反思道，Fable 让 Claude 感觉不再像工具，而更像他协作的对象。</p>
+    <div class="urls"><a href="https://x.com/alexalbert__/status/2064467657483829441">https://x.com/alexalbert__/status/2064467657483829441</a>
+      <a href="https://x.com/alexalbert__/status/2064394410004304003">https://x.com/alexalbert__/status/2064394410004304003</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aaron Levie</span>
+      <span class="builder-role">Box CEO</span>
+    </div>
+    <p class="summary-en">Aaron Levie delivers a masterclass in applied AI strategy: he argues that the further away an agent gets from a human, the less valuable it is — and that &quot;no amount of intelligence can replace the need for context.&quot; Applied AI differentiation comes from domain context + routing, not raw model capability. He also notes AI progress isn't slowing down — Fable 5 delivers major improvements across the board. A vast ecosystem of software and services companies will emerge to bring frontier models to real enterprises, because the gulf between model capabilities and applied implementation remains wide.</p>
+    <p class="summary-zh zh">Aaron Levie 带来了应用 AI 策略的大师课：他认为 agent 离人类越远，价值就越低——而且&quot;无论模型里塞进多少智能，都无法取代对上下文的需求。&quot;应用 AI 的差异化来自领域上下文 + 路由，而不是原始模型能力。他还指出 AI 进展并没有放缓——Fable 5 在整个领域带来了重大改进。庞大的软件和服务公司生态系统将涌现，将前沿模型带给真实的企业，因为模型能力与应用实现之间的鸿沟仍然很大。</p>
+    <div class="urls"><a href="https://x.com/levie/status/2064569513023328268">https://x.com/levie/status/2064569513023328268</a>
+      <a href="https://x.com/levie/status/2064396746953023647">https://x.com/levie/status/2064396746953023647</a>
+      <a href="https://x.com/levie/status/2064379199629181139">https://x.com/levie/status/2064379199629181139</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Garry Tan</span>
+      <span class="builder-role">Y Combinator CEO</span>
+    </div>
+    <p class="summary-en">Garry Tan declares &quot;Fable 5 is the biggest model energy I've ever seen&quot; — high praise from someone who sits at the center of the startup ecosystem. He also shares the frustration of running into issues while fixing GStack with Fable 5 (&quot;long sigh&quot;), and celebrates a political win in San Francisco: &quot;We are winning. It feels good.&quot; His blend of AI excitement and local politics continues to be a signature.</p>
+    <p class="summary-zh zh">Garry Tan 宣称&quot;Fable 5 是我见过的最大的模型能量&quot;——来自坐在创业生态系统中心的人士的高度赞扬。他还分享了用 Fable 5 修复 GStack 时遇到问题的沮丧（&quot;长叹&quot;），并庆祝了旧金山的政治胜利：&quot;我们正在赢。感觉很好。&quot;他混合 AI 兴奋和本地政治的风格继续是标志性特点。</p>
+    <div class="urls"><a href="https://x.com/garrytan/status/2064573857911152710">https://x.com/garrytan/status/2064573857911152710</a>
+      <a href="https://x.com/garrytan/status/2064559225859416186">https://x.com/garrytan/status/2064559225859416186</a>
+      <a href="https://x.com/garrytan/status/2064519190061666393">https://x.com/garrytan/status/2064519190061666393</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Zara Zhang</span>
+      <span class="builder-role">Builder / Harvard '17</span>
+    </div>
+    <p class="summary-en">Zara Zhang shares a sharp insight: the barrier for non-technical people using coding agents was never the interface — &quot;Chatting is the easiest UI ever invented.&quot; The real barrier is that they don't know what to ask for. The blank chat box assumes you already know what's possible. She was impressed by Town's onboarding where the agent proactively suggests workflows. She also promotes her upcoming virtual talk on her vibe coding process — how a non-technical person got 30k stars on GitHub.</p>
+    <p class="summary-zh zh">Zara Zhang 分享了一个尖锐的洞察：非技术人员使用编程 agent 的障碍从来不是界面——&quot;聊天是有史以来发明的最简单的 UI。&quot;真正的障碍是他们不知道该要求什么。空白聊天框假设你已经知道什么是可能的。她对 Town 的入职流程印象深刻，在那里 agent 主动建议工作流。她还推广了她即将到来的关于 vibe coding 流程的虚拟演讲——一个非技术人员如何在 GitHub 上获得 30k 星。</p>
+    <div class="urls"><a href="https://x.com/zarazhangrui/status/2064587398529606082">https://x.com/zarazhangrui/status/2064587398529606082</a>
+      <a href="https://x.com/zarazhangrui/status/2064486120386379950">https://x.com/zarazhangrui/status/2064486120386379950</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nikunj Kothari</span>
+      <span class="builder-role">FPV Ventures Partner</span>
+    </div>
+    <p class="summary-en">Nikunj Kothari used Fable to one-shot a website (escurves.com) that explains S-curves in history with commentary — after listening to an Invest Like Best episode on the topic. He also shares his prompt technique: dump a podcast transcript into Claude with research mode on, have it figure out sections, and give a Claude Code prompt to one-shot the site. A concrete workflow for turning listening into shipped software.</p>
+    <p class="summary-zh zh">Nikunj Kothari 在用 Fable 一次性击中最完成了科技史 S 曲线网站（escurves.com）之后，分享了这一具体工作流——他在听完 Invest Like Best 相关节目后，把播客转录文本倒入开启了研究模式的 Claude，让它理清章节结构，再给出 Claude Code 提示词一次性完成网站。这是把「听播客」变成「上线产品」的具体工作流。</p>
+    <div class="urls"><a href="https://x.com/nikunj/status/2064508462034501997">https://x.com/nikunj/status/2064508462034501997</a>
+      <a href="https://x.com/nikunj/status/2064506504888373758">https://x.com/nikunj/status/2064506504888373758</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Dan Shipper</span>
+      <span class="builder-role">Every CEO</span>
+    </div>
+    <p class="summary-en">Dan Shipper is riding the Fable 5 wave: he posts a &quot;VIBE CHECK&quot; immediately after launch, links to Every's watch on YouTube, and promotes the Fable (Mythos) release. At Every, they've been testing for a week — the vibe check post on Every is worth reading for anyone thinking about how to integrate these models into daily work.</p>
+    <p class="summary-zh zh">Dan Shipper 正乘着 Fable 5 的浪潮：他在发布后立即发了&quot;VIBE CHECK&quot;，链接到 Every 在 YouTube 上的 watch 节目，并推广 Fable（Mythos）的发布。在 Every，他们已经测试了一周——Every 上关于 vibe check 的帖子值得任何思考如何将这些模型整合到日常工作中的人阅读。</p>
+    <div class="urls"><a href="https://x.com/danshipper/status/2064398724495737180">https://x.com/danshipper/status/2064398724495737180</a>
+      <a href="https://x.com/danshipper/status/2064395458777108707">https://x.com/danshipper/status/2064395458777108707</a>
+      <a href="https://x.com/danshipper/status/2064395167658860859">https://x.com/danshipper/status/2064395167658860859</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aditya Agarwal</span>
+      <span class="builder-role">South Park Commons GP</span>
+    </div>
+    <p class="summary-en">Aditya Agarwal reflects on the emotional core of startup investing: &quot;As an investor, these are the moments that remind you why you fund startups to do important things.&quot; A characteristically thoughtful perspective on what makes the work meaningful, especially as AI changes the landscape of what's possible.</p>
+    <p class="summary-zh zh">Aditya Agarwal 反思了创业投资的情感核心：&quot;作为投资者，这些时刻提醒你为什么要资助初创公司做重要的事情。&quot;这是关于什么让工作有意义的特有深思熟虑的视角，特别是当 AI 改变了可能性的版图时。</p>
+    <div class="urls"><a href="https://x.com/adityaag/status/2064391655453802773">https://x.com/adityaag/status/2064391655453802773</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Claude (Official)</span>
+      <span class="builder-role">Anthropic</span>
+    </div>
+    <p class="summary-en">Anthropic officially announces Claude Fable 5 available everywhere today, while Claude Mythos 5 is restricted to Glasswing partners until the trusted access program expands. Mythos 5 shares the same underlying model as Fable 5 but with safeguards lifted in some areas — specifically for cybersecurity defenders and biomedical researchers. The team plans to expand access through a broader trusted access program.</p>
+    <p class="summary-zh zh">Anthropic 正式宣布 Claude Fable 5 今天在所有地方可用，而 Claude Mythos 5 仅限于 Glasswing 合作伙伴，直到可信访问计划扩展。Mythos 5 与 Fable 5 共享相同的底层模型，但在某些领域取消了安全护栏——特别是针对网络安全防御者和生物医学研究人员。团队计划通过更广泛的可信访问计划扩展访问权限。</p>
+    <div class="urls"><a href="https://x.com/claudeai/status/2064394160522559632">https://x.com/claudeai/status/2064394160522559632</a>
+      <a href="https://x.com/claudeai/status/2064394159318782217">https://x.com/claudeai/status/2064394159318782217</a>
+      <a href="https://x.com/claudeai/status/2064394158056386684">https://x.com/claudeai/status/2064394158056386684</a></div>
+  </article>
+
+
+</section>
+
+<!-- ============== PODCASTS ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🎙️</span>
+    <h2 class="section-title">Podcasts</h2>
+    <span class="section-meta">1 Episode</span>
+  </div>
+
+  <div class="podcast">
+    <div class="podcast-source">AI &amp; I by Every</div>
+    <h3 class="podcast-title">We Automated Everything With AI and Tripled Our Headcount</h3>
+
+    <div class="takeaway">
+      <span class="takeaway-label">The Takeaway</span>
+      Even as you automate everything with AI, you can still triple your headcount — because the demand for what you can do expands to fill new capacity. The real opportunity isn't just riding the models, but leading an ambitious life with these tools. "The further away an agent gets from a human, the less valuable it is."
+    </div>
+
+    <div class="podcast-body">
+      <p>Dan Shipper (Every CEO) interviews a guest about the piece &quot;After Automation&quot; and the philosophy behind Every's AI-native operations. The core insight: Even as you automate everything with AI, you can still triple your headcount — because the demand for what you can do expands to fill the new capacity. &quot;The further away an agent gets from a human, the less valuable it is.&quot; If you just ride the models, you'll be fine. But the real opportunity is in leading an ambitious life with these tools. Every's approach: subscribe to stay at the edge of AI, separate signal from noise. The episode is a deep dive into what it actually feels like to run an AI-native company — the anxieties, the possibilities, and the weird new workflows.</p>
+    </div>
+
+    <div class="podcast-divider"></div>
+
+    <div class="podcast-zh zh">
+      <p>Dan Shipper（Every CEO）就《After Automation》一文以及 Every 的 AI 原生运营哲学采访了一位嘉宾。核心洞察：即使你用 AI 自动化了一切，你仍然可以让员工人数增长两倍——因为对你所能做的事情的需求会扩张到填满新的产能。&quot;Agent 离人类越远，价值就越低。&quot;如果你只是紧跟模型，你会没事的。但真正的机会在于用这些工具引领一种有雄心的生活。Every 的方法：订阅以站在 AI 前沿，从噪音中分离信号。这期节目深入探讨了运营一家 AI 原生公司实际上的感受——焦虑、可能性和奇怪的新工作流。</p>
+    </div>
+
+    <div class="urls" style="margin-top:24px">
+      <a href="https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL">▶️ https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL</a>
+    </div>
+  </div>
+
+</section>
+
+<footer class="footer">
+  <div class="next-issue">📬 下一期：明天 10:00（北京时间）</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+</body>
+</html>
+
+<!-- by chloevchen -->

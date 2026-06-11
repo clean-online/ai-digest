@@ -1,35 +1,29 @@
 # Automation Memory — AI Builders Digest Daily
-
-## Last Run: 2026-06-05
+## Last Run: 2026-06-10
 
 ### Execution Summary
 - **Status**: Success
-- **Builders tracked**: 18 (Thibault Sottiaux, Cat Wu, Thariq, Peter Yang, Josh Woodward, Google Labs, Guillermo Rauch, Amjad Masad, Aaron Levie, Ryo Lu, Garry Tan, Zara Zhang, Nikunj Kothari, Peter Steinberger, Dan Shipper, Aditya Agarwal, Swyx, Claude/Anthropic)
-- **Tweets collected**: 38
-- **Podcasts**: 1 (No Priors — The Rise of the Full-Stack Builder with Satya Nadella)
-- **Blog posts**: 1 (Anthropic Engineering: How we contain Claude across products)
-- **Output**: `AI_Builders_Digest_2026-06-05.html`
-- **Deployed**: ✅ GitHub Pages — `https://clean-online.github.io/ai-digest/2026/06/05/AI_Builders_Digest_2026-06-05.html`
-- **Commit**: 8aa7e4e
+- **Builders tracked**: 15 (Swyx, Josh Woodward, Boris Cherny, Thibault Sottiaux, Peter Yang, Amanda Askell, Amjad Masad, Guillermo Rauch, Aaron Levie, Garry Tan, Zara Zhang, Nikunj Kothari, Dan Shipper, Sam Altman, Claude/Anthropic)
+- **Tweets collected**: 27
+- **Podcasts**: 1 (No Priors — Onyx Security CEO Maxim Bar Kogan: Building an AI Guardian for Enterprise)
+- **Blog posts**: 1 (Claude Blog: Building intelligent apps for Apple platforms with Claude in the Foundation Models framework)
+- **Output**: `AI_Builders_Digest_2026-06-10.html`
+- **Deployed**: ✅ GitHub Pages — `https://clean-online.github.io/ai-digest/2026/06/10/AI_Builders_Digest_2026-06-10.html`
+- **Commit**: 03277bd
+
+### Key Highlights
+- **Swyx on FrontierCode**: METR Evals found >50% of SWEBench = unmergeable slop; FrontierCode = 1000+ hrs of maintainer-validated work; Opus 4.8 scores 13.8% on FC Diamond; "WTF happened in Dec 2025" vibe shift captured
+- **Boris Cherny (Claude Code)**: Internal demo reactions, now uses auto mode not plan mode; routines fix bugs before he sees them; codes mostly from phone now
+- **Aaron Levie (Box)**: "No amount of intelligence replaces need for context" — applied AI differentiation comes from domain context + routing, not raw model capability
+- **Sam Altman**: Posted "Here is our current plan for OpenAI" — 5,834 likes in <2 days, one of most-watched AI updates
+- **Onyx Security (Podcast)**: Guardian agents that watch AI agents; enterprises won't share historical agent data with Anthropic/OpenAI (too data-hungry) → independent security layer needed
+- **Claude Blog (Official)**: Foundation Models framework support for Claude via new Swift package; iOS 27/macOS 27; on-device model for fast tasks, hand off to Claude for multi-step reasoning
 
 ### Notes
-- **Satya Nadella @ No Priors**: Microsoft built more Azure capacity in last 15 months than first 15 years; "full-stack builder" as new dominant archetype; next great institution may be new pedagogy, not traditional university; blast radius containment is the real engineering challenge for agent deployment
-- **Thibault Sottiaux (OpenAI Codex)**: 3 incidents in 24h → public apology + usage limit reset (8735 likes); "lots of little vectors all pointing in the same direction" hints at coordinated model/Codex improvements shipping soon
-- **Cat Wu (Anthropic)**: Data team automated 95% of business analytics queries with Claude — rare transparent look at how top AI lab operationalizes its own tooling
-- **Aaron Levie (Box)**: Jobs data shows opposite of doomsayer predictions — AI is hiring multiplier, not replacement; AI token spend per employee ($hundreds/thousands) dramatically exceeds traditional software spend ($10-50/mo), revealing true TAM for intelligence
-- **Guillermo Rauch (Vercel)**: "Generate frontends on top of business data is a killer app of coding AI"; v0 + Next.js delivering 1000x value with enterprise data; Grok Imagine Video on Vercel AI Gateway
-- **Amjad Masad (Replit)**: "App to App Store in 48 hours"; "You can run but can't hide from B2B SaaS" — bold statement about market inevitability
-- **Ryo Lu (Cursor)**: Hiring design engineers — "taste, systems thinking, deep care for fast polished experiences"; signal that best AI tools need hybrid designer/engineers
-- **Peter Steinberger (OpenClaw)**: "Build the thing that builds the thing" (MS Build talk); OpenClaw npm downloads >10-20M/week; 1300+ on waitlist for event
-- **Anthropic Engineering blog**: Claude Code auto mode introduced because users approved 93% of permission prompts (classic fatigue); Mythos Preview model too risky to ship April 2026 but broader release expected as safeguards mature
-
-### Trends to Note
-- **"Full-stack builder" archetype goes mainstream**: Satya Nadella + Peter Steinberger both articulating the same vision — AI-amplified individuals doing work of entire teams
-- **Agent deployment safety is the new moat**: Anthropic's 93% approval fatigue stat should be wake-up call for all human-in-the-loop systems
-- **AI token economics > software licensing**: Levie's framing of TAM (token spend vs software license) is a new mental model for valuing AI
-- **Design engineering as differentiator**: Cursor + Vercel both signaling that "it works" isn't enough — user experience quality now determines AI tool adoption
-- **Infrastructure layer being rewritten**: Nadella's "build the agentic system that does Azure networking" = the cloud is becoming autonomous, not just automated
+- Also backfilled missing `2026-06-08` digest into index.html ISSUES object during this run
+- index.html updated with both `2026-06-10` and `2026-06-08` entries
+- Today's schedule: daily at 10:00 Beijing time (RRULE: FREQ=DAILY;BYHOUR=10;BYMINUTE=0)
 
 ---
 
-*Updated: 2026-06-05T10:00+08:00*
+*Updated: 2026-06-10T10:00+08:00*
