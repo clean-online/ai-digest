@@ -1,29 +1,31 @@
 # Automation Memory — AI Builders Digest Daily
-## Last Run: 2026-06-10
+## Last Run: 2026-06-14
 
 ### Execution Summary
 - **Status**: Success
-- **Builders tracked**: 15 (Swyx, Josh Woodward, Boris Cherny, Thibault Sottiaux, Peter Yang, Amanda Askell, Amjad Masad, Guillermo Rauch, Aaron Levie, Garry Tan, Zara Zhang, Nikunj Kothari, Dan Shipper, Sam Altman, Claude/Anthropic)
-- **Tweets collected**: 27
-- **Podcasts**: 1 (No Priors — Onyx Security CEO Maxim Bar Kogan: Building an AI Guardian for Enterprise)
-- **Blog posts**: 1 (Claude Blog: Building intelligent apps for Apple platforms with Claude in the Foundation Models framework)
-- **Output**: `AI_Builders_Digest_2026-06-10.html`
-- **Deployed**: ✅ GitHub Pages — `https://clean-online.github.io/ai-digest/2026/06/10/AI_Builders_Digest_2026-06-10.html`
-- **Commit**: 03277bd
+- **Builders tracked**: 16 (Andrej Karpathy, Swyx, Thibault Sottiaux, Peter Yang, Madhu Guru, Amjad Masad, Guillermo Rauch, Alex Albert, Aaron Levie, Garry Tan, Zara Zhang, Nikunj Kothari, Peter Steinberger, Dan Shipper, Aditya Agarwal, Claude/Anthropic)
+- **Tweets collected**: 39
+- **Podcasts**: 1 (Unsupervised Learning — AI Vibe Check: Lab Wars, Why APIs Might Vanish & Future Predictions)
+- **Blog posts**: 3 (Anthropic Engineering: Claude Code quality postmortem; Scaling Managed Agents; Claude Blog: MCP tunnels + self-hosted sandboxes)
+- **Output**: `AI_Builders_Digest_2026-06-14.html`
+- **Deployed**: ✅ GitHub Pages — `https://clean-online.github.io/ai-digest/2026/06/14/AI_Builders_Digest_2026-06-14.html`
+- **Commit**: 3082b73
 
 ### Key Highlights
-- **Swyx on FrontierCode**: METR Evals found >50% of SWEBench = unmergeable slop; FrontierCode = 1000+ hrs of maintainer-validated work; Opus 4.8 scores 13.8% on FC Diamond; "WTF happened in Dec 2025" vibe shift captured
-- **Boris Cherny (Claude Code)**: Internal demo reactions, now uses auto mode not plan mode; routines fix bugs before he sees them; codes mostly from phone now
-- **Aaron Levie (Box)**: "No amount of intelligence replaces need for context" — applied AI differentiation comes from domain context + routing, not raw model capability
-- **Sam Altman**: Posted "Here is our current plan for OpenAI" — 5,834 likes in <2 days, one of most-watched AI updates
-- **Onyx Security (Podcast)**: Guardian agents that watch AI agents; enterprises won't share historical agent data with Anthropic/OpenAI (too data-hungry) → independent security layer needed
-- **Claude Blog (Official)**: Foundation Models framework support for Claude via new Swift package; iOS 27/macOS 27; on-device model for fast tasks, hand off to Claude for multi-step reasoning
+- **Garry Tan**: "Everyone thinks AI coding tools set founders free. Watch what people actually build with them: rules, approvals, process, layers. The same cage, assembled faster. Speed of construction is speed of calcification." A profound warning about AI accelerating bureaucratization.
+- **Amjad Masad**: Replit may need to turn off Claude access due to US govt restriction. Also: "We sell outcomes, not tokens" — principled stance against tokenmaxxing leaderboard craze.
+- **Peter Yang**: Raised provocative question about ID verification for accessing best models; also reacted to Claude suspension for "foreign persons inside the US".
+- **Swyx**: "Future Codebase" provocation — after PR dies and code review dies, maybe Git needs to die next. ~20-40% of code spend is merge conflicts.
+- **Aaron Levie**: US govt AI restriction = "big turning point" for regulation; unlikely to reverse. Also celebrated SpaceX's 25-year journey.
+- **Unsupervised Learning Podcast**: Spicy prediction — AI labs may shut down API business due to compute crunch. RSI not here yet but Fable's step-change makes building blocks visible.
+- **Anthropic Blogs**: Detailed postmortem on Claude Code quality issues (3 separate root causes); Managed Agents launches with self-hosted sandboxes + MCP tunnels (public beta).
 
 ### Notes
-- Also backfilled missing `2026-06-08` digest into index.html ISSUES object during this run
-- index.html updated with both `2026-06-10` and `2026-06-08` entries
 - Today's schedule: daily at 10:00 Beijing time (RRULE: FREQ=DAILY;BYHOUR=10;BYMINUTE=0)
+- index.html ISSUES object updated with 2026-06-14 entry
+- Generated via Node.js script (generate-2026-06-14.js), kept in repo for future use
+- 3 blog posts included (unusually high — Anthropic has been publishing frequently)
 
 ---
 
-*Updated: 2026-06-10T10:00+08:00*
+*Updated: 2026-06-14T10:00+08:00*
