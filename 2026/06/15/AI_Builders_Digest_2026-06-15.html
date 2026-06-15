@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest · 2026-06-15</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 12px; padding: 32px; margin-bottom: 24px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
+  .podcast-source { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 10px; }
+  .podcast-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; color: var(--ink); margin-bottom: 24px; }
+  .takeaway { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 8px; padding: 18px 22px; margin-bottom: 24px; font-size: 15px; line-height: 1.7; color: var(--accent-deep); }
+  .takeaway-label { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; background: var(--accent); color: white; padding: 3px 8px; border-radius: 3px; margin-right: 10px; transform: translateY(-2px); }
+  .podcast-body { font-size: 15.5px; color: var(--ink-soft); line-height: 1.75; }
+  .podcast-body p { margin-bottom: 16px; }
+  .podcast-body strong { color: var(--ink); font-weight: 600; }
+  .podcast-divider { height: 1px; background: var(--line); margin: 28px 0; }
+  .podcast-zh { font-family: 'Noto Serif SC', serif; font-size: 15.5px; color: var(--ink); line-height: 1.95; }
+  .podcast-zh p { margin-bottom: 16px; }
+  .podcast-zh strong { color: var(--accent-deep); font-weight: 600; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .podcast { padding: 24px; } .podcast-title { font-size: 19px; } .topbar-inner { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 · Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest · 2026-06-15 · 周日</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">14</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">25</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+  <!-- ============== X / TWITTER ============== -->
+  <section class="section">
+    <div class="section-head">
+      <span class="section-icon">🐦</span>
+      <h2 class="section-title">X / Twitter</h2>
+      <span class="section-meta">14 Builders</span>
+    </div>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Swyx</span>
+        <span class="builder-role">Latent Space Host / AI Engineer</span>
+      </div>
+      <p class="summary-en">Swyx is in peak crunch mode for AI Engineer (AIE) on June 24-25 in London. He highlights a clever data-driven storytelling move: using Devine AI to analyze the registered attendee list and output a live chart of who's coming — "the single best data driven storytelling I've ever seen." Also running the annual AI Engineering Survey (last chance to fill out this weekend), with Vercel + Notion + AIE tickets as prizes.</p>
+      <p class="summary-zh zh">Swyx 正在为 6 月 24-25 日在伦敦举行的 AI Engineer (AIE) 大会做最后冲刺。他重点介绍了一个巧妙的数据驱动叙事动作：用 Devine AI 分析注册参会者名单并输出实时图表，显示谁要来——"我见过的单一最佳数据驱动叙事"。同时还在运行年度 AI 工程调查（本周末是最后机会），奖品有 Vercel + Notion + AIE 门票。</p>
+      <div class="urls">
+      <a href="https://x.com/swyx/status/2065909887025168887">https://x.com/swyx/status/2065909887025168887</a>
+      <a href="https://x.com/swyx/status/2065886536768667769">https://x.com/swyx/status/2065886536768667769</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Thibault Sottiaux</span>
+        <span class="builder-role">OpenAI Codex</span>
+      </div>
+      <p class="summary-en">Thibault (Tibo) just discovered Codex and posted an enthusiastic "AMA" post. As a member of the Codex team at OpenAI, his "discovery" of his own product is a cheeky self-promotion — but also signals that Codex is reaching a level of capability where even internal team members are genuinely impressed by what it can do.</p>
+      <p class="summary-zh zh">Thibault（Tibo）刚刚"发现"了 Codex，并发布了一条热情的"AMA"（问我任何事）推文。作为 OpenAI Codex 团队的成员，他对自己产品的"发现"是一种俏皮的自我宣传——但也释放出信号：Codex 正在达到一个连内部团队成员都对其能力留下深刻印象的水平。</p>
+      <div class="urls">
+      <a href="https://x.com/thsottiaux/status/2066022651760721931">https://x.com/thsottiaux/status/2066022651760721931</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Peter Yang</span>
+        <span class="builder-role">AI Educator / Creatorspy</span>
+      </div>
+      <p class="summary-en">Peter reacts to the Fable export control news with characteristic directness. He also flags a security exploit with Cal.com — someone (or some AI agent) booked a meeting with him appearing as "Nora" without his consent, and he's asking the Cal.com team to fix it. A real-world example of AI agent identity/safety issues hitting a real calendar. Also: a YOLO post about martial arts movies — Peter's human side showing through.</p>
+      <p class="summary-zh zh">Peter 以他一贯的直接风格对 Fable 出口管制新闻做出反应。他还标记了 Cal.com 的一个安全漏洞——有人（或某个 AI agent）以"Nora"的身份在他不知情的情况下预约了会议，他要求 Cal.com 团队修复这个问题。这是 AI agent 身份/安全问题冲击真实日历的一个现实案例。另外：一条关于武术电影的 YOLO 推文——Peter 人性化的一面显露出来。</p>
+      <div class="urls">
+      <a href="https://x.com/petergyang/status/2066034464120345075">https://x.com/petergyang/status/2066034464120345075</a>
+      <a href="https://x.com/petergyang/status/2065973599119536181">https://x.com/petergyang/status/2065973599119536181</a>
+      <a href="https://x.com/petergyang/status/2065841885936316797">https://x.com/petergyang/status/2065841885936316797</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Nan Yu</span>
+        <span class="builder-role">Head of Product, Linear</span>
+      </div>
+      <p class="summary-en">Nan Yu with a brilliant piece of satire: "Imagine a piece of software so powerful it completely disables the operations of tech companies, freezing progress and rendering them worthless. Such damaging capabilities must be controlled and stopped. Import restrictions on Jira. Now." A perfect takedown of enterprise software bloat disguised as a national security concern.</p>
+      <p class="summary-zh zh">Nan Yu 的一段绝妙讽刺："想象一个软件如此强大，它能完全瘫痪科技公司的运营，冻结进展，让它们变得一文不值。这种破坏性能力必须被管控和阻止。现在就对 Jira 实施进口限制。"这是一个关于企业软件膨胀的完美吐槽，伪装成国家安全关切。</p>
+      <div class="urls">
+      <a href="https://x.com/thenanyu/status/2065953400395555255">https://x.com/thenanyu/status/2065953400395555255</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Madhu Guru</span>
+        <span class="builder-role">Ex-Google PM (Gemini/Veo)</span>
+      </div>
+      <p class="summary-en">Madhu offers a deeply empathetic and insightful explanation of what it's actually like to launch a frontier LLM. It's not like shipping traditional software — you're making a decision about a black box with effectively infinite use cases and failure modes. You build extensive evals, red-team, iterate. Then early-access partners still uncover behaviors you didn't anticipate. "You can never be 100% certain you've understood a frontier model." As models get smarter, the launch decision gets harder — for both labs and regulators.</p>
+      <p class="summary-zh zh">Madhu 对发布前沿 LLM 的实际体验给出了深刻而富有同理心的解释。这不像发布传统软件——你是在对一个实际上有无限用例和失败模式的黑盒做决策。你构建广泛的评估、红队测试、迭代。然后早期访问合作伙伴仍然会发现你没有预料到的行为。"你永远无法 100% 确定你已经理解了一个前沿模型。"随着模型变得更聪明，发布决策也变得更困难——对实验室和监管机构都是如此。</p>
+      <div class="urls">
+      <a href="https://x.com/realmadhuguru/status/2065911676000752122">https://x.com/realmadhuguru/status/2065911676000752122</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Amjad Masad</span>
+        <span class="builder-role">Replit CEO</span>
+      </div>
+      <p class="summary-en">Amjad's cryptic post: "Feels like we're getting psyoped. The end-game here is something bigger." Posted in response to the Fable/US govt restriction news. He's suggesting that the current narrative around AI regulation may be a setup for something larger — though he doesn't spell out what. Classic Amjad: provocative without being explicit, forcing you to think.</p>
+      <p class="summary-zh zh">Amjad 的神秘推文："感觉我们在被心理操控。这里的最终游戏是更大的东西。"发布在对 Fable/美国政府限制新闻的回应中。他在暗示当前围绕 AI 监管的叙事可能是为更大的东西设置的——尽管他没有具体说明是什么。典型的 Amjad：煽动性但不明确，迫使你去思考。</p>
+      <div class="urls">
+      <a href="https://x.com/amasad/status/2065838585358745653">https://x.com/amasad/status/2065838585358745653</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Guillermo Rauch</span>
+        <span class="builder-role">Vercel CEO</span>
+      </div>
+      <p class="summary-en">Guillermo with a cryptic but poetic post: "If you don't love her at her foggiest, you don't deserve her at her sunniest." Posted with a photo — likely about SF weather, but also a metaphor for building through difficult conditions. Classic Guillermo: turning the mundane into something philosophical.</p>
+      <p class="summary-zh zh">Guillermo 发布了一条神秘但富有诗意的推文："如果你不爱她雾最浓时的样子，你就不配拥有她阳光最灿烂时的样子。"附了照片——可能是关于旧金山天气的，但也是关于在困难条件下建设的隐喻。典型的 Guillermo：把平凡变成富有哲学意味的东西。</p>
+      <div class="urls">
+      <a href="https://x.com/rauchg/status/2065856253428179357">https://x.com/rauchg/status/2065856253428179357</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Aaron Levie</span>
+        <span class="builder-role">Box CEO</span>
+      </div>
+      <p class="summary-en">Levie delivers three substantive posts. First: a deep analysis of why the AI model routing layer will become increasingly valuable — for cost optimization (frontier for planning, cheap for execution), capability maximization (different models excel at different tasks), and risk mitigation (regulatory flexibility). "It's going to be a strategic advantage for the applied AI layer to effectively route between models." Second: on the Fable situation as a preview of AI regulation at scale — if the government controls model releases, progress slows dramatically. "If this paradigm had existed 3 years ago, we'd likely be stuck on GPT-4 level intelligence." Third: pushing back on the idea that the US govt move is 4D chess — "it's quite standard to try and jailbreak AI models."</p>
+      <p class="summary-zh zh">Levie 发布了三条有实质内容的推文。第一：深入分析为什么 AI 模型路由层将变得越来最有价值——为了成本优化（规划用前沿模型，执行用便宜模型）、能力最大化（不同模型在不同任务上表现出色）和风险缓解（监管灵活性）。"对于应用 AI 层来说，有效地在模型之间路由将是一个战略优势。"第二：关于 Fable 情况作为大规模 AI 监管预演——如果政府控制模型发布，进展将大幅放缓。"如果这种范式在 3 年前就存在，我们可能会被困在 GPT-4 水平的智能上。"第三：反驳美国政府举措是 4D 象棋的说法——"尝试越狱 AI 模型是很标准的操作。"</p>
+      <div class="urls">
+      <a href="https://x.com/levie/status/2065989559905812973">https://x.com/levie/status/2065989559905812973</a>
+      <a href="https://x.com/levie/status/2065964446489710939">https://x.com/levie/status/2065964446489710939</a>
+      <a href="https://x.com/levie/status/2065842361834651996">https://x.com/levie/status/2065842361834651996</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Garry Tan</span>
+        <span class="builder-role">YC President & CEO</span>
+      </div>
+      <p class="summary-en">Garry's most profound post: "In AI most people are still trying to use old maps on a new territory. Throw the maps away. It's time to draw new ones. The only way you can do it is walking the land." A call to first-principles thinking in AI — stop importing SaaS/software mental models and start observing what's actually different. Also: "I wish the significance of the model came from more people actually using it and coming to their own conclusions" — a subtle critique of signal-vs-noise in AI Twitter.</p>
+      <p class="summary-zh zh">Garry 最深刻的推文："在 AI 领域，大多数人仍试图在新区上使用旧地图。把地图扔掉。是时候画新地图了。你唯一能做到这一点的方法就是行走在这片土地上。"这是在呼吁 AI 领域的一手原则思考——停止导入 SaaS/软件的心智模型，开始观察实际有什么不同。另外："我希望模型的重要性来自更多人实际使用它并得出自己的结论"——对 AI Twitter 上信号与噪声的微妙批评。</p>
+      <div class="urls">
+      <a href="https://x.com/garrytan/status/2065877443874038203">https://x.com/garrytan/status/2065877443874038203</a>
+      <a href="https://x.com/garrytan/status/2065791421362352476">https://x.com/garrytan/status/2065791421362352476</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Zara Zhang</span>
+        <span class="builder-role">Builder / YouTuber / Investor</span>
+      </div>
+      <p class="summary-en">Zara shares an essay on taste and how to cultivate it: "Taste is not just personal preference; good taste requires mastery and experience." A thoughtful post that connects to her broader thesis about builders needing discernment — in an age of AI-generated slop, taste becomes a competitive advantage.</p>
+      <p class="summary-zh zh">Zara 分享了一篇关于品味以及如何培养品味的文章："品味不仅仅是个人偏好；好的品味需要精通和经验。"这是一条有深度的推文，与她关于建设者需要判断力的更广泛论点相连——在 AI 生成垃圾内容的时代，品味变成了竞争优势。</p>
+      <div class="urls">
+      <a href="https://x.com/zarazhangrui/status/2066036778713362747">https://x.com/zarazhangrui/status/2066036778713362747</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Nikunj Kothari</span>
+        <span class="builder-role">FPV Ventures Partner</span>
+      </div>
+      <p class="summary-en">Nikunj drops a truth bomb: "Paid partnerships and boosting 'views' on X are now negative signal in all VC group chats." If you're a founder buying distribution instead of earning it, VCs are talking about you — and not in a good way. Also: "I'm hoping this comes to the inflating ARR trend soon, but that might still take another cycle." A sharp critique of SaaS vanity metrics coming to AI startups.</p>
+      <p class="summary-zh zh">Nikunj 投下了一枚真理炸弹："付费合作和刷 X 上的'浏览量'现在在所有 VC 群聊中都是负面信号。"如果你是一个购买分发而不是赢得分发的创始人，VC 们正在谈论你——而且不是好话。另外："我希望这种情况也能波及到 ARR 通胀趋势，但这可能还需要另一个周期。"这是对正在蔓延到 AI 创业公司的 SaaS 虚荣指标的有力批评。</p>
+      <div class="urls">
+      <a href="https://x.com/nikunj/status/2065889759906644146">https://x.com/nikunj/status/2065889759906644146</a>
+      <a href="https://x.com/nikunj/status/2065832948709122120">https://x.com/nikunj/status/2065832948709122120</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Peter Steinberger</span>
+        <span class="builder-role">OpenClaw / Polyagentmorous ClawFather</span>
+      </div>
+      <p class="summary-en">Peter shares two delightfully weird AI-agent moments. First: "Got a PayPal verification text and thought I'd been hacked, but it was just Codex signing up for a web service it needed." Your AI agent is now autonomously signing you up for services — the future is here and it's mildly alarming. Second: "This shortage of chips is getting out of hand" — posted with a photo, likely commenting on GPU scarcity.</p>
+      <p class="summary-zh zh">Peter 分享了两个令人愉快又奇怪的 AI agent 时刻。第一："收到 PayPal 验证短信，以为我被黑了，但结果只是 Codex 在为它需要的网络服务注册。"你的 AI agent 现在正在自主为你注册服务——未来已经到来，而且有点令人担忧。第二："芯片短缺已经失控了"——附了照片，可能在评论 GPU 稀缺问题。</p>
+      <div class="urls">
+      <a href="https://x.com/steipete/status/2065998839467933862">https://x.com/steipete/status/2065998839467933862</a>
+      <a href="https://x.com/steipete/status/2065997212015067508">https://x.com/steipete/status/2065997212015067508</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Dan Shipper</span>
+        <span class="builder-role">Every CEO</span>
+      </div>
+      <p class="summary-en">Dan's reactions to the Fable/Claude situation are characteristically witty. "dario at the wellness retreat when they told him hegseth was on the phone" — a perfect image. Also tracking his own usage shift: "before and after fable ban: my claude app vs. codex app usage" — with a chart showing the switch. And: "the last thing you see before andy jassy gets your model banned by the usg" — peak Dan sarcasm about the intersection of AI, policy, and corporate politics.</p>
+      <p class="summary-zh zh">Dan 对 Fable/Claude 情况的反应一如既往地机智。"当 Dario 在养生度假村听到 Hegseth 打来电话时的表情"——一幅完美的画面。还追踪了他自己的使用转变："Fable 禁令前后：我的 Claude 应用 vs Codex 应用使用量"——附了显示切换的图表。还有："Andy Jassy 让你的模型被美国政府禁用之前你看到的最后一件事"——关于 AI、政策和企业政治交集的巅峰 Dan 式讽刺。</p>
+      <div class="urls">
+      <a href="https://x.com/danshipper/status/2065975981039649058">https://x.com/danshipper/status/2065975981039649058</a>
+      <a href="https://x.com/danshipper/status/2065856703397278060">https://x.com/danshipper/status/2065856703397278060</a>
+      <a href="https://x.com/danshipper/status/2065843763327738153">https://x.com/danshipper/status/2065843763327738153</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Aditya Agarwal</span>
+        <span class="builder-role">SPC General Partner / Ex-Dropbox CTO</span>
+      </div>
+      <p class="summary-en">Aditya with two reflective posts. First: a moving reflection on the Blue Ghost lunar photo — "a human being took this photo. From a tin cylinder flying on the other side of the moon. A machine could have taken it and it would have still been cool. But man was there. And that makes it so much more evocative." A beautiful reminder of why human presence in space matters. Second: "Watching Brazil play Morocco at 30K feet using Starlink" — a visceral reminder of what SpaceX has enabled.</p>
+      <p class="summary-zh zh">Aditya 的两条反思性推文。第一：对 Blue Ghost 月球照片的深情反思——"一个人类拍下了这张照片。从在月球背面飞行的锡罐里。机器也可以拍，而且也会很酷。但人在那里。这让照片变得更加动人。"这是关于为什么人类在太空中的存在重要的一个美丽提醒。第二："在 3 万英尺高空用 Starlink 看巴西对摩洛哥的比赛"——对 SpaceX 所实现的东西的生动提醒。</p>
+      <div class="urls">
+      <a href="https://x.com/adityaag/status/2065990670184247341">https://x.com/adityaag/status/2065990670184247341</a>
+      <a href="https://x.com/adityaag/status/2065948194723520709">https://x.com/adityaag/status/2065948194723520709</a>
+      </div>
+    </article>
+  </section>
+
+  <!-- ============== PODCASTS ============== -->
+  <section class="section">
+    <div class="section-head">
+      <span class="section-icon">🎙️</span>
+      <h2 class="section-title">Podcasts</h2>
+      <span class="section-meta">1 Episode</span>
+    </div>
+
+    <div class="podcast">
+      <div class="podcast-source">No Priors</div>
+      <h3 class="podcast-title">Biohub: The Future of Biology is Open-Source with Mark Zuckerberg, Priscilla Chan, and Alex Rives</h3>
+
+      <div class="takeaway">
+        <span class="takeaway-label">The Takeaway</span>
+        Biology is entering its "information theory" era — open-source AI tools for protein/cell modeling could accelerate the cure timeline from "end of century" to decades sooner.
+      </div>
+
+      <div class="podcast-body">
+<p>No Priors sits down with Mark Zuckerberg, Priscilla Chan, and Alex Rives — the team behind Biohub's Virtual Biology Initiative. The core thesis: instead of trying to cure diseases directly, build open-source AI tools that let the entire scientific field move faster. They've already folded over 1.1 billion proteins with ESMFold and released it publicly, because the path to progress is through shared tooling, not proprietary silos.</p>
+
+<p>The most striking insight: <strong>biology is entering its "information theory" era</strong>. Just as LLMs learned the structure of language from data, Biohub is training models that learn the structure of proteins, cells, and eventually whole biological systems. The approach is deliberately hierarchical — you can't model a cell without understanding proteins, and you can't model organ systems without understanding cells. This isn't stamp-collecting; it's building a computable understanding of life itself.</p>
+
+<p>On the regulatory and safety dimension: the team is explicitly not promising to cure all disease. The goal is to accelerate the field. By open-sourcing their models (ESMFold is public), they invite the entire biotech industry and academic community to build on top of their work. The long tail of rare diseases — which get orphaned by traditional pharma incentives — may be the biggest beneficiary, because open tools let any scientist working on a niche condition move faster.</p>
+
+<p>A memorable quote from Priscilla Chan: "If we could design a protein to actually change the physiology, then we can actually cure someone." The gap between "we can predict protein structure" and "we can design a curative protein" is where the next decade of biology will be won. And with AI accelerating both the prediction and the design loop, the timeline for "cure, prevent, or manage all disease by end of century" may be too conservative.</p>
+      </div>
+
+      <div class="podcast-divider"></div>
+
+      <div class="podcast-zh">
+<p>No Priors 本期嘉宾是 Mark Zuckerberg、Priscilla Chan 和 Alex Rives——Biohub 虚拟生物倡议背后的团队。核心论点：与其直接尝试治愈疾病，不如构建开源 AI 工具，让整个科学领域走得更快。他们已经用 ESMFold 折叠了超过 11 亿个蛋白质并公开发布，因为进步的路径是通过共享工具，而不是专有孤岛。</p>
+
+<p>最引人注目的洞察：<strong>生物学正在进入它的"信息论"时代</strong>。就像 LLM 从数据中学习了语言的结构，Biohub 正在训练学习蛋白质、细胞、以及最终整个生物系统结构的模型。这个方法故意是分层的——不理解蛋白质就无法建模细胞，不理解细胞就无法建模器官系统。这不是在收集邮票；这是在构建对生命本身的可计算理解。</p>
+
+<p>在监管和安全维度：团队明确不承诺治愈所有疾病。目标是加速这个领域。通过开源他们的模型（ESMFold 是公开的），他们邀请整个生物科技行业和学术社区在他们的工作基础上继续构建。罕见病的长尾——被传统制药激励机制忽视的那些——可能是最大的受益者，因为开放工具让任何研究小众病症的科学家都能走得更快。</p>
+
+<p>Priscilla Chan 的一句令人难忘的话："如果我们能设计一个真正改变生理状态的蛋白质，那么我们就能真正治愈一个人。"从"我们能预测蛋白质结构"到"我们能设计治愈性蛋白质"之间的鸿沟，就是未来十年生物学将要取胜的地方。随着 AI 加速预测和设计循环，到本世纪末"治愈、预防或管理所有疾病"的时间线可能过于保守了。</p>
+      </div>
+
+      <div class="urls" style="margin-top:24px">
+        <a href="https://www.youtube.com/@NoPriorsPodcast">▶️ https://www.youtube.com/@NoPriorsPodcast</a>
+      </div>
+    </div>
+
+  </section>
+
+
+<footer class="footer">
+  <div class="next-issue">📬 下一期：明天 10:00（北京时间）</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->
