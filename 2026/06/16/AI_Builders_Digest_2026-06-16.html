@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest · 2026-06-16</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 12px; padding: 32px; margin-bottom: 24px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
+  .podcast-source { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 10px; }
+  .podcast-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; color: var(--ink); margin-bottom: 24px; }
+  .takeaway { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 8px; padding: 18px 22px; margin-bottom: 24px; font-size: 15px; line-height: 1.7; color: var(--accent-deep); }
+  .takeaway-label { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; background: var(--accent); color: white; padding: 3px 8px; border-radius: 3px; margin-right: 10px; transform: translateY(-2px); }
+  .podcast-body { font-size: 15.5px; color: var(--ink-soft); line-height: 1.75; }
+  .podcast-body p { margin-bottom: 16px; }
+  .podcast-body strong { color: var(--ink); font-weight: 600; }
+  .podcast-divider { height: 1px; background: var(--line); margin: 28px 0; }
+  .podcast-zh { font-family: 'Noto Serif SC', serif; font-size: 15.5px; color: var(--ink); line-height: 1.95; }
+  .podcast-zh p { margin-bottom: 16px; }
+  .podcast-zh strong { color: var(--accent-deep); font-weight: 600; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .podcast { padding: 24px; } .podcast-title { font-size: 19px; } .topbar-inner { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 · Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest · 2026-06-16 · 周一</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">11</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">24</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+<!-- ============= PODCAST ============= -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🎙️</span>
+    <h2 class="section-title">Podcast</h2>
+    <span class="section-meta">Training Data</span>
+  </div>
+
+  <div class="podcast">
+    <div class="podcast-source">Training Data · Published 2026-06-10</div>
+    <div class="podcast-title">LIVE: Jensen Huang on Building the Dynamo of the Intelligence Age</div>
+
+    <div class="takeaway">
+      <span class="takeaway-label">TAKEAWAY</span>
+      Jensen Huang frames NVIDIA's role as the "dynamo of the intelligence age" — AI factories are the new electricity, and the infrastructure buildout underway is the largest in human history.
+    </div>
+
+    <div class="podcast-body">
+      <p><strong>The AI factory thesis.</strong> Huang explains that most people still understand AI through the chatbot interface — you give it a prompt, it says something back. But the real shift is deeper: AI has evolved from text-to-text (ChatGPT) to anything-to-anything. Text to image, image to text, audio to video — the generative model is a universal translator between modalities.</p>
+
+      <p><strong>Why AI factories are the best investment.</strong> An AI factory doesn't just answer questions — it generates intelligence as a product. Enterprises that build AI factories (the infrastructure to generate tokens at scale) will have a sustainable advantage. The "intelligence age" requires rethinking the entire computing stack: not just chips, but the system that turns data into intelligence.</p>
+
+      <p><strong>The infrastructure buildout.</strong> Huang calls the current moment "the largest infrastructure buildout in human history" — bigger than even the industrial revolution. Every enterprise will need to become an "AI factory" to stay competitive. NVIDIA's position: they're not just selling chips; they're selling the dynamo that powers the intelligence age.</p>
+    </div>
+
+    <div class="podcast-divider"></div>
+
+    <div class="podcast-zh zh">
+      <p><strong>AI 工厂理论。</strong> 黄仁勋解释说，大多数人仍然通过聊天机器人界面理解 AI——你给它一个提示，它回复一些内容。但真正的转变更深刻：AI 已经从文本到文本（ChatGPT）演进到任何到任何。文本到图像、图像到文本、音频到视频——生成模型是模态之间的通用翻译器。</p>
+
+      <p><strong>为什么 AI 工厂是最佳投资。</strong> AI 工厂不仅仅回答问题——它生成智能作为产品。构建 AI 工厂（大规模生成 token 的基础设施）的企业将拥有可持续优势。"智能时代"需要重新思考整个计算堆栈：不仅仅是芯片，还有将数据转化为智能的系统。</p>
+
+      <p><strong>基础设施大建设。</strong> 黄仁勋称当前时刻为"人类历史上最大的基础设施大建设"——甚至比工业革命还要大。每家企业都需要成为"AI 工厂"才能保持竞争力。NVIDIA 的定位：他们不仅仅是在销售芯片；他们销售的是驱动智能时代的发电机。</p>
+    </div>
+
+    <div class="urls" style="margin-top: 20px;">
+      <a href="https://www.youtube.com/watch?v=2UpQbeAZuqA">https://www.youtube.com/watch?v=2UpQbeAZuqA</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============= X / TWITTER ============= -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🐦</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">11 Builders</span>
+  </div>
+
+  <!-- Swyx -->
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Swyx</span>
+      <span class="builder-role">Latent Space Host / AI Engineer</span>
+    </div>
+    <p class="summary-en">Swyx is experimenting with Anthropic's Ultracode and finding it "scarily good at burning tokens" — but emphasizes you need to set up your repo to parallelize properly to benefit from subagents. He flags Satya Nadella's framing of "loops as IP" — the first time we can create a real cognitive loop between people and digital systems, changing how we conceptualize enterprise work. Also name-drops Devin AI.</p>
+    <p class="summary-zh zh">Swyx 正在试验 Anthropic 的 Ultracode，发现它"烧 token 的能力好得吓人"——但强调你需要正确设置仓库来实现并行化，才能从 subagent 中受益。他标记了 Satya Nadella 将"循环作为 IP"的框架——这是我们第一次能在人和数字系统之间创建真正的认知循环，改变我们对企业工作的概念化方式。还提到了 Devin AI。</p>
+    <div class="urls">
+      <a href="https://x.com/swyx/status/2066415484149633329">https://x.com/swyx/status/2066415484149633329</a>
+      <a href="https://x.com/swyx/status/2066235625695850526">https://x.com/swyx/status/2066235625695850526</a>
+      <a href="https://x.com/swyx/status/2066225354885488709">https://x.com/swyx/status/2066225354885488709</a>
+    </div>
+  </article>
+
+  <!-- Thibault Sottiaux -->
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thibault Sottiaux</span>
+      <span class="builder-role">OpenAI Codex</span>
+    </div>
+    <p class="summary-en">Thibault explains a powerful Codex capability: it can "see and set its own goal." The deeper insight: everything OpenAI builds, they also build as a tool for the agent. This is a generalization of meta-prompting — you let the agent set its own task based on your intent, rather than prescribing every step. A glimpse into how agent autonomy is evolving inside OpenAI.</p>
+    <p class="summary-zh zh">Thibault 解释了 Codex 的一个强大能力：它可以"看到并设定自己的目标"。更深刻的见解是：OpenAI 构建的一切，他们同时也作为工具给 agent 使用。这是元提示（meta-prompting）的泛化——你让 agent 根据你的意图设定自己的任务，而不是规定每一步。这是 OpenAI 内部 agent 自主性如何演进的一个缩影。</p>
+    <div class="urls">
+      <a href="https://x.com/thsottiaux/status/2066270561081454989">https://x.com/thsottiaux/status/2066270561081454989</a>
+    </div>
+  </article>
+
+  <!-- Peter Yang -->
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">AI Educator / Creator</span>
+    </div>
+    <p class="summary-en">Peter's human side shines through: a curious question to Grok, a genuinely puzzled post about why China and India can't qualify for the World Cup (a rare non-AI post), and promoting his latest interviews (Kieran, Kun, Matt). The through-line: Peter is building a community of builders who learn from each other — and he's not afraid to ask "dumb" questions that everyone's thinking.</p>
+    <p class="summary-zh zh">Peter 人性化的一面闪耀：向 Grok 提出好奇的问题，一条关于为什么中国和印度无法获得世界杯资格的真诚困惑的推文（罕见的非 AI 内容），以及推广他的最新采访（Kieran、Kun、Matt）。主线是：Peter 正在建立一个建设者社区，让他们互相学习——而且他不怕问每个人都想过但没说的"愚蠢"问题。</p>
+    <div class="urls">
+      <a href="https://x.com/petergyang/status/2066344036030636041">https://x.com/petergyang/status/2066344036030636041</a>
+      <a href="https://x.com/petergyang/status/2066331938760314909">https://x.com/petergyang/status/2066331938760314909</a>
+      <a href="https://x.com/petergyang/status/2066309743619244174">https://x.com/petergyang/status/2066309743619244174</a>
+    </div>
+  </article>
+
+  <!-- Nan Yu -->
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nan Yu</span>
+      <span class="builder-role">Head of Product, Linear</span>
+    </div>
+    <p class="summary-en">Nan Yu with a sharp counterpoint: "Everyone pair programs now, with a robot." A succinct reframing of AI coding assistants — the debate about pair programming's effectiveness is over; the robot won. Also: a delightfully random post about color grading subconsciously turning everyone into Knicks fans, and a cheeky jab at a mayor's graphic design skills.</p>
+    <p class="summary-zh zh">Nan Yu 提出了一个尖锐的对立观点："现在每个人都在和机器人配对编程。"这是对 AI 编程助手的简洁重构——关于配对编程有效性的辩论已经结束；机器人赢了。另外：一条关于颜色分级潜意识地把每个人都变成尼克斯球迷的绝妙随机推文，以及对某位市长平面设计技能的俏皮嘲讽。</p>
+    <div class="urls">
+      <a href="https://x.com/thenanyu/status/2066190061419282602">https://x.com/thenanyu/status/2066190061419282602</a>
+      <a href="https://x.com/thenanyu/status/2066189299821711401">https://x.com/thenanyu/status/2066189299821711401</a>
+      <a href="https://x.com/thenanyu/status/2066158221648134602">https://x.com/thenanyu/status/2066158221648134602</a>
+    </div>
+  </article>
+
+  <!-- Amjad Masad -->
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Amjad Masad</span>
+      <span class="builder-role">Replit CEO</span>
+    </div>
+    <p class="summary-en">Amjad shares what he calls "the most inspiring positive-sum vision for AI in the enterprise." No details in the tweet itself — the content is in the linked article/post. But the framing matters: Amjad is actively pushing back against zero-sum narratives about AI replacing jobs, and instead highlighting how AI can expand the pie for everyone in the enterprise.</p>
+    <p class="summary-zh zh">Amjad 分享了他所称的"企业 AI 最鼓舞人心的正和愿景"。推文本身没有细节——内容在链接的文章/帖子中。但框架很重要：Amjad 正在积极反驳关于 AI 取代工作的零和叙事，而是强调 AI 如何为企业中的每个人扩大蛋糕。</p>
+    <div class="urls">
+      <a href="https://x.com/amasad/status/2066195933969412098">https://x.com/amasad/status/2066195933969412098</a>
+    </div>
+  </article>
+
+  <!-- Guillermo Rauch -->
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">Vercel CEO</span>
+    </div>
+    <p class="summary-en">Guillermo is excited about Starlink-enabled flights ("the greatest advancement to air travel since the Wright brothers"), celebrates OpenClaw passing 700,000 skills ("all organic and community-driven — the open⎵ai ecosystem!"), and casually mentions Spain winning 2-0 (likely the Euros). A snapshot of a builder who moves between infra excitement, ecosystem pride, and personal joy.</p>
+    <p class="summary-zh zh">Guillermo 对 Starlink 赋能的航班感到兴奋（"自莱特兄弟以来航空旅行的最大进步"），庆祝 OpenClaw 突破 70 万技能（"全部有机和社区驱动——开放式 AI 生态系统！"），并随口提到西班牙 2-0 获胜（可能是欧洲杯）。这是一个建设者的快照，他在基础设施兴奋、生态系统自豪和个人喜悦之间切换。</p>
+    <div class="urls">
+      <a href="https://x.com/rauchg/status/2066315273947500699">https://x.com/rauchg/status/2066315273947500699</a>
+      <a href="https://x.com/rauchg/status/2066299732277031042">https://x.com/rauchg/status/2066299732277031042</a>
+      <a href="https://x.com/rauchg/status/2066253064957509811">https://x.com/rauchg/status/2066253064957509811</a>
+    </div>
+  </article>
+
+  <!-- Aaron Levie -->
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aaron Levie</span>
+      <span class="builder-role">Box CEO</span>
+    </div>
+    <p class="summary-en">Levie highlights a key strategic point: the companies that will win in AI are those that can get their unique IP, institutional knowledge, and data into a format that captures all AI gains. He's also commenting on the Fable situation's aftermath: open-weight models are the big winner, because the risk that was theoretical 2 days ago (model pullback) now has a real precedent. The game theory matters.</p>
+    <p class="summary-zh zh">Levie 强调了一个关键战略点：在 AI 中获胜的公司是那些能够将其独特 IP、机构知识和数据转化为能够捕获所有 AI 收益的格式的公司。他还在评论 Fable 情况的后果：开放权重模型是最大的赢家，因为 2 天前还是理论性的风险（模型撤回）现在有了一个真实的先例。博弈论很重要。</p>
+    <div class="urls">
+      <a href="https://x.com/levie/status/2066237607244427761">https://x.com/levie/status/2066237607244427761</a>
+      <a href="https://x.com/levie/status/2066167615618466060">https://x.com/levie/status/2066167615618466060</a>
+    </div>
+  </article>
+
+  <!-- Garry Tan -->
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Garry Tan</span>
+      <span class="builder-role">YC President & CEO</span>
+    </div>
+    <p class="summary-en">Garry delivers three profound posts. First: "Open source is the escape hatch for businesses to control their own destiny long term" — a direct response to the Fable/model-pullback situation. Second: a cryptic post about "GBrain users" (likely referencing Google Brain users or a new product). Third: his most forward-looking take — "The next generation of young people who change the world will almost certainly be the people most adept at making long-running multi-stage multi-team agent tasks work extremely well, at high volume, across every part of their lives."</p>
+    <p class="summary-zh zh">Garry 发布了三条深刻的推文。第一："开源是企业长期控制自己命运的安全出口"——对 Fable/模型撤回情况的直接回应。第二：一条关于"GBrain 用户"的神秘推文（可能指的是 Google Brain 用户或新产品）。第三：他最具前瞻性的观点——"下一代改变世界的年轻人几乎可以肯定是最擅长让长时间运行的多阶段多团队 agent 任务在生活的每个部分都非常出色地工作的人。"</p>
+    <div class="urls">
+      <a href="https://x.com/garrytan/status/2066307697574862905">https://x.com/garrytan/status/2066307697574862905</a>
+      <a href="https://x.com/garrytan/status/2066269513935642689">https://x.com/garrytan/status/2066269513935642689</a>
+      <a href="https://x.com/garrytan/status/2066269412391637050">https://x.com/garrytan/status/2066269412391637050</a>
+    </div>
+  </article>
+
+  <!-- Zara Zhang -->
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Zara Zhang</span>
+      <span class="builder-role">Builder / YouTuber / Investor</span>
+    </div>
+    <p class="summary-en">Zara drops two brilliant skill-creation insights: "You make a skill by ending with one, not starting with one" and "You don't make a good skill by writing a skill. You make it by doing the thing, fixing it 20 times, then telling the AI to bottle up everything you just did." This is the builder's approach to prompt engineering: embodied cognition, not theoretical. Do the work first, then bottle it.</p>
+    <p class="summary-zh zh">Zara 投下了两个卓越的技能创建见解："你是通过以一个技能结束来创建一个技能的，而不是从一开始"，以及"你不是通过写一个技能来做出一个好的技能的。你通过做这件事、修复它 20 次、然后告诉 AI 把你刚才做的一切都装瓶来创建它。"这是建设者对提示工程的看法：具身认知，而非理论。先做工作，然后装瓶。</p>
+    <div class="urls">
+      <a href="https://x.com/zarazhangrui/status/2066394505037926426">https://x.com/zarazhangrui/status/2066394505037926426</a>
+      <a href="https://x.com/zarazhangrui/status/2066388749244854771">https://x.com/zarazhangrui/status/2066388749244854771</a>
+      <a href="https://x.com/zarazhangrui/status/2066209311404208636">https://x.com/zarazhangrui/status/2066209311404208636</a>
+    </div>
+  </article>
+
+  <!-- Peter Steinberger -->
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Steinberger</span>
+      <span class="builder-role">OpenClaw / Polyagentmorous ClawFather</span>
+    </div>
+    <p class="summary-en">Peter shares a practical tip for digital nomads: "Mosh + tmux/zellij is a lifesaver for bad in-flight internet." A reminder that even the most AI-obsessed builders still care about the fundamentals of staying connected. (He prefers zellij but says either works.)</p>
+    <p class="summary-zh zh">Peter 为数字游民分享了一个实用技巧："Mosh + tmux/zellij 对于飞行中糟糕的互联网来说是救命稻草。"提醒我们，即使是最痴迷 AI 的建设者仍然关心保持连接的基础。（他更喜欢 zellij，但说两者都可以。）</p>
+    <div class="urls">
+      <a href="https://x.com/steipete/status/2066427449551036469">https://x.com/steipete/status/2066427449551036469</a>
+    </div>
+  </article>
+
+  <!-- Dan Shipper -->
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Dan Shipper</span>
+      <span class="builder-role">Every CEO</span>
+    </div>
+    <p class="summary-en">Dan's entire post: "FREE FABLE" — a succinct celebration of the open-weight model ecosystem's response to the Fable situation. Short, punchy, and aligned with the broader community sentiment that model openness is a public good.</p>
+    <p class="summary-zh zh">Dan 的整条推文："FREE FABLE"——对开放权重模型生态系统对 Fable 情况的响应的简洁庆祝。简短、有力，并与更广泛的社区情绪一致，即模型开放是一种公共产品。</p>
+    <div class="urls">
+      <a href="https://x.com/danshipper/status/2066217865943093514">https://x.com/danshipper/status/2066217865943093514</a>
+    </div>
+  </article>
+
+</section>
+
+<div class="footer">
+  <div class="next-issue">Next issue: tomorrow, 10:00 AM (Asia/Shanghai)</div>
+  <div>AI Builders Digest · Follow builders, not influencers.</div>
+  <div class="signature"><!-- by chloevchen --></div>
+</div>
+
+</body>
+</html>
