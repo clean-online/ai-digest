@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest · 2026-06-18</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin:0; padding:0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255,255,255,0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 12px; padding: 32px; margin-bottom: 24px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
+  .podcast-source { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 10px; }
+  .podcast-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; color: var(--ink); margin-bottom: 24px; }
+  .takeaway { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 8px; padding: 18px 22px; margin-bottom: 24px; font-size: 15px; line-height: 1.7; color: var(--accent-deep); }
+  .takeaway-label { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; background: var(--accent); color: white; padding: 3px 8px; border-radius: 3px; margin-right: 10px; transform: translateY(-2px); }
+  .podcast-body { font-size: 15.5px; color: var(--ink-soft); line-height: 1.75; }
+  .podcast-body p { margin-bottom: 16px; }
+  .podcast-body strong { color: var(--ink); font-weight: 600; }
+  .podcast-divider { height: 1px; background: var(--line); margin: 28px 0; }
+  .podcast-zh { font-family: 'Noto Serif SC', serif; font-size: 15.5px; color: var(--ink); line-height: 1.95; }
+  .podcast-zh p { margin-bottom: 16px; }
+  .podcast-zh strong { color: var(--accent-deep); font-weight: 600; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .podcast { padding: 24px; } .podcast-title { font-size: 19px; } .topbar-inner { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 · Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest · 2026-06-18 · 周三</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">16</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">34</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+
+<!-- ============= PODCAST ============= -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🎙️</span>
+    <h2 class="section-title">Podcast</h2>
+    <span class="section-meta">Training Data</span>
+  </div>
+
+  <div class="podcast">
+    <div class="podcast-source">Training Data · Published 2026-06-16</div>
+    <div class="podcast-title">Simulating Humans at Scale: Simile's Joon Sung Park</div>
+
+    <div class="takeaway">
+      <span class="takeaway-label">TAKEAWAY</span>
+      Joon Sung Park, founder of Simile, argues that we're finally ready to build the "simulation pillar" of sci-fi societies — LLMs now encode enough human behavior to create generative agents that form believable micro-behaviors, and Smallville was just the beginning.
+    </div>
+
+    <div class="podcast-body">
+      <p><strong>From Smallville to Simile.</strong> Park's Stanford experiment "Smallville" (Apr 2023) proved that LLMs can encode human behavior from web data and generate believable micro-behaviors — what would person X do in situation Y? That insight became the foundation for Simile, an applied AI lab simulating human behavior and societies at scale.</p>
+
+      <p><strong>Why simulations matter.</strong> Sci-fi societies always have two pillars: AGI and simulations that guide society. We now have the first real crack at building the simulation pillar. The conviction: simulations won't just be games — they'll guide real-world decisions by modeling how humans actually behave, not how they say they behave.</p>
+
+      <p><strong>The current moment.</strong> Five years ago this would've been impossible. Today, the combination of LLMs + agentic frameworks makes it feasible to simulate not just individuals but societies — groups, cultures, emergent behaviors. Simile is building the infrastructure layer for this: applied simulation as a service.</p>
+    </div>
+
+    <div class="podcast-divider"></div>
+
+    <div class="podcast-zh zh">
+      <p><strong>从 Smallville 到 Simile。</strong> Park 在斯坦福的"Smallville"实验（2023 年 4 月）证明了 LLM 可以从网络数据中编码人类行为，并生成可信的微行为——情况 X 下，人物 Y 会做什么？这一洞察成为了 Simile 的基础，这是一家大规模模拟人类行为和社会的应用 AI 实验室。</p>
+
+      <p><strong>为什么模拟很重要。</strong> 科幻社会总是有两个支柱：AGI 和引导社会的模拟。我们现在第一次真正有机会构建模拟支柱。核心信念：模拟不仅仅是游戏——它们将通过建模人类的实际行为（而非他们声称的行为）来引导现实世界的决策。</p>
+
+      <p><strong>当前时刻。</strong> 五年前这还是不可能的事。今天，LLM + agentic 框架的结合使得不仅模拟个人，还能模拟社会——群体、文化、涌现行为——成为可能。Simile 正在为此构建基础设施层：应用模拟即服务。</p>
+    </div>
+
+    <div class="urls" style="margin-top:20px;">
+      <a href="https://www.youtube.com/watch?v=lfhFmwcESRw">https://www.youtube.com/watch?v=lfhFmwcESRw</a>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ============= BLOGS ============= -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">📝</span>
+    <h2 class="section-title">Official Blogs</h2>
+    <span class="section-meta">Claude Blog</span>
+  </div>
+
+  <div class="podcast" style="border-left:3px solid var(--accent);">
+    <div class="podcast-source">Claude Blog · Published Jun 08, 2026</div>
+    <div class="podcast-title">Building intelligent apps for Apple platforms with Claude in the Foundation Models framework</div>
+
+    <div class="podcast-body">
+      <p><strong>Claude meets Apple's on-device models.</strong> Anthropic released Foundation Models framework support for Claude via a new Swift package. Apple developers can now use Apple's Foundation Models framework (iOS 26+, etc.) to call Claude for complex workflows — multi-step reasoning, code generation, web search, and data analysis — while keeping fast local tasks on-device.</p>
+
+      <p><strong>How it works.</strong> Apple's framework returns typed Swift values from <code>@Generable</code> annotations, so developers arrive at the Claude API call with clean inputs instead of raw user text. Claude's response streams back into the same view. One experience for the user, backed by the right model for each step: on-device for speed, Claude for depth.</p>
+
+      <p><strong>What this unlocks.</strong> A journaling app can generate daily prompts on-device, then ask Claude to find threads across months of entries. A study app can define a term on-device, then hand off to Claude when the student asks "why does this matter for everything else we've covered?" It's a hybrid architecture that plays to each model's strengths.</p>
+    </div>
+
+    <div class="podcast-divider"></div>
+
+    <div class="podcast-zh zh">
+      <p><strong>Claude 接入 Apple 设备端模型。</strong> Anthropic 通过新的 Swift 包发布了 Claude 对 Foundation Models 框架的支持。Apple 开发者现在可以使用 Apple 的 Foundation Models 框架（iOS 26+ 等）调用 Claude 处理复杂工作流——多步推理、代码生成、网络搜索和数据分析——同时将快速本地任务保留在设备上。</p>
+
+      <p><strong>工作原理。</strong> Apple 的框架通过 <code>@Generable</code> 注解返回类型化的 Swift 值，因此开发者在调用 Claude API 时拥有清晰的输入，而非原始用户文本。Claude 的响应流式传回同一视图。对用户来说是一个体验，每个步骤都由合适的模型支撑：设备上处理速度，Claude 处理深度。</p>
+
+      <p><strong>这意味着什么。</strong> 日记应用可以在设备上生成每日提示，然后让 Claude 在数月的条目中寻找线索。学习应用可以在设备上定义术语，然后当学生问"为什么这对我们涵盖的其他所有内容都很重要？"时交给 Claude。这是一种混合架构，发挥了每个模型的优势。</p>
+    </div>
+
+    <div class="urls" style="margin-top:20px;">
+      <a href="https://claude.com/blog/claude-for-foundation-models">https://claude.com/blog/claude-for-foundation-models</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============= X / TWITTER ============= -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🐦</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">16 Builders</span>
+  </div>
+
+  <!-- Swyx -->
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Swyx</span>
+      <span class="builder-role">Latent Space Host / AI Engineer</span>
+    </div>
+    <p class="summary-en">Swyx is watching the Cursor acquisition ripple effects — commenting on how everyone is now "Github competitor fml" as the application layer consolidates. He's also tracking WorkOS's content strategy, noting that the AI Engineer audience "LOVES the WorkOS content." A sharp observer of what makes developer-focused content actually work.</p>
+    <p class="summary-zh zh">Swyx 正在观察 Cursor 收购的连锁反应——评论每个人都现在"变成 Github 竞争对手 fml"，因为应用层正在整合。他还在追踪 WorkOS 的内容策略，注意到 AI 工程师受众"非常喜欢 WorkOS 的内容"。他是观察开发者聚焦内容真正有效因素的敏锐观察者。</p>
+    <div class="urls">
+      <a href="https://x.com/swyx/status/2067057648617538037">https://x.com/swyx/status/2067057648617538037</a>
+      <a href="https://x.com/swyx/status/2067023688906822020">https://x.com/swyx/status/2067023688906822020</a>
+      <a href="https://x.com/swyx/status/2066937943139479618">https://x.com/swyx/status/2066937943139479618</a>
+    </div>
+  </article>
+
+  <!-- Josh Woodward -->
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Josh Woodward</span>
+      <span class="builder-role">Google VP (Gemini / Google Labs)</span>
+    </div>
+    <p class="summary-en">Josh announces the expansion of Google's AI Futures Fund to Brazil — partnering with Monashees to launch the Gama Fund. Selected deep-tech founders get early access to Google DeepMind models, up to $2M co-investment, $350K in Google Cloud credits, and direct co-development with Google engineers at the new IPT Open campus hub. A major push to cultivate the next wave of world-changing AI companies from Brazil.</p>
+    <p class="summary-zh zh">Josh 宣布 Google AI Futures Fund 扩展到巴西——与 Monashees 合作推出 Gama Fund。被选中的深度科技创始人可以获得 Google DeepMind 模型的早期访问权限、高达 200 万美元的共同投资、35 万美元的 Google Cloud 额度，以及与 Google 工程师在新 IPT Open 校区中心直接共同开发的机会。这是培养来自巴西的下一批改变世界的 AI 公司的重大举措。</p>
+    <div class="urls">
+      <a href="https://x.com/joshwoodward/status/2067025851829330076">https://x.com/joshwoodward/status/2067025851829330076</a>
+    </div>
+  </article>
+
+  <!-- Thibault Sottiaux -->
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thibault Sottiaux</span>
+      <span class="builder-role">OpenAI Codex</span>
+    </div>
+    <p class="summary-en">Thibault is in France for the week rolling out Codex features across Europe — and celebrating that the rate limit reset is coming (24 hours). The bigger story: Codex experienced high error rates ("model at capacity") but the team fixed it rapidly. Thibault's tweet about "Bim bada boum" (I'm in France) got 1223 likes — the community is excited about European expansion.</p>
+    <p class="summary-zh zh">Thibault 本周在法国，正在整个欧洲推出 Codex 功能——并庆祝速率限制即将重置（24 小时内）。更大的故事是：Codex 经历了高错误率（"模型容量不足"），但团队迅速修复了它。Thibault 关于"Bim bada boum"（我在法国）的推文获得了 1223 个赞——社区对欧洲扩展感到兴奋。</p>
+    <div class="urls">
+      <a href="https://x.com/thsottiaux/status/2067064381855187231">https://x.com/thsottiaux/status/2067064381855187231</a>
+      <a href="https://x.com/thsottiaux/status/2066956441173323943">https://x.com/thsottiaux/status/2066956441173323943</a>
+      <a href="https://x.com/thsottiaux/status/2066865154902380796">https://x.com/thsottiaux/status/2066865154902380796</a>
+    </div>
+  </article>
+
+  <!-- Peter Yang -->
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">AI Educator / Creator</span>
+    </div>
+    <p class="summary-en">Peter is publishing a new tutorial on making Codex or Claude Code your personal advisor using a skill with 4 files — and managed to save Fable's advice before it got restricted. He's also candidly critiquing a CEO's product launch ("I don't want to be a hater but... nobody internally wants to tell the CEO no"), and commenting on the trend of 1000+ person companies doing the same thing repeatedly. Always sharp, always human.</p>
+    <p class="summary-zh zh">Peter 正在发布一篇新教程，关于如何使用一个包含 4 个文件的 skill 让 Codex 或 Claude Code 成为你的个人顾问——并在 Fable 的建议被限制之前成功保存了它。他还坦率地批评了一位 CEO 的产品发布（"我不想当黑子，但……内部没人想对 CEO 说不"），并评论了 1000+ 人公司重复做同样事情的趋势。总是尖锐，总是人性化。</p>
+    <div class="urls">
+      <a href="https://x.com/petergyang/status/2067056979974160749">https://x.com/petergyang/status/2067056979974160749</a>
+      <a href="https://x.com/petergyang/status/2067047343971848201">https://x.com/petergyang/status/2067047343971848201</a>
+      <a href="https://x.com/petergyang/status/2066975504973050077">https://x.com/petergyang/status/2066975504973050077</a>
+    </div>
+  </article>
+
+  <!-- Madhu Guru -->
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Madhu Guru</span>
+      <span class="builder-role">Prev: Google Gemini / Veo Product Leader</span>
+    </div>
+    <p class="summary-en">Madhu argues that over the last century we've treated intellect as the defining human trait and under-invested in what makes us uniquely human — self-awareness, intuition, compassion, kindness. The next few years will force us to rethink this. He also weighs in on the SpaceX-Cursor deal: the real prize is the agentic harness that will become the core for automating all knowledge work at scale — planning, context management, tool use, iteration, verification, memory, error recovery.</p>
+    <p class="summary-zh zh">Madhu 认为，在上个世纪，我们将智力视为人类的决定性特征，而在让我们独特人性的方面投资不足——自我意识、直觉、同情心和善良。未来几年将迫使我们重新思考这一点。他还评论了 SpaceX-Cursor 交易：真正的奖品是 agentic harness，它将成为大规模自动化所有知识工作的核心——规划、上下文管理、工具使用、迭代、验证、记忆、错误恢复。</p>
+    <div class="urls">
+      <a href="https://x.com/realmadhuguru/status/2067090477434966396">https://x.com/realmadhuguru/status/2067090477434966396</a>
+      <a href="https://x.com/realmadhuguru/status/2066935654500671499">https://x.com/realmadhuguru/status/2066935654500671499</a>
+    </div>
+  </article>
+
+  <!-- Thariq -->
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thariq</span>
+      <span class="builder-role">Anthropic (Claude Code)</span>
+    </div>
+    <p class="summary-en">Thariq flags that Slack now renders HTML attachments instead of showing them as text — a small but significant UI change that affects how code and structured content is shared in teams. A subtle but important observation about how communication tools are evolving to handle richer content formats.</p>
+    <p class="summary-zh zh">Thariq 标记了 Slack 现在渲染 HTML 附件而不是直接显示为文本——这是一个微小但重要的 UI 变化，影响了代码和结构化内容在团队中的共享方式。这是关于通信工具如何演进以处理更丰富内容格式的微妙但重要的观察。</p>
+    <div class="urls">
+      <a href="https://x.com/trq212/status/2067021344341098670">https://x.com/trq212/status/2067021344341098670</a>
+    </div>
+  </article>
+
+  <!-- Amjad Masad -->
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Amjad Masad</span>
+      <span class="builder-role">Replit CEO</span>
+    </div>
+    <p class="summary-en">Amjad celebrates Replit winning Databricks Partner of the Year — a significant enterprise validation. The tweet is brief but the implication is clear: Replit's enterprise GTM is working, and the partnership with Databricks signals serious enterprise data integration momentum.</p>
+    <p class="summary-zh zh">Amjad 庆祝 Replit 赢得 Databricks 年度合作伙伴——这是重要的企业认可。推文简短，但含义清晰：Replit 的企业 GTM 正在发挥作用，与 Databricks 的合作标志着严肃的企业数据集成势头。</p>
+    <div class="urls">
+      <a href="https://x.com/amasad/status/2066956074360426622">https://x.com/amasad/status/2066956074360426622</a>
+    </div>
+  </article>
+
+  <!-- Guillermo Rauch -->
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">Vercel CEO</span>
+    </div>
+    <p class="summary-en">Guillermo shares two Vercel infrastructure updates: 30-minute function invocations and 24-hour sandbox lifetimes — both significant for long-running workloads. He also posts the cryptic "It's time to ship" and a "this aged well" follow-up, hinting at a major release or announcement that the community is eagerly watching.</p>
+    <p class="summary-zh zh">Guillermo 分享了两个 Vercel 基础设施更新：30 分钟函数调用和 24 小时沙盒生命周期——两者对长时间运行的工作负载都很重要。他还发布了神秘的"是时候发布了"和"这个 aging 得很好"的后续，暗示着社区热切关注的重大发布或公告。</p>
+    <div class="urls">
+      <a href="https://x.com/rauchg/status/2067137678772937000">https://x.com/rauchg/status/2067137678772937000</a>
+      <a href="https://x.com/rauchg/status/2067106499449565265">https://x.com/rauchg/status/2067106499449565265</a>
+      <a href="https://x.com/rauchg/status/2067098826830164310">https://x.com/rauchg/status/2067098826830164310</a>
+    </div>
+  </article>
+
+  <!-- Aaron Levie -->
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aaron Levie</span>
+      <span class="builder-role">Box CEO</span>
+    </div>
+    <p class="summary-en">Levie dives deep on two strategic themes. First: the open-weights vs. closed model gap — how far behind open weights remain will determine chip stack, inference location, sovereign AI, margin structure, and applied AI layer economics. Second: Cursor as the first at-scale template for applied AI execution — domain focus, model routing, GTM, all tuned to carve out ground in a competitive space.</p>
+    <p class="summary-zh zh">Levie 深入探讨两个战略主题。第一：开放权重与封闭模型的差距——开放权重落后多少将决定芯片堆栈、推理位置、主权 AI、利润结构和应用 AI 层经济学。第二：Cursor 作为应用 AI 执行的首个规模化模板——领域聚焦、模型路由、GTM，全部调整以在竞争空间中开辟立足点。</p>
+    <div class="urls">
+      <a href="https://x.com/levie/status/2067070918300664161">https://x.com/levie/status/2067070918300664161</a>
+      <a href="https://x.com/levie/status/2066908002809221496">https://x.com/levie/status/2066908002809221496</a>
+    </div>
+  </article>
+
+  <!-- Ryo Lu -->
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Ryo Lu</span>
+      <span class="builder-role">Cursor Design Lead</span>
+    </div>
+    <p class="summary-en">Ryo shares that most of Cursor Mobile was coded by a "designer" (@rikcreation) using Cursor — "titles don't mean shit, you can just build." He also drops a mind-bending idea: "what if X and Cursor were the same thing?" The fusion of social networking and coding interfaces — a glimpse into a possible future where your social graph and your dev environment are one.</p>
+    <p class="summary-zh zh">Ryo 分享说 Cursor Mobile 的大部分是由一位"设计师"（@rikcreation）使用 Cursor 编码的——"头衔不代表什么，你只需要构建。"他还提出了一个令人兴奋的想法："如果 X 和 Cursor 是同一个东西呢？"社交网络和编码界面的融合——窥见了社交图谱和开发环境合二为一的可能未来。</p>
+    <div class="urls">
+      <a href="https://x.com/ryolu_/status/2067138928864555222">https://x.com/ryolu_/status/2067138928864555222</a>
+      <a href="https://x.com/ryolu_/status/2067124871226929526">https://x.com/ryolu_/status/2067124871226929526</a>
+      <a href="https://x.com/ryolu_/status/2066902677905461579">https://x.com/ryolu_/status/2066902677905461579</a>
+    </div>
+  </article>
+
+  <!-- Garry Tan -->
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Garry Tan</span>
+      <span class="builder-role">YC President & CEO</span>
+    </div>
+    <p class="summary-en">Garry is on brand: promoting 9Mothers (defense tech), critiquing "looksmaxxing" as a path to outsized returns, and diving deep on Bowen's "differentiation of self" framework — low-differentiation people are either chameleons (please others) or bullies (force others), both are undifferentiated. The fix: lower chronic anxiety, raise capacity to stay a separate self. Classic Garry: startup psychology meets self-help.</p>
+    <p class="summary-zh zh">Garry 保持本色：推广 9Mothers（国防科技），批评"外貌最大化"作为获得超额回报的路径，并深入探讨 Bowen 的"自我分化"框架——低分化的人要么是变色龙（取悦他人），要么是恶霸（强迫他人），两者都是未分化的。解决方法：降低慢性焦虑，提高保持独立自我的能力。典型的 Garry：创业心理学遇见自助。</p>
+    <div class="urls">
+      <a href="https://x.com/garrytan/status/2067101655934591154">https://x.com/garrytan/status/2067101655934591154</a>
+      <a href="https://x.com/garrytan/status/2067101283493040518">https://x.com/garrytan/status/2067101283493040518</a>
+      <a href="https://x.com/garrytan/status/2067100549775032702">https://x.com/garrytan/status/2067100549775032702</a>
+    </div>
+  </article>
+
+  <!-- Matt Turck -->
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Matt Turck</span>
+      <span class="builder-role">FirstMark VC (MAD Podcast)</span>
+    </div>
+    <p class="summary-en">Matt shares a photo of FirstMark Guilds Summit swag — a lighter moment showing the community-building side of VC work. Not every tweet needs to be a thesis; sometimes it's just showing up and building relationships.</p>
+    <p class="summary-zh zh">Matt 分享了一张 FirstMark Guilds Summit 宣传品的照片——一个轻松的时刻，展示了 VC 工作的社区建设一面。不是每条推文都需要是一篇论文；有时只是出现并建立关系。</p>
+    <div class="urls">
+      <a href="https://x.com/mattturck/status/2066875878731100668">https://x.com/mattturck/status/2066875878731100668</a>
+    </div>
+  </article>
+
+  <!-- Zara Zhang -->
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Zara Zhang</span>
+      <span class="builder-role">Builder / YouTuber / Investor</span>
+    </div>
+    <p class="summary-en">Zara drops two gems: "You don't have to chase the cool thing. Do whatever you're already doing so well that it becomes the cool thing." And: "Every other product is 'an AI agent that does everything' — that's just Claude/Codex. If you want me to use your thing, it needs an opinion & a soul. Build small & sharp, not big & generic." Essential product philosophy for the AI age.</p>
+    <p class="summary-zh zh">Zara 投下两颗宝石："你不必追逐酷的东西。把你已经在做的事情做得足够好，让它变成酷的东西。"以及："所有其他产品都是'一个能做所有事情的 AI agent'——那只是 Claude/Codex。如果你想让我使用你的东西，它需要有观点和灵魂。构建小而锋利的东西，而不是大而通用的。"AI 时代必备的产品哲学。</p>
+    <div class="urls">
+      <a href="https://x.com/zarazhangrui/status/2066994434953421226">https://x.com/zarazhangrui/status/2066994434953421226</a>
+      <a href="https://x.com/zarazhangrui/status/2066936706281206165">https://x.com/zarazhangrui/status/2066936706281206165</a>
+    </div>
+  </article>
+
+  <!-- Nikunj Kothari -->
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nikunj Kothari</span>
+      <span class="builder-role">FPV Ventures Partner (ex-Meter/OpenDoor)</span>
+    </div>
+    <p class="summary-en">Nikunj reports that the vibes at Cursor Compile were "immaculate" — and the custom mechanical keyboard swag sets a new ceiling for conference swag. He also comments on the Cursor acquisition setting the path for more application companies: "Be in the judgment (data) path or the token path." A crisp framing of where value accrues in the AI stack.</p>
+    <p class="summary-zh zh">Nikunj 报告说 Cursor Compile 的氛围"无懈可击"——定制机械键盘宣传品为会议宣传品设立了新的天花板。他还评论了 Cursor 收购为更多应用公司开辟了道路："要么在判断（数据）路径中，要么在 token 路径中。"这是 AI 堆栈中价值累积位置的清晰框架。</p>
+    <div class="urls">
+      <a href="https://x.com/nikunj/status/2066966270197805331">https://x.com/nikunj/status/2066966270197805331</a>
+      <a href="https://x.com/nikunj/status/2066905445974102384">https://x.com/nikunj/status/2066905445974102384</a>
+    </div>
+  </article>
+
+  <!-- Dan Shipper -->
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Dan Shipper</span>
+      <span class="builder-role">Every CEO</span>
+    </div>
+    <p class="summary-en">Dan thinks "this is quite likely" (responding to a prediction about AI progress) and shares that he switched back from Atlas Browser to Dia due to weird bugs. A grounded perspective on the AI browser wars — the best product doesn't always win if the UX is buggy.</p>
+    <p class="summary-zh zh">Dan 认为"这很可能"（回应关于 AI 进展的预测），并分享由于奇怪的 bug，他从 Atlas Browser 切换回了 Dia。这是关于 AI 浏览器战争的接地气的观点——如果 UX 有很多 bug，最好的产品并不总是获胜。</p>
+    <div class="urls">
+      <a href="https://x.com/danshipper/status/2066988174849749303">https://x.com/danshipper/status/2066988174849749303</a>
+      <a href="https://x.com/danshipper/status/2066914130863473048">https://x.com/danshipper/status/2066914130863473048</a>
+    </div>
+  </article>
+
+  <!-- Aditya Agarwal -->
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aditya Agarwal</span>
+      <span class="builder-role">South Park Commons GP (ex-Facebook/DoorDash)</span>
+    </div>
+    <p class="summary-en">Aditya is recruiting for SPC and promoting an upcoming event with Sridhar Ramaswamy (who grew Google's ad business from $1.5B to $100B+, now running Snowflake through the AI shift). A reminder that SPC is building a community of builders at the intersection of technology and... everything else.</p>
+    <p class="summary-zh zh">Aditya 正在为 SPC 招募，并推广即将与 Sridhar Ramaswamy 举行的活动（他将 Google 的广告业务从 15 亿美元增长到 1000 亿美元以上，现在正在带领 Snowflake 度过 AI 转型）。提醒我们，SPC 正在技术在……其他一切……的交叉点建设建设者社区。</p>
+    <div class="urls">
+      <a href="https://x.com/adityaag/status/2066915805476827629">https://x.com/adityaag/status/2066915805476827629</a>
+      <a href="https://x.com/adityaag/status/2066915803610370098">https://x.com/adityaag/status/2066915803610370098</a>
+    </div>
+  </article>
+
+
+</section>
+
+<div class="footer">
+  <div class="next-issue">Next issue: tomorrow, 10:00 AM (Asia/Shanghai)</div>
+  <div>AI Builders Digest · Follow builders, not influencers.</div>
+  <div class="signature"><!-- by chloevchen --></div>
+</div>
+
+</body>
+</html>
