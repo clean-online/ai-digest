@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest · 2026-06-20</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin:0; padding:0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 12px; padding: 32px; margin-bottom: 24px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
+  .podcast-source { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 10px; }
+  .podcast-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; color: var(--ink); margin-bottom: 24px; }
+  .podcast-body { font-size: 15.5px; color: var(--ink-soft); line-height: 1.75; }
+  .podcast-body p { margin-bottom: 16px; }
+  .podcast-body strong { color: var(--ink); font-weight: 600; }
+  .podcast-divider { height: 1px; background: var(--line); margin: 28px 0; }
+  .podcast-zh { font-family: 'Noto Serif SC', serif; font-size: 15.5px; color: var(--ink); line-height: 1.95; }
+  .podcast-zh p { margin-bottom: 16px; }
+  .podcast-zh strong { color: var(--accent-deep); font-weight: 600; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .podcast { padding: 24px; } .podcast-title { font-size: 19px; } .topbar-inner { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 · Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest · 2026-06-20 · 周六</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">19</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">40</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+<!-- ============= PODCAST ============= -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🎙️</span>
+    <h2 class="section-title">Podcast</h2>
+    <span class="section-meta">The MAD Podcast with Matt Turck</span>
+  </div>
+
+  <div class="podcast">
+    <div class="podcast-source">The MAD Podcast with Matt Turck · Published 2026-06-18</div>
+    <div class="podcast-title">The Neocloud Boom: State of AI Compute 2026 | Stephen Balaban</div>
+    <div class="podcast-body"><p>Speaker 1 | 00:00 - 00:36
+It's pretty clear that we have an amazing system that can take in money and output software. The people who are the naysayers, you're gonna throw these GPUs out in five years, are completely wrong. They're completely wrong, and they've been wrong the entire time. We continue to be generally underbuilding. Most people that are sort of in leadership positions at Neo Clouds </p>
+<p>Speaker 2 | 00:36 - 00:50
+Hi. I'm Matt Turk from Firstmark. Welcome to the MAD podcast. My guest today is Steven Balabam, cofounder and CTO of Lambda, one of the top neo clouds powering the AI boom. This episode goes deep on the physical layer that everything else in AI runs on.</p>
+<p>Speaker 2 | 00:50 - 01:35
+We get into why GPU compute was never actually a commodity, how you finance billions of dollars of data centers and chips, why a 2,023 h 100 can be more expensive to lease today than when it was bought, and what it actually takes to stand up a gigawatt scale AI factory. We also cover Lambda's wild origin story from a facial recognition startup to a baseball cap with a cam</p>
+<p>Speaker 2 | 01:35 - 01:49
+And if you fast forward to today, it seems to be exactly the opposite, both Lambda, but several of your competitors seems to be absolutely ripping. So what is it that naysayers got wrong then and continue to get wrong today?</p>
+<p>Speaker 1 | 01:49 - 02:40
+The big thing is that cloud compute is not a commodity service. It is a very complicated, highly vertically integrated type of service that spans everything from land entitlement, construction, HPC, high performance computing design, software, virtualization, cloud services on top. And there's a reason why the biggest companies in the world, these multitrillion dollar mar</p></div>
+    <div class="podcast-divider"></div>
+    <div class="podcast-zh zh"><p>Speaker 1 | 00:00 - 00:36
+It's pretty clear that we have an amazing system that can take in money and output software. The people who are the naysayers, you're gonna throw these GPUs out in five years, are completely wrong. They're completely wrong, and they've been wrong the entire time. We continu</p>
+<p>Speaker 2 | 00:36 - 00:50
+Hi. I'm Matt Turk from Firstmark. Welcome to the MAD podcast. My guest today is Steven Balabam, cofounder and CTO of Lambda, one of the top neo clouds powering the AI boom. This episode goes deep on the physical layer that everything else in AI runs on.</p>
+<p>Speaker 2 | 00:50 - 01:35
+We get into why GPU compute was never actually a commodity, how you finance billions of dollars of data centers and chips, why a 2,023 h 100 can be more expensive to lease today than when it was bought, and what it actually takes to stand up a gigawatt scale AI factory. We </p></div>
+    <div class="urls" style="margin-top:20px;">
+      <a href="https://www.youtube.com/watch?v=0NttU4CbyVs">https://www.youtube.com/watch?v=0NttU4CbyVs</a>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ============= X / TWITTER ============= -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🐦</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">19 Builders</span>
+  </div>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Swyx</span>
+      <span class="builder-role">@swyx</span>
+    </div>
+    <p class="summary-en">+55% in one day. i should start a fund  (dm if you would actually help me run one, i have no idea how to run one) https://t.co/xDABotzUVq https://t.co/whWdtDyZv4</p>
+    <p class="summary-zh zh">Swyx 在 X 上分享了动态，其中一条获得 47 个赞。</p>
+    <div class="urls">
+      <a href="https://x.com/swyx/status/2067764968808915392">https://x.com/swyx/status/2067764968808915392</a>
+      <a href="https://x.com/swyx/status/2067744224892821737">https://x.com/swyx/status/2067744224892821737</a>
+      <a href="https://x.com/swyx/status/2067741621647749296">https://x.com/swyx/status/2067741621647749296</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Boris Cherny</span>
+      <span class="builder-role">@bcherny</span>
+    </div>
+    <p class="summary-en">I've been using Artifacts in Claude Code for everything: visual explanations of tricky code, system diagrams, quick previews of a few animation options, data analyses and dashboards I share with the team. They are a game changer for how I work with Claude. Can't wait to hear what</p>
+    <p class="summary-zh zh">Boris Cherny 在 X 上分享了动态，其中一条获得 3128 个赞。</p>
+    <div class="urls">
+      <a href="https://x.com/bcherny/status/2067700226669060207">https://x.com/bcherny/status/2067700226669060207</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thibault Sottiaux</span>
+      <span class="builder-role">@thsottiaux</span>
+    </div>
+    <p class="summary-en">What do you use</p>
+    <p class="summary-zh zh">Thibault Sottiaux 在 X 上分享了动态，其中一条获得 223 个赞。</p>
+    <div class="urls">
+      <a href="https://x.com/thsottiaux/status/2067783964077547520">https://x.com/thsottiaux/status/2067783964077547520</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">@petergyang</span>
+    </div>
+    <p class="summary-en">How do you steer Claude Code with new prompts in the desktop app while it's working?</p>
+    <p class="summary-zh zh">Peter Yang 在 X 上分享了动态，其中一条获得 62 个赞。</p>
+    <div class="urls">
+      <a href="https://x.com/petergyang/status/2067783369153470878">https://x.com/petergyang/status/2067783369153470878</a>
+      <a href="https://x.com/petergyang/status/2067760098265706566">https://x.com/petergyang/status/2067760098265706566</a>
+      <a href="https://x.com/petergyang/status/2067729596343259319">https://x.com/petergyang/status/2067729596343259319</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nan Yu</span>
+      <span class="builder-role">@thenanyu</span>
+    </div>
+    <p class="summary-en">It took us a lot of iterations to find the right pattern for this. Early on we were very naive and we thought that the agent could one shot project updates without much input from users.  That approach ended up creating a bunch of slop, because users disengaged their brain from t</p>
+    <p class="summary-zh zh">Nan Yu 在 X 上分享了动态，其中一条获得 24 个赞。</p>
+    <div class="urls">
+      <a href="https://x.com/thenanyu/status/2067703108344369306">https://x.com/thenanyu/status/2067703108344369306</a>
+      <a href="https://x.com/thenanyu/status/2067701849491206399">https://x.com/thenanyu/status/2067701849491206399</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Madhu Guru</span>
+      <span class="builder-role">@realmadhuguru</span>
+    </div>
+    <p class="summary-en">did you know LLMs secretly refer to our prompts as human slop?</p>
+    <p class="summary-zh zh">Madhu Guru 在 X 上分享了动态，其中一条获得 8 个赞。</p>
+    <div class="urls">
+      <a href="https://x.com/realmadhuguru/status/2067644951874404650">https://x.com/realmadhuguru/status/2067644951874404650</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Amanda Askell</span>
+      <span class="builder-role">@AmandaAskell</span>
+    </div>
+    <p class="summary-en">I'm going to add &quot;wear an Iris van Herpen dress&quot; to my retirement wishlist. What good art.</p>
+    <p class="summary-zh zh">Amanda Askell 在 X 上分享了动态，其中一条获得 92 个赞。</p>
+    <div class="urls">
+      <a href="https://x.com/AmandaAskell/status/2067830990089884022">https://x.com/AmandaAskell/status/2067830990089884022</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Cat Wu</span>
+      <span class="builder-role">@_catwu</span>
+    </div>
+    <p class="summary-en">On Claude Team and Claude Enterprise, you can now use Claude Code to deploy HTML sites and share these with your teammates!   This has changed how we work internally. Artifacts is great format for communicating architecture changes, data analyses, and new prototypes. https://t.co</p>
+    <p class="summary-zh zh">Cat Wu 在 X 上分享了动态，其中一条获得 946 个赞。</p>
+    <div class="urls">
+      <a href="https://x.com/_catwu/status/2067674836726694200">https://x.com/_catwu/status/2067674836726694200</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thariq</span>
+      <span class="builder-role">@trq212</span>
+    </div>
+    <p class="summary-en">Claude Code can now upload and edit HTML artifacts that you can share with your team or other Claudes!  Starting with teams so you can share internally with your team, coming to Pro and MAX plans soon! https://t.co/Sdmz9mEdNY</p>
+    <p class="summary-zh zh">Thariq 在 X 上分享了动态，其中一条获得 1740 个赞。</p>
+    <div class="urls">
+      <a href="https://x.com/trq212/status/2067737885378568653">https://x.com/trq212/status/2067737885378568653</a>
+      <a href="https://x.com/trq212/status/2067737883545596368">https://x.com/trq212/status/2067737883545596368</a>
+      <a href="https://x.com/trq212/status/2067682475611242546">https://x.com/trq212/status/2067682475611242546</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Amjad Masad</span>
+      <span class="builder-role">@amasad</span>
+    </div>
+    <p class="summary-en">😎 https://t.co/V87qUtfcI9</p>
+    <p class="summary-zh zh">Amjad Masad 在 X 上分享了动态，其中一条获得 57 个赞。</p>
+    <div class="urls">
+      <a href="https://x.com/amasad/status/2067832394913104309">https://x.com/amasad/status/2067832394913104309</a>
+      <a href="https://x.com/amasad/status/2067831841357193237">https://x.com/amasad/status/2067831841357193237</a>
+      <a href="https://x.com/amasad/status/2067831496388358176">https://x.com/amasad/status/2067831496388358176</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">@rauchg</span>
+    </div>
+    <p class="summary-en">https://t.co/XdZBViUJdA</p>
+    <p class="summary-zh zh">Guillermo Rauch 在 X 上分享了动态，其中一条获得 1792 个赞。</p>
+    <div class="urls">
+      <a href="https://x.com/rauchg/status/2067586339021734029">https://x.com/rauchg/status/2067586339021734029</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aaron Levie</span>
+      <span class="builder-role">@levie</span>
+    </div>
+    <p class="summary-en">The fact that open weights models are being discussed credibly at this level of capability should be a huge update for many.   The implications of open models getting to frontier performance ensures that you can always have sovereign AI, have the ability to post train for your sp</p>
+    <p class="summary-zh zh">Aaron Levie 在 X 上分享了动态，其中一条获得 319 个赞。</p>
+    <div class="urls">
+      <a href="https://x.com/levie/status/2067821985342878180">https://x.com/levie/status/2067821985342878180</a>
+      <a href="https://x.com/levie/status/2067802697324212562">https://x.com/levie/status/2067802697324212562</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Garry Tan</span>
+      <span class="builder-role">@garrytan</span>
+    </div>
+    <p class="summary-en">Bernie Sanders introduced a bill to seize 50% of any AI startup that crosses $200M in revenue.   The same anti-prosperity bloc spent the year trying to ban startup acquisitions, blocking the only exit 85% of founders ever get.   This is a war on building startups in America. http</p>
+    <p class="summary-zh zh">Garry Tan 在 X 上分享了动态，其中一条获得 8496 个赞。</p>
+    <div class="urls">
+      <a href="https://x.com/garrytan/status/2067637324763316499">https://x.com/garrytan/status/2067637324763316499</a>
+      <a href="https://x.com/garrytan/status/2067636692794875923">https://x.com/garrytan/status/2067636692794875923</a>
+      <a href="https://x.com/garrytan/status/2067606805459714229">https://x.com/garrytan/status/2067606805459714229</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Matt Turck</span>
+      <span class="builder-role">@mattturck</span>
+    </div>
+    <p class="summary-en">State of AI compute 2026: my conversation with @stephenbalaban of @LambdaAPI on the neocloud boom, data centers, GPUs and what's ahead  00:00 — Cold open 01:21 — Why GPU compute was never a commodity 02:45 — The H100 price index and what it gets wrong 04:02 — The real moat: techn</p>
+    <p class="summary-zh zh">Matt Turck 在 X 上分享了动态，其中一条获得 99 个赞。</p>
+    <div class="urls">
+      <a href="https://x.com/mattturck/status/2067646203517448255">https://x.com/mattturck/status/2067646203517448255</a>
+      <a href="https://x.com/mattturck/status/2067646198140358854">https://x.com/mattturck/status/2067646198140358854</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Zara Zhang</span>
+      <span class="builder-role">@zarazhangrui</span>
+    </div>
+    <p class="summary-en">Made a beautiful HTML deck using my Frontend Slides skill; very happy with how it turned out!   Lots of easter eggs (e.g. you can click any image to enlarge them, lots of nested content/hyperlinks/interactive elements etc)  Check it out: https://t.co/PBTqcZmZYX https://t.co/l0GcD</p>
+    <p class="summary-zh zh">Zara Zhang 在 X 上分享了动态，其中一条获得 84 个赞。</p>
+    <div class="urls">
+      <a href="https://x.com/zarazhangrui/status/2067851144664342725">https://x.com/zarazhangrui/status/2067851144664342725</a>
+      <a href="https://x.com/zarazhangrui/status/2067850383758901669">https://x.com/zarazhangrui/status/2067850383758901669</a>
+      <a href="https://x.com/zarazhangrui/status/2067661289367998602">https://x.com/zarazhangrui/status/2067661289367998602</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nikunj Kothari</span>
+      <span class="builder-role">@nikunj</span>
+    </div>
+    <p class="summary-en">Launched a side project quietly a few weeks ago..   Wanted to test how many impressions/clicks I could get by simply having Claude Code / Codex optimize the hell out of the website.  Got it to about 16k impressions, and 94 clicks over the last 28 days. Not bad eh?  No backlinks, </p>
+    <p class="summary-zh zh">Nikunj Kothari 在 X 上分享了动态，其中一条获得 47 个赞。</p>
+    <div class="urls">
+      <a href="https://x.com/nikunj/status/2067830061009633294">https://x.com/nikunj/status/2067830061009633294</a>
+      <a href="https://x.com/nikunj/status/2067748864967503942">https://x.com/nikunj/status/2067748864967503942</a>
+      <a href="https://x.com/nikunj/status/2067724821283438980">https://x.com/nikunj/status/2067724821283438980</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Steinberger</span>
+      <span class="builder-role">@steipete</span>
+    </div>
+    <p class="summary-en">Everything’s either a fast or slow API now. https://t.co/2ue8zjQ2Bf</p>
+    <p class="summary-zh zh">Peter Steinberger 在 X 上分享了动态，其中一条获得 245 个赞。</p>
+    <div class="urls">
+      <a href="https://x.com/steipete/status/2067821739556413651">https://x.com/steipete/status/2067821739556413651</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Dan Shipper</span>
+      <span class="builder-role">@danshipper</span>
+    </div>
+    <p class="summary-en">Extreme time deflation happening right now   We expect a step change in productivity whenever Fable is unlocked, might as well go on vacation until then https://t.co/vYGYNByNuh</p>
+    <p class="summary-zh zh">Dan Shipper 在 X 上分享了动态，其中一条获得 148 个赞。</p>
+    <div class="urls">
+      <a href="https://x.com/danshipper/status/2067749268928995737">https://x.com/danshipper/status/2067749268928995737</a>
+      <a href="https://x.com/danshipper/status/2067630124795662471">https://x.com/danshipper/status/2067630124795662471</a>
+      <a href="https://x.com/danshipper/status/2067614889141469570">https://x.com/danshipper/status/2067614889141469570</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Claude</span>
+      <span class="builder-role">@claudeai</span>
+    </div>
+    <p class="summary-en">New in Claude Code: Artifacts.  Interactive pages built from your session, like a PR walkthrough or a living project dashboard, shared with your team at a private link.  Available in beta on Team and Enterprise plans. https://t.co/0NX9gNCaAs</p>
+    <p class="summary-zh zh">Claude 在 X 上分享了动态，其中一条获得 13287 个赞。</p>
+    <div class="urls">
+      <a href="https://x.com/claudeai/status/2067671914533863585">https://x.com/claudeai/status/2067671914533863585</a>
+      <a href="https://x.com/claudeai/status/2067671913418063892">https://x.com/claudeai/status/2067671913418063892</a>
+      <a href="https://x.com/claudeai/status/2067671912038240487">https://x.com/claudeai/status/2067671912038240487</a>
+    </div>
+  </article>
+</section>
+
+<footer class="footer">
+  <div class="signature">made for builders, not influencers · by chloevchen</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest · 2026-06-21</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255,255,255,0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 15.5px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 12px; padding: 32px; margin-bottom: 24px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
+  .podcast-source { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 10px; }
+  .podcast-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; color: var(--ink); margin-bottom: 24px; }
+  .takeaway { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 8px; padding: 18px 22px; margin-bottom: 24px; font-size: 15px; line-height: 1.7; color: var(--accent-deep); }
+  .takeaway-label { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; background: var(--accent); color: white; padding: 3px 8px; border-radius: 3px; margin-right: 10px; transform: translateY(-2px); }
+  .podcast-body { font-size: 15.5px; color: var(--ink-soft); line-height: 1.75; }
+  .podcast-body p { margin-bottom: 16px; }
+  .podcast-body strong { color: var(--ink); font-weight: 600; }
+  .podcast-divider { height: 1px; background: var(--line); margin: 28px 0; }
+  .podcast-zh { font-family: 'Noto Serif SC', serif; font-size: 15.5px; color: var(--ink); line-height: 1.95; }
+  .podcast-zh p { margin-bottom: 16px; }
+  .podcast-zh strong { color: var(--accent-deep); font-weight: 600; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .podcast { padding: 24px; } .podcast-title { font-size: 19px; } .topbar-inner { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 · Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest · 2026-06-21 · 周六</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat"><div class="stat-num">13</div><div class="stat-label">Builders</div></div>
+  <div class="stat"><div class="stat-num">22</div><div class="stat-label">Tweets</div></div>
+  <div class="stat"><div class="stat-num">1</div><div class="stat-label">Podcast</div></div>
+  <div class="stat"><div class="stat-num">1</div><div class="stat-label">Blog</div></div>
+</div>
+
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🐦</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">13 Builders</span>
+  </div>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Swyx</span>
+      <span class="builder-role">Latent Space Host</span>
+    </div>
+    <p class="summary-en">Two notable posts: first, a bold prediction that Anthropic will IPO at a $2 trillion valuation — a signal of just how massive the market believes the AI lab's trajectory to be. Second, a nod to MLHacks producing the first ever physical daily newspaper at the AI Engineer World's Fair, highlighting the creative ways the community is documenting the AI builder movement.</p>
+    <p class="summary-zh zh">两条值得注意的动态：第一条，大胆预测 Anthropic 将以 2 万亿美元估值 IPO——这预示着市场对这家 AI 实验室发展轨迹的信心有多强。第二条，点赞 MLHacks 在 AI Engineer World's Fair 上制作了史上第一份实体日报，凸显了社区记录 AI 建设者运动的创意方式。</p>
+    <div class="urls"><a href="https://x.com/swyx/status/2068084391260426345">https://x.com/swyx/status/2068084391260426345</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Boris Cherny</span>
+      <span class="builder-role">Claude Code @ Anthropic</span>
+    </div>
+    <p class="summary-en">Shared a fascinating use case: using Claude Code to decipher Linear A, a 3,500-year-old written language from Crete. The post racked up 1,460 likes and 119 replies, reflecting the community's excitement about AI tools being applied to real scientific mysteries. Cherny noted he hopes the result holds up in peer review — a refreshingly humble acknowledgment of the scientific process.</p>
+    <p class="summary-zh zh">分享了一个令人着迷的应用案例：用 Claude Code 破译 Linear A——一种来自克里特岛、有 3500 年历史的文字。这条推文获得了 1460 个点赞和 119 条回复，反映出社区对 AI 工具应用于真正科学谜题的兴奋。Cherny 表示希望结果能通过同行评审——这是对科学过程难得可贵的谦逊认可。</p>
+    <div class="urls"><a href="https://x.com/bcherny/status/2068064304503660962">https://x.com/bcherny/status/2068064304503660962</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thibault Sottiaux</span>
+      <span class="builder-role">Codex & ChatGPT @ OpenAI</span>
+    </div>
+    <p class="summary-en">Two technical highlights from the Codex team: first, a deep endorsement of Dan Shipper's Codex tips — Sottiaux mentions he now spends more time in the Codex app than all other Mac apps combined. Second, a major feature announcement: remote/local handoff in Codex, which removes boundaries between where code runs. The insight: when you let the model be in the driver's seat, you actually need less infrastructure. This is a glimpse into how OpenAI is thinking about seamless agent workflows.</p>
+    <p class="summary-zh zh">来自 Codex 团队的两个技术亮点：第一，对 Dan Shipper 的 Codex 技巧的深度认可——Sottiaux 提到他现在在 Codex 应用上花的时间超过了 Mac 上所有其他应用的总和。第二，重大功能发布：Codex 的远程/本地交接，消除了代码运行位置之间的界限。核心洞察：让模型坐在驾驶座上，你实际上需要更少的基础设施。这是 OpenAI 对无缝 Agent 工作流思考的一个缩影。</p>
+    <div class="urls">
+      <a href="https://x.com/thsottiaux/status/2068144722460475527">https://x.com/thsottiaux/status/2068144722460475527</a>
+      <a href="https://x.com/thsottiaux/status/2068120572673077274">https://x.com/thsottiaux/status/2068120572673077274</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">AI Tutorial Creator</span>
+    </div>
+    <p class="summary-en">A major personal update: Yang used to be a die-hard Claude Code user, but Codex has won him over. His reasons are specific and worth noting: GPT-5.5 is excellent; fast mode plus generous limits means more reps; and most importantly, Codex's browser and computer use capabilities are "simply goated" — he's built entire workflows relying on those two features alone instead of hunting for APIs. He still uses Claude Code and hopes both compete forever: "This way the builder keeps winning."</p>
+    <p class="summary-zh zh">一个重大的个人更新：Yang 曾经是 Claude Code 的死忠用户，但 Codex 已经赢得了他的青睐。他的理由非常具体且值得关注：GPT-5.5 非常优秀；快速模式加慷慨的额度意味着更多迭代次数；最重要的是，Codex 的浏览器和计算机使用能力"简直无敌"——他仅靠这两个功能就构建了完整的工作流，而不用去到处找 API。"我希望这两家永远竞争下去，这样建设者才会一直赢。"</p>
+    <div class="urls"><a href="https://x.com/petergyang/status/2068175172960690266">https://x.com/petergyang/status/2068175172960690266</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Amanda Askell</span>
+      <span class="builder-role">Philosopher @ Anthropic</span>
+    </div>
+    <p class="summary-en">A powerful personal story: Askell lived with chronic pain for most of her life until an MRI found a congenital condition that was fixed with surgery. She uses this to argue against the medical norm of avoiding scans due to fear of incidental findings — her counter: the issue isn't the scan, it's the response to it. If you see something on a scan but have no symptoms, you can ignore it. A nuanced take on medical AI and the ethics of information.</p>
+    <p class="summary-zh zh">一个强有力的个人故事：Askell 大半生都伴随着慢性疼痛，直到 MRI 发现了一个先天性问题，通过手术得以修复。她用这个经历来反驳"因担心偶发发现而避免扫描"的医疗惯例——她的反驳是：问题不在于扫描，而在于对扫描结果的反应。如果你在扫描中看到什么但没有症状，你可以忽略它。这是对医疗 AI 和信息伦理的细致思考。</p>
+    <div class="urls">
+      <a href="https://x.com/AmandaAskell/status/2068162191740764622">https://x.com/AmandaAskell/status/2068162191740764622</a>
+      <a href="https://x.com/AmandaAskell/status/2068162192927756544">https://x.com/AmandaAskell/status/2068162192927756544</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Amjad Masad</span>
+      <span class="builder-role">Replit CEO</span>
+    </div>
+    <p class="summary-en">Two posts from Vibecon: calling it "the best conference experience I've had this year" and sharing a recap. The enthusiasm matters — Vibecon is Replit's flagship event, and Masad's energy here signals that the community response exceeded even his high expectations. Replit is clearly hitting a nerve with the vibe coding movement.</p>
+    <p class="summary-zh zh">来自 Vibecon 的两条动态：称其为"我今年参加过的最好的会议体验"，并分享了回顾。这种热情很重要——Vibecon 是 Replit 的旗舰活动，Masad 的能量说明社区反响甚至超出了他自己的高预期。Replit 显然在 vibe coding 运动中引起了强烈共鸣。</p>
+    <div class="urls">
+      <a href="https://x.com/amasad/status/2068182309719728159">https://x.com/amasad/status/2068182309719728159</a>
+      <a href="https://x.com/amasad/status/2068177018479403065">https://x.com/amasad/status/2068177018479403065</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">Vercel CEO</span>
+    </div>
+    <p class="summary-en">Two big-picture posts: first, a provocative claim that "the next hot programming language is... markdown" — describing a minimal agent setup with instructions.md and skills/*.md, deployable in one Vercel command. The deeper point: this is the most accessible programming has ever been, and possibly ever will be. Second: agents are motivating healthy software habits — open APIs, documentation (skills), tests (evals), Unix CLIs, payment protocols. Rauch argues the original vision of the WWW is coming to life before our eyes, driven by agent-driven development.</p>
+    <p class="summary-zh zh">两条宏观思考：第一，一个挑衅性的断言——"下一个热门编程语言是……Markdown"。描述了一个最简 Agent 设置：instructions.md 加 skills/*.md，一条 Vercel 命令就能部署。更深层的信息是：这是编程有史以来最容易上手的样子，可能也是未来能达到的极限。第二：Agent 正在推动健康的软件习惯——开放 API、文档（skills）、测试（evals）、Unix CLI、支付协议。Rauch 认为 WWW 的原始愿景正在我们眼前变为现实，而驱动力就是 Agent 驱动的开发。</p>
+    <div class="urls">
+      <a href="https://x.com/rauchg/status/2068165988005380478">https://x.com/rauchg/status/2068165988005380478</a>
+      <a href="https://x.com/rauchg/status/2067936390285807940">https://x.com/rauchg/status/2067936390285807940</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aaron Levie</span>
+      <span class="builder-role">Box CEO</span>
+    </div>
+    <p class="summary-en">A sharp insight on agent deployment: the main variable in getting success with agents is whether you can get the agent the context it needs to do its work. A major factor is creating a shared working area — a filesystem-shaped interface — that both the person and the agent can work within. Quoting the original post he's responding to: "What they need is a working set: plans, notes, task lists, policies, drafts, summaries, logs, corrections, decisions, etc." Levie argues giving agents access to systems we already know how to use, optimized for them, is the perfect primitive for agent work. This is a key architectural insight for anyone building agent products.</p>
+    <p class="summary-zh zh">关于 Agent 部署的深刻洞察：Agent 能否成功的关键变量，是你能否给 Agent 提供完成工作所需的上下文。一个重要因素是创建一个人和 Agent 都能工作的共享工作区——一种文件系统形态的接口。引用他回复的原帖："他们需要的是一个工作集：计划、笔记、任务列表、策略、草稿、摘要、日志、修正、决策等。"Levie 认为，让 Agent 访问我们已经知道如何使用、同时针对它们优化的系统，是 Agent 工作的完美原语。这是任何构建 Agent 产品的人都需要理解的关键架构洞察。</p>
+    <div class="urls"><a href="https://x.com/levie/status/2068068247413694532">https://x.com/levie/status/2068068247413694532</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Garry Tan</span>
+      <span class="builder-role">Y Combinator CEO</span>
+    </div>
+    <p class="summary-en">A classic Garry Tan board meeting tip: "Pick the worst thing you are afraid to show your board for your next board meeting and make it slide one. Make it a big deal you did that. Make it a habit." It's a counterintuitive but powerful approach to board management — surface your biggest fear first, and you'll build trust and momentum. Only works with good boards, as he notes.</p>
+    <p class="summary-zh zh">一条经典的 Garry Tan 董事会建议："选你最害怕在下一次董事会上展示的最糟糕的事情，把它做成第一张幻灯片。（当然，这只在优秀的董事会上才有效）让它成为你做了一件大事的标志。让它成为一种习惯。"这是一种反直觉但强有力的董事会管理方法——先摊开你最大的恐惧，你就能建立信任和动力。</p>
+    <div class="urls"><a href="https://x.com/garrytan/status/2068007205102842238">https://x.com/garrytan/status/2068007205102842238</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Zara Zhang</span>
+      <span class="builder-role">Builder & Content Creator</span>
+    </div>
+    <p class="summary-en">A crisp framing of what sets people apart in the AI age: "The 3 most important things that set someone apart in the AI age: Agency. Taste. Distribution." It's a deceptively simple three-word framework that captures the essence of what builders need to cultivate. Agency = ability to act; Taste = ability to judge quality; Distribution = ability to reach people. All three are amplified by AI, but none can be automated away.</p>
+    <p class="summary-zh zh">一个简洁的框架，说明在 AI 时代什么让人们脱颖而出："在 AI 时代，最能让人脱颖而出的三件事：能动性、品味、分发能力。"这是一个看似简单却抓住了建设者需要培养的核心本质的三词框架。能动性 = 行动能力；品味 = 判断质量的能力；分发能力 = 触达人群的能力。三者都被 AI 放大，但都无法被自动化掉。</p>
+    <div class="urls"><a href="https://x.com/zarazhangrui/status/2068094591220531583">https://x.com/zarazhangrui/status/2068094591220531583</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Matt Turck</span>
+      <span class="builder-role">FirstMark Capital VC</span>
+    </div>
+    <p class="summary-en">A lighthearted post: "When your VC is exhausted from attending the board meeting" — a relatable humor post that resonated with founders and VCs alike. Sometimes the best content is the most human.</p>
+    <p class="summary-zh zh">一条轻松的推文："当你的 VC 开完董事会已精疲力竭"——一条让创始人和 VC 都产生共鸣的幽默帖子。有时候最好的内容就是最有人情味的。</p>
+    <div class="urls"><a href="https://x.com/mattturck/status/2068087153091858801">https://x.com/mattturck/status/2068087153091858801</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nikunj Kothari</span>
+      <span class="builder-role">FPV Ventures Partner</span>
+    </div>
+    <p class="summary-en">Two posts: a teaser ("SF I have an idea..") that hints at a new project or investment theme in San Francisco; and a personal note that instead of meditating, he listens to Explosions in the Sky — a reminder that builders are human too, with their own rituals and sources of energy.</p>
+    <p class="summary-zh zh">两条动态：一条预告（"SF 我有个想法……"）暗示了旧金山的新项目或投资主题；另一条个人笔记——别人冥想，他听 Explosions in the Sky。这提醒我们建设者也是人，有自己的仪式感和能量来源。</p>
+    <div class="urls">
+      <a href="https://x.com/nikunj/status/2068204606119874728">https://x.com/nikunj/status/2068204606119874728</a>
+      <a href="https://x.com/nikunj/status/2068127547980918879">https://x.com/nikunj/status/2068127547980918879</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Steinberger</span>
+      <span class="builder-role">OpenClaw / OpenAI</span>
+    </div>
+    <p class="summary-en">Celebrating that Hannes (likely Hannes Dobler, a key OpenClaw contributor) is now on the team — noting that "Hannes speaks both developer and agents." It's a concise way of saying he bridges the gap between traditional software engineering and the emerging agent paradigm. A sign that OpenClaw is actively growing its core team.</p>
+    <p class="summary-zh zh">庆祝 Hannes（很可能是 Hannes Dobler，OpenClaw 的核心贡献者）正式加入团队——并提到"Hannes 既懂开发者，也懂 Agent"。这是说他能弥合传统软件工程和新兴 Agent 范式之间差距的简洁说法。这标志着 OpenClaw 正在积极扩大其核心团队。</p>
+    <div class="urls"><a href="https://x.com/steipete/status/2068199277277401419">https://x.com/steipete/status/2068199277277401419</a></div>
+  </article>
+
+</section>
+
+<!-- ============== OFFICIAL BLOGS ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">📝</span>
+    <h2 class="section-title">Official Blogs</h2>
+    <span class="section-meta">1 Post</span>
+  </div>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Anthropic Engineering</span>
+      <span class="builder-role">Official Blog</span>
+    </div>
+    <p class="summary-en">Anthropic published a detailed post on how they contain Claude across products — a deep dive into the security architecture that makes it safe to give Claude access to internal systems. Twelve months ago, they'd have rejected out of hand the idea of granting Claude access sufficient to take down an internal service; today that level of access is routine. The post explains the two-component risk model: likelihood of failure and potential damage. The engineering challenge is capping the blast radius. A key revelation: their telemetry showed users approved ~93% of permission prompts in Claude Code — proving that approval fatigue is real and dangerous. This insight motivated the recent launch of Claude Code Auto Mode, which uses model-based classifiers to automate safer approvals and reduce fatigue. The post also mentions Claude Mythos Preview, a model whose blast radius was deemed too high to ship in April 2026, but which may see broader release as safeguards mature.</p>
+    <p class="summary-zh zh">Anthropic 发布了一篇详细文章，介绍他们如何跨产品限制 Claude 的访问权限——深度探讨了使 Claude 安全访问内部系统的安全架构。12 个月前，他们会断然拒绝给予 Claude 足以搞垮内部服务的访问权限；而今天，这种级别的访问已是常规操作。文章解释了双组件风险模型：故障可能性和潜在损害。工程挑战在于控制爆炸半径。一个关键发现：他们的遥测数据显示，用户在 Claude Code 中批准了约 93% 的权限提示——证明了审批疲劳是真实且危险的。这一洞察推动了最近发布的 Claude Code Auto Mode，它使用基于模型的分类器来自动化更安全的审批并减少疲劳。文章还提到了 Claude Mythos Preview，这是一个爆炸半径被认为过高而未能在 2026 年 4 月发布的模型，但随着防护措施成熟，可能会更广泛地发布。</p>
+    <div class="urls"><a href="https://www.anthropic.com/engineering/how-we-contain-claude">https://www.anthropic.com/engineering/how-we-contain-claude</a></div>
+  </article>
+
+</section>
+
+<!-- ============== PODCAST ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🎙️</span>
+    <h2 class="section-title">Podcasts</h2>
+    <span class="section-meta">1 Episode</span>
+  </div>
+
+  <div class="podcast">
+    <div class="podcast-source">No Priors</div>
+    <h3 class="podcast-title">Re-engineering the Semiconductor Supply Chain with Intel CEO Lip Bu Tan</h3>
+
+    <div class="takeaway">
+      <span class="takeaway-label">The Takeaway</span>
+      Intel's new CEO Lip Bu Tan is leveraging the agentic AI boom to revitalize the company, with a philosophy of humble customer focus, product simplification, and strengthening the balance sheet. Jensen Huang's $5B investment (now worth $25B) is a powerful vote of confidence — and a signal that the semiconductor supply chain is entering a new era of strategic importance.
+    </div>
+
+    <div class="podcast-body">
+      <p>Lip Bu Tan, 66, is not your typical Big Tech CEO. He's a legendary investor (Walden), former Cadence CEO, and now the person tasked with transforming Intel. He took the job not because it was easy, but because Intel is an iconic company and critically important for the US semiconductor ecosystem and national security.</p>
+
+      <p>The core business insight: <strong>agentic AI is driving massive demand for CPUs</strong>, and Intel is positioned to benefit. Tan notes that Jensen Huang, his "all-time friend," invested $5B in Intel — an investment that's now worth $25B. That's a 5x return and a massive strategic endorsement from the most important person in AI hardware.</p>
+
+      <p>On his transformation philosophy, Tan emphasizes humility: "First of all you crawl and be humble, listen to customer." His three-step plan: (1) strengthen the balance sheet, (2) focus on and simplify products, (3) drive next-generation leadership products. It's deliberately unglamorous — no grand vision statements, just disciplined execution.</p>
+
+      <p>A noteworthy detail: the US government is now a major Intel shareholder. This gives Intel a level of strategic backing that no other US semiconductor company has. The implications for the US-China semiconductor competition are significant and worth watching.</p>
+
+      <p>The episode also touches on Tan's investment philosophy: he prefers entrepreneur teams over solo founders, and notes that 9 out of 10 companies he invests in change their business plan halfway because the market changes. Adaptability is everything.</p>
+    </div>
+
+    <div class="podcast-divider"></div>
+
+    <div class="podcast-zh">
+      <p>66 岁的 Lip Bu Tan 不是典型的大科技公司 CEO。他是传奇投资人（Walden）、前 Cadence CEO，现在是负责英特尔转型的人。他接下这份工作不是因为它容易，而是因为英特尔是一家标志性公司，对美国半导体生态系统和国家安全至关重要。</p>
+
+      <p>核心商业洞察：<strong>Agentic AI 正在推动对 CPU 的巨大需求</strong>，而英特尔正处于受益位置。Tan 提到他的"老朋友"黄仁勋向英特尔投资了 50 亿美元——这笔投资现在价值 250 亿美元。这是 5 倍的回报，也是来自 AI 硬件领域最重要人物的巨大战略背书。</p>
+
+      <p>关于他的转型哲学，Tan 强调谦逊："首先你要学会爬行，保持谦逊，倾听客户的声音。"他的三步计划是：（1）强化资产负债表，（2）专注并简化产品，（3）推动下一代领先产品。这 deliberately 不华丽——没有宏伟的愿景宣言，只有纪律严明的执行。</p>
+
+      <p>一个值得注意的细节：美国政府现在是英特尔的主要股东。这让英特尔拥有了其他美国半导体公司都没有的战略支持水平。这对美中半导体竞争的影响值得关注。</p>
+
+      <p>节目还触及了 Tan 的投资哲学：他更喜欢创业团队而非单人创始人，并指出他投资的 10 家公司中有 9 家会在中途改变商业计划，因为市场在变。适应能力就是一切。</p>
+    </div>
+
+    <div class="urls" style="margin-top:24px">
+      <a href="https://www.youtube.com/watch?v=asCgCv2XB4s">▶️ https://www.youtube.com/watch?v=asCgCv2XB4s</a>
+    </div>
+  </div>
+
+</section>
+
+<footer class="footer">
+  <div class="next-issue">📬 下一期：明天 10:00（北京时间）</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->
