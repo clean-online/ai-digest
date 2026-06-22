@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest · 2026-06-22</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255,255,255,0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 15.5px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 12px; padding: 32px; margin-bottom: 24px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
+  .podcast-source { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 10px; }
+  .podcast-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; color: var(--ink); margin-bottom: 24px; }
+  .takeaway { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 8px; padding: 18px 22px; margin-bottom: 24px; font-size: 15px; line-height: 1.7; color: var(--accent-deep); }
+  .takeaway-label { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; background: var(--accent); color: white; padding: 3px 8px; border-radius: 3px; margin-right: 10px; transform: translateY(-2px); }
+  .podcast-body { font-size: 15.5px; color: var(--ink-soft); line-height: 1.75; }
+  .podcast-body p { margin-bottom: 16px; }
+  .podcast-body strong { color: var(--ink); font-weight: 600; }
+  .podcast-divider { height: 1px; background: var(--line); margin: 28px 0; }
+  .podcast-zh { font-family: 'Noto Serif SC', serif; font-size: 15.5px; color: var(--ink); line-height: 1.95; }
+  .podcast-zh p { margin-bottom: 16px; }
+  .podcast-zh strong { color: var(--accent-deep); font-weight: 600; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .podcast { padding: 24px; } .podcast-title { font-size: 19px; } .topbar-inner { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 · Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest · 2026-06-22 · 周日</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat"><div class="stat-num">12</div><div class="stat-label">Builders</div></div>
+  <div class="stat"><div class="stat-num">24</div><div class="stat-label">Tweets</div></div>
+  <div class="stat"><div class="stat-num">1</div><div class="stat-label">Podcast</div></div>
+  <div class="stat"><div class="stat-num">3</div><div class="stat-label">Blog</div></div>
+</div>
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🐦</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">12 Builders</span>
+  </div>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Swyx</span>
+      <span class="builder-role">Latent Space Host</span>
+    </div>
+    <p class="summary-en">Three notable posts: first, calling out a photo that looks "fucking ChatGPT generated" — a sign of how generative AI is now pervasive enough to be noticeable even in casual social media posts. Second, predicting an exciting Wednesday match with a July 4 celebration implication. Third, highlighting Gemini as a "VERY good sports handicapper" — a practical AI use case that's rarely discussed but increasingly relevant for real-time prediction tasks.</p>
+    <p class="summary-zh zh">三条值得注意的动态：第一，指出一张照片"他妈的就是 ChatGPT 生成的"——这标志着生成式 AI 现在已经普及到即使在 casual 的社交媒体帖子中也能被注意到的程度。第二，预测周三的一场激动人心的比赛及 7 月 4 日庆祝活动的含义。第三，强调 Gemini 是"非常好的体育预测师"——这是一个很少被讨论但在实时预测任务中越来越相关的实用 AI 用例。</p>
+    <div class="urls">
+      <a href="https://x.com/swyx/status/2068517953285619715">https://x.com/swyx/status/2068517953285619715</a>
+      <a href="https://x.com/swyx/status/2068510546606145897">https://x.com/swyx/status/2068510546606145897</a>
+      <a href="https://x.com/swyx/status/2068477933048725732">https://x.com/swyx/status/2068477933048725732</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thibault Sottiaux</span>
+      <span class="builder-role">Codex & ChatGPT @ OpenAI</span>
+    </div>
+    <p class="summary-en">Two technical insights from the Codex team: first, a forward-looking statement — "We built the Codex App with models that were okayish at front-end. Wait to see what we can do when we finally improve front-end capabilities significantly." This signals a major UX leap coming for Codex. Second: "Some tokens work harder than others. Some of the most valuable ones are found in the Codex app." A poetic way of saying the app is where the highest-leverage work happens.</p>
+    <p class="summary-zh zh">来自 Codex 团队的两个技术洞察：第一，一句前瞻性的话——"我们构建 Codex 应用时用的模型在前端方面还算凑合。等着看当我们终于显著提升前端能力时能做什么。"这预示着 Codex 即将迎来重大的 UX 飞跃。第二："有些 token 比别人更努力。一些最有价值的 token 就在 Codex 应用里。"这是一种诗意的说法，表达该应用是最高杠杆工作发生的地方。</p>
+    <div class="urls">
+      <a href="https://x.com/thsottiaux/status/2068568650924409260">https://x.com/thsottiaux/status/2068568650924409260</a>
+      <a href="https://x.com/thsottiaux/status/2068443037907522002">https://x.com/thsottiaux/status/2068443037907522002</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">AI Tutorial Creator</span>
+    </div>
+    <p class="summary-en">Three posts showing the real-world tradeoffs of AI tool usage: first, a honest admission that he can barely use up his $200 Codex and Claude subscriptions — questioning the value prop of local models that require $10K Max Studio setups. Second, asking about screen recording tools that allow easy zoom in/out on screen shares. Third, asking for SF activity recommendations beyond the usual spots. The through-line: even power users are hitting limits of current AI tools and looking for workflows that actually fit their lives.</p>
+    <p class="summary-zh zh">三条动态展示了 AI 工具使用的真实世界权衡：第一，坦诚承认他几乎用不完 200 美元的 Codex 和 Claude 订阅额度——质疑需要 1 万美元 Max Studio 设置的本地模型的价值主张。第二，询问允许在屏幕共享时轻松放大/缩小的屏幕录制工具。第三，询问旧金山除了常规景点之外的活动推荐。贯穿其中的主线是：即使是重度用户也在触碰当前 AI 工具的极限，并在寻找真正适合他们生活的工?作流。</p>
+    <div class="urls">
+      <a href="https://x.com/petergyang/status/2068524146070610274">https://x.com/petergyang/status/2068524146070610274</a>
+      <a href="https://x.com/petergyang/status/2068411894185295969">https://x.com/petergyang/status/2068411894185295969</a>
+      <a href="https://x.com/petergyang/status/2068398871236264428">https://x.com/petergyang/status/2068398871236264428</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nan Yu</span>
+      <span class="builder-role">Head of Product @ Linear</span>
+    </div>
+    <p class="summary-en">Three sharp product observations: first, invoking "multiplier effect" economics as a response to a thread. Second, calling out Outlook and Gmail developers to point their agents at his tweet to fix email pasting — a creative use of public bug reports via social media. Third, a viral post asking why email apps don't default to surrounding font treatment when pasting text — "Crazy that this is still a problem." It's a perfect example of a PM calling out core UX issues in widely used products.</p>
+    <p class="summary-zh zh">三条犀利的产品观察：第一，在一个线程回复中引用"乘数效应"经济学。第二，呼吁 Outlook 和 Gmail 开发者让他们的 agent 指向他的推文来修复邮件粘贴问题——这是一种通过社交媒体进行公开 bug 报告的创造性用法。第三，一条爆火帖子，问为什么邮件应用在粘贴文本时默认不继承周围字体格式——"疯狂的是这仍然是个问题。"这是 PM 呼吁广泛使用产品中的核心 UX 问题的完美例子。</p>
+    <div class="urls">
+      <a href="https://x.com/thenanyu/status/2068542022361735484">https://x.com/thenanyu/status/2068542022361735484</a>
+      <a href="https://x.com/thenanyu/status/2068396602973143274">https://x.com/thenanyu/status/2068396602973143274</a>
+      <a href="https://x.com/thenanyu/status/2068318470215811080">https://x.com/thenanyu/status/2068318470215811080</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Madhu Guru</span>
+      <span class="builder-role">Prev: Product Leader @ Google Gemini, Veo</span>
+    </div>
+    <p class="summary-en">A substantive post on the PM role identity crisis: "Engineering has found its AI-native interface — SWE agents dramatically increase individual leverage. Companies are asking PMs to use AI, but they haven't evolved the role." He outlines two camps: old-school PMs (who use AI to accelerate the old job: more PRDs, more decks) vs. Builder PMs (who use AI to expand their role across the product lifecycle, run agents for research, and output prototypes rather than docs). The take: "I think the role is moving much closer to Builder PMs."</p>
+    <p class="summary-zh zh">一篇关于 PM 角色身份危机的实质性帖子："工程已经找到了它的 AI 原生接口——SWE agent 大幅增加了个人杠杆。公司要求 PM 使用 AI，但他们还没有演化这个角色。"他概述了两个阵营：老派 PM（用 AI 加速旧工作：更多 PRD、更多幻灯片）vs. Builder PM（用 AI 将他们的角色扩展到整个产品生命周期，运行 agent 做研究，输出原型而非文档）。结论："我认为这个角色正在大幅向 Builder PM 靠拢。"</p>
+    <div class="urls">
+      <a href="https://x.com/realmadhuguru/status/2068350509027876876">https://x.com/realmadhuguru/status/2068350509027876876</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Amjad Masad</span>
+      <span class="builder-role">Replit CEO</span>
+    </div>
+    <p class="summary-en">Three characteristically philosophical posts: first, a poetic reflection on the transformer architecture — "We posted for twenty years, thinking we were talking to each other. Then the transformer came online, and the network read what we'd written, and became itself." A profound observation on how the internet became the training set. Second, sharing "Road not taken is more fun" with a link. Third, hiring for Replit Japan — signaling international expansion.</p>
+    <p class="summary-zh zh">三条一如既往哲学性的帖子：第一，对 transformer 架构的诗意反思——"我们发了二十年帖，以为自己在互相交流。然后 transformer 上线了，网络读取了我们写的东西，然后成为了它自己。"这是对互联网如何成为训练集的深刻观察。第二，分享"未选择的路更有趣"并附上链接。第三，招聘 Replit 日本团队成员——标志着国际扩张。</p>
+    <div class="urls">
+      <a href="https://x.com/amasad/status/2068589860097790449">https://x.com/amasad/status/2068589860097790449</a>
+      <a href="https://x.com/amasad/status/2068537425480278226">https://x.com/amasad/status/2068537425480278226</a>
+      <a href="https://x.com/amasad/status/2068537084877643943">https://x.com/amasad/status/2068537084877643943</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">Vercel CEO</span>
+    </div>
+    <p class="summary-en">A striking endorsement: "Genuinely impressed, almost shocked, at how good GLM-5.2 by zai_org is at coding. This changes things." For the CEO of Vercel to publicly praise a non-US model is notable — it signals that the frontier is no longer a US monopoly, and that open-weight models from China are now competitive on coding tasks. This is a significant geopolitical shift in AI that's happening in real-time.</p>
+    <p class="summary-zh zh">一个引人注目的认可："真的被 zai_org 的 GLM-5.2 在编码方面的表现打动了，几乎是震惊。这改变了一切。"Vercel 的 CEO 公开赞美一个非美国模型，这是值得注意的——这标志着前沿不再是美国的垄断，来自中国的开放权重模型现在在编码任务上已经具有竞争力。这是 AI 领域正在实时发生的重大地缘政治转变。</p>
+    <div class="urls">
+      <a href="https://x.com/rauchg/status/2068517095818809770">https://x.com/rauchg/status/2068517095818809770</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aaron Levie</span>
+      <span class="builder-role">Box CEO</span>
+    </div>
+    <p class="summary-en">A nuanced take on open weights AI: "Pretty remarkable what's happening with open weights AI right now... The more that open weights is able to maintain only a marginal gap from the frontier, the more value that can be created with AI." He argues this is actually fine for frontier labs too — if you lower the cost of an overall task, AI usage goes up. The insight: "You're still likely using frontier models for planning, orchestration, reviewing, and other parts of work." A sophisticated understanding of the AI ecosystem stratification.</p>
+    <p class="summary-zh zh">对开放权重 AI 的细致看法："现在开放权重 AI 发生的事相当了不起……开放权重能够保持与前沿只有微小差距的时间越长，用 AI 能创造的价值就越多。"他认为这对前沿实验室来说实际上也没问题——如果你降低了一个整体任务的成本，AI 的使用量就会上升。洞察："你很可能仍在使用前沿模型进行规划、编排、审查和工作其他部分。"这是对 AI 生态系统分层的高级理解。</p>
+    <div class="urls">
+      <a href="https://x.com/levie/status/2068434042148782515">https://x.com/levie/status/2068434042148782515</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Garry Tan</span>
+      <span class="builder-role">Y Combinator CEO</span>
+    </div>
+    <p class="summary-en">A characteristically concise post promoting something (URL shortened) with the phrase "Try [it] and find out" — classic Garry Tan style of creating curiosity without oversharing. The reply thread likely contains the actual announcement, but the main post is pure teaser.</p>
+    <p class="summary-zh zh">一条一如既往简洁的帖子，用"试试看就知道了"这种经典 Garry Tan 风格来推广某个东西（URL 被缩短）——制造好奇心而不过度分享。回复线程可能包含实际公告，但主帖纯粹是预告。</p>
+    <div class="urls">
+      <a href="https://x.com/garrytan/status/2068279782815801541">https://x.com/garrytan/status/2068279782815801541</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Zara Zhang</span>
+      <span class="builder-role">Builder & Content Creator</span>
+    </div>
+    <p class="summary-en">Three practical builder posts: first, a clever hack — built a browser extension that injects bookmarked posts into the main feed like ads, solving the "hoard bookmarks and never read them" problem. Second, a provocative question: "Sometimes I wonder if joining a large company is actually riskier than joining a startup/starting your own company." Third, a reflection on proactiveness being "nice in theory but so hard to get right." These are the kinds of honest, experience-based posts that make her feed valuable.</p>
+    <p class="summary-zh zh">三条实用的建设者帖子：第一，一个聪明的 hack——构建了一个浏览器扩展，将加星标的帖子像广告一样注入主信息流，解决了"收藏书签但从不读它们"的问题。第二，一个挑衅性的问题："有时候我想知道加入大公司是否实际上比加入创业公司/自己创业风险更大。"第三，对主动性"理论上很好但很难做对"的反思。这些都是让她的 feed 有价值的那种诚实的、基于经验的帖子。</p>
+    <div class="urls">
+      <a href="https://x.com/zarazhangrui/status/2068568920613953626">https://x.com/zarazhangrui/status/2068568920613953626</a>
+      <a href="https://x.com/zarazhangrui/status/2068522129193418759">https://x.com/zarazhangrui/status/2068522129193418759</a>
+      <a href="https://x.com/zarazhangrui/status/2068509088452071594">https://x.com/zarazhangrui/status/2068509088452071594</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nikunj Kothari</span>
+      <span class="builder-role">FPV Ventures Partner</span>
+    </div>
+    <p class="summary-en">Two insightful posts: first, a framework for staying current in AI — "The biggest problem with AI is that priors need to be reset every few weeks.. and it seems like most people are incapable of doing that." His solution: have your own evals of hard tasks and weekly tinker time, plus talk to enterprise buyers weekly. "If you just do these two weekly, you'll be ahead of 99% of people." Second, feedback for Tobi (likely Tobi Lütke of Shopify) on UCP CLI — showing that VCs are actively testing the tools they invest in or cover.</p>
+    <p class="summary-zh zh">两条有洞察力的帖子：第一，一个在 AI 领域保持更新的框架——"AI 最大的问题是先验需要每隔几周重置一次……而似乎大多数人做不到这一点。"他的解决方案：对自己进行硬任务的评估和有每周的折腾时间，加上每周与企业买家交谈。"如果你每周只做这两件事，你会领先 99% 的人。"第二，给 Tobi（可能是 Shopify 的 Tobi Lütke）关于 UCP CLI 的反馈——表明 VC 正在积极测试他们投资或覆盖的工具。</p>
+    <div class="urls">
+      <a href="https://x.com/nikunj/status/2068411460620042720">https://x.com/nikunj/status/2068411460620042720</a>
+      <a href="https://x.com/nikunj/status/2068372026268811517">https://x.com/nikunj/status/2068372026268811517</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Steinberger</span>
+      <span class="builder-role">OpenClaw / OpenAI</span>
+    </div>
+    <p class="summary-en">A community-building post: promoting a tokens opportunity in Japan — "If you are in Japan 🇯🇵 or do business there, here's your chance to get lots of tokens!" This is characteristic of the OpenClaw community approach: gamifying AI tool usage and creating regional incentives for adoption.</p>
+    <p class="summary-zh zh">一条社区建设帖子：推广日本的一个 token 机会——"如果你在日本 🇯🇵 或在那里做生意，这是你获得大量 token 的机会！"这是 OpenClaw 社区方法的典型特征：将 AI 工具使用游戏化，并为采用创造区域激励。</p>
+    <div class="urls">
+      <a href="https://x.com/steipete/status/2068428180004942319">https://x.com/steipete/status/2068428180004942319</a>
+    </div>
+  </article>
+</section>
+
+<!-- ============== OFFICIAL BLOGS ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">📝</span>
+    <h2 class="section-title">Official Blogs</h2>
+    <span class="section-meta">3 Posts</span>
+  </div>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Anthropic Engineering</span>
+      <span class="builder-role">Official Blog</span>
+    </div>
+    <p class="summary-en"><strong>An update on recent Claude Code quality reports</strong> — A detailed postmortem of three separate issues that affected Claude Code, the Claude Agent SDK, and Claude Cowork in March-April 2026. The issues: (1) Default reasoning effort changed from high to medium, hurting latency but reducing quality — reverted after user feedback. (2) A bug in session context clearing that made Claude seem forgetful — fixed April 10. (3) A system prompt change to reduce verbosity that hurt coding quality — reverted April 20. Key takeaway: the aggregate effect of small, well-intentioned changes created the perception of broad degradation. Anthropic now has better monitoring to distinguish signal from normal variation.</p>
+    <p class="summary-zh zh"><strong>An update on recent Claude Code quality reports</strong> — 一篇详细的事后分析报告，涉及 2026 年 3 月至 4 月影响 Claude Code、Claude Agent SDK 和 Claude Cowork 的三个独立问题。问题包括：（1）默认推理强度从高能级改为中能级，减少了延迟但降低了质量——根据用户反馈已回滚。（2）会话上下文清除中的一个 bug 让 Claude 看起来健忘——4 月 10 日修复。（3）为减少冗长而做的系统提示更改损害了编码质量——4 月 20 日回滚。关键要点：微小、善意的更改的累积效应造成了广泛降级的感知。Anthropic 现在有了更好的监控来区分信号和正常变异。</p>
+    <div class="urls"><a href="https://www.anthropic.com/engineering/april-23-postmortem">https://www.anthropic.com/engineering/april-23-postmortem</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Anthropic Engineering</span>
+      <span class="builder-role">Official Blog</span>
+    </div>
+    <p class="summary-en"><strong>Scaling Managed Agents: Decoupling the brain from the hands</strong> — A technical deep dive into Claude Managed Agents, a hosted service that runs long-horizon agents. The core insight: the authors previously found that Claude Sonnet 4.5 would wrap up tasks prematurely due to "context anxiety" — and addressed it with context resets in the harness. But with Claude Opus 4.5, that behavior was gone — the resets became dead weight. This illustrates the key design principle: Managed Agents virtualize agent components (session, harness, sandbox) so implementations can be swapped without disturbing others. Like operating system abstractions (process, file) that outlasted hardware, these abstractions outlast model versions.</p>
+    <p class="summary-zh zh"><strong>Scaling Managed Agents: Decoupling the brain from the hands</strong> — 一篇关于 Claude Managed Agents 的技术深度文章，这是一项运行长周期 agent 的托管服务。核心洞察：作者之前发现 Claude Sonnet 4.5 会因为"上下文焦虑"而过早结束任务——并通过在 harness 中添加上下文重置来解决这个问题。但到了 Claude Opus 4.5，这种行为消失了——重置变成了死重。这说明了关键设计原则：Managed Agents 将 agent 组件（会话、harness、沙箱）虚拟化，以便可以在不干扰其他组件的情况下交换实现。就像超越硬件的操作系统抽象（进程、文件）一样，这些抽象超越了模型版本。</p>
+    <div class="urls"><a href="https://www.anthropic.com/engineering/managed-agents">https://www.anthropic.com/engineering/managed-agents</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Claude Blog</span>
+      <span class="builder-role">Official Blog</span>
+    </div>
+    <p class="summary-en"><strong>New in Claude Managed Agents: self-hosted sandboxes and MCP tunnels</strong> — A major update to Claude Managed Agents: starting today, agents can execute in a sandbox you control and connect to your private MCP servers. Two key features: (1) Self-hosted sandboxes — the agent loop stays on Anthropic's infrastructure, but tool execution moves to your environment. This means sensitive files, packages, and services stay within your perimeter. Supports Cloudflare, Daytona, Modal, or Vercel as sandbox providers. (2) MCP tunnels — agents can connect to your private Model Context Protocol servers, accessing internal services securely. This is a significant step toward enterprise-grade agent deployment with proper security and compliance controls.</p>
+    <p class="summary-zh zh"><strong>New in Claude Managed Agents: self-hosted sandboxes and MCP tunnels</strong> — Claude Managed Agents 的一次重大更新：从今天开始，agent 可以在你控制的沙箱中执行，并连接到你的私有 MCP 服务器。两个关键功能：（1）自托管沙箱——agent 循环留在 Anthropic 的基础设施上，但工具执行移动到你的环境。这意味着敏感文件、包和服务保留在你的边界内。支持 Cloudflare、Daytona、Modal 或 Vercel 作为沙箱提供商。（2）MCP 隧道——agent 可以连接到你的私有 Model Context Protocol 服务器，安全地访问内部服务。这是朝着具有适当安全和合规控制的企业级 agent 部署迈出的重要一步。</p>
+    <div class="urls"><a href="https://claude.com/blog/claude-managed-agents-updates">https://claude.com/blog/claude-managed-agents-updates</a></div>
+  </article>
+</section>
+<!-- ============== PODCAST ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🎙️</span>
+    <h2 class="section-title">Podcasts</h2>
+    <span class="section-meta">1 Episode</span>
+  </div>
+
+  <div class="podcast">
+    <div class="podcast-source">Unsupervised Learning</div>
+    <h3 class="podcast-title">AI Vibe Check: Lab Wars, Why APIs Might Vanish & Future Predictions</h3>
+
+    <div class="takeaway">
+      <span class="takeaway-label">The Takeaway</span>
+      The AI lab competition is intensifying, and the compute crunch may force labs to abandon API businesses. The next phase of AI development may be defined not by research breakthroughs but by who controls the most compute.
+    </div>
+
+    <div class="podcast-body">
+      <p>The "AI Vibe Check" format from Unsupervised Learning features host Jacob Efron with Ari (Datalogy, ex-DeepMind/Meta researcher) and Rob (Radical Ventures). This episode covers the current AI landscape: the Fable release and community reaction, how close we are to Recursive Self-Improvement (RSI), and a bold prediction that AI labs may abandon their API businesses as the compute crunch continues. The conversation highlights the rapid pace of change — IPO filings, model launches delayed then released, SpaceX becoming an AI infra company — and makes sense of it all through the lens of three people actually building and investing in this space. A particularly striking moment: the hosts discuss whether the current AI lab competition is sustainable, and what happens when compute becomes the primary constraint on capability rather than research breakthroughs.</p>
+    </div>
+
+    <div class="podcast-divider"></div>
+
+    <div class="podcast-zh">
+      <p>Unsupervised Learning 的"AI Vibe Check"系列由 Jacob Efron 主持，嘉宾包括 Ari（Datalogy，前 DeepMind/Meta 研究员）和 Rob（Radical Ventures）。本期涵盖当前 AI 格局：Fable 发布及社区反应、我们距离递归自我改进（RSI）有多近、以及一个大胆预测——随着算力紧张持续，AI 实验室可能会放弃 API 业务。对话凸显了变化的快速节奏——IPO 申请、延迟后又发布的模型、SpaceX 成为 AI 基础设施公司——并通过三位实际在这个领域建设和投资的人的视角来理解这一切。一个特别引人注目的时刻：主持人讨论了当前 AI 实验室竞争是否可持续，以及当算力成为能力的主要约束而非研究突破时会发生什么。</p>
+    </div>
+
+    <div class="urls" style="margin-top:24px">
+      <a href="https://www.youtube.com/watch?v=W_iO8XxgD_I">▶️ https://www.youtube.com/watch?v=W_iO8XxgD_I</a>
+    </div>
+  </div>
+
+</section>
+<footer class="footer">
+  <div class="next-issue">📬 下一期：明天 10:00（北京时间）</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->
