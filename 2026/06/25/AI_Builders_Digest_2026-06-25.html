@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest · 2026-06-25</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255,255,255,0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 15.5px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 12px; padding: 32px; margin-bottom: 24px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
+  .podcast-source { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 10px; }
+  .podcast-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; color: var(--ink); margin-bottom: 24px; }
+  .takeaway { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 8px; padding: 18px 22px; margin-bottom: 24px; font-size: 15px; line-height: 1.7; color: var(--accent-deep); }
+  .takeaway-label { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; background: var(--accent); color: white; padding: 3px 8px; border-radius: 3px; margin-right: 10px; transform: translateY(-2px); }
+  .podcast-body { font-size: 15.5px; color: var(--ink-soft); line-height: 1.75; }
+  .podcast-body p { margin-bottom: 16px; }
+  .podcast-body strong { color: var(--ink); font-weight: 600; }
+  .podcast-divider { height: 1px; background: var(--line); margin: 28px 0; }
+  .podcast-zh { font-family: 'Noto Serif SC', serif; font-size: 15.5px; color: var(--ink); line-height: 1.95; }
+  .podcast-zh p { margin-bottom: 16px; }
+  .podcast-zh strong { color: var(--accent-deep); font-weight: 600; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .podcast { padding: 24px; } .podcast-title { font-size: 19px; } .topbar-inner { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 · Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest · 2026-06-25 · 周三</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+
+<div class="stats">
+  <div class="stat"><div class="stat-num">19</div><div class="stat-label">Builders</div></div>
+  <div class="stat"><div class="stat-num">41</div><div class="stat-label">Tweets</div></div>
+  <div class="stat"><div class="stat-num">1</div><div class="stat-label">Podcast</div></div>
+  <div class="stat"><div class="stat-num">0</div><div class="stat-label">Blog</div></div>
+</div>
+
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🐦</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">19 Builders</span>
+  </div>
+  
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Andrej Karpathy</span>
+      <span class="builder-role">I like training large deep neural nets.</span>
+    </div>
+    <p class="summary-en">A profound observation on Claude's new paradigm: "This is a new paradigm for interacting with Claude that is significantly more 'inline' with all the other human activity org-wide." He identifies this as the 3rd major redesign of LLM UIUX: (1) LLM as a website, (2) LLM as a downloaded app, (3) LLM as a self-contained, persistent, asynchronous entity with org-wide tools and context, working alongside teams of humans. "It really takes a while to wrap your head around it, but it works and it is awesome."</p>
+    <p class="summary-zh zh">对 Claude 新范式的深刻观察："这是一种与 Claude 交互的新范式，与组织内所有其他人类活动更加'内联'。"他将其认定为 LLM UIUX 的第三次重大重新设计：（1）LLM 作为一个网站，（2）LLM 作为下载的应用，（3）LLM 作为一个独立的、持久的、异步的实体，具有组织范围的工具和内容，与人类团队一起工作。"真的需要一段时间才能理解它，但它确实有效，而且很棒。"</p>
+    <div class="urls">
+      <a href="https://x.com/karpathy/status/2069547676849557725">https://x.com/karpathy/status/2069547676849557725</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Swyx</span>
+      <span class="builder-role">achieve ambition with intentionality, intensity, integrity & insanity.</span>
+    </div>
+    <p class="summary-en">Three notable posts: first, highlighting that Zai IPO'ed in Jan at HK$120/share — when he first met the founder, nobody really knew anyone using GLM's. Now they have beaten DeepSeek with the world's undisputed top open model. Second, promoting a great related event for Women in AI. Third, proud to host a session opening night for LIT Fellows (Touchy Feely) — emphasizing the shocking number of tech leaders who are secret LIT Fellows alums.</p>
+    <p class="summary-zh zh">三条值得注意的动态：第一，强调 Zai 在 1 月 IPO，每股 HK$120——当他第一次见到创始人时，没人真正知道有人在使用 GLM。现在他们用世界公认的顶部开放模型击败了 DeepSeek。第二，推广一个针对 AI 领域女性的相关活动。第三，自豪地在开幕夜主持 LIT Fellows（Touchy Feely）的会议——强调有惊人数量的科技领导者是秘密的 LIT Fellows 校友。</p>
+    <div class="urls">
+      <a href="https://x.com/swyx/status/2069665232822366577">https://x.com/swyx/status/2069665232822366577</a>
+    <a href="https://x.com/swyx/status/2069598378191941835">https://x.com/swyx/status/2069598378191941835</a>
+    <a href="https://x.com/swyx/status/2069582337034330186">https://x.com/swyx/status/2069582337034330186</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Josh Woodward</span>
+      <span class="builder-role">VP, @Google @GoogleLabs @GeminiApp @GoogleAIStudio</span>
+    </div>
+    <p class="summary-en">Two posts from Google Labs: (1) "Turn your team loyalty into a custom trading card, mural, or virtual plushie in Gemini App" — a fun feature launch. (2) "Florida State University: 'Shortly after introducing NotebookLM on campus, we watched students who were struggling with a 'C' grade completely transform their study habits and their grades in a matter of weeks.'" — a powerful testimonial for NotebookLM.</p>
+    <p class="summary-zh zh">来自 Google Labs 的两篇文章：（1）"在 Gemini 应用中将你的团队忠诚度转化为自定义交易卡、壁画或虚拟毛绒玩具"——一个有趣的功能发布。（2）"佛罗里达州立大学：'在校园内引入 NotebookLM 后不久，我们观察到那些努力获得'C'成绩的学生在几周内完全改变了他们的学习习惯和成绩。'"——对 NotebookLM 的有力推荐。</p>
+    <div class="urls">
+      <a href="https://x.com/joshwoodward/status/2069408025362714957">https://x.com/joshwoodward/status/2069408025362714957</a>
+    <a href="https://x.com/joshwoodward/status/2069406832523624696">https://x.com/joshwoodward/status/2069406832523624696</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Boris Cherny</span>
+      <span class="builder-role">Claude Code @anthropicai</span>
+    </div>
+    <p class="summary-en">Three major announcements for Claude on Slack: (1) Tag Claude in a channel, it spins up an instance with its own sandbox — clones repos, writes code, tests, compiles all in that isolated environment. (2) One instance per thread, its own memory and permissions per channel. (3) Claude can monitor Slack channels to proactively respond to people, answer questions, draft PRs, and react with emojis like ✅❌ when a thread is resolved. "That's it. Point it at a channel, give it a task, and let it work."</p>
+    <p class="summary-zh zh">Claude 在 Slack 上的三个重大公告：（1）在频道中标记 Claude，它会启动一个带有自己沙箱的实例——克隆仓库、编写代码、测试、编译都在那个隔离环境中。（2）每个线程一个实例，每个频道有自己的内存和权限。（3）Claude 可以监控 Slack 频道，主动回复人们，回答问题，起草 PR，并在线程解决时用 ✅❌ 等表情符号做出反应。"就是这样。把它指向一个频道，给它一个任务，让它工作。"</p>
+    <div class="urls">
+      <a href="https://x.com/bcherny/status/2069474691010707486">https://x.com/bcherny/status/2069474691010707486</a>
+    <a href="https://x.com/bcherny/status/2069474689819480394">https://x.com/bcherny/status/2069474689819480394</a>
+    <a href="https://x.com/bcherny/status/2069474688619958517">https://x.com/bcherny/status/2069474688619958517</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thibault Sottiaux</span>
+      <span class="builder-role">Codex & ChatGPT @OpenAI</span>
+    </div>
+    <p class="summary-en">Three posts from the Codex team: (1) "If you are at OpenAI, you would know that this never happens. Be right back celebrating 5 minutes of peace." — a rare moment of calm. (2) "Codex loves slurping up bugs" — showing Codex fixing issues. (3) "Codex **had** a bug. Fixed." — responsive to user feedback, with 3,249 likes and 104 retweets. "More feedback. Better product. Keep it coming."</p>
+    <p class="summary-zh zh">来自 Codex 团队的三条帖子：（1）"如果你在 OpenAI，你会知道这永远不会发生。马上回来庆祝 5 分钟的平静。"——一个罕见的平静时刻。（2）"Codex 喜欢吞噬 bug"——展示 Codex 修复问题。（3）"Codex **有**一个 bug。已修复。"——对用户反馈反应迅速，获得 3,249 个赞和 104 次转发。"更多反馈。更好的产品。继续吧。"</p>
+    <div class="urls">
+      <a href="https://x.com/thsottiaux/status/2069624530960838914">https://x.com/thsottiaux/status/2069624530960838914</a>
+    <a href="https://x.com/thsottiaux/status/2069592160966733853">https://x.com/thsottiaux/status/2069592160966733853</a>
+    <a href="https://x.com/thsottiaux/status/2069579993588625574">https://x.com/thsottiaux/status/2069579993588625574</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">Practical AI tutorials and interviews for busy people | Join 150K+ readers at https://t.co/XYKTmGVH1</span>
+    </div>
+    <p class="summary-en">Three posts showing the evolving UX of AI: (1) "What is design if what's accessing your product is just an agent looking for an api or CLI?" — a profound question about the future of design. (2) "wtf the Google Workspace CLI is super useful it should be celebrated?" — reacting to the news that Google fired the guy who made it. (3) "Human-agent interaction is basically trending towards managing a highly capable employee. 1 on 1s and performance reviews for Claude next?" — a humorous but insightful observation.</p>
+    <p class="summary-zh zh">三条展示 AI 不断演化的 UX 的帖子：（1）"如果访问你产品的只是一个寻找 api 或 CLI 的 agent，那么设计是什么？"——一个关于设计未来的深刻问题。（2）"wtf Google Workspace CLI 超级有用，应该被庆祝？"——对 Google 解雇制作它的人的消息做出反应。（3）"人与 agent 的交互基本上趋向于管理一个高能力的员工。接下来是 Claude 的一对一会议和绩效评估？"——一个幽默但有洞察力的观察。</p>
+    <div class="urls">
+      <a href="https://x.com/petergyang/status/2069603490524254473">https://x.com/petergyang/status/2069603490524254473</a>
+    <a href="https://x.com/petergyang/status/2069551302246592799">https://x.com/petergyang/status/2069551302246592799</a>
+    <a href="https://x.com/petergyang/status/2069530765352907180">https://x.com/petergyang/status/2069530765352907180</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Madhu Guru</span>
+      <span class="builder-role">Prev: Product Leader at Google - Gemini, Veo, Nano Banana.</span>
+    </div>
+    <p class="summary-en">A substantive post on the AI business model debate: "I've had the chance to see this ecosystem from the different sides - enterprises, agent startups, data providers, labs. The core tension here is that the business models, moats, value exchange, execution playbooks for all players are being figured out in real time. This debate around token pricing is really a debate over where value will accrue - models, application layer, distribution or other layers. Expect a lot of strong opinions from the different sides to shape the narrative in their favor."</p>
+    <p class="summary-zh zh">一篇关于 AI 商业模式辩论的实质性帖子："我有机会从不同的角度看待这个生态系统——企业、agent 创业公司、数据提供商、实验室。这里的核心紧张关系是，所有参与者的商业模式、护城河、价值交换、执行手册都在实时制定中。这场关于 token 定价的辩论实际上是关于价值将累积在哪里——模型、应用层、分销或其他层。预计各方会有很多强烈的意见来塑造有利于他们的叙述。"</p>
+    <div class="urls">
+      <a href="https://x.com/realmadhuguru/status/2069455097193697393">https://x.com/realmadhuguru/status/2069455097193697393</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Cat Wu</span>
+      <span class="builder-role">claude code + cowork @anthropicai, prev: @dagster, @scale_ai</span>
+    </div>
+    <p class="summary-en">Three posts on Claude Tag: (1) "Claude Tag is a paradigm shift in how we ship products at Anthropic. Our internal version merges 65% of product PRs and this is our first product that is natively multi-player and proactive." (2) A guide for configuring agent permissions. (3) "There are 100s of ways you can customize Claude Tag for any use case. Here are 6 common flows that have resonated with our internal users and external design partners."</p>
+    <p class="summary-zh zh">关于 Claude Tag 的三条帖子：（1）"Claude Tag 是我们在 Anthropic 交付产品方式的范式转变。我们的内部版本合并了 65% 的产品 PR，这是我们的第一个原生多人和主动的产品。"（2）配置 agent 权限的指南。（3）"有数百种方法可以为任何用例自定义 Claude Tag。以下是我们的内部用户和外部设计合作伙伴产生共鸣的 6 种常见流程。"</p>
+    <div class="urls">
+      <a href="https://x.com/_catwu/status/2069486403696869555">https://x.com/_catwu/status/2069486403696869555</a>
+    <a href="https://x.com/_catwu/status/2069484330938998993">https://x.com/_catwu/status/2069484330938998993</a>
+    <a href="https://x.com/_catwu/status/2069473118742331608">https://x.com/_catwu/status/2069473118742331608</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thariq</span>
+      <span class="builder-role">Claude Code @anthropicai.   prev YC W20, @southpkcommons, @medialab</span>
+    </div>
+    <p class="summary-en">Three practical tips for using Claude Tag: (1) "Finally, get creative! I'm setting up a 'scheduling' channel which lets people tag Claude to find time on our calendars." (2) "When it's working, I ask it to react to the top level thread with the following emojis: ⏲️✅❓🛑" — easy status tracking. (3) "When you really get going, it's easy to get overwhelmed with all the threads. In my personal channel I like to ask Claude to keep a pinned message that it updates with the status of everything."</p>
+    <p class="summary-zh zh">使用 Claude Tag 的三个实用技巧：（1）"终于，发挥创意！我正在设置一个'调度'频道，让人们标记 Claude 在我们的日历上找时间。"（2）"当它工作时，我让它用以下表情符号对顶级线程做出反应：⏲️✅❓🛑"——轻松的状态跟踪。（3）"当你真正开始进行时，很容易对所有线程感到不知所措。在我的个人频道中，我喜欢让 Claude 保留一个置顶消息，它会更新所有内容的状态。"</p>
+    <div class="urls">
+      <a href="https://x.com/trq212/status/2069474343512617390">https://x.com/trq212/status/2069474343512617390</a>
+    <a href="https://x.com/trq212/status/2069474342220820657">https://x.com/trq212/status/2069474342220820657</a>
+    <a href="https://x.com/trq212/status/2069474339679052144">https://x.com/trq212/status/2069474339679052144</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Amjad Masad</span>
+      <span class="builder-role">ceo @replit. civilizationist</span>
+    </div>
+    <p class="summary-en">Two posts: (1) "It starts with a prompt — it's a whole lot of work to get here — but it starts with an idea. Congrats Yousef and team!" — celebrating someone's launch. (2) "K-coding" — a cryptic post that likely refers to coding with K (possibly Koala or another tool).</p>
+    <p class="summary-zh zh">两条帖子：（1）"它从一个提示开始——到达这里需要大量工作——但它从一个想法开始。恭喜 Yousef 和团队！"——庆祝某人的发布。（2）"K-coding"——一个神秘的帖子，可能指的是用 K 编码（可能是 Koala 或另一个工具）。</p>
+    <div class="urls">
+      <a href="https://x.com/amasad/status/2069588152285794373">https://x.com/amasad/status/2069588152285794373</a>
+    <a href="https://x.com/amasad/status/2069322872456364540">https://x.com/amasad/status/2069322872456364540</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">@vercel CEO</span>
+    </div>
+    <p class="summary-en">Two posts: (1) "Starting an X Chat group for v0.dev feedback. If you're deep into building an agent and have high quality critical feedback or requirements to share, DM me and I'll add you to a group with v0 engineers." — community building for v0. (2) "Vercel + Cursor" — likely announcing a partnership or integration.</p>
+    <p class="summary-zh zh">两条帖子：（1）"为 v0.dev 反馈启动一个 X 聊天组。如果你深入构建 agent 并且有高质量的批判性反馈或需求要分享，私信我，我会把你添加到一个有 v0 工程师的组中。"——为 v0 建立社区。（2）"Vercel + Cursor"——可能宣布合作伙伴关系或集成。</p>
+    <div class="urls">
+      <a href="https://x.com/rauchg/status/2069590431646769472">https://x.com/rauchg/status/2069590431646769472</a>
+    <a href="https://x.com/rauchg/status/2069513849578082474">https://x.com/rauchg/status/2069513849578082474</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Alex Albert</span>
+      <span class="builder-role">Research @AnthropicAI. Opinions are my own!</span>
+    </div>
+    <p class="summary-en">"This has completely changed how I work with Claude. It feels less like using a tool and more like managing a team." — a powerful testimonial from an Anthropic researcher on the new Claude Tag paradigm.</p>
+    <p class="summary-zh zh">"这完全改变了我与 Claude 的工作方式。感觉不太像在使用工具，更像是管理一个团队。"——来自 Anthropic 研究人员关于新 Claude Tag 范式的强力推荐。</p>
+    <div class="urls">
+      <a href="https://x.com/alexalbert__/status/2069470389391241314">https://x.com/alexalbert__/status/2069470389391241314</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aaron Levie</span>
+      <span class="builder-role">ceo @box - your business lives in content. unleash it with AI</span>
+    </div>
+    <p class="summary-en">Two substantive posts: (1) On AI pricing dynamics: "We're basically going to see a barbell dynamic on pricing between high cost frontier models and cheap but good open or closed weights models. Then the question is how do you maximize efficiency from the frontier models, and get better quality and performance of the cheaper models. That's where the applied AI layer comes in." (2) On Claude Tag: "Another example of the power of headless software with agents. With Claude Tag, you can give Claude access to any corporate files in Box that you can interact with from Slack. Now all of your enterprise content becomes a portable knowledge base."</p>
+    <p class="summary-zh zh">两条实质性帖子：（1）关于 AI 定价动态："我们基本上会看到高价前沿模型和廉价但好的开放或封闭权重模型之间的定价杠铃动态。那么问题是如何最大化前沿模型的效率，并获得更便宜模型的质量和性能。这就是应用 AI 层的作用。"（2）关于 Claude Tag："headless 软件与 agent 的力量的另一个例子。通过 Claude Tag，你可以让 Claude 访问 Box 中的任何公司文件，你可以从 Slack 与之交互。现在你的所有企业内容都成为可移植的知识库。"</p>
+    <div class="urls">
+      <a href="https://x.com/levie/status/2069639600310767616">https://x.com/levie/status/2069639600310767616</a>
+    <a href="https://x.com/levie/status/2069596515560267891">https://x.com/levie/status/2069596515560267891</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Garry Tan</span>
+      <span class="builder-role">President & CEO @ycombinator —Founder @garryslist—Creator of GStack & GBrain—designer/engineer who h</span>
+    </div>
+    <p class="summary-en">Three posts: (1) "We should demand government competence instead of whatever we have to deal with in California government and local city management today" — a call for better governance. (2) "Linzumi is Codex but actually multiplayer. It's magical for teams. Also Sean Grove was on the team at OpenAI that greatly reduced sycophancy in ChatGPT before he left to start this YC startup!" — promoting a YC company. (3) "Dropbox should really support larger than 3TB plans - it's not 2015 anymore. The amount of data we are throwing off and that is *actually usable* is going to go exponential from AI, and Dropbox will be run over by this if they don't update for the future." — a predictive post about data storage.</p>
+    <p class="summary-zh zh">三条帖子：（1）"我们应该要求政府能力，而不是我们今天在加州政府和地方城市管理中必须处理的任何事情"——呼吁更好的治理。（2）"Linzumi 是 Codex，但实际上是多人游戏。这对团队来说很神奇。另外，Sean Grove 在 OpenAI 的团队中，在离开创办这家 YC 创业公司之前，大大减少了 ChatGPT 中的谄媚！"——推广一家 YC 公司。（3）"Dropbox 真的应该支持大于 3TB 的计划——现在不是 2015 年了。我们从 AI 抛出的数据量以及*实际可用*的数据量将呈指数级增长，如果 Dropbox 不为未来更新，它将被淘汰。"——关于数据存储的预测性帖子。</p>
+    <div class="urls">
+      <a href="https://x.com/garrytan/status/2069482298547044788">https://x.com/garrytan/status/2069482298547044788</a>
+    <a href="https://x.com/garrytan/status/2069474420113146355">https://x.com/garrytan/status/2069474420113146355</a>
+    <a href="https://x.com/garrytan/status/2069434452628185241">https://x.com/garrytan/status/2069434452628185241</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Matt Turck</span>
+      <span class="builder-role">VC at @FirstMarkCap.  Host: MAD Podcast; Organizer: Data Driven NYC, Author: MAD Landscape.</span>
+    </div>
+    <p class="summary-en">"Expanding the world cup from 32 to 48 teams was such a genius idea. Creates some Cinderella stories (Curacao, Cabo Verde, DR Congo etc), and enables the stars (Messi, Ronaldo, MBappe, Haaland etc) to shine early. Loving it all so far." — a rare non-AI post from a VC, showing the human side.</p>
+    <p class="summary-zh zh">"将世界杯从 32 支球队扩展到 48 支球队是一个天才的想法。创造了一些灰姑娘故事（库拉索、佛得角、刚果民主共和国等），并让明星（梅西、罗纳尔多、姆巴佩、哈兰德等）早日闪耀。到目前为止很喜欢这一切。"——来自 VC 的罕见非 AI 帖子，展示了人性化的一面。</p>
+    <div class="urls">
+      <a href="https://x.com/mattturck/status/2069481767652794768">https://x.com/mattturck/status/2069481767652794768</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nikunj Kothari</span>
+      <span class="builder-role">partner @fpvventures - investing in seed/A. previous: early hire @meter, @opendoor, @atlassian & oth</span>
+    </div>
+    <p class="summary-en">Two posts: (1) "Introducing Plug That Shop 🔌 So @Shopify launched their UCP CLI that allows all the products on their stores available via the command line. I was thinking of interesting use cases for the CLI over the weekend and realized that I can use this to create contextual embedded shops for websites." — a creative use case for Shopify's UCP CLI. (2) "Built using @conductor_build, @AnthropicAI Opus 4.8, @shopify UCP CLI and @Railway." — showing his tech stack.</p>
+    <p class="summary-zh zh">两篇文章：（1）"介绍 Plug That Shop 🔌 所以 @Shopify 推出了他们的 UCP CLI，允许通过命令行访问其商店中的所有产品。我在周末思考 CLI 的有趣用例，意识到我可以用它来为网站创建上下文嵌入的商店。"——Shopify UCP CLI 的创造性用例。（2）"使用 @conductor_build、@AnthropicAI Opus 4.8、@shopify UCP CLI 和 @Railway 构建。"——展示他的技术栈。</p>
+    <div class="urls">
+      <a href="https://x.com/nikunj/status/2069547206504566980">https://x.com/nikunj/status/2069547206504566980</a>
+    <a href="https://x.com/nikunj/status/2069534712763490668">https://x.com/nikunj/status/2069534712763490668</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Steinberger</span>
+      <span class="builder-role">Polyagentmorous ClawFather. Came back from retirement to mess with AI and help a lobster take over t</span>
+    </div>
+    <p class="summary-en">"Google fired the guy that made the google workspace cli, because he made the google workspace cli. Lucky me, Google can't fire me." — a viral post (3,708 likes, 191 retweets) celebrating that Peter is building OpenClaw and can't be fired by Google. A perfect example of the open-source builder spirit.</p>
+    <p class="summary-zh zh">"Google 解雇了制作 google workspace cli 的人，因为他制作了 google workspace cli。幸运的是，Google 不能解雇我。"——一条病毒式帖子（3,708 个赞，191 次转发），庆祝 Peter 正在构建 OpenClaw，而 Google 无法解雇他。这是开源构建者精神的完美例子。</p>
+    <div class="urls">
+      <a href="https://x.com/steipete/status/2069594195522941059">https://x.com/steipete/status/2069594195522941059</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aditya Agarwal</span>
+      <span class="builder-role">General Partner @SouthPkCommons, Co-Founder @Bevel_Health | Ex: Early Eng @facebook, CTO @Dropbox, B</span>
+    </div>
+    <p class="summary-en">Two posts: (1) "There's way more demand for space than capacity to launch. @LongshotSpace is building a cannon that fires payloads into orbit. We're excited to partner with them at @southpkcommons. Let's shoot things into space." — investing in space tech. (2) "Why we invested" — likely a follow-up on the investment thesis.</p>
+    <p class="summary-zh zh">两篇文章：（1）"对太空的需求远远超过发射能力。@LongshotSpace 正在建造一门将有效载荷发射到轨道的大炮。我们很高兴在 @southpkcommons 与他们合作。让我们把东西发射到太空。"——投资太空技术。（2）"为什么我们投资"——可能是关于投资论的后续。</p>
+    <div class="urls">
+      <a href="https://x.com/adityaag/status/2069464865568166180">https://x.com/adityaag/status/2069464865568166180</a>
+    <a href="https://x.com/adityaag/status/2069464862556619263">https://x.com/adityaag/status/2069464862556619263</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Claude</span>
+      <span class="builder-role">Claude is an AI assistant built by @anthropicai to be safe, accurate, and secure. Talk to Claude on </span>
+    </div>
+    <p class="summary-en">Three posts announcing Claude Tag: (1) "Claude Tag is available in beta today on Slack for Claude Enterprise and Team plans. We plan to expand it more widely in the future." (2) "Turn ambient behavior on, and Claude takes initiative. It follows up on threads that have gone quiet and flags what's relevant from across its channels and tools." (3) "In a channel, there's one Claude that interacts with everyone, so a teammate can pick up exactly where you left off. It builds more context about the work as it follows the channel, so you don't need to explain things from scratch."</p>
+    <p class="summary-zh zh">三篇宣布 Claude Tag 的帖子：（1）"Claude Tag 今天在 Slack 上以 beta 版向 Claude Enterprise 和 Team 计划提供。我们计划在未来更广泛地扩展它。"（2）"开启环境行为，Claude 会主动行动。它会跟进已经安静下来的线程，并从它的频道和工具中标记相关内容。"（3）"在一个频道中，有一个 Claude 与每个人交互，所以队友可以准确地从你离开的地方继续。随着它关注频道，它会建立更多关于工作的内容，所以你不需要从头开始解释事情。"</p>
+    <div class="urls">
+      <a href="https://x.com/claudeai/status/2069468701548531895">https://x.com/claudeai/status/2069468701548531895</a>
+    <a href="https://x.com/claudeai/status/2069468699766005847">https://x.com/claudeai/status/2069468699766005847</a>
+    <a href="https://x.com/claudeai/status/2069468698071494976">https://x.com/claudeai/status/2069468698071494976</a>
+    </div>
+  </article>
+</section>
+
+
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🎙️</span>
+    <h2 class="section-title">Podcasts</h2>
+    <span class="section-meta">1 Episode</span>
+  </div>
+
+  <div class="podcast">
+    <div class="podcast-source">No Priors</div>
+    <h3 class="podcast-title">Biohub: The Future of Biology is Open-Source with Co-Founders Mark Zuckerberg, Priscilla Chan, and Head of Science Alex Rives</h3>
+
+    <div class="takeaway">
+      <span class="takeaway-label">The Takeaway</span>
+      Biohub 由 Mark Zuckerberg 和 Priscilla Chan 创立，致力于通过开源 AI 加速生物学研究。他们的目标是理解生物学如何运作，预测蛋白质结构（已折叠超过 11 亿个蛋白质），并最终设计出能够改变生理机能、治愈疾病的蛋白质。
+    </div>
+
+    <div class="podcast-body">
+      <p>Biohub 由 Mark Zuckerberg 和 Priscilla Chan 共同创立，Head of Science Alex Rives 参与了此次对话。他们的使命是："我们想帮助整个科学界加速进步。"他们预测了超过 11 亿个蛋白质的结构，但他们的目标不是设计针对特定目标的模型（如抗体），而是设计一个能够理解蛋白质的通用模型。</p>
+      <p>关键洞察：通过开源项目让更多科学家快速使用这些工具，会产生更大的影响。这不是关于在某个工厂付费生产数据，而是需要发明全新的科学方法。他们的理论不是要治愈疾病，而是要帮助加速整个科学领域的进步步伐。</p>
+      <p>如果我能设计一个蛋白质来实际改变生理机能，那么我就能真正治愈某人。这是 Biohub 的终极目标——从理解生物学到实际干预疾病。</p>
+    </div>
+
+    <div class="podcast-divider"></div>
+
+    <div class="podcast-zh">
+      <p>Biohub 由 Mark Zuckerberg 和 Priscilla Chan 共同创立，科学负责人 Alex Rives 参与了此次对话。他们的使命是："我们想帮助整个科学界加速进步。"他们预测了超过 11 亿个蛋白质的结构，但他们的目标不是设计针对特定目标的模型（如抗体），而是设计一个能够理解蛋白质的通用模型。</p>
+      <p>关键洞察：通过开源项目让更多科学家快速使用这些工具，会产生更大的影响。这不是关于在某个工厂付费生产数据，而是需要发明全新的科学方法。他们的理论不是要治愈疾病，而是要帮助加速整个科学领域的进步步伐。</p>
+      <p>如果我能设计一个蛋白质来实际改变生理机能，那么我就能真正治愈某人。这是 Biohub 的终极目标——从理解生物学到实际干预疾病。</p>
+    </div>
+
+    <div class="urls" style="margin-top:24px">
+      <a href="https://www.youtube.com/@NoPriorsPodcast">▶️ https://www.youtube.com/@NoPriorsPodcast</a>
+    </div>
+  </div>
+
+</section>
+
+<footer class="footer">
+  <div class="next-issue">📬 下一期：明天 10:00（北京时间）</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->
