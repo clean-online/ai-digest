@@ -26,4 +26,33 @@
 
 ---
 
-*Updated: 2026-06-22T10:00+08:00*
+## Last Run: 2026-06-25
+
+### Execution Summary
+- **Status**: Success
+- **Builders tracked**: 19 (Andrej Karpathy, Swyx, Josh Woodward, Boris Cherny, Thibault Sottiaux, Peter Yang, Madhu Guru, Cat Wu, Thariq, Amjad Masad, Guillermo Rauch, Alex Albert, Aaron Levie, Garry Tan, Matt Turck, Nikunj Kothari, Peter Steinberger, Aditya Agarwal, Claude)
+- **Tweets collected**: 41
+- **Podcasts**: 1 (No Priors — Biohub: The Future of Biology is Open-Source with Mark Zuckerberg, Priscilla Chan, and Alex Rives, published 2026-06-10)
+- **Blog posts**: 0
+- **Output**: `AI_Builders_Digest_2026-06-25.html`
+- **Deployed**: ✅ GitHub Pages — `https://clean-online.github.io/ai-digest/2026/06/25/AI_Builders_Digest_2026-06-25.html`
+- **Commit**: 390c8c6
+
+### Key Highlights
+- **Andrej Karpathy**: Identifies Claude's new paradigm as the 3rd major redesign of LLM UIUX — from website to downloaded app to persistent, asynchronous entity with org-wide tools. "It really takes a while to wrap your head around it, but it works and it is awesome."
+- **Boris Cherny (Claude Code @ Anthropic)**: Three major Claude on Slack announcements — sandbox isolation per thread, proactive channel monitoring with emoji reactions, and persistent memory per channel.
+- **Peter Steinberger (OpenClaw)**: Viral post (3,708 likes) — "Google fired the guy that made the google workspace cli. Lucky me, Google can't fire me." Celebrating open-source builder independence.
+- **Aaron Levie (Box CEO)**: AI pricing will see a "barbell dynamic" between high-cost frontier models and cheap open/closed weights. Applied AI layer's job is to route optimally between them.
+- **Thibault Sottiaux (Codex @ OpenAI)**: "Codex **had** a bug. Fixed." — responsive to user feedback (3,249 likes). "More feedback. Better product. Keep it coming."
+- **No Priors Podcast**: Biohub's open-source biology AI approach — folded 1.1B proteins, designing general-purpose protein understanding models rather than task-specific ones. Goal: "understand how biology works" → "design proteins to cure someone."
+
+### Notes
+- Schedule: daily at 10:00 Beijing time (RRULE: FREQ=DAILY;BYHOUR=10;BYMINUTE=0)
+- index.html ISSUES object updated with 2026-06-25 entry
+- Generated via Node.js script (gen-digest-2026-06-25.js), kept at /tmp/ for reference
+- Podcast transcript summarized (Biohub / open-source biology / protein structure prediction)
+- Claude Tag announcements from multiple Anthropic team members (Boris, Cat Wu, Thariq, Alex Albert, Claude official)
+
+---
+
+*Updated: 2026-06-25T10:00+08:00*
