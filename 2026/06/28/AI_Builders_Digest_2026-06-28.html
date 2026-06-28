@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest · 2026-06-28</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 12px; padding: 32px; margin-bottom: 24px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
+  .podcast-source { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 10px; }
+  .podcast-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; color: var(--ink); margin-bottom: 24px; }
+  .takeaway { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 8px; padding: 18px 22px; margin-bottom: 24px; font-size: 15px; line-height: 1.7; color: var(--accent-deep); }
+  .takeaway-label { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; background: var(--accent); color: white; padding: 3px 8px; border-radius: 3px; margin-right: 10px; transform: translateY(-2px); }
+  .podcast-body { font-size: 15.5px; color: var(--ink-soft); line-height: 1.75; }
+  .podcast-body p { margin-bottom: 16px; }
+  .podcast-body strong { color: var(--ink); font-weight: 600; }
+  .podcast-divider { height: 1px; background: var(--line); margin: 28px 0; }
+  .podcast-zh { font-family: 'Noto Serif SC', serif; font-size: 15.5px; color: var(--ink); line-height: 1.95; }
+  .podcast-zh p { margin-bottom: 16px; }
+  .podcast-zh strong { color: var(--accent-deep); font-weight: 600; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .podcast { padding: 24px; } .podcast-title { font-size: 19px; } .topbar-inner { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 · Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest · 2026-06-28 · 周日</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">15</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">34</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+<!-- ============= PODCAST ============= -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🎙️</span>
+    <h2 class="section-title">Podcast</h2>
+    <span class="section-meta">No Priors</span>
+  </div>
+
+  <div class="podcast">
+    <div class="podcast-source">No Priors · Published 2026-06-26</div>
+    <div class="podcast-title">Why Traditional Benchmarks Fail Modern AI Models with OpenAI Research Scientist Noam Brown</div>
+
+    <div class="takeaway">
+      <span class="takeaway-label">TAKEAWAY</span>
+      Traditional AI benchmarks are broken because they don't account for test-time compute. A model's capability is now a function of inference budget — GPT-5.5 can be dramatically more capable at $10,000 than at $10, and we have no framework for evaluating models at the scale they'll actually be used.
+    </div>
+
+    <div class="podcast-body">
+      <p><strong>The benchmark illusion.</strong> Noam Brown explains why GPT-5.5 initially faced skepticism: benchmark grids showed only modest gains over GPT-5.4. But users quickly discovered it was substantially better. The discrepancy: GPT-5.5 is far more efficient with its "thinking" — it achieves superior results with significantly less compute. The benchmarks weren't wrong; they were measuring the wrong thing.</p>
+
+      <p><strong>Capability as a function of budget.</strong> Modern models have entered a new regime where capability scales with inference budget. Give GPT-5.5 $10 of compute and it performs at one level; give it $10,000 and it can do much more; at $10 million, even more still. The problematic: responsible scaling policies and safety evaluations measure dangerous capabilities at standard budgets, but a model that seems safe at $10 could be dangerous at $10 million. We have no framework for this.</p>
+
+      <p><strong>The plateau is too far out.</strong> With GPT-5.5, models can productively "think" for weeks before performance plateaus on challenging benchmarks. This makes it impractical to evaluate them at their full potential. Brown proposes plotting model performance as a function of compute budget — a "performance curve" rather than a single benchmark number. But the field hasn't adopted this yet.</p>
+
+      <p><strong>Recursive self-improvement and the Erdos conjecture.</strong> Brown shares that an OpenAI internal model recently disproved the Erdos unit distance conjecture — a math problem that had resisted human mathematicians. The model did it at a "dirt cheap" budget. This suggests there's significant latent capability in current models that hasn't been explored because the model release cycle (every 2-3 months) is faster than the time needed to push a model to its limits.</p>
+    </div>
+
+    <div class="podcast-divider"></div>
+
+    <div class="podcast-zh zh">
+      <p><strong>基准测试的幻觉。</strong> Noam Brown 解释了为什么 GPT-5.5 最初面临质疑：基准网格显示相比 GPT-5.4 只有 modest 提升。但用户很快发现它实际上好得多。差异在于：GPT-5.5 的"思考"效率高得多——它以显著更少的计算获得更优的结果。基准测试没有错；它们衡量的是错误的东西。</p>
+
+      <p><strong>作为预算函数的能力。</strong> 现代模型进入了一个新体制，其中能力随推理预算扩展。给 GPT-5.5 10 美元的计算，它表现在一个水平；给它 10,000 美元，它可以做更多；在 1000 万美元时，还可以做得更多。问题在于：责任扩展政策和安全评估在标准预算下衡量危险能力，但在 10 美元时看起来安全的模型在 1000 万美元时可能是危险的。我们没有针对这个的框架。</p>
+
+      <p><strong>平台期太远了。</strong> 使用 GPT-5.5，模型可以在具有挑战性的基准测试上持续"思考"数周，性能才会进入平台期。这使得在其完整潜力下评估它们变得不切实际。Brown 建议将模型性能绘制为计算预算的函数——一个"性能曲线"而不是单个基准数字。但业界还没有采用这一点。</p>
+
+      <p><strong>递归自我改进和 Erdos 猜想。</strong> Brown 分享说，OpenAI 的一个内部模型最近推翻了 Erdos 单位距离猜想——这是一个难住了人类数学家的数学问题。模型以"极其廉价"的预算做到了这一点。这表明当前模型中存在大量未被探索的潜在能力，因为模型发布周期（每 2-3 个月）比将模型推到其极限所需的时间更快。</p>
+    </div>
+
+    <div class="urls" style="margin-top: 20px;">
+      <a href="https://www.youtube.com/watch?v=AZrU6y3pUcU">https://www.youtube.com/watch?v=AZrU6y3pUcU</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============= X / TWITTER ============= -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🐦</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">15 Builders</span>
+  </div>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Swyx</span>
+      <span class="builder-role">AI Builder</span>
+    </div>
+    <p class="summary-en">Swyx is celebrating the launch of his new media lab in San Francisco — &quot;a third place to make&quot; for engineer-creatives. He also flags a key trend: both AI and Anthropic are launching multi-billion dollar services arms, confirming that Full-Service AI Deployment (FDE) is one of the most important shifts in how AI products reach enterprises.</p>
+    <p class="summary-zh zh">Swyx 正在庆祝他在旧金山的新媒体实验室启动——这是&quot;第三个制作场所&quot;，面向工程师-创作者。他还标记了一个关键趋势：AI 和 Anthropic 都在推出价值数十亿美元的服务部门，确认全服务 AI 部署（FDE）是 AI 产品进入企业的最重要转变之一。</p>
+    <div class="urls">
+<a href="https://x.com/swyx/status/2070748857441362056">https://x.com/swyx/status/2070748857441362056</a>
+      <a href="https://x.com/swyx/status/2070606851377672675">https://x.com/swyx/status/2070606851377672675</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thibault Sottiaux</span>
+      <span class="builder-role">OpenAI</span>
+    </div>
+    <p class="summary-en">Thibault Sottiaux (OpenAI Codex) announces a usage reset for all Codex users &quot;on the house&quot; after service mitigations. The fact that OpenAI is proactively resetting usage limits signals how seriously they take developer trust. The posts also link to major Codex updates — the product is moving fast.</p>
+    <p class="summary-zh zh">Thibault Sottiaux（OpenAI Codex）宣布在所有用户&quot;免费&quot;重置使用量，此前已实施缓解措施。AI 主动重置使用限额表明了他们对开发者信任的重视程度。推文还链接到 Codex 的重大更新——产品正在快速迭代。</p>
+    <div class="urls">
+<a href="https://x.com/thsottiaux/status/2070653282440405046">https://x.com/thsottiaux/status/2070653282440405046</a>
+      <a href="https://x.com/thsottiaux/status/2070557504673861667">https://x.com/thsottiaux/status/2070557504673861667</a>
+      <a href="https://x.com/thsottiaux/status/2070557098342232321">https://x.com/thsottiaux/status/2070557098342232321</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">AI Builder</span>
+    </div>
+    <p class="summary-en">Peter Yang with a sharp observation: US companies publish frontier models, which get distilled into cheap open-source models, which non-US companies then adopt because they're good enough and much cheaper — raising a real question about the sustainability of the US AI moat. He also notes that money is moving to services (with some software bundled), not pure software — &quot;people want outcomes, not tools.&quot; Finally, he wishes Claude Code had better mobile remote control and steering while the agent is working.</p>
+    <p class="summary-zh zh">Peter Yang 提出了一个尖锐的观察：美国公司发布前沿模型，这些模型被蒸馏成廉价开源模型，非美国公司随后采用它们，因为它们足够好且便宜得多——这提出了关于美国 AI 护城河可持续性的真实问题。他还指出，资金正在流向服务（捆绑一些软件），而不是纯软件——&quot;人们想要结果，而不是工具。&quot;最后，他希望 Claude Code 在 agent 工作时能有更好的移动远程控制和引导功能。</p>
+    <div class="urls">
+<a href="https://x.com/petergyang/status/2070633838146134219">https://x.com/petergyang/status/2070633838146134219</a>
+      <a href="https://x.com/petergyang/status/2070568705365577990">https://x.com/petergyang/status/2070568705365577990</a>
+      <a href="https://x.com/petergyang/status/2070545325497221248">https://x.com/petergyang/status/2070545325497221248</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nan Yu</span>
+      <span class="builder-role">Head of Product, Linear</span>
+    </div>
+    <p class="summary-en">Nan Yu drops a profound org design insight: &quot;Secret level 6: there's a problem, but it's not worth solving, so leave it alone. This is why an org with a ton of level 1s can win — they don't get distracted by side quests.&quot; A masterclass in prioritization from Linear's Head of Product.</p>
+    <p class="summary-zh zh">Nan Yu 提出了一个深刻的组织设计洞见：&quot;秘密等级 6：有一个问题，但不值得解决，所以别管它。这就是为什么拥有大量等级 1 员工的团队可以获胜——他们不会被副任务分心。&quot; 来自 Linear 产品负责人的优先级管理大师课。</p>
+    <div class="urls">
+<a href="https://x.com/thenanyu/status/2070658852421345517">https://x.com/thenanyu/status/2070658852421345517</a>
+      <a href="https://x.com/thenanyu/status/2070656642597658709">https://x.com/thenanyu/status/2070656642597658709</a>
+      <a href="https://x.com/thenanyu/status/2070656348488937889">https://x.com/thenanyu/status/2070656348488937889</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Cat Wu</span>
+      <span class="builder-role">Claude Code Team, Anthropic</span>
+    </div>
+    <p class="summary-en">Cat Wu (Claude Code team, Anthropic) highlights split-screen as one of her favorite Claude Code desktop features — a simple but powerful UX detail for comparing agent outputs or monitoring multiple threads.</p>
+    <p class="summary-zh zh">Cat Wu（Claude Code 团队，Anthropic）强调分屏是她最喜欢的 Claude Code 桌面功能之一——这是一个简单但强大的 UX 细节，用于比较 agent 输出或监控多个线程。</p>
+    <div class="urls">
+<a href="https://x.com/_catwu/status/2070613405237432766">https://x.com/_catwu/status/2070613405237432766</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">Vercel CEO</span>
+    </div>
+    <p class="summary-en">Guillermo Rauch (Vercel CEO) argues that &quot;agents are particularly hard-to-debug software&quot; — non-deterministic by design, yet also stateful and long-running in ways traditional software isn't. He also declares: &quot;The UI for AI is here. It's shadcn&quot; — a strong endorsement of the shadcn/UI ecosystem. And he shares a hyper-fast video of discovering something new one morning, showcasing the speed of modern AI product iteration.</p>
+    <p class="summary-zh zh">Guillermo Rauch（Vercel CEO）认为&quot;agents 是特别难调试的软件&quot;——设计上就是非确定性的，而且还是状态化的、长时间运行的，传统软件并非如此。他还宣称：&quot;AI 的 UI 就在这里。是 shadcn&quot;——这是对 shadcn/UI 生态系统的强力认可。他还分享了一段超快视频，展示某天早上发现新东西的过程，体现了现代 AI 产品迭代的速度。</p>
+    <div class="urls">
+<a href="https://x.com/rauchg/status/2070676383135834334">https://x.com/rauchg/status/2070676383135834334</a>
+      <a href="https://x.com/rauchg/status/2070627995803668518">https://x.com/rauchg/status/2070627995803668518</a>
+      <a href="https://x.com/rauchg/status/2070567538040422712">https://x.com/rauchg/status/2070567538040422712</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aaron Levie</span>
+      <span class="builder-role">Box CEO</span>
+    </div>
+    <p class="summary-en">Aaron Levie (Box CEO) says GPT-5.6 &quot;is real and looks very strong&quot; — particularly for knowledge worker tasks requiring heavy tool use and long-running agents. &quot;We're not hitting any walls in AI progress right now,&quot; he notes, countering the AI pessimism narrative. He also posts a characteristically cryptic &quot;step one complete&quot; with a screenshot.</p>
+    <p class="summary-zh zh">Aaron Levie（Box CEO）说 GPT-5.6&quot;是真的，而且看起来非常强&quot;——特别是对于需要大量工具使用和长时间运行 agents 的知识工作者任务。&quot;我们现在没有碰到 AI 进展的任何天花板，&quot;他反驳了 AI 悲观叙事。他还发布了一张神秘的&quot;第一步完成&quot;截图。</p>
+    <div class="urls">
+<a href="https://x.com/levie/status/2070682290464919874">https://x.com/levie/status/2070682290464919874</a>
+      <a href="https://x.com/levie/status/2070563281916620895">https://x.com/levie/status/2070563281916620895</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Garry Tan</span>
+      <span class="builder-role">Y Combinator CEO</span>
+    </div>
+    <p class="summary-en">Garry Tan (Y Combinator CEO) criticizes a model release approach as &quot;no way to release a model&quot; and warns that &quot;continued development and release this way is a solid way to salt the ground and kill all innovation by small startups.&quot; A strong statement on how big labs' release strategies can harm the startup ecosystem. He also quips: &quot;Don't be a mid startup. It's true.&quot; </p>
+    <p class="summary-zh zh">Garry Tan（Y Combinator CEO）批评某种模型发布方式为&quot;根本不是发布模型的方式&quot;，并警告&quot;继续以这种方式开发和发布模型是在土地上撒盐，扼杀小初创公司的所有创新。&quot; 这是关于大实验室发布策略如何伤害初创生态系统的强烈声明。他还打趣道：&quot;不要做一个平庸的初创公司。这是真的。</p>
+    <div class="urls">
+<a href="https://x.com/garrytan/status/2070699046939820223">https://x.com/garrytan/status/2070699046939820223</a>
+      <a href="https://x.com/garrytan/status/2070494207102595495">https://x.com/garrytan/status/2070494207102595495</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Matt Turck</span>
+      <span class="builder-role">VC</span>
+    </div>
+    <p class="summary-en">Matt Turck (VC, FirstMark) goes full World Cup mode: his viral tweet mapping each team's scoring strategy to a star player (Messi for Argentina, Mbappe for France, etc.) hits 22K+ likes. He's clearly taking a break from AI landscape updates to enjoy the tournament.</p>
+    <p class="summary-zh zh">Matt Turck（VC，FirstMark）完全进入世界杯模式：他将每支球队的得分策略映射到明星球员（阿根廷的梅西、法国的姆巴佩等）的病毒式推文获得了 2.2 万+ 点赞。他显然正在从 AI 景观更新中休息一下，享受锦标赛。</p>
+    <div class="urls">
+<a href="https://x.com/mattturck/status/2070597806025314608">https://x.com/mattturck/status/2070597806025314608</a>
+      <a href="https://x.com/mattturck/status/2070591757151080593">https://x.com/mattturck/status/2070591757151080593</a>
+      <a href="https://x.com/mattturck/status/2070586263292223987">https://x.com/mattturck/status/2070586263292223987</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Zara Zhang</span>
+      <span class="builder-role">Builder / Content Creator</span>
+    </div>
+    <p class="summary-en">Zara Zhang (builder / content creator) recommends Borumi as &quot;the most underrated video recording/editing tool out there — like Screen Studio + Descript + CapCut all in one.&quot; A strong product endorsement from someone who creates AI educational content. She also quotes: &quot;You do not need God to write your emails&quot; — a pointed jab at AI overuse.</p>
+    <p class="summary-zh zh">Zara Zhang（建设者/内容创作者）推荐 Borumi 是&quot;最被低估的视频录制/编辑工具——就像 Screen Studio + Descript + CapCut 合体。&quot; 来自制作 AI 教育内容的人给出的强力产品认可。她还引用：&quot;你不需要上帝来写你的邮件&quot;——这是对 AI 过度使用的尖锐嘲讽。</p>
+    <div class="urls">
+<a href="https://x.com/zarazhangrui/status/2070735964788658598">https://x.com/zarazhangrui/status/2070735964788658598</a>
+      <a href="https://x.com/zarazhangrui/status/2070589563429691698">https://x.com/zarazhangrui/status/2070589563429691698</a>
+      <a href="https://x.com/zarazhangrui/status/2070584764315402405">https://x.com/zarazhangrui/status/2070584764315402405</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nikunj Kothari</span>
+      <span class="builder-role">VC</span>
+    </div>
+    <p class="summary-en">Nikunj Kothari (VC, FPV Ventures) pushes back on &quot;taste&quot; commentary from people who have never built anything: &quot;You can't achieve (or refine) taste without being in the arena.&quot; A defense of builder-centric product judgment. He also writes a heartfelt note to seed founders building in &quot;not-so-hot categories&quot; — &quot;I see you.&quot; </p>
+    <p class="summary-zh zh">Nikunj Kothari（VC，FPV Ventures）反驳来自从未构建过任何东西的人的&quot;品味&quot;评论：&quot;你无法在不进入竞技场的情况下实现（或完善）品味。&quot; 这是对以建设者为中心的产品判断的辩护。他还给在&quot;不那么热门的类别&quot;中建设的种子阶段创始人写了一封衷心的便条——&quot;我看见你了。&quot; </p>
+    <div class="urls">
+<a href="https://x.com/nikunj/status/2070649602953576825">https://x.com/nikunj/status/2070649602953576825</a>
+      <a href="https://x.com/nikunj/status/2070532689392980369">https://x.com/nikunj/status/2070532689392980369</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Steinberger</span>
+      <span class="builder-role">OpenAI</span>
+    </div>
+    <p class="summary-en">Peter Steinberger (OpenClaw creator) vents about Apple notarization breaking &quot;multiple times a year until I manually log in and accept some new legal agreements&quot; — a relatable pain point for macOS developers shipping AI-powered apps.</p>
+    <p class="summary-zh zh">Peter Steinberger（OpenClaw 创作者）抱怨 Apple 公证&quot;每年都会坏好几次，直到我手动登录并接受一些新的法律协议&quot;——这是发布 AI 驱动应用的 macOS 开发者都能共鸣的痛点。</p>
+    <div class="urls">
+<a href="https://x.com/steipete/status/2070626638887555227">https://x.com/steipete/status/2070626638887555227</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Dan Shipper</span>
+      <span class="builder-role">Every CEO</span>
+    </div>
+    <p class="summary-en">Dan Shipper (Every CEO) reports that &quot;by U.S. government directive, access [to GPT-5.6] is limited to only ~20 pre-approved companies and Every is not on the list. This appears to be a temporary situation.&quot; A rare glimpse into how AI export controls and government directives are already shaping who gets access to frontier models.</p>
+    <p class="summary-zh zh">Dan Shipper（Every CEO）报告说&quot;根据美国政府指令，[GPT-5.6]的访问仅限于约 20 家预先批准的公司，Every 不在名单上。这似乎是暂时的情况。&quot; 这是关于 AI 出口管制和政府指令已经在如何塑造谁可以获得前沿模型的罕见一瞥。</p>
+    <div class="urls">
+<a href="https://x.com/danshipper/status/2070554247301591163">https://x.com/danshipper/status/2070554247301591163</a>
+      <a href="https://x.com/danshipper/status/2070554118146412979">https://x.com/danshipper/status/2070554118146412979</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aditya Agarwal</span>
+      <span class="builder-role">VC</span>
+    </div>
+    <p class="summary-en">Aditya Agarwal (VC, South Park Commons) shares a personal reflection: &quot;An interesting side effect of AI is that I have zero tolerance for shallow interactions with humans. I really deep connection and depth in my relationships.&quot; A glimpse into how AI-mediated communication is reshaping human social expectations.</p>
+    <p class="summary-zh zh">Aditya Agarwal（VC，South Park Commons）分享了一个个人反思：&quot;AI 的一个有趣副作用是，我对与人类的肤浅互动零容忍。我真的渴望关系中的深度连接和深度。&quot; 这是关于 AI 中介沟通如何重塑人类社交期望的一瞥。</p>
+    <div class="urls">
+<a href="https://x.com/adityaag/status/2070621064271688021">https://x.com/adityaag/status/2070621064271688021</a>
+    </div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Sam Altman</span>
+      <span class="builder-role">AI Builder</span>
+    </div>
+    <p class="summary-en">Sam Altman teases &quot;not quite all-you-can-eat tokens, but we are working on it&quot; — hinting at a major pricing shift for AI's API. He also announces that ChatGPT's instant model has been updated this week to GPT-5.5, noting he &quot;likes its vibes.&quot; The team, meanwhile, &quot;cooked spicily&quot; — a cryptic but excited reference to a major internal release.</p>
+    <p class="summary-zh zh">Sam Altman 暗示&quot;还不是完全随心用 token，但我们正在努力&quot;——暗示 AI API 定价将发生重大变化。他还宣布 ChatGPT 的即时模型本周已更新至 GPT-5.5，并表示&quot;喜欢它的 vibe&quot;。同时，团队&quot;做了一顿辣的&quot;——这是对重大内部发布的隐秘但兴奋的提及。</p>
+    <div class="urls">
+<a href="https://x.com/sama/status/2070614769678393846">https://x.com/sama/status/2070614769678393846</a>
+      <a href="https://x.com/sama/status/2070614666288795703">https://x.com/sama/status/2070614666288795703</a>
+      <a href="https://x.com/sama/status/2070612055225483692">https://x.com/sama/status/2070612055225483692</a>
+    </div>
+  </article>
+</section>
+
+<footer class="footer">
+  <div class="next-issue">Next issue: tomorrow 10:00 AM (Asia/Shanghai)</div>
+  <p><a href="https://clean-online.github.io/ai-digest/" style="border:none;">← Back to all issues</a></p>
+  <p class="signature">by chloevchen · Generated by WorkBuddy</p>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->
