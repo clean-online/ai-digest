@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest · 2026-06-30</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {{ --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }}
+  * {{ box-sizing: border-box; margin:0; padding:0; }}
+  html {{ scroll-behavior: smooth; }}
+  body {{ font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height:1.65; font-size: 16px; -webkit-font-smoothing: antialiased; }}
+  .zh {{ font-family: 'Noto Serif SC', 'PingFang SC', serif; }}
+  a {{ color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }}
+  a:hover {{ border-bottom-color: var(--accent); }}
+  .topbar {{ border-bottom: 1px solid var(--line); background: rgba(255,255,255,0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }}
+  .topbar-inner {{ max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }}
+  .brand {{ font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }}
+  .brand-mark {{ display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }}
+  .header {{ max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }}
+  .eyebrow {{ font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }}
+  .header h1 {{ font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }}
+  .stats {{ max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }}
+  .stat {{ flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }}
+  .stat:last-child {{ border-right: none; }}
+  .stat-num {{ font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }}
+  .stat-label {{ font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }}
+  .section {{ max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }}
+  .section-head {{ display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }}
+  .section-icon {{ font-size: 22px; }}
+  .section-title {{ font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }}
+  .section-meta {{ margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }}
+  .builder {{ margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }}
+  .builder:last-child {{ border-bottom: none; }}
+  .builder-head {{ display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }}
+  .builder-name {{ font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }}
+  .builder-role {{ font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }}
+  .summary-en {{ font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }}
+  .summary-zh {{ font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }}
+  .urls {{ font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }}
+  .urls a {{ display: block; }}
+  .podcast {{ background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 12px; padding: 32px; margin-bottom: 24px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }}
+  .podcast-source {{ font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 10px; }}
+  .podcast-title {{ font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; color: var(--ink); margin-bottom: 24px; }}
+  .takeaway {{ background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 8px; padding: 18px 22px; margin-bottom: 24px; font-size: 15px; line-height: 1.7; color: var(--accent-deep); }}
+  .takeaway-label {{ display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; background: var(--accent); color: white; padding: 3px 8px; border-radius: 3px; margin-right: 10px; transform: translateY(-2px); }}
+  .podcast-body {{ font-size: 15.5px; color: var(--ink-soft); line-height: 1.75; }}
+  .podcast-body strong {{ color: var(--ink); font-weight: 600; }}
+  .podcast-body em {{ font-style: italic; }}
+  .podcast-zh {{ font-family: 'Noto Serif SC', serif; font-size: 15.5px; color: var(--ink); line-height: 1.95; }}
+  .podcast-zh strong {{ color: var(--accent-deep); font-weight: 600; }}
+  .footer {{ max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }}
+  .next-issue {{ display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }}
+  .signature {{ font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }}
+  @media (max-width: 640px) {{ .header {{ padding: 56px 24px 36px; }} .section {{ padding: 40px 24px 0; }} .header h1 {{ font-size: 32px; }} .stats {{ padding: 0 24px; }} .stat-num {{ font-size: 22px; }} .podcast {{ padding: 24px; }} .podcast-title {{ font-size: 19px; }} .topbar-inner {{ padding: 12px 24px; }} }}
+
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 · Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest · 2026-06-30 · 周一</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">12</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">23</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+<!-- ============= PODCAST ============= -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">&#127909;</span>
+    <h2 class="section-title">Podcast</h2>
+    <span class="section-meta">The MAD Podcast</span>
+  </div>
+  <div class="podcast">
+    <div class="podcast-source">The MAD Podcast with Matt Turck</div>
+    <div class="podcast-title">The GPU Myth: State of AI Compute 2026 | Stephen Balaban</div>
+    <div class="takeaway"><span class="takeaway-label">TAKEAWAY</span>GPU compute was never a commodity — and the scaling laws still have no visible end. The real bottleneck is the physical layer.</div>
+    <div class="podcast-body">Stephen Balaban, co-founder and CTO of Lambda (one of the top neo-clouds powering the AI boom), dismantles the "GPUs will be commoditized" thesis. The naysayers who predicted GPUs would be worthless in five years have been wrong the entire time — we continue to be generally underbuilding. Lambda's origin story is wild: from a facial recognition startup to a baseball cap with a camera in it, to a near-billion-dollar cloud business today.<br><br><strong>The core insight:</strong> GPU compute was never actually a commodity. A 2023 H100 can be <em>more expensive</em> to lease today than when it was bought, because the demand from LLMs continues to outstrip supply. There is no end in sight to the scaling laws. Every leadership position in Neo Clouds recognizes the insatiable demand for GPUs to do everything from assistants to code generation.<br><br>He also walks through what it actually takes to stand up a gigawatt-scale AI factory — the financing, the chips, the data centers — and why the physical layer is the real bottleneck, not the models.</div>
+    <div class="podcast-zh">Lambda 联合创始人兼 CTO Stephen Balaban 拆解了「GPU 终将商品化」的论调。那些预测 GPU 五年内会变废铁的怀疑者从头到尾都错了——我们整体上仍然在「建设不足」。Lambda 的起源故事很疯狂：从面部识别创业公司，到一个带摄像头的棒球帽，再到今天接近十亿美元的云业务。<br><br><strong>核心洞察：</strong>GPU 算力从来就不是真正的商品。一块 2023 年的 H100 今天租赁价格可能比买入时<em>更贵</em>，因为 LLM 的需求持续超过供给。缩放定律（scaling laws）看不到终点。新云（Neo Clouds）的每一家领导层都意识到，从 AI 助手到代码生成，对 GPU 的需求是贪得无厌的。<br><br>他还详细讲解了建立吉瓦级 AI 工厂究竟需要什么——融资、芯片、数据中心——以及为什么物理层才是真正的瓶颈，而非模型。</div>
+    <div class="urls" style="margin-top:18px"><a href="https://www.youtube.com/watch?v=0NttU4CbyVs" target="_blank">https://www.youtube.com/watch?v=0NttU4CbyVs</a></div>
+  </div>
+</section>
+
+<!-- ============= BLOG ============= -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">&#128214;</span>
+    <h2 class="section-title">Official Blog</h2>
+    <span class="section-meta">Anthropic Engineering</span>
+  </div>
+  <div class="podcast" style="border-left:3px solid var(--accent)">
+    <div class="podcast-source">Anthropic Engineering</div>
+    <div class="podcast-title">How we contain Claude across products</div>
+    <div class="podcast-body">Anthropic details how they safely deploy increasingly capable Claude models across products. Twelve months ago, granting Claude access sufficient to take down an internal service would have been rejected out of hand. Today that level of access is routine — and developers are more productive for it.<br><br>The risk has two components: likelihood of failure, and potential damage. As safeguards and model training have improved, the first has dropped; but as capabilities and access expand, the second grows.<br><br><strong>Key mechanism:</strong> Claude Code previously used human-in-the-loop permission prompts, but telemetry showed users approved ~93% of prompts — approval fatigue set in and diligence dropped over time. The new approach: Claude Code auto mode, which automates safer approvals to reduce fatigue.<br><br>The blast radius is capped through environmental containment. Claude Opus 4.5 (released April 2026) had a blast radius deemed too high to ship broadly, but broader release of similarly capable models is expected as defenders harden systems and safeguards mature.</div>
+    <div class="podcast-zh">Anthropic 详细说明了如何安全地在不同产品中部署能力越来越强的 Claude 模型。十二个月前，授予 Claude 足以搞垮内部服务的访问权限会被直接拒绝。今天，这种级别的访问已是常规操作——而且开发者因此更高效。<br><br>风险有两个组成部分：故障可能性，以及潜在损害。随着安全机制和模型训练的改进，前者在下降；但随着能力和访问权限的扩展，后者在增长。<br><br><strong>关键机制：</strong>Claude Code 之前使用人工确认的权限提示，但遥测数据显示用户大约批准了 93% 的提示——审批疲劳随之而来，警惕性随时间下降。新方法：Claude Code 自动模式，自动化更安全的审批以减少疲劳。<br><br>通过环境隔离来封顶爆炸半径。Claude Opus 4.5（2026 年 4 月发布）的爆炸半径被认为过高而无法广泛发布，但随着防御者加固系统和安全机制成熟，类似能力的模型的更广泛发布是可以预期的。</div>
+    <div class="urls" style="margin-top:18px"><a href="https://www.anthropic.com/engineering/how-we-contain-claude" target="_blank">https://www.anthropic.com/engineering/how-we-contain-claude</a></div>
+  </div>
+</section>
+
+<!-- ============= X / TWITTER ============= -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">&#128172;</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">23 Tweets</span>
+  </div>
+  <div class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Boris Cherny</span>
+      <span class="builder-role">Claude Code @ Anthropic</span>
+    </div>
+    <div class="summary-en">Reflecting on how roles are evolving as engineering, product, design, and data science melt into a new kind of hybrid role. He identifies five archetypes on the Claude Code team: (1) Prototyper — generates many raw ideas, most of which don't ship; (2) Builder — rapidly turns prototypes into production-grade systems; (3) Sweeper — cleans up UI, simplifies code, removes features, optimizes performance; (4) Grower — iterates on a shipped product to improve PMF; (5) Maintainer — owns mature systems for security, reliability, and scale. A healthy team needs a mix that matches the product stage: pre-PMF needs 1+2+3; growing needs 2+3+4+some 5; strong PMF needs 3+4+5+some 2. The tweet went viral with 11,598 likes and 1,254 retweets.</div>
+    <div class="summary-zh">Boris Cherny 反思随着工程、产品、设计和数据科学的边界消融，角色正在如何演变。他总结了 Claude Code 团队中的五种原型：（1）原型师——产出大量原始想法，大多数不会上线；（2）建造者——快速将原型转化为生产级系统；（3）清理者——优化 UI、简化代码、下架功能、提升性能；（4）成长者——对已上线的产品迭代以改善 PMF；（5）维护者——负责成熟系统的安全、可靠和扩展。他进一步指出，健康的团队需要根据产品阶段来搭配角色：PMF 前需要 1+2+3；成长期需要 2+3+4+少量 5；PMF 稳固后需要 3+4+5+少量 2。这条推文获得了 11,598 点赞和 1,254 转发，引发广泛讨论。</div>
+    <div class="urls">
+      <a href="https://x.com/bcherny/status/2071379474277613732" target="_blank">https://x.com/bcherny/status/2071379474277613732</a>
+    </div>
+  </div>
+  <div class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thibault Sottiaux</span>
+      <span class="builder-role">Codex & ChatGPT @ OpenAI</span>
+    </div>
+    <div class="summary-en">The Codex team is in war-room mode on a Sunday investigating unusual usage drains. He announced a hard reset of everyone's Codex usage limits — some users had banked up to three resets, which are now being applied. He acknowledges the irony: this week at OpenAI is called "RESET week" (meant for rest), but it's become a different kind of reset. He also clarified that users whose previous reset hadn't been fully used will get additional manual resets after the investigation concludes.</div>
+    <div class="summary-zh">Thibault Sottiaux 表示 Codex 团队在周日进入作战室模式，正在排查异常用量消耗问题。他宣布对所有用户的 Codex 用量限制进行硬重置——部分用户已累积了多达三次待重置额度，现在统一发放。他承认这个时间点颇具讽刺意味：本周在 OpenAI 内部被称为「RESET week」（原本是让大家休息的），结果变成了另一种意义上的 reset。他还澄清，之前重置额度未用完的用户在调查结束后会获得额外手动重置。</div>
+    <div class="urls">
+      <a href="https://x.com/thsottiaux/status/2071357473659707441" target="_blank">https://x.com/thsottiaux/status/2071357473659707441</a>
+      <a href="https://x.com/thsottiaux/status/2071381664853319742" target="_blank">https://x.com/thsottiaux/status/2071381664853319742</a>
+      <a href="https://x.com/thsottiaux/status/2071383430634344902" target="_blank">https://x.com/thsottiaux/status/2071383430634344902</a>
+    </div>
+  </div>
+  <div class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">CEO @ Vercel</span>
+    </div>
+    <div class="summary-en">A characteristically pithy two-tweet sermon on building a personal brand the right way: "You don't need a LinkedIn, you need a page on your website describing and linking to what you shipped." The follow-up: "You need a Link, not a LinkedIn 😂." The tweets cut at the heart of how builders should present themselves — through real work, not a curated resume. 6,235 likes, 304 retweets.</div>
+    <div class="summary-zh">Guillermo Rauch 用两条简洁有力的推文点明了建造者建立个人品牌的正确方式：「你不需要 LinkedIn，你需要的是在自己网站上放一个页面，描述并链接你做出的东西。」补充一句：「你需要的是 Link（链接），不是 LinkedIn 😂。」这两条推文直指建造者应该如何展示自己——通过真正的作品，而非精心修饰的简历。获得 6,235 点赞、304 转发。</div>
+    <div class="urls">
+      <a href="https://x.com/rauchg/status/2071284129275285580" target="_blank">https://x.com/rauchg/status/2071284129275285580</a>
+      <a href="https://x.com/rauchg/status/2071287181650653372" target="_blank">https://x.com/rauchg/status/2071287181650653372</a>
+    </div>
+  </div>
+  <div class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aaron Levie</span>
+      <span class="builder-role">CEO @ Box</span>
+    </div>
+    <div class="summary-en">Argues that advanced AI models for cybersecurity will soon be open and available to anyone — and this has major geopolitical implications. If models become open regardless, then restricting release doesn't make you more secure; it asymmetrically disadvantages you. He critiques the regulatory approach that assumes China can't catch up, when all evidence suggests otherwise. His position: either you gatekeep (and fall behind), or you stay at the frontier and drive the future architectures of AI. The post is a sophisticated argument against overly restrictive AI export controls.</div>
+    <div class="summary-zh">Aaron Levie 认为，用于网络安全的高性能 AI 模型很快会以开源形式向所有人开放——这具有重大地缘政治影响。如果模型无论如何都会开源，那么限制发布并不会让你更安全，反而会以不对称的方式让你处于劣势。他批评了「中国追不上」的监管假设，指出所有现有证据都指向相反方向。他的立场是：要么你设门禁（然后落后），要么你保持在前沿并推动 AI 未来架构的发展。这条推文是对过度严格的 AI 出口管制的一次精妙反驳。</div>
+    <div class="urls">
+      <a href="https://x.com/levie/status/2071253118252356001" target="_blank">https://x.com/levie/status/2071253118252356001</a>
+    </div>
+  </div>
+  <div class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">Practical AI tutorials and interviews</span>
+    </div>
+    <div class="summary-en">Shared an insight from Jess, product lead for Claude Managed Agents at Anthropic: having access to the codebase is the biggest unlock for PMs. It lets her track PRs directly, see what's merged and deployed, and deeply understand the product in ways she never could before. He also threw a bit of shade at Salesforce's Agentforce: "I'll be honest with you all I still don't know what Agentforce is." A refreshingly direct take on what agent products actually need to deliver.</div>
+    <div class="summary-zh">Peter Yang 分享了 Anthropic Claude Managed Agents 产品负责人 Jess 的一个洞察：能够访问代码库是 PM 最大的解放。这让 Jess 可以直接追踪 PR、查看哪些已合并和部署，从而以前所未有的方式深度理解产品。他还略带嘲讽地评价了 Salesforce 的 Agentforce：「老实说，我还是不知道 Agentforce 到底是什么。」这是对 agent 产品究竟需要交付什么价值的一次直白表态。</div>
+    <div class="urls">
+      <a href="https://x.com/petergyang/status/2071292628302434361" target="_blank">https://x.com/petergyang/status/2071292628302434361</a>
+      <a href="https://x.com/petergyang/status/2071353107242774863" target="_blank">https://x.com/petergyang/status/2071353107242774863</a>
+    </div>
+  </div>
+  <div class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Swyx</span>
+      <span class="builder-role">@dxtipshq · @cognition · @temporalio · @aidevengineer · @latentspacepod</span>
+    </div>
+    <div class="summary-en">Live-tweeting the sprint of registering 1,000 people in a day for an event ("this is what it looked like at hour 3"). Also curating the AI UX track and welcoming Geoff as the opener for Design Engineers at AIE. "tmr and tuesday going to be absolutely batshit" — the chaos of running a major AI event, documented in real time.</div>
+    <div class="summary-zh">Swyx 实时记录了活动报名一天内涌进 1,000 人的冲刺过程（「这是第 3 小时的场面」）。同时还在策划 AI UX 议题，并欢迎 Geoff 作为 AIE 大会 Design Engineers 环节的开场嘉宾。「明天和周二会彻底疯掉」——用实时推文记录了操办大型 AI 活动的混乱与兴奋。</div>
+    <div class="urls">
+      <a href="https://x.com/swyx/status/2071480924810969331" target="_blank">https://x.com/swyx/status/2071480924810969331</a>
+      <a href="https://x.com/swyx/status/2071478390172049555" target="_blank">https://x.com/swyx/status/2071478390172049555</a>
+    </div>
+  </div>
+  <div class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thariq</span>
+      <span class="builder-role">Claude Code @ Anthropic, prev YC W20</span>
+    </div>
+    <div class="summary-en">Picked up a viral thread about coding agents changing the economics of working with legacy codebases — "this has to be because coding agents change the engineering math on how it is to work with or port a legacy codebase, right? anyone at Riot able to confirm?" The question hints at a real shift: if agents can handle legacy ports, the build-vs-buy and rewrite-vs-maintain equations all change. 660 likes.</div>
+    <div class="summary-zh">Thariq 接了一个爆火话题：编码 agent 正在改变处理遗留代码库的经济账——「这一定是因为编码 agent 改变了与遗留代码库协作或迁移的工程数学，对吧？有没有 Riot 的同学能确认一下？」这个问题指向一个真实转变：如果 agent 能处理遗留系统迁移，那么自建 vs 购买、重写 vs 维护的所有等式都会改变。660 点赞。</div>
+    <div class="urls">
+      <a href="https://x.com/trq212/status/2071419473433854221" target="_blank">https://x.com/trq212/status/2071419473433854221</a>
+      <a href="https://x.com/trq212/status/2071474384456573329" target="_blank">https://x.com/trq212/status/2071474384456573329</a>
+    </div>
+  </div>
+  <div class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Zara Zhang</span>
+      <span class="builder-role">Builder, Harvard '17</span>
+    </div>
+    <div class="summary-en">"For every hour you spend on building the product, spend two hours on explaining it, demonstrating it, selling it, teaching it…" She argues the best part of building is telling the world about it and refining based on contact with reality. Also shared a walkthrough video of how to install and use the follow-builders skill. A living example of her own advice — she ships, then she teaches.</div>
+    <div class="summary-zh">Zara Zhang 说：「你每花一小时做产品，就要花两小时去解释它、演示它、销售它、教别人用它……」她认为建造最棒的部分就是把成果告诉世界，然后根据与现实的碰撞来迭代优化。她还分享了一段 walkthrough 视频，演示如何安装和使用 follow-builders skill。她本身就是自己建议的活例——先做出东西，再教别人怎么做。</div>
+    <div class="urls">
+      <a href="https://x.com/zarazhangrui/status/2071319754128978030" target="_blank">https://x.com/zarazhangrui/status/2071319754128978030</a>
+      <a href="https://x.com/zarazhangrui/status/2071335200802648420" target="_blank">https://x.com/zarazhangrui/status/2071335200802648420</a>
+    </div>
+  </div>
+  <div class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Garry Tan</span>
+      <span class="builder-role">President & CEO @ Y Combinator</span>
+    </div>
+    <div class="summary-en">Shared a Leonard Cohen quote: "Forget your perfect offering / There is a crack in everything / That's how the light gets in." A terse, poetic reminder that imperfection is not just inevitable — it's the entry point for meaning. Classic Garry: one quote says more than a thread.</div>
+    <div class="summary-zh">Garry Tan 分享了一句 Leonard Cohen 的歌词：「忘掉你完美的供品 / 万物皆有裂痕 / 那是光照进来的地方。」一句简洁诗意的提醒：不完美不只是不可避免的——它正是意义得以进入的入口。经典的 Garry 风格：一句话胜过一整个线程。</div>
+    <div class="urls">
+      <a href="https://x.com/garrytan/status/2071434797176516691" target="_blank">https://x.com/garrytan/status/2071434797176516691</a>
+    </div>
+  </div>
+  <div class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nikunj Kothari</span>
+      <span class="builder-role">Partner @ FP Ventures</span>
+    </div>
+    <div class="summary-en">Light personal tweets — summit trail hiking in San Bruno, recreating memes with his toddler on Sundays, and a self-deprecating "every time I meet an exceptionally smart founder, I play it cool but internally.." with a sweating emoji. A reminder that VCs are people too, and that the best ones bring their whole selves to the job.</div>
+    <div class="summary-zh">Nikunj Kothari 发了些轻松的个人推文——在 San Bruno 的 Summit Loop Trail 徒步、周日陪幼儿重演 meme、以及一句自嘲式的「每次见到特别聪明的创始人，我表面很淡定但内心……」配流汗表情。提醒我们 VC 也是普通人，而最优秀的 VC 会把完整的自己带到工作中。</div>
+    <div class="urls">
+      <a href="https://x.com/nikunj/status/2071408480456691868" target="_blank">https://x.com/nikunj/status/2071408480456691868</a>
+      <a href="https://x.com/nikunj/status/2071270787517132892" target="_blank">https://x.com/nikunj/status/2071270787517132892</a>
+      <a href="https://x.com/nikunj/status/2071237834162549001" target="_blank">https://x.com/nikunj/status/2071237834162549001</a>
+    </div>
+  </div>
+  <div class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Steinberger</span>
+      <span class="builder-role">Polyagentmorous ClawFather, @OpenClaw + @OpenAI</span>
+    </div>
+    <div class="summary-en">Frustrated with AT&T after four failed signup attempts — they reject him without explanation. He's asking the crowd for the next best unlimited phone/data plan for the SF area, or anyone who can work around corporate BS. A very relatable Silicon Valley complaint about legacy telecom, and a good reminder that even the most technical people still have to deal with terrible consumer UX.</div>
+    <div class="summary-zh">Peter Steinberger 被 AT&T 四次注册失败搞崩了——对方拒绝他但不给任何解释。他在推特上求助，问旧金山地区最好的无限流量手机套餐是什么，或者有没有人能绕过企业官僚主义。一个非常有共鸣的硅谷式抱怨：连最懂技术的人也还是要忍受糟糕的消费级产品体验。</div>
+    <div class="urls">
+      <a href="https://x.com/steipete/status/2071382416703500510" target="_blank">https://x.com/steipete/status/2071382416703500510</a>
+    </div>
+  </div>
+  <div class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Dan Shipper</span>
+      <span class="builder-role">CEO @ Every</span>
+    </div>
+    <div class="summary-en">Self-recommending his latest piece. No notable substantive posts today — the self-promotion tweet is doing the heavy lifting.</div>
+    <div class="summary-zh">Dan Shipper 自推最新文章。今日无特别实质性的推文——自我推广推文承担了主要工作。</div>
+    <div class="urls">
+      <a href="https://x.com/danshipper/status/2071304948390752557" target="_blank">https://x.com/danshipper/status/2071304948390752557</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="next-issue">Next issue: tomorrow 10:00 AM (Asia/Shanghai)</div>
+  <div style="margin-top:10px">Follow Builders, Not Influencers</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+<!-- by chloevchen -->
+</body>
+</html>
