@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest · 2026-07-03</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin:0; padding:0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height:1.65; font-size: 16px; -webkit-font-smoothing: antialiased; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255,255,255,0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 12px; padding: 32px; margin-bottom: 24px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
+  .podcast-source { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 10px; }
+  .podcast-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; color: var(--ink); margin-bottom: 24px; }
+  .takeaway { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 8px; padding: 18px 22px; margin-bottom: 24px; font-size: 15px; line-height: 1.7; color: var(--accent-deep); }
+  .takeaway-label { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; background: var(--accent); color: white; padding: 3px 8px; border-radius: 3px; margin-right: 10px; transform: translateY(-2px); }
+  .podcast-body { font-size: 15.5px; color: var(--ink-soft); line-height: 1.75; }
+  .podcast-body strong { color: var(--ink); font-weight: 600; }
+  .podcast-body em { font-style: italic; }
+  .podcast-zh { font-family: 'Noto Serif SC', serif; font-size: 15.5px; color: var(--ink); line-height: 1.95; margin-top: 18px; }
+  .podcast-zh strong { color: var(--accent-deep); font-weight: 600; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .podcast { padding: 24px; } .podcast-title { font-size: 19px; } .topbar-inner { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 · Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest · 2026-07-03 · 周五</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">17</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">35</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+<!-- ============= PODCAST ============= -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">&#127909;</span>
+    <h2 class="section-title">Podcast</h2>
+    <span class="section-meta">AI &amp; I by Every</span>
+  </div>
+  <div class="podcast">
+    <div class="podcast-source">AI &amp; I by Every · Hosted by Dan Shipper</div>
+    <div class="podcast-title">The AI Workflows Behind Every's Consulting Team</div>
+    <div class="takeaway"><span class="takeaway-label">TAKEAWAY</span>In the AI era, you can build anything — the real question is whether you should build and maintain it. AI agents excel at executing SOPs, but still need human management for taste, judgment, and surfacing what matters in the data.</div>
+    <div class="podcast-body">Natalia, head of consulting at Every, walks through how their internal AI agent "Claudie" has evolved from a vibe-coded Google Sheets CRM glue into a real operations system with its own LinkedIn, Twitter feed, dashboards, and a self-evaluation loop. Claudie now runs on a trust battery — continuously self-assessing performance and improving based on feedback.<br><br><strong>The key pivot:</strong> despite being able to vibe-code their own CRM, Every moved to <strong>Atio</strong> (a professional CRM) and <strong>Asana</strong> (project management). Natalia's reasoning is sharp: "You can build anything in the AI era — the question is, should you build and maintain it?" Professional tools handle data quality at a scale that a vibe-coded system can't sustain. Claudie excels at executing against standard operating procedures, but two things still require humans: constant managerial oversight for taste and excellence, and someone to surface the interesting signals in the data.<br><br>She also shares a delightful personal use case: using <strong>Claude artifacts</strong> to create on-the-go guides during a trip to New Orleans — including reading her Spotify playlists to recommend which bands to see at French Quarter Fest, and creating bilingual guides to share with her mom. Knowledge work, she says, is becoming like <em>gardening</em>: you create the conditions for growth, but you don't make the plant with your hands.</div>
+    <div class="podcast-zh">Natalia，Every 咨询业务负责人，讲述了内部 AI agent "Claudie" 如何从一个用 Google Sheets 胶水粘起来的 vibe-coded CRM，进化成一个真正的运营系统——拥有自己的 LinkedIn、Twitter 账号、数据看板，以及自我评估反馈循环。<br><br><strong>关键转折：</strong>尽管完全有能力 vibe-code 自己的 CRM，Every 最终转向了 <strong>Atio</strong>（专业 CRM）和 <strong>Asana</strong>（项目管理）。Natalia 的理由一针见血：「在 AI 时代你可以构建任何东西——问题是：你应该构建和维护它吗？」专业工具在数据质量维护上的规模效应是 vibe-coded 系统无法持续的。Claudie 擅长执行标准操作流程（SOP），但两件事仍然需要人类：持续的管理监督来确保品味和卓越，以及有人从数据中提炼出有意思的信号。<br><br>她还分享了一个个人用例：旅行中用 <strong>Claude artifacts</strong> 创建实时导览——包括读取她的 Spotify 播放列表来推荐 French Quarter Fest 该看哪些乐队，以及创建双语导览和妈妈分享。她说，知识工作正在变得像<em>园艺</em>：你创造生长的条件，但你不是用手在造那棵植物。</div>
+    <div class="urls" style="margin-top:18px"><a href="https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL" target="_blank">https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL</a></div>
+  </div>
+</section>
+
+<!-- ============= X / TWITTER ============= -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">&#128172;</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">17 Builders · 35 Tweets</span>
+  </div>
+
+  <div class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aaron Levie</span>
+      <span class="builder-role">CEO @ Box</span>
+    </div>
+    <div class="summary-en">Levie highlights Devin's "agentic mapreduce" approach — fanning out focused agents over bounded shards of code, reducing findings into one report, then verifying vulnerabilities in isolated sandboxes. He argues this is why we'll need 100x more AI inference in the future: swarms of agents processing massive datasets for tasks humans never could. The key enabler is deploying a mix of frontier and lower-cost models, because of the sheer token volume involved. This will be a major value proposition for the applied AI layer across pharma, banking, and any industry dealing with unstructured data.</div>
+    <div class="summary-zh">Levie 重点介绍了 Devin 的「agentic mapreduce」方法——将专注型 agent 分散到代码的不同分片上，将发现汇总成一份报告，然后在隔离沙箱中验证漏洞。他认为这就是未来 AI 推理需求将增长 100 倍的原因：agent 群处理海量数据集，完成人类根本无法完成的任务。关键使能因素是同时部署前沿模型和低成本模型，因为涉及的总 token 量极其庞大。这将成为应用 AI 层在制药、银行等任何处理非结构化数据行业中的核心价值主张。</div>
+    <div class="urls">
+      <a href="https://x.com/levie/status/2072519377371459836" target="_blank">https://x.com/levie/status/2072519377371459836</a>
+    </div>
+  </div>
+  <div class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">CEO @ Vercel</span>
+    </div>
+    <div class="summary-en">Three notes from Rauch this week. He deployed WordPress on Vercel Fluid with Active Compute from a single Dockerfile — 30-second deployments including "docker build" in the cloud, with MySQL on PlanetScale, using the portable "portless" tool by ctatedev to solve the local HTTP problem. He also cheered the same tool for local WordPress dev. And Vercel is now shipping the "dry-run step" for agentic deployments — because agents love to check their own work (node --check, tsc --noEmit, next build) before pushing, and formalizing this as a deployment step minimizes cost and risk.</div>
+    <div class="summary-zh">Rauch 本周有三条动态。他把 WordPress 部署到了 Vercel Fluid + Active Compute，只需一个 Dockerfile——包含云端 "docker build" 在内 30 秒部署，MySQL 用 PlanetScale，并用 ctatedev 的 "portless" 工具解决本地 HTTP 问题；他也力荐该工具用于本地 WordPress 开发。此外 Vercel 正在推出 agentic deployment 的「dry-run 步骤」——因为 agent 喜欢在 push 前自检（node --check、tsc --noEmit、next build 等），把这个行为正式化为部署步骤可以最小化成本和风险。</div>
+    <div class="urls">
+      <a href="https://x.com/rauchg/status/2072463961597878762" target="_blank">https://x.com/rauchg/status/2072463961597878762</a>
+      <a href="https://x.com/rauchg/status/2072463293654942090" target="_blank">https://x.com/rauchg/status/2072463293654942090</a>
+      <a href="https://x.com/rauchg/status/2072398926175404250" target="_blank">https://x.com/rauchg/status/2072398926175404250</a>
+    </div>
+  </div>
+  <div class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Amjad Masad</span>
+      <span class="builder-role">CEO @ Replit</span>
+    </div>
+    <div class="summary-en">Masad signals a strategic shift at Replit: now that "building is easy," the focus is increasingly on getting entrepreneurs to market — helping them reach their first customer and first dollar. Replit is partnering with Whop, one of the best places on the internet to monetize digital creations, so developers can now sell their Replit apps directly on the platform. The narrative is moving from "everyone can code" to "everyone can ship and sell."</div>
+    <div class="summary-zh">Masad 释放了 Replit 战略转向的信号：既然「构建已经变容易了」，重心越来越转向帮创业者进入市场——帮他们触达第一个客户、赚到第一块钱。Replit 正在与 Whop 合作，后者是互联网上最好的数字产品变现平台之一，开发者现在可以直接在 Whop 上卖 Replit 应用。叙事正在从「人人都能写代码」转向「人人都能上线和卖钱」。</div>
+    <div class="urls">
+      <a href="https://x.com/amasad/status/2072385092824260748" target="_blank">https://x.com/amasad/status/2072385092824260748</a>
+    </div>
+  </div>
+  <div class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Garry Tan</span>
+      <span class="builder-role">President &amp; CEO @ Y Combinator</span>
+    </div>
+    <div class="summary-en">Tan calls out what he considers the "most underreported story in all of tech": Anthropic hiring the head of UC Berkeley EECS — a major talent signal for the AI lab's ambitions. He also shared a couple of links without context, typical of his pattern of amplifying things he finds noteworthy without editorializing.</div>
+    <div class="summary-zh">Tan 称这是「整个科技圈最被低估的故事」：Anthropic 挖来了 UC Berkeley 电气工程与计算机科学（EECS）的负责人——这对 AI 实验室的野心来说是一个重大人才信号。他还分享了两条没有附文字说明的链接，这是他 amplify 自己觉得值得关注的内容时的一贯做法。</div>
+    <div class="urls">
+      <a href="https://x.com/garrytan/status/2072402517397573717" target="_blank">https://x.com/garrytan/status/2072402517397573717</a>
+      <a href="https://x.com/garrytan/status/2072331451270606933" target="_blank">https://x.com/garrytan/status/2072331451270606933</a>
+      <a href="https://x.com/garrytan/status/2072461457195950446" target="_blank">https://x.com/garrytan/status/2072461457195950446</a>
+    </div>
+  </div>
+  <div class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nikunj Kothari</span>
+      <span class="builder-role">Partner @ FPV Ventures</span>
+    </div>
+    <div class="summary-en">Kothari observes that the talent vortex pulling people into OpenAI and Anthropic is "only getting crazier" — in the last two months, four personal friends have left very established roles to join the labs. The dual draw is building one of the most consequential companies on earth, plus the pre-IPO liquidity opportunity. His takeaway for founders: if you choose to build independently, you need strong conviction and massive ambition, because the alternative is extremely attractive. He also celebrated Fable's return and repped the US at the World Cup.</div>
+    <div class="summary-zh">Kothari 观察到把人才吸入 OpenAI 和 Anthropic 的旋涡「只会越来越疯狂」——过去两个月里，四个私人朋友离开了非常稳定的职位加入实验室。双重吸引力在于：一是建设世界上最重要的公司之一的使命感，二是 pre-IPO 的流动性机会。他对独立创业者的结论是：如果你选择自己干，你需要强烈的信念和巨大的野心，因为另一个选项实在太有吸引力了。他还庆祝了 Fable 回归，并为世界杯上的美国队助威。</div>
+    <div class="urls">
+      <a href="https://x.com/nikunj/status/2072344802570756121" target="_blank">https://x.com/nikunj/status/2072344802570756121</a>
+      <a href="https://x.com/nikunj/status/2072406317617262753" target="_blank">https://x.com/nikunj/status/2072406317617262753</a>
+      <a href="https://x.com/nikunj/status/2072522778327371819" target="_blank">https://x.com/nikunj/status/2072522778327371819</a>
+    </div>
+  </div>
+  <div class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">AI tutorials &amp; interviews creator</span>
+    </div>
+    <div class="summary-en">Yang posts a strong vibe check on Claude Fable 5: "It's still really ****ing good. This is a step function above any other model. Hope GPT 5.6 can match." He also published a tutorial walking through 5 use cases worth trying Fable on: find Fable-worthy work, get life and business advice, make projects ship-ready, plan the next big thing, and refactor your project or codebase. He's also installing the "explain-diff" skill to help himself learn to read code better.</div>
+    <div class="summary-zh">Yang 对 Claude Fable 5 给出了强烈的 vibe check：「它依然非常非常强。这是比任何其他模型都高出一个台阶的跃升。希望 GPT 5.6 能追上。」他还发布了一个教程，带大家走 5 个值得在 Fable 上尝试的用例：找到值得用 Fable 的工作、获取生活和商业建议、让项目达到可上线状态、规划下一件大事、重构你的项目或代码库。他还在安装 "explain-diff" skill 来帮自己更好地阅读代码。</div>
+    <div class="urls">
+      <a href="https://x.com/petergyang/status/2072470191511113732" target="_blank">https://x.com/petergyang/status/2072470191511113732</a>
+      <a href="https://x.com/petergyang/status/2072458983886205333" target="_blank">https://x.com/petergyang/status/2072458983886205333</a>
+      <a href="https://x.com/petergyang/status/2072525669704384612" target="_blank">https://x.com/petergyang/status/2072525669704384612</a>
+    </div>
+  </div>
+  <div class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Matt Turck</span>
+      <span class="builder-role">VC @ FirstMark · Host of MAD Podcast</span>
+    </div>
+    <div class="summary-en">Turck is fascinated by Lime's IPO in an AI-obsessed market: how does a scooter company with $1B in debt pull off a successful IPO after expressing "substantial doubt" about survival? His analysis: impressive financial engineering (the IPO paid off toxic loans and converted the rest to equity, clean slate), Uber owns 22% and refers riders directly, they've been FCF positive for 3 consecutive years with revenue growing nearly 30% YoY, and they're the last man standing after the micromobility bloodbath. He also notes the irony of 2026's hot IPO brands being AOL, Evernote, Vimeo, and Lime scooters.</div>
+    <div class="summary-zh">Turck 对 Lime 在 AI 狂热市场中的上市感到着迷：一家负债 10 亿美元的滑板车公司，在表达了对自身生存「重大疑虑」之后，怎么还能成功 IPO？他的分析：出色的财务工程（IPO 偿还有毒贷款，其余转为股权，清白了）、Uber 持股 22% 且直接导流给 Lime、连续 3 年自由现金流为正、营收同比增长近 30%，以及成为微出行血战（RIP Bird）的最后幸存者。他还调侃 2026 年热门 IPO 品牌的讽刺感：AOL、Evernote、Vimeo 和 Lime 滑板车。</div>
+    <div class="urls">
+      <a href="https://x.com/mattturck/status/2072419592354529712" target="_blank">https://x.com/mattturck/status/2072419592354529712</a>
+      <a href="https://x.com/mattturck/status/2072462125474181623" target="_blank">https://x.com/mattturck/status/2072462125474181623</a>
+    </div>
+  </div>
+  <div class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Zara Zhang</span>
+      <span class="builder-role">Builder · Harvard '17</span>
+    </div>
+    <div class="summary-en">Zhang shares a sharp methodology insight: "You don't START with a skill. You END with a skill. Building the skill is the last step of your workflow, not the first step." She also notes that you can change Codex's model to GLM — a practical tip for developers looking to optimize their coding agent's model choice — and published a full YouTube video walking through her approach.</div>
+    <div class="summary-zh">Zhang 分享了一个犀利的方法论洞察：「你不是从 skill 开始，而是以 skill 结束。构建 skill 是你工作流的最后一步，不是第一步。」她还指出 Codex 的模型可以切换成 GLM——这对想优化编码 agent 模型选择的开发者来说是个实用技巧，并在 YouTube 上发布了完整视频讲解她的方法。</div>
+    <div class="urls">
+      <a href="https://x.com/zarazhangrui/status/2072381929366987087" target="_blank">https://x.com/zarazhangrui/status/2072381929366987087</a>
+      <a href="https://x.com/zarazhangrui/status/2072391971721884073" target="_blank">https://x.com/zarazhangrui/status/2072391971721884073</a>
+      <a href="https://x.com/zarazhangrui/status/2072384777785888875" target="_blank">https://x.com/zarazhangrui/status/2072384777785888875</a>
+    </div>
+  </div>
+  <div class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aditya Agarwal</span>
+      <span class="builder-role">GP @ South Park Commons · Ex-CTO @ Dropbox</span>
+    </div>
+    <div class="summary-en">Agarwal captures the cultural essence of San Francisco: every once in a while he meets a very smart but "default-pessimistic" person, often from the growth/Wall Street world. His reaction: "Why would you want to be in this city? We run on optimism. Are you here to be a contrarian in your sadness?" A reminder that SF's startup ecosystem is fundamentally powered by a shared optimism — and pessimism isn't just a worldview, it's a cultural mismatch.</div>
+    <div class="summary-zh">Agarwal 捕捉到了旧金山的文化本质：他偶尔会遇到非常聪明但「默认悲观」的人，通常来自增长/华尔街圈层。他的反应是：「你为什么想在这座城市？我们靠乐观主义运转。你是来这里当悲伤的逆行者吗？」这提醒我们：SF 的创业生态从根本上是由共同的乐观主义驱动的——悲观主义不只是一个世界观，它是一种文化错配。</div>
+    <div class="urls">
+      <a href="https://x.com/adityaag/status/2072449611550380526" target="_blank">https://x.com/adityaag/status/2072449611550380526</a>
+    </div>
+  </div>
+  <div class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Swyx</span>
+      <span class="builder-role">AI Engineer · Latent Space Pod</span>
+    </div>
+    <div class="summary-en">Swyx reports from the AI Engineer (AIE) conference: he only schedules double-length track keynotes when he's very sure both the speaker and content deserve it. Chris Manning and Abshk Bh did "double duty" on sandboxing and world models — and by all accounts people loved going deeper. The room was packed, and the online audience will be over 1000x the in-person count. A signal that deep technical content still wins over surface-level demos.</div>
+    <div class="summary-zh">Swyx 从 AI Engineer（AIE）大会发回报告：他只在非常确定演讲者和内容都配得上时，才会安排双倍时长的主题演讲。Chris Manning 和 Abshk Bh 就沙箱和世界模型做了「双倍时长」——据大家说，听众很喜欢能深入探讨的机会。现场座无虚席，线上观众预计将超过现场人数的 1000 倍。这信号说明：深度的技术内容仍然胜过表层的 demo。</div>
+    <div class="urls">
+      <a href="https://x.com/swyx/status/2072562702703046855" target="_blank">https://x.com/swyx/status/2072562702703046855</a>
+    </div>
+  </div>
+  <div class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Steinberger</span>
+      <span class="builder-role">Polyagent · @OpenClaw</span>
+    </div>
+    <div class="summary-en">Steinberger is back in builder mode: he gave Steve Yegge a rare shoutout ("he was just early, like most visionaries. Now everyone is building factories"), shared a candid "how did I ever function without AI?" moment, and put out a call for a semi-private SF hack space for himself and the OpenClaw maintainers to "cook" for a few days. A window into how a prolific indie builder operates day to day.</div>
+    <div class="summary-zh">Steinberger 回归 builder 状态：他破天荒给 Steve Yegge 点了赞（「他只是早了一步，就像大多数远见者。现在大家都在建工厂」），坦承「没有 AI 我以前是怎么活的」，并公开征集一个半私密的 SF 黑客空间，想和 OpenClaw 维护者们一起「焖」几天。这让我们一窥高产独立 builder 的日常运作方式。</div>
+    <div class="urls">
+      <a href="https://x.com/steipete/status/2072532278476148881" target="_blank">https://x.com/steipete/status/2072532278476148881</a>
+      <a href="https://x.com/steipete/status/2072475858435276840" target="_blank">https://x.com/steipete/status/2072475858435276840</a>
+      <a href="https://x.com/steipete/status/2072447453622882338" target="_blank">https://x.com/steipete/status/2072447453622882338</a>
+    </div>
+  </div>
+  <div class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Dan Shipper</span>
+      <span class="builder-role">CEO @ Every</span>
+    </div>
+    <div class="summary-en">Shipper was all-in on Fable's return — "FABLE IS BACK!!!" — and shared his enthusiasm with a few celebratory posts from the hot tub, plus a "this is so cool" reaction to a demo. As the host of the AI &amp; I podcast featured in today's digest, his excitement reflects how central Fable has become to the Every community's daily workflow.</div>
+    <div class="summary-zh">Shipper 对 Fable 回归全情投入——「FABLE IS BACK!!!」——在泡澡时连发几条庆祝推文，外加对一个 demo 的「太酷了」反应。作为本期 digest 中 AI &amp; I 播客的主持人，他的兴奋反映出 Fable 对 Every 社区日常工作流有多核心。</div>
+    <div class="urls">
+      <a href="https://x.com/danshipper/status/2072402230041272669" target="_blank">https://x.com/danshipper/status/2072402230041272669</a>
+      <a href="https://x.com/danshipper/status/2072402843819212906" target="_blank">https://x.com/danshipper/status/2072402843819212906</a>
+      <a href="https://x.com/danshipper/status/2072436587665797518" target="_blank">https://x.com/danshipper/status/2072436587665797518</a>
+    </div>
+  </div>
+  <div class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thariq</span>
+      <span class="builder-role">Claude Code @ Anthropic</span>
+    </div>
+    <div class="summary-en">Thariq checked in light from the AI Engineer conference — a "hello from AI engineer!" post and a quick "HTML mentioned" note. Short and social, but a useful signal of where the Anthropic Claude Code team was showing up this week.</div>
+    <div class="summary-zh">Thariq 从 AI Engineer 大会轻松打卡——一条「hello from AI engineer!」和一条简短的「HTML mentioned」。内容轻量社交，但清晰地标出了 Anthropic Claude Code 团队本周现身的位置。</div>
+    <div class="urls">
+      <a href="https://x.com/trq212/status/2072366310416425053" target="_blank">https://x.com/trq212/status/2072366310416425053</a>
+      <a href="https://x.com/trq212/status/2072360902964511171" target="_blank">https://x.com/trq212/status/2072360902964511171</a>
+    </div>
+  </div>
+  <div class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thibault Sottiaux</span>
+      <span class="builder-role">Codex &amp; ChatGPT @ OpenAI</span>
+    </div>
+    <div class="summary-en">Sottiaux kept it cryptic with a one-liner — "It's happening" — teasing what looks like an upcoming Codex moment. Minimal text, maximum intrigue; the substance will land with the linked announcement.</div>
+    <div class="summary-zh">Sottiaux 用一句话吊足胃口——「It's happening」（要来了），似乎在预告 Codex 的下一个动作。文字极简、悬念拉满，具体内容要看链接里的官宣。</div>
+    <div class="urls">
+      <a href="https://x.com/thsottiaux/status/2072410623380468190" target="_blank">https://x.com/thsottiaux/status/2072410623380468190</a>
+    </div>
+  </div>
+  <div class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Alex Albert</span>
+      <span class="builder-role">Research @ Anthropic</span>
+    </div>
+    <div class="summary-en">Albert welcomed Fable back to the world with a short, delighted "Welcome back to the world Fable!!" — a clean signal that the model's return is being celebrated across the Anthropic research org.</div>
+    <div class="summary-zh">Albert 用一句开心的话欢迎 Fable 回归：「Welcome back to the world Fable!!」——清晰地表明这个模型的回归在 Anthropic 研究组织内部广受庆祝。</div>
+    <div class="urls">
+      <a href="https://x.com/alexalbert__/status/2072404717490360727" target="_blank">https://x.com/alexalbert__/status/2072404717490360727</a>
+    </div>
+  </div>
+  <div class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Google Labs</span>
+      <span class="builder-role">Google's home for AI experiments</span>
+    </div>
+    <div class="summary-en">Google Labs announces that MusicFX and MusicFX DJ will be retired on July 31, 2026. The team is focusing on GoogleFlowMusic — a new tool for creating, sharing, and remixing original music. The early experiments pushed the boundaries of real-time AI music creation, and the learnings are being folded into a long-term home for musical projects. A model example of how Google Labs sunsets experiments to consolidate into more sustainable products.</div>
+    <div class="summary-zh">Google Labs 宣布 MusicFX 和 MusicFX DJ 将于 2026 年 7 月 31 日下线。团队将全力转向 GoogleFlowMusic——一个用于创作、分享和 remix 原创音乐的新工具。早期实验推动了实时 AI 音乐创作的边界，积累的经验将融入一个长期的音乐项目平台。这是 Google Labs 如何关闭实验项目以整合成更可持续产品的典型范例。</div>
+    <div class="urls">
+      <a href="https://x.com/GoogleLabs/status/2072417166952136789" target="_blank">https://x.com/GoogleLabs/status/2072417166952136789</a>
+    </div>
+  </div>
+  <div class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Claude</span>
+      <span class="builder-role">Official @ Anthropic</span>
+    </div>
+    <div class="summary-en">Claude's official account confirms Fable 5 is back: all paid plans with usage included can access it through July 7. Users can use Fable 5 up to 50% of their weekly usage limit, then switch to another model or continue via usage credits. They also remind users that if a request is mistakenly flagged in Claude Code, they can run /feedback to file a report — this helps tune classifiers and reduce false positives over time.</div>
+    <div class="summary-zh">Claude 官方账号确认 Fable 5 已回归：所有包含使用额度的付费计划可在 7 月 7 日前使用 Fable 5。用户最多可使用周用量上限的 50%，之后可切换其他模型或通过额度继续使用。官方还提醒用户：如果在 Claude Code 中请求被误标记，可以运行 /feedback 提交报告——这有助于调优分类器并逐步减少误判。</div>
+    <div class="urls">
+      <a href="https://x.com/claudeai/status/2072402639644766602" target="_blank">https://x.com/claudeai/status/2072402639644766602</a>
+      <a href="https://x.com/claudeai/status/2072402640907162072" target="_blank">https://x.com/claudeai/status/2072402640907162072</a>
+      <a href="https://x.com/claudeai/status/2072402642836615273" target="_blank">https://x.com/claudeai/status/2072402642836615273</a>
+    </div>
+  </div>
+
+</section>
+
+<footer class="footer">
+  <div class="next-issue">Next issue: tomorrow 10:00 AM (Asia/Shanghai)</div>
+  <div style="margin-top:10px">Follow Builders, Not Influencers</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+<!-- by chloevchen -->
+</body>
+</html>
