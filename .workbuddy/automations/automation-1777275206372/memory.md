@@ -21,6 +21,16 @@
 - 文件：`2026/07/02/AI_Builders_Digest_2026-07-02.html`
 - 生成方式：手动 Read JSON → Write HTML（非脚本生成）
 
+### 2026-07-03（自动执行）
+- 本次为自动化恢复后首次正常自动执行（10:00 Asia/Shanghai）
+- 内容获取：17 Builders · 35 Tweets · 1 Podcast · 0 Blog
+- ⚠️ 注意：feed 快照冻结于 2026-07-02 07:27 UTC，全部推文 createdAt 为 7/1-7/2、Podcast 为 7/1。即本日 feed 与 7/2 完全相同（中央 feed 未刷新）。
+- 处理：按既有打法照常生成并部署，但将 7/2 未渲染的 5 位 builder（Thariq / Thibault Sottiaux / Alex Albert / Peter Steinberger / Dan Shipper）补齐，故 7/3 为该快照更完整的版本（17 位全渲染，7/2 仅 12 位）
+- 生成方式：Node 生成脚本（/tmp/gen_digest_0703.js）→ 渲染全部 17 位 builder 双语卡 + Podcast + Takeaway
+- 部署状态：✅ HTTP 200，Actions workflow `completed·success`（20s）
+- 文件：`2026/07/03/AI_Builders_Digest_2026-07-03.html`
+- 建议：Chloe 可评估是否保留 7/3 条目（内容与 7/2 同源，连续两日为同一快照）
+
 ### 2026-06-30
 - 内容获取：12 Builders · 23 Tweets · 1 Podcast · 1 Blog
 - Podcast：The MAD Podcast — Stephen Balaban (Lambda CTO) 谈 GPU 从未商品化、缩放定律无终点、物理层是真正瓶颈
