@@ -2,6 +2,17 @@
 
 ## 最近执行记录
 
+### 2026-07-08（自动执行，11:04 续跑）
+- 内容获取：16 Builders · 34 Tweets · 1 Podcast · 1 Blog
+- ⚠️ Feed 快照冻结于 2026-07-07T07:28Z（中央 feed 滞后一天），推文/播客均为 7/7 内容
+- Podcast：AI & I by Every — Edwin（Surge CEO）谈「AGI 的学校」隐喻（数据/eval 即育人，靠品味差异化，不融资做到 ~$1B）
+- Blog：Claude Blog — "Claude Code now supports artifacts"
+- 重点：Claude Code 起源故事周（Boris Cherny/Cat Wu/Thariq/Claude）、Amjad Masad（Replit 自我改进闭环）、Guillermo Rauch（eve eval）、Nan Yu（agent 杠杆曲线 vs 996）
+- 生成方式：Python 脚本 /tmp/gen_digest_0708.py（结构化双语 remix + 真实 URL）
+- 部署状态：✅ HTTP 200（轮询第 2 次命中），commit 313aa01
+- 文件：`2026/07/08/AI_Builders_Digest_2026-07-08.html`
+- 缺口：7/4–7/7 连续 4 天未生成（自动化中断/周末）
+
 ### 2026-07-02（手动补做）
 - 自动化任务在 6/30 后停止运行，7/1 和 7/2 均未自动执行
 - 手动加载 follow-builders skill + 运行 prepare-digest.js 补做

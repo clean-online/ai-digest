@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest · 2026-07-12</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 12px; padding: 32px; margin-bottom: 24px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
+  .podcast-source { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 10px; }
+  .podcast-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; color: var(--ink); margin-bottom: 24px; }
+  .takeaway { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 8px; padding: 18px 22px; margin-bottom: 24px; font-size: 15px; line-height: 1.7; color: var(--accent-deep); }
+  .takeaway-label { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; background: var(--accent); color: white; padding: 3px 8px; border-radius: 3px; margin-right: 10px; transform: translateY(-2px); }
+  .podcast-body { font-size: 15.5px; color: var(--ink-soft); line-height: 1.75; }
+  .podcast-body p { margin-bottom: 16px; }
+  .podcast-body strong { color: var(--ink); font-weight: 600; }
+  .podcast-divider { height: 1px; background: var(--line); margin: 28px 0; }
+  .podcast-zh { font-family: 'Noto Serif SC', serif; font-size: 15.5px; color: var(--ink); line-height: 1.95; }
+  .podcast-zh p { margin-bottom: 16px; }
+  .podcast-zh strong { color: var(--accent-deep); font-weight: 600; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .podcast { padding: 24px; } .podcast-title { font-size: 19px; } .topbar-inner { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 · Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest · 2026-07-12 · 周日</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">10</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">19</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+  <!-- ============== X / TWITTER ============== -->
+  <section class="section">
+    <div class="section-head">
+      <span class="section-icon">🐦</span>
+      <h2 class="section-title">X / Twitter</h2>
+      <span class="section-meta">10 Builders</span>
+    </div>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Thibault Sottiaux</span>
+        <span class="builder-role">OpenAI Codex</span>
+      </div>
+      <p class="summary-en">Thibault is celebrating Codex momentum and pushing adoption. He notes one day of growth beat the previous two weeks combined, shares an internal office poster visualizing how resets of Codex usage limits ripple through their systems ("Data is beautiful"), and clarifies the split between Codex (for developers) and ChatGPT Work (the consumer-facing version he tells less technical friends and family about).</p>
+      <p class="summary-zh zh">Thibault 在庆祝 Codex 的势头并推动采用。他指出单日增长超过了前两周的总和，分享了一张办公室海报，可视化 Codex 用量上限重置如何在其系统中传导（“数据很美”），并区分了面向开发者的 Codex 与面向消费者的 ChatGPT Work（他让不够技术化的亲友试用的版本）。</p>
+      <div class="urls">
+      <a href="https://x.com/thsottiaux/status/2076054439140720719">https://x.com/thsottiaux/status/2076054439140720719</a>
+      <a href="https://x.com/thsottiaux/status/2076021263945039876">https://x.com/thsottiaux/status/2076021263945039876</a>
+      <a href="https://x.com/thsottiaux/status/2075961345351307739">https://x.com/thsottiaux/status/2075961345351307739</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Peter Yang</span>
+        <span class="builder-role">AI Educator / Creatorspy</span>
+      </div>
+      <p class="summary-en">Peter shared his weekend AI-build stack: use Fable to draft plan.html with design guidelines, Claude Design to produce components and screens, then GPT-5.6 to build it. He also questioned how benchmarks actually work — "How do you benchmark design taste?" — and cheered Argentina in passing.</p>
+      <p class="summary-zh zh">Peter 分享了他周末的 AI 构建流水线：用 Fable 按设计规范起草 plan.html，用 Claude Design 产出组件与界面，再用 GPT-5.6 构建实现。他还质疑基准测试到底怎么运作——“你怎么给设计品味做基准？”——顺带为阿根廷加油。</p>
+      <div class="urls">
+      <a href="https://x.com/petergyang/status/2076112137475506378">https://x.com/petergyang/status/2076112137475506378</a>
+      <a href="https://x.com/petergyang/status/2076050876314300478">https://x.com/petergyang/status/2076050876314300478</a>
+      <a href="https://x.com/petergyang/status/2075999617666445714">https://x.com/petergyang/status/2075999617666445714</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Aaron Levie</span>
+        <span class="builder-role">Box CEO</span>
+      </div>
+      <p class="summary-en">Aaron amplifies a sharp post on applied enterprise AI: the real upside is not the chat tool but re-architecting the operating layer beneath employees. Moving from chat to agents means deploying agents against multi-function workflows (not just rolling out to end users), which demands FDE support, change management, clean data, and strong eval loops — and that is where durable ROI lives. Winners will be platforms deployable for specific workflows with deep domain expertise.</p>
+      <p class="summary-zh zh">Aaron 转发了一篇关于企业级 AI 落地的犀利长文：真正的价值不在聊天工具，而在于重构员工之下的“操作层”。从聊天走向 agent，意味着把 agent 部署到横跨多个职能的工作流上（而非仅面向终端用户铺开），这要求 FDE 支持、变革管理、干净的数据和完整的评估闭环——可持续的 ROI 正源于此。赢家将是那些能针对具体工作流、具备深厚领域专长部署的平台。</p>
+      <div class="urls">
+      <a href="https://x.com/levie/status/2075963779599466894">https://x.com/levie/status/2075963779599466894</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Garry Tan</span>
+        <span class="builder-role">YC President &amp; CEO</span>
+      </div>
+      <p class="summary-en">Garry pushed three San Francisco policy threads: defunding the "grifters" behind the SF Doom Loop, a YC-flavored rallying cry to "make something agents want," and a criticism that CEQA blocks thousands of housing units in the city every year.</p>
+      <p class="summary-zh zh">Garry 连发三条旧金山政策相关的推文：切断制造“旧金山末日循环”的投机者资金、YC 风格的口号“做 agent 想要的东西”，以及批评 CEQA 每年在旧金山扼杀数千套住房。</p>
+      <div class="urls">
+      <a href="https://x.com/garrytan/status/2076002866582675674">https://x.com/garrytan/status/2076002866582675674</a>
+      <a href="https://x.com/garrytan/status/2075975184293765564">https://x.com/garrytan/status/2075975184293765564</a>
+      <a href="https://x.com/garrytan/status/2075945096860807494">https://x.com/garrytan/status/2075945096860807494</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Zara Zhang</span>
+        <span class="builder-role">Builder / YouTuber / Investor</span>
+      </div>
+      <p class="summary-en">Zara argues the line between "builder" and "creator" is blurring — and that this is the best moment for builders to make content and for creators to ship products.</p>
+      <p class="summary-zh zh">Zara 认为“构建者”与“创作者”之间的界限正在模糊——而此刻正是构建者做内容、创作者做产品的最佳时机。</p>
+      <div class="urls">
+      <a href="https://x.com/zarazhangrui/status/2075930909669515753">https://x.com/zarazhangrui/status/2075930909669515753</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Nikunj Kothari</span>
+        <span class="builder-role">FPV Ventures Partner</span>
+      </div>
+      <p class="summary-en">Nikunj marveled that Fable + Sol produced a fully working iOS app in a few hours from an existing backend and web app — a marker of how fast AI-assisted shipping has become.</p>
+      <p class="summary-zh zh">Nikunj 惊叹 Fable 与 Sol 仅凭现有后端和 Web 应用，就在几小时内做出可运行的 iOS app——这印证了在 AI 辅助下“出货”速度之快。</p>
+      <div class="urls">
+      <a href="https://x.com/nikunj/status/2076022807365079342">https://x.com/nikunj/status/2076022807365079342</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Peter Steinberger</span>
+        <span class="builder-role">OpenClaw / Polyagentmorous ClawFather</span>
+      </div>
+      <p class="summary-en">Peter, in his signature deadpan style, pauses to verify a couple of "load-bearing facts" before giving an architecture assessment — a nod to rigor over vibes.</p>
+      <p class="summary-zh zh">Peter 以一贯的冷面风格，在给出架构评估前先核实几个“承重”事实——是用严谨替代玄学的调侃。</p>
+      <div class="urls">
+      <a href="https://x.com/steipete/status/2076013212043182375">https://x.com/steipete/status/2076013212043182375</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Dan Shipper</span>
+        <span class="builder-role">Every CEO</span>
+      </div>
+      <p class="summary-en">Dan reacts with a terse "seems bad" to a quote-tweeted development — emblematic of his minimalist hot takes.</p>
+      <p class="summary-zh zh">Dan 用一句极简的 “seems bad”（看起来不妙）转发评论某件事——典型的极简点评风格。</p>
+      <div class="urls">
+      <a href="https://x.com/danshipper/status/2075767886254064011">https://x.com/danshipper/status/2075767886254064011</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Aditya Agarwal</span>
+        <span class="builder-role">SPC General Partner / Ex-Dropbox CTO</span>
+      </div>
+      <p class="summary-en">Aditya posted playful product-roadmap notes (rebrand jokes plus a "World Cup 2048 brought to you by FIFA-NFL") and a bigger-picture take: all agents running in the cloud, any model (frontier, OSS, Chinese, American), any harness, full tracing, and recursive self-improvement loops — asking why we cannot have it already.</p>
+      <p class="summary-zh zh">Aditya 发了一些产品路线图式的玩梗（改名玩笑 + “2048 世界杯由 FIFA-NFL 呈现”），以及更宏观的判断：所有 agent 跑在云端、任选模型（前沿 / 开源 / 中国 / 美国）、任选 harness、全链路 tracing、递归自改进循环——并追问“既然迟早会有，为何现在不能实现”。</p>
+      <div class="urls">
+      <a href="https://x.com/adityaag/status/2076084443920683119">https://x.com/adityaag/status/2076084443920683119</a>
+      <a href="https://x.com/adityaag/status/2076047290083733539">https://x.com/adityaag/status/2076047290083733539</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Sam Altman</span>
+        <span class="builder-role">OpenAI CEO</span>
+      </div>
+      <p class="summary-en">Sam struck an optimistic note: so far AI has been net job-creating, contrary to his own earlier pessimism, and "it is possible this direction keeps going." He also shared a study finding physicians spotted fewer flaws in GPT-5.6 responses than in physician-written ones. A third tweet is a terse "whoa" on a quote.</p>
+      <p class="summary-zh zh">Sam 表达了乐观判断：迄今 AI 总体净创造了就业，与他早先的悲观预期相反，且“这个方向有可能持续下去”。他还转发一项研究——医生在 GPT-5.6 的回答中发现的问题少于医生自己写的回答。另有一条对引用内容的简短 “whoa”。</p>
+      <div class="urls">
+      <a href="https://x.com/sama/status/2076036901824532530">https://x.com/sama/status/2076036901824532530</a>
+      <a href="https://x.com/sama/status/2076034163418014199">https://x.com/sama/status/2076034163418014199</a>
+      <a href="https://x.com/sama/status/2075985056846451123">https://x.com/sama/status/2075985056846451123</a>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- ============== PODCASTS ============== -->
+  <section class="section">
+    <div class="section-head">
+      <span class="section-icon">🎙️</span>
+      <h2 class="section-title">Podcasts</h2>
+      <span class="section-meta">1 Episode</span>
+    </div>
+
+    <div class="podcast">
+      <div class="podcast-source">The MAD Podcast with Matt Turck</div>
+      <h3 class="podcast-title">Stripe's AI Chief: How AI Agents Will Buy, Sell, and Pay</h3>
+
+      <div class="takeaway">
+        <span class="takeaway-label">The Takeaway</span>
+        Agentic commerce has gone from hypothetical to real infrastructure in a year — but the binding constraint is trust, not capability. Stripe's answer: a standardized protocol (ACP) plus a wallet where you set the guardrails.
+      </div>
+
+      <div class="podcast-body">
+      <p>Matt Turck sits down with Emily Sense, Head of Data & AI at Stripe, to go deep on the economic stack for AI agents. Her headline: agentic commerce has shifted in a year from hypothetical to real, deployed infrastructure — with actual companies building on it and repeatable patterns to learn from.</p>
+      <p>Stripe's Agentic Commerce Protocol (ACP, co-built with OpenAI) standardizes how businesses expose catalogs, inventory, and prices to agents, and passes a shared, tokenized, <strong>platform- and PSP-agnostic</strong> payment token so the agent never holds raw credentials. It's already adopted by Best Buy, Coach, URBN, Kate Spade, Wix, Shopify, and BigCommerce, and integrates with Google/Gemini, Microsoft, OpenAI, and Meta.</p>
+      <p>Stripe frames autonomy in levels (L1 human-led execution → L3 fully autonomous, like self-driving). Consumers sit around L2 today — leaning on AI to find products but still choosing the exact item. The most under-discussed risk, per Emily: <strong>token theft</strong> — she cites more than one in six signups at AI companies as this kind of abuse.</p>
+      <p>Link Wallet (built on Stripe's 300M-user consumer wallet) lets users set budgets and guardrails and revoke agent access at any time — a more flexible successor to the original one-time-use virtual cards. The larger thesis: agents are already lifting business formation (5M US solopreneurs earning a living; hundreds of thousands clearing $1M/yr), and long-term, agent-to-agent transactions could strip friction from B2B markets (Coase's theory of the firm).</p>
+      </div>
+
+      <div class="podcast-divider"></div>
+
+      <div class="podcast-zh">
+      <p>Matt Turck 对话 Stripe 数据与 AI 负责人 Emily Sense，深入拆解 AI agent 的经济技术栈。她的核心判断：代理式商务（agentic commerce）一年内从概念变为真实、已部署的基础设施——有真实公司在上面构建，也有可复用的模式可供学习。</p>
+      <p>Stripe 的 Agentic Commerce Protocol（ACP，与 OpenAI 共建）把“企业向 agent 暴露商品目录 / 库存 / 价格”和“共享、令牌化、跨平台且跨支付处理商（PSP）的支付令牌”标准化，agent 永不持有原始凭据。Best Buy、Coach、URBN、Kate Spade、Wix、Shopify、BigCommerce 已采用，并与 Google/Gemini、Microsoft、OpenAI、Meta 打通。</p>
+      <p>Stripe 用自主度分级描述（L1 人主导执行 → L3 全自主，类比自动驾驶）。今天消费者约在 L2——依赖 AI 找货但仍自己选定商品。Emily 认为最被低估的风险是<strong>令牌窃取</strong>：她指出 AI 公司超过 1/6 的注册是这类滥用。</p>
+      <p>Link Wallet（基于 Stripe 3 亿用户的消费钱包）让用户设定预算与护栏、随时收回 agent 权限——是初代一次性虚拟卡的更灵活继任者。更宏观的论点：agent 已在拉动创业（美国 500 万单人公司靠此维生、数十万年收入破百万），长期看 agent 对 agent 的交易可消除 B2B 市场摩擦（科斯的“企业理论”）。</p>
+      </div>
+
+      <div class="urls" style="margin-top:24px">
+        <a href="https://www.youtube.com/@DataDrivenNYC/videos">▶️ https://www.youtube.com/@DataDrivenNYC/videos</a>
+      </div>
+    </div>
+
+  </section>
+
+
+<footer class="footer">
+  <div class="next-issue">📬 下一期：明天 10:00（北京时间）</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->
