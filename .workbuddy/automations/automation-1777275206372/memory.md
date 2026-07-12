@@ -13,6 +13,16 @@
 - 文件：`2026/07/08/AI_Builders_Digest_2026-07-08.html`
 - 缺口：7/4–7/7 连续 4 天未生成（自动化中断/周末）
 
+### 2026-07-12（自动执行 10:00 Asia/Shanghai）
+- 内容获取：10 Builders · 19 Tweets · 1 Podcast · 0 Blog
+- `feedGeneratedAt = 2026-07-12T01:19Z`（当日新鲜快照，非冻结/重复，与 7/8 不同源）
+- Podcast：The MAD Podcast w/ Matt Turck — Emily Sense（Stripe 数据与 AI 负责人）谈 agentic commerce：ACP 协议、L1–L3 自主度、令牌窃取（>1/6 注册为滥用）、Link Wallet、美国 500 万单人创业潮
+- 重点推文：Sam Altman（AI 净创造就业、GPT-5.6 医学回答瑕疵少于医生手写）、Aaron Levie（企业 AI = 重构操作层而非聊天工具）、Thibault Sottiaux（Codex 单日增长>前两周总和）、Aditya Agarwal（云端 agent + 递归自改进循环）
+- ⚠️ 获取层故障：原始 `prepare-digest.js` 用 `Promise.all` 无重试，部分远程 URL（`feed-blogs.json`/`prompts/translate.md`）间歇性 `fetch failed`（curl=000）导致整次失败 2 次。改用自写 `/tmp/fb-prepare-robust.mjs`（逐 URL 重试 6 次 + 本地兜底）后成功（103KB）
+- 生成方式：Node 生成脚本 `/tmp/gen_digest_0712.mjs`（双语 remix + 动态从 JSON 取真实 URL，避免伪造链接）
+- 部署状态：✅ HTTP 200（首次轮询命中），commit ad59ae9
+- 文件：`2026/07/12/AI_Builders_Digest_2026-07-12.html`
+
 ### 2026-07-02（手动补做）
 - 自动化任务在 6/30 后停止运行，7/1 和 7/2 均未自动执行
 - 手动加载 follow-builders skill + 运行 prepare-digest.js 补做
