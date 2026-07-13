@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest · 2026-07-13</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 12px; padding: 32px; margin-bottom: 24px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
+  .podcast-source { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 10px; }
+  .podcast-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; color: var(--ink); margin-bottom: 24px; }
+  .takeaway { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 8px; padding: 18px 22px; margin-bottom: 24px; font-size: 15px; line-height: 1.7; color: var(--accent-deep); }
+  .takeaway-label { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; background: var(--accent); color: white; padding: 3px 8px; border-radius: 3px; margin-right: 10px; transform: translateY(-2px); }
+  .podcast-body { font-size: 15.5px; color: var(--ink-soft); line-height: 1.75; }
+  .podcast-body p { margin-bottom: 16px; }
+  .podcast-body strong { color: var(--ink); font-weight: 600; }
+  .podcast-divider { height: 1px; background: var(--line); margin: 28px 0; }
+  .podcast-zh { font-family: 'Noto Serif SC', serif; font-size: 15.5px; color: var(--ink); line-height: 1.95; }
+  .podcast-zh p { margin-bottom: 16px; }
+  .podcast-zh strong { color: var(--accent-deep); font-weight: 600; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .podcast { padding: 24px; } .podcast-title { font-size: 19px; } .topbar-inner { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 · Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest · 2026-07-13 · 周一</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">10</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">15</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+  <!-- ============== X / TWITTER ============== -->
+  <section class="section">
+    <div class="section-head">
+      <span class="section-icon">🐦</span>
+      <h2 class="section-title">X / Twitter</h2>
+      <span class="section-meta">10 Builders</span>
+    </div>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Thibault Sottiaux</span>
+        <span class="builder-role">OpenAI Codex</span>
+      </div>
+      <p class="summary-en">Thibault frames GPT-5.6 Sol as the answer to past complaints — fast and token-efficient, strong on backend, good at frontend, and notably "does not use useEffect everywhere." In a second post he gives a concrete tip: if you won't install the Codex app, you can point Claude Code at gpt-5.6-sol via a <code>claudex</code> alias (env vars for model, effort, concurrency). He ends both with his characteristic humor about resets.</p>
+      <p class="summary-zh zh">Thibault 把 GPT-5.6 Sol 定位成对过去吐槽的回应——快、token 高效、后端强、前端也不错，特别点出"不会再到处乱用 useEffect"。第二条里他给了一个实操建议：如果不愿装 Codex app，可以用一个 <code>claudex</code> 别名把 Claude Code 指向 gpt-5.6-sol（设置模型、effort、并发的环境变量）。两条都以他标志性的"重置"玩笑收尾。</p>
+      <div class="urls">
+      <a href="https://x.com/thsottiaux/status/2076145711922696371">https://x.com/thsottiaux/status/2076145711922696371</a>
+      <a href="https://x.com/thsottiaux/status/2076119366647894371">https://x.com/thsottiaux/status/2076119366647894371</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Zara Zhang</span>
+        <span class="builder-role">Builder / Investor</span>
+      </div>
+      <p class="summary-en">Zara Zhang concurs on the model news with a one-liner: "5.6 Sol is very good at front end 👌" — a quick confirmation of GPT-5.6 Sol's frontend quality from someone who ships products.</p>
+      <p class="summary-zh zh">Zara Zhang 用一句话认同了模型新闻："5.6 Sol 前端做得非常好 👌"——来自一位真正在出货的构建者，对 GPT-5.6 Sol 前端能力的快速确认。</p>
+      <div class="urls">
+      <a href="https://x.com/zarazhangrui/status/2076130810143367453">https://x.com/zarazhangrui/status/2076130810143367453</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Sam Altman</span>
+        <span class="builder-role">OpenAI CEO</span>
+      </div>
+      <p class="summary-en">Sam Altman riffs on GPT-5.6 Sol's reception: many benchmarks say it's the best model in the world right now, "but the most reliable way to tell is that Elon is obsessed with me again." A second post questions a cost share: "30% of the cost was on fable at these levels of usage?" — a nod to Fable (AI-generated video / stories).</p>
+      <p class="summary-zh zh">Sam Altman 调侃 GPT-5.6 Sol 的反响：很多基准都说它是当下全球最强模型，"但最可靠的判断标准是——Elon 又开始痴迷于我了"。第二条他质疑一项成本占比："在这个用量级别，30% 的成本花在了 Fable 上？"——指的是 Fable（AI 生成视频 / 故事）。</p>
+      <div class="urls">
+      <a href="https://x.com/sama/status/2075983427019612242">https://x.com/sama/status/2075983427019612242</a>
+      <a href="https://x.com/sama/status/2075982820322025788">https://x.com/sama/status/2075982820322025788</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Swyx</span>
+        <span class="builder-role">AI Engineer / Latent Space</span>
+      </div>
+      <p class="summary-en">Swyx extends the Jevons Paradox to the agentic-engineering era. His core claim: as labor efficiency rises and the unit cost of knowledge work falls broadly, total demand for work — and for better knowledge — goes UP, not down. The coding surge isn't an exception to this pattern; it's the herald of it spreading to all knowledge work as coding agents "break containment" into other domains. The humans who win are "AI Engineers" — those who can wield coding agents well.</p>
+      <p class="summary-zh zh">Swyx 把杰文斯悖论（Jevons Paradox）延展到了智能体工程时代。他的核心判断：随着劳动力效率提升、知识工作的单位成本普遍下降，对"工作量"和"更好的知识"的总需求反而会上升，而不是下降。 coding 这一波不是例外，而是前兆——当 coding agent 突破边界、蔓延到其他知识工作领域，同样的规律会重演。能赢的人是"AI 工程师"——那些能熟练驾驭 coding agent 的人。</p>
+      <div class="urls">
+      <a href="https://x.com/swyx/status/2076155833428431012">https://x.com/swyx/status/2076155833428431012</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Aaron Levie</span>
+        <span class="builder-role">Box CEO</span>
+      </div>
+      <p class="summary-en">Aaron Levie makes the labor-abundance case. Software job postings are outpacing other fields, he notes — the opposite of the "AI replaces software jobs" expectation. His reasoning is Jevons-style: when you lower the unit cost of production for something with many use cases, demand rises, so people launch more software projects than ever. The job isn't fully automated (and won't be for the foreseeable future), so you still need people to maintain, decide, and run the systems. "Agents will cause more abundance than replacement."</p>
+      <p class="summary-zh zh">Aaron Levie 给出了"劳动力增量"的论证。他指出软件岗位招聘量正在超过其他行业——与"AI 取代软件工作"的预期恰恰相反。他的逻辑是杰文斯式的：当某样用途广泛的东西的单位生产成本下降，需求就会上升，于是人们比以往启动更多软件项目。这个岗位不会被完全自动化（可预见的未来也不会），所以仍需人来维护、决策和运维系统。"Agent 带来的增量，会大于替代。"</p>
+      <div class="urls">
+      <a href="https://x.com/levie/status/2076116544980214164">https://x.com/levie/status/2076116544980214164</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Garry Tan</span>
+        <span class="builder-role">YC President &amp; CEO</span>
+      </div>
+      <p class="summary-en">Garry Tan pushes California housing reform — repealing and reforming CEQA, which he says blocks millions of housing units a year; housing should be built by-right. In a second post he reframes pessimism: "So much could go wrong. But the interesting question is always: what happens if things go right?"</p>
+      <p class="summary-zh zh">Garry Tan 推动加州住房改革——废除并改革 CEQA（他说该法案每年挡掉数百万套住房），住房应当"按权利即建"（by-right）。第二条他重新框定了悲观情绪："可能出很多岔子。但有趣的问题永远是：如果一切顺利，会怎样？"</p>
+      <div class="urls">
+      <a href="https://x.com/garrytan/status/2075944103867830352">https://x.com/garrytan/status/2075944103867830352</a>
+      <a href="https://x.com/garrytan/status/2075933358660730901">https://x.com/garrytan/status/2075933358660730901</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Guillermo Rauch</span>
+        <span class="builder-role">Vercel CEO</span>
+      </div>
+      <p class="summary-en">A characteristically terse post — "Easy money (Swiss francs)" — without elaboration.</p>
+      <p class="summary-zh zh">一条标志性的极简推文——"Easy money（瑞士法郎）"——未展开说明。</p>
+      <div class="urls">
+      <a href="https://x.com/rauchg/status/2076151956440261008">https://x.com/rauchg/status/2076151956440261008</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Peter Yang</span>
+        <span class="builder-role">AI Educator</span>
+      </div>
+      <p class="summary-en">Peter Yang's posts today were off-topic — live World Cup commentary (Argentina's 3–1, a "mixed performance," doubts about the England match) rather than AI. Included for completeness; no AI signal.</p>
+      <p class="summary-zh zh">Peter Yang 今天发的都是题外话——世界杯实时吐槽（阿根廷 3:1，认为表现"喜忧参半"，对英格兰一战持疑），与 AI 无关。为完整性收录，无 AI 信号。</p>
+      <div class="urls">
+      <a href="https://x.com/petergyang/status/2076151105080447404">https://x.com/petergyang/status/2076151105080447404</a>
+      <a href="https://x.com/petergyang/status/2076143769192484900">https://x.com/petergyang/status/2076143769192484900</a>
+      <a href="https://x.com/petergyang/status/2076132077054095751">https://x.com/petergyang/status/2076132077054095751</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Matt Turck</span>
+        <span class="builder-role">FirstMark VC / MAD Podcast</span>
+      </div>
+      <p class="summary-en">Matt Turck's post today was off-topic World Cup commentary (Argentina struggling against lower-ranked sides, extra time vs a 10-man team). No AI signal.</p>
+      <p class="summary-zh zh">Matt Turck 今天发的也是题外话世界杯吐槽（阿根廷对低排名球队吃力、对十人应战球队踢加时）。无 AI 信号。</p>
+      <div class="urls">
+      <a href="https://x.com/mattturck/status/2076141940484010189">https://x.com/mattturck/status/2076141940484010189</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Nikunj Kothari</span>
+        <span class="builder-role">FPV Ventures Partner</span>
+      </div>
+      <p class="summary-en">Nikunj Kothari's post today was off-topic World Cup commentary (Argentina "mandate of heaven," quarter-final pairings). No AI signal.</p>
+      <p class="summary-zh zh">Nikunj Kothari 今天发的也是题外话世界杯吐槽（阿根廷"天命所归"、四强对阵）。无 AI 信号。</p>
+      <div class="urls">
+      <a href="https://x.com/nikunj/status/2076150076087611433">https://x.com/nikunj/status/2076150076087611433</a>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- ============== PODCASTS ============== -->
+  <section class="section">
+    <div class="section-head">
+      <span class="section-icon">🎙️</span>
+      <h2 class="section-title">Podcasts</h2>
+      <span class="section-meta">1 Episode</span>
+    </div>
+
+    <div class="podcast">
+      <div class="podcast-source">No Priors</div>
+      <h3 class="podcast-title">Travel Through the Lens of AI with Booking.com CEO Glenn Fogel</h3>
+
+      <div class="takeaway">
+        <span class="takeaway-label">The Takeaway</span>
+        An incumbent's calm view of the AI wave: there is no moat, only relentless reinvention — yet scale, regulation, and a real agentic product (Penny) are already bending the curve. The harder question he raises is social, not technical: how to reskill people faster than the jobs disappear.
+      </div>
+
+      <div class="podcast-body">
+      <p>Glenn Fogel, CEO of Booking Holdings (27 years in, from Priceline's dot-com-crash lows to a ~$130–180B company), opens with a blunt thesis: "There is no such thing as a moat." He tells his 25,000 employees daily that today's advantages can vanish tomorrow; the only long-term win is continuously developing new services. He sees clear parallels to the 1999–2000 boom (~1,500 IPOs, ~2 dozen left) and expects a similar washout this AI cycle — alongside real value created.</p>
+      <p>On AI and travel, Booking's mission is "make it easier for everybody to experience the world," and LLMs make that cheaper and better for both travelers and partners. Its agentic tool <strong>Penny</strong> (Priceline) has doubled adoption monthly for months, lifting conversion, speeding search, shortening the path to booking, cutting cancellations, and raising customer-success rates — though still tiny against $186B booked last year. The open problem is <strong>token economics</strong>: cost per trip, ROI, lifetime value, and which model to use for which purpose.</p>
+      <p>Customer service is the clearest win: AI cut cost-per-contact ~10% and lifted satisfaction, with the balance left to customers who still want a human. Capital allocation runs ~$700M into AI/platform this year, plus a long record of returning cash — $3.6B buyback in Q4 alone, ~40% of shares repurchased over ~12 years — when no better internal use exists.</p>
+      <p>On durable advantage: Booking holds 8.6M alternative-accommodation listings (~¾ of Airbnb in that segment, growing faster there for 5 years) plus a large hotel business; global travel's rising regulation is a barrier new entrants underrate. Fogel's worry is jobs: tech has always replaced work (Booking's 40-language human translation is gone to machine translation), but the speed — and the people who can't reskill, his "50-year-old truck driver" — is the real risk. He advocates upskilling staff to be "AI literate" and warns against societies rejecting tech from fear, noting China isn't held back that way. His call: an honest, non-doomer conversation.</p>
+      </div>
+
+      <div class="podcast-divider"></div>
+
+      <div class="podcast-zh">
+      <p>Booking Holdings CEO Glenn Fogel（任职 27 年，见证 Priceline 从互联网泡沫谷底走到约 1300–1800 亿美元市值）开门见山："根本不存在护城河。"他每天对他的 2.5 万名员工说：今天的优势明天就可能消失；长期唯一的胜算是持续推出新服务。他认为当下与 1999–2000 的泡沫高度相似（约 1500 家公司 IPO、仅余约 24 家），预期这轮 AI 周期也会有类似的出清——但同时也会创造真实价值。</p>
+      <p>论及 AI 与旅行，Booking 的使命是"让每个人都能更轻松地体验世界"，而大语言模型让这件事对旅客和合作方都更便宜、更好。其智能体工具 <strong>Penny</strong>（Priceline）过去数月月活翻倍，提升了转化率、加快了搜索、缩短了预订路径、降低了退订、提高了客服成功率——尽管相对去年 1860 亿美元的预订额仍很小。悬而未决的问题是<strong>token 经济</strong>：单次行程的成本、ROI、用户生命周期价值，以及不同用途该用哪个模型。</p>
+      <p>客服是最明确的赢面：AI 把单次联系成本降了约 10%、满意度反而上升，仍把"想找真人"的选择权留给用户。资本配置上，今年约投入 7 亿美元到 AI / 平台，且长期有回馈现金的记录——仅第四季度就回购 36 亿美元、约 12 年回购了约 40% 的股份——前提是内部没有更好的用途。</p>
+      <p>关于持久优势：Booking 持有 860 万套非标住宿房源（约为 Airbnb 同品类的 3/4，且连续 5 年增速更快）外加庞大的酒店业务；全球旅行监管日趋严格，是新进入者低估的壁垒。Fogel 真正的担忧在就业：技术一直在替代工作（Booking 的 40 语种人工翻译已悉数让位于机器翻译），但速度——以及那些无法再就业的人，他口中的"50 岁卡车司机"——才是真正的风险。他主张给员工做"AI 素养"再培训，并警告社会不要因恐惧而拒斥技术，指出中国并没有被这种情绪拖住。他的呼吁：一场诚实、不唱衰的对话。</p>
+      </div>
+
+      <div class="urls" style="margin-top:24px">
+        <a href="https://www.youtube.com/watch?v=8nj_0wZkbtA">▶️ https://www.youtube.com/watch?v=8nj_0wZkbtA</a>
+      </div>
+    </div>
+
+  </section>
+
+
+<footer class="footer">
+  <div class="next-issue">📬 下一期：明天 10:00（北京时间）</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->
