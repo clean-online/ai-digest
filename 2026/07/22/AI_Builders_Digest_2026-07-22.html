@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest · 2026-07-22</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 12px; padding: 32px; margin-bottom: 24px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
+  .podcast-source { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 10px; }
+  .podcast-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; color: var(--ink); margin-bottom: 24px; }
+  .takeaway { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 8px; padding: 18px 22px; margin-bottom: 24px; font-size: 15px; line-height: 1.7; color: var(--accent-deep); }
+  .takeaway-label { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; background: var(--accent); color: white; padding: 3px 8px; border-radius: 3px; margin-right: 10px; transform: translateY(-2px); }
+  .podcast-body { font-size: 15.5px; color: var(--ink-soft); line-height: 1.75; }
+  .podcast-body p { margin-bottom: 16px; }
+  .podcast-body strong { color: var(--ink); font-weight: 600; }
+  .podcast-divider { height: 1px; background: var(--line); margin: 28px 0; }
+  .podcast-zh { font-family: 'Noto Serif SC', serif; font-size: 15.5px; color: var(--ink); line-height: 1.95; }
+  .podcast-zh p { margin-bottom: 16px; }
+  .podcast-zh strong { color: var(--accent-deep); font-weight: 600; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .podcast { padding: 24px; } .podcast-title { font-size: 19px; } .topbar-inner { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 · Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest · 2026-07-22 · 周三</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">14</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">29</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+  <!-- ============== X / TWITTER ============== -->
+  <section class="section">
+    <div class="section-head">
+      <span class="section-icon">🐦</span>
+      <h2 class="section-title">X / Twitter</h2>
+      <span class="section-meta">14 Builders</span>
+    </div>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Swyx</span>
+        <span class="builder-role">AI Engineer / Latent Space</span>
+      </div>
+      <p class="summary-en">Swyx flags a buried finding in the RLM paper from Alex Zhang and Omar Khattab: even without training directly on test sets, frontier labs can "goalseek" benchmark numbers by training on test lookalikes. The paper quantifies this with NLP distance metrics on hidden trajectories and finds that RLMs (reinforcement learning models) generalize to unseen tasks that share latent structure with training. In a separate post he retweets an image that suggests the AI Singularity is happening in real time — "unironically this is happening right tf now."</p>
+      <p class="summary-zh zh">Swyx 从 Alex Zhang 和 Omar Khattab 的 RLM 论文中挖出一个被埋藏的发现：即使不直接在测试集上训练，前沿实验室也能通过训练「测试集近亲」数据来 goalseek 任意基准分数。论文用 NLP 距离度量量化了隐藏轨迹，并发现 RLM（强化学习模型）可以泛化到与训练数据共享潜在结构的未见任务。另一条转发暗示 AI 奇点正在实时发生——「不开玩笑，此刻正在发生。」</p>
+      <div class="urls">
+      <a href="https://x.com/swyx/status/2079438448956788964">https://x.com/swyx/status/2079438448956788964</a>
+      <a href="https://x.com/swyx/status/2079411861150429402">https://x.com/swyx/status/2079411861150429402</a>
+      <a href="https://x.com/swyx/status/2079400293075452195">https://x.com/swyx/status/2079400293075452195</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Thibault Sottiaux</span>
+        <span class="builder-role">OpenAI Codex</span>
+      </div>
+      <p class="summary-en">A short but telling post: "Never a dull moment when you work at OpenAI. Absolutely incredible place." — a reflection on the relentless pace and energy inside OpenAI's product teams.</p>
+      <p class="summary-zh zh">一条简短但有分量的帖子：「在 OpenAI 工作没有无聊的时刻。令人难以置信的地方。」——反映 OpenAI 产品团队内部永不停歇的节奏和能量。</p>
+      <div class="urls">
+      <a href="https://x.com/thsottiaux/status/2079355529101705264">https://x.com/thsottiaux/status/2079355529101705264</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Peter Yang</span>
+        <span class="builder-role">AI Educator</span>
+      </div>
+      <p class="summary-en">Three posts with sharp takes. First: banning Chinese AI models will be the same strategic mistake as banning Chinese EVs — self-defeating protectionism. Second: he shares a Thariq (Claude Code @ Anthropic) clip on agent verification — use a separate agent to review output against a rubric because "self-preferential bias" makes models too lenient when reviewing their own work. Third: a cryptic link-only post pointing to a video resource.</p>
+      <p class="summary-zh zh">三条观点犀利的帖子。第一：禁中国 AI 模型将是和禁中国电动车一样的战略错误——自我伤害的保护主义。第二：分享 Thariq（Claude Code @ Anthropic）关于 agent 验证的片段——用独立 agent 按评分标准审核输出，因为「自我偏好偏差」会让模型对自己产出的审核更宽松。第三：一条仅含链接的帖子指向某个视频资源。</p>
+      <div class="urls">
+      <a href="https://x.com/petergyang/status/2079324894320603619">https://x.com/petergyang/status/2079324894320603619</a>
+      <a href="https://x.com/petergyang/status/2079273815004303477">https://x.com/petergyang/status/2079273815004303477</a>
+      <a href="https://x.com/petergyang/status/2079257646939742542">https://x.com/petergyang/status/2079257646939742542</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Madhu Guru</span>
+        <span class="builder-role">Sr Director AI, Meta (ex-Google Gemini/Veo)</span>
+      </div>
+      <p class="summary-en">Three posts charting the AI landscape. First: "The road to AGI is paved with economically valuable tasks" — enterprise AI is where those tasks live, making it the most important frontier. Second: four years post-crypto, the real tokenomics debate is open vs. closed weights, inference costs, and model routing. Third: "it's literally the greatest time ever to have product sense" — the gap between what's technically possible and what's actually shipped is enormous, and taste is the differentiator.</p>
+      <p class="summary-zh zh">三条推文勾勒 AI 版图。第一：「通往 AGI 的路由具有经济价值的任务铺成」——企业 AI 正是这些任务的聚集地，因此是最重要的前沿。第二：加密货币热潮四年后，真正重要的代币经济辩论是开源 vs 闭源权重、推理成本和模型路由。第三：「现在绝对是有产品嗅觉的最佳时代」——技术能做和实际落地之间的鸿沟巨大，品味才是差异化武器。</p>
+      <div class="urls">
+      <a href="https://x.com/realmadhuguru/status/2079387984852668780">https://x.com/realmadhuguru/status/2079387984852668780</a>
+      <a href="https://x.com/realmadhuguru/status/2079369965569003691">https://x.com/realmadhuguru/status/2079369965569003691</a>
+      <a href="https://x.com/realmadhuguru/status/2079227605031829700">https://x.com/realmadhuguru/status/2079227605031829700</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Thariq</span>
+        <span class="builder-role">Claude Code @ Anthropic</span>
+      </div>
+      <p class="summary-en">A candid developer note: "this was a bug that was only live for a few minutes, ran into it on my personal account while doing some late night coding though" — classic late-night debugging energy from the Claude Code team.</p>
+      <p class="summary-zh zh">一条坦诚的开发者笔记：「这是个只上线了几分钟的 bug，我深夜写代码时在自己的个人账号上撞到了」——Claude Code 团队经典的深夜 debug 气息。</p>
+      <div class="urls">
+      <a href="https://x.com/trq212/status/2079105479125741675">https://x.com/trq212/status/2079105479125741675</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Amjad Masad</span>
+        <span class="builder-role">Replit CEO</span>
+      </div>
+      <p class="summary-en">Three posts. First: "First physical product shipped by a coding agent?" — teasing the boundary where code meets atoms. Second: "Tools" with an image, hinting at Replit's expanding toolkit. Third: a reflective quote — "'Being cancelled is a choice' turned out to be a nice sound bite" — on online discourse and resilience.</p>
+      <p class="summary-zh zh">三条帖子。第一：「第一个由 coding agent 发货的实体产品？」——试探代码触碰原子的边界。第二：「Tools」配图，暗示 Replit 工具集的扩展。第三：引用反思——「'被取消是一种选择'说到底只是漂亮话」——关于网络舆论和韧性的思考。</p>
+      <div class="urls">
+      <a href="https://x.com/amasad/status/2079421913089335677">https://x.com/amasad/status/2079421913089335677</a>
+      <a href="https://x.com/amasad/status/2079282869063786541">https://x.com/amasad/status/2079282869063786541</a>
+      <a href="https://x.com/amasad/status/2079401256448340378">https://x.com/amasad/status/2079401256448340378</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Guillermo Rauch</span>
+        <span class="builder-role">Vercel CEO</span>
+      </div>
+      <p class="summary-en">A sweeping thesis: "The big lesson from AI is that everything is code. A slide deck is code. Design is code. That cool promo video? Code. Excel automation? Code. The universe? Probably made of code too." — Rauch is articulating the collapse of format boundaries under AI, where every medium becomes a program.</p>
+      <p class="summary-zh zh">一个宏大的论断：「AI 最大的启示是——万物皆代码。幻灯片是代码。设计是代码。那个酷炫宣传片？代码。Excel 自动化？代码。宇宙？大概也是代码。」——Rauch 在阐述 AI 下格式边界的消融：每种媒介都变成了程序。</p>
+      <div class="urls">
+      <a href="https://x.com/rauchg/status/2079274102129304026">https://x.com/rauchg/status/2079274102129304026</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Aaron Levie</span>
+        <span class="builder-role">Box CEO</span>
+      </div>
+      <p class="summary-en">Levie expands on Cursor's new research into multi-model agentic systems. The key pattern: a frontier model acts as planner/orchestrator while cheaper workhorse models handle execution, yielding a 15X cost improvement. Only a few moments in a complex task — original decomposition, design decisions, key trade-offs — actually require frontier intelligence. Once the planner collapses ambiguity into explicit instructions, cheaper models just follow. This routing architecture, Levie argues, is where the applied layer will differentiate: companies that master multi-tier model routing across domains (coding, finance, legal, healthcare) will unlock larger workloads that were previously too expensive.</p>
+      <p class="summary-zh zh">Levie 深入解读 Cursor 多模型 agentic 系统的新研究。核心模式：一个前沿模型当规划器/编排器，更便宜的「主力」模型做执行，实现 15 倍成本下降。复杂任务中只有少数时刻——初始分解、设计决策、关键取舍——真正需要前沿智能。一旦规划器把模糊性压成明确指令，便宜模型只管执行。Levie 认为这种路由架构是应用层差异化的关键：能跨领域（编程、金融、法律、医疗）掌握多层级模型路由的公司，将撬动之前因成本过高而无法承接的大批量工作负载。</p>
+      <div class="urls">
+      <a href="https://x.com/levie/status/2079402164988895293">https://x.com/levie/status/2079402164988895293</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Garry Tan</span>
+        <span class="builder-role">YC President & CEO</span>
+      </div>
+      <p class="summary-en">Three posts across politics and tech. First: opposes California's proposed "asset seizure tax" as counterproductive. Second: "Compute rules everything around me CREAM" — a Wu-Tang-inspired acknowledgment that compute is the defining resource of this era. Third: a general reminder to "stay frosty" (stay sharp and vigilant).</p>
+      <p class="summary-zh zh">三条帖子横跨政治和科技。第一：反对加州拟议的「资产扣押税」，认为适得其反。第二：「Compute rules everything around me CREAM」——用 Wu-Tang 风格承认算力是这个时代的定义性资源。第三：提醒大家「stay frosty」（保持敏锐和警觉）。</p>
+      <div class="urls">
+      <a href="https://x.com/garrytan/status/2079369233218306285">https://x.com/garrytan/status/2079369233218306285</a>
+      <a href="https://x.com/garrytan/status/2079240755135357356">https://x.com/garrytan/status/2079240755135357356</a>
+      <a href="https://x.com/garrytan/status/2079196804315521332">https://x.com/garrytan/status/2079196804315521332</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Matt Turck</span>
+        <span class="builder-role">VC, FirstMark (MAD Podcast)</span>
+      </div>
+      <p class="summary-en">A single meme-style post: "OpenAI and Anthropic when a top free Chinese open source model drops" — capturing the competitive pressure that Chinese open-source models place on US frontier labs.</p>
+      <p class="summary-zh zh">一条 meme 风格的帖子：「当中国顶级免费开源模型发布时，OpenAI 和 Anthropic 的反应」——捕捉了中国开源模型对美国前沿实验室施加的竞争压力。</p>
+      <div class="urls">
+      <a href="https://x.com/mattturck/status/2079198838741458989">https://x.com/mattturck/status/2079198838741458989</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Zara Zhang</span>
+        <span class="builder-role">Builder / Investor</span>
+      </div>
+      <p class="summary-en">Three posts blending hiring philosophy and company building. First, her two-round interview structure: Round 1 in-person with no AI to test domain expertise; Round 2 a project impossible without AI, judged on results AND chat transcripts with agents. Second: a reflection on reaching 80k followers — "all signal no noise no slop no hacks." Third: a sharp taxonomy — there are now two kinds of companies: pre-coding-agent (retrofitting) and post-coding-agent (teams under 10, projects not departments, each person closes their own loop, almost no internal meetings).</p>
+      <p class="summary-zh zh">三条帖子融合招聘哲学和公司建设。第一，她的两轮面试结构：第一轮现场、禁用 AI，测领域功底；第二轮一个不用 AI 完成不了的项目，同时评估结果和 agent 对话记录。第二：80k 粉丝感悟——「全信号、零噪音、无 slop、无 hack 套路」。第三：一个锐利的分类法——现在只有两种公司：coding agent 之前的（在拼命打补丁）和 coding agent 之后的（不到 10 人团队、按项目而非部门组织、每人闭环、几乎没有内部会议）。</p>
+      <div class="urls">
+      <a href="https://x.com/zarazhangrui/status/2079409165424799889">https://x.com/zarazhangrui/status/2079409165424799889</a>
+      <a href="https://x.com/zarazhangrui/status/2079395028485488707">https://x.com/zarazhangrui/status/2079395028485488707</a>
+      <a href="https://x.com/zarazhangrui/status/2079225776545968166">https://x.com/zarazhangrui/status/2079225776545968166</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Nikunj Kothari</span>
+        <span class="builder-role">Partner, FPV Ventures</span>
+      </div>
+      <p class="summary-en">Two posts for founders. First: a warning that "no moats in AI" doesn't mean scale and capital become your moat — citing Webvan, Groupon, MySpace, Blockbuster as cautionary tales. The needle to thread: find a unique insight worth a 10+ year journey while not letting capital become a substitute for it. Second: observing the VC-to-startup pipeline accelerating — three more this week — comparing it to the 2012 IB/consultant-to-BizOps wave.</p>
+      <p class="summary-zh zh">两条给创业者的帖子。第一：警告「AI 没有护城河」不代表规模和资本就是你的护城河——以 Webvan、Groupon、MySpace、Blockbuster 为警示案例。要穿过的针眼：找到值得投入 10 年以上的独特洞见，同时不让资本替代洞见。第二：观察到 VC 转 startup 的管道在加速——本周又三个——类比 2012 年投行/咨询转 BizOps 的浪潮。</p>
+      <div class="urls">
+      <a href="https://x.com/nikunj/status/2079328912912355470">https://x.com/nikunj/status/2079328912912355470</a>
+      <a href="https://x.com/nikunj/status/2079211477127291350">https://x.com/nikunj/status/2079211477127291350</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Dan Shipper</span>
+        <span class="builder-role">CEO, Every</span>
+      </div>
+      <p class="summary-en">Three posts. First: hiring a senior engineer to work on their agent at Every — "must love agents." Second: a self-deprecating "guys I'm basically Brian Johnson" post. Third: a link-only post sharing content.</p>
+      <p class="summary-zh zh">三条帖子。第一：为 Every 的 agent 项目招聘高级工程师——「必须热爱 agent」。第二：自嘲「伙计们我基本就是 Brian Johnson 了」。第三：仅含链接的分享帖。</p>
+      <div class="urls">
+      <a href="https://x.com/danshipper/status/2079331654359818503">https://x.com/danshipper/status/2079331654359818503</a>
+      <a href="https://x.com/danshipper/status/2079320969802400200">https://x.com/danshipper/status/2079320969802400200</a>
+      <a href="https://x.com/danshipper/status/2079338909801071021">https://x.com/danshipper/status/2079338909801071021</a>
+      </div>
+    </article>
+
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Sam Altman</span>
+        <span class="builder-role">OpenAI CEO</span>
+      </div>
+      <p class="summary-en">A single cryptic post: "it is good now!" — classic Altman minimalism, likely a nod to a new model release or product improvement, with a link to visual content.</p>
+      <p class="summary-zh zh">一条神秘的帖子：「现在好了！」——经典的 Altman 极简风，很可能是对新模型发布或产品改进的点头示意，附带一个视觉内容链接。</p>
+      <div class="urls">
+      <a href="https://x.com/sama/status/2079258683884917013">https://x.com/sama/status/2079258683884917013</a>
+      </div>
+    </article>
+
+  </section>
+
+  <!-- ============== PODCAST ============== -->
+  <section class="section">
+    <div class="section-head">
+      <span class="section-icon">🎙️</span>
+      <h2 class="section-title">Podcast</h2>
+      <span class="section-meta">1 Episode</span>
+    </div>
+
+    <div class="podcast">
+      <div class="podcast-source">No Priors</div>
+      <div class="podcast-title">Travel Through the Lens of AI with with Booking.com CEO Glenn Fogel</div>
+
+      <div class="takeaway">
+        <span class="takeaway-label">Takeaway</span>
+        There is no moat — only continuous innovation. The companies that build real value will endure, just as they did through the dot-com era.
+      </div>
+
+      <div class="podcast-body">
+        <strong>No Priors</strong> hosts Booking Holdings CEO <strong>Glenn Fogel</strong>, a 27-year veteran who joined Priceline in 2000 when it was worth a few hundred million and helped grow it to a $180B travel giant.</p><p></p><p><strong>The Takeaway:</strong> There is no moat — only continuous innovation. "The only way to win long term is to continue to develop new services, new ways to do things." The AI era, like the dot-com era, will see massive speculative excess, but the companies that build real value will endure.</p><p></p><p><strong>Key insights:</strong></p><p></p><p><strong>1. Dot-com lessons for AI.</strong> Fogel sees direct parallels between the late-90s internet boom and today's AI wave — same speculative frenzy, same massive capital flows, same likelihood that the vast majority of companies won't survive. But the ones that do will be transformative. Priceline went from a $6 reverse-split stock to nearly $6,000 — a 1,000x return over 25 years.</p><p></p><p><strong>2. Penny: Booking's agentic travel assistant.</strong> Adoption is doubling every month, delivering higher conversion, faster search, shorter path to booking, lower cancellation, and higher customer satisfaction. But Fogel is cautious — at $186B in annual travel volume, Penny is still tiny in absolute terms. The real questions are unit economics (token cost per trip, ROI, lifetime value impact) and model routing (which model for which task at what cost).</p><p></p><p><strong>3. AI in customer service.</strong> Cost per contact is already down ~10%, and customer satisfaction is up — AI resolves issues faster than humans. But Fogel warns against over-automation: some customers genuinely want to talk to a human, and the business must recognize that boundary.</p><p></p><p><strong>4. The $700M reinvestment calculus.</strong> Booking is investing ~$700M this year in tech enablement, including AI, with savings from operational efficiency. Fogel's capital allocation framework: invest in the company if ROI justifies it → acquire if better opportunities exist → return to shareholders if neither works. "That's what I've always believed in."</p><p></p><p><strong>5. The AI hype cycle and democracy.</strong> Fogel notes that polling data shows people love AI when asked about specific benefits (helping kids with school, making life easier) but fear it when asked about job destruction — suggesting the framing of the question drives the answer. In a democracy, politicians will exploit both narratives for votes, making honest public discourse about AI's real impact difficult.</p><p>
+      </div>
+
+      <div class="podcast-divider"></div>
+
+      <div class="podcast-zh zh">
+        <span class="takeaway-label" style="margin-bottom:12px;display:inline-block">核心观点</span>
+        <p>没有护城河——只有持续创新。真正创造价值的公司会留下来，就像互联网泡沫时代一样。</p>
+        <strong>No Priors</strong> 对话 Booking Holdings CEO <strong>Glenn Fogel</strong>，一位在 Priceline 服务 27 年的老兵——2000 年加入时公司市值仅数亿美元，一路带到 1800 亿美元的旅行巨头。</p><p></p><p><strong>核心观点：</strong>没有护城河——只有持续创新。「长期赢的唯一方法是不断开发新服务、新做法。」AI 时代如同互联网泡沫时代，会经历大规模投机性过剩，但真正创造价值的公司会留下来。</p><p></p><p><strong>关键洞察：</strong></p><p></p><p><strong>1. 互联网泡沫给 AI 的教训。</strong>Fogel 认为 90 年代末的互联网热潮与当下 AI 浪潮有直接可比性——同样的投机狂热、同样的巨额资本涌入、同样大概率多数公司活不下来。但活下来的那些将改变世界。Priceline 从合股后 $6 涨到近 $6000——25 年 1000 倍回报。</p><p></p><p><strong>2. Penny：Booking 的 agentic 旅行助手。</strong>采用量每月翻倍，带来更高的转化率、更快的搜索、更短的预订路径、更低的取消率和更高的客户满意度。但 Fogel 很谨慎——在 1860 亿美元年交易量面前，Penny 的绝对值还很小。真正的问题是单位经济学（每次行程的 token 成本、ROI、终身价值影响）和模型路由（什么时候用哪个模型、花多少钱）。</p><p></p><p><strong>3. AI 客服。</strong>每次联系成本已下降约 10%，客户满意度上升——AI 比人类更快解决问题。但 Fogel 警告不���过度自动化：有些客户确实想和人说话，企业必须识别这个边界。</p><p></p><p><strong>4. 7 亿美元再投资算账。</strong>Booking 今年投入约 7 亿美元用于技术赋能（含 AI），资金来自运营效率节约。Fogel 的资本配置框架：公司投资 ROI 够好就投 → 并购机会更好就买 → 都不行就把钱还给股东。「这是我一直信奉的。」</p><p></p><p><strong>5. AI 炒作周期与民主。</strong>Fogel 指出民调数据很矛盾：当问及具体好处（帮孩子做功课、让生活更便捷）时人们爱 AI，当问及失业风险时人们怕 AI——问题的框法决定了答案。在民主制度下，政客会利用两种叙事拉选票，这使得关于 AI 真实影响的诚实公共讨论变得困难。</p><p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== FOOTER ============== -->
+  <footer class="footer">
+    <div class="next-issue">Next issue: 2026-07-23 · 周四</div>
+    <div style="margin-top:12px"><a href="https://clean-online.github.io/ai-digest/" style="color:var(--ink-muted);text-decoration:none;border:none">← Back to Calendar</a></div>
+    <div class="signature">by chloevchen</div>
+  </footer>
+
+<!-- by chloevchen -->
+</body>
+</html>
