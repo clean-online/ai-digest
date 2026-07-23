@@ -2,6 +2,15 @@
 
 ## 最近执行记录
 
+### 2026-07-22（手动续跑 / 自动任务）
+- 内容获取：14 Builders · 29 Tweets · 1 Podcast · 0 Blog
+- feedGeneratedAt: 2026-07-21T07:10Z（快照滞后 1 天，距 7/13 上次 digest 已 9 天间隔）
+- Podcast：No Priors — Glenn Fogel（Booking Holdings CEO）谈 moat 不存在、Penny agentic 旅行助手每月翻倍、$700M AI 投资、AI 客服降本 10%
+- 重点推文：Aaron Levie（Cursor 多模型 routing 15X 降本）、Madhu Guru（AGI 靠经济价值任务铺路）、Zara Zhang（两轮面试结构 + 后 coding agent 时代公司形态）、Nikunj Kothari（AI 无 moat 时资本不是替代品）、Guillermo Rauch（万物皆代码）
+- 生成方式：Python 脚本 `/tmp/gen_digest_0722.py`（读取 JSON + 手工 remix 双语总结）
+- 部署状态：✅ HTTP 200（轮询第 2 次命中），commit b205cd5
+- 文件：`2026/07/22/AI_Builders_Digest_2026-07-22.html`
+
 ### 2026-07-08（自动执行，11:04 续跑）
 - 内容获取：16 Builders · 34 Tweets · 1 Podcast · 1 Blog
 - ⚠️ Feed 快照冻结于 2026-07-07T07:28Z（中央 feed 滞后一天），推文/播客均为 7/7 内容
