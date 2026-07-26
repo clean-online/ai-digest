@@ -2,6 +2,15 @@
 
 ## 最近执行记录
 
+### 2026-07-23（自动执行 10:00 Asia/Shanghai）
+- 内容获取：17 Builders · 36 Tweets · 1 Podcast · 1 Blog
+- `stats.feedGeneratedAt = 2026-07-22T07:11Z`（昨日快照，stats 通过则照常生成）
+- Podcast：Training Data — Factory CEO Matan Grinberg 谈「暗工厂」/ droids 自主构建 / 按任务路由 / 90% token 将异步化
+- Blog：Claude Blog — Claude 支持 Apple Foundation Models 框架
+- 生成方式：Python 脚本 `/tmp/gen_digest_0723.py`（双语 remix + 真实 URL）
+- 部署状态：✅ HTTP 200（轮询第 2 次命中），commit 055f246
+- 文件：`2026/07/23/AI_Builders_Digest_2026-07-23.html`
+
 ### 2026-07-22（手动续跑 / 自动任务）
 - 内容获取：14 Builders · 29 Tweets · 1 Podcast · 0 Blog
 - feedGeneratedAt: 2026-07-21T07:10Z（快照滞后 1 天，距 7/13 上次 digest 已 9 天间隔）
