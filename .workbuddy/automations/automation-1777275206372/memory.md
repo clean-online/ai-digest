@@ -2,6 +2,18 @@
 
 ## 最近执行记录
 
+### 2026-07-26（自动执行 10:00 Asia/Shanghai / 手动续跑）
+- 内容获取：14 Builders · 31 Tweets · 1 Podcast · 3 Blogs
+- `feedGeneratedAt = 2026-07-26T07:10:56Z`（当日新鲜快照，非冻结）
+- prepare-digest.js 首次运行即成功（149KB），无需健壮兜底脚本
+- Podcast：Unsupervised Learning Ep 91 — Benedict Evans 谈 AI 炒作周期：瓶颈不是模型能力而是「识别并描述可自动化任务」的能力；多数人非工具构建者；企业 AI 卡在一次一个痛点的 pilot；企业转型/咨询承接重活
+- Blog（3 篇均 Anthropic 系）：① April-23 postmortem（Claude Code/SDK/Cowork 三处回退已 4/20 修复）② Managed Agents 脑手解耦（harness 假设会过期、context anxiety）③ Managed Agents 自托管沙箱 + MCP 隧道
+- 重点推文：Guillermo Rauch（工厂优先于 prompt，软件工厂即产品）、Thibault（ChatGPT Work 活跃超 Codex）、Madhu Guru（美国 AI 圈快速收敛到开源权重）、Aaron Levie（Google 加入=开源权重彻底背书）、Peter Steinberger（12 子 agent 端到端 QA 目标 200 bug）、Nan Yu（SoftwareFactoryFactory）
+- 生成方式：Python 脚本 `/tmp/gen_digest_0726.py`（双语 remix + 真实 URL + 3 Blog 多 post 布局）
+- 部署状态：✅ HTTP 200（轮询第 2 次命中），commit 3bac9e3
+- 文件：`2026/07/26/AI_Builders_Digest_2026-07-26.html`
+- 缺口：7/24–7/25 未生成（周末/自动化间隔）
+
 ### 2026-07-23（自动执行 10:00 Asia/Shanghai）
 - 内容获取：17 Builders · 36 Tweets · 1 Podcast · 1 Blog
 - `stats.feedGeneratedAt = 2026-07-22T07:11Z`（昨日快照，stats 通过则照常生成）

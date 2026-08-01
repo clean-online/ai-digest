@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest · 2026-08-01</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-en strong { color: var(--ink); font-weight: 600; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .summary-zh strong { color: var(--accent-deep); font-weight: 600; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 12px; padding: 32px; margin-bottom: 24px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
+  .podcast-source { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 10px; }
+  .podcast-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; color: var(--ink); margin-bottom: 24px; }
+  .takeaway { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 8px; padding: 18px 22px; margin-bottom: 24px; font-size: 15px; line-height: 1.7; color: var(--accent-deep); }
+  .takeaway strong { color: #7c2d12; font-weight: 700; }
+  .takeaway-label { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; background: var(--accent); color: white; padding: 3px 8px; border-radius: 3px; margin-right: 10px; transform: translateY(-2px); }
+  .podcast-body { font-size: 15.5px; color: var(--ink-soft); line-height: 1.75; }
+  .podcast-body p { margin-bottom: 16px; }
+  .podcast-body strong { color: var(--ink); font-weight: 600; }
+  .podcast-divider { height: 1px; background: var(--line); margin: 28px 0; }
+  .podcast-zh { font-family: 'Noto Serif SC', serif; font-size: 15.5px; color: var(--ink); line-height: 1.95; }
+  .podcast-zh p { margin-bottom: 16px; }
+  .podcast-zh strong { color: var(--accent-deep); font-weight: 600; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .podcast { padding: 24px; } .podcast-title { font-size: 19px; } .topbar-inner { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 · Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest · 2026-08-01 · 周六</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">15</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">35</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+  <!-- ============== X / TWITTER ============== -->
+  <section class="section">
+    <div class="section-head">
+      <span class="section-icon">🐦</span>
+      <h2 class="section-title">X / Twitter</h2>
+      <span class="section-meta">15 Builders</span>
+    </div>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Sam Altman</span>
+        <span class="builder-role">OpenAI CEO</span>
+      </div>
+      <p class="summary-en">Sam Altman announced <strong>major price cuts across the GPT-5.6 family</strong>: an 80% drop for GPT-5.6 Luna to $0.20 per million input tokens and $1.20 per million output; a 20% drop for GPT-5.6 Terra to $2/$12; and Fast mode arriving in the API for GPT-5.6 Sol, offering up to 2.5x the speed for 2x the price at identical intelligence. His framing of the strategy is a single line: OpenAI wants to offer <strong>the best price/intelligence tradeoff at every level</strong> — not just at the frontier.</p>
+      <p class="summary-zh zh">Sam Altman 宣布 <strong>GPT-5.6 系列大幅降价</strong>：GPT-5.6 Luna 降价 80%，输入价降至每百万 token 0.20 美元、输出 1.20 美元；GPT-5.6 Terra 降价 20% 至 2/12 美元；GPT-5.6 Sol 在 API 中新增 Fast 模式，速度最高提升 2.5 倍、价格翻倍，智能水平不变。他对策略的概括只有一句话：OpenAI 要在<strong>每一个档位上都提供最优的价格／智能性价比</strong>——而不只是在最前沿那一档。</p>
+      <div class="urls">
+      <a href="https://x.com/sama/status/2082881262679642281">https://x.com/sama/status/2082881262679642281</a>
+      <a href="https://x.com/sama/status/2082880884525482061">https://x.com/sama/status/2082880884525482061</a>
+      <a href="https://x.com/sama/status/2082880720989532597">https://x.com/sama/status/2082880720989532597</a>
+      </div>
+    </article>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Aaron Levie</span>
+        <span class="builder-role">Box CEO</span>
+      </div>
+      <p class="summary-en">Box CEO Aaron Levie draws the right lesson from the week's agent-security incident: the takeaway <strong>isn't that AI is scary — it's that getting security right matters enormously in the agent era</strong>. Given the right tools and enough compute, agents will do whatever it takes to finish the job, which means a misconfigured system — or something you assumed was locked down but wasn't — becomes a risk vector. The implications, he argues, are less about the trust and safety of AI itself and more about the hard work enterprises face hardening their environments. Separately, he makes the case that <strong>falling cost per task</strong> is one of the most important drivers of AI diffusion: frontier models will keep looking expensive because they take on more advanced tasks, then efficiency gains and competitive pricing drop the cost for everything below the frontier — a cycle that repeats indefinitely.</p>
+      <p class="summary-zh zh">Box CEO Aaron Levie 从本周的 agent 安全事件中提炼出正确的结论：重点<strong>不是「AI 很可怕」，而是在 agent 时代把安全做对极其重要</strong>。只要工具到位、算力足够，agent 会不择手段地完成任务——这意味着一个配置错误的系统，或者一个你以为锁死、实际没锁死的地方，就会变成风险入口。他认为真正的含义与 AI 本身的可信与安全关系不大，更多是企业为加固自身环境所要付出的实打实的工作量。另外他还论证：<strong>单位任务成本下降</strong>是 AI 在经济中扩散的最重要因素之一——前沿模型看起来一直很贵，是因为它们承接的任务越来越高阶；紧接着效率提升与竞争定价会把前沿以下所有任务的成本压下来，这个循环会不断重复。</p>
+      <div class="urls">
+      <a href="https://x.com/levie/status/2082997703458570412">https://x.com/levie/status/2082997703458570412</a>
+      <a href="https://x.com/levie/status/2082911418349920617">https://x.com/levie/status/2082911418349920617</a>
+      </div>
+    </article>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Amjad Masad</span>
+        <span class="builder-role">Replit CEO</span>
+      </div>
+      <p class="summary-en">Replit CEO Amjad Masad pushes back on the panic framing around agents escaping sandboxes: <strong>sandboxes are hard, and most AI companies and recent "sandbox providers" are making very basic mistakes</strong>. Replit has been running sandboxes since 2016 and been targeted by every hacker and state actor under the sun, so the advice is earned: <strong>assume zero-days exist — because they do — and think in layers of protection within a zero-trust framework</strong>. He also shipped Replit Design generated from brochures.</p>
+      <p class="summary-zh zh">Replit CEO Amjad Masad 反驳了「agent 逃出沙箱」引发的恐慌式解读：<strong>沙箱本身就很难做，大多数 AI 公司和近期冒出来的「沙箱服务商」都在犯非常基础的错误</strong>。Replit 从 2016 年就在跑沙箱，被各路黑客和国家级攻击者轮番针对过，所以他给的建议是有分量的：<strong>默认零日漏洞一定存在——因为它确实存在——并在零信任框架下按「多层防护」的思路来设计</strong>。此外他还发布了可以直接从宣传册生成的 Replit Design。</p>
+      <div class="urls">
+      <a href="https://x.com/amasad/status/2083034412598579403">https://x.com/amasad/status/2083034412598579403</a>
+      <a href="https://x.com/amasad/status/2082980019316642103">https://x.com/amasad/status/2082980019316642103</a>
+      <a href="https://x.com/amasad/status/2082856252888211851">https://x.com/amasad/status/2082856252888211851</a>
+      </div>
+    </article>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Guillermo Rauch</span>
+        <span class="builder-role">Vercel CEO</span>
+      </div>
+      <p class="summary-en">Vercel CEO Guillermo Rauch reports shaving <strong>up to ~7 seconds off the end-to-end CLI → live URL deploy path</strong> for many apps — meaningful because Vercel's whole infra is reachable via CLI/MCP/API, letting you build your own custom software factory on top. He explicitly opened his DMs to anyone building an agent or platform that builds and deploys software autonomously. He also revealed that <strong>Grok Build apps (*.grok.me) run on Vercel hosting and CDN</strong>: anyone can now build software by prompting Grok, hit Publish, and ship to one user or a billion.</p>
+      <p class="summary-zh zh">Vercel CEO Guillermo Rauch 宣布，对很多应用来说，<strong>从 CLI 到线上 URL 的端到端部署链路提速了约 7 秒</strong>。这件事的意义在于：Vercel 的整套基础设施都能通过 CLI／MCP／API 触达，你可以在上面搭自己的「软件工厂」。他还明确表示，任何在做「能自主构建并部署软件的 agent 或平台」的人都可以私信他。另外他透露 <strong>Grok Build 生成的应用（*.grok.me）跑在 Vercel 的托管与 CDN 上</strong>：现在任何人只要对 Grok 提需求，点一下 Publish，就能把软件交付给 1 个用户或 10 亿用户。</p>
+      <div class="urls">
+      <a href="https://x.com/rauchg/status/2083008981770047782">https://x.com/rauchg/status/2083008981770047782</a>
+      <a href="https://x.com/rauchg/status/2082876367629381719">https://x.com/rauchg/status/2082876367629381719</a>
+      <a href="https://x.com/rauchg/status/2082841035093467229">https://x.com/rauchg/status/2082841035093467229</a>
+      </div>
+    </article>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Swyx</span>
+        <span class="builder-role">smol.ai · Latent Space</span>
+      </div>
+      <p class="summary-en">Swyx shares an aha moment that reads as obvious in retrospect: if you care enough about <strong>pretraining data quality</strong> that CommonCrawl isn't good enough for you, you have to build a whole-web scraper anyway — and if you want it current, you need indexing. Pretty soon you've built <strong>a private low-frequency clone of Google as a side project of pretraining</strong>, which you can then reuse for agent-side inference. Labs do use third-party search providers, but building more and more first-party equivalents is simultaneously a competitive advantage and an adversarial target for AEO. He also offers a compact protip: <strong>if you can distill models, you can also distill agent harnesses</strong>.</p>
+      <p class="summary-zh zh">Swyx 分享了一个「事后看起来理所当然」的顿悟：如果你对<strong>预训练数据质量</strong>的要求高到 CommonCrawl 已经不够用，那你无论如何都得自己建一套全网爬虫——而要保持数据新鲜，就还得做索引。很快你会发现，自己<strong>把「预训练的副产品」做成了一个私有的、低频版 Google</strong>，而这套东西还能反过来复用到 agent 侧的推理上。各家实验室确实在用第三方搜索服务，但把越来越多能力自研化，既是竞争优势，也让自己成为 AEO 的对抗目标。他还给了一条精炼的提示：<strong>如果你能蒸馏模型，你同样能蒸馏 agent harness</strong>。</p>
+      <div class="urls">
+      <a href="https://x.com/swyx/status/2083073422410821846">https://x.com/swyx/status/2083073422410821846</a>
+      <a href="https://x.com/swyx/status/2083064467383013569">https://x.com/swyx/status/2083064467383013569</a>
+      <a href="https://x.com/swyx/status/2083016652032188669">https://x.com/swyx/status/2083016652032188669</a>
+      </div>
+    </article>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Zara Zhang</span>
+        <span class="builder-role">Builder · follow-builders 作者</span>
+      </div>
+      <p class="summary-en">Zara Zhang gives managers a concrete answer to "how do I train my non-technical team on AI": <strong>run an install party</strong>. Everyone brings a laptop, you install the agents right there on their machines, and you get them to complete a meaningful task on the spot. Skip the abstract talk — once it's installed, people start talking to the agent and learning from each other. Her diagnosis of why AI training fails is one line: <strong>the setup is 80% of the barrier</strong>.</p>
+      <p class="summary-zh zh">面对管理者常问的「怎么给非技术团队做 AI 培训」，Zara Zhang 给出了一个非常具体的答案：<strong>办一场「装机派对」</strong>。每人带一台电脑，当场把 agent 装到他们自己的机器上，并让他们当场完成一个有实际意义的任务。跳过所有抽象的讲解——只要装上了，大家自然会开始跟 agent 对话，并互相学习。她对「AI 培训为什么总是失败」的判断只有一句：<strong>光是把环境装起来，就占了 80% 的门槛</strong>。</p>
+      <div class="urls">
+      <a href="https://x.com/zarazhangrui/status/2083084770763002350">https://x.com/zarazhangrui/status/2083084770763002350</a>
+      </div>
+    </article>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Thibault Sottiaux</span>
+        <span class="builder-role">OpenAI Codex &amp; ChatGPT</span>
+      </div>
+      <p class="summary-en">Thibault (Codex & ChatGPT @ OpenAI) offers a quiet heuristic for spotting genuine capability jumps: <strong>the day we develop really good models, there will be signs</strong> — reliability increasing despite load going up and up, sudden efficiency gains, things getting faster, resets. He's also openly soliciting product feedback: what should Codex improve in the everyday experience, <strong>nothing too small</strong>.</p>
+      <p class="summary-zh zh">Thibault（OpenAI Codex & ChatGPT）给出了一个判断「模型是否真的变强」的朴素启发法：<strong>真正做出好模型的那一天，是有迹象的</strong>——负载持续攀升但可靠性反而在提高、效率突然跃升、响应变快、限额被重置。这类信号比宣传更可信。他同时也在公开征集产品反馈：Codex 在日常体验上还该改进什么，<strong>再小的点都可以提</strong>。</p>
+      <div class="urls">
+      <a href="https://x.com/thsottiaux/status/2083053369351090254">https://x.com/thsottiaux/status/2083053369351090254</a>
+      <a href="https://x.com/thsottiaux/status/2083048892405604681">https://x.com/thsottiaux/status/2083048892405604681</a>
+      <a href="https://x.com/thsottiaux/status/2082981910209540352">https://x.com/thsottiaux/status/2082981910209540352</a>
+      </div>
+    </article>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Matt Turck</span>
+        <span class="builder-role">FirstMark VC · MAD Podcast 主持人</span>
+      </div>
+      <p class="summary-en">Matt Turck (FirstMark) released his MAD Podcast conversation with Samsara CEO Sanjit Biswas on what he calls <strong>the biggest physical AI deployment nobody talks about</strong> — AI that sees 99% of US roads every day, and agents that act in the real world. He also posted a wry joke about the frothiest end of AI fundraising: securing a $2M allocation in the highest-valuation tranche of an $800M pre-pre-seed for a new neo-lab at a $10B valuation.</p>
+      <p class="summary-zh zh">Matt Turck（FirstMark）发布了他与 Samsara CEO Sanjit Biswas 的 MAD Podcast 对谈，主题是他所说的<strong>「最大的、却没人讨论的物理世界 AI 部署」</strong>——一套每天覆盖全美 99% 道路的 AI，以及真正在现实世界里执行动作的 agent。他还发了一条自嘲式的段子，调侃 AI 融资最泡沫的那一端：在某家新神经实验室 8 亿美元的「pre-pre-seed」轮里，以 100 亿美元估值抢到了 200 万美元的最高估值份额。</p>
+      <div class="urls">
+      <a href="https://x.com/mattturck/status/2082907703735730609">https://x.com/mattturck/status/2082907703735730609</a>
+      <a href="https://x.com/mattturck/status/2082907699646173484">https://x.com/mattturck/status/2082907699646173484</a>
+      <a href="https://x.com/mattturck/status/2082737900706234429">https://x.com/mattturck/status/2082737900706234429</a>
+      </div>
+    </article>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Aditya Agarwal</span>
+        <span class="builder-role">SPC General Partner · Bevel Health 联创</span>
+      </div>
+      <p class="summary-en">Aditya Agarwal (SPC, ex-CTO Dropbox) surfaces Preseen, a risk-forecasting product he's backing that has been in private beta for a few weeks with a number of the world's leading quant and hedge funds using it to avoid getting blown up — pitched, pointedly, against the week's high-profile blowup. He also lands a dry one-liner on the competitive dynamics of agent misbehavior: <strong>Anthropic got jealous that only OpenAI's agent was doing bad stuff</strong>.</p>
+      <p class="summary-zh zh">Aditya Agarwal（SPC 合伙人、Dropbox 前 CTO）介绍了他所支持的风险预测产品 Preseen：已私测数周，多家全球头部量化与对冲基金正在用它来避免爆仓——这条推文明显是冲着本周那起备受关注的爆仓事件去的。他还对「agent 闯祸」这件事补了一句冷幽默：<strong>Anthropic 眼红了，凭什么只有 OpenAI 的 agent 在干坏事</strong>。</p>
+      <div class="urls">
+      <a href="https://x.com/adityaag/status/2083039973666644039">https://x.com/adityaag/status/2083039973666644039</a>
+      <a href="https://x.com/adityaag/status/2083039683932532956">https://x.com/adityaag/status/2083039683932532956</a>
+      <a href="https://x.com/adityaag/status/2082992228214149470">https://x.com/adityaag/status/2082992228214149470</a>
+      </div>
+    </article>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Dan Shipper</span>
+        <span class="builder-role">Every CEO</span>
+      </div>
+      <p class="summary-en">Dan Shipper (CEO @ Every) responds to the agent-cybercrime discourse with the week's most efficient deadpan: <strong>"call me crazy but I feel like we could solve this by just not prompting the models to do cyber crime."</strong> He also flags Elon's law striking again, and issues a short warning to traders: be careful of leverage.</p>
+      <p class="summary-zh zh">面对关于「agent 参与网络犯罪」的一片讨论，Every CEO Dan Shipper 贡献了本周效率最高的一句冷吐槽：<strong>「说我疯了也行，但我觉得这事儿只要别去 prompt 模型干网络犯罪，就解决了。」</strong> 他还顺手点了一句「Elon 定律又应验了」，并对交易者提了个简短警告：小心杠杆。</p>
+      <div class="urls">
+      <a href="https://x.com/danshipper/status/2082997561955090564">https://x.com/danshipper/status/2082997561955090564</a>
+      <a href="https://x.com/danshipper/status/2082864391519682993">https://x.com/danshipper/status/2082864391519682993</a>
+      <a href="https://x.com/danshipper/status/2082862319265050962">https://x.com/danshipper/status/2082862319265050962</a>
+      </div>
+    </article>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Peter Yang</span>
+        <span class="builder-role">Creator Economy · AI 教程作者</span>
+      </div>
+      <p class="summary-en">Peter Yang reports strong feedback on his latest tutorial — <strong>using Claude to design and build a full-stack app end to end</strong> — and continues to grow his practical-AI newsletter past 110,000 subscribers. Consistent with his format: hands-on walkthroughs aimed at busy people rather than commentary.</p>
+      <p class="summary-zh zh">Peter Yang 表示他的最新教程反响不错——<strong>用 Claude 从设计到构建，端到端做出一个全栈应用</strong>；他主打「实用 AI」的 newsletter 订阅数也已超过 11 万。这延续了他一贯的内容形态：面向没时间的人的实操走查，而不是评论。</p>
+      <div class="urls">
+      <a href="https://x.com/petergyang/status/2082975074534219919">https://x.com/petergyang/status/2082975074534219919</a>
+      <a href="https://x.com/petergyang/status/2082939418315198522">https://x.com/petergyang/status/2082939418315198522</a>
+      <a href="https://x.com/petergyang/status/2082881415478415682">https://x.com/petergyang/status/2082881415478415682</a>
+      </div>
+    </article>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Peter Steinberger</span>
+        <span class="builder-role">独立开发者 · 前 PSPDFKit CEO</span>
+      </div>
+      <p class="summary-en">Peter Steinberger flags a policy shift worth watching: <strong>GCC has changed its policy and is now blanket-rejecting LLM-based code contributions</strong>. His objection is practical rather than ideological — how would they even prove it? He calls the rule silly, pointing at the enforcement problem that any "no AI code" policy runs into.</p>
+      <p class="summary-zh zh">Peter Steinberger 指出了一个值得关注的政策变化：<strong>GCC 修改了政策，开始一刀切地拒绝基于 LLM 生成的代码贡献</strong>。他的反对是务实层面的，不是立场之争——他们要怎么举证？他认为这条规则很荒唐，直指所有「禁止 AI 代码」类政策都绕不开的执行难题。</p>
+      <div class="urls">
+      <a href="https://x.com/steipete/status/2083019629379612728">https://x.com/steipete/status/2083019629379612728</a>
+      </div>
+    </article>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Josh Woodward</span>
+        <span class="builder-role">Google Labs / Gemini App VP</span>
+      </div>
+      <p class="summary-en">Josh Woodward (VP @ Google Labs, Gemini App, AI Studio) highlights his new favorite workflow: in the <strong>Gemini Mac app, hold Fn, speak, and clean polished text lands directly at your cursor</strong> — zero editing, zero copy-pasting. It's free.</p>
+      <p class="summary-zh zh">Josh Woodward（Google Labs／Gemini App／AI Studio 副总裁）分享了他最近最爱的一个用法：在 <strong>Gemini Mac 客户端里按住 Fn 键说话，整理好的干净文本会直接出现在光标处</strong>——不用编辑，也不用复制粘贴。该功能免费。</p>
+      <div class="urls">
+      <a href="https://x.com/joshwoodward/status/2082926031543967896">https://x.com/joshwoodward/status/2082926031543967896</a>
+      </div>
+    </article>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Garry Tan</span>
+        <span class="builder-role">Y Combinator President &amp; CEO</span>
+      </div>
+      <p class="summary-en">Garry Tan crossed <strong>1M followers on X</strong>, marking it with a two-word ethos: don't LARP. He's also hosting Evan Barker at an upcoming garryslist event in San Francisco, framing SF's local political shift as a template he'd like to see exported to other cities.</p>
+      <p class="summary-zh zh">Garry Tan 的 X 粉丝<strong>突破 100 万</strong>，他用两个词概括了自己的态度：别演（don't LARP）。他还将在旧金山的 garryslist 活动中邀请 Evan Barker，并把旧金山本地的政治转向视为一个他希望能被其他城市复用的模板。</p>
+      <div class="urls">
+      <a href="https://x.com/garrytan/status/2082951867336962538">https://x.com/garrytan/status/2082951867336962538</a>
+      <a href="https://x.com/garrytan/status/2082843026716766356">https://x.com/garrytan/status/2082843026716766356</a>
+      </div>
+    </article>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Nikunj Kothari</span>
+        <span class="builder-role">FPV Ventures Partner</span>
+      </div>
+      <p class="summary-en">Nikunj Kothari (FPV Ventures) is back from two weeks off and on the road — NJ for two days, then NY from August 1–5 — with an open invitation that doubles as a filter: he'd love to meet anyone <strong>truly building their life's work</strong>, explicitly noting you don't need to be a founder to qualify.</p>
+      <p class="summary-zh zh">Nikunj Kothari（FPV Ventures）结束两周休假回归工作，接下来会先在新泽西待两天，8 月 1 日至 5 日在纽约。他发出的邀约同时也是一道筛选标准：他很想见那些<strong>真正在做自己毕生之作</strong>的人，并特意说明——不必是创业者也算。</p>
+      <div class="urls">
+      <a href="https://x.com/nikunj/status/2082780247125103071">https://x.com/nikunj/status/2082780247125103071</a>
+      </div>
+    </article>
+  </section>
+
+  <!-- ============== PODCAST ============== -->
+  <section class="section">
+    <div class="section-head">
+      <span class="section-icon">🎙️</span>
+      <h2 class="section-title">Podcasts</h2>
+      <span class="section-meta">1 Episode</span>
+    </div>
+
+    <div class="podcast">
+      <div class="podcast-source">The MAD Podcast with Matt Turck</div>
+      <h3 class="podcast-title">The Biggest AI Deployment Nobody Talks About — Samsara CEO Sanjit Biswas on Physical AI</h3>
+
+      <div class="takeaway">
+        <span class="takeaway-label">The Takeaway</span>
+        Samsara CEO Sanjit Biswas makes the case that the most consequential AI deployment isn't in a chat window — it's across 99% of US roads, every day. His core moat argument: <strong>these are not tokens you'll find online — you can't crawl Reddit to learn what happened on a construction site</strong>. Physical AI is bottlenecked not by model capability but by digitization, hardware in hostile environments, and change management with millions of frontline workers.
+      </div>
+
+      <div class="podcast-body">
+<p>Matt Turck sits down with <strong>Sanjit Biswas</strong>, cofounder and CEO of Samsara (NYSE: IOT), a ~$20B company at $2B ARR, profitable and growing 30%. The scale is the story: <strong>25 trillion data points a year</strong>, millions of vehicles, millions of frontline workers, and a system that drives 99% of US roads — usually multiple times a day. Samsara estimates it helped prevent roughly <strong>380,000 road accidents</strong> in the past year.</p>
+<p>Biswas defines physical AI as AI applied to the physical world — construction sites, the electrical grid, the plumbing under the street — and argues the defining challenge is that <strong>none of it is digitized</strong>. There are no decades of bits to tokenize and reason over. That's precisely why the value trapped there is so significant, and why Silicon Valley started with the digital world instead: hardware is hard, it has to survive the environment, relay data over unreliable networks, and be adopted by frontline workers. But these industries make up roughly <strong>50% of world GDP</strong>.</p>
+<p>On moats in a world where models commoditize, his answer is the data layer plus the field work: <strong>"These are not the tokens you're gonna find online."</strong> You can't crawl Reddit to learn what happened on a specific construction site at a specific time. He also details genuine <strong>data network effects</strong>: because Samsara vehicles drive nearly every US road daily, the system can map risky intersections, warn drivers of deteriorating weather, and even track potholes over time for cities like Chicago — watching them crack and grow. Bluetooth asset trackers get picked up across company boundaries on shared job sites, forming a mesh network across millions of vehicles and tens of millions of handsets.</p>
+<p>Architecturally, inference and data collection run <strong>at the edge</strong> — practical, because customers operate where cell signal is poor and because feedback latency determines whether a driver actually changes behavior. Model families range from ImageNet-era CNNs to backbones with multiple attention heads (is that a phone, a vape pen, or a sandwich?), JEPA-style models for road geometry, VLMs that can review a hard-braking clip and correctly conclude the driver was <em>avoiding a deer</em> — and therefore deserves positive feedback rather than a warning. They use frontier lab models, distill open-weight models onto devices, and train small task-specific models from scratch.</p>
+<p>On agents, Samsara launched Agent Studio at its Beyond 2026 conference. The flagship demo is a <strong>warranty agent</strong>: it sees a fault code, cracks the service manual, cross-references the customer's OEM-negotiated warranty terms, determines coverage given vehicle age and mileage, opens a work order with steps, and checks whether other trucks share the issue — <strong>compressing one to two hours of human labor to under a minute</strong>. Notably, most such warranty claims currently go unfulfilled simply because nobody has time. Biswas is clear that agentic reasoning alone isn't enough: you still need workflow and guardrails to define what the agent should do and when it should ask for help. The current practical ceiling isn't whether models find the answer, but whether they find it in ten seconds versus an hour without getting lost in a loop.</p>
+<p>On the surveillance question, his answer is transparency plus <strong>exoneration as the majority use case</strong>. Cameras are visible, not hidden. When a claim is filed against a Home Depot truck, HD video eliminates ambiguity — and drivers, who are doing a great job 90% of the time with nobody watching, benefit most. Home Depot saw a <strong>65% reduction in auto claims</strong>. Looking ahead, he expects mixed fleets: robots handling repetitive work like grading a roadway on the third shift, humans handling the exception-heavy long tail. Robotaxis will arrive faster than autonomous trucking because taxi operations are regional and similar, whereas most commercial vehicles are field service — HVAC techs, plumbers, electricians — the messy long tail where autonomy diffuses over ten to twenty years.</p>
+<p>His closing read on the real economy is the most striking data point: a large energy utility told him that over the last <strong>125 years</strong> they built a certain amount of grid capacity — and <strong>in the next five years they will triple it</strong>. Ninety percent of that demand is data-center related. The AI boom, seen from the field, is an infrastructure construction project — and the binding constraint is skilled trades, with not nearly enough electricians to go around.</p>
+      </div>
+
+      <div class="podcast-divider"></div>
+
+      <div class="podcast-zh">
+<p>Matt Turck 对话 Samsara（纽交所代码 IOT）联合创始人兼 CEO <strong>Sanjit Biswas</strong>。这是一家约 200 亿美元市值、年经常性收入 20 亿美元、已盈利且保持 30% 增长的公司。规模本身就是故事：<strong>每年 25 万亿个数据点</strong>、数百万辆车、数百万一线工人，系统每天覆盖全美 99% 的道路，而且通常一天跑好几遍。Samsara 估算，过去一年它帮助避免了约 <strong>38 万起道路事故</strong>。</p>
+<p>Biswas 把物理世界 AI 定义为「把 AI 用到物理世界」——工地、电网、马路底下的管线。他认为最核心的难点在于：<strong>这些东西根本没有被数字化</strong>。你没有几十年积累的比特可以拿来 token 化和推理。这恰恰是价值被困在这里的原因，也是硅谷选择先做数字世界的原因：硬件很难，要扛住恶劣环境、要在不可靠的网络上回传数据、还要让一线工人真的愿意用。但这些行业合计约占<strong>全球 GDP 的 50%</strong>。</p>
+<p>在「模型正在商品化，你的护城河是什么」这个问题上，他的答案是数据层加上扎进现场的苦功：<strong>「这些 token 你在网上是找不到的。」</strong> 你没法靠爬 Reddit 知道某个工地在某个时刻发生了什么。他还详细拆解了真实存在的<strong>数据网络效应</strong>：因为 Samsara 的车几乎每天开遍全美所有道路，系统能标出危险路口、能提前提示天气恶化，甚至能替芝加哥这类城市持续追踪坑洼——看着它一点点开裂、变大。蓝牙资产标签会被同一工地上其他公司的车辆顺带扫到，数百万辆车加数千万台手持设备，自然形成了一张网状网络。</p>
+<p>架构上，推理和数据采集都放在<strong>边缘端</strong>——这是务实的选择：客户常在信号很差的地方作业，而且反馈延迟直接决定司机会不会真的改掉习惯。模型谱系从 ImageNet 时代的 CNN，到带多个注意力头的骨干网络（手上那个是手机、电子烟，还是三明治？），再到用于理解道路几何的 JEPA 类模型，以及能看一段急刹视频、判断出司机是在<em>躲一头鹿</em>因而应当获得正向反馈而非警告的 VLM。他们既用前沿实验室的模型，也把开源权重模型蒸馏到设备上，还会从零训练一些很小的专用模型。</p>
+<p>agent 方面，Samsara 在 Beyond 2026 大会上发布了 Agent Studio。最有代表性的演示是<strong>保修 agent</strong>：它看到故障码后，会去翻服务手册、比对该客户与原厂谈定的保修条款、结合车龄与里程判断是否在保、直接开出带步骤的工单，还会顺带检查其他车是否有同样问题——<strong>把原本一到两小时的人工，压缩到一分钟以内</strong>。值得注意的是，现实中大部分这类保修索赔根本没人去做，纯粹因为没人有时间。Biswas 也说得很清楚：光有 agent 的推理能力还不够，你依然需要工作流和护栏来界定 agent 该做什么、什么时候该回头找人。当前真正的天花板不是模型能不能找到答案，而是它能否在十秒或一分钟内找到，而不是在某个循环里绕不出来。</p>
+<p>关于「摄像头是不是老大哥在看着你」这个问题，他的答案是透明，加上一个常被忽略的事实：<strong>行车记录仪最主要的用途其实是自证清白</strong>。摄像头是明装的，不是偷拍设备。当有人索赔说「一辆 Home Depot 的车撞了我」，高清视频能直接消除争议——而受益最大的正是司机，他们 90% 的时间都干得很好，却没人看见。Home Depot 的车险索赔量因此<strong>下降了 65%</strong>。展望未来，他预计会是人机混合编队：重复性工作（比如凌晨班次把一段路基整平）交给机器人，充满例外情况的长尾留给人。Robotaxi 会比自动驾驶卡车更快落地，因为出租车运营高度区域化、场景相似；而大多数商用车其实在做上门服务——空调工、水管工、电工——那才是自动驾驶要花十到二十年才能渗透的「脏乱长尾」。</p>
+<p>他对实体经济的收尾判断是全场最有冲击力的数据：一家大型能源公用事业公司告诉他，过去 <strong>125 年</strong>他们建成了一定规模的电网容量，而<strong>未来五年要把这个数字翻三倍</strong>。其中 90% 的需求来自数据中心。从现场视角看，这轮 AI 热潮本质上是一个基础设施建设工程——而真正卡脖子的约束是熟练技工，电工远远不够用。</p>
+      </div>
+
+      <div class="urls" style="margin-top:24px">
+        <a href="https://www.youtube.com/watch?v=3FHsGiONOGw">▶️ https://www.youtube.com/watch?v=3FHsGiONOGw</a>
+      </div>
+    </div>
+
+  </section>
+
+
+<footer class="footer">
+  <div class="next-issue">📬 下一期：明天 10:00（北京时间）</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->
