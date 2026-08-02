@@ -2,6 +2,17 @@
 
 ## 最近执行记录
 
+### 2026-08-02（自动执行 10:00 Asia/Shanghai）
+- 内容获取：13 Builders · 21 Tweets · 1 Podcast · 0 Blog
+- `feedGeneratedAt = 2026-08-01T07:07:44Z`（滞后 1 天快照，但与 8/1 的 07:16 快照不同源，内容已刷新，非冻结）
+- prepare-digest.js 首次运行即成功（109KB），未触发兜底
+- Blog 判定：feed 唯一 blog 为 "Claude Code now supports artifacts"（Jun 18），7/8 已收录 → 不重复计入，Blog 计 0
+- 主线：harness / agent loop 高度收敛（Levie harness 是仅次于模型能力的变量 / Rauch Issue→Agent→PR→Release 工厂循环 / Nan Yu 实测 30% bug 跑完整链路 + Datadog·Sentry MCP 取证 / Garry Tan YC harness 开源 / Steinberger 5.5 后不用排队 / Swyx 仍用 /loop /goal / Zara Zhang Anthropic 65% PR 由 Claude Tag 提出）
+- Podcast：Unsupervised Learning Ep 92 — Igor Babushkin（xAI 联创，新公司 River）：闭源两头被夹（做太好不许发 vs 开源每月逼近）、训练边际递减已近临界、企业该自训（领域纵深）、River 三赌注（RL/微调 API + 个体个性化「推荐系统×agent」+ 本地硬件跑前沿模型）
+- 生成方式：Python 脚本 `/tmp/gen_digest_0802.py`（双语 remix + URL 动态取自 JSON + 自检断言：21/21 链接真实、0 伪造）
+- 部署状态：✅ HTTP 200（轮询第 2 次命中），commit d7399db
+- 文件：`2026/08/02/AI_Builders_Digest_2026-08-02.html`
+
 ### 2026-08-01（自动执行 10:00 Asia/Shanghai）
 - 内容获取：15 Builders · 35 Tweets · 1 Podcast · 0 Blog
 - `feedGeneratedAt = 2026-07-31T07:16:44Z`（滞后 1 天的旧快照，非冻结；stats 通过照常生成）
