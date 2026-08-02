@@ -2,6 +2,17 @@
 
 ## 最近执行记录
 
+### 2026-08-01（自动执行 10:00 Asia/Shanghai）
+- 内容获取：15 Builders · 35 Tweets · 1 Podcast · 0 Blog
+- `feedGeneratedAt = 2026-07-31T07:16:44Z`（滞后 1 天的旧快照，非冻结；stats 通过照常生成）
+- prepare-digest.js 首次运行即成功（104KB），未触发 fetch 兜底
+- Podcast：The MAD Podcast w/ Matt Turck — "The Biggest AI Deployment Nobody Talks About" — Samsara CEO Sanjit Biswas；physical AI / 数据网络效应 / 边缘推理 / 人机混合现场作业 / 实体经济电网数据
+- 重点推文：Sam Altman、Aaron Levie、Amjad Masad、Guillermo Rauch、Swyx、Zara Zhang、Thibault Sottiaux、Matt Turck、Aditya Agarwal、Dan Shipper、Peter Yang、Peter Steinberger、Josh Woodward、Garry Tan、Nikunj Kothari（共 35 条带真实 URL）
+- 生成方式：Python 脚本 `/tmp/gen_digest_0801.py`（双语 remix + 真实 URL 校验：15 builders / 35 urls 全部渲染）
+- 部署状态：✅ HTTP 200（首次轮询命中），commit 8cb5195
+- 文件：`2026/08/01/AI_Builders_Digest_2026-08-01.html`
+- 注：7/27–7/31 及 8/1 当日无独立 digest（中央 feed 滞后，按既有打法以最新快照生成 8/1 条目）
+
 ### 2026-07-26（自动执行 10:00 Asia/Shanghai / 手动续跑）
 - 内容获取：14 Builders · 31 Tweets · 1 Podcast · 3 Blogs
 - `feedGeneratedAt = 2026-07-26T07:10:56Z`（当日新鲜快照，非冻结）

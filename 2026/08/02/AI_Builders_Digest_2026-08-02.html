@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest · 2026-08-02</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .lede { font-size: 17px; color: var(--ink-soft); line-height: 1.7; max-width: 640px; }
+  .lede-zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; font-size: 16px; color: var(--ink-muted); line-height: 1.9; max-width: 640px; margin-top: 12px; }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-en strong { color: var(--ink); font-weight: 600; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .summary-zh strong { color: var(--accent-deep); font-weight: 600; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 12px; padding: 32px; margin-bottom: 24px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
+  .podcast-source { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 10px; }
+  .podcast-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; color: var(--ink); margin-bottom: 24px; }
+  .takeaway { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 8px; padding: 18px 22px; margin-bottom: 24px; font-size: 15px; line-height: 1.7; color: var(--accent-deep); }
+  .takeaway strong { color: #7c2d12; font-weight: 700; }
+  .takeaway-label { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; background: var(--accent); color: white; padding: 3px 8px; border-radius: 3px; margin-right: 10px; transform: translateY(-2px); }
+  .podcast-body { font-size: 15.5px; color: var(--ink-soft); line-height: 1.75; }
+  .podcast-body p { margin-bottom: 16px; }
+  .podcast-body strong { color: var(--ink); font-weight: 600; }
+  .podcast-divider { height: 1px; background: var(--line); margin: 28px 0; }
+  .podcast-zh { font-family: 'Noto Serif SC', serif; font-size: 15.5px; color: var(--ink); line-height: 1.95; }
+  .podcast-zh p { margin-bottom: 16px; }
+  .podcast-zh strong { color: var(--accent-deep); font-weight: 600; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .podcast { padding: 24px; } .podcast-title { font-size: 19px; } .topbar-inner { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 · Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest · 2026-08-02 · 周日</div>
+  <h1>AI Builders Digest</h1>
+  <p class="lede">One theme dominates today: the <strong>harness</strong>. Levie calls it the most important variable next to model capability, Rauch turns it into the Issue → Agent → PR → Release factory loop, Linear reports 30% of bugs already run that loop end to end, and Garry Tan open-sources the one YC uses daily. On the podcast, xAI co-founder Igor Babushkin argues the proprietary labs are getting squeezed from both sides.</p>
+  <p class="lede-zh zh">今天只有一个主题：<strong>harness</strong>。Levie 说它是仅次于模型能力的最重要变量，Rauch 把它变成 Issue → Agent → PR → Release 的工厂式循环，Linear 给出实测——30% 的 bug 已能跑完整条链路，Garry Tan 则把 YC 每天在用的那套开源了。播客里，xAI 联合创始人 Igor Babushkin 认为闭源实验室正被两头夹击。</p>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">13</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">21</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+  <!-- ============== X / TWITTER ============== -->
+  <section class="section">
+    <div class="section-head">
+      <span class="section-icon">🐦</span>
+      <h2 class="section-title">X / Twitter</h2>
+      <span class="section-meta">13 Builders</span>
+    </div>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Aaron Levie</span>
+        <span class="builder-role">Box CEO</span>
+      </div>
+      <p class="summary-en">Aaron Levie argues the <strong>harness</strong> is becoming the most important variable in the AI stack — sitting right next to raw model capability. A harness's ability to break work into efficient units and route each piece to the right model at the right time will drive both accuracy and cost. His key point is about scale thresholds: the harness barely mattered when tasks consumed hundreds of thousands or a few million tokens. Now that individual tasks run to <strong>tens or hundreds of millions of tokens</strong>, it becomes a major lever. He notes we are still incredibly early in this journey.</p>
+      <p class="summary-zh zh">Aaron Levie 认为 <strong>harness（智能体运行外壳）</strong>正在成为 AI 技术栈里最重要的变量——重要性紧挨着模型本身的能力。harness 能否把任务拆成高效的执行单元、并在正确的时间把每一块路由给正确的模型，直接决定了准确率和成本。他强调的是规模阈值：当一个任务只消耗几十万到几百万 token 时，harness 无关紧要；而现在单个任务的消耗已经到了<strong>几千万甚至上亿 token</strong>，它就变成了关键杠杆。他补充说，这条路才刚刚起步。</p>
+      <div class="urls">
+      <a href="https://x.com/levie/status/2083389460679373135">https://x.com/levie/status/2083389460679373135</a>
+      </div>
+    </article>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Guillermo Rauch</span>
+        <span class="builder-role">Vercel CEO</span>
+      </div>
+      <p class="summary-en">Guillermo Rauch describes the <strong>Issue → Agent → PR → Release</strong> loop as the coming norm, as software projects transition into agentic software factories. His reframing of the maintainer role is the sharp part: the author's job is no longer to write the code, but to <strong>work on the loop that yields the highest-quality product</strong> and to set the criteria for what should be worked on at all. Separately, he positioned Vercel's AI Gateway as the infrastructure that makes AI a productive investment rather than a runaway cost — per-key and per-team budgets, provider failover, model choice, and realtime observability. His jab at the current mood: if you are still in a 'token-maxing' fever dream, it is time to wake up.</p>
+      <p class="summary-zh zh">Guillermo Rauch 把 <strong>Issue → Agent → PR → Release</strong> 这个循环称为即将到来的常态，软件项目正在变成「智能体软件工厂」。他对维护者角色的重新定义是最锋利的一点：作者的工作不再是写代码，而是<strong>去打磨那个能产出最高质量产品的循环</strong>，并且定义什么事情才值得被做。另外他把 Vercel AI Gateway 定位为「让 AI 成为一笔有回报的投资而不是失控成本」的基础设施——按 key／按团队设预算、故障自动切换、模型与供应商可选、实时可观测。他对当下氛围的调侃是：如果你还沉浸在「把 token 用满」的狂热梦里，该醒醒了。</p>
+      <div class="urls">
+      <a href="https://x.com/rauchg/status/2083319868766699699">https://x.com/rauchg/status/2083319868766699699</a>
+      <a href="https://x.com/rauchg/status/2083208578526314513">https://x.com/rauchg/status/2083208578526314513</a>
+      </div>
+    </article>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Nan Yu</span>
+        <span class="builder-role">Linear Head of Product</span>
+      </div>
+      <p class="summary-en">Linear's Nan Yu gave the operational detail behind that same loop, with a real number attached: the most common loop written in Linear is some variant of Issue → Agent → PR → Release, and <strong>roughly 30% of their bugs make it all the way through it</strong>. The nuances are where the value is. Instructions should require the agent to research root cause extensively and pull evidence from Datadog and Sentry MCPs. The agent should only attempt a fix when certainty is high — otherwise you burn a lot of tokens for nothing. And when more evidence would help, the agent should comment on the issue asking the reporter for repro steps rather than guessing.</p>
+      <p class="summary-zh zh">Linear 的 Nan Yu 给出了同一个循环的落地细节，还带了一个真实数字：Linear 内部最常见的循环就是 Issue → Agent → PR → Release 的各种变体，<strong>约 30% 的 bug 能完整跑完整条链路</strong>。真正有价值的是那些细节。指令必须要求 agent 深入排查根因，并通过 Datadog、Sentry 的 MCP 去取证据。只有在把握很大时才允许它尝试修复——否则就是白烧 token。而当它判断需要更多信息时，正确做法是在 issue 下留言、请报告人补充复现步骤，而不是自己猜。</p>
+      <div class="urls">
+      <a href="https://x.com/thenanyu/status/2083340761488126101">https://x.com/thenanyu/status/2083340761488126101</a>
+      <a href="https://x.com/thenanyu/status/2083230295206121807">https://x.com/thenanyu/status/2083230295206121807</a>
+      </div>
+    </article>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Garry Tan</span>
+        <span class="builder-role">Y Combinator President &amp; CEO</span>
+      </div>
+      <p class="summary-en">Garry Tan makes the same bet from the tooling side: your personal AI or your company brain <strong>needs a clean harness</strong>. He shared the one YC's own team built and uses daily, released free and open source.</p>
+      <p class="summary-zh zh">Garry Tan 从工具层给出了同一个判断：你的个人 AI、或者公司的「大脑」，<strong>需要一个干净的 harness</strong>。他放出了 YC 团队自己搭建并每天在用的那一套，免费开源。</p>
+      <div class="urls">
+      <a href="https://x.com/garrytan/status/2083353760701833546">https://x.com/garrytan/status/2083353760701833546</a>
+      </div>
+    </article>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Peter Steinberger</span>
+        <span class="builder-role">Independent builder</span>
+      </div>
+      <p class="summary-en">Peter Steinberger reports a concrete workflow change driven by model improvement: queueing used to be the way to work with agents, but with 5.5 <strong>the model no longer gets confused</strong> — you can throw tasks at it while it is still working and it will diligently process whatever arrives.</p>
+      <p class="summary-zh zh">Peter Steinberger 报告了一个由模型进步带来的具体工作流变化：过去跟 agent 协作必须排队，而到了 5.5，<strong>模型不会再被打断搞混</strong>——你可以在它干活的过程中随手把新任务丢进去，它会老老实实逐个处理完。</p>
+      <div class="urls">
+      <a href="https://x.com/steipete/status/2083369880599015713">https://x.com/steipete/status/2083369880599015713</a>
+      </div>
+    </article>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Swyx</span>
+        <span class="builder-role">smol.ai / Latent Space</span>
+      </div>
+      <p class="summary-en">Swyx says he is in the minority among AI leaders in that he is <strong>still actively using /loop and /goal</strong> — and thinks everyone who dropped them gave up too early in the g5.6/c5 era. His criteria for when to reach for them: when you want the right mix of steerability and autonomy, and when you want an open-ended 'loop that generates loops' end state without deeply specifying the path to get there. He separately observed that the pejorative connotation around <strong>'vibe coding' has completely disappeared</strong>, now that everyone from non-technical to super-technical is doing it.</p>
+      <p class="summary-zh zh">Swyx 说他在 AI 圈里属于少数派——他<strong>至今仍在积极使用 /loop 和 /goal</strong>，并认为那些已经弃用的人是在 g5.6/c5 这代模型上放弃得太早了。他给出了使用它们的判断标准：当你需要「可操控性」和「自主性」的恰当配比时，以及当你想要一个开放式的「循环生成循环」的终态、但又不想事无巨细地规定路径时。他另外观察到，<strong>「vibe coding」这个词的贬义已经彻底消失了</strong>——因为从完全不懂技术的人到技术极强的人，现在都在这么干。</p>
+      <div class="urls">
+      <a href="https://x.com/swyx/status/2083439562437673053">https://x.com/swyx/status/2083439562437673053</a>
+      <a href="https://x.com/swyx/status/2083294839186260385">https://x.com/swyx/status/2083294839186260385</a>
+      </div>
+    </article>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Zara Zhang</span>
+        <span class="builder-role">Builder / creator</span>
+      </div>
+      <p class="summary-en">Zara Zhang flagged a data point on how agent adoption actually lands inside a frontier lab: per an interview on Claude Tag, <strong>65% of PRs from product and engineering teams at Anthropic are now raised by Claude Tag</strong>. Her read is that for non-engineering teams the ultimate agent interface is wherever they already work — Slack and other collaboration tools. She traced her own interface shift over six months: January the terminal, March the desktop app, June her work collaboration tool. Each step moves closer to how humans naturally communicate; the agent should meet the user where they are. On creating in public, she offered a counterweight to self-censorship: for every viral post she had to fight the voice saying 'isn't that obvious?' — what feels obvious to you is not obvious to most people. Just do your normal work, then talk about it.</p>
+      <p class="summary-zh zh">Zara Zhang 提到一个关于智能体在前沿实验室内部真实落地程度的数据：据一篇关于 Claude Tag 的访谈，<strong>Anthropic 产品和工程团队现在有 65% 的 PR 是由 Claude Tag 提出的</strong>。她的判断是，对非工程团队来说，终极的 agent 界面就是他们本来就在用的地方——Slack 和其他协作工具。她还回顾了自己半年内的界面迁移：1 月在终端，3 月在桌面客户端，6 月转到了工作协作工具里。每一步都更接近人类自然沟通的方式；agent 应该主动走到用户所在的地方。关于公开表达，她给了一条对抗自我审查的提醒：每一条爆款背后，她都要跟脑子里那句「这不是显而易见吗」搏斗——对你显而易见的事，对大多数人并不是。做你本来的工作，然后把它讲出来就够了。</p>
+      <div class="urls">
+      <a href="https://x.com/zarazhangrui/status/2083354965482062079">https://x.com/zarazhangrui/status/2083354965482062079</a>
+      <a href="https://x.com/zarazhangrui/status/2083349919172313367">https://x.com/zarazhangrui/status/2083349919172313367</a>
+      <a href="https://x.com/zarazhangrui/status/2083161173563003268">https://x.com/zarazhangrui/status/2083161173563003268</a>
+      </div>
+    </article>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Thibault Sottiaux</span>
+        <span class="builder-role">Codex &amp; ChatGPT @ OpenAI</span>
+      </div>
+      <p class="summary-en">Thibault Sottiaux announced that to celebrate a week of efficiency work, he <strong>reset usage limits for Codex and ChatGPT Work</strong> for the weekend. He also noted ChatGPT Work counted, and offered a two-word operating principle: optimize for curiosity.</p>
+      <p class="summary-zh zh">Thibault Sottiaux 宣布，为了庆祝一周的效率优化成果，他<strong>重置了 Codex 和 ChatGPT Work 的用量额度</strong>，让大家周末随便跑。他还提到 ChatGPT Work 的用量已被计入，并留下了一条两个词的行事准则：optimize for curiosity（以好奇心为最优目标）。</p>
+      <div class="urls">
+      <a href="https://x.com/thsottiaux/status/2083427516996292992">https://x.com/thsottiaux/status/2083427516996292992</a>
+      <a href="https://x.com/thsottiaux/status/2083395449814229287">https://x.com/thsottiaux/status/2083395449814229287</a>
+      <a href="https://x.com/thsottiaux/status/2083387677945036995">https://x.com/thsottiaux/status/2083387677945036995</a>
+      </div>
+    </article>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Sam Altman</span>
+        <span class="builder-role">OpenAI CEO</span>
+      </div>
+      <p class="summary-en">Sam Altman shared a ChatGPT Work use case he heard about: connect your family calendars, describe your kids' interests, and <strong>have it generate a morning podcast for the school drive</strong> — covering one kid's soccer game that afternoon, another's upcoming birthday, plus some news.</p>
+      <p class="summary-zh zh">Sam Altman 分享了一个他听来的 ChatGPT Work 用例：把家里人的日历连上、把孩子们的兴趣描述清楚，然后<strong>让它每天早上生成一档送孩子上学路上听的播客</strong>——讲讲其中一个孩子下午的足球赛、另一个孩子快到的生日，再加一点新闻。</p>
+      <div class="urls">
+      <a href="https://x.com/sama/status/2083221585792762171">https://x.com/sama/status/2083221585792762171</a>
+      </div>
+    </article>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Amjad Masad</span>
+        <span class="builder-role">Replit CEO</span>
+      </div>
+      <p class="summary-en">Amjad Masad showed a chess model hitting <strong>~1500 Elo</strong>, consistently beating frontier models and Stockfish level 0. His note on the comparison: it is fun watching an 8B model outperform GPT-5.6 with high reasoning and response chaining, while spending <strong>1–2 seconds per move versus 30 seconds</strong>.</p>
+      <p class="summary-zh zh">Amjad Masad 展示了一个达到 <strong>约 1500 Elo</strong> 的国际象棋模型，能稳定战胜前沿模型和 Stockfish level 0。他对这组对比的评价是：看着一个 8B 的模型压过开了高强度推理和响应串联的 GPT-5.6，很有意思——而且它<strong>每步只花 1–2 秒，对方要 30 秒</strong>。</p>
+      <div class="urls">
+      <a href="https://x.com/amasad/status/2083424608993300824">https://x.com/amasad/status/2083424608993300824</a>
+      </div>
+    </article>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Dan Shipper</span>
+        <span class="builder-role">Every CEO</span>
+      </div>
+      <p class="summary-en">Dan Shipper was quoted in a WSJ piece on OpenAI versus Anthropic and stands behind the call: it has been clear since early spring that <strong>momentum is shifting to OpenAI</strong>, and he frames it as a comeback story. He also posted a joke job description for human programmer interviews in 2027: describe the last three unresolved mathematical conjectures you solved and share your prompts; describe the last cyber felony your agent unintentionally committed and how you mitigated it; and tell us how many R's are in strawberry.</p>
+      <p class="summary-zh zh">Dan Shipper 被《华尔街日报》一篇关于 OpenAI 与 Anthropic 竞争的报道引用，他坚持自己的判断：从早春开始就已经很清楚，<strong>势头正在倒向 OpenAI</strong>，他把这称为一个「翻盘故事」。他还编了一版 2027 年人类程序员面试题：请描述你最近解决的三个尚未被证明的数学猜想，并附上你的 prompt；请描述你的 agent 最近无意中犯下的一起网络犯罪，以及你采取了哪些补救措施；以及，strawberry 里有几个 R。</p>
+      <div class="urls">
+      <a href="https://x.com/danshipper/status/2083380721607921904">https://x.com/danshipper/status/2083380721607921904</a>
+      <a href="https://x.com/danshipper/status/2083239700664349128">https://x.com/danshipper/status/2083239700664349128</a>
+      </div>
+    </article>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Nikunj Kothari</span>
+        <span class="builder-role">FPV Ventures Partner</span>
+      </div>
+      <p class="summary-en">Nikunj Kothari published an essay pushing back on a quiet belief in venture — that the best founders are running from something: a troubled childhood, a chip on the shoulder, pain that keeps the foot on the gas. His piece asks <strong>where the drive actually comes from</strong>, and describes a gear most people never reach.</p>
+      <p class="summary-zh zh">Nikunj Kothari 发了一篇长文，反驳风投圈里一个心照不宣的信念——最好的创始人都是在「逃离」某样东西：糟糕的童年、心里的那根刺、让他一直踩着油门的痛苦。他这篇文章追问的是<strong>驱动力究竟从哪来</strong>，并描述了一个大多数人从未挂上过的档位。</p>
+      <div class="urls">
+      <a href="https://x.com/nikunj/status/2083307235619287363">https://x.com/nikunj/status/2083307235619287363</a>
+      </div>
+    </article>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Aditya Agarwal</span>
+        <span class="builder-role">SPC General Partner</span>
+      </div>
+      <p class="summary-en">Aditya Agarwal put out a closing call: <strong>2 days left to apply to SPC</strong>.</p>
+      <p class="summary-zh zh">Aditya Agarwal 发出截止提醒：<strong>SPC 申请还剩 2 天</strong>。</p>
+      <div class="urls">
+      <a href="https://x.com/adityaag/status/2083330582210380106">https://x.com/adityaag/status/2083330582210380106</a>
+      </div>
+    </article>
+  </section>
+
+  <!-- ============== PODCAST ============== -->
+  <section class="section">
+    <div class="section-head">
+      <span class="section-icon">🎙️</span>
+      <h2 class="section-title">Podcast</h2>
+      <span class="section-meta">1 Episode</span>
+    </div>
+    <div class="podcast">
+      <div class="podcast-source">Unsupervised Learning</div>
+      <h3 class="podcast-title">Ep 92: xAI Co-Founder Unpacks the Future of Model Development</h3>
+      <div class="takeaway">
+        <span class="takeaway-label">Takeaway</span>Igor Babushkin — DeepMind (StarCraft, AlphaCode) → OpenAI early reasoning work → xAI co-founder — argues that <strong>proprietary model builders are getting squeezed from both sides</strong>: make the model too good and you may not be allowed to release it, while open models close the gap every month. His new company River is betting on three things: an RL/fine-tuning API, per-individual personalization, and running frontier models on local hardware you own.
+      </div>
+      <div class="takeaway zh">
+        <span class="takeaway-label">核心观点</span>Igor Babushkin——先后在 DeepMind（StarCraft、AlphaCode）、OpenAI（早期推理方向）任职，后来是 xAI 联合创始人——认为<strong>闭源模型厂商正在被两头夹击</strong>：模型做得太强，你可能被禁止发布；而开源模型每个月都在逼近。他的新公司 River 押了三个方向：强化学习／微调 API、面向个体的个性化，以及把前沿模型跑在你自己拥有的本地硬件上。
+      </div>
+      <div class="podcast-body">
+<p><strong>The December moment.</strong> Babushkin dates the shift to November–December of last year, when coding agents became powerful enough that you could not ignore them. Before that, some people used them and some did not; after that latest iteration of Opus-class models, everyone agreed they were very powerful — and also that they were doing much of the software engineering people used to enjoy doing themselves. He spent the end of December rewriting every coding project he had ever wanted to do. That experience became the seed for two pieces of fiction he wrote: one a dystopia about models running the world uncontrolled, the other a love letter to the machines that come next. He frames the whole moment as <strong>a modern Sorcerer's Apprentice</strong> — we are all the apprentice now.</p>
+
+<p><strong>Where agents go after coding.</strong> Coding was the obvious low-hanging fruit because it is verifiable. The next clear direction is scientific discovery, where he is already seeing first sparks of agents solving real math and science problems — helped by formalization tools like Lean, which give a clean reward signal and also tell you whether you actually found the proof. The hard bottleneck beyond that is <strong>data from the physical world</strong>: for material science, fundamental physics, or a better rocket engine, the agent proposes a design and then needs real-world experimental feedback to close the loop.</p>
+
+<p><strong>A bifurcation in who gets which AI.</strong> He expects a split between super-AIs that cost a million dollars per question and are accessible to few, and the everyday AI most people actually use. Crucially, the everyday one <strong>does not need to prove the Riemann hypothesis</strong> — its reward function is whether it helped the human feel better and get more done. He notes many ChatGPT users would have been fine with the models from a year ago.</p>
+
+<p><strong>Why the proprietary squeeze.</strong> Training has diminishing returns — you cannot cover the earth with GPUs — and he argues we are starting to approach that point. Simultaneously, models are becoming capable enough that releasing them invites criticism or regulatory action, while open models improve monthly. <strong>Make it too good and you cannot ship it; hold back and open source catches you.</strong> His prescribed way out for OpenAI and Anthropic is the same thing that got them here: fundamentally new ideas about making models useful, new domains, new ways of generating impact and revenue.</p>
+
+<p><strong>The case for companies training their own.</strong> Today most go proprietary first because the field moves too fast — building a team and infrastructure to beat the frontier is a many-month project, and by the time you finish there is a better model. He expects that to change as open models get strong. His argument is about domain depth: if you run an HR SaaS platform, you understand your data, your customers, and your domain far better than OpenAI or Anthropic ever will. Those companies are best placed to decide how their agents should behave. The choice he sees coming is stark — <strong>either hand all your data over for someone else to post-train on, or do it yourself</strong> — and handing it over means giving away the very thing that differentiates you from competitors.</p>
+
+<p><strong>River's three bets.</strong> First, the River API: an RL and fine-tuning service in the vein of Tinker, with engineering optimized to make training cheap, reliable, and scalable. Second, personalization — today models are trained to work for the <em>average</em> user, pooling all feedback and telling the model to behave identically for everyone. River wants to break that assumption so your agent speaks differently to you than mine does to me, learning directly from you and improving with every interaction. He compares the target to what recommendation systems already do on TikTok or YouTube, calling it a <strong>recommendation-system / agent hybrid</strong>. His conviction on method: end-to-end training is what matters — you must train the agent to actually use its memory and personal context, optimizing on the real signal, which here is the individual's happiness. Third, hardware: bringing inference compute local, so a frontier model runs on a box in your home or office. Motivation is control first, but he found additional benefits — much lower latency opening up voice and video interaction, and privacy, since a personal agent that observes everything you do will hold enormous amounts of sensitive data that you may not want leaving your house.</p>
+      </div>
+      <div class="podcast-divider"></div>
+      <div class="podcast-zh zh">
+<p><strong>那个「十二月时刻」。</strong>Babushkin 把这次转折定位在去年 11 月到 12 月——编程 agent 强到了无法被忽视的程度。在那之前，有人用有人不用；而在那一代 Opus 级模型出来之后，所有人都承认它们非常强大，同时也意识到，它们正在接管大量原本由人类完成、而且人类还挺享受的软件工程工作。他用 12 月下旬把自己这辈子想做的编程项目全部重写了一遍。这段体验催生了他写的两篇小说：一篇是模型失控统治世界的反乌托邦，另一篇是写给「下一代机器」的情书。他把当下这个时刻概括为<strong>现代版的《魔法师的学徒》</strong>——我们现在都是那个学徒。</p>
+
+<p><strong>编程之后，agent 往哪走。</strong>编程之所以是最明显的突破口，是因为它可验证。下一个方向很清楚：科学发现。他已经看到 agent 解决真实数学和科学问题的最初迹象——Lean 这类形式化工具帮了大忙，既提供了干净的奖励信号，也能告诉你是否真的找到了证明。再往前的硬瓶颈是<strong>来自物理世界的数据</strong>：材料科学、基础物理、或者造一台更好的火箭发动机，agent 提出方案之后，需要真实世界的实验反馈才能闭上这个环。</p>
+
+<p><strong>谁用哪一种 AI 会分叉。</strong>他预计会出现分化：一边是跑一次问答就要花一百万美元、只有少数人能用的超级 AI；另一边是大多数人日常真正在用的 AI。关键在于，后者<strong>并不需要去证明黎曼猜想</strong>——它的奖励函数是「有没有让这个人感觉更好、把更多事情做完」。他也指出，很多 ChatGPT 用户其实用一年前的模型就够了。</p>
+
+<p><strong>闭源为什么会被夹住。</strong>训练存在边际递减——你不可能拿 GPU 铺满整个地球——而他认为我们正在接近那个点。与此同时，模型强到发布本身就会招致批评甚至监管干预，而开源模型每个月都在变强。<strong>做得太好你发不出来；有所保留，开源就追上你。</strong>他给 OpenAI 和 Anthropic 开的药方，正是当初把它们送到今天位置的那件事：拿出关于「如何让模型更有用」的根本性新想法，去开拓新领域、新的产生影响力和收入的方式。</p>
+
+<p><strong>企业为什么该自己训模型。</strong>今天大多数公司先用闭源，是因为这个领域跑得太快——自建团队和基础设施去超越前沿模型是个好几个月的工程，等你做完，更强的新模型又出来了。但他预计随着开源模型变强，这一点会改变。他的论据是领域纵深：如果你做的是 HR SaaS 平台，你对自己的数据、客户和这个领域的理解，远远超过 OpenAI 或 Anthropic。这些公司才最有资格决定自己的 agent 该怎么工作。他看到的选择很尖锐——<strong>要么把全部数据交出去让别人拿去做后训练，要么自己来</strong>——而交出去，等于把你相对竞争对手的全部差异化根基送人。</p>
+
+<p><strong>River 的三个赌注。</strong>第一是 River API：一个强化学习和微调服务，路线上类似 Tinker，工程侧重点是把训练做得便宜、可靠、可扩展。第二是个性化——今天的模型都是按<em>平均用户</em>来训的，把所有人的反馈汇总到一起，然后要求模型对所有人表现一致。River 想打破这个前提，让你的 agent 跟你说话的方式和我的不一样，直接从你身上学习、每次交互都变得更好。他把目标类比成 TikTok 和 YouTube 的推荐系统已经做到的事，称之为<strong>「推荐系统 × agent」的混合体</strong>。他在方法上的判断很明确：端到端训练才是关键——你必须真的训练 agent 去使用它的记忆和个人上下文，并针对你真正想优化的信号来训，而这里的信号就是「这个人的幸福感」。第三是硬件：把推理算力搬到本地，让前沿模型跑在你家里或办公室的一个盒子上。出发点首先是控制权，但做下去他发现了额外好处——延迟大幅降低，语音和视频交互因此成为可能；以及隐私，因为一个观察你一切行为的个人 agent 会掌握极其敏感的数据，你未必希望这些数据离开你家。</p>
+      </div>
+      <div class="urls" style="margin-top:24px">
+        <a href="https://www.youtube.com/@RedpointAI">https://www.youtube.com/@RedpointAI</a>
+      </div>
+    </div>
+  </section>
+
+<footer class="footer">
+  <div class="next-issue">下一期 · 明天同一时间</div>
+  <div>Follow builders, not influencers.</div>
+  <div class="signature">AI Builders Digest · 2026-08-02</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->
