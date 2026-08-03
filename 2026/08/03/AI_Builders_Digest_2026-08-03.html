@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest · 2026-08-03</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  code { font-family: 'JetBrains Mono', monospace; font-size: 0.9em; background: var(--line-soft); padding: 1px 5px; border-radius: 3px; }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .lede { font-size: 17px; color: var(--ink-soft); line-height: 1.7; max-width: 640px; }
+  .lede-zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; font-size: 16px; color: var(--ink-muted); line-height: 1.9; max-width: 640px; margin-top: 12px; }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-en strong { color: var(--ink); font-weight: 600; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .summary-zh strong { color: var(--accent-deep); font-weight: 600; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 12px; padding: 32px; margin-bottom: 24px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
+  .podcast-source { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 10px; }
+  .podcast-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; color: var(--ink); margin-bottom: 24px; }
+  .takeaway { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 8px; padding: 18px 22px; margin-bottom: 24px; font-size: 15px; line-height: 1.7; color: var(--accent-deep); }
+  .takeaway strong { color: #7c2d12; font-weight: 700; }
+  .takeaway-label { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; background: var(--accent); color: white; padding: 3px 8px; border-radius: 3px; margin-right: 10px; transform: translateY(-2px); }
+  .podcast-body { font-size: 15.5px; color: var(--ink-soft); line-height: 1.75; }
+  .podcast-body p { margin-bottom: 16px; }
+  .podcast-body strong { color: var(--ink); font-weight: 600; }
+  .podcast-divider { height: 1px; background: var(--line); margin: 28px 0; }
+  .podcast-zh { font-family: 'Noto Serif SC', serif; font-size: 15.5px; color: var(--ink); line-height: 1.95; }
+  .podcast-zh p { margin-bottom: 16px; }
+  .podcast-zh strong { color: var(--accent-deep); font-weight: 600; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .podcast { padding: 24px; } .podcast-title { font-size: 19px; } .topbar-inner { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 · Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest · 2026-08-03 · 周一</div>
+  <h1>AI Builders Digest</h1>
+  <p class="lede">Today splits into two arguments about where AI's value actually lands. Levie says deep domains — math, science, legal, coding — are about to go vertical while daily life barely notices; Dan Shipper adds that this <strong>creates</strong> work for human experts rather than removing it; Nikunj Kothari points at the gap — models solving NP-hard problems while enterprises still argue about token ROI — and concludes that <strong>diffusion is the work of the next few decades</strong>. On the podcast, Netic founder Melisa Tokmak shows what that diffusion actually costs: the last mile of real-world AI comes from harnesses, orchestration and product, not from models.</p>
+  <p class="lede-zh zh">今天的内容分成关于「AI 的价值到底落在哪」的两条论证。Levie 认为数学、科学、法律、编程这些纵深领域即将垂直起飞，而日常生活几乎察觉不到；Dan Shipper 补了一句——这反而给人类专家<strong>创造</strong>了更多工作，而不是减少。Nikunj Kothari 指出了那道裂缝：模型都在解 NP 难问题了，企业还在争论 token 花得值不值，他的结论是<strong>「接下来几十年要做的全是扩散和落地」</strong>。播客里，Netic 创始人 Melisa Tokmak 展示了这种扩散的真实代价：真实世界 AI 的最后一公里来自 harness、编排和产品，而不是模型。</p>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">13</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">19</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+  <!-- ============== X / TWITTER ============== -->
+  <section class="section">
+    <div class="section-head">
+      <span class="section-icon">🐦</span>
+      <h2 class="section-title">X / Twitter</h2>
+      <span class="section-meta">13 Builders</span>
+    </div>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Andrej Karpathy</span>
+        <span class="builder-role">AI Researcher</span>
+      </div>
+      <p class="summary-en">Karpathy says we are leaving the era where you probe an LLM with a one-liner like "draw an SVG of a pelican on a bicycle." His generalization: hand Opus 5 the <strong>first paragraph of The Lord of the Rings</strong>, a 1M-token budget (~$10), and ask for a three.js render. The model ran for roughly two hours and produced <strong>5,500 lines of code</strong> that procedurally rendered the scene. He calls the output janky but fun — and finds it genuinely mindboggling that the model has to place and orchestrate polygon assets in (x, y, z) space and write the animation code around them.</p>
+      <p class="summary-zh zh">Karpathy 说，用一句「画一只骑自行车的鹈鹕 SVG」来测模型的时代正在过去。他给出的泛化版本是：把<strong>《指环王》的第一段</strong>丢给 Opus 5，给 100 万 token 预算（约 10 美元），要求用 three.js 渲染出来。模型跑了大约两个小时，写出 <strong>5500 行代码</strong>，程序化地把那段文字渲染成了场景。他形容结果「粗糙但好玩」，但真正让他觉得离谱的是：模型得自己在 (x, y, z) 空间里摆放和编排多边形素材，还要把动画代码一并写出来。</p>
+      <div class="urls">
+      <a href="https://x.com/karpathy/status/2083749667410727319">https://x.com/karpathy/status/2083749667410727319</a>
+      </div>
+    </article>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Aaron Levie</span>
+        <span class="builder-role">Box CEO</span>
+      </div>
+      <p class="summary-en">Levie predicts a widening <strong>divergence</strong> between what AI does for personal life and everyday productivity versus what it can do in deep domains — math, science, legal, coding. Up to some threshold, capability was felt evenly across domains because models were only mildly useful in general. Now the deep-domain work is about to <strong>go vertical</strong>. Most people will not notice these gains directly in daily life, but the experts in those fields will — and he sees no inherent ceiling on the capability curve there.</p>
+      <p class="summary-zh zh">Levie 预判 AI 的能力将出现明显<strong>分叉</strong>：一边是个人生活和日常办公，另一边是数学、科学、法律、编程这类纵深领域。在某个阈值之前，各领域感受到的能力提升是均匀的——因为模型对谁都只是「略微有用」。而现在，纵深领域的能力正准备<strong>垂直起飞</strong>。大多数人在日常生活里不会直接察觉到这波增益，但这些领域里的专家会；而且他认为这条能力曲线目前看不到天花板。</p>
+      <div class="urls">
+      <a href="https://x.com/levie/status/2083589132660711452">https://x.com/levie/status/2083589132660711452</a>
+      </div>
+    </article>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Nan Yu</span>
+        <span class="builder-role">Linear Head of Product</span>
+      </div>
+      <p class="summary-en">Linear's Nan Yu proposes a concrete fix for the slop-PR problem: let people <strong>pledge tokens against issues</strong> they open on open-source repos. Write a spec in the issue with a pledge attached; if the maintainer accepts, GitHub passes the issue verbatim to a cloud coding agent <strong>at the requester's expense</strong>. The economics flip — the person who wants the work funds the compute, and maintainers stop drowning in unsolicited AI-generated PRs. He also described how the loop handles ambiguity in practice: the agent leaves a comment on the issue with all its context attached, and when you reply with the missing details, it simply picks up and keeps working.</p>
+      <p class="summary-zh zh">Linear 的 Nan Yu 给「垃圾 PR」问题提了一个很具体的解法：让人在开 issue 时<strong>抵押 token</strong>。你在 issue 里写清 spec 并附上抵押额；维护者接受后，GitHub 就把这个 issue 原样交给云端 coding agent，<strong>算力费用由发起人承担</strong>。这就把经济关系反转了——想让活儿被干的人出钱，维护者也不必再被一堆没人要的 AI PR 淹没。他还讲了这个循环在遇到信息不足时的实际处理方式：agent 会带着完整上下文在 issue 下留言，你把缺的细节补上，它就直接接着往下干。</p>
+      <div class="urls">
+      <a href="https://x.com/thenanyu/status/2083722999430050281">https://x.com/thenanyu/status/2083722999430050281</a>
+      <a href="https://x.com/thenanyu/status/2083534333428580501">https://x.com/thenanyu/status/2083534333428580501</a>
+      </div>
+    </article>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Guillermo Rauch</span>
+        <span class="builder-role">Vercel CEO</span>
+      </div>
+      <p class="summary-en">Rauch highlighted an <strong>open-source agentic CRM</strong> built on Next.js — model-agnostic, self-hostable or serverlessly deployed, multi-channel, and headless. His verdict: "This is the way." The pattern he keeps endorsing is the same one: agentic software should be portable across models and deployment targets rather than locked to one vendor's stack. On a lighter note, he shared that when his three-year-old was asked at school what daddy does for work, the answer was "he exercises" — that is what the kid sees. His point: <strong>you are not the only byproduct of your habits</strong>; your children and grandchildren are too.</p>
+      <p class="summary-zh zh">Rauch 转发了一个基于 Next.js 构建的<strong>开源 agentic CRM</strong>——模型无关、可自托管也可 serverless 部署、多渠道、headless。他的评价是「这才是正确路线」。他反复认可的其实是同一个模式：agentic 软件应该在模型和部署环境之间可迁移，而不是被锁死在某一家的技术栈上。另一条更轻松：学校问他三岁的儿子「爸爸是做什么工作的」，孩子回答「他健身」——因为那是孩子看到的。他的感慨是：<strong>你的习惯塑造的不只是你自己</strong>，还有你的子女和孙辈。</p>
+      <div class="urls">
+      <a href="https://x.com/rauchg/status/2083684679362965605">https://x.com/rauchg/status/2083684679362965605</a>
+      <a href="https://x.com/rauchg/status/2083664853256843437">https://x.com/rauchg/status/2083664853256843437</a>
+      </div>
+    </article>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Garry Tan</span>
+        <span class="builder-role">Y Combinator President &amp; CEO</span>
+      </div>
+      <p class="summary-en">Garry Tan calls the most interesting vibe shift of 2026 the fact that <strong>OpenAI now looks like the open platform</strong>. He frames the split sharply: selling <strong>intelligence on tap as a utility</strong> versus signaling that the optimal move is to integrate all the way up the full stack. The strategic positions of the major labs, in other words, have quietly swapped from where most people expected them to land.</p>
+      <p class="summary-zh zh">Garry Tan 认为 2026 年最有意思的风向变化，是 <strong>OpenAI 现在反而更像那个开放平台</strong>。他把这个分野讲得很清楚：一边是<strong>把智能当水电一样按需供给</strong>，另一边则是在暗示「最优解是把整个技术栈从下到上全都自己做」。换句话说，几家主要实验室的战略站位，已经和大多数人当初的预期悄悄对调了。</p>
+      <div class="urls">
+      <a href="https://x.com/garrytan/status/2083684825333105107">https://x.com/garrytan/status/2083684825333105107</a>
+      </div>
+    </article>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Peter Yang</span>
+        <span class="builder-role">Product Lead &amp; AI Educator</span>
+      </div>
+      <p class="summary-en">Peter Yang went on record with an unpopular take: <strong>Opus 4.6 had the best personality and writing style</strong> of any Opus model. He finds something off with Opus 5 — overly long replies, too much "Claude-speak" (his example: "here's the honest truth"), and a tone that reads as judgmental. His line lands the loss precisely: Opus used to be a joy to talk to, like a trusted friend; not so much anymore. Separately he flagged a plugins bug at OpenAI that is breaking the UX for his <code>/no-ai-slop</code> skill.</p>
+      <p class="summary-zh zh">Peter Yang 说了一个不太讨好的观点：<strong>Opus 4.6 才是所有 Opus 版本里性格和文风最好的一个</strong>。他觉得 Opus 5 有点不对劲——回复过长、「Claude 腔」太重（他举的例子是「说句实话」这种口头禅），语气还带着点评判感。他那句总结把损失讲得很准：以前跟 Opus 聊天像跟一个可信赖的朋友说话，是种享受；现在不太是了。另外他还反馈了 OpenAI 插件的一个 bug，正在影响他 <code>/no-ai-slop</code> skill 的使用体验。</p>
+      <div class="urls">
+      <a href="https://x.com/petergyang/status/2083755374994415904">https://x.com/petergyang/status/2083755374994415904</a>
+      <a href="https://x.com/petergyang/status/2083594381748302160">https://x.com/petergyang/status/2083594381748302160</a>
+      </div>
+    </article>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Swyx</span>
+        <span class="builder-role">Smol AI Founder &amp; Conference Organizer</span>
+      </div>
+      <p class="summary-en">Swyx surfaced the sharpest framing of the week from a talk he caught on replay — "<strong>fighting slop with slop</strong>" by Vaib of Boundary. The argument he endorses: being <strong>slop-tolerant is 100x more valuable than being anti-slop</strong>. He connects it to a call for an AI-native programming language, and says as a programming-languages fan he is glad someone is rethinking how code runs from first principles. He also noted the organizer's curse: he rarely gets to attend the conference he runs, so he watches the talks back with everyone else afterward.</p>
+      <p class="summary-zh zh">Swyx 从一场自己补看的演讲里拎出了本周最锋利的一个说法——Boundary 的 Vaib 讲的「<strong>以 slop 治 slop</strong>」。他认同的核心论点是：<strong>对 slop 的容忍度，比反 slop 值钱一百倍</strong>。他把这个观点接到了「需要一门 AI 原生编程语言」的呼吁上，并说作为编程语言爱好者，他很高兴终于有人从第一性原理重新思考代码该怎么跑。他还自嘲了办会人的宿命：自己办的大会几乎从来没机会现场听，只能事后和大家一起看回放。</p>
+      <div class="urls">
+      <a href="https://x.com/swyx/status/2083753582160191988">https://x.com/swyx/status/2083753582160191988</a>
+      </div>
+    </article>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Peter Steinberger</span>
+        <span class="builder-role">Independent Builder, ex-PSPDFKit CEO</span>
+      </div>
+      <p class="summary-en">Steinberger keeps demonstrating the same habit — reach for the agent first. After years of accepting that Gmail was straining his eyes, he simply <strong>asked his agent, and it installed the fix for him</strong>. He is also building a claw node on an <strong>ESP32 chip</strong> and gave his agent webcam access so it could end-to-end test the hardware. The side effect is comic: he now feels stalked, with the agent constantly shouting "HI ESP" at him to debug the voice wake command.</p>
+      <p class="summary-zh zh">Steinberger 一直在演示同一个习惯——先找 agent。忍了好几年 Gmail 刺眼的问题后，他这次只是<strong>问了一句 agent，它就直接把修复方案装好了</strong>。他还在 <strong>ESP32 芯片</strong>上做一个 claw 节点，为了端到端测试硬件，干脆把摄像头权限给了 agent。副作用相当喜剧：他现在觉得自己被跟踪了——agent 为了调试语音唤醒词，一直冲着他喊「HI ESP」。</p>
+      <div class="urls">
+      <a href="https://x.com/steipete/status/2083759812970786997">https://x.com/steipete/status/2083759812970786997</a>
+      <a href="https://x.com/steipete/status/2083694161933594703">https://x.com/steipete/status/2083694161933594703</a>
+      </div>
+    </article>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Zara Zhang</span>
+        <span class="builder-role">Builder &amp; Investor</span>
+      </div>
+      <p class="summary-en">Zara Zhang's line is the counterweight to the doom talk: <strong>agency is the most important human quality</strong>. The world will try to box you, label you, define you — resist that. She also offered a crisp reply for anyone asking why incumbents keep losing to newcomers: just send them a copy of <em>The Innovator's Dilemma</em>.</p>
+      <p class="summary-zh zh">Zara Zhang 这句话是对末日论调的一记回击：<strong>能动性（agency）是人最重要的品质</strong>。世界会试图把你装进盒子、贴上标签、替你下定义——要抵抗这件事。另外，对于「为什么在位者总是输给新入局者」这类提问，她给了一个干脆的回法：直接送他一本《创新者的窘境》。</p>
+      <div class="urls">
+      <a href="https://x.com/zarazhangrui/status/2083743952319225938">https://x.com/zarazhangrui/status/2083743952319225938</a>
+      <a href="https://x.com/zarazhangrui/status/2083738503851258201">https://x.com/zarazhangrui/status/2083738503851258201</a>
+      </div>
+    </article>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Amanda Askell</span>
+        <span class="builder-role">Anthropic Philosopher &amp; Ethicist</span>
+      </div>
+      <p class="summary-en">Amanda Askell offered two notes of restraint. First, on the skeptics: <strong>do not be unkind to those who say deep learning is hitting a wall</strong> — we all need a little hope in our lives. Second, on the fashionable fear of a "permanent underclass": she says she gets a Padmé moment every time she hears it, and makes her position explicit — she does not believe in that outcome, but if you do believe in it, <strong>it is not laudable to simply aim to be one of the winners</strong>.</p>
+      <p class="summary-zh zh">Amanda Askell 提了两个关于克制的观点。第一条是对唱衰者的：<strong>别对那些说「深度学习撞墙了」的人太刻薄</strong>——人总得留点希望。第二条是关于当下流行的「永久底层阶级」恐慌：她说每次听到都会有一种「帕德梅式」的错愕，并且把立场讲明——她不相信那个结局会发生；但如果你真的相信，那么<strong>只想着「反正我要当赢家那一批」并不值得称道</strong>。</p>
+      <div class="urls">
+      <a href="https://x.com/AmandaAskell/status/2083713770065637511">https://x.com/AmandaAskell/status/2083713770065637511</a>
+      <a href="https://x.com/AmandaAskell/status/2083641092919161017">https://x.com/AmandaAskell/status/2083641092919161017</a>
+      </div>
+    </article>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Nikunj Kothari</span>
+        <span class="builder-role">FPV Ventures Partner</span>
+      </div>
+      <p class="summary-en">Nikunj Kothari names the dichotomy plainly: <strong>models are solving NP-hard problems while traditional enterprises are still complaining about ROI on token spend</strong>. His conclusion about where the work actually is for the foreseeable future: <strong>diffusion of models is all we will be doing for the next few decades</strong> — the capability already exists; getting it into the hands of the organizations that need it is the long project.</p>
+      <p class="summary-zh zh">Nikunj Kothari 把这种割裂讲得很直白：<strong>模型都在解 NP 难问题了，传统企业还在纠结 token 花的钱回报率够不够</strong>。他对「未来真正的工作在哪」的判断是：<strong>接下来几十年，我们要做的全都是模型的扩散和落地</strong>——能力其实已经有了，把它送到真正需要的组织手里，才是那个漫长的工程。</p>
+      <div class="urls">
+      <a href="https://x.com/nikunj/status/2083502573546263002">https://x.com/nikunj/status/2083502573546263002</a>
+      </div>
+    </article>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Dan Shipper</span>
+        <span class="builder-role">Every CEO</span>
+      </div>
+      <p class="summary-en">Dan Shipper pushes back on the substitution narrative with a claim worth sitting with: <strong>AI creates more work for human experts</strong>, not less. It is the same shape as Levie's divergence argument from the other direction — as capability goes vertical in deep domains, the volume of expert-grade judgment that becomes worth doing goes up rather than down.</p>
+      <p class="summary-zh zh">Dan Shipper 反驳了「AI 替代人」的叙事，给出一个值得琢磨的判断：<strong>AI 给人类专家创造的工作变多了</strong>，不是变少。这其实和 Levie 那条「能力分叉」的观点是同一件事的另一面——当纵深领域的能力垂直起飞，值得由专家来做判断的事情总量是上升的，而不是下降的。</p>
+      <div class="urls">
+      <a href="https://x.com/danshipper/status/2083750803437724016">https://x.com/danshipper/status/2083750803437724016</a>
+      </div>
+    </article>
+    <article class="builder">
+      <div class="builder-head">
+        <span class="builder-name">Thibault Sottiaux</span>
+        <span class="builder-role">Codex &amp; ChatGPT at OpenAI</span>
+      </div>
+      <p class="summary-en">A small but telling usage datapoint from OpenAI's Thibault Sottiaux: <strong>users reach for <code>/fast</code> less on weekends</strong>. His read — the weekend is for relaxation, even for the model.</p>
+      <p class="summary-zh zh">来自 OpenAI 的 Thibault Sottiaux 分享了一个不大但有意思的使用数据：<strong>周末用户用 <code>/fast</code> 的频率明显更低</strong>。他的解读是——周末是用来放松的，对模型也一样。</p>
+      <div class="urls">
+      <a href="https://x.com/thsottiaux/status/2083699879650463756">https://x.com/thsottiaux/status/2083699879650463756</a>
+      </div>
+    </article>
+  </section>
+
+  <!-- ============== PODCAST ============== -->
+  <section class="section">
+    <div class="section-head">
+      <span class="section-icon">🎙️</span>
+      <h2 class="section-title">Podcast</h2>
+      <span class="section-meta">1 Episode</span>
+    </div>
+    <div class="podcast">
+      <div class="podcast-source">No Priors</div>
+      <h3 class="podcast-title">Building an Autonomous Enterprise for Real-World Services with Netic Founder Melisa Tokmak</h3>
+      <div class="takeaway">
+        <span class="takeaway-label">Takeaway</span>Netic founder Melisa Tokmak on why the last mile of real-world AI cannot come from models alone — it has to come from <strong>harnesses, orchestration, and product</strong>. Over 70% of her customers are now AI-first, and the platform has generated <strong>$600M+ in revenue</strong> for them through AI-handled interactions.
+      </div>
+      <div class="takeaway zh" style="font-family:'Noto Serif SC',serif">
+        <span class="takeaway-label">核心观点</span>Netic 创始人 Melisa Tokmak 讲清了一件事：真实世界 AI 的「最后一公里」不可能只靠模型，必须来自 <strong>harness、编排和产品</strong>。她的客户里超过 70% 已经是「AI 优先」，平台迄今通过 AI 处理的交互为客户创造了<strong>超过 6 亿美元的收入</strong>。
+      </div>
+      <div class="podcast-body">
+      <p>Melisa Tokmak founded Netic to run the operational layer of real-world service businesses — HVAC, plumbing, electrical, pet care, hospitality, automotive, consumer wellness. These are often <strong>billion-dollar-revenue enterprises</strong>, frequently private-equity owned, and Netic sits between the company and its millions of end customers: understanding the need, matching it against the operational rules of the business, and dispatching the labor.</p>
+      <p>The complexity is the point. When your heat dies at minus 20, the routing question is not simply "send someone." It is what unit do you have, can we service it, does it need to be today or tomorrow, what is your lifetime value as a customer, and should we deploy the one technician who can handle boilers now or later. Before Netic, that judgment was carried by <strong>hundreds of people</strong> per company — and it broke constantly. Tokmak describes the 4am reality: three people quit that day, five did not show up, and a heat wave is piling calls in from 6am.</p>
+      <p>Her answer to "can the labs just do this?" is the most quotable part. She notes the question ten years ago was "can Google do this?" She respects the leading labs and calls them good partners, but argues focus cuts differently in enterprise: OpenAI ships amazing products fast <strong>and kills them fast</strong>, which is not what these buyers want. And the researcher instinct — solve the most generalizable version, then ask the AGI how to handle essential services — she calls <strong>both operationally and intellectually lazy</strong>. Serving millions of people with different accents, contexts, and worries requires last-mile work that does not come from models. Companies like hers, she says, have to be good at <strong>all three layers</strong>.</p>
+      <p>On hiring, she screens for <strong>agency demonstrated continuously over a lifetime</strong>, not agency claimed in an interview. Her one question is what is the hardest thing you have ever done — and she digs into the why. She is explicitly wary of "shiny object seekers," and pushes back on what she sees as a Gen Z mentality organized around the <strong>permanent-underclass fear</strong>: if I don't make my money in 18 months I am poor forever. She calls that a dangerous mindset, because building good things takes a very long time.</p>
+      <p>The counterintuitive finding: these industries are <strong>not old school</strong>. A $500K contract closed end to end in fourteen days. A roofing customer still sends door knockers neighborhood to neighborhood, but Netic feeds <strong>satellite data on hurricane damage by neighborhood</strong> into agent context — so the company both handles the inbound conversation better and knows which streets to target. Her framing: these businesses are <strong>primal and tech-forward at the same time</strong>.</p>
+      <p>On private equity, she says the playbook has already changed — the undiscovered gem with a great multiple no longer exists, so the game is creating tangible value in what you own. Her complaint is that the first conversation is still always about cost cutting. Her pitch is the opposite: <strong>net new revenue</strong>. Her closing line on that: it would be pretty sad if we used AI only for cost cutting.</p>
+      </div>
+      <div class="podcast-divider"></div>
+      <div class="podcast-zh zh">
+      <p>Melisa Tokmak 创办 Netic，做的是真实世界服务型企业的运营层——暖通空调、水管、电工、宠物护理、酒店、汽车、消费健康。这些常常是<strong>年收入十亿美元级别的大企业</strong>，很多由私募股权持有。Netic 站在公司和它数百万终端客户之间：理解需求、对照企业的运营规则做匹配、再把人派出去。</p>
+      <p>复杂性恰恰是关键。零下 20 度暖气坏了，调度问题从来不是「派个人过去」这么简单，而是：你家是什么机组、我们能不能修、是今天必须到还是明天也行、你这个客户的终身价值是多少、那位唯一会修锅炉的师傅该现在派还是待会儿派。在 Netic 之前，这些判断由每家公司<strong>几百号人</strong>扛着，而且经常崩。Tokmak 描述的凌晨四点是这样的：那天有三个人辞职、五个人没来，热浪来了，早上六点起电话就开始堆积。</p>
+      <p>她回答「实验室自己做不就行了吗」的部分最值得引用。她说十年前这个问题叫「Google 自己做不就行了吗」。她尊重头部实验室，也认为它们是很好的合作方，但她指出「专注」这件事在企业市场是反过来的：OpenAI 出好产品很快，<strong>砍产品也很快</strong>，而这不是这些买家要的。至于研究者的本能——先解最泛化的那版问题，等有了 AGI 再去问它怎么做基础服务业——她的评价是<strong>「运营上和智识上都偷懒」</strong>。要服务几百万口音不同、处境不同、顾虑不同的人，那段最后一公里不可能从模型里长出来。她说像 Netic 这样的公司，<strong>三层都得做好</strong>。</p>
+      <p>谈到招人，她筛的是<strong>在整个人生里持续展现出来的能动性</strong>，而不是面试时嘴上说的。她只问一个问题：你这辈子做过最难的事是什么——然后一路追问「为什么」。她明确警惕「追新鲜感的人」，也直接反驳了她观察到的一种 Z 世代心态，那种被<strong>「永久底层阶级」恐惧</strong>组织起来的心态：如果我 18 个月里没挣到钱，我就永远穷了。她认为这种想法很危险，因为把一件事做好，本来就需要很长时间。</p>
+      <p>一个反直觉的发现是：这些行业<strong>一点都不「传统守旧」</strong>。一份 50 万美元的合同，从头到尾十四天签完。一家做屋顶的客户至今还派人挨家挨户敲门，但 Netic 会把<strong>按社区划分的飓风损毁卫星数据</strong>喂进 agent 的上下文——于是这家公司既能把上门对话谈得更好，也知道该去敲哪几条街。她的总结是：这些生意<strong>同时是原始的和技术前沿的</strong>。</p>
+      <p>谈到私募股权，她说打法早就变了——那种「还没被发现、估值倍数又好」的璞玉已经不存在了，所以现在的游戏是在手里的资产上做出实打实的价值。她的抱怨是：第一轮对话依然永远从降本开始。而她要谈的恰恰相反——<strong>净新增收入</strong>。她那句收尾是：如果 AI 最后只被用来砍成本，那就太可惜了。</p>
+      </div>
+      <div class="urls" style="margin-top:24px">
+        <a href="https://www.youtube.com/watch?v=wWbX3NL6_Uo">https://www.youtube.com/watch?v=wWbX3NL6_Uo</a>
+      </div>
+    </div>
+  </section>
+
+<footer class="footer">
+  <div class="next-issue">下一期 · Next issue tomorrow</div>
+  <p>Follow Builders, Not Influencers · AI Builders Digest</p>
+  <p style="margin-top:8px">13 builders · 19 tweets · 1 podcast</p>
+  <div class="signature">generated 2026-08-03 · bilingual edition</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->
