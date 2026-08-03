@@ -2,6 +2,19 @@
 
 ## 最近执行记录
 
+### 2026-08-03（自动执行 10:00 Asia/Shanghai）
+- 内容获取：13 Builders · 19 Tweets · 1 Podcast · 0 Blog
+- `feedGeneratedAt = 2026-08-02T07:09:46Z`（滞后 1 天快照，但与 8/2 的 08-01T07:07 快照不同源，内容已刷新，非冻结）
+- prepare-digest.js 首次运行即成功（95KB），未触发兜底
+- Blog 判定：feed 唯一 blog 为 "How we contain Claude across products"（无 publishedAt），已于 **6/05、6/21、6/30** 三次收录 → 判为长期滞留旧条目，Blog 计 0
+- 主线（与 8/2 的 harness 主题不同）：**AI 价值落点分叉**（Levie 深纵深领域垂直起飞 vs 日常生活几乎无感 / Dan Shipper AI 给专家「创造」而非减少工作 / Nikunj Kothari 模型解 NP 难题但企业还在争 token ROI，结论「未来几十年做的全是扩散落地」）
+- 其他亮点：Karpathy 用《指环王》首段 + 1M token 让 Opus 5 跑 2 小时写 5500 行 three.js；Nan Yu 提议 issue 抵押 token（发起人付算力费）治理 slop PR；Garry Tan 称 2026 最大风向变化是 OpenAI 反而更像开放平台；Swyx 转「以 slop 治 slop」——slop 容忍度比反 slop 值钱 100 倍；Peter Yang 吐槽 Opus 5 不如 4.6（Claude 腔重/判断感强）
+- Podcast：No Priors — Netic 创始人 Melisa Tokmak（前 Scale AI）：真实世界服务业 autonomous enterprise；70%+ 客户 AI-first；已为客户创造 $600M+ 收入；「实验室能不能自己做」= 十年前的「Google 能不能自己做」；批研究者「等 AGI 再解基础服务业」是运营和智识上都偷懒；三层（模型/harness+编排/产品）都要好；招人只看「持续一生的 agency」
+- 生成方式：Python 脚本 `/tmp/gen_digest_0803.py`（双语 remix + URL 动态取自 JSON + 自检断言：20/20 链接真实、0 伪造、f-string 占位符零残留）
+- ⚠️ 脚本自检踩坑：初版写了一个无意义断言（检查 CSS 里有无 `{`，CSS 必然含花括号）→ 首跑即 AssertionError。已改为正则扫描 `</style>` 之后正文的未解析 f-string 占位符，这才是有效校验
+- 部署状态：✅ HTTP 200（轮询第 2 次命中），commit b4352aa
+- 文件：`2026/08/03/AI_Builders_Digest_2026-08-03.html`
+
 ### 2026-08-02（自动执行 10:00 Asia/Shanghai）
 - 内容获取：13 Builders · 21 Tweets · 1 Podcast · 0 Blog
 - `feedGeneratedAt = 2026-08-01T07:07:44Z`（滞后 1 天快照，但与 8/1 的 07:16 快照不同源，内容已刷新，非冻结）
