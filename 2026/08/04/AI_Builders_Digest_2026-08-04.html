@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest · 2026-08-04</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 12px; padding: 32px; margin-bottom: 24px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
+  .podcast-source { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 10px; }
+  .podcast-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; color: var(--ink); margin-bottom: 24px; }
+  .takeaway { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 8px; padding: 18px 22px; margin-bottom: 24px; font-size: 15px; line-height: 1.7; color: var(--accent-deep); }
+  .takeaway-label { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; background: var(--accent); color: white; padding: 3px 8px; border-radius: 3px; margin-right: 10px; transform: translateY(-2px); }
+  .podcast-body { font-size: 15.5px; color: var(--ink-soft); line-height: 1.75; }
+  .podcast-body p { margin-bottom: 16px; }
+  .podcast-body strong { color: var(--ink); font-weight: 600; }
+  .podcast-divider { height: 1px; background: var(--line); margin: 28px 0; }
+  .podcast-zh { font-family: 'Noto Serif SC', serif; font-size: 15.5px; color: var(--ink); line-height: 1.95; }
+  .podcast-zh p { margin-bottom: 16px; }
+  .podcast-zh strong { color: var(--accent-deep); font-weight: 600; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .podcast { padding: 24px; } .podcast-title { font-size: 19px; } .topbar-inner { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 · Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest · 2026-08-04 · 周二</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">12</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">26</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🐦</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">12 Builders</span>
+  </div>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Andrej Karpathy</span>
+      <span class="builder-role">AI Researcher</span>
+    </div>
+    <p class="summary-en">Shared a browser-playable version of the “pelican on the bicycle” test originally from Simon Willison, and uploaded the source so it can be forked and tinkered with. Closed with a characteristically playful jab: watch for “GTA Hobbiton dropping before GTA VI.” Low on analysis, high on the demo-energy that defines his feed.</p>
+    <p class="summary-zh zh">分享了一个可以在浏览器里直接玩的“鹈鹕骑自行车”测试（源自 Simon Willison），并上传了源码，方便别人 fork 和把玩。结尾还是他惯有的玩笑口吻：等着看“GTA Hobbiton 比 GTA VI 还早上线”。分析含量不高，但很符合他一贯的 demo 风格。</p>
+    <div class="urls"><a href="https://x.com/karpathy/status/2083948654377996480">https://x.com/karpathy/status/2083948654377996480</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Swyx</span>
+      <span class="builder-role">Latent Space Host</span>
+    </div>
+    <p class="summary-en">Documented a “Codex CUA wow moment” — the computer-use agent handled a support chat on his behalf, escalating it for faster resolution with “complete receipts,” and the humans on the other end had no idea they were talking to a bot. He is building a running list of CUA moments ahead of a “computer use” podcast.</p>
+    <p class="summary-zh zh">记录了一个“Codex CUA 名场面”——computer-use agent 替他处理了一段客服对话，为了更快解决还主动升级工单，甩出一整套“完整证据”，而对方从头到尾都没发现自己在跟机器人说话。他正在攒一份 CUA 名场面清单，为即将上线的“computer use”播客做准备。</p>
+    <div class="urls"><a href="https://x.com/swyx/status/2084156733027701164">https://x.com/swyx/status/2084156733027701164</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">Roblox PM & AI Educator</span>
+    </div>
+    <p class="summary-en">Quote-posted NousResearch cofounder Karan’s explanation of “Hermes Curator,” a background task that runs inside your agent and cleans up your skills and memory on a schedule, asking “where’s the slop?” Because it’s open source, you can hand it your own definition of slop and it rewrites its own cleanup loop. Also: “Personality matters — a smart friend that’s annoying to talk to is no good.”</p>
+    <p class="summary-zh zh">转发了 NousResearch 联合创始人 Karan 对“Hermes Curator”的解释：这是一个跑在 agent 内部的后台任务，会按节奏清理你的 skills 和 memory，反复追问“哪里有废话（slop）？”因为它开源，你可以把自己的“废话定义”喂给它，它就会改写自己的清理循环。另一条：“性格很重要——一个聪明但聊起来烦人的朋友没用。”</p>
+    <div class="urls"><a href="https://x.com/petergyang/status/2083968605432267139">https://x.com/petergyang/status/2083968605432267139</a>
+      <a href="https://x.com/petergyang/status/2083947480136421384">https://x.com/petergyang/status/2083947480136421384</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thariq</span>
+      <span class="builder-role">Claude Code, Anthropic</span>
+    </div>
+    <p class="summary-en">Drew a parallel between AI progress and chess, then made the sharper claim that we’re already seeing Jevons paradox at work in mathematics: more math is happening, it’s easier to understand, and mathematicians have more time to discuss it at higher levels of abstraction — so demand for people who think about and know math will go up, not down.</p>
+    <p class="summary-zh zh">把 AI 进展和象棋做了类比，然后抛出一个更尖锐的观点：数学领域已经能看到杰文斯悖论在起作用——数学产出更多了、更好懂了，数学家也有更多时间去做更高抽象层次的讨论，所以“会思考、懂数学的人”的需求会上升，而不是下降。</p>
+    <div class="urls"><a href="https://x.com/trq212/status/2083977795290734975">https://x.com/trq212/status/2083977795290734975</a>
+      <a href="https://x.com/trq212/status/2083978109376987365">https://x.com/trq212/status/2083978109376987365</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Amjad Masad</span>
+      <span class="builder-role">Replit CEO</span>
+    </div>
+    <p class="summary-en">His LLM chess engine is now autonomously playing real games on Lichess at 1253 Elo, and he shared it live-playing three concurrent games. A neat demo of an LLM acting as a game engine rather than just commenting on one.</p>
+    <p class="summary-zh zh">他的 LLM 国际象棋引擎现在已经在 Lichess 上自主对弈真实棋局，Elo 达到 1253，他还直播了它同时下三盘棋。这是一个很妙的 demo：LLM 不只是点评棋局，而是直接充当“引擎”在下棋。</p>
+    <div class="urls"><a href="https://x.com/amasad/status/2083926395403821427">https://x.com/amasad/status/2083926395403821427</a>
+      <a href="https://x.com/amasad/status/2083936067355635948">https://x.com/amasad/status/2083936067355635948</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">Vercel CEO</span>
+    </div>
+    <p class="summary-en">Announced @v, an internal agent that powers Vercel’s operations and acts as both agent and router — it has sub-agents, skills, and knows how to delegate to other agents. “Every day-to-day job at Vercel now involves @v,” growing exponentially in interactions and token use, and it’s the basis for @evedev_. His core argument: your agent must be yours end-to-end (source → runtime → data → token), not a vendor’s. Separately, a widely-resonating line: “AI alone is cool. But mastery + creativity + AI hits on a whole different level.”</p>
+    <p class="summary-zh zh">发布了 @v——一个驱动 Vercel 内部运转的 agent，既是 agent 也是路由器：它有子 agent、有 skills，还知道如何把工作委托给其他 agent。“Vercel 现在每天的日常都绕不开 @v”，交互量和 token 消耗都在指数级增长，它也是 @evedev_ 的基础。他的核心论点：你的 agent 必须从端到端（source → runtime → data → token）都是你自己的，而不是某个供应商的。另有一条广泛共鸣的话：“光有 AI 很酷，但精通 + 创意 + AI 是另一个次元的存在。”</p>
+    <div class="urls"><a href="https://x.com/rauchg/status/2084042561690456157">https://x.com/rauchg/status/2084042561690456157</a>
+      <a href="https://x.com/rauchg/status/2084060157085143512">https://x.com/rauchg/status/2084060157085143512</a>
+      <a href="https://x.com/rauchg/status/2083969120270450911">https://x.com/rauchg/status/2083969120270450911</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aaron Levie</span>
+      <span class="builder-role">Box CEO</span>
+    </div>
+    <p class="summary-en">Argued the counterintuitive point that some of the “hardest” work in the world — math, cyber, code — gets automated first precisely because it’s verifiable: training gets clearer reward signals and runtime results can be tested at scale. Domains like legal, marketing, sales and finance lack instant verifiability, so the applied AI layer (and even changed processes) will matter more than the model itself.</p>
+    <p class="summary-zh zh">提出了一个反直觉的观点：世界上某些“最难”的工作——数学、安全、编程——反而会最先被自动化，正是因为“可验证”。训练能得到更清晰的奖励信号，运行结果也能大规模测试。而法律、营销、销售、财务这类领域缺乏即时可验证性，所以真正拉开差距的会是应用层 AI（甚至包括被改造的流程），而不只是模型本身。</p>
+    <div class="urls"><a href="https://x.com/levie/status/2083965372747882741">https://x.com/levie/status/2083965372747882741</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Ryo Lu</span>
+      <span class="builder-role">Designer, Cursor</span>
+    </div>
+    <p class="summary-en">Reflected on design lineage: his early mentors were apps like Rdio, Mailbox and Apple that made software feel simpler and more intuitive to touch. As we leave the “world of apps” behind, he asks what parts of software will remain visible and how it could feel — a thoughtful prompt about post-app UX.</p>
+    <p class="summary-zh zh">聊了设计脉络：他早期的启蒙是 Rdio、Mailbox、Apple 这类让软件“摸起来更简单直观”的应用。当我们正在告别“App 的世界”，他抛出问题：软件的哪些部分还会保留可见性、又会是什么手感？这是一条关于“后 App 时代 UX”的走心思考。</p>
+    <div class="urls"><a href="https://x.com/ryolu_/status/2083939454017053179">https://x.com/ryolu_/status/2083939454017053179</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Garry Tan</span>
+      <span class="builder-role">Y Combinator CEO</span>
+    </div>
+    <p class="summary-en">Three punchy posts: “Growth is good — AI will create unimaginable economic growth and that is the best white pill.” “The sense of wonder disappeared right at the moment the amount of wonder is going parabolic.” And a meritocracy frame: “Everyone mistakes the map for the territory. Meritocracy is that the territory matters more than the map. And in markets the outcome is the territory: did you make something people want?”</p>
+    <p class="summary-zh zh">三条短而有力的发言：“增长是好事——AI 将创造难以想象的经济增长，这是最好的一剂白色药丸（white pill）。”“就在‘惊叹感’即将抛物线式爆发的一刻，人们的惊叹感却消失了。”以及一句关于精英主义的判断：“大家都把地图当成了疆域。精英主义是：疆域比地图更重要。在市场上，结果才是疆域：你到底做出了人们想要的东西没有？”</p>
+    <div class="urls"><a href="https://x.com/garrytan/status/2083957110711386439">https://x.com/garrytan/status/2083957110711386439</a>
+      <a href="https://x.com/garrytan/status/2083923385193828612">https://x.com/garrytan/status/2083923385193828612</a>
+      <a href="https://x.com/garrytan/status/2083920039208693996">https://x.com/garrytan/status/2083920039208693996</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nikunj Kothari</span>
+      <span class="builder-role">FPV Ventures Partner</span>
+    </div>
+    <p class="summary-en">Made the blunt case that VC has “effectively fully become vibes capital” — early and mid-stage reality is divorced from fundamentals, and he expects this to continue for 12–18 months minimum (dry powder + AI tailwind). Public markets are equally unhinged: even trillion-dollar stocks swing >5% on vibes and model releases. His advice: long-run fundamentals (profitable, clean cap table, control of your destiny) still win, but in the short term, understand the vortex before touching capital markets.</p>
+    <p class="summary-zh zh">直言不讳：VC 已经“实质上完全变成了 vibes capital（情绪资本）”——早期和中期市场的现实和基本面脱钩，而且他判断这种状态至少还会持续 12–18 个月（干火药充足 + AI 顺风）。公开市场同样失控：连万亿市值的股票都会因为情绪和模型发布而单日波动超过 5%。他的建议：长期看基本面（盈利、干净的资本结构、掌握自己的命运）仍然会赢，但短期里，在踏入资本市场之前先搞懂这个漩涡。</p>
+    <div class="urls"><a href="https://x.com/nikunj/status/2083873335998333227">https://x.com/nikunj/status/2083873335998333227</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Steinberger</span>
+      <span class="builder-role">OpenClaw / OpenAI</span>
+    </div>
+    <p class="summary-en">Flagged what he called “a fairly new kind of spam” (shared as a screenshot). No analytical take this round — a low-substance post worth noting only as a signal of shifting abuse patterns.</p>
+    <p class="summary-zh zh">提醒了一种他称为“挺新型 spam”的东西（以截图形式分享）。这一轮没有分析性观点——含金量较低，仅作为“滥用形态正在变化”的一个信号。</p>
+    <div class="urls"><a href="https://x.com/steipete/status/2083976289485230449">https://x.com/steipete/status/2083976289485230449</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Dan Shipper</span>
+      <span class="builder-role">Every CEO</span>
+    </div>
+    <p class="summary-en">Laid out a three-stage “agency rupture” model for how people metabolize AI doing tasks they used to own: (1) initial rupture — you only see the AI; (2) seeing human scaffolding — you notice the work around the AI; (3) agency reconstruction — the model becomes invisible and you re-center yourself. The ability to metabolize ruptures into playfulness is, he argues, a leading indicator for thriving in the AI economy. Also: if “ought implies can” and technology reshapes human ability, then technology reshapes our moral oughts.</p>
+    <p class="summary-zh zh">提出了一个三阶段的“能动性断裂（agency rupture）”模型，描述人们如何消化“AI 做了自己过去的工作”这件事：(1) 初始断裂——你只看见 AI；(2) 看见人的脚手架——你注意到 AI 周围那些人的工作；(3) 能动性重建——模型变得不可见，你重新把自己放回中心。他认为，能把断裂转化成玩心和好奇的能力，是在 AI 经济中如鱼得水的领先指标。另一条：如果“应然蕴含能然（ought implies can）”，而技术重塑了人的能力，那么技术也就在重塑我们的道德“应然”。</p>
+    <div class="urls"><a href="https://x.com/danshipper/status/2084038453831020916">https://x.com/danshipper/status/2084038453831020916</a>
+      <a href="https://x.com/danshipper/status/2084144207254663417">https://x.com/danshipper/status/2084144207254663417</a>
+      <a href="https://x.com/danshipper/status/2084024211539116466">https://x.com/danshipper/status/2084024211539116466</a></div>
+  </article>
+
+</section>
+
+<!-- ============== PODCAST ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🎙️</span>
+    <h2 class="section-title">Podcasts</h2>
+    <span class="section-meta">1 Episode</span>
+  </div>
+
+  <div class="podcast">
+    <div class="podcast-source">Training Data</div>
+    <h3 class="podcast-title">Building the Automated AGI Lab: Core Automation’s Jerry Tworek and Rohan Anil</h3>
+
+    <div class="takeaway">
+      <span class="takeaway-label">The Takeaway</span>
+      Jerry Tworek and Rohan Anil — the ex-OpenAI reasoning lead and ex-Gemini pretraining lead behind Core Automation — argue the transformer has quietly hit its ceiling. The real edge now is a new architecture plus end-to-end pretraining/RL plus kernel generation, pursued inside the most automated lab they can build.
+    </div>
+
+    <div class="podcast-body">
+      <p>Jerry Tworek (former VP at OpenAI, ran the strawberry and reasoning teams) and Rohan Anil (one of four Gemini pretraining leads) founded Core Automation, one of the hottest neo-labs in San Francisco. Their contrarian premise: the architecture is now the bottleneck, not scale.</p>
+      <p>Tworek’s spicy take — “the first step to replacing transformers is appreciating deeply how far they carried us” — means don’t re-solve what they do well; attack their weaknesses. He admits he was an RL maximalist who thought scaling reinforcement learning would “solve everything.” Benchmarks climbed, but real-world tasks didn’t, because training data never replicated the messy real-world distribution. His conclusion: we need models that learn at test time, on users’ own data.</p>
+      <p>Anil’s angle is efficiency. The transformer’s “computational depth is poor” — at most ~100 layers — and chain-of-thought is a band-aid that adds depth one token at a time, which is wildly inefficient at inference. He wants architectures that spend computation much better than autoregressive token generation.</p>
+      <p>Both believe pretraining and RL should be optimized end-to-end, something most labs don’t do because of org charts and release-cycle competition (“tokens aren’t sticky”). Their six-month roadmap centers on kernel generation: a QR linear-algebra kernel they got 60x faster only with a scarce human expert plus coding agents — models today can’t touch it. That kernel loop is their inner path to more efficient architectures.</p>
+      <p>On AGI, Tworek defines it as a model that improves itself with no human in the loop; the current path doesn’t get there because transformers can’t do continual learning. The bet: build the most automated lab and experiment your way to a superior architecture — ideally one where the team can go on vacation and the lab still ships something better.</p>
+    </div>
+
+    <div class="podcast-divider"></div>
+
+    <div class="podcast-zh">
+      <p>Jerry Tworek（前 OpenAI VP，曾负责 strawberry 和推理团队）与 Rohan Anil（Gemini 四位预训练负责人之一）创办了 Core Automation，是旧金山最炙手可热的 neo-lab 之一。他们反共识的前提是：瓶颈已经不是规模，而是架构本身。</p>
+      <p>Tworek 那条惹眼的观点——“替代 transformer 的第一步，是深深感激它把我们带到了多远”——意思是别去重新解决它已经解决得很好的问题，要去打它的弱点。他坦承自己曾是 RL  maximalist，以为把强化学习规模化就能“解决一切”。基准分数涨了，真实世界的任务却没解决，因为训练数据从未复刻真实世界那团混乱的分布。他的结论：我们需要能在测试时、在用户自己的数据上持续学习的模型。</p>
+      <p>Anil 的切入点是效率。transformer 的“计算深度很浅”——最多大约 100 层——而思维链（chain-of-thought）是一块创可贴，一次只加一个 token 的深度，在推理时极其低效。他要的是比自回归逐 token 生成更会“花计算”的架构。</p>
+      <p>两人都相信预训练和 RL 应该端到端一起优化，而大多数实验室不这么做，原因是组织架构和发布节奏的竞争（“token 不黏人”）。他们六个月的路线图以 kernel 生成为核心：一个 QR 线性代数 kernel，只有稀缺的人类专家加上 coding agent 才做到了 60 倍加速——今天的模型根本碰不了。这个 kernel 循环，正是他们通往更高效架构的内部路径。</p>
+      <p>谈到 AGI，Tworek 把它定义为“无需人类在环就能自我改进”的模型；当前路径到不了，因为 transformer 做不了持续学习。他们的赌注是：建一个最自动化的实验室，用实验“试”出更优架构——理想情况下，团队去度假，实验室还在产出更好的东西。</p>
+    </div>
+
+    <div class="urls" style="margin-top:24px">
+      <a href="https://www.youtube.com/watch?v=2RJiaf0SY8s">▶️ https://www.youtube.com/watch?v=2RJiaf0SY8s</a>
+    </div>
+  </div>
+
+</section>
+
+<footer class="footer">
+  <div class="next-issue">📬 下一期：明天 10:00（北京时间）</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->
