@@ -151,3 +151,18 @@
 - 重点推文：Aaron Levie(AI监管)、Guillermo Rauch(Vercel AI Gateway)
 - 部署状态：✅ HTTP 200
 - 文件：`2026/06/27/AI_Builders_Digest_2026-06-27.html`
+
+### 2026-08-04
+- 内容获取：12 Builders · 21 Tweets（实际渲染 URL，原始 totalTweets=26，已剔除纯生活/纯链接低质推文）· 1 Podcast · 0 Blog
+- feed 生成时间：2026-08-03（prepare-digest.js 拉取，状态 ok）
+- Podcast：Training Data — Core Automation 的 Jerry Tworek（前 OpenAI 推理负责人）& Rohan Anil（前 Gemini 预训练负责人），主题：transformer 架构触顶、需要新架构 + 端到端预训练/RL + kernel 生成
+- 重点推文：
+  - Guillermo Rauch（Vercel CEO）：发布内部 agent @v，既是 agent 也是 router，端到端自主可控；"mastery + creativity + AI hits on a whole different level"
+  - Aaron Levie（Box CEO）：最难的工作（数学/安全/代码）因可验证反而最先被自动化，应用层比模型本身更关键
+  - Nikunj Kothari（FPV Ventures）：VC 已"完全变成 vibes capital"，预计 12–18 个月内持续
+  - Garry Tan：AI 将带来难以想象的经济增长；"别把地图当疆域，市场里结果才是疆域"
+  - Dan Shipper：AI 取代任务的"能动性断裂"三阶段模型（初始断裂→看见脚手架→能动性重建）
+  - Thariq（Anthropic Claude Code）：数学领域已现杰文斯悖论，对懂数学的人需求会升
+- 部署状态：✅ HTTP 200（两次 push：初次 26→修正 21）
+- 文件：`2026/08/04/AI_Builders_Digest_2026-08-04.html`
+- 生成脚本：`/tmp/gen-digest-0804.js`（Node，按 JSON 数据 remix 成双语 HTML）
