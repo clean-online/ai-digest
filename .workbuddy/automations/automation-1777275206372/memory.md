@@ -166,3 +166,15 @@
 - 部署状态：✅ HTTP 200（两次 push：初次 26→修正 21）
 - 文件：`2026/08/04/AI_Builders_Digest_2026-08-04.html`
 - 生成脚本：`/tmp/gen-digest-0804.js`（Node，按 JSON 数据 remix 成双语 HTML）
+
+### 2026-08-05（自动执行 10:00 Asia/Shanghai）
+- 内容获取：10 Builders · 14 Tweets · 1 Podcast · 0 Blog
+- `feedGeneratedAt = 2026-08-04T07:11:41Z`（与 8/4 快照不同源，内容已刷新，非冻结）
+- prepare-digest.js 首次运行即成功（142KB），未触发兜底
+- Blog 判定：feed 含 3 篇（April-23 postmortem / Scaling Managed Agents / New in Claude Managed Agents），全量 HTML grep 命中 5–6 次 → 长期滞留旧条目，Blog 计 0 不渲染
+- 主线：应用层价值落点分化 + harness 自主化（Rauch 内部 @v agent+router / Levie 最难可验证任务最先自动化 / Nikunj VC 变 vibes capital）
+- Podcast：Unsupervised Learning — Ari Morcos (Datalogy) + Rob Toews (Radical Ventures)：OpenAI-Hugging Face 入侵、中国开放权重模型、model vs harness 区分、政策许可制、xAI/Cursor 数据、Google 组织惯性
+- 生成方式：Python 脚本 `/tmp/gen_digest_0805.py`（双语 remix + URL 动态取自 JSON + 自检断言：15/15 链接真实、0 伪造）
+- 部署状态：✅ HTTP 200（digest 31927 bytes / index 25539 bytes，commit 3a6a7f4，Actions `completed·success` 20s）
+- 文件：`2026/08/05/AI_Builders_Digest_2026-08-05.html`
+- 注：gh run 出现 Node.js 20 deprecation annotation（强制跑 Node 24），仅告警，deploy 仍 success，无需处理
