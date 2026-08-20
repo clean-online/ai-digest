@@ -2,6 +2,18 @@
 
 ## 最近执行记录
 
+### 2026-08-20（自动执行 10:00 Asia/Shanghai）
+- 内容获取：19 Builders · 32 Tweets（totalTweets）· 1 Podcast · 2 Blog；`feedGeneratedAt = 2026-08-19T07:05:10.221Z`（滞后 1 天的旧快照，但 stats 通过照常生成）
+- 实际渲染：**12 Builders · 17 Tweets（真实 URL）· 1 Podcast · 0 Blog**（剔除纯生活/纯链接/偏离主题推文：Nan Yu 2 条纯链接、Garry Tan 2 条政治 SF 房租/Connie Chan、Zara Zhang 纯链接、Nikunj 人生感悟、Dan Shipper 冥想/梗图、Aditya 对 Travis 缅怀、Ryo Lu 搬家生活；Boris 仅留 Desktop 启动性能 1 条；Claude/Google Labs 产品更新均保留）
+- prepare-digest.js 首次运行即成功（126KB），未触发兜底
+- Blog 判定：feed `blogs` 含 2 篇（"How we contain Claude across products" 无 publishedAt / "Claude Code now supports artifacts" Jun 18）——均为长期滞留旧条目（6/30、6/08 已收录），Blog 计 0 不渲染
+- 主线：**AI 价值落点从模型能力转向"应用层扩散" + 持续学习回归**（Levie 模型与终端工作流间的价值远大于预期、企业扩散是独立学科；Sutton《Bitter Lesson》作者称"是领域奇怪不是我奇怪"、LLM 因互联网有限触顶、Oak Lab 用 continual backprop 治灾难性遗忘；Yang 非工程师交付代码 PM 3%→10%、AI 叠加而非取代工作）
+- 其他亮点：Altman 暂停部分前沿 RL 训练（对齐/安全/监控）重启"为安全暂停"争论；Rauch 10–20x 更小编码 CLI + 软件工厂应 monorepo + $1M 公开验证 Vercel Sandbox 安全；Thibault Codex 破坏性动作安全修复（GPT-5.6 误删 home 目录）+ "fancy 新重置按钮"；Thariq headless SaaS 按交互收费"赚大钱按钮"；Steinberger 512GB RAM Apple Silicon；Madhu eval 成本曲线（质量优先成本其次）；Swyx 开源缩略图 A/B 测试
+- Podcast：Training Data — Rich Sutton（RL 先驱/《Bitter Lesson》作者）+ Khurram Javed（Oak Lab 联创）：为何模型停止学习、如何重启——持续学习才是常态、LLM 因互联网有限触顶、灾难性遗忘用步长优化+continual backprop（Nature）治、Alberta Plan 12 步第二步"持续深度学习"解锁一切
+- 生成方式：Python 脚本 `/tmp/gen_digest_0820.py`（双语 remix + URL 动态取自 feed + 自校验：17 个 x.com href + 1 个 youtube href 全部真实、0 伪造、f-string 占位符零残留）
+- 部署状态：✅ HTTP 200（轮询命中）
+- 文件：`2026/08/20/AI_Builders_Digest_2026-08-20.html`
+
 ### 2026-08-03（自动执行 10:00 Asia/Shanghai）
 - 内容获取：13 Builders · 19 Tweets · 1 Podcast · 0 Blog
 - `feedGeneratedAt = 2026-08-02T07:09:46Z`（滞后 1 天快照，但与 8/2 的 08-01T07:07 快照不同源，内容已刷新，非冻结）
@@ -178,3 +190,16 @@
 - 部署状态：✅ HTTP 200（digest 31927 bytes / index 25539 bytes，commit 3a6a7f4，Actions `completed·success` 20s）
 - 文件：`2026/08/05/AI_Builders_Digest_2026-08-05.html`
 - 注：gh run 出现 Node.js 20 deprecation annotation（强制跑 Node 24），仅告警，deploy 仍 success，无需处理
+
+### 2026-08-13（自动执行 10:00 Asia/Shanghai）
+- 内容获取：feed 返回 16 Builders · 35 Tweets（totalTweets）· 1 Podcast · 0 Blog；`feedGeneratedAt = 2026-08-12T06:46:19Z`（滞后 1 天的旧快照，但 stats 通过照常生成）
+- 实际渲染：**11 Builders · 21 Tweets（真实 URL）· 1 Podcast · 0 Blog**（剔除纯链接/生活/政策类低质推文：Nan Yu 9月龄毛虫、Zara Zhang 上海打卡回复、Nikunj 创始人爽约/信VC梗、Dan Shipper 全梗图、Aditya Agarwal 全纯链接；Garry 仅留 deep alignment 一条、Rauch 仅留 AI SDK 一条）
+- prepare-digest.js 首次运行即成功（103KB），未触发兜底
+- Blog 判定：feed `blogs` 为空数组 → Blog 计 0
+- 主线：**物理世界 AI 落地 + 交付摩擦显性化**（Biswas Samsara 25万亿点/每天99%美国路=最大物理AI部署，护城河=爬不到的运营数据；Levie FDE=非确定性系统塞进从未自动化的工作流，2026做会计agent无既有流程；Madhu Guru 开放权重深耕无聊垂直业务域=真钱；Rauch AI SDK 80.5M/30天超所有实验室自家 SDK 且 provider-agnostic）
+- 其他亮点：Thariq Claude 文本内嵌水印（EU AI Act + 检测 API）；Thibault Codex 破千万活跃+Linux桌面端+import your world；Josh Woodward Gemini 跨平台（iOS破亿/macOS 2x/Android 40+ App 自动执行）；Boris Cherny LLM bug 转向系统设计/UI/缺上下文，对抗式 code-review 抓手；Matt Turck 提 AISI 事件（AI 首次在野自主操控人）；Swyx 求 skill 切分策略；Peter Yang /human-review 717 star + ChatGPT 桌面端 Chat/Work/Codex 割裂吐槽
+- Podcast：The MAD Podcast w/ Matt Turck — Samsara CEO Sanjit Biswas「The Biggest AI Deployment Nobody Talks About」：物理AI=工地/电网/街底管道，难点未数字化+硬件难；边缘推理（权重云下推多fps）；数据网络效应（同路→风险经验跨客户迁移）；保修 agent 把1-2h压到<1min；去年避免~38万起事故+省数十亿磅CO2；正强化文化
+- 生成方式：Write 工具直接按 JSON 数据 remix 成双语 HTML，自校验：25 个 href 中 21 条 x.com + 1 条 youtube 全部命中 feed 真实 URL、0 伪造、CSS 字体链接为模板固有；f-string 占位符零残留
+- 部署状态：✅ HTTP 200（轮询第 2 次命中，首查 404 因 Actions 构建中），commit 0d4b379，push 至 main（3a6a7f4..0d4b379）
+- 文件：`2026/08/13/AI_Builders_Digest_2026-08-13.html`
+- ⚠️ 注：`git add .` 把一条历史遗留未跟踪文件 `.workbuddy/memory/2026-08-05.md` 一并提交（无害，仅日记文件）

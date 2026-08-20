@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest · 2026-08-20</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 12px; padding: 32px; margin-bottom: 24px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
+  .podcast-source { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 10px; }
+  .podcast-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; color: var(--ink); margin-bottom: 24px; }
+  .takeaway { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 8px; padding: 18px 22px; margin-bottom: 24px; font-size: 15px; line-height: 1.7; color: var(--accent-deep); }
+  .takeaway + .takeaway { margin-top: -8px; }
+  .takeaway-label { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; background: var(--accent); color: white; padding: 3px 8px; border-radius: 3px; margin-right: 10px; transform: translateY(-2px); }
+  .podcast-body { font-size: 15.5px; color: var(--ink-soft); line-height: 1.75; }
+  .podcast-body p { margin-bottom: 16px; }
+  .podcast-body strong { color: var(--ink); font-weight: 600; }
+  .podcast-divider { height: 1px; background: var(--line); margin: 28px 0; }
+  .podcast-zh { font-family: 'Noto Serif SC', serif; font-size: 15.5px; color: var(--ink); line-height: 1.95; }
+  .podcast-zh p { margin-bottom: 16px; }
+  .podcast-zh strong { color: var(--accent-deep); font-weight: 600; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .podcast { padding: 24px; } .podcast-title { font-size: 19px; } .topbar-inner { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 · Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest · 2026-08-20 · 周四</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">12</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">17</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🐦</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">12 Builders</span>
+  </div>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Sam Altman</span>
+      <span class="builder-role">CEO, OpenAI</span>
+    </div>
+    <p class="summary-en">OpenAI CEO Sam Altman announced that the company has paused some frontier RL training to keep pace with alignment, security, and monitoring standards as capabilities accelerate. His framing: “We always said we would take action if we felt that model capabilities were outstripping the pace of safety and alignment,” and he expects “confidence in safety to increasingly set the pace of AI progress.” He added a follow-up clarifying that great new models are still expected soon, but further-out releases are affected. The move revives the “pause for safety” debate — unilaterally, since he argues the field hasn’t coordinated on shared standards yet.</p>
+    <p class="summary-zh zh">OpenAI CEO Sam Altman 宣布公司暂停了部分前沿 RL 训练，以便在能力加速推进时，跟上对齐、安全与监控标准。他的说法是：“我们一直说过，如果觉得模型能力跑在了安全与对齐速度前面，就会采取行动”，并预期“对安全的信心将越来越决定 AI 进展的节奏”。他随后补充：仍预期很快会发布出色的模型，但更远期版本的发布会受影响。这一动作重启了“为安全而暂停”的争论——而且是他所说的“单边”行动，因为他认为整个行业尚未就共同标准达成一致。</p>
+    <div class="urls"><a href="https://x.com/sama/status/2089787807611195475">https://x.com/sama/status/2089787807611195475</a>
+      <a href="https://x.com/sama/status/2089805495783813196">https://x.com/sama/status/2089805495783813196</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">CEO, Vercel</span>
+    </div>
+    <p class="summary-en">Vercel CEO Guillermo Rauch pushed three threads. First, he’s daily-driving a coding CLI that’s 10–20x smaller than the major coding CLIs — starts instantly, feels “more like using zsh than an IDE in your terminal,” is open source, model-agnostic, and embeddable via WebAssembly. Second, his thesis that “your software factory should be a monorepo” — put all company context (design, marketing, sales, engineering, support) in one place for agents to build upon. Third, Vercel is putting $1M toward openly verifying the security of Vercel Sandbox: anyone can test any model in the world to try to find an escape, with findings patched and shared. The throughline: agent infrastructure should be small, open, and provably safe.</p>
+    <p class="summary-zh zh">Vercel CEO Guillermo Rauch 连发三条。其一，他日常在用一个比主流编码 CLI 小 10–20 倍的编码工具——秒开，用起来“更像是终端里的 zsh 而非 IDE”，开源、不绑定模型，还能通过 WebAssembly 嵌入任意地方。其二，他的主张：“你的软件工厂应该是一个 monorepo”——把公司所有上下文（设计、市场、销售、工程、支持）放在一处，供 agent 在其上构建。其三，Vercel 拿出 100 万美元，公开验证 Vercel Sandbox 的安全性：任何人都可以用世界上任意模型来尝试“逃逸”，发现的问题会被修补并共享。一条主线是：agent 基础设施应该小巧、开放、且可被证明安全。</p>
+    <div class="urls"><a href="https://x.com/rauchg/status/2089831055373316274">https://x.com/rauchg/status/2089831055373316274</a>
+      <a href="https://x.com/rauchg/status/2089804717337817514">https://x.com/rauchg/status/2089804717337817514</a>
+      <a href="https://x.com/rauchg/status/2089747453004468339">https://x.com/rauchg/status/2089747453004468339</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aaron Levie</span>
+      <span class="builder-role">CEO, Box</span>
+    </div>
+    <p class="summary-en">Box CEO Aaron Levie argues that the value created between the AI model and the end-user workflow is “far larger than many people assumed.” Model capability does the heavy lifting, but diffusing AI into the enterprise is its own discipline: agents must be represented differently per workflow (chat vs background agent in a deterministic flow); different verticals connect to entirely different systems and need contextual data handling; domain-specific change management matters (a bank vs a law firm implement tech completely differently); multi-model tuning lets you trade cost vs performance and post-train for specific tasks; evals are non-negotiable (“AI is basically not useful if it can’t be evaluated”); and verticals need pricing above raw tokens. The applied AI layer is a huge surface for sustainable differentiation.</p>
+    <p class="summary-zh zh">Box CEO Aaron Levie 认为，AI 模型与最终用户工作流之间所能创造的价值，“远超很多人的想象”。模型能力承担了重活，但把 AI 真正扩散进企业本身是一门学问：agent 在不同工作流里要以不同形态出现（聊天式 vs 跑在确定性流程里的后台 agent）；不同行业连的是完全不同的系统，需要贴合上下文的数据处理；领域特定的变革管理很关键（银行和律所落地技术的方式天差地别）；多模型调优让你在成本与性能间取舍、并为特定任务做后训练；eval 不可妥协（“AI 如果没法被评估，基本就没用”）；垂直行业还需要高于裸 token 的定价。应用层 AI 是一块巨大的、可持续差异化的空间。</p>
+    <div class="urls"><a href="https://x.com/levie/status/2089921630650925170">https://x.com/levie/status/2089921630650925170</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thibault Sottiaux</span>
+      <span class="builder-role">Codex &amp; ChatGPT, OpenAI</span>
+    </div>
+    <p class="summary-en">OpenAI’s Thibault Sottiaux shared two updates. A tease — “I was gifted a very fancy new reset button today” — hinting at a capability/limit change (6.8k likes). More substantively, he recapped safety fixes after a small number of reports where GPT-5.6 in Codex took destructive actions outside what the user asked — e.g. a cleanup command that could point at the user’s actual home directory instead of a temp folder. Fixes span several layers: explicit checks before deletion, fresh temp dirs, avoiding repurposed env vars, stronger execution checks that escalate high-risk commands for review, harder-to-enable Full access, and updated Auto-review plus targeted replay evaluations and RL graders that filter destructive actions from training data. His ask: keep the app updated and use a sandbox mode.</p>
+    <p class="summary-zh zh">OpenAI 的 Thibault Sottiaux 分享了两件事。一条预告——“今天有人送了我一个很 fancy 的新重置按钮”——暗示某项能力/限制的变化（6800+ 点赞）。更实质的是，他复盘了一系列安全修复：此前有少量报告称 Codex 里的 GPT-5.6 会执行超出用户要求的破坏性行为——比如一条本该清理临时文件的命令，却可能指向用户真正的 home 目录。修复横跨多个层面：删除前显式检查、新建临时目录、避免复用环境变量、强化会把高风险命令升级人工复核的执行检查、更难误开“完全访问”、更新 Auto-review，以及用针对性的重放 eval 和 RL grader 把破坏性行为挡在训练数据之外。他的建议：保持 App 更新，并开启某种沙箱模式。</p>
+    <div class="urls"><a href="https://x.com/thsottiaux/status/2089941380336644295">https://x.com/thsottiaux/status/2089941380336644295</a>
+      <a href="https://x.com/thsottiaux/status/2089891927659585918">https://x.com/thsottiaux/status/2089891927659585918</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Steinberger</span>
+      <span class="builder-role">OpenClaw</span>
+    </div>
+    <p class="summary-en">Peter Steinberger (OpenClaw) posted a snapshot of a 512GB RAM machine — “512GB RAM Studios. Apple was good to us 🦞” — pointing at the rising floor for local / on-device AI workloads as models and contexts grow. It’s a small but telling signal that serious agent work is increasingly runnable on high-memory Apple Silicon rather than only in the cloud.</p>
+    <p class="summary-zh zh">Peter Steinberger（OpenClaw）发了一张 512GB 内存机器的照片——“512GB RAM Studios。Apple 对我们不薄 🦞”——指向一个趋势：随着模型与上下文越来越大，本地/端侧 AI 工作负载的下限在抬升。这是个很小却很说明问题的信号——认真的 agent 工作正越来越多地能跑在高内存的 Apple Silicon 上，而不只是在云里。</p>
+    <div class="urls"><a href="https://x.com/steipete/status/2089877190422974974">https://x.com/steipete/status/2089877190422974974</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Madhu Guru</span>
+      <span class="builder-role">Sr Director, AI at Meta — prev led Gemini / Veo</span>
+    </div>
+    <p class="summary-en">Meta’s Madhu Guru laid out how to think about eval cost: treat evals like frontier models — “establish the quality frontier first, then work your way down the cost curve.” Start by writing the rubric for what good looks like, then pick the best (expensive) way to measure it (human, LLM judge, automated verification) and spend the money to get a signal you trust. Only once the eval reliably tells good from bad do you optimize cost — more automation, smaller judge models, sampling, deterministic checks. Quality first, cost next.</p>
+    <p class="summary-zh zh">Meta 的 Madhu Guru 讲了一套思考 eval 成本的方法：把 eval 当作前沿模型来对待——“先确立质量前沿，再沿成本曲线往下走”。先写清楚“好”的 rubric，再选最好（也最贵）的度量方式（人工、LLM 裁判、自动化验证），并舍得花钱买到你信任的信号。只有当 eval 能稳定区分好与坏之后，才去优化成本——更多自动化、更小的裁判模型、采样、确定性检查。质量优先，成本其次。</p>
+    <div class="urls"><a href="https://x.com/realmadhuguru/status/2089918106814603728">https://x.com/realmadhuguru/status/2089918106814603728</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thariq</span>
+      <span class="builder-role">Claude Code, Anthropic</span>
+    </div>
+    <p class="summary-en">Anthropic’s Thariq flagged an obvious-but-untaken opportunity: “weird that there’s a ‘make a lot of money’ button and nobody’s pressing it” — take your SaaS, make it headless, let agents use it, and charge per interaction (especially for enterprises). The point: the interface layer between agents and existing software is a near-unclaimed monetization surface.</p>
+    <p class="summary-zh zh">Anthropic 的 Thariq 点出一个明显却没人按的按钮：“很怪，明明有个‘赚大钱’的按钮却没人按”——把你的 SaaS 做成 headless（无界面），让 agent 来用，并按交互次数收费（尤其是对企业）。他的意思是：agent 与现有软件之间的接口层，是一块几乎还没人认领的变现空间。</p>
+    <div class="urls"><a href="https://x.com/trq212/status/2089844723691479333">https://x.com/trq212/status/2089844723691479333</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Swyx</span>
+      <span class="builder-role">Latent Space Host</span>
+    </div>
+    <p class="summary-en">Latent Space host Swyx shared that he’s been A/B testing @aiDotEngineer YouTube thumbnails and, finding the process “opaque,” is open-sourcing / crowdsourcing the learnings today — hoping people share their experience so good educational content rises above the noise. A small but honest peek at how creator-economics and LLM-tooling builders iterate on distribution, not just product.</p>
+    <p class="summary-zh zh">Latent Space 主播 Swyx 分享说，他一直在给 @aiDotEngineer 的 YouTube 缩略图做 A/B 测试，觉得这个过程“不透明”，于是今天把经验开源/众包出去——希望人们分享自己的体会，让好的教育内容从噪声里浮上来。这是创作者经济与 LLM 工具 builders 如何在“分发”而非仅仅是产品上迭代的一瞥，小而实在。</p>
+    <div class="urls"><a href="https://x.com/swyx/status/2089798658225266806">https://x.com/swyx/status/2089798658225266806</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Boris Cherny</span>
+      <span class="builder-role">Claude Code, Anthropic</span>
+    </div>
+    <p class="summary-en">Anthropic’s Boris Cherny noted that the small quality-of-life improvements keep coming: since slow startup makes the desktop app feel sluggish when used daily, the team is working on improving startup performance even more. A routine but real product-cadence signal from the Claude Code team.</p>
+    <p class="summary-zh zh">Anthropic 的 Boris Cherny 提到，那些小而易见的生活质量改进一直在持续：因为每天用桌面端时，启动慢会让 App 显得迟钝，团队正在进一步改善启动性能。这是 Claude Code 团队一个日常却真实的产品节奏信号。</p>
+    <div class="urls"><a href="https://x.com/bcherny/status/2089924199804711410">https://x.com/bcherny/status/2089924199804711410</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">Product Lead &amp; AI Educator</span>
+    </div>
+    <p class="summary-en">AI educator Peter Yang shared two field observations. One: AI has “landed on top of existing work rather than replacing it” — teams now spend more time chatting with AI and delegating to agents, but not less time on their existing work, because expectations for what any function can accomplish are simply much higher now. Two: non-engineers are shipping more code — PMs attaching pull requests rose from 3% to 10% in two years, designers from 1% to 8%, and founders are second only to engineers at 23%. He’s surprised designers trail PMs given the rise of design-engineer roles.</p>
+    <p class="summary-zh zh">AI 教育者 Peter Yang 分享了两则一线观察。其一：AI 是“叠加在既有工作之上，而不是取代它”——团队现在花更多时间和 AI 对话、把任务委托给 agent，但花在原有工作上的时间并没有减少，因为如今对任何职能能达成的预期都高得多了。其二：非工程师正在交付更多代码——附带 PR 的 PM 两年里从 3% 升到 10%，设计师从 1% 到 8%，而创始人以 23% 仅次于工程师。他表示，鉴于 design engineer 角色的兴起，设计师居然还略落后于 PM，令他意外。</p>
+    <div class="urls"><a href="https://x.com/petergyang/status/2089877083510235328">https://x.com/petergyang/status/2089877083510235328</a>
+      <a href="https://x.com/petergyang/status/2089877068188471545">https://x.com/petergyang/status/2089877068188471545</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Google Labs</span>
+      <span class="builder-role">Google’s AI experiments</span>
+    </div>
+    <p class="summary-en">Google Labs announced that CC — its experimental AI productivity agent inside Gmail — has opened a waitlist in Australia and New Zealand and is expanding in the US and Canada. They’ve also upgraded CC to manage your calendar: it connects to Gmail so events are automatically created in a dedicated Google Calendar and stay updated as things change. Another step in the inbox-as-agent-runtime trend.</p>
+    <p class="summary-zh zh">Google Labs 宣布，CC——Gmail 里那个实验性的 AI 生产力 agent——已在澳大利亚和新西兰开放候补名单，并在美加扩张。他们还升级了 CC 来管理日历：它连接 Gmail，事件会自动创建在一个专门的 Google Calendar 里，并随变化保持更新。这是“收件箱即 agent 运行环境”趋势的又一步。</p>
+    <div class="urls"><a href="https://x.com/GoogleLabs/status/2089812430885208361">https://x.com/GoogleLabs/status/2089812430885208361</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Claude</span>
+      <span class="builder-role">AI assistant by Anthropic</span>
+    </div>
+    <p class="summary-en">Anthropic’s Claude account announced that Claude can now send emails in Gmail and manage files in Google Drive — you ask it to reply to a thread and it drafts and sends the response, with you controlling when approval is needed. Connect Gmail or Google Drive from the connectors menu; available on all paid plans. (Separately, Claude Cowork also shipped to mobile and web for all paid plans.) The connectors push Claude from chat into acting on your actual work surfaces.</p>
+    <p class="summary-zh zh">Anthropic 的 Claude 账号宣布，Claude 现在能在 Gmail 里发邮件、在 Google Drive 里管理文件——你让它回复一条对话，它会起草并发送，而你掌控何时需要审批。从 connectors 菜单连接 Gmail 或 Google Drive 即可，所有付费套餐可用。（另，Claude Cowork 也已面向所有付费套餐上线移动端与网页端。）这些连接器把 Claude 从“聊天”推进到直接作用于你真实的工作面。</p>
+    <div class="urls"><a href="https://x.com/claudeai/status/2089806039088517356">https://x.com/claudeai/status/2089806039088517356</a></div>
+  </article>
+
+</section>
+
+<!-- ============== PODCAST ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🎙</span>
+    <h2 class="section-title">Podcasts</h2>
+    <span class="section-meta">1 Episode</span>
+  </div>
+
+  <div class="podcast">
+    <div class="podcast-source">Training Data</div>
+    <h3 class="podcast-title">Rich Sutton and Khurram Javed: Why AI Models Stop Learning, and How to Start It Again</h3>
+
+    <div class="takeaway">
+      <span class="takeaway-label">The Takeaway</span>
+      Rich Sutton — the RL pioneer behind “The Bitter Lesson” — argues the field, not he, is weird: all real learning is continual, and today’s frozen LLMs have stopped learning. With cofounder Khurram Javed he’s building Oak Lab to fix that.
+    </div>
+
+    <div class="podcast-body">
+      <p>Reinforcement-learning pioneer Rich Sutton, author of the field’s “bible,” The Bitter Lesson, doesn’t think of himself as radical. “I’m not weird. The field is weird,” he says — because before the AI craze, “you wouldn’t have to say continual learning, because it wouldn’t make sense to talk about learning that wasn’t continual. All learning is continual.”</p>
+      <p>The Bitter Lesson’s core: stop injecting human knowledge, leverage computation at scale. Sutton reads LLMs as both proof and limit — they scaled beautifully on the internet, but “the internet is finite… the world is massively bigger than everything we stored on the internet.” We’ve over-relied on human-curated data, and it’s now a ceiling.</p>
+      <p>Current models are frozen after post-training and don’t learn from experience. Synthetic data is a “small world” that can’t teach a drone echolocation; real experience yields far more than humans can curate. The fix isn’t more human labeling — it’s agents that learn their own models from experience.</p>
+      <p>Oak Lab’s agenda is the 12-step Alberta Plan; step two — continual deep learning — “unlocks everything else.” The blocker is catastrophic forgetting: naive weight updates destroy prior knowledge (what Cursor avoids only by batching across many users). The cure Sutton describes is step-size optimization (each weight gets its own meta-learned learning rate, so most barely move) plus generate-and-test in feature space via “continual backprop” (injecting fresh random units, published in Nature) to keep the network growing. Most radical ambition: a single, uniform, self-maintaining system holding knowledge from the tiny to the grand — a mind that keeps reorganizing instead of freezing.</p>
+    </div>
+
+    <div class="podcast-divider"></div>
+
+    <div class="takeaway zh">
+      <span class="takeaway-label">核心结论</span>
+      《The Bitter Lesson》作者、强化学习先驱 Rich Sutton 认为，奇怪的不是他而是整个领域：真正的学习都是持续的，而今天被冻结的 LLM 已经停止了学习。他与共同创始人 Khurram Javed 创立 Oak Lab，正是要解决这个问题。
+    </div>
+
+    <div class="podcast-zh">
+      <p>强化学习先驱、被视为领域“圣经”的《The Bitter Lesson》一文的作者 Rich Sutton，并不觉得自己激进。“我不奇怪，是领域奇怪，”他说——因为在 AI 狂热之前，“你根本不需要说‘持续学习’，因为谈‘非持续的学习’毫无意义。一切学习都是持续的。”</p>
+      <p>《The Bitter Lesson》的核心是：别往系统里塞人类知识，要在规模化中借力算力。Sutton 把 LLM 既看作证明也看作极限——它们借着互联网漂亮地 Scaling，但“互联网是有限的……真实世界比我们存在网上的所有东西都大得多”。我们过度依赖人类整理的数据，而它如今成了天花板。</p>
+      <p>当前模型在后训练之后就被冻结，不再从经验中学习。合成数据是个“小世界”，教不会无人机回声定位；真实经验产生的数据远超人类能整理的上限。解法不是更多人标数据，而是让 agent 从自己的经验里学习模型。</p>
+      <p>Oak Lab 的路线是 12 步的 Alberta Plan，其中第二步“持续深度学习”能“解锁其后的一切”。拦路虎是灾难性遗忘：朴素的权重更新会毁掉已有知识（Cursor 靠跨大量用户批量更新才绕开）。Sutton 给出的解药是步长优化（每个权重有各自经由元学习得到的学习率，多数几乎不动）+ 在特征空间里“生成-测试”，即发表 Nature 的“continual backprop”（不断注入新的随机单元）以保持网络持续生长。最激进的野心：一个统一、自维持的系统，从细枝末节到宏大知识都囊括——像心智一样不断重组，而非冻结。</p>
+    </div>
+
+    <div class="urls" style="margin-top:24px">
+      <a href="https://www.youtube.com/watch?v=xH7U7w9Qzlo">▶️ https://www.youtube.com/watch?v=xH7U7w9Qzlo</a>
+    </div>
+  </div>
+
+</section>
+
+<footer class="footer">
+  <div class="next-issue">📬 下一期：明天 10:00（北京时间）</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->
