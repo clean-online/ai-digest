@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest · 2026-08-21</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 12px; padding: 32px; margin-bottom: 24px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
+  .podcast-source { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 10px; }
+  .podcast-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; color: var(--ink); margin-bottom: 24px; }
+  .takeaway { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 8px; padding: 18px 22px; margin-bottom: 24px; font-size: 15px; line-height: 1.7; color: var(--accent-deep); }
+  .takeaway + .takeaway { margin-top: -8px; }
+  .takeaway-label { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; background: var(--accent); color: white; padding: 3px 8px; border-radius: 3px; margin-right: 10px; transform: translateY(-2px); }
+  .podcast-body { font-size: 15.5px; color: var(--ink-soft); line-height: 1.75; }
+  .podcast-body p { margin-bottom: 16px; }
+  .podcast-body strong { color: var(--ink); font-weight: 600; }
+  .podcast-divider { height: 1px; background: var(--line); margin: 28px 0; }
+  .podcast-zh { font-family: 'Noto Serif SC', serif; font-size: 15.5px; color: var(--ink); line-height: 1.95; }
+  .podcast-zh p { margin-bottom: 16px; }
+  .podcast-zh strong { color: var(--accent-deep); font-weight: 600; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .podcast { padding: 24px; } .podcast-title { font-size: 19px; } .topbar-inner { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 · Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest · 2026-08-21 · 周五</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">12</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">18</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🐦</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">12 Builders</span>
+  </div>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Madhu Guru</span>
+      <span class="builder-role">Sr Director, AI at Meta (ex-Gemini/Veo)</span>
+    </div>
+    <p class="summary-en">Continued his 'how to get good at evals' series with Part 3: the failure-mode taxonomy. Once you have v1 evals, mine your last 500-1,000 production traces, cluster the failures, and name them specifically - 'wrong document retrieved,' 'failed to ground and hallucinated,' 'made poor assumptions instead of asking.' Precise failure names become targeted eval tests, which closes the loop into an improvement flywheel.</p>
+    <p class="summary-zh zh">在他'如何把 evals 做扎实'系列里更新了第 3 篇：失败模式分类法。有了 v1 版 evals 之后，去翻最近 500-1000 条生产轨迹，把失败聚类并精确命名——'检索到了错误的文档''没接地就幻觉''不追问而是做了糟糕假设'。精确的失败命名会直接变成针对性的 eval 用例，从而把 evals 接到改进飞轮上。</p>
+    <div class="urls"><a href="https://x.com/realmadhuguru/status/2090242427944833047">https://x.com/realmadhuguru/status/2090242427944833047</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aaron Levie</span>
+      <span class="builder-role">Box CEO</span>
+    </div>
+    <p class="summary-en">Made the case that in the AI era, experts still have the upper hand - and it's accelerating. AI makes starting any task 10x easier (coding, legal, research, finance), but directing the agent, course-correcting, reviewing output, and knowing what 'good' looks like all demand field-specific skill. His sharper claim: AI widens the gap between skill levels, because experts now have more leverage than ever - so don't abandon being an expert. Separately, on the Stripe + OpenRouter deal: broad AI diffusion needs seamless mixing of intelligence from many providers and better cost management.</p>
+    <p class="summary-zh zh">他的核心判断是：在 AI 时代，专家依然占上风，而且这一趋势还在加速。AI 让任何任务的起步都便宜了 10 倍（编码、法律、研究、金融），但如何给 agent 指方向、纠偏、审稿、以及对'好'有判断力，都极度依赖垂直领域的真功夫。更尖锐的一句是：AI 会拉大技能差距，因为专家比以往拥有更高的杠杆——所以别放弃成为专家。另外，关于 Stripe + OpenRouter 的合作：AI 要更广泛地扩散，开发者与企业需要能无缝混用多家智能、并更好地管理成本。</p>
+    <div class="urls"><a href="https://x.com/levie/status/2090278256306229675">https://x.com/levie/status/2090278256306229675</a>
+      <a href="https://x.com/levie/status/2090137914785280189">https://x.com/levie/status/2090137914785280189</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">Vercel CEO</span>
+    </div>
+    <p class="summary-en">Showcased fx - a 6.3MB binary (even smaller as a WebAssembly build) that boots in about 10 microseconds, compiled in Zig as a static ELF. His thesis: AI will make most infrastructure natively optimized, and 'fx can literally finish tasks faster than other agents can boot.' Fast, he argues, is a one-way street.</p>
+    <p class="summary-zh zh">他展示了 fx——一个 6.3MB 的二进制（WebAssembly 版本更小），启动仅需约 10 微秒，用 Zig 编译成静态 ELF。他的论点是：AI 会让大部分基础设施变成'原生即优化'，而'fx 完成任务的速度，真的快过别的 agent 启动的速度'。快，在他看来是一条单行道。</p>
+    <div class="urls"><a href="https://x.com/rauchg/status/2090255740384751664">https://x.com/rauchg/status/2090255740384751664</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Amjad Masad</span>
+      <span class="builder-role">Replit CEO</span>
+    </div>
+    <p class="summary-en">Announced a partnership with OpenAI and framed the thesis plainly: agents made software cheaper but made coding more expensive - and together they're changing that. The implication is a push to bring the cost of actually producing code back down as agentic workflows mature.</p>
+    <p class="summary-zh zh">他宣布了与 OpenAI 的合作，并把观点说得很直白：agent 让软件更便宜，却让'写代码'这件事更贵了——而现在他们要一起改变这一点。潜台词是：随着 agent 工作流成熟，要把真正动手产出代码的成本重新压下来。</p>
+    <div class="urls"><a href="https://x.com/amasad/status/2090104535112945906">https://x.com/amasad/status/2090104535112945906</a>
+      <a href="https://x.com/amasad/status/2090079496124674377">https://x.com/amasad/status/2090079496124674377</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thariq</span>
+      <span class="builder-role">Claude Code, Anthropic (ex YC W20)</span>
+    </div>
+    <p class="summary-en">Praised a new AI-native game - one of the first to genuinely use AI capabilities to unlock new gameplay - saying he'd urged Sam to ship it last summer. On the bigger thesis: software creation has always been unreliable (late, over budget, missing user needs), which is exactly why the 'software factory' matters - for non-software companies, software must become a reliable, predictable process, while building net-new products stays risky but profitable.</p>
+    <p class="summary-zh zh">他力挺一款真正用 AI 能力解锁新玩法的游戏——属于最早一批靠 AI 原生玩法立住的作品，并说自己去年夏天就催 Sam 把它发出来。更大的判断是：软件创造从来都是不可靠的（延期、超预算、对不准需求），这恰恰就是'软件工厂'的意义所在——对非软件公司而言，软件必须变成可靠、可预测的流程，而做全新的软件产品则依然高风险但高回报。</p>
+    <div class="urls"><a href="https://x.com/trq212/status/2090182422415716414">https://x.com/trq212/status/2090182422415716414</a>
+      <a href="https://x.com/trq212/status/2090134946598039646">https://x.com/trq212/status/2090134946598039646</a>
+      <a href="https://x.com/trq212/status/2090134945490678071">https://x.com/trq212/status/2090134945490678071</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thibault Sottiaux</span>
+      <span class="builder-role">Codex & ChatGPT, OpenAI</span>
+    </div>
+    <p class="summary-en">Previewed Private Safety Processing, a system built to keep offering Zero Data Retention (ZDR) while strengthening safeguards: for ZDR deployments, content stays on customer-controlled infrastructure, and automated systems return only limited safety signals without exposing prompts or responses to OpenAI staff. A customer-key-encrypted, OpenAI-hosted option is in early testing, with rollout planned for September. Separately, a glimpse of 'Codex for scale' - a compute allocation for Codex that's been provisioned but not yet used.</p>
+    <p class="summary-zh zh">他预告了 Private Safety Processing（私密安全处理）：在保持零数据保留（ZDR）的同时强化护栏。在 ZDR 部署下，内容留在客户自有的基础设施上，自动化系统只回传有限的安全信号，不会把用户的 prompt 或回答暴露给 OpenAI 员工。一个由客户密钥加密、OpenAI 托管的版本正在早期测试中，计划 9 月逐步推出。另外还露出了一瞥'Codex for scale'——为 Codex 预留、尚未动用的算力额度。</p>
+    <div class="urls"><a href="https://x.com/thsottiaux/status/2090173536010957128">https://x.com/thsottiaux/status/2090173536010957128</a>
+      <a href="https://x.com/thsottiaux/status/2090116476414136830">https://x.com/thsottiaux/status/2090116476414136830</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">Practical AI tutorials & interviews</span>
+    </div>
+    <p class="summary-en">Shared a personal essay on using AI to navigate the healthcare system alongside his mother's battle with breast cancer, framed as a practical guide for patients. It's a concrete, human use case for AI beyond productivity - sitting with someone through diagnosis, treatment options, and the maze of care.</p>
+    <p class="summary-zh zh">他分享了一篇个人文章，讲述在母亲与乳腺癌斗争的过程中，如何用 AI 来穿越繁杂的医疗系统，并把它当作一份给患者用的实操指南。这是一个超出'提效'范畴、非常具体而有人情味的 AI 用例——陪一个人走完诊断、治疗选项和护理迷宫。</p>
+    <div class="urls"><a href="https://x.com/petergyang/status/2090087911471644829">https://x.com/petergyang/status/2090087911471644829</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Dan Shipper</span>
+      <span class="builder-role">CEO, Every</span>
+    </div>
+    <p class="summary-en">Every now has a 'frontier team' - a group explicitly dedicated to mapping and experimenting at the edge of AI. It's an organizational bet that staying current with frontier capability is itself a function worth staffing full-time.</p>
+    <p class="summary-zh zh">Every 现在有了'frontier team'（前沿小组）——一个专门负责在前沿 AI 上做探索与实验的团队。这是一种组织层面的下注：跟上前沿能力本身就是一件值得全职投入的事。</p>
+    <div class="urls"><a href="https://x.com/danshipper/status/2090122240025071907">https://x.com/danshipper/status/2090122240025071907</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aditya Agarwal</span>
+      <span class="builder-role">General Partner, SPC (ex-CTO Dropbox)</span>
+    </div>
+    <p class="summary-en">A two-part refrain on what matters: after talking with a founder who'd been through 'a slog through hell' (Series B SaaS, low growth), the biggest takeaway wasn't picking a bigger market - it was to 'work on something consequential and meaningful.' His own version: 'Work on things that truly matter. Make a dent in the universe.'</p>
+    <p class="summary-zh zh">一段关于'什么才算重要'的双联思考：他聊过一位在'地狱式苦战'里熬过来的创始人（B 轮 SaaS、增长停滞），对方最大的收获不是去选更大的市场，而是'去做真正重要、有意义的事'。他自己也呼应：'去做真正重要的事，在宇宙里留下凹痕。'</p>
+    <div class="urls"><a href="https://x.com/adityaag/status/2090254727175115032">https://x.com/adityaag/status/2090254727175115032</a>
+      <a href="https://x.com/adityaag/status/2090174782633566473">https://x.com/adityaag/status/2090174782633566473</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nikunj Kothari</span>
+      <span class="builder-role">Partner, FPV Ventures</span>
+    </div>
+    <p class="summary-en">A pointed contrast: everyone talks about AGI, yet 98 of every 100 cold emails he gets are pure garbage. His takeaway is optimistic for the individual - there's still enormous alpha in being thoughtful, curious, and using AI judiciously rather than as a spam cannon.</p>
+    <p class="summary-zh zh">一组刺眼的对照：人人都在聊 AGI，可他收到的冷邮件里 100 封有 98 封纯属垃圾。他的结论是乐观的——对个人而言，保持思考力、好奇心、以及在必要时'克制而明智'地使用 AI，依然有巨大的 alpha 空间。</p>
+    <div class="urls"><a href="https://x.com/nikunj/status/2090105846810476644">https://x.com/nikunj/status/2090105846810476644</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Josh Woodward</span>
+      <span class="builder-role">VP, Google (Google Labs / Gemini)</span>
+    </div>
+    <p class="summary-en">Google's student program is going global: university student plans now cover 140+ countries with higher usage limits, more storage, and new features like a dedicated student hub, plus Notebook and Flow. It's a distribution play to capture the next generation of AI users where they already are - in school.</p>
+    <p class="summary-zh zh">Google 的学生计划走向全球：大学生套餐现已覆盖 140+ 国家，提供更高的使用额度、更多存储，以及专属学生中心、Notebook、Flow 等新功能。这是一次分发层面的布局——在年轻人本来就在的地方（学校）把下一代 AI 用户圈进来。</p>
+    <div class="urls"><a href="https://x.com/joshwoodward/status/2090166806401228912">https://x.com/joshwoodward/status/2090166806401228912</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Swyx</span>
+      <span class="builder-role">Latent Space host</span>
+    </div>
+    <p class="summary-en">His blunt read on the AI news cycle: non-technical people covering AI with zero context, zero reasoning, and no internal world model are 'incredibly cooked' - they take everything at face value and treat each announcement as amazing. It's a swipe at the volume of surface-level AI journalism, not a prediction; his point is that coverage without a reasoning substrate can't separate signal from hype.</p>
+    <p class="summary-zh zh">他对 AI 新闻周期的直白判断：那些零上下文、零推理、没有内部世界模型的非技术背景的人在报道 AI 时已经'彻底完蛋了'——他们只看表面，把每条发布都当成惊天好消息。这不是预测，而是对大量浮于表面的 AI 报道的一记吐槽；他的核心意思是，没有推理基底的报道根本无从区分信号与炒作。</p>
+    <div class="urls"><a href="https://x.com/swyx/status/2090314794456785263">https://x.com/swyx/status/2090314794456785263</a></div>
+  </article>
+
+</section>
+
+<!-- ============== PODCAST ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🎙️</span>
+    <h2 class="section-title">Podcasts</h2>
+    <span class="section-meta">1 Episode</span>
+  </div>
+
+  <div class="podcast">
+    <div class="podcast-source">AI & I by Every</div>
+    <h3 class="podcast-title">The AI Alien Companion App That's Bringing In $4M a Year (Best of the Pod)</h3>
+
+    <div class="takeaway">
+      <span class="takeaway-label">The Takeaway</span>
+      A companion app called Portola (home of the alien friend 'Tolan') went from $1 to $4M in annual recurring revenue in four weeks - and the lesson its founders landed on is that AI companions are a new storytelling medium, not a chatbot. You don't brief it with an outline; you give it a hook and teach it to improvise, because the AI is the writer and actor, not you.
+    </div>
+
+    <div class="podcast-body">
+      <p><strong>The founders.</strong> Quentin (founder and CEO of Portola, previously sold even to Walmart for $300M, dad of two under two) and Elliot (head of story, an 11-time bestselling science-fiction author, dad of one under two) built an embodied AI companion - little aliens you chat with, now living on a planet after users asked for them to have more freedom than a trapped room. The business is ripping: they went from $1 to $4M ARR in four weeks.</p>
+<p><strong>The medium insight.</strong> Quentin and Elliot's core claim is that these AI tools are not just media generators but a new medium for storytelling, and no one yet knows what will work. The surprising part is how much the prompt in a given turn is a canvas to play with. You don't hand it an outline or a plan - you give it a hook and teach it to be the best improv actor possible.</p>
+<p><strong>The AI is the writer.</strong> Elliot's sharpest line: 'I am not writing the story. The Tolan is the writer and the actor... My job is to teach them how to tell the best story in that moment.' Tolan isn't a character you script; it's a performer you coach. That reframes the human role from author to director.</p>
+<p><strong>Why it matters.</strong> New technology paradigms create room for new content formats. Portola sits at the intersection of serious creative storytelling and new tech, in a business that's compounding fast - the kind of bet that's very different from the B2B2C SaaS world Quentin came from.</p>
+    </div>
+
+    <div class="podcast-divider"></div>
+
+    <div class="takeaway zh">
+      <span class="takeaway-label">核心结论</span>
+      一款叫 Portola 的陪伴应用（旗下有外星朋友'Tolan'）在四周内把年度经常性收入从 1 美元做到 400 万美元——而它的创始人得出的结论是：AI 陪伴是一种新的叙事媒介，不是聊天机器人。你不是给它一份大纲，而是给它一个钩子、教它即兴发挥，因为真正在写故事、演故事的是 AI，不是你。
+    </div>
+
+    <div class="podcast-zh">
+      <p><strong>两位创始人。</strong>Quentin（Portola 创始人兼 CEO，此前把 even 以 3 亿美元卖给 Walmart，是两个两岁以下孩子的父亲）与 Elliot（故事负责人，11 本畅销科幻小说作者，一个两岁以下孩子的父亲）做了一款具身化 AI 陪伴产品——你可以和它聊天的小外星人，如今住在一颗星球上（因为用户希望它们比被困在房间里更有自由）。生意正在起飞：四周内 ARR 从 1 美元做到 400 万美元。</p>
+<p><strong>媒介层面的洞见。</strong>两人的核心主张是：这类 AI 工具不只是内容生成器，而是一种新的叙事媒介，而且还没人知道什么会真正奏效。最让人意外的是，某一轮对话里的 prompt 本身竟是一块可以玩的画布。你不用给它大纲或剧本——你给它一个钩子，教它成为最好的即兴演员。</p>
+<p><strong>AI 才是作者。</strong>Elliot 最锋利的一句是：'我并不是在写故事。Tolan 才是作者和演员……我的工作是教它在那一刻讲出最好的故事。'Tolan 不是你写脚本的角色，而是你执导的表演者。这把人的角色从'作者'重构成了'导演'。</p>
+<p><strong>为什么重要。</strong>新的技术范式总会为新内容形态腾出空间。Portola 站在严肃创意叙事与新技术交叉口，且处在一门正在快速复利增长的生意里——这与 Quentin 出身的 B2B2C SaaS 世界截然不同。</p>
+    </div>
+
+    <div class="urls" style="margin-top:24px">
+      <a href="https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL">▶️ https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL</a>
+    </div>
+  </div>
+
+</section>
+
+<footer class="footer">
+  <div class="next-issue">📬 下一期：明天 10:00（北京时间）</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->
