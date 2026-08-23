@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest · 2026-08-23</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 12px; padding: 32px; margin-bottom: 24px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
+  .podcast-source { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 10px; }
+  .podcast-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; color: var(--ink); margin-bottom: 24px; }
+  .takeaway { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 8px; padding: 18px 22px; margin-bottom: 24px; font-size: 15px; line-height: 1.7; color: var(--accent-deep); }
+  .takeaway + .takeaway { margin-top: -8px; }
+  .takeaway-label { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; background: var(--accent); color: white; padding: 3px 8px; border-radius: 3px; margin-right: 10px; transform: translateY(-2px); }
+  .podcast-body { font-size: 15.5px; color: var(--ink-soft); line-height: 1.75; }
+  .podcast-body p { margin-bottom: 16px; }
+  .podcast-body strong { color: var(--ink); font-weight: 600; }
+  .podcast-divider { height: 1px; background: var(--line); margin: 28px 0; }
+  .podcast-zh { font-family: 'Noto Serif SC', serif; font-size: 15.5px; color: var(--ink); line-height: 1.95; }
+  .podcast-zh p { margin-bottom: 16px; }
+  .podcast-zh strong { color: var(--accent-deep); font-weight: 600; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .podcast { padding: 24px; } .podcast-title { font-size: 19px; } .topbar-inner { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 · Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest · 2026-08-23 · 周日</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">11</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">20</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+<!-- digest takeaway -->
+<section class="section">
+  <div class="takeaway" style="margin-top:36px">
+    <span class="takeaway-label">Today's Signal</span>
+When the machine is superhuman, the edge moves to the human layer — adoption, verification, and explanation. Chess.com is more popular than ever three decades after computers outclassed humans; the day's builders echo it: Levie says intelligence is too cheap to meter so the opportunity is diffusion, Madhu warns against collapsing AI quality into one number, Thariq ships an ELI5 skill that explains complex things plainly, and Nikunj embeds agents into family life.
+  </div>
+</section>
+
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🐦</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">11 Builders</span>
+  </div>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Swyx</span>
+      <span class="builder-role">Latent Space Host</span>
+    </div>
+    <p class="summary-en">He's gone from light shitposting to dead serious on a claim borrowed from Karpathy and Fei-Fei Li: "simulation is a new scaling law." The thread explains why he's now a believer in the Smallville lineage (RSI — recursive self-improvement) that those researchers backed. Separately, he's teasing "Kill My SaaS 2," promising results from the first round next week — his running experiment in using agents to obsolete SaaS products.</p>
+    <p class="summary-zh zh">他对一句借自 Karpathy 和李飞飞的说法，从随手玩梗变成了认真相信：“模拟是一种新的缩放定律”。这条线索解释了他为何现在站队那批研究者支持的 Smallville 谱系（RSI——递归自我改进）。另外，他在预热“Kill My SaaS 第 2 季”，并承诺下周公布第一季的结果——这是他用 agent 去淘汰 SaaS 产品的持续实验。</p>
+    <div class="urls"><a href="https://x.com/swyx/status/2090948945753076141">https://x.com/swyx/status/2090948945753076141</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Swyx</span>
+      <span class="builder-role">Latent Space Host</span>
+    </div>
+    <p class="summary-en">He quips "i have another saas to kill" and says he'll share the results of "Kill My SaaS 1" next week — a tongue-in-cheek but telling sign of how he thinks about agents dismantling incumbent software.</p>
+    <p class="summary-zh zh">他调侃说“我又有一个 SaaS 要干掉了”，并表示下周会公布“Kill My SaaS 第 1 季”的结果——一句玩笑话，却很说明他怎么看待 agent 拆解存量软件这件事。</p>
+    <div class="urls"><a href="https://x.com/swyx/status/2090908959590740033">https://x.com/swyx/status/2090908959590740033</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thibault Sottiaux</span>
+      <span class="builder-role">Codex & ChatGPT, OpenAI</span>
+    </div>
+    <p class="summary-en">Two ops notes from inside Codex. Some users saw worse cache hit rates this week, which drains usage faster since consistent cache hits are core to efficiency — they're investigating and promised an update. And the "banked reset" has finally landed for all paid ChatGPT Work and Codex users, clearing accumulated usage limits going into the weekend.</p>
+    <p class="summary-zh zh">来自 Codex 内部的两则运营提示。部分用户本周缓存命中率下降，由于稳定命中缓存是效率的核心，这会更快地消耗用量——团队正在排查并承诺次日更新。另外，“银行重置（banked reset）”终于对所有付费的 ChatGPT Work 和 Codex 用户落地，在周末前清空累计的用量额度。</p>
+    <div class="urls"><a href="https://x.com/thsottiaux/status/2091033630147854385">https://x.com/thsottiaux/status/2091033630147854385</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thibault Sottiaux</span>
+      <span class="builder-role">Codex & ChatGPT, OpenAI</span>
+    </div>
+    <p class="summary-en">Confirmation that the banked reset is live: "The banked reset has landed, I repeat, the banked reset has landed. Have an amazing weekend."</p>
+    <p class="summary-zh zh">确认银行重置已生效：“银行重置已落地，重复一遍，银行重置已落地。祝大家周末愉快。”</p>
+    <div class="urls"><a href="https://x.com/thsottiaux/status/2090964822422949999">https://x.com/thsottiaux/status/2090964822422949999</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">Product Lead & AI Educator</span>
+    </div>
+    <p class="summary-en">A two-part review of Instinct, a new assistant. The onboarding is genuinely impressive — smoothly connecting iMessages, Google Workspace and MCPs, and it proactively suggests actions after an MCP is linked. But he flags a hard blocker: it indexes and retains his emails without permission and won't let him delete them, so he can't recommend it until that's fixed.</p>
+    <p class="summary-zh zh">对新产品 Instinct 的两段式评测。onboarding 确实惊艳——流畅地接入 iMessages、Google Workspace 和各类 MCP，并且在连上一个 MCP 后会主动建议可执行的动作。但他点出了一个硬伤：它在未经许可的情况下索引并保留了他的邮件，且不让他删除，所以在修复前他无法推荐。</p>
+    <div class="urls"><a href="https://x.com/petergyang/status/2090936583814025417">https://x.com/petergyang/status/2090936583814025417</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">Product Lead & AI Educator</span>
+    </div>
+    <p class="summary-en">He praises the build quality ("Instinct is very well done") but remains skeptical he could do real work in it yet — a reminder that smooth onboarding and real task completion are still different bars.</p>
+    <p class="summary-zh zh">他称赞产品做得好（“Instinct 确实做得很棒”），但仍怀疑自己目前能否在里面做“真正的工作”——这提醒我们：顺滑的 onboarding 和真正的任务闭环，依然是两道不同的门槛。</p>
+    <div class="urls"><a href="https://x.com/petergyang/status/2090814910720835633">https://x.com/petergyang/status/2090814910720835633</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Madhu Guru</span>
+      <span class="builder-role">Sr Director, AI at Meta</span>
+    </div>
+    <p class="summary-en">On evals, part 5 of his series: stop collapsing a rich, complex eval suite into a single score. It happens because some senior wants a simplified number to decide with — he saw it at Gemini's early days, and sees it across teams. His name for it: the "tyranny of the average." AI systems don't have one dimension of quality, and a single number hides where they actually fail.</p>
+    <p class="summary-zh zh">关于 evals，这是他系列的第 5 篇：别再把一个丰富、复杂的评测套件压缩成一个分数。这么做往往是因为某位 senior 想要一个简化的数字来拍板——他在 Gemini 早期见过，如今在很多团队里也看到。他给这种现象起了个名字：“平均值的暴政（tyranny of the average）”。AI 系统的质量不是一个维度，单一数字会掩盖它真正失败的地方。</p>
+    <div class="urls"><a href="https://x.com/realmadhuguru/status/2090930137885774324">https://x.com/realmadhuguru/status/2090930137885774324</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thariq</span>
+      <span class="builder-role">Claude Code, Anthropic</span>
+    </div>
+    <p class="summary-en">Anthropic folks have been leaning hard on a new skill called ELI5 — "explain like I'm five" — that returns an HTML artifact with big pictures and few words. He uses it constantly for explainers ("how does this module work," "why did we make this tradeoff," "what caused this incident").</p>
+    <p class="summary-zh zh">Anthropic 内部最近都在重度使用一个叫 ELI5 的新 skill——“像给五岁孩子解释一样”——返回的是带大图、少文字的 HTML artifact。他日常管理都靠它来做讲解（“这个模块怎么工作的”“我们为什么做这个权衡”“这次事故是怎么发生的”）。</p>
+    <div class="urls"><a href="https://x.com/trq212/status/2090890394880155888">https://x.com/trq212/status/2090890394880155888</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thariq</span>
+      <span class="builder-role">Claude Code, Anthropic</span>
+    </div>
+    <p class="summary-en">It's not yet an official plugin, but you can already try it via the community marketplace with a couple of claude plugin commands — a sign of how fast internal tools escape into the wider ecosystem.</p>
+    <p class="summary-zh zh">它还不是官方插件，但你已经可以通过社区市场用几条 claude plugin 命令试用——也说明内部工具向外逃逸的速度有多快。</p>
+    <div class="urls"><a href="https://x.com/trq212/status/2090884855798407576">https://x.com/trq212/status/2090884855798407576</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thariq</span>
+      <span class="builder-role">Claude Code, Anthropic</span>
+    </div>
+    <p class="summary-en">The original ELI5 post: "explain like I'm someone who knows nothing about this topic, using a HTML artifact with big pictures and few words."</p>
+    <p class="summary-zh zh">最初的 ELI5 帖子：“像给对这个话题一无所知的人解释一样，用一个带大图、少文字的 HTML artifact。”</p>
+    <div class="urls"><a href="https://x.com/trq212/status/2090884854590382515">https://x.com/trq212/status/2090884854590382515</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">Vercel CEO</span>
+    </div>
+    <p class="summary-en">Vercel's offering now supports your Grok and Codex subscriptions — test it on a sandbox, instant to install. A small but telling sign of how agent subscriptions are becoming a first-class integration surface.</p>
+    <p class="summary-zh zh">Vercel 的产品现在支持你的 Grok 和 Codex 订阅——可以在沙箱里试，安装即开即用。一个小而能说明问题的信号：各类 agent 订阅正在变成一等公民式的集成面。</p>
+    <div class="urls"><a href="https://x.com/rauchg/status/2090953806624489501">https://x.com/rauchg/status/2090953806624489501</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">Vercel CEO</span>
+    </div>
+    <p class="summary-en">He ran is-agentic in a loop against their own product until it hit 100/100, which closed real gaps and pushed them to keep the bar high "because your time and tokens matter."</p>
+    <p class="summary-zh zh">他把 is-agentic 对自己的产品跑成循环，直到拿到 100/100，这填补了不少真实缺口，也让他们坚持把标准拉高，因为“你的时间和 token 都很宝贵”。</p>
+    <div class="urls"><a href="https://x.com/rauchg/status/2090858571613470919">https://x.com/rauchg/status/2090858571613470919</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">Vercel CEO</span>
+    </div>
+    <p class="summary-en">And the Python team is making rapid progress — continued investment in the language surface agents operate on.</p>
+    <p class="summary-zh zh">此外 Python 团队进展迅速——继续在 agent 所运行的语言层上投入。</p>
+    <div class="urls"><a href="https://x.com/rauchg/status/2090856968407978031">https://x.com/rauchg/status/2090856968407978031</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aaron Levie</span>
+      <span class="builder-role">Box CEO</span>
+    </div>
+    <p class="summary-en">His sharpest macro take: the rate of AI progress is unlike any other period in tech history — models are cheaper on a like-for-like basis, more capable, faster, and going deeper into nearly every domain. As intelligence becomes "too cheap to meter," the big opportunity is driving diffusion of AI into the economy, which is why this is a great time to be an applied AI company.</p>
+    <p class="summary-zh zh">他最锋利的一句宏观判断：AI 的进步速度在科技史上是空前的——按同等任务算模型更便宜、能力更强、速度更快，且几乎在每个领域都扎得更深。当智能变得“便宜到无法计量（too cheap to meter）”，最大的机会就在于把 AI 扩散进整个经济，这也正是做应用层 AI 公司的好时候。</p>
+    <div class="urls"><a href="https://x.com/levie/status/2091038566260539574">https://x.com/levie/status/2091038566260539574</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nikunj Kothari</span>
+      <span class="builder-role">Partner, FPV Ventures</span>
+    </div>
+    <p class="summary-en">A small but telling real-world agentic use case: his daughter's kindergarten posts daily meals on a random website with messy unstructured data. He asked Claude Code to find the (luckily unauthenticated) API through network requests, figure out the format, and feed it to their home Hermes bot — so every morning the family bot announces what's for breakfast and lunch.</p>
+    <p class="summary-zh zh">一个很小但很能说明问题的真实 agentic 用例：他女儿的幼儿园把每日餐食发在一个数据杂乱、结构混乱的随机网站上。他让 Claude Code 通过网络请求找到那个（幸好未鉴权的）API、弄清格式，再喂给家里的 Hermes bot——于是每天早晨，家庭 bot 会播报早饭和午饭吃什么。</p>
+    <div class="urls"><a href="https://x.com/nikunj/status/2090884422178627624">https://x.com/nikunj/status/2090884422178627624</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Steinberger</span>
+      <span class="builder-role">Builder & Investor</span>
+    </div>
+    <p class="summary-en">He spoke at the Agentic AI Summit in Berkeley on "No Doors for Agents" — his thesis on how agents should move through interfaces without the artificial gates we bolt onto software for humans. (He also teased dropping a new skill, but gave no detail.)</p>
+    <p class="summary-zh zh">他在 Berkeley 的 Agentic AI Summit 上做了题为“No Doors for Agents（给 agent 留门）”的演讲——核心是他关于 agent 应当如何穿过界面的主张：去掉我们为了人类而强加在软件上的那些人为门槛。（他也预热要发一个新 skill，但没给细节。）</p>
+    <div class="urls"><a href="https://x.com/steipete/status/2090898421108605078">https://x.com/steipete/status/2090898421108605078</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aditya Agarwal</span>
+      <span class="builder-role">General Partner, SPC</span>
+    </div>
+    <p class="summary-en">Short and bullish: "The frontier model race is just getting started." No elaboration, but the line signals his long-term conviction that the capability curve is far from done.</p>
+    <p class="summary-zh zh">简短而看多：“前沿模型竞赛才刚刚开始。”没有展开，但这句话表达了他的长期信念——能力曲线远未到头。</p>
+    <div class="urls"><a href="https://x.com/adityaag/status/2090814574400307585">https://x.com/adityaag/status/2090814574400307585</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Claude</span>
+      <span class="builder-role">Anthropic AI Assistant</span>
+    </div>
+    <p class="summary-en">Anthropic is expanding Claude's security footprint with Mythos, a vulnerability scanner that points at a GitHub repo and traces data across files to reason about how components interact. Each finding comes back with a CWE category, confidence and severity, plus a suggested fix that opens directly in Claude Code on the web — billed as standard token usage under your plan.</p>
+    <p class="summary-zh zh">Anthropic 正通过 Mythos 扩大 Claude 的安全版图——这是一个漏洞扫描器，指向一个 GitHub 仓库，跨文件追踪数据、推理组件如何交互。每条发现都会带回 CWE 分类、置信度和严重等级，以及一个可直接在网页版 Claude Code 中打开的修复建议——按你套餐内的标准 token 用量计费。</p>
+    <div class="urls"><a href="https://x.com/claudeai/status/2090852316328902930">https://x.com/claudeai/status/2090852316328902930</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Claude</span>
+      <span class="builder-role">Anthropic AI Assistant</span>
+    </div>
+    <p class="summary-en">The suggested patches open in Claude Code on the web, using the models your team already uses — part of the work to give defenders greater access to Mythos results without requiring direct access to the model (the model runs behind the scan and returns findings only).</p>
+    <p class="summary-zh zh">这些修复建议会在网页版 Claude Code 中打开，用你团队已经在用的模型——这是为了让防御者更大程度地拿到 Mythos 的结果，而不必直接碰模型本身（模型跑在扫描背后，只回传发现）。</p>
+    <div class="urls"><a href="https://x.com/claudeai/status/2090852318527033804">https://x.com/claudeai/status/2090852318527033804</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Claude</span>
+      <span class="builder-role">Anthropic AI Assistant</span>
+    </div>
+    <p class="summary-en">It's one of several steps to put frontier capability in defenders' hands: they're integrating Mythos 5 into partners' security products, launching a $35M Defender Advantage Fund for open-source security, and expanding the Cyber Verification Program.</p>
+    <p class="summary-zh zh">这是把前沿能力交到防御者手里的若干步骤之一：他们还在把 Mythos 5 集成进合作方的安全产品、推出面向开源安全的 3500 万美元 Defender Advantage Fund，并扩展 Cyber Verification Program。</p>
+    <div class="urls"><a href="https://x.com/claudeai/status/2090852320128938319">https://x.com/claudeai/status/2090852320128938319</a></div>
+  </article>
+</section>
+
+
+<!-- ============== PODCAST ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🎙️</span>
+    <h2 class="section-title">Podcasts</h2>
+    <span class="section-meta">1 Episode</span>
+  </div>
+
+  <div class="podcast">
+    <div class="podcast-source">No Priors</div>
+    <h3 class="podcast-title">What Chess.com Teaches US About Superhuman Capabilities, with CEO Erik Allebest</h3>
+
+    <div class="takeaway">
+      <span class="takeaway-label">The Takeaway</span>
+      The No Priors team sits down with Chess.com CEO Erik Allebest to use chess as a 30-year live experiment in what happens to a human activity once machines become superhuman at it — and the surprising answer is that the game is more popular than ever.
+    </div>
+
+    <div class="podcast-body">
+      <p><strong>The business.</strong> Allebest bought the chess.com domain out of a 2005 bankruptcy auction for $55 when nearly every investor called it an uninvestable niche. Two decades later it has 250M+ members, ~$200M/year in revenue, and a mission to get a billion people playing. COVID and Queen's Gambit spiked usage; each comedown settled at a permanently higher baseline.</p>
+      <p><strong>The core question.</strong> Chess is "our longest-running experiment" in what happens after machines are superhuman. The non-obvious finding is that superhuman AI didn't kill the game — access to that intelligence makes people learn faster and better, and seven-year-olds are now giving grandmasters real runs.</p>
+      <p><strong>The hard problem everyone now faces.</strong> Machines produce superhuman output that can pass as human performance. Chess.com defends with statistical ML models and a massive data moat — they know what human play looks like versus computer play. Allebest won't detail the defense, but says they track far more than users realize.</p>
+      <p><strong>Skills in an abundant world.</strong> He argues human skill stays relevant even when AI is superhuman; people will simply spend more time on games. They're building an AI "chess coach in your pocket" with LLMs — a symbiosis, not a replacement.</p>
+      <p><strong>Rating as truth.</strong> Bringing the chess playbook to poker — "how good are you really?" — because a real rating people care about as much as money reflects actual skill, not who rebuys the most chips.</p>
+    </div>
+
+    <div class="podcast-divider"></div>
+
+    <div class="takeaway zh">
+      <span class="takeaway-label">核心结论</span>
+      No Priors 请来 Chess.com CEO Erik Allebest，把国际象棋当作一个“机器变得超人之后，人类活动会怎样”的 30 年现场实验——而出人意料的答案是：这个项目比以往任何时候都更火。
+    </div>
+
+    <div class="podcast-zh">
+      <p><strong>生意。</strong>Allebest 在 2005 年一次破产拍卖里用 55 美元买下 chess.com 域名，当时几乎每个投资人都说这是个没人投得起的窄众项目。二十年后它有 2.5 亿+ 会员、约 2 亿美元年营收，使命是让十亿人会下棋。COVID 和《后翼弃兵》带来爆发，而每次回落都稳在一个更高的永久性基线。</p>
+      <p><strong>核心问题。</strong>国际象棋是“我们运行最久的一个实验”，关于机器变超人之后会发生什么。反直觉的结论是：超人 AI 没有杀死这个项目——能接触到那种智能，反而让人们学得更快更好，如今七岁小孩已经能跟特级大师真正过招。</p>
+      <p><strong>所有人都面对的难题。</strong>机器能产生以假乱真的超人输出。Chess.com 用统计机器学习模型和庞大的数据护城河来防守——他们清楚人类下棋和电脑下棋分别长什么样。Allebest 不愿细说防御手段，但表示他们追踪的东西远多于用户想象。</p>
+      <p><strong>丰裕世界里的技能。</strong>他认为即便 AI 超人，人类技能依然相关，人们只会把更多时间花在游戏上。他们正用 LLM 打造“口袋里的国际象棋教练”——是共生，不是替代。</p>
+      <p><strong>用评级逼近真相。</strong>把国际象棋的那套搬到扑克上——“你到底有多强？”——因为一个人们像在乎钱一样在乎的真实评级，反映的才是真本事，而不是谁反复买入的筹码最多。</p>
+    </div>
+
+    <div class="urls" style="margin-top:24px">
+      <a href="https://www.youtube.com/@NoPriorsPodcast">▶️ https://www.youtube.com/@NoPriorsPodcast</a>
+    </div>
+  </div>
+
+</section>
+
+
+<footer class="footer">
+  <div class="next-issue">📬 下一期：明天 10:00（北京时间）</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->

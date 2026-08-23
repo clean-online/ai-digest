@@ -2,6 +2,18 @@
 
 ## 最近执行记录
 
+### 2026-08-21（自动执行 10:00 Asia/Shanghai）
+- 内容获取：16 Builders · 30 Tweets（totalTweets）· 1 Podcast · 0 Blog；`feedGeneratedAt = 2026-08-20T07:06:19Z`（滞后 1 天的旧快照，但 stats 通过照常生成）
+- 实际渲染：**12 Builders · 18 Tweets（真实 URL）· 1 Podcast · 0 Blog**（剔除纯链接/个人/低质推文：Swyx 仅留"非技术报道完蛋"1 条、Josh Woodward 仅留学生计划全球 1 条、Thibault 剔除收礼物图、留 ZDR 私密安全处理+Codex for scale、Peter Yang 仅留母亲乳腺癌 AI 导诊文、Cat Wu 招募帖跳过、Rauch 剔除 SF 风景/Slack 表白留 fx 10µs Zig、Matt Turck 单句 Moderna 吐槽跳过、Steinberger 纯预告跳过、Sam Altman 商业隐私口号跳过、Nikunj 剔除专利画框 DIY 留冷邮件 98/100 垃圾）
+- prepare-digest.js 首次运行即成功（131KB），未触发兜底
+- Blog 判定：feed `blogs` 为空数组 → Blog 计 0
+- 主线：**AI 价值落点 = 专家判断力 + 软件工厂可靠性**（Levie 专家占上风且差距被 AI 拉大、判断/纠偏/审稿无可替代；Thariq 软件创造历来不可靠→软件工厂让非软件公司把软件变可靠流程；Rauch fx 10µs Zig 原生优化基础设施；Madhu evals 失败模式分类法闭环改进飞轮；Amjad Replit+OpenAI 让"写代码"重新变便宜）
+- 其他亮点：Thibault ZDR + Private Safety Processing（9 月推客户密钥加密版）；Josh Woodward 学生计划扩至 140+ 国（Notebook/Flow）；Peter Yang 用 AI 陪母亲走乳腺癌医疗迷宫；Dan Shipper Every 设 frontier team；Aditya "做真正重要的事"；Nikunj 冷邮件 98/100 垃圾仍有 alpha；Swyx 吐槽零推理基底的 AI 报道
+- Podcast：AI & I by Every — Portola（外星陪伴应用 Tolan）4 周 ARR 从 $1 到 $4M；AI 陪伴是新叙事媒介而非聊天机器人，给钩子教即兴、AI 是作者/演员、人是导演；创始人 Quentin（even 卖 Walmart $300M）/Elliot（11 本畅销科幻）
+- 生成方式：Python 脚本 `/tmp/gen_digest_0821.py`（双语 remix + URL 全部取自 feed JSON 并断言真实、0 伪造；f-string 占位符零残留；CSS 复用 2026-08-05 模板 760px 版）
+- 部署状态：✅ HTTP 200（轮询第 2 次命中，首查 404 因 Actions 构建中），commit b5d2639，push 至 main（62be607..b5d2639）
+- 文件：`2026/08/21/AI_Builders_Digest_2026-08-21.html`
+
 ### 2026-08-20（自动执行 10:00 Asia/Shanghai）
 - 内容获取：19 Builders · 32 Tweets（totalTweets）· 1 Podcast · 2 Blog；`feedGeneratedAt = 2026-08-19T07:05:10.221Z`（滞后 1 天的旧快照，但 stats 通过照常生成）
 - 实际渲染：**12 Builders · 17 Tweets（真实 URL）· 1 Podcast · 0 Blog**（剔除纯生活/纯链接/偏离主题推文：Nan Yu 2 条纯链接、Garry Tan 2 条政治 SF 房租/Connie Chan、Zara Zhang 纯链接、Nikunj 人生感悟、Dan Shipper 冥想/梗图、Aditya 对 Travis 缅怀、Ryo Lu 搬家生活；Boris 仅留 Desktop 启动性能 1 条；Claude/Google Labs 产品更新均保留）
