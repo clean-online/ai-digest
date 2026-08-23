@@ -215,3 +215,17 @@
 - 部署状态：✅ HTTP 200（轮询第 2 次命中，首查 404 因 Actions 构建中），commit 0d4b379，push 至 main（3a6a7f4..0d4b379）
 - 文件：`2026/08/13/AI_Builders_Digest_2026-08-13.html`
 - ⚠️ 注：`git add .` 把一条历史遗留未跟踪文件 `.workbuddy/memory/2026-08-05.md` 一并提交（无害，仅日记文件）
+
+### 2026-08-23（自动执行 10:00 Asia/Shanghai）
+- 内容获取：16 Builders · 34 Tweets（totalTweets）· 1 Podcast · 0 Blog；`feedGeneratedAt = 2026-08-22T06:27:29Z`（滞后 1 天快照，stats 通过照常生成）
+- 实际渲染：**11 Builders · 20 Tweets（真实 URL）· 1 Podcast · 0 Blog**（剔除纯链接/生活/政治/动机类低质推文：Amjad 3 条全链接/emoji、Garry 3 条全政治、Matt Turck 梗图、Zara 动机口号、Dan Shipper 全梗图）
+- prepare-digest.js 首次运行即成功（83KB），未触发兜底
+- Blog 判定：feed `blogs` 为空数组 → Blog 计 0
+- 主线：**当机器变得超人，价值落点转向人类层（采纳 / 验证 / 解释）**——chess.com 30 年后更火锚定；Levie 智能太便宜难计量→扩散进经济才是机会；Madhu 评测"平均值暴政"；Thariq 发 ELI5 解释 skill；Nikunj 把 agent 嵌进家庭生活（幼儿园餐食 bot）；Claude Mythos 把前沿能力交到防御者手里（$35M Defender Advantage Fund）
+- 其他亮点：Thibault Codex 缓存命中率下降排查 + banked reset 落地；Peter Yang 评 Instinct（onboarding 惊艳但未经许可索引邮件、暂不推荐）；Rauch is-agentic 跑满 100/100 + Grok/Codex 订阅接入；Swyx 认真相信"模拟是新缩放定律"+RSI；Aditya"前沿模型竞赛刚开始"
+- Podcast：No Priors — Chess.com CEO Erik Allebest「What Chess.com Teaches US About Superhuman Capabilities」：棋是"机器超人后人类活动会怎样"的 30 年现场实验，反直觉结论=棋比以往更火；超人 AI 没杀死棋、反而让人学得更快；机器产出以假乱真→防御靠统计 ML + 数据护城河；丰裕世界人类技能仍相关；把象棋评级那套搬到扑克
+- 生成方式：Python 脚本 `/tmp/gen_digest_0823.py`（双语 remix + URL 全部取自 feed JSON 并断言真实、0 伪造；f-string 占位符零残留；CSS 复用 2026-08-05 模板 760px 版）；自校验 `href="https://x.com/` 数 == 渲染推文数（20==20）
+- ⚠️ 注：feed 仅提供 podcast 频道页 URL（无具体视频 watch 链接），已用频道页兜底并在正文标注
+- 部署状态：✅ HTTP 200（轮询第 2 次命中，首查仍在 Actions 构建中），commit ab1521d，push 至 main（b5d2639..ab1521d）
+- 文件：`2026/08/23/AI_Builders_Digest_2026-08-23.html`
+- ⚠️ 注：本次 `git add .` 把 automation memory.md 本身（M）及两条历史遗留 `.workbuddy/memory/2026-08-20.md`、`2026-08-21.md` 一并提交（无害，仅日记文件）
