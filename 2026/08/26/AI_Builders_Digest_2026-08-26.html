@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest · 2026-08-26</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .takeaway { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 8px; padding: 18px 22px; margin-bottom: 24px; font-size: 15px; line-height: 1.7; color: var(--accent-deep); }
+  .takeaway-label { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; background: var(--accent); color: white; padding: 3px 8px; border-radius: 3px; margin-right: 10px; transform: translateY(-2px); }
+  .muted-note { max-width: var(--max-w); margin: 0 auto; padding: 28px 32px 0; text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .topbar-inner { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 · Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest · 2026-08-26 · 周三</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat"><div class="stat-num">11</div><div class="stat-label">Builders</div></div>
+  <div class="stat"><div class="stat-num">15</div><div class="stat-label">Tweets</div></div>
+  <div class="stat"><div class="stat-num">0</div><div class="stat-label">Podcast</div></div>
+  <div class="stat"><div class="stat-num">0</div><div class="stat-label">Blog</div></div>
+</div>
+<section class="section">
+  <div class="takeaway" style="margin-top:36px">
+    <span class="takeaway-label">Today's Signal</span>
+The day's builders converge on a quiet thesis: the moat isn't the model, it's the surrounding software and human judgment. Rauch wants software that gets smaller and prompt-able; Steinberger wants software you can change with a prompt; Levie says systems of record matter more once agents do 100X the work; Madhu warns that a blunt eval score hides where models actually fail; Amjad's Replit Agent quietly replaced CoWork in his own workflow; and Garry distills founder success down to "form a view, test it against reality, revise."
+  </div>
+</section>
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🐦</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">11 Builders</span>
+  </div>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thibault Sottiaux</span>
+      <span class="builder-role">Codex &amp; ChatGPT, OpenAI</span>
+    </div>
+    <p class="summary-en">OpenAI DevDay 2026 will be the best DevDay in the company's history — "it will not be close." A rare forward-looking promise from inside the Codex team about the fall event.</p>
+    <p class="summary-zh zh">他预告 OpenAI DevDay 2026 将是有史以来最好的一届 DevDay——“差距会非常明显”。这是来自 Codex 团队内部、对秋季发布会少见的高调预期。</p>
+    <div class="urls"><a href="https://x.com/thsottiaux/status/2092117461646856505">https://x.com/thsottiaux/status/2092117461646856505</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thibault Sottiaux</span>
+      <span class="builder-role">Codex &amp; ChatGPT, OpenAI</span>
+    </div>
+    <p class="summary-en">Starting tomorrow they'll bring back the 5-hour usage limit for Plus accounts across ChatGPT Work and Codex. He explained the reasoning: the cap smooths load on their compute so the plan can stay generous on weekly usage.</p>
+    <p class="summary-zh zh">从明天起，ChatGPT Work 和 Codex 的 Plus 账号将恢复 5 小时用量上限。他解释了原因：这个上限能平摊算力负载，从而让套餐在周用量上依然保持大方。</p>
+    <div class="urls"><a href="https://x.com/thsottiaux/status/2092058556707344708">https://x.com/thsottiaux/status/2092058556707344708</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">Product Lead &amp; AI Educator</span>
+    </div>
+    <p class="summary-en">He argues forced logins are a dealbreaker: whenever he has to sign into a new site/app, or use an agent trapped inside a website/app, he usually just stops using the product (entertainment and gaming excepted). "I can't be the only one."</p>
+    <p class="summary-zh zh">他认为强制登录是劝退点：每次要登录一个新站点/App，或是用一个被困在网站/App 里的 agent，他通常就直接弃用了（娱乐和游戏除外）。“我不可能是唯一一个吧。”</p>
+    <div class="urls"><a href="https://x.com/petergyang/status/2092080901094248474">https://x.com/petergyang/status/2092080901094248474</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">Product Lead &amp; AI Educator</span>
+    </div>
+    <p class="summary-en">He wants to try using AI to call customer-support phone numbers by voice, navigate the terrible automated phone trees, and talk to a human to book appointments or cancel subscriptions — and asks the simplest way to prototype it.</p>
+    <p class="summary-zh zh">他想试试用 AI 语音拨打客服电话、绕过糟糕的自动语音菜单、再转人工去预约或取消订阅——并且请教最简单的原型做法。</p>
+    <div class="urls"><a href="https://x.com/petergyang/status/2092031413319266382">https://x.com/petergyang/status/2092031413319266382</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nan Yu</span>
+      <span class="builder-role">Product Enthusiast</span>
+    </div>
+    <p class="summary-en">Setting up a new computer with Codex is "kind of nice" — it walks through downloading and installing Handy, Slack, Chrome, Cleanshot, Rectangle. The experience makes you wish Siri was this good.</p>
+    <p class="summary-zh zh">用 Codex 配置一台新电脑“还挺舒服”——它会一步步下载并装好 Handy、Slack、Chrome、Cleanshot、Rectangle。这种体验让人忍不住想：要是 Siri 也能这么能干就好了。</p>
+    <div class="urls"><a href="https://x.com/thenanyu/status/2092048044502192374">https://x.com/thenanyu/status/2092048044502192374</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Madhu Guru</span>
+      <span class="builder-role">Sr Director, AI at Meta</span>
+    </div>
+    <p class="summary-en">On evals, part 8: the discriminatory property. A hill-climbing eval only earns its keep when it can separate AI systems that are meaningfully different. His example — five systems scoring 94/93/95/94/92 — shows that if you already know A and C are substantially different but the eval can't tell them apart, the eval isn't doing its job.</p>
+    <p class="summary-zh zh">关于 evals 第 8 篇：区分性。一个用于爬坡优化的评测，只有当它能区分“真正不同的 AI 系统”时才值钱。他举了五个系统分别得 94/93/95/94/92 的例子——如果你早就知道 A 和 C 有本质差别，而评测却分不出来，那这个评测就没起作用。</p>
+    <div class="urls"><a href="https://x.com/realmadhuguru/status/2092058332735693264">https://x.com/realmadhuguru/status/2092058332735693264</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Amjad Masad</span>
+      <span class="builder-role">Replit CEO</span>
+    </div>
+    <p class="summary-en">Replit Agent has completely replaced Claude CoWork in his day-to-day work. His reasoning: it's more persistent and fastidious, and it uses code/software more effectively to complete tasks.</p>
+    <p class="summary-zh zh">Replit Agent 已经彻底取代 Claude CoWork，成为他日常工作的主力。他的理由：它更有毅力、更较真，而且更有效地用代码/软件来完成任务。</p>
+    <div class="urls"><a href="https://x.com/amasad/status/2091962601907638352">https://x.com/amasad/status/2091962601907638352</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">Vercel CEO</span>
+    </div>
+    <p class="summary-en">A thesis on software entropy: "It's faster, cheaper, more capable, and… smaller." As software evolves it tends to get slower, more bloated, buggier, and bigger — so he architects products from the outset to prevent that creep.</p>
+    <p class="summary-zh zh">一段关于软件熵的论断：“它更快、更便宜、更强，而且……更小。”软件在演化中往往会变得更慢、更臃肿、更多 bug、更庞大——所以他从一开始就把产品架构成能阻止这种膨胀。</p>
+    <div class="urls"><a href="https://x.com/rauchg/status/2092081554814320677">https://x.com/rauchg/status/2092081554814320677</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">Vercel CEO</span>
+    </div>
+    <p class="summary-en">A classic Rauch Zig anecdote: his terminal reset was oddly slow, traced to a sleep(1) that 3BSD's tset added in 1979 to let mechanical printer-and-ink terminals settle. He asked fx to write a faster alternative in Zig — it now takes 1ms instead of 1s.</p>
+    <p class="summary-zh zh">一段典型的 Rauch 式 Zig 小花絮：他的终端 reset 慢得离谱，追因到 1979 年 3BSD 的 tset 为了等机械针式终端“稳定”而加的 sleep(1)。他让 fx 用 Zig 写个更快的替代版——现在从 1 秒变成 1 毫秒。</p>
+    <div class="urls"><a href="https://x.com/rauchg/status/2091957823945216474">https://x.com/rauchg/status/2091957823945216474</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aaron Levie</span>
+      <span class="builder-role">Box CEO</span>
+    </div>
+    <p class="summary-en">Systems of record have never been more important: in a world where AI agents do 100X more work on these platforms than people ever did, agents will be querying the data, processing tasks, executing workflows, and collaborating with human and agent users.</p>
+    <p class="summary-zh zh">记录系统（systems of record）从没像现在这么重要：在一个 AI agent 在这些平台上做的活比人多出 100 倍的 world 里，agent 会查询数据、处理任务、执行流程，并与人和其它 agent 协作。</p>
+    <div class="urls"><a href="https://x.com/levie/status/2092087679240569126">https://x.com/levie/status/2092087679240569126</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aaron Levie</span>
+      <span class="builder-role">Box CEO</span>
+    </div>
+    <p class="summary-en">He notes ZDR (zero data retention) is underappreciated as a driver of AI adoption — it dramatically simplified the compliance process companies face when handling data with subprocessors. Without it, adoption would have been far slower.</p>
+    <p class="summary-zh zh">他指出 ZDR（零数据保留）对 AI 普及的拉动被严重低估——它大幅简化了企业在使用子处理方处理数据时的合规流程。没有它，采纳速度会慢得多。</p>
+    <div class="urls"><a href="https://x.com/levie/status/2091909170308296950">https://x.com/levie/status/2091909170308296950</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Garry Tan</span>
+      <span class="builder-role">YC CEO</span>
+    </div>
+    <p class="summary-en">A one-paragraph founder methodology: "Form a view. Turn it into an artifact or experiment. Put it in contact with reality. Read the result without self-deception. Revise and run again."</p>
+    <p class="summary-zh zh">一段浓缩的创始人方法论：“形成判断。把它变成一件作品或一个实验。让它接触现实。不带自欺地读取结果。修正，再跑一轮。”</p>
+    <div class="urls"><a href="https://x.com/garrytan/status/2092059517446156640">https://x.com/garrytan/status/2092059517446156640</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Zara Zhang</span>
+      <span class="builder-role">Builder</span>
+    </div>
+    <p class="summary-en">An unpopular opinion: hackathons are an outdated event format, at least the way they're traditionally held.</p>
+    <p class="summary-zh zh">一个不受欢迎的观点：黑客松已经是一种过时的活动形式，至少以它传统的方式来办是如此。</p>
+    <div class="urls"><a href="https://x.com/zarazhangrui/status/2092079390301556883">https://x.com/zarazhangrui/status/2092079390301556883</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nikunj Kothari</span>
+      <span class="builder-role">Partner, FPV Ventures</span>
+    </div>
+    <p class="summary-en">On venture reality: every unconventional deal that gets wired dies a hundred times before closing. It usually takes one champion willing to stick their neck out for the founder and quietly steer it to the finish line — so founders should figure out who their real champion is.</p>
+    <p class="summary-zh zh">关于风投的现实：每一笔不走寻常路的交易，在真正敲定前都会“死”上一百次。往往需要有一个肯为创始人挺身而出、悄悄把事推进到终点的人——所以创始人该搞清楚谁才是自己真正的 champion。</p>
+    <div class="urls"><a href="https://x.com/nikunj/status/2092079149028716877">https://x.com/nikunj/status/2092079149028716877</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Steinberger</span>
+      <span class="builder-role">Builder &amp; OpenAI/OpenClaw</span>
+    </div>
+    <p class="summary-en">A crisp thesis: "We need to get away from software that we can't change with a prompt." The future interface is editable in natural language, not behind fixed menus and gates.</p>
+    <p class="summary-zh zh">一句利落的论断：“我们要摆脱那种没法用一句话改动的软件。”未来的界面应当能用自然语言编辑，而不是锁死在固定的菜单和门槛后面。</p>
+    <div class="urls"><a href="https://x.com/steipete/status/2091923535513928015">https://x.com/steipete/status/2091923535513928015</a></div>
+  </article>
+</section><div class="muted-note">
+  今日所追踪播客无新单集 · 0 Podcast · 0 Blog
+</div>
+<footer class="footer">
+  <div class="next-issue">📬 下一期：明天 10:00（北京时间）</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->
