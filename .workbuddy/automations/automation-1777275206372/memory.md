@@ -249,5 +249,5 @@
 - 其他亮点：Thibault OpenAI 发布前奏（"button pressed"/landing 2:30pm PST）；Peter Yang 云电脑 2FA 违和感 + "配偶杂事 bot"；Nan Yu "mentats" 人类推理不可替代梗；Dan Shipper 模型不自愿协作+训练举报不良行为降风险的轻量观点
 - Podcast：No Priors — Max Hodak（Science 创始人/前 Neuralink）：Prima 视网膜假体获欧洲 CE 批准、为盲人恢复形状视觉；"大脑即计算机"→基底独立性；柏拉图式表征假说（AI 内部表征与神经几何相似）；10–15 年医学革命三主线（视觉/生物混合接口/灌注）；不看好"脑键盘" BCI
 - 生成方式：Write 工具直接按 JSON 数据 remix 成双语 HTML（CSS 复用 2026-08-05 模板 760px 版；URL 全部取自 feed JSON 真实链接、0 伪造）；f-string 占位符零残留
-- 部署状态：待验证（HTTP 200 轮询）
+- 部署状态：✅ HTTP 200（push 后 ~55s Actions 构建完成首查命中；index 含 2026-08-31 条目），commit 1038533，push 至 main（238a33b..1038533）
 - 文件：`2026/08/31/AI_Builders_Digest_2026-08-31.html`
