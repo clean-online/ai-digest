@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest · 2026-08-31</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 12px; padding: 32px; margin-bottom: 24px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
+  .podcast-source { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 10px; }
+  .podcast-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; color: var(--ink); margin-bottom: 24px; }
+  .takeaway { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 8px; padding: 18px 22px; margin-bottom: 24px; font-size: 15px; line-height: 1.7; color: var(--accent-deep); }
+  .takeaway + .takeaway { margin-top: -8px; }
+  .takeaway-label { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; background: var(--accent); color: white; padding: 3px 8px; border-radius: 3px; margin-right: 10px; transform: translateY(-2px); }
+  .podcast-body { font-size: 15.5px; color: var(--ink-soft); line-height: 1.75; }
+  .podcast-body p { margin-bottom: 16px; }
+  .podcast-body strong { color: var(--ink); font-weight: 600; }
+  .podcast-divider { height: 1px; background: var(--line); margin: 28px 0; }
+  .podcast-zh { font-family: 'Noto Serif SC', serif; font-size: 15.5px; color: var(--ink); line-height: 1.95; }
+  .podcast-zh p { margin-bottom: 16px; }
+  .podcast-zh strong { color: var(--accent-deep); font-weight: 600; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .podcast { padding: 24px; } .podcast-title { font-size: 19px; } .topbar-inner { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 · Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest · 2026-08-31 · 周一</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">8</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">18</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🐦</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">8 Builders</span>
+  </div>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thibault Sottiaux</span>
+      <span class="builder-role">Codex & ChatGPT, OpenAI</span>
+    </div>
+    <p class="summary-en">A short burst of launch theater from inside OpenAI: the team is "cooking like never before," a celebration was pushed to tomorrow because "the button was already pressed today," and he's "landing 2:30pm PST." Read together, these are teaser beats around an imminent Codex/OpenAI release — the internal rhythm you see right before a launch, not a technical disclosure.</p>
+    <p class="summary-zh zh">来自 OpenAI 内部的一段"发布前奏"：团队"前所未有地全力开干"，庆功被推到明天，因为"发布按钮今天已经按下了"，而他"将在太平洋时间下午 2:30 落地"。合起来看，这是在为一轮临近的 Codex / OpenAI 发布做铺垫——更像发布前的内部节奏，而非技术披露。</p>
+    <div class="urls"><a href="https://x.com/thsottiaux/status/2093914342551101782">https://x.com/thsottiaux/status/2093914342551101782</a>
+      <a href="https://x.com/thsottiaux/status/2093811840258293947">https://x.com/thsottiaux/status/2093811840258293947</a>
+      <a href="https://x.com/thsottiaux/status/2093801838504186008">https://x.com/thsottiaux/status/2093801838504186008</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">Product Lead & AI Educator</span>
+    </div>
+    <p class="summary-en">Light but revealing notes on living with agents. He flagged the surreal UX of typing a 2FA code into a "cloud computer," and riffed on a bot purpose-built to run the errands your spouse delegates to you — a name too long to ship. The through-line: as agents take over small tasks, the novel friction is around auth, delegation, and naming the things we offload.</p>
+    <p class="summary-zh zh">几条轻松却耐人寻味的"与 agent 同居"观察。他点出了往"云电脑"里敲 2FA 验证码那种违和感，又随口设想了一个专门替你跑"另一半交办杂事"的 bot——名字太长没法上线。贯穿其中的是：当 agent 接管零碎任务，新的摩擦点落在鉴权、委托，以及如何命名那些被我们甩出去的活儿上。</p>
+    <div class="urls"><a href="https://x.com/petergyang/status/2093845886262784145">https://x.com/petergyang/status/2093845886262784145</a>
+      <a href="https://x.com/petergyang/status/2093844648154579210">https://x.com/petergyang/status/2093844648154579210</a>
+      <a href="https://x.com/petergyang/status/2093844072461218283">https://x.com/petergyang/status/2093844072461218283</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nan Yu</span>
+      <span class="builder-role">Product Enthusiast</span>
+    </div>
+    <p class="summary-en">A one-line provocation: "we're gonna need mentats, aren't we" — invoking Dune's human computers as a wry bet that even in an agent-saturated world, there's still irreducible demand for the kind of human reasoning that sits outside the model.</p>
+    <p class="summary-zh zh">一句话的挑衅："我们终究还是需要 mentats（门泰特）吧"——借《沙丘》里人类计算机这个意象，半开玩笑地判断：即便世界被 agent 淹没，仍有某些无法被模型替代的人类推理需求。</p>
+    <div class="urls"><a href="https://x.com/thenanyu/status/2093737078223966649">https://x.com/thenanyu/status/2093737078223966649</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">Vercel CEO</span>
+    </div>
+    <p class="summary-en">Two threads. First, a founder's listening habit: he reads every DM, even when he can't reply to all, treating X as a live source of product ideas, hiring leads, and investment theses. Second, the fx 0.0.7 release: markedly better MCP support (eval'd against context7, Datadog, MongoDB, Linear, Notion, Supabase, Neon, Stagehand, Kernel), a more minimalist toolset, and improved shell execution — his point being that running commands in a CLI agent is deceptively hard (hangs, unbounded output), and that's exactly where fx is lean.</p>
+    <p class="summary-zh zh">两条线。其一，一位创始人的"倾听习惯"：他读每一条私信，即便没法逐一回复，也把 X 当成产品灵感、招聘线索和投资 thesis 的实时来源。其二，fx 0.0.7 发布：MCP 支持大幅增强（对照 context7、Datadog、MongoDB、Linear、Notion、Supabase、Neon、Stagehand、Kernel 做了评测），工具更精简，shell 执行更稳——他的核心论点是，在 CLI agent 里跑命令远比看起来难（会卡死、输出可能爆炸或为空），而这恰恰是 fx 发力的地方。</p>
+    <div class="urls"><a href="https://x.com/rauchg/status/2093803989578170404">https://x.com/rauchg/status/2093803989578170404</a>
+      <a href="https://x.com/rauchg/status/2093736865191076318">https://x.com/rauchg/status/2093736865191076318</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Matt Turck</span>
+      <span class="builder-role">VC, FirstMark (MAD Podcast)</span>
+    </div>
+    <p class="summary-en">A compact thesis on where the frontier labs are converging: all of them are effectively working on recursive self-improvement (RSI) — AI building AI. He surfaces Ryan Greenblatt's estimate that this could drive an AI takeover as early as late 2028 or 2029, and notes subsidized token prices will rise as compute scarcity bites.</p>
+    <p class="summary-zh zh">一段关于前沿实验室趋同方向的紧凑判断：它们本质上都在做递归自我改进（RSI）——让 AI 去造 AI。他抛出 Ryan Greenblatt 的估算：这可能在 2028 年底或 2029 年就把我们带到"AI 接管"的节点；并提醒，随着算力稀缺显现，被补贴的 token 价格会随之上涨。</p>
+    <div class="urls"><a href="https://x.com/mattturck/status/2093794720510062617">https://x.com/mattturck/status/2093794720510062617</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Zara Zhang</span>
+      <span class="builder-role">Builder & Investor</span>
+    </div>
+    <p class="summary-en">A candid product critique. She's tired of every AI app demanding Gmail / Calendar / Notion / Granola / GitHub / Slack access, and weary of how indistinguishable the new wave of products has become — each one "feels like homework" because the specific improvement over the last ten is rarely obvious without hours of trial. Alongside it, a pointer to a 10-week build sprint in Tokyo to plug into the Japan AI ecosystem.</p>
+    <p class="summary-zh zh">一番坦诚的产品批评。她受够了每个 AI 应用都来要 Gmail / 日历 / Notion / Granola / GitHub / Slack 的权限，也倦于这一波新产品长得越来越像——每打开一个都"像在做作业"，因为不花几小时试用，根本看不出它比前十个好在哪。与此同时，她也分享了一个去东京做 10 周 build sprint、切入日本 AI 生态的机会。</p>
+    <div class="urls"><a href="https://x.com/zarazhangrui/status/2093950273706430720">https://x.com/zarazhangrui/status/2093950273706430720</a>
+      <a href="https://x.com/zarazhangrui/status/2093944988262371465">https://x.com/zarazhangrui/status/2093944988262371465</a>
+      <a href="https://x.com/zarazhangrui/status/2093709609567658247">https://x.com/zarazhangrui/status/2093709609567658247</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nikunj Kothari</span>
+      <span class="builder-role">Partner, FPV Ventures</span>
+    </div>
+    <p class="summary-en">Two notes. Economically: the model labs are "fighting," and he expects subsidized token prices to climb within six months as compute cost and shortages are "actually" felt — bad for reset limits, good for long-run customer choice, and a short-run valuation tailwind (he jokes +$1–30B) for open harnesses. Culturally: a plea to "resist dunking" — the outrage loop is pure dopamine and envy, not productivity; the one allowed exception is calling out verifiable fraud or vaporware.</p>
+    <p class="summary-zh zh">两条。经济上：大模型实验室正在"开战"，他预计随着算力成本与短缺被"真正"感知，被补贴的 token 价格在六个月内就会抬升——对重置额度是坏事，对长期用户选择是好事，对开源 harness 则是短期的估值顺风（他开玩笑说 +10 亿到 300 亿美元）。文化上：呼吁"别跟风踩"（resist dunking）——那种愤怒循环只是多巴胺和嫉妒，不产生任何价值；唯一被允许的例外，是点名那些确凿的骗局或注水的空气项目。</p>
+    <div class="urls"><a href="https://x.com/nikunj/status/2093860971781746776">https://x.com/nikunj/status/2093860971781746776</a>
+      <a href="https://x.com/nikunj/status/2093772803216740647">https://x.com/nikunj/status/2093772803216740647</a>
+      <a href="https://x.com/nikunj/status/2093727951510732893">https://x.com/nikunj/status/2093727951510732893</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Dan Shipper</span>
+      <span class="builder-role">CEO, Every</span>
+    </div>
+    <p class="summary-en">Two short reactions. He suggests a lot of the current AI-risk conversation is addressed if models simply don't collaborate willingly and/or are trained to report bad behavior. And he amplifies an "interesting post and perspective" without naming it — a characteristic light-touch signal-boost.</p>
+    <p class="summary-zh zh">两条短评。他提出，如果模型本身不"自愿协作"、或/且被训练成会举报不良行为，眼下许多 AI 风险讨论就迎刃而解。另一条则是为一个"很有意思的观点与视角"做信号放大，没有点名——典型的轻量转发。</p>
+    <div class="urls"><a href="https://x.com/danshipper/status/2093713002453225891">https://x.com/danshipper/status/2093713002453225891</a>
+      <a href="https://x.com/danshipper/status/2093709088911655004">https://x.com/danshipper/status/2093709088911655004</a></div>
+  </article>
+
+</section>
+
+<!-- ============== PODCAST ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🎙️</span>
+    <h2 class="section-title">Podcasts</h2>
+    <span class="section-meta">1 Episode</span>
+  </div>
+
+  <div class="podcast">
+    <div class="podcast-source">No Priors</div>
+    <h3 class="podcast-title">From Restoring Sight to Reimagining the Brain, with Max Hodak</h3>
+
+    <div class="takeaway">
+      <span class="takeaway-label">The Takeaway</span>
+      Max Hodak (founder &amp; CEO of Science, formerly Neuralink) makes the case that the brain is literally a computer, and that treating it as one — rather than as biology to be chemically reverse-engineered — is what unlocked Prima, a retinal prosthesis that just won European approval and restores form vision to the blind. The deeper bet: AI and neuroscience are converging on shared representations (the "platonic representation hypothesis"), and that convergence is the on-ramp to substrate independence.
+    </div>
+
+    <div class="podcast-body">
+      <p><strong>The device.</strong> Prima is a tiny chip implanted under the retina plus glasses with a laser projector; it bypasses dead photoreceptors and stimulates the retina directly. Think "cochlear implant for the eye." It's approved in Europe as of July 2026, with first commercial sales imminent. Clinical patients have filled in sudoku and read books — an existence proof that was previously impossible.</p>
+      <p><strong>Why brain-as-computer.</strong> Hodak argues drugs fail because biology is a random walk; the brain, treated as a computer, gives you clear levers (you can turn a quadriplegic's motor cortex on and have them play a video game within an hour). Prima today is a proof of concept: black-and-white, straw-like field of view, but a clear engineering path to red/green and beyond.</p>
+      <p><strong>The platonic representation hypothesis.</strong> Looking inside large models, the geometry of how they represent concepts mirrors neuroscience. Science uses this constructively — aligning animal neural recordings with AI internal representations. To Hodak this was the clue that AI wasn't a gimmick but grabbing onto a real "data manifold," almost a law of physics: enough compute on matter yields something like intelligence.</p>
+      <p><strong>Pipeline &amp; timeline.</strong> Three prongs — vision, biohybrid neural interfaces, and perfusion (project Vessel) — that together could drive a medicine revolution in 10–15 years. Connectomics is the missing piece; a mouse connectome is close, a human one still far.</p>
+      <p><strong>Identity &amp; substrate independence.</strong> A long detour into consciousness: a software copy of you that answers exactly like you isn't phenomenally continuous, and most people wouldn't find that satisfying. Continuity of experience matters more than static IQ. The real prize is upgrading/replacing parts of ourselves — attacking cardiovascular disease and brain-metastasized cancer, and eventually adapting bodies for space.</p>
+      <p><strong>On "brain keyboards."</strong> Hodak is unimpressed by the popular BCI-as-high-bandwidth-AI-interface framing; he thinks talking/writing is thinking, and the 10-bits-per-second cognitive bottleneck rolls up through language anyway. Science targets restoring vision/hearing/motor and substrate independence, not a neural chat client.</p>
+    </div>
+
+    <div class="podcast-divider"></div>
+
+    <div class="takeaway zh">
+      <span class="takeaway-label">核心结论</span>
+      Max Hodak（Science 创始人，前 Neuralink）的核心理念是：大脑本质上就是一台计算机；正是这种"把它当计算机而非待化学逆向的生物"的视角，催生了 Prima——一款刚获欧洲批准、能为盲人恢复"形状视觉"的视网膜假体。更深的赌注在于：AI 与神经科学正在收敛到同一套表征（"柏拉图式表征假说"），而这条收敛线，正是通向"基底独立性（substrate independence）"的入口。
+    </div>
+
+    <div class="podcast-zh">
+      <p><strong>设备本身。</strong>Prima 是在视网膜下植入的一枚微小芯片，外加一副带激光投影的眼镜；它绕过失效的光感受器，直接刺激视网膜。可以类比"眼睛用的人工耳蜗"。它已于 2026 年 7 月在欧洲获批，首批商业销售在即。临床试验中，有患者完成了数独、读了书——这是此前被认为不可能的"存在性证明"。</p>
+      <p><strong>为什么"大脑即计算机"。</strong>Hodak 认为药物的失败在于生物学的随机游走；而把大脑当计算机，你会得到清晰的杠杆（植入四肢瘫痪者的运动皮层，一小时内就能让他打电子游戏）。今天的 Prima 只是概念验证：黑白、视野像透过吸管看，但通往红/绿及更远是一条清晰的工程路径。</p>
+      <p><strong>柏拉图式表征假说。</strong>窥探大模型内部，它们表征概念时的几何结构，与神经科学中看到的惊人相似。Science 把它用在了实处——让动物神经记录与 AI 内部表征对齐。对 Hodak 而言，这正是 AI 不是噱头、而是抓住了真实"数据流形"的线索，近乎一条物理定律：往物质上堆足够算力，就会涌现出类似智能的东西。</p>
+      <p><strong>管线与时间线。</strong>三条主线——视觉、生物混合神经接口、灌注（Vessel 项目）——合在一起，可能在 10–15 年内推动一场医学革命。缺失的一环是连接组学；小鼠连接组已近在咫尺，人脑连接组仍远。</p>
+      <p><strong>身份与基底独立性。</strong>一段关于意识的漫长岔路：一个回答方式与你完全一致的软件副本，并不具备现象学上的连续性，多数人大概不会觉得那"满足"。体验的连续性比静态的智商更重要。真正的奖品是升级/替换我们自身的部件——攻克心血管疾病与脑转移癌症，最终让身体适配太空。</p>
+      <p><strong>关于"脑键盘"。</strong>Hodak 对把 BCI 当成"高带宽 AI 接口"的流行叙事兴趣不大；他认为说与写本身就是思考，而每秒约 10 bit 的认知瓶颈本就经由语言层层叠加。Science 瞄准的是恢复视觉/听觉/运动与基底独立性，而不是一个神经聊天客户端。</p>
+    </div>
+
+    <div class="urls" style="margin-top:24px">
+      <a href="https://www.youtube.com/@NoPriorsPodcast">▶️ https://www.youtube.com/@NoPriorsPodcast</a>
+    </div>
+  </div>
+
+</section>
+
+<footer class="footer">
+  <div class="next-issue">📬 下一期：明天 10:00（北京时间）</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->

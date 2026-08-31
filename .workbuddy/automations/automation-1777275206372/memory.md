@@ -229,3 +229,25 @@
 - 部署状态：✅ HTTP 200（轮询第 2 次命中，首查仍在 Actions 构建中），commit ab1521d，push 至 main（b5d2639..ab1521d）
 - 文件：`2026/08/23/AI_Builders_Digest_2026-08-23.html`
 - ⚠️ 注：本次 `git add .` 把 automation memory.md 本身（M）及两条历史遗留 `.workbuddy/memory/2026-08-20.md`、`2026-08-21.md` 一并提交（无害，仅日记文件）
+
+### 2026-08-26（自动执行 10:00 Asia/Shanghai）
+- 内容获取：13 Builders · 29 Tweets（totalTweets）· 0 Podcast · 0 Blog；`feedGeneratedAt = 2026-08-25T06:28:05Z`（滞后 1 天快照，stats 通过照常生成）
+- 实际渲染：**11 Builders · 15 Tweets（真实 URL）· 0 Podcast · 0 Blog**（剔除 Dan Shipper 全为 YouTube 封号求助碎片、Aditya 全为招聘/安利；余按质量剔除纯链接/emoji/政治：Nan Yu 留 1、Garry 留方法论 1、Peter Yang 留 2、Amjad 留 1）
+- prepare-digest.js 首次运行即成功（28KB），未触发兜底；Blog 计 0（feed `blogs` 空）
+- ⚠️ 首次出现 **0 Podcast + 0 Blog**：省略 Podcast 区块，X 区块后加静默提示行；index meta 用渲染计数 `11 Builders · 15 Tweets · 0 Podcast · 0 Blog`
+- 生成方式：Python `/tmp/gen_digest_0826.py`（双语 remix + URL 按 handle+tweet_index 取自 feed 并断言真实、0 伪造；CSS 复用 760px 模板）；自校验 href 数==15==渲染推文数
+- 部署状态：✅ HTTP 200（首次轮询命中），commit 238a33b，push 至 main（ab1521d..238a33b）
+- 文件：`2026/08/26/AI_Builders_Digest_2026-08-26.html`
+
+### 2026-08-31（自动执行 10:00 Asia/Shanghai）
+- 内容获取：8 Builders · 18 Tweets（totalTweets）· 1 Podcast · 0 Blog；`feedGeneratedAt = 2026-08-30T06:36:35Z`（滞后 1 天快照，stats 通过照常生成）
+- 实际渲染：**8 Builders · 18 Tweets（真实 URL）· 1 Podcast · 0 Blog**（全量渲染，今日推文均有实质文本未剔除低质）
+- ⚠️ 未命中任务指定的 24 人名单：follow-builders skill 拉取的是中央 feed（zarazhangrui/follow-builders）的策展名单，不支持自定义 24 人追踪；今日实际 builder = Thibault Sottiaux / Peter Yang / Nan Yu / Guillermo Rauch / Matt Turck / Zara Zhang / Nikunj Kothari / Dan Shipper。24 人名单（Sam Altman 等）非本 skill 机制可达，已按实际 feed 渲染并在交付说明中标注
+- 获取层：原始 prepare-digest.js 偶发 `fetch failed`（无超时/无重试，整次抛错），改用自写 `/tmp/fetch-feed.js`（逐 URL 20s 超时 + 4 次重试 + AbortController）一次成功（50KB）；与 7/12 踩坑经验一致
+- Blog 判定：feed `blogs` 为空数组 → Blog 计 0
+- 主线：**产品同质化疲劳 + 算力稀缺定价拐点**（Zara Zhang 批 AI 产品越长越像、权限疲劳；Nikunj 模型实验室开战、6 个月内补贴 token 价将涨、开源 harness 短期估值顺风；Matt Turck 前沿实验室收敛到 RSI/AI 造 AI，Greenblatt 估 2028–29 接管；Rauch fx 0.0.7 MCP 增强）
+- 其他亮点：Thibault OpenAI 发布前奏（"button pressed"/landing 2:30pm PST）；Peter Yang 云电脑 2FA 违和感 + "配偶杂事 bot"；Nan Yu "mentats" 人类推理不可替代梗；Dan Shipper 模型不自愿协作+训练举报不良行为降风险的轻量观点
+- Podcast：No Priors — Max Hodak（Science 创始人/前 Neuralink）：Prima 视网膜假体获欧洲 CE 批准、为盲人恢复形状视觉；"大脑即计算机"→基底独立性；柏拉图式表征假说（AI 内部表征与神经几何相似）；10–15 年医学革命三主线（视觉/生物混合接口/灌注）；不看好"脑键盘" BCI
+- 生成方式：Write 工具直接按 JSON 数据 remix 成双语 HTML（CSS 复用 2026-08-05 模板 760px 版；URL 全部取自 feed JSON 真实链接、0 伪造）；f-string 占位符零残留
+- 部署状态：待验证（HTTP 200 轮询）
+- 文件：`2026/08/31/AI_Builders_Digest_2026-08-31.html`
