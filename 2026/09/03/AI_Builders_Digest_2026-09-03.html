@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest · 2026-09-03</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 12px; padding: 32px; margin-bottom: 24px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
+  .podcast-source { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 10px; }
+  .podcast-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; color: var(--ink); margin-bottom: 24px; }
+  .takeaway { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 8px; padding: 18px 22px; margin-bottom: 24px; font-size: 15px; line-height: 1.7; color: var(--accent-deep); }
+  .takeaway + .takeaway { margin-top: -8px; }
+  .takeaway-label { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; background: var(--accent); color: white; padding: 3px 8px; border-radius: 3px; margin-right: 10px; transform: translateY(-2px); }
+  .podcast-body { font-size: 15.5px; color: var(--ink-soft); line-height: 1.75; }
+  .podcast-body p { margin-bottom: 16px; }
+  .podcast-body strong { color: var(--ink); font-weight: 600; }
+  .podcast-divider { height: 1px; background: var(--line); margin: 28px 0; }
+  .podcast-zh { font-family: 'Noto Serif SC', serif; font-size: 15.5px; color: var(--ink); line-height: 1.95; }
+  .podcast-zh p { margin-bottom: 16px; }
+  .podcast-zh strong { color: var(--accent-deep); font-weight: 600; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .podcast { padding: 24px; } .podcast-title { font-size: 19px; } .topbar-inner { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 · Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest · 2026-09-03 · 周四</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">16</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">38</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🐦</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">16 Builders</span>
+  </div>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Boris Cherny</span>
+      <span class="builder-role">Claude Code, Anthropic</span>
+    </div>
+    <p class="summary-en">Three product notes on Fable 5.1: it writes better and has better tone — the team heard feedback and is actively reducing “Claude-speak.” On safeguards, the latest biology safeguards intervene on benign requests 85% less often than those shipped with Fable 5, and Claude Code users should see ~60% fewer cyber interventions per session. And pricing dropped: Fable 5.1 cache reads are now $0.25 per million tokens (down from $1), making a typical Claude Code session up to 38% cheaper.</p>
+    <p class="summary-zh zh">关于 Fable 5.1 的三条产品动态：写作更好、语气更自然——团队听到了反馈，正在主动削减“Claude 腔”。在护栏上，最新版生物安全护栏对良性请求的介入比 Fable 5 时期少 85%，Claude Code 用户每会话应看到约 60% 更少的网安介入。价格也降了：Fable 5.1 的缓存读取现为每个 token $0.25（原 $1），典型 Claude Code 会话最高可便宜 38%。</p>
+    <div class="urls">      <a href="https://x.com/bcherny/status/2094864064648536068">https://x.com/bcherny/status/2094864064648536068</a>
+      <a href="https://x.com/bcherny/status/2094864063478276288">https://x.com/bcherny/status/2094864063478276288</a>
+      <a href="https://x.com/bcherny/status/2094864062186426373">https://x.com/bcherny/status/2094864062186426373</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thibault Sottiaux</span>
+      <span class="builder-role">Codex &amp; ChatGPT, OpenAI</span>
+    </div>
+    <p class="summary-en">A light day — a one-word “Bullish,” a shared link, and a throwaway “Should we do a merch line?” The signal is mostly vibes; the substance lives behind the links.</p>
+    <p class="summary-zh zh">今天偏轻量——一句“Bullish（看好）”、一条转发链接，外加一句随手的“我们要不要做周边？”信号以情绪为主，内容都在链接背后。</p>
+    <div class="urls">      <a href="https://x.com/thsottiaux/status/2094939684015317363">https://x.com/thsottiaux/status/2094939684015317363</a>
+      <a href="https://x.com/thsottiaux/status/2094826841622348106">https://x.com/thsottiaux/status/2094826841622348106</a>
+      <a href="https://x.com/thsottiaux/status/2094826808114057246">https://x.com/thsottiaux/status/2094826808114057246</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">Practical AI tutorials and interviews for busy people</span>
+    </div>
+    <p class="summary-en">A through-line on skill hygiene: he dislikes having lots of random skills installed, keeps only about a dozen (mostly his own), and deletes unused ones while keeping each as short as possible. He asks the experts how to stop a skill from drifting when you iterate on it thread-by-thread — AI tends to overfit on the one conversation. His fix-in-progress: run /claude-api prompt-audit on your skills to surface redundancies and rules to drop for the latest models.</p>
+    <p class="summary-zh zh">一条清晰主线：技能（skills）的“卫生”。他不喜欢装一堆随机技能，只保留约十来个（多为自己写的），并定期删除不用的、把每个都尽量写短。他向专家请教：当逐条迭代技能时，如何防止技能“漂移”——AI 容易在这一个对话里过拟合。他正在用的解法：对技能跑 /claude-api prompt-audit，找出冗余和该为最新模型删掉的旧规则。</p>
+    <div class="urls">      <a href="https://x.com/petergyang/status/2094999358525821099">https://x.com/petergyang/status/2094999358525821099</a>
+      <a href="https://x.com/petergyang/status/2094995775952740795">https://x.com/petergyang/status/2094995775952740795</a>
+      <a href="https://x.com/petergyang/status/2094987791566622971">https://x.com/petergyang/status/2094987791566622971</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nan Yu</span>
+      <span class="builder-role">(soon) Member of Product Staff, OpenAI · ex-Head of Product, Linear</span>
+    </div>
+    <p class="summary-en">Three reactions to the new Claude release, framed around friction: one headline feature being “less annoying writing” is a big deal; small UX things make a big difference; and the punchline — “there's a lot of alpha in making your agents less annoying.” If you want users to reach value they must stop rage-quitting, and he sees an untapped opportunity for UX designers to become conversation / rhetoric designers.</p>
+    <p class="summary-zh zh">对这次新 Claude 发布的三条反应，都围绕“摩擦”展开：把“更少 annoy 的写作”作为头条功能本身就是大事；看似微小的 UX 改动影响很大；而点睛之句是——“让你的 agent 更不烦人，藏着大量 alpha”。想让用户抵达价值，就得让他们停止 rage-quit（摔门而去），他认为 UX 设计师有个被低估的机会：转型为对话 / 修辞设计师。</p>
+    <div class="urls">      <a href="https://x.com/thenanyu/status/2094928209095872530">https://x.com/thenanyu/status/2094928209095872530</a>
+      <a href="https://x.com/thenanyu/status/2094928207179067682">https://x.com/thenanyu/status/2094928207179067682</a>
+      <a href="https://x.com/thenanyu/status/2094928205753040999">https://x.com/thenanyu/status/2094928205753040999</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Madhu Guru</span>
+      <span class="builder-role">Sr Director, AI at Meta · prev Gemini, Veo, Nano Banana</span>
+    </div>
+    <p class="summary-en">Two strategic posts. First, Shopify's ML team is a world-class example of why enterprises should build their own post-training systems, evals, and data flywheel. Second, “self-improving products is a meta idea every company should implement” — and he lays out five core pieces: crisp primary/secondary/guardrail metrics; an articulated strategy and roadmap; a knowledge base of past product decisions so the agent knows how choices get made; connections to internal systems via dashboards/APIs/MCPs; and a harness built on your end-to-end product development flow.</p>
+    <p class="summary-zh zh">两条战略判断。其一，Shopify 的 ML 团队是“企业自建后训练系统 + 评测 + 数据飞轮”的世界级范例，更多企业该这么做。其二，“自我改进型产品是每个公司都该落地的元想法”，并给出五块核心拼图：清晰的主/次/护栏指标；明确的策略与路线图；沉淀过往产品决策的知识库（让 agent 知道决策怎么做的）；通过 dashboard/API/MCP 接入内部系统；以及一套建在端到端产品开发流上的 harness（执行框架）。</p>
+    <div class="urls">      <a href="https://x.com/realmadhuguru/status/2094973690576576675">https://x.com/realmadhuguru/status/2094973690576576675</a>
+      <a href="https://x.com/realmadhuguru/status/2094817857821704659">https://x.com/realmadhuguru/status/2094817857821704659</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Cat Wu</span>
+      <span class="builder-role">Claude Code + Cowork, Anthropic · prev Dagster, Scale AI</span>
+    </div>
+    <p class="summary-en">A single signal: with Fable 5.1 the team has taken on more ambitious projects that would previously have taken months. The invite — tell Fable 5.1 in Claude Code, Claude Cowork, or Claude Tag what big bet you want to make, and report back.</p>
+    <p class="summary-zh zh">一条信号：有了 Fable 5.1，团队接下了此前要花数月的大项目。她的邀请——在 Claude Code、Claude Cowork 或 Claude Tag 里告诉 Fable 5.1 你想押什么大注，然后把感受反馈回来。</p>
+    <div class="urls">      <a href="https://x.com/_catwu/status/2094933602228416603">https://x.com/_catwu/status/2094933602228416603</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thariq</span>
+      <span class="builder-role">Claude Code, Anthropic · prev YC W20</span>
+    </div>
+    <p class="summary-en">A quick hands-on note: it's a very good model and he's diving in (longer write-up coming). Practical tip — try it on lower effort for tasks that need less verification or have fewer edge cases, and switching effort no longer breaks the prompt cache.</p>
+    <p class="summary-zh zh">一条上手笔记：模型很好，他正深挖（更长测评稍后）。实用建议——对需要较少验证、边界情况更少任务，用更低 effort 跑；而且切换 effort 不再破坏 prompt 缓存。</p>
+    <div class="urls">      <a href="https://x.com/trq212/status/2094945951865520458">https://x.com/trq212/status/2094945951865520458</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">CEO, Vercel</span>
+    </div>
+    <p class="summary-en">Three threads. First, a partnership with Tanner Linsley (champion of React, open source, and the web) — whether you choose Next.js or Tan Stack, Vercel commits to the highest-quality service and support. Second, Fable 5.1 is now on the Vercel AI Gateway. Third, “Fluid” is what powers Vercel's industry-leading build performance, sandbox reliability, and massive concurrency, plus 30-minute function durations; the vision is one global, unified compute platform where only known physics limits what's possible.</p>
+    <p class="summary-zh zh">三条线。其一，与 Tanner Linsley（React / 开源 / Web 的旗手）达成合作——无论你选 Next.js 还是 Tan Stack，Vercel 都承诺最高质量的服务与支持。其二，Fable 5.1 现已上线 Vercel AI Gateway。其三，“Fluid” 支撑了 Vercel 行业领先的构建性能、沙箱可靠性与高并发，以及 30 分钟函数时长；愿景是一张全球统一的算力平台，唯一限制只是已知的物理规律。</p>
+    <div class="urls">      <a href="https://x.com/rauchg/status/2094901483414372716">https://x.com/rauchg/status/2094901483414372716</a>
+      <a href="https://x.com/rauchg/status/2094867652573528074">https://x.com/rauchg/status/2094867652573528074</a>
+      <a href="https://x.com/rauchg/status/2094831747037085978">https://x.com/rauchg/status/2094831747037085978</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Alex Albert</span>
+      <span class="builder-role">Research, Anthropic</span>
+    </div>
+    <p class="summary-en">Three posts. The headline: he's excited about Enterprise Frontier Safeguards (EFS) — ZDR built for a world with agents, where a company's data stays in its own cloud and an automated monitoring layer flags risky cross-session patterns; he predicts it becomes a standard enterprise requirement. A light “using blender headless btw.” And the fun one: Fable 5.1 is a beast at generating video through code — he gave it a property-lot photo, it designed a house, rendered it, and produced a cinematic walkthrough.</p>
+    <p class="summary-zh zh">三条动态。头条：他对 Enterprise Frontier Safeguards（EFS）很兴奋——这是为“agent 世界”重做的 ZDR（零数据保留），企业数据留在自家云里，自动监控层标记跨会话的风险模式；他预测这会成为企业标配。一条轻松的“用 blender headless 中”。还有好玩的：Fable 5.1 用代码生成视频很强——他给一张地块照片，它设计了房子、渲染出来，并产出电影感漫游。</p>
+    <div class="urls">      <a href="https://x.com/alexalbert__/status/2094889286990446769">https://x.com/alexalbert__/status/2094889286990446769</a>
+      <a href="https://x.com/alexalbert__/status/2094860189316899083">https://x.com/alexalbert__/status/2094860189316899083</a>
+      <a href="https://x.com/alexalbert__/status/2094860187743986169">https://x.com/alexalbert__/status/2094860187743986169</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aaron Levie</span>
+      <span class="builder-role">CEO, Box</span>
+    </div>
+    <p class="summary-en">Two strategic reads. First, AI for cyber is going vertical: models are increasingly good at finding and exploiting vulnerabilities (frontier ahead, open weights not far behind), and with enterprises already flooded by cyber findings, triaging and auto-fixing with AI + human oversight is the only way forward — “a great time to be in security.” Second, Box tested Fable 5.1 on its complex enterprise eval and saw a 7-percentage-point jump over Fable 5 on unstructured-data tasks, with examples of +17% (Financial Services), +37% (Technology), and +16% (Public Sector) on real workflows.</p>
+    <p class="summary-zh zh">两条战略判断。其一，AI 网安正在垂直化：模型越来越擅长发现并利用漏洞（前沿领先，开源权重紧随其后），而企业早已被安全发现淹没，用 AI + 人工监督来分诊、自动修复是唯一的出路——“做安全正是好时候”。其二，Box 在复杂企业评测上测了 Fable 5.1，非结构化数据任务比 Fable 5 高出 7 个百分点，实例包括金融服务 +17%、科技 +37%、公共部门 +16%。</p>
+    <div class="urls">      <a href="https://x.com/levie/status/2095024699441119612">https://x.com/levie/status/2095024699441119612</a>
+      <a href="https://x.com/levie/status/2094851976769257770">https://x.com/levie/status/2094851976769257770</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Matt Turck</span>
+      <span class="builder-role">VC at FirstMark · Host, MAD Podcast</span>
+    </div>
+    <p class="summary-en">A one-tweet joke thread on growth hacking: “Do you want to grow massively on X? Top hacks: 1) Become CEO of Apple.” Pure humor, no substance — characteristic light signal.</p>
+    <p class="summary-zh zh">一条关于“涨粉秘籍”的玩笑线程：“想在 X 上暴涨粉丝？顶级秘籍：1）当上苹果 CEO。”纯幽默，无实质内容——典型的轻量信号。</p>
+    <div class="urls">      <a href="https://x.com/mattturck/status/2094829606855462940">https://x.com/mattturck/status/2094829606855462940</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Zara Zhang</span>
+      <span class="builder-role">Builder · Harvard '17</span>
+    </div>
+    <p class="summary-en">Three personal signals: “I wish every city was in Tokyo”; a curiosity about when a certain website-design style came into vogue; and the aphorism “Be a person, not a persona.” Light, identity-flavored posts.</p>
+    <p class="summary-zh zh">三条个人信号：“希望每座城市都像东京”“这种网站设计风格是什么时候流行的”，以及格言“做一个人，而不是一个人设”。偏轻量、关乎身份表达的帖子。</p>
+    <div class="urls">      <a href="https://x.com/zarazhangrui/status/2094999513627025757">https://x.com/zarazhangrui/status/2094999513627025757</a>
+      <a href="https://x.com/zarazhangrui/status/2094943457769099520">https://x.com/zarazhangrui/status/2094943457769099520</a>
+      <a href="https://x.com/zarazhangrui/status/2094812574395371857">https://x.com/zarazhangrui/status/2094812574395371857</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nikunj Kothari</span>
+      <span class="builder-role">Partner, FPV Ventures</span>
+    </div>
+    <p class="summary-en">Three posts. A worried reaction to a leak (“Terrifying… also just the start of how leaks like this are going to get way worse”). The substantive one: people are sleeping on WebMCP — you can now give agents tool calls to interact with your website natively, with full UI/UX support, to build their own views; his demo (El Niño situation tracker, built with Codex + Railway) has agents create views, preserve human edits, and produce a shareable link. A light “casual MG banger” closes it out.</p>
+    <p class="summary-zh zh">三条动态。一条对泄露的担忧（“可怕……也只是这类泄露会变得更糟的开端”）。有实质的一条：大家还在低估 WebMCP——现在可以给 agent 原生的工具调用，让它直接与你的网站交互、带完整 UI/UX 支持、构建自己的视图；他的演示（El Niño 追踪器，由 Codex + Railway 生成）让 agent 创建视图、保留人工编辑、并产出可分享链接。收尾一条轻松的“随手 MG 神作”。</p>
+    <div class="urls">      <a href="https://x.com/nikunj/status/2095002897859912044">https://x.com/nikunj/status/2095002897859912044</a>
+      <a href="https://x.com/nikunj/status/2094922789128196314">https://x.com/nikunj/status/2094922789128196314</a>
+      <a href="https://x.com/nikunj/status/2094784484625531065">https://x.com/nikunj/status/2094784484625531065</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Dan Shipper</span>
+      <span class="builder-role">CEO, Every</span>
+    </div>
+    <p class="summary-en">Three posts, mostly promoting Every's coverage: a nostalgic “remember when we used to have to type out low-level code like this?” and two calls to read the Fable 5.1 vibe check on Every. Light, product-marketing flavored.</p>
+    <p class="summary-zh zh">三条动态，多为推广 Every 的内容：一句怀旧“还记得我们当年得手敲底层代码吗？”，以及两条号召阅读 Every 上的 Fable 5.1 vibe check。偏轻量、产品营销味。</p>
+    <div class="urls">      <a href="https://x.com/danshipper/status/2094942644497457527">https://x.com/danshipper/status/2094942644497457527</a>
+      <a href="https://x.com/danshipper/status/2094855479167996036">https://x.com/danshipper/status/2094855479167996036</a>
+      <a href="https://x.com/danshipper/status/2094854526574424203">https://x.com/danshipper/status/2094854526574424203</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Sam Altman</span>
+      <span class="builder-role">CEO, OpenAI</span>
+    </div>
+    <p class="summary-en">A long, deliberate note on safety and pacing: over the summer the team sprinted on safety priorities because capabilities and safeguards must advance together, and the next model launches soon. The tension is explicit — “Astra” is very good and done training (a significant step in both capabilities and alignment), yet caution is warranted, so progress is paced to meet safety standards for each new capability level. His frame: AI is getting extremely capable and no one fully understands the consequences, so an iterative loop where society and the technology evolve together is the highest-probability path to getting this right.</p>
+    <p class="summary-zh zh">一篇长而克制的“安全与节奏”说明：整个夏天团队在安全上冲刺，因为能力与护栏必须同步前进，下一款模型很快发布。张力被直白点出——“Astra”非常好、已完成训练（能力与对齐都大幅迈进），但仍需谨慎，因此按每个新能力层级的安全标准来把控节奏。他的框架：AI 正变得极强，没人完全理解后果，所以让社会与技术共同演化的迭代回路，才是把这件事做对概率最高的路径。</p>
+    <div class="urls">      <a href="https://x.com/sama/status/2094934592062959832">https://x.com/sama/status/2094934592062959832</a></div>
+  </article>
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Claude</span>
+      <span class="builder-role">AI assistant by Anthropic</span>
+    </div>
+    <p class="summary-en">Three launch posts for Fable 5.1: it's available everywhere today, and Claude Mythos 5.1 (for cyberdefenders and life scientists) ships via trusted-access programs. Safeguards improved — cybersecurity safeguards now flag benign requests ~60% less often, and biology/medical fallback rates dropped ~85%. And Enterprise Frontier Safeguards (EFS) give enterprise customers complete privacy (same as zero-data-retention) while staying SOTA at preventing adversarial use, rolling out in phases starting this fall.</p>
+    <p class="summary-zh zh">三条 Fable 5.1 发布动态：今天全平台可用，Claude Mythos 5.1（面向网安防御者与生命科学者）通过可信访问计划发放。护栏升级——网安护栏对良性请求的标记减少约 60%，生物 / 医疗的回退率下降约 85%。Enterprise Frontier Safeguards（EFS）让企业客户获得完整隐私（等同零数据保留），同时在防对抗性使用上保持 SOTA，今秋起分阶段推出。</p>
+    <div class="urls">      <a href="https://x.com/claudeai/status/2094848592812917122">https://x.com/claudeai/status/2094848592812917122</a>
+      <a href="https://x.com/claudeai/status/2094848591617483020">https://x.com/claudeai/status/2094848591617483020</a>
+      <a href="https://x.com/claudeai/status/2094848590245965931">https://x.com/claudeai/status/2094848590245965931</a></div>
+  </article>
+
+</section>
+
+<!-- ============== PODCAST ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🎙️</span>
+    <h2 class="section-title">Podcasts</h2>
+    <span class="section-meta">1 Episode</span>
+  </div>
+
+  <div class="podcast">
+    <div class="podcast-source">Training Data</div>
+    <h3 class="podcast-title">Making Cities Awesome: Peregrine’s Nick Noone &amp; Ben Rudolph</h3>
+
+    <div class="takeaway">
+      <span class="takeaway-label">The Takeaway</span>
+      Peregrine builds AI to protect cities and communities while explicitly rejecting the surveillance-state model. Founders Nick Noone (ex-Palantir SOCOM, deployed in the Middle East) and Ben Rudolph (UN refugee work across Sudan/Colombia/Africa, then last-mile healthcare in rural India) cold-called their way into the San Pablo Police Department — access came only after two dozen "no's," on 2018-02-26. Their thesis: safety is the bottom of the pyramid for "making cities awesome" — both objective safety and the feeling of safety. Forward-deployed engineering means owning (or co-owning) the customer's problem and getting to the outcome 3–5x faster, where the win belongs to the customer, not you — a high-empathy, ego-suspending craft Silicon Valley often misses. Structurally they invert the Flock/Axon data-collection model: Peregrine isn't in the business of bringing more data to the institution, but of joining the disparate data the institution already owns to drive precision. Each customer owns its data; local intelligence, locked down, is how they reconcile public safety with civil liberties. Real wins: a Florida county's 100+ water rescues traced by an agent's deep research to a 3-consecutive-day weather pattern → sand channels → rip currents; and a detective who used semantic search to surface a pattern of antisemitic threats against local synagogues that keyword search could never find. As Ben puts it, 95% of the work happens before the user asks the question — getting the data AI-ready — and when software-generation cost nears zero, deployment strategists write their own tools (hurricane simulators, etc.).
+    </div>
+
+    <div class="podcast-divider"></div>
+
+    <div class="takeaway zh">
+      <span class="takeaway-label">核心结论</span>
+      Peregrine 做的是保护城市与社区的 AI，同时明确拒绝“监控国家”模式。创始人 Nick Noone（前 Palantir SOCOM，曾部署中东）与 Ben Rudolph（在苏丹 / 哥伦比亚 / 非洲做难民工作，后做印度农村“最后一公里”医疗）靠 cold call 打进圣巴勃罗警局——在被拒绝二十多次后才在 2018-02-26 拿到入场券。他们的信条：安全是“让城市变棒”金字塔的底座——既要客观安全，也要“感到安全”。前沿部署工程（forward-deployed engineering）意味着拥有（或共拥）客户的问题、以 3–5 倍速度抵达结果，而赢家是客户不是自己——一种高共情、放下自我的手艺，恰是硅谷常错过的。结构上他们反转了 Flock / Axon 的“数据收集”模式：Peregrine 不往机构里塞更多数据，而是把机构已有的零散数据连接起来、提升精度。每个客户拥有自己的数据；本地智能、严格锁定，正是他们调和公共安全与公民自由的方式。真实战果：佛州某县 100+ 次水上救援，被 agent 深度研究追溯为“连续三天天气型 → 沙道 → 离岸流”；以及一位侦探用语义搜索，挖出针对当地犹太会堂的反犹威胁模式，关键词搜索永远找不到。正如 Ben 所说，95% 的工作发生在用户提问之前——把数据变成“AI-ready”；而当软件生成成本趋近零，部署策略师就能自己写工具（飓风模拟器等）。
+    </div>
+
+    <div class="urls" style="margin-top:24px">
+      <a href="https://www.youtube.com/playlist?list=PLOhHNjZItNnMm5tdW61JpnyxeYH5NDDx8">▶️ https://www.youtube.com/playlist?list=PLOhHNjZItNnMm5tdW61JpnyxeYH5NDDx8</a>
+    </div>
+  </div>
+
+</section>
+
+<footer class="footer">
+  <div class="next-issue">📬 下一期：明天 10:00（北京时间）</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->
