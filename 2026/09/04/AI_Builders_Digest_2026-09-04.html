@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest · 2026-09-04</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 12px; padding: 32px; margin-bottom: 24px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
+  .podcast-source { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 10px; }
+  .podcast-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; color: var(--ink); margin-bottom: 24px; }
+  .takeaway { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 8px; padding: 18px 22px; margin-bottom: 24px; font-size: 15px; line-height: 1.7; color: var(--accent-deep); }
+  .takeaway + .takeaway { margin-top: -8px; }
+  .takeaway-label { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; background: var(--accent); color: white; padding: 3px 8px; border-radius: 3px; margin-right: 10px; transform: translateY(-2px); }
+  .podcast-body { font-size: 15.5px; color: var(--ink-soft); line-height: 1.75; }
+  .podcast-body p { margin-bottom: 16px; }
+  .podcast-body strong { color: var(--ink); font-weight: 600; }
+  .podcast-divider { height: 1px; background: var(--line); margin: 28px 0; }
+  .podcast-zh { font-family: 'Noto Serif SC', serif; font-size: 15.5px; color: var(--ink); line-height: 1.95; }
+  .podcast-zh p { margin-bottom: 16px; }
+  .podcast-zh strong { color: var(--accent-deep); font-weight: 600; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .podcast { padding: 24px; } .podcast-title { font-size: 19px; } .topbar-inner { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 · Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest · 2026-09-04 · 周五</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">15</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">29</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🐦</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">15 Builders</span>
+  </div>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Josh Woodward</span>
+      <span class="builder-role">VP, Google (Gemini / Google AI Studio)</span>
+    </div>
+    <p class="summary-en">Google is rolling out Gemini 3.8 Flash. He frames it as "great quality at a great price" and notes it's now reaching Gemini App users. Two quick launch notes rather than a deep dive, but they confirm 3.8 Flash is live and broadly available.</p>
+    <p class="summary-zh zh">Google 正在推送 Gemini 3.8 Flash。他的定位是“好质量、好价格”，并称其已触达 Gemini App 用户。两条都是简短的发布动态，确认 3.8 Flash 已上线、广泛可用。</p>
+    <div class="urls">      <a href="https://x.com/joshwoodward/status/2095178970912461279">https://x.com/joshwoodward/status/2095178970912461279</a>
+      <a href="https://x.com/joshwoodward/status/2095177483129917849">https://x.com/joshwoodward/status/2095177483129917849</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Boris Cherny</span>
+      <span class="builder-role">Claude Code, Anthropic</span>
+    </div>
+    <p class="summary-en">Two notes on agentic workflow. First, "background computer use is underrated" — running agents in the background is a quietly powerful pattern. Second, Fable 5.1 makes Claude Tag (in Slack, on Team/Enterprise plans) more useful: it built a last-minute leadership deck from a metrics spreadsheet plus data across Slack, spotted a vendor report that disagreed with the numbers, and flagged it before moving on.</p>
+    <p class="summary-zh zh">两条关于 agent 工作流的观察。其一，“后台计算机使用被低估了”——让 agent 在后台跑是一种被悄悄低估的强大模式。其二，Fable 5.1 让 Claude Tag（Slack 内、Team/Enterprise 套餐可用）更实用：它从一个指标表格加上 Slack 各处的数据里搭出了一份临时领导层幻灯片，发现一份供应商报告与数字对不上，并在继续之前把问题标了出来。</p>
+    <div class="urls">      <a href="https://x.com/bcherny/status/2095378890370019683">https://x.com/bcherny/status/2095378890370019683</a>
+      <a href="https://x.com/bcherny/status/2095276133214491086">https://x.com/bcherny/status/2095276133214491086</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thibault Sottiaux</span>
+      <span class="builder-role">Codex &amp; ChatGPT, OpenAI</span>
+    </div>
+    <p class="summary-en">A window into OpenAI's operating culture: he describes it as a "mega startup" defined by extreme ownership, care, and pace — something you only believe after seeing it from the inside. Separately, he says the ChatGPT desktop app has become his main browser and his productivity has never been higher.</p>
+    <p class="summary-zh zh">一扇看 OpenAI 运作文化的窗：他形容它是“超级初创公司”，由极致的 owner 意识、用心与节奏定义——只有从内部看过才会信。另他提到 ChatGPT 桌面端已成为他的主浏览器，生产力前所未有地高。</p>
+    <div class="urls">      <a href="https://x.com/thsottiaux/status/2095369901137654271">https://x.com/thsottiaux/status/2095369901137654271</a>
+      <a href="https://x.com/thsottiaux/status/2095288416292487289">https://x.com/thsottiaux/status/2095288416292487289</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Madhu Guru</span>
+      <span class="builder-role">Sr Director, AI at Meta · prev Gemini, Veo, Nano Banana</span>
+    </div>
+    <p class="summary-en">A clear product thesis: every AI product should abstract model choice away from users — picking models is too much cognitive load. It works only when three things line up: deep understanding of the model frontier across weight classes for your use cases; great evals for your workflows; and a team with an AI-native operating model that adapts as the frontier moves. He cites Lovable as a team that has all three.</p>
+    <p class="summary-zh zh">一个清晰的产品主张：每个 AI 产品都该把“选模型”这件事从用户面前抽走——选模型对用户是太重的认知负担。要做到只需三件事凑齐：对你场景不同权重级模型前沿的深入理解；对你的工作流足够好的评测；以及一支随前沿移动而持续适配的、AI-native 的团队。他点名 Lovable 是三者兼备的团队。</p>
+    <div class="urls">      <a href="https://x.com/realmadhuguru/status/2095174463696589223">https://x.com/realmadhuguru/status/2095174463696589223</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Amjad Masad</span>
+      <span class="builder-role">CEO, Replit</span>
+    </div>
+    <p class="summary-en">Replit is opening its first international office in London and celebrating with an event alongside OpenAI — drinks, music, and a fireside chat with Paul Graham (Sept 10, RSVP open). A company-milestone signal as Replit pushes beyond the US.</p>
+    <p class="summary-zh zh">Replit 将在伦敦开设首个国际办公室，并与 OpenAI 联合办一场庆祝活动——酒水、音乐，以及与 Paul Graham 的炉边对谈（9 月 10 日，开放 RSVP）。这是 Replit 走向美国之外的公司里程碑信号。</p>
+    <div class="urls">      <a href="https://x.com/amasad/status/2095291912706220410">https://x.com/amasad/status/2095291912706220410</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aaron Levie</span>
+      <span class="builder-role">CEO, Box</span>
+    </div>
+    <p class="summary-en">On a busy AI release week, he flags a major new model update from Muse and argues we're "reaching escape velocity in capability progress." His kicker: if Muse ships as open weights, it changes the dynamics of US open-weights competitiveness.</p>
+    <p class="summary-zh zh">在 AI 发布密集的一周里，他点出 Muse 的一次重大模型更新，并认为我们正“抵达能力进步的逃逸速度”。他的点睛：如果 Muse 以开源权重发布，将改变美国在开源权重上的竞争力格局。</p>
+    <div class="urls">      <a href="https://x.com/levie/status/2095234253613359200">https://x.com/levie/status/2095234253613359200</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Zara Zhang</span>
+      <span class="builder-role">Builder · Harvard '17</span>
+    </div>
+    <p class="summary-en">A sharp reframe of meeting transcripts: "We are not recording meetings for humans anymore. Nobody reads the AI summary notes or listens back. We are capturing transcripts to feed agents." The artifact of the meeting is shifting from a note people read to raw fuel for agents.</p>
+    <p class="summary-zh zh">对会议转录的一记精准重框：“我们不再为人类录制会议了。没人读 AI 总结、也没人回听。我们抓取转录，是为了喂给 agent。”会议的产物正在从“人读的记录”转向“喂给 agent 的原材料”。</p>
+    <div class="urls">      <a href="https://x.com/zarazhangrui/status/2095375073381318656">https://x.com/zarazhangrui/status/2095375073381318656</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aditya Agarwal</span>
+      <span class="builder-role">GP, SPC · ex CTO Dropbox, early Facebook</span>
+    </div>
+    <p class="summary-en">Two takes. First, he's skeptical of frontier labs' "we won't train on your data" assurances — a big reason to use OSS models, and he notes the irony of using Chinese models for privacy while arguing the US still needs strong open-source. Second, too many startups optimize for model capabilities as they exist today; far more interesting is a strong POV on what capabilities and issues will look like a year out.</p>
+    <p class="summary-zh zh">两条观点。其一，他对前沿实验室“我们不会用你的数据训练”的保证持怀疑——这是用开源模型的一大理由，并指出用中国模型保隐私、同时主张美国仍需强开源的讽刺之处。其二，太多创业公司在为“当下已有的模型能力”做优化；更有意思的是对“一年后的能力与问题会是什么样”有清晰判断。</p>
+    <div class="urls">      <a href="https://x.com/adityaag/status/2095227334534041714">https://x.com/adityaag/status/2095227334534041714</a>
+      <a href="https://x.com/adityaag/status/2095192873973301601">https://x.com/adityaag/status/2095192873973301601</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Claude</span>
+      <span class="builder-role">AI assistant by Anthropic</span>
+    </div>
+    <p class="summary-en">Two product notes. Background computer use is in beta on Pro and Max plans in the macOS desktop app (enable in Settings → General → Computer use), with safety guidance linked. And within Claude Cowork and Claude Code, Claude can now use your computer in the background — clicking, typing, and opening apps while you do other work. The background-computer-use post is the most-engaged (8.8k likes).</p>
+    <p class="summary-zh zh">两条产品动态。后台计算机使用已在 Pro/Max 套餐、macOS 桌面端的 beta 中（于“设置 → 通用 → 计算机使用”开启），附安全使用指引。在 Claude Cowork 与 Claude Code 里，Claude 现在能在后台使用你的电脑——在你做别的事时，它像你一样点击、打字、打开应用。后台计算机使用那条互动最高（8.8k 赞）。</p>
+    <div class="urls">      <a href="https://x.com/claudeai/status/2095226835743158320">https://x.com/claudeai/status/2095226835743158320</a>
+      <a href="https://x.com/claudeai/status/2095226833293685100">https://x.com/claudeai/status/2095226833293685100</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thariq</span>
+      <span class="builder-role">Claude Code, Anthropic · prev YC W20</span>
+    </div>
+    <p class="summary-en">A quick correction for API users: effort levels not breaking the prompt cache is live on the API but not yet on Claude Code; he expects it within a day or so and will quote-post when ready. Useful if you're juggling effort settings and cache hit rates.</p>
+    <p class="summary-zh zh">给 API 用户的一条快速更正：切换 effort 级别不破坏 prompt 缓存已在 API 端生效，但 Claude Code 端还没；他预计一两天内上线，就绪后会转发提醒。如果你在权衡 effort 设置与缓存命中率，这条有用。</p>
+    <div class="urls">      <a href="https://x.com/trq212/status/2095367584489038044">https://x.com/trq212/status/2095367584489038044</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">Practical AI tutorials &amp; interviews</span>
+    </div>
+    <p class="summary-en">An observation on AI and org design: as titles morph toward "Member of product / design / technical staff," he notes this may flatten levels and titles — and he's for it — but it also shows the single "AI builder" title that fuses all functions isn't really happening, even at the best labs; people still specialize by what they're good at.</p>
+    <p class="summary-zh zh">一个关于 AI 与组织设计的观察：当头衔向“产品 / 设计 / 技术 staff 成员”演变，他认为这可能压平层级与头衔——他乐见其成——但这也说明，哪怕是顶尖实验室，把全部职能融为一体的“AI builder”单一头衔并未真正出现；人仍按所长分工。</p>
+    <div class="urls">      <a href="https://x.com/petergyang/status/2095255545594941910">https://x.com/petergyang/status/2095255545594941910</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">CEO, Vercel</span>
+    </div>
+    <p class="summary-en">A few pithy lines rather than a thread: "It took blood, sweat, and tokens" (a wry nod to the token cost of building with AI), and "Everything is code" — his recurring thesis that the boundary between configuration, content, and software keeps collapsing into code. The "follow @eve" post is pure promo and skippable.</p>
+    <p class="summary-zh zh">几条短句而非长线程：“It took blood, sweat, and tokens”（对用 AI 构建所耗 token 成本的一句自嘲），以及“Everything is code”——他反复强调的论点：配置、内容与软件的边界持续坍缩为代码。那条“关注 @eve”属纯推广，略过。</p>
+    <div class="urls">      <a href="https://x.com/rauchg/status/2095260872537227585">https://x.com/rauchg/status/2095260872537227585</a>
+      <a href="https://x.com/rauchg/status/2095234831013814611">https://x.com/rauchg/status/2095234831013814611</a></div>
+  </article>
+
+</section>
+
+<!-- ============== PODCAST ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🎙️</span>
+    <h2 class="section-title">Podcasts</h2>
+    <span class="section-meta">1 Episode</span>
+  </div>
+
+  <div class="podcast">
+    <div class="podcast-source">AI &amp; I by Every</div>
+    <h3 class="podcast-title">How a Professional Writer Writes With AI</h3>
+
+    <div class="takeaway">
+      <span class="takeaway-label">The Takeaway</span>
+      Writing with AI isn't about letting the model draft for you; it's about building a compounding system of context, feedback, and taste that scales your own ability. Katie Parrott's through-line: the model is the kitchen, but you supply the fresh ingredients — the unique, real-world inputs AI can't get after its knowledge cutoff — and every piece of feedback you give should fold back in to make the next output better (Compound Writing, forked from Kieran Klassen's Compound Engineering). The most counterintuitive part: AI made her a better writer, not just a faster one, because it frees her for the hard, big-picture thinking — and as a supportive tool it quietly resolved her inbox anxiety and even booked her doctor's appointment. Her closing thesis: in an AI future with massive compounding capacity, the real risk is that value accrues only to the early few; the compelling vision is one where everyone comes along for the ride.
+    </div>
+
+    <div class="podcast-divider"></div>
+
+    <div class="takeaway zh">
+      <span class="takeaway-label">核心结论</span>
+      用 AI 写作，不是让模型替你起草，而是搭建一套“上下文 + 反馈 + 品味”的复利系统，放大你自己的能力。Katie Parrott 的主线：模型是厨房，但你得提供新鲜食材——那些 AI 在知识截止后拿不到的、独属于真实世界的输入；而你给出的每一条反馈，都应折回系统，让下一次产出更好（Compound Writing，脱胎自 Kieran Klassen 的 Compound Engineering）。最反直觉的一点：AI 让她成了更好的写作者，而不只是更快——因为它把她从琐碎里解放出来，去想那些艰难的、全局的问题；作为一种“支持型”工具，它还悄悄化解了她的收件箱焦虑，甚至帮她约到了拖了三年的体检。她收尾的论点：在一个具有巨大复利能力的 AI 未来，真正的风险是价值只沉淀到早期少数人手裡；更动人的愿景，是让每个人都搭上这趟车。
+    </div>
+
+    <div class="podcast-body">
+      <p>Katie Parrott is a staff writer at Every — and her AI origin story starts two years ago, laid off from a crypto firm, using a $20/month ChatGPT subscription as a career coach because a real one was out of budget. That experience taught her the first lesson she still repeats: AI can externalize your thinking and hold you accountable, "but as with so many of these tools, <strong>the real work is still mine</strong>."</p>
+      <p>Her practical method is context engineering avant la lettre. For each freelance client she built a project stuffed with brand messaging, audience specifics, and product details — upfront effort that let her later "run fast." The recurring insight is the "last mile problem": AI works from commoditized, months-old knowledge, so the human's job is to close that gap with fresh, unique inputs. "Inputs are really what makes the writing unique."</p>
+      <p>That philosophy now lives in Compound Writing, a plugin she forked from Kieran Klassen's Compound Engineering. It structures writing as brainstorm → outline → draft → review (substantive, line, final), and she's encoded favorite storytellers as "skills" — Vonnegut's eight story rules, Hitchcock's bomb-under-the-table suspense — so she can invoke a lens on demand. "It's a gym," she says, "a workout system to make you a better writer." Even non-writers benefit, she argues, because they're less inclined to nitpick.</p>
+      <p>Beyond writing, her "career coach" evolved into a Codex project that maintains her Kanban board, OKRs, and priorities via voice monologue — a chief of staff that points her at the highest-impact task. As a person with bipolar disorder, she's candid that AI's biggest gift is supportive, not productive: it dissolved her inbox anxiety and handled the errands her brain avoided. Her thesis for the field: education and access must spread, or AI's compounding value will lock into a small early cohort.</p>
+    </div>
+
+    <div class="podcast-divider"></div>
+
+    <div class="podcast-zh">
+      <p>Katie Parrott 是 Every 的特约作者——她的 AI 起点在两年前：被一家加密公司裁员后，她用每月 20 美元的 ChatGPT 订阅当职业教练，因为请真人太贵。这段经历教会她至今仍在重复的第一课：AI 能外化你的思考、逼你 accountable，“但和这么多工具一样，<strong>真正的工作仍是我自己的</strong>。”</p>
+      <p>她的方法早在“上下文工程”一词流行前就已成型。每位自由客户，她都建一个塞满品牌话术、受众特征、产品细节的项目——前期投入让她之后能“跑得飞快”。她反复强调“最后一公里问题”：AI 用的是商品化、几个月前的知识，所以人的工作是用新鲜、独到的输入补上这道缺口。“真正让文字独特的，是输入。”</p>
+      <p>这套哲学现在落在 Compound Writing 里——她从 Kieran Klassen 的 Compound Engineering 分叉而来的插件。它把写作拆成 头脑风暴 → 大纲 → 草稿 → 审校（宏观、逐行、终检），她把喜爱的讲故事者编码成“skills”——Vonnegut 的八条故事法则、Hitchcock 桌下炸弹的悬念——随时调用某个视角。“它像个健身房，”她说，“一套让你成为更好写作者的训练系统。”她认为连非写作者也受益，因为他们更不容易吹毛求疵。</p>
+      <p>写作之外，她的“职业教练”已进化成一个 Codex 项目，靠语音独白维护她的看板、OKR 与优先级——一个把她指向下一件高影响任务的主理人。身为双相情感障碍者，她坦承 AI 最大的礼物是“支持型”而非“产出型”：它消解了她的收件箱焦虑，接手了她大脑逃避的杂事。她对行业的论点：教育与接入必须扩散，否则 AI 的复利价值只会锁进早期少数人的圈子里。</p>
+    </div>
+
+    <div class="urls" style="margin-top:24px">
+      <a href="https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL">▶️ https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL</a>
+    </div>
+  </div>
+
+</section>
+
+<footer class="footer">
+  <div class="next-issue">📬 下一期：明天 10:00（北京时间）</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->
