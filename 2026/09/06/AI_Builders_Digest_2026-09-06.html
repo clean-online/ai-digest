@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest · 2026-09-06</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 12px; padding: 32px; margin-bottom: 24px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
+  .podcast-source { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 10px; }
+  .podcast-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; color: var(--ink); margin-bottom: 24px; }
+  .takeaway { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 8px; padding: 18px 22px; margin-bottom: 24px; font-size: 15px; line-height: 1.7; color: var(--accent-deep); }
+  .takeaway + .takeaway { margin-top: -8px; }
+  .takeaway-label { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; background: var(--accent); color: white; padding: 3px 8px; border-radius: 3px; margin-right: 10px; transform: translateY(-2px); }
+  .podcast-body { font-size: 15.5px; color: var(--ink-soft); line-height: 1.75; }
+  .podcast-body p { margin-bottom: 16px; }
+  .podcast-body strong { color: var(--ink); font-weight: 600; }
+  .podcast-divider { height: 1px; background: var(--line); margin: 28px 0; }
+  .podcast-zh { font-family: 'Noto Serif SC', serif; font-size: 15.5px; color: var(--ink); line-height: 1.95; }
+  .podcast-zh p { margin-bottom: 16px; }
+  .podcast-zh strong { color: var(--accent-deep); font-weight: 600; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .podcast { padding: 24px; } .podcast-title { font-size: 19px; } .topbar-inner { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 · Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest · 2026-09-06 · 周日</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">13</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">26</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">2</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🐦</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">13 Builders</span>
+  </div>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Sam Altman</span>
+      <span class="builder-role">CEO, OpenAI</span>
+    </div>
+    <p class="summary-en">Altman announces GPT-6 Astra is now available to all Pro, Enterprise, and Business Premium users in Work/Codex and via the API, with rollout to Plus and Business users starting next. A follow-up confirms it's now out to all Plus and Business users — "Happy building!"</p>
+    <p class="summary-zh zh">Altman 宣布 GPT-6 Astra 已向所有 Pro、Enterprise 和 Business Premium 用户在 Work/Codex 及 API 中开放，并随即开始向 Plus 和 Business 用户铺开。后续推文确认已对所有 Plus 和 Business 用户开放——"Happy building!"</p>
+    <div class="urls">      <a href="https://x.com/sama/status/2096008528834244741">https://x.com/sama/status/2096008528834244741</a>
+      <a href="https://x.com/sama/status/2095973658867171733">https://x.com/sama/status/2095973658867171733</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thibault Sottiaux</span>
+      <span class="builder-role">Codex &amp; ChatGPT, OpenAI</span>
+    </div>
+    <p class="summary-en">Sottiaux says Astra was OpenAI's biggest competitive advantage while it wasn't generally available — since having it, their productivity jumped so much they pulled plans forward by ~6 months and will now ship them at DevDay instead of mid-next-year. He also confirms Astra rolled out ahead of schedule and that all Plus/Pro/Business users get the full banked reset today.</p>
+    <p class="summary-zh zh">Sottiaux 称在 Astra 尚未普遍可用时，它是 OpenAI 最大的竞争优势——用上之后生产力跃升幅度之大，让团队把计划提前了约 6 个月，原本要明年中才交付的东西现在放到 DevDay 发布。他还确认 Astra 提前上线，所有 Plus/Pro/Business 用户今天都能拿到完整的"累积重置"。</p>
+    <div class="urls">      <a href="https://x.com/thsottiaux/status/2096101429832552872">https://x.com/thsottiaux/status/2096101429832552872</a>
+      <a href="https://x.com/thsottiaux/status/2096035748130795560">https://x.com/thsottiaux/status/2096035748130795560</a>
+      <a href="https://x.com/thsottiaux/status/2096035437299237298">https://x.com/thsottiaux/status/2096035437299237298</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Amjad Masad</span>
+      <span class="builder-role">CEO, Replit</span>
+    </div>
+    <p class="summary-en">Masad declares "The singularity is here, it's just not evenly distributed," and celebrates Astra landing on Replit. A third teaser post ("It's coming") points to more on the way.</p>
+    <p class="summary-zh zh">Masad 抛出金句"奇点已来，只是分布不均"，并庆祝 Astra 登陆 Replit。另一条预热推文（"It's coming"）暗示还有更多要来。</p>
+    <div class="urls">      <a href="https://x.com/amasad/status/2096022087035195647">https://x.com/amasad/status/2096022087035195647</a>
+      <a href="https://x.com/amasad/status/2095986658185453928">https://x.com/amasad/status/2095986658185453928</a>
+      <a href="https://x.com/amasad/status/2095792059647234204">https://x.com/amasad/status/2095792059647234204</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">CEO, Vercel</span>
+    </div>
+    <p class="summary-en">Rauch is "super bullish on WebMCP" — like Tesla FSD meets the world where it is, agents must ride existing WWW infrastructure, and WebMCP makes that far more efficient. He sketches wins like Next.js dev pages exposing debugging tools directly to agents in the tab they're testing, so there's no separate MCP server to configure. Separately, he predicts AI software factories will yield bug-free, self-improving software.</p>
+    <p class="summary-zh zh">Rauch 对 WebMCP"极度看好"——就像特斯拉 FSD 接受现实世界的街道、红绿灯与坑洼，agent 必须踩在现有的 WWW 基础设施上跑，而 WebMCP 让这件事高效得多。他举例：Next.js 开发页面能直接把调试工具暴露给正在测试该标签页的 agent，无需另行寻找和配置独立 MCP server。他还预言，AI 软件工厂将产出无 bug、自我改进的软件。</p>
+    <div class="urls">      <a href="https://x.com/rauchg/status/2096065378598441431">https://x.com/rauchg/status/2096065378598441431</a>
+      <a href="https://x.com/rauchg/status/2095926173293572467">https://x.com/rauchg/status/2095926173293572467</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">Practical AI tutorials &amp; interviews</span>
+    </div>
+    <p class="summary-en">Yang pitches an OpenAI Apple Watch app where you voice-dictate to Codex threads and get voice replies, sidestepping phone-screen addiction — or maybe that's what the rumored OpenAI device does. He also notes Astra generated "the most stereotypical image of a PM" he's ever seen for his game.</p>
+    <p class="summary-zh zh">Yang 提议做一款 OpenAI 的 Apple Watch app：用语音向 Codex 线程口述、再用语音回复，绕开手机屏幕成瘾——或许这正是传闻中 OpenAI 硬件要做的事。他还提到，Astra 为他的游戏生成了"他见过最刻板印象的 PM 形象"。</p>
+    <div class="urls">      <a href="https://x.com/petergyang/status/2096086845159563476">https://x.com/petergyang/status/2096086845159563476</a>
+      <a href="https://x.com/petergyang/status/2096036429159973348">https://x.com/petergyang/status/2096036429159973348</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Madhu Guru</span>
+      <span class="builder-role">Sr Director, AI at Meta · prev Gemini, Veo, Nano Banana</span>
+    </div>
+    <p class="summary-en">Guru's weekend exercise: pick a workflow you know well, automate the whole thing with AI, and let it force you to think about end-to-end experience, MCPs/tools, where humans stay in the loop, and how to evaluate it — then keep expanding the ambition. "The only way to learn is to build."</p>
+    <p class="summary-zh zh">Guru 的周末练习：挑一个你熟悉的工作流，用 AI 把整件事自动化，逼自己去想清楚端到端体验、该用哪些 MCP/工具、人在哪个环节保留在环、以及如何评估；然后不断放大野心。"学习的唯一方式就是动手造。"</p>
+    <div class="urls">      <a href="https://x.com/realmadhuguru/status/2095907570540335174">https://x.com/realmadhuguru/status/2095907570540335174</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Swyx</span>
+      <span class="builder-role">AI Engineer · Latent Space / smol-ai</span>
+    </div>
+    <p class="summary-en">Swyx is working on a massive Astra/Fable frontier-model AEO report and was surprised that Claude recommends Latent Space Podcast when asked for the best AI newsletter/podcast. He jokes that Ric Mac made him double-check for memory leaks.</p>
+    <p class="summary-zh zh">Swyx 正在写一份关于 Astra/Fable 前沿模型的大型 AEO 报告，并惊讶地发现 Claude 在被问到"最好的 AI 新闻简报/播客"时推荐了 Latent Space Podcast。他调侃 Ric Mac 让他去检查了 memory leak。</p>
+    <div class="urls">      <a href="https://x.com/swyx/status/2096095862732755342">https://x.com/swyx/status/2096095862732755342</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Matt Turck</span>
+      <span class="builder-role">VC, FirstMark Capital · Host, MAD Podcast</span>
+    </div>
+    <p class="summary-en">Turck reacts to Hugging Face and Thomas Wolf "cannot stop winning" — first the acquisition, now a comment that drew laughs — and shares a clip from a recent MAD pod episode.</p>
+    <p class="summary-zh zh">Turck 对 Hugging Face 与 Thomas Wolf"赢个不停"作出反应——先是那笔收购，紧接着又是一条引人发笑的评论——并分享了最近一期 MAD 播客的片段。</p>
+    <div class="urls">      <a href="https://x.com/mattturck/status/2095885287960264962">https://x.com/mattturck/status/2095885287960264962</a>
+      <a href="https://x.com/mattturck/status/2095885284801982779">https://x.com/mattturck/status/2095885284801982779</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Zara Zhang</span>
+      <span class="builder-role">Builder · Harvard '17</span>
+    </div>
+    <p class="summary-en">Zhang argues most people perceive AI to be a better writer than it actually is — a concise counter to the hype around model writing ability.</p>
+    <p class="summary-zh zh">Zhang 认为，大多数人都高估了 AI 的实际写作水平——一句对模型写作能力 hype 的精炼反驳。</p>
+    <div class="urls">      <a href="https://x.com/zarazhangrui/status/2096082116828406233">https://x.com/zarazhangrui/status/2096082116828406233</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aditya Agarwal</span>
+      <span class="builder-role">GP, SPC · ex CTO Dropbox</span>
+    </div>
+    <p class="summary-en">Agarwal's wry take: he understands how RL, inference-time scaling, and modern data-verification loops work — and yet these models are "total sorcery" that shouldn't be able to do what they do. A builder's honest awe at the gap between mechanism and magic.</p>
+    <p class="summary-zh zh">Agarwal 的犀利自白：他懂 RL、推理时缩放和现代数据校验循环是怎么运作的——但话锋一转，这些模型仍是"纯纯的魔法"，本不该能做到它们做到的事。一位 builder 对"机制"与"魔力"之间落差的坦诚惊叹。</p>
+    <div class="urls">      <a href="https://x.com/adityaag/status/2095910036652577028">https://x.com/adityaag/status/2095910036652577028</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Garry Tan</span>
+      <span class="builder-role">President &amp; CEO, Y Combinator</span>
+    </div>
+    <p class="summary-en">Tan raves about AsideAI as an AI harness — setting up OpenClaw with Slack took him 2 hours, but Aside's harness with full integrations and browser did it in under 3 minutes, with smart access-control defaults. He says GStack now uses Aside as its preferred remote-session browser, calling it the best AI agent browser/credentials/integrations harness he's found.</p>
+    <p class="summary-zh zh">Tan 大赞 AsideAI 作为 AI harness——用 OpenClaw 配 Slack 花了他 2 小时，而 Aside 带全套集成加浏览器的 harness 不到 3 分钟搞定，还自带聪明的访问控制默认值。他表示 GStack 现已把 Aside 作为首选的远程会话浏览器，称其为他见过的、在浏览器/凭据/集成/记忆上都最出色的 AI agent harness。</p>
+    <div class="urls">      <a href="https://x.com/garrytan/status/2095971990645755941">https://x.com/garrytan/status/2095971990645755941</a>
+      <a href="https://x.com/garrytan/status/2095948689823121872">https://x.com/garrytan/status/2095948689823121872</a></div>
+  </article>
+
+</section>
+
+<!-- ============== OFFICIAL BLOGS ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">📝</span>
+    <h2 class="section-title">Official Blogs</h2>
+    <span class="section-meta">2 Posts</span>
+  </div>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Claude Blog</span>
+      <span class="builder-role">Claude in Chrome is generally available</span>
+    </div>
+    <p class="summary-en">Anthropic has made Claude in Chrome generally available on every paid Claude plan. Claude can now take actions autonomously inside the browser instead of requiring approval for each one; a safety classifier validates every action before it runs to confirm it's safe and matches the request. For builders, the takeaway is that many everyday tools already connect to Claude, and autonomous in-browser actions widen what you can delegate.</p>
+    <p class="summary-zh zh">Anthropic 已将 Claude in Chrome 在所有付费 Claude 套餐中正式发布（GA）。现在 Claude 可以在浏览器内自主执行操作，而不再对每一步都要求批准；一个安全分类器会在每次操作执行前先做校验，确认其安全且符合请求。对 builder 的意义是：许多日常工具本就接入了 Claude，而浏览器内的自主操作进一步扩大了可委托的边界。</p>
+    <div class="urls">      <a href="https://claude.com/blog/claude-in-chrome-generally-available">https://claude.com/blog/claude-in-chrome-generally-available</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Claude Blog</span>
+      <span class="builder-role">Claude gets its own browser in Cowork</span>
+    </div>
+    <p class="summary-en">Claude now has a browser built into Claude Cowork on the desktop app. When a task touches a website, a browser opens in the side panel and Claude navigates pages, reads them, clicks, and types — so you can hand off the web portion of a task and stay where you are. Concrete examples: filling in a form, pulling numbers from a dashboard, or working through a portal that has no connector.</p>
+    <p class="summary-zh zh">Claude 现在在桌面端 Claude Cowork 里内置了一个浏览器。当任务需要用到某个网站时，侧边栏会打开一个浏览器，由 Claude 导航页面、阅读、点击、输入——于是你可以把任务里"上网"的那部分交出去，自己留在原地。具体场景：填表、从仪表盘拉数字、或是走通一个没有现成连接器的门户。</p>
+    <div class="urls">      <a href="https://claude.com/blog/cowork-built-in-browser">https://claude.com/blog/cowork-built-in-browser</a></div>
+  </article>
+
+</section>
+
+<!-- ============== PODCAST ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🎙️</span>
+    <h2 class="section-title">Podcasts</h2>
+    <span class="section-meta">1 Episode</span>
+  </div>
+
+  <div class="podcast">
+    <div class="podcast-source">No Priors</div>
+    <h3 class="podcast-title">Redefining Chip Architecture with Arm CEO Rene Haas</h3>
+
+    <div class="takeaway">
+      <span class="takeaway-label">The Takeaway</span>
+      Arm CEO Rene Haas argues the CPU is "the heart of everything" and that AI's biggest near-term leverage in chips is verification — turn it off and chip design reverts to 1990s-era productivity. His broader bet: AI as a utility that levels the playing field for every industry, and data centers as job engines, not job killers.
+    </div>
+
+    <div class="podcast-divider"></div>
+
+    <div class="takeaway zh">
+      <span class="takeaway-label">核心结论</span>
+      Arm CEO Rene Haas 认为 CPU 是"一切的核心"，而 AI 在芯片领域最近期的杠杆是验证环节——把它关掉，芯片设计就会退回 1990 年代的生产力水平。他更大的判断是：AI 是一项"公用事业"，会拉平各行业的起跑线；而数据中心是就业引擎，而非就业杀手。
+    </div>
+
+    <div class="podcast-body">
+      <p>Rene Haas, CEO of Arm and SoftBank Group International, runs one of the two positions every computing workload ultimately flows through: the CPU. "There's no computing problem that's ever been invented that doesn't utilize and can't utilize the microprocessor. It is the heart of everything. All roads lead through it." His counterintuitive claim is about where AI helps chips most — not design, but the verification, validation, and debug that eat the bulk of a 24-to-36-month cycle. "AI is really good at that. And if we were to shut it off, it's like being in the 1990s" with internet only between 2 and 4pm. "The genie's out of the bottle and there's no stopping that."</p>
+      <p>On Arm's own move from licensing IP into physical chips, Haas traces it from selling CPU/GPU/system IP to "compute subsystems" (the Lego-blueprint analogy) and finally a physical product — kicked off by Meta wanting a "general purpose agentic CPU" no one else could supply. He's careful to keep the ecosystem on board; Nvidia, Amazon, Microsoft, and Google all build Arm-based server chips and backed the move.</p>
+      <p>The strand most relevant to builders: Haas is "a huge believer in AI as a utility that's going to help productivity for every single industry. It is gonna be the great leveler" — healthcare, infrastructure, robotics. Arm uses it heavily on the engineering side for verification, though RTL generation remains immature because models train on public data while chip knowledge is proprietary; they're fine-tuning with model makers to close the gap. On the jobs debate, he's blunt: the fear of AI-driven job loss "is not well grounded at all" — the Electricians Labor Union recently asked not to ban data centers because they need those jobs.</p>
+    </div>
+
+    <div class="podcast-divider"></div>
+
+    <div class="podcast-zh">
+      <p>Rene Haas（Arm 及软银集团国际 CEO）掌管着所有计算负载最终都要流经的两个环节之一：CPU。"没有哪个被发明出来的计算问题，是不用、也不能用微处理器的。它是万物之心，条条大路都从它身上穿过。"他反直觉的论点是：AI 对芯片最大的帮助不在设计，而在吞噬了 24–36 个月周期里大部分时间的那个环节——验证、确认与调试。"AI 非常擅长这个。要是把它关掉，就像回到 1990 年代"，只有下午两到四点才有互联网。"精灵已经出了瓶子，挡不住了。"</p>
+      <p>关于 Arm 从授权 IP 走向自造实体芯片，Haas 把脉络讲得很清楚：从卖 CPU/GPU/系统 IP，到"计算子系统"（乐高蓝图的比喻），再到实体产品——起点是 Meta 想要一颗"通用 agentic CPU"，市面上没人供得了。他格外小心地维系生态：英伟达、亚马逊、微软、谷歌都基于 Arm 造服务器芯片，也都支持这一步。</p>
+      <p>与 builder 最相关的一条线：Haas"极度相信 AI 会作为一种公用事业，提升每一个行业的生产力。它将成为伟大的均衡器"——医疗、基建、机器人皆然。Arm 在工程侧（尤其是验证）重度使用 AI，不过 RTL 生成仍不成熟，因为模型只学过公开数据，而芯片知识多属专有；他们正与模型方微调以补缺口。谈到就业之争，他直言对 AI 致失业的恐惧"根本站不住脚"——电气工会最近还请求不要禁数据中心，因为他们正需要这些岗位。</p>
+    </div>
+
+    <div class="urls" style="margin-top:24px">
+      <a href="https://www.youtube.com/@NoPriorsPodcast">▶️ https://www.youtube.com/@NoPriorsPodcast</a>
+    </div>
+  </div>
+
+</section>
+
+<footer class="footer">
+  <div class="next-issue">📬 下一期：明天 10:00（北京时间）</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->
