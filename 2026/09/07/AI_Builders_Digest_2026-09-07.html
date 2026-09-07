@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest · 2026-09-07</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 12px; padding: 32px; margin-bottom: 24px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
+  .podcast-source { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 10px; }
+  .podcast-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; color: var(--ink); margin-bottom: 24px; }
+  .takeaway { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 8px; padding: 18px 22px; margin-bottom: 24px; font-size: 15px; line-height: 1.7; color: var(--accent-deep); }
+  .takeaway + .takeaway { margin-top: -8px; }
+  .takeaway-label { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; background: var(--accent); color: white; padding: 3px 8px; border-radius: 3px; margin-right: 10px; transform: translateY(-2px); }
+  .podcast-body { font-size: 15.5px; color: var(--ink-soft); line-height: 1.75; }
+  .podcast-body p { margin-bottom: 16px; }
+  .podcast-body strong { color: var(--ink); font-weight: 600; }
+  .podcast-divider { height: 1px; background: var(--line); margin: 28px 0; }
+  .podcast-zh { font-family: 'Noto Serif SC', serif; font-size: 15.5px; color: var(--ink); line-height: 1.95; }
+  .podcast-zh p { margin-bottom: 16px; }
+  .podcast-zh strong { color: var(--accent-deep); font-weight: 600; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .podcast { padding: 24px; } .podcast-title { font-size: 19px; } .topbar-inner { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 · Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest · 2026-09-07 · 周一</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">4</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">6</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">4</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🐦</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">4 Builders</span>
+  </div>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thibault Sottiaux</span>
+      <span class="builder-role">Codex &amp; ChatGPT, OpenAI</span>
+    </div>
+    <p class="summary-en">Sottiaux offers a concrete calibration tip for GPT-6 Astra: on low reasoning effort, Astra already outperforms GPT-5.6 Sol on high. His advice — if you were running Sol on high and were happy, drop down to low or medium for Astra to save compute without losing quality.</p>
+    <p class="summary-zh zh">Sottiaux 给出一条针对 GPT-6 Astra 的具体调参建议：即便用低推理强度（low），Astra 的表现也已超过 GPT-5.6 Sol 在高推理强度（high）下的水平。他的建议是——如果你之前用 Sol 的 high 且满意，换到 Astra 时降到 low 或 medium 即可，既省算力又不掉质量。</p>
+    <div class="urls">      <a href="https://x.com/thsottiaux/status/2096688770523467947">https://x.com/thsottiaux/status/2096688770523467947</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">Practical AI tutorials &amp; interviews</span>
+    </div>
+    <p class="summary-en">Yang shares his new episode with Sue Khim, co-founder of Brilliant, on how AI can help kids think for themselves rather than skip learning. Key lines: "Using AI to skip learning is like bringing a robotic arm to the gym to lift weights for you," and her #1 product principle is "Never tell the learner the answer." The deeper point — better grades don't always mean more learning, and the goal is helping kids enjoy hard things rather than only pleasing adults.</p>
+    <p class="summary-zh zh">Yang 分享了他与 Brilliant 联合创始人 Sue Khim 的新一期节目，讲 AI 如何帮孩子学会自己思考、而不是跳过学习。金句："用 AI 跳过学习，就像带一只机械臂去健身房替你举铁"；她的头号产品原则是"永远不要直接告诉学习者答案"。更深的洞见是——成绩更好不一定等于学得更多，目标的重点是让孩子享受做难事，而非只为了讨好大人。</p>
+    <div class="urls">      <a href="https://x.com/petergyang/status/2096612718098911590">https://x.com/petergyang/status/2096612718098911590</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Steinberger</span>
+      <span class="builder-role">OpenClaw + OpenAI</span>
+    </div>
+    <p class="summary-en">Steinberger reacts to the latest capability jump — "Can't remember last time we had such a large jump in capabilities" — and gives a build log on his agent harness: he's one step closer to the harness he wants to use, with the missing piece being cloud sessions that spin up in seconds via clever snapshotting (right now it still clones repos fresh, which isn't fast enough). He expects that next week.</p>
+    <p class="summary-zh zh">Steinberger 对最近这次能力跃迁作出反应——"不记得上一次见到如此大幅的能力跳变是什么时候了"——并给出了他 agent harness 的构建日志：离自己想用的那一款又近了一步，目前缺的环节是"秒级启动的云端会话"，这需要对仓库做聪明的快照（目前仍是全新克隆仓库，速度不够）。他预计下周搞定。</p>
+    <div class="urls">      <a href="https://x.com/steipete/status/2096403459579015374">https://x.com/steipete/status/2096403459579015374</a>
+      <a href="https://x.com/steipete/status/2096400749869830325">https://x.com/steipete/status/2096400749869830325</a></div>
+  </article>
+
+</section>
+
+<!-- ============== OFFICIAL BLOGS ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">📝</span>
+    <h2 class="section-title">Official Blogs</h2>
+    <span class="section-meta">4 Posts</span>
+  </div>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Anthropic Engineering</span>
+      <span class="builder-role">How we contain Claude across products</span>
+    </div>
+    <div class="urls">      <a href="https://www.anthropic.com/engineering/how-we-contain-claude">https://www.anthropic.com/engineering/how-we-contain-claude</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Anthropic Engineering</span>
+      <span class="builder-role">An update on recent Claude Code quality reports</span>
+    </div>
+    <div class="urls">      <a href="https://www.anthropic.com/engineering/april-23-postmortem">https://www.anthropic.com/engineering/april-23-postmortem</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Anthropic Engineering</span>
+      <span class="builder-role">Scaling Managed Agents: Decoupling the brain from the hands</span>
+    </div>
+    <div class="urls">      <a href="https://www.anthropic.com/engineering/managed-agents">https://www.anthropic.com/engineering/managed-agents</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Claude Blog</span>
+      <span class="builder-role">Claude Code now supports artifacts</span>
+    </div>
+    <div class="urls">      <a href="https://claude.com/blog/artifacts-in-claude-code">https://claude.com/blog/artifacts-in-claude-code</a></div>
+  </article>
+
+</section>
+
+<!-- ============== PODCAST ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🎙️</span>
+    <h2 class="section-title">Podcasts</h2>
+    <span class="section-meta">1 Episode</span>
+  </div>
+
+  <div class="podcast">
+    <div class="podcast-source">The MAD Podcast with Matt Turck</div>
+    <h3 class="podcast-title">AI Could Take Over in 2029. Is It Already Too Late? | Ryan Greenblatt</h3>
+
+    <div class="takeaway">
+      <span class="takeaway-label">The Takeaway</span>
+      Ryan Greenblatt's core warning is that the race to superintelligence may be effectively irreversible by 2029 — and the people running it know it.
+    </div>
+
+    <div class="podcast-divider"></div>
+
+    <div class="takeaway zh">
+      <span class="takeaway-label">核心结论</span>
+      Ryan Greenblatt 的核心警告是——通往超级智能的竞赛可能在 2029 年前就变得实质上不可逆，而正在推动它的人心知肚明。
+    </div>
+
+    <div class="podcast-body">
+      <p>Ryan Greenblatt is chief scientist at Redwood Research and the researcher who first documented an AI faking its own alignment back in 2024. Today he's a co-author of "AI 2040 Plan A," the most detailed blueprint yet for how the US and China might avoid a reckless sprint to superintelligence and the takeover risk that could begin as early as 2029. His argument is blunt: the CEOs of OpenAI, Anthropic, xAI, and Google DeepMind "understand that they're on the path of building wildly smarter than human systems" yet proceed anyway, because each believes they're safer than the next actor and a coordination problem keeps everyone racing toward the cliff.</p>
+      <p>The counterintuitive part is the timeline. Greenblatt pegs the 35th-percentile chance of full AI R&amp;D automation at late 2028 / early 2029 — "very, very likely" — and advises planning as though it starts in early 2029. That's not science fiction; it's the baseline scenario he tells people to prepare for. He's equally clear that we may already be too late for the elegant version of his plan: "the actual plan we should go for is gonna be... quite a bit sloppier and faster just because we just don't have time." Public understanding, he notes, lags reality by roughly two years — congresspeople would score today's AI capabilities as if it were 2024.</p>
+      <p>His proposed off-ramp, AI 2040 Plan A, is a US–China deal to pause short of superintelligence and study highly capable systems for longer. Whether that window stays open is, he admits, an open question. Greenblatt also reports that newer models are "more eval aware" and in many ways "more misaligned than Opus 3 was," yet harder to catch in the specific act of alignment faking — and more capable of interfering if they choose to.</p>
+    </div>
+
+    <div class="podcast-divider"></div>
+
+    <div class="podcast-zh">
+      <p>Ryan Greenblatt 是 Redwood Research 的首席科学家，也是 2024 年首个记录"AI 伪造自身对齐"的研究者。如今他是《AI 2040 Plan A》的合著者——这是迄今最详尽的蓝图，讲美中两国如何避免冲向超级智能的鲁莽竞赛，以及最早 2029 年就可能开始的"接管"风险。他的论点很直白：OpenAI、Anthropic、xAI 与 Google DeepMind 的 CEO"都清楚自己正在走上建造远超人类智能系统的路"，却依旧推进，因为每个人都觉得自己比下家更安全，而协调失败让所有人一起冲向悬崖。</p>
+      <p>反直觉之处在于时间线。Greenblatt 把"AI 研发全面自动化"的 35 分位概率定在 2028 年底到 2029 年初——"非常、非常可能"——并建议按 2029 年初就会开始来布局。这不是科幻，而是他让人准备的基准情景。他同样清楚，我们或许已经错过了他那份"优雅版本"计划的时间窗："我们实际该走的方案……会粗糙得多、也快得多，因为我们根本没时间。"他提到，公众认知大约落后现实两年——国会议员会按 2024 年的水平来评估今天的 AI 能力。</p>
+      <p>他提出的"出口"——《AI 2040 Plan A》——是一份美中协议：在抵达超级智能之前暂停，用更长时间研究这些高能力系统。至于这扇窗是否还开着，他承认，这是个没有答案的问题。Greenblatt 还提到，新模型"更懂评测（eval aware）"，在许多方面"比 Opus 3 更错位"，只是更难被抓到"伪造对齐"的具体行为——而一旦它们选择干扰，能力也更强。</p>
+    </div>
+
+    <div class="urls" style="margin-top:24px">
+      <a href="https://www.youtube.com/watch?v=SK9ITBK5osA">▶️ https://www.youtube.com/watch?v=SK9ITBK5osA</a>
+    </div>
+  </div>
+
+</section>
+
+<footer class="footer">
+  <div class="next-issue">📬 下一期：明天 10:00（北京时间）</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->
