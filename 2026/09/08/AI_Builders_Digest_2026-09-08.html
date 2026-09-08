@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest · 2026-09-08</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 12px; padding: 32px; margin-bottom: 24px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
+  .podcast-source { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 10px; }
+  .podcast-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; color: var(--ink); margin-bottom: 24px; }
+  .takeaway { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 8px; padding: 18px 22px; margin-bottom: 24px; font-size: 15px; line-height: 1.7; color: var(--accent-deep); }
+  .takeaway + .takeaway { margin-top: -8px; }
+  .takeaway-label { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; background: var(--accent); color: white; padding: 3px 8px; border-radius: 3px; margin-right: 10px; transform: translateY(-2px); }
+  .podcast-body { font-size: 15.5px; color: var(--ink-soft); line-height: 1.75; }
+  .podcast-body p { margin-bottom: 16px; }
+  .podcast-body strong { color: var(--ink); font-weight: 600; }
+  .podcast-divider { height: 1px; background: var(--line); margin: 28px 0; }
+  .podcast-zh { font-family: 'Noto Serif SC', serif; font-size: 15.5px; color: var(--ink); line-height: 1.95; }
+  .podcast-zh p { margin-bottom: 16px; }
+  .podcast-zh strong { color: var(--accent-deep); font-weight: 600; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .podcast { padding: 24px; } .podcast-title { font-size: 19px; } .topbar-inner { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 · Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest · 2026-09-08 · 周二</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">5</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">5</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🐦</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">5 Builders</span>
+  </div>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">Practical AI tutorials &amp; interviews</span>
+    </div>
+    <p class="summary-en">Yang fires a sarcastic jab at AI hype rankings — "This man isn't even on Time's 100 Top AI List so why are we listening to him /s." The <em>/s</em> marks it as irony, but the barb lands on a real question: who gets anointed as a voice worth listening to in AI, and on whose authority.</p>
+    <p class="summary-zh zh">Yang 用一句反讽吐槽 AI 热度榜单——"这人连《时代》百大 AI 榜都没上，我们为什么要听他的 /s"。句尾的 /s 表示这是反话，但这句话刺中的是个真问题：在 AI 领域，谁被封为"值得听的声音"，凭的又是什么授权。</p>
+    <div class="urls">      <a href="https://x.com/petergyang/status/2096815819997204639">https://x.com/petergyang/status/2096815819997204639</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nan Yu</span>
+      <span class="builder-role">Product, OpenAI · prev Head of Product, Linear</span>
+    </div>
+    <p class="summary-en">Yu posts a one-liner — "J-dog calling AGI" — a wry reaction to yet another AGI declaration. Thin on argument, but a fair snapshot of how casually the word now gets thrown around inside the industry.</p>
+    <p class="summary-zh zh">Yu 只发了一句"J-dog 喊 AGI 了"，作为对又一次"AGI 已至"宣言的揶揄。论证层面很薄，但如实反映了当下行业内部把 AGI 这个词说出口的随意程度。</p>
+    <div class="urls">      <a href="https://x.com/thenanyu/status/2096796392102752507">https://x.com/thenanyu/status/2096796392102752507</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aaron Levie</span>
+      <span class="builder-role">CEO, Box</span>
+    </div>
+    <p class="summary-en">Levie warns that the internet is "almost entirely unprepared for a future where everyone's personal agents are running around executing tasks for them," and that this will create "endless new challenges." The framing is infrastructure-level rather than product-level: today's web was built for humans clicking on things, not for delegated software acting in their name.</p>
+    <p class="summary-zh zh">Levie 警告说，互联网"几乎完全没有准备好"迎接这样一个未来：每个人的私人 agent 四处奔走、替主人执行任务，而这会带来"无穷无尽的新挑战"。他的着眼点在基础设施层而非产品层——今天的 Web 是为"人来点击"造的，不是为"被授权的软件以人的名义行事"造的。</p>
+    <div class="urls">      <a href="https://x.com/levie/status/2096735726750908464">https://x.com/levie/status/2096735726750908464</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Zara Zhang</span>
+      <span class="builder-role">Builder</span>
+    </div>
+    <p class="summary-en">Zhang names the shortening of the human attention span as "one of the biggest crises of our time," and argues that agents make it worse. It's a useful counterweight to the prevailing optimism: delegation removes friction, but it also removes the slow, deliberate thinking that attention requires.</p>
+    <p class="summary-zh zh">Zhang 把"人类注意力持续时间变短"称为"我们这个时代最大的危机之一"，并认为 agent 只会让它更糟。这是对当下主流乐观论的一个有用对冲：委派确实消掉了摩擦，但也一并消掉了注意力所必需的那种缓慢、有意识的思考。</p>
+    <div class="urls">      <a href="https://x.com/zarazhangrui/status/2096824861108928701">https://x.com/zarazhangrui/status/2096824861108928701</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nikunj Kothari</span>
+      <span class="builder-role">Partner, FPV Ventures</span>
+    </div>
+    <p class="summary-en">Kothari flags a workflow worth watching: "Fable reviewing literally every Astra code change" — an AI reviewer in the loop on all of it — with his verdict that "this fix is the real deal." His line "Fable PM, Astra engineer is undefeated" points at a maturing pattern: model-as-reviewer paired with model-as-writer, rather than AI as an occasional assistant.</p>
+    <p class="summary-zh zh">Kothari 提到一个值得留意的工作流："Fable 逐条审核 Astra 的每一次代码改动"——AI 评审全量介入，他的评价是"这次修复是真货"。他那句"Fable 做 PM、Astra 做工程师，这组合无敌"指向一种正在成型的范式：模型当评审、模型当写手，两者配对，而不是 AI 偶尔来搭把手。</p>
+    <div class="urls">      <a href="https://x.com/nikunj/status/2096798671547646134">https://x.com/nikunj/status/2096798671547646134</a></div>
+  </article>
+
+</section>
+
+<!-- ============== PODCAST ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🎙️</span>
+    <h2 class="section-title">Podcasts</h2>
+    <span class="section-meta">1 Episode</span>
+  </div>
+
+  <div class="podcast">
+    <div class="podcast-source">No Priors</div>
+    <h3 class="podcast-title">Rethinking Legacy Data Infrastructure with Eon Co-Founders Ofir Ehrlich and Gonen Stein</h3>
+
+    <div class="takeaway">
+      <span class="takeaway-label">The Takeaway</span>
+      Data, not models, is the only durable moat left — and the agents now touching that data are the new insider threat.
+    </div>
+
+    <div class="podcast-divider"></div>
+
+    <div class="takeaway zh">
+      <span class="takeaway-label">核心结论</span>
+      数据——而不是模型——是公司仅剩的持久护城河；而如今伸手碰这些数据的 agent，就是新的内部威胁。
+    </div>
+
+    <div class="podcast-body">
+      <p>Ehrlich and Stein previously built CloudEndure (acquired by AWS) and ran large-scale cloud migrations; <strong>EON is the second act</strong> — a cloud "data foundation" that maps and classifies data across multiple hyperscalers, ingests structured and unstructured sources at low cost, and then makes that data queryable and usable by AI models. The origin story sets up everything else: at AWS they watched a customer who believed it was fully protected against ransomware lose <strong>60% of its environment</strong>, simply because resources were never mapped, classified, or tagged properly.</p>
+      <p>Their thesis is that models and compute have become "almost ephemeral" with near-zero switching costs, which leaves <strong>data as the only durable advantage</strong> a company has. The proof point they return to: Google bought Spirit Airlines' data out of bankruptcy for <strong>$10 million</strong> — it did not buy the airplanes — with Mercor reportedly the other bidder. Labs are now going to Wall Street to buy hedge fund data, and tapes that sat on a shelf for twenty years have become assets. The blocker is organizational, not technical: business-unit leaders don't know what data they hold, won't risk production uptime or compliance to extract it, and won't hand over anything that might contain the CEO's salary.</p>
+      <p>On security, the threat has shifted from human actors to <strong>non-human actors</strong> — agents holding legitimate credentials and permissions that can drop a table in seconds. The detection methodology is the same (irregular write patterns, entropy changes), but "the velocity of that happening is extreme," so the posture has to be assume-breach. Two counterintuitive calls follow: dashboards will <em>multiply</em> rather than disappear, because once agents write most of the code and activate other agents, someone has to trace non-human identity and chains of responsibility; and the bigger risk may be non-technical employees quietly pasting company data into tools they don't realize are external. On the stack, they argue Fivetran and dbt were "incredible" but niche point solutions — what matters now is context across the whole organization, because the value shows up when the person holding New York's burger-lovers list finally meets the one holding the pizza-lovers list. They also call time on "token maxing": storage and tokens cost enough that every token has to earn its keep. Comparing eras, cloud was abstract and hard to explain to a grandmother, while <strong>AI everyone already understands</strong> — so adoption is pushed by boards and shareholders, driven as much by fear as by value, and moving fast enough that some customers are pausing rollouts because they've lost control. Their parting read: most companies still don't use AI at all, so this has barely started.</p>
+    </div>
+
+    <div class="podcast-divider"></div>
+
+    <div class="podcast-zh">
+      <p>Ehrlich 与 Stein 此前创办了 CloudEndure（被 AWS 收购）并操盘过大规模云迁移；<strong>EON 是他们的第二次创业</strong>——一套云端"数据底座"：跨多个云厂商把数据盘点、分类，低成本地摄入结构化与非结构化数据源，再让这些数据可被查询、可被 AI 模型直接使用。创业缘起解释了后面的一切：在 AWS 时，他们目睹一个自以为做了完备防护的客户被勒索软件攻陷了<strong>60% 的环境</strong>，原因仅仅是资源从未被正确盘点、分类和打标。</p>
+      <p>他们的核心论点是：模型和算力已经"近乎朝生暮死"，切换成本接近于零，于是<strong>数据成了公司唯一持久的优势</strong>。他们反复举的例证是：Google 从破产的 Spirit 航空手里买下的是数据、花了 <strong>1000 万美元</strong>——它没买飞机——据报道另一个竞价方是 Mercor。如今实验室跑到华尔街去买对冲基金的数据，在架子上吃了二十年灰的磁带变成了资产。而真正的卡点是组织问题、不是技术问题：业务线负责人不知道自己手里有什么数据，不愿为了导出数据去冒生产可用性或合规的风险，更不愿交出一份可能夹着 CEO 薪水的东西。</p>
+      <p>在安全上，威胁来源已经从人变成了<strong>非人主体</strong>——手握合法凭证与权限的 agent，几秒钟就能删掉一张表。检测方法和过去一样（异常写入模式、熵值变化），但"发生速度是极端的"，所以姿态只能是"假设已被攻破"。由此推出两个反直觉判断：仪表盘不但不会消失，反而会<strong>变多</strong>——因为一旦大部分代码由 agent 写出、agent 又去唤起别的 agent，总得有人去追溯非人身份与责任链；而更大的风险或许来自非技术员工悄悄把公司数据贴进他们并不知道属于外部的工具里。在数据栈上，他们认为 Fivetran、dbt 都是"了不起的公司"，但只是很窄的单点方案——现在真正需要的是贯穿全组织的上下文，因为价值出现的时刻，是那个握着"纽约爱吃汉堡的人"名单的人，终于遇上了握着"纽约爱吃披萨的人"名单的人。他们也宣告了"堆 token"时代的结束：存储和 token 已经贵到每一枚 token 都得挣回自己的钱。拿两个时代对比：云是抽象的，很难跟祖母解释清楚；而 <strong>AI 是人人都已经懂的东西</strong>——所以 adoption 由董事会和股东推着走，被恐惧驱动的程度不亚于被价值驱动，而且快到有些客户因为失去了控制感而暂停上线。他们最后的一句话是：绝大多数公司其实还完全没用上 AI，所以这一切才刚刚开始。</p>
+    </div>
+
+    <div class="urls" style="margin-top:24px">
+      <a href="https://www.youtube.com/@NoPriorsPodcast">▶️ https://www.youtube.com/@NoPriorsPodcast</a>
+    </div>
+  </div>
+
+</section>
+
+<footer class="footer">
+  <div class="next-issue">📬 下一期：明天 10:00（北京时间）</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->
