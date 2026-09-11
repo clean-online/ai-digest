@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest · 2026-09-11</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 12px; padding: 32px; margin-bottom: 24px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
+  .podcast-source { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 10px; }
+  .podcast-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; color: var(--ink); margin-bottom: 24px; }
+  .takeaway { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 8px; padding: 18px 22px; margin-bottom: 24px; font-size: 15px; line-height: 1.7; color: var(--accent-deep); }
+  .takeaway + .takeaway { margin-top: -8px; }
+  .takeaway-label { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; background: var(--accent); color: white; padding: 3px 8px; border-radius: 3px; margin-right: 10px; transform: translateY(-2px); }
+  .podcast-body { font-size: 15.5px; color: var(--ink-soft); line-height: 1.75; }
+  .podcast-body p { margin-bottom: 16px; }
+  .podcast-body strong { color: var(--ink); font-weight: 600; }
+  .podcast-divider { height: 1px; background: var(--line); margin: 28px 0; }
+  .podcast-zh { font-family: 'Noto Serif SC', serif; font-size: 15.5px; color: var(--ink); line-height: 1.95; }
+  .podcast-zh p { margin-bottom: 16px; }
+  .podcast-zh strong { color: var(--accent-deep); font-weight: 600; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .podcast { padding: 24px; } .podcast-title { font-size: 19px; } .topbar-inner { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 · Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest · 2026-09-11 · 周五</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">14</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">28</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🐦</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">14 Builders</span>
+  </div>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thibault Sottiaux</span>
+      <span class="builder-role">Codex &amp; ChatGPT, OpenAI</span>
+    </div>
+    <p class="summary-en">Sottiaux posts the day's only hard operational disclosure: "There was a bit of a kerfuffle this morning with some banked resets not fully applying when used in ChatGPT Work and Codex." Everyone who used one inside the affected window is being granted another reset plus an apology email. Two lighter posts round out his day — on the pleasure of debating model names with researchers ("they come up with the most hilarious stuff"), and a short "Happy to be building here with you all. Lots to explore."</p>
+    <p class="summary-zh zh">Sottiaux 给出了今天唯一一条硬运营披露："今天早上出了一点小乱子，部分已入账的 resets 在 ChatGPT Work 和 Codex 里使用时没有完全生效。"受影响时间窗口内用过一次的用户都会补发一次，并收到一封致歉邮件。另外两条偏轻松：一条说和研究员争论新模型命名是他最大的乐趣之一（"他们想出来的东西最搞笑了"），另一条是简短的"很高兴能和大家一起在这里做东西，可探索的还有很多"。</p>
+    <div class="urls">      <a href="https://x.com/thsottiaux/status/2097912273264095536">https://x.com/thsottiaux/status/2097912273264095536</a>      <a href="https://x.com/thsottiaux/status/2097829053147582782">https://x.com/thsottiaux/status/2097829053147582782</a>      <a href="https://x.com/thsottiaux/status/2097752790177370535">https://x.com/thsottiaux/status/2097752790177370535</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">Practical AI Tutorials</span>
+    </div>
+    <p class="summary-en">Yang shares his favourite test for a new model's thinking quality: ask it for brutally honest feedback about the blind spots holding you back, pasting the prompt image straight into ChatGPT — and reports that "Astra's feedback was especially blunt." He also asks when mobile support arrives for Work and remote Codex threads, noting it currently seems limited to Chat threads. A third post is personal tooling: he installed a "Dr Eggbot" for spinning up new Grok bots and renamed it Dr Light "so it doesn't become evil."</p>
+    <p class="summary-zh zh">Yang 分享了他最喜欢的模型思维能力测试方式：让它对自己身上拖后腿的盲点给出极其诚实的反馈，把提示词图片直接贴进 ChatGPT 即可；他说"Astra 的反馈格外不留情面"。他还问 Work 和远程 Codex 线程的移动端支持什么时候来，指出目前似乎只有 Chat 线程可用。第三条是个人工具：他装了一个用来生成新 Grok bot 的"Dr Eggbot"，并把它改名成 Dr Light，"免得它变坏"。</p>
+    <div class="urls">      <a href="https://x.com/petergyang/status/2097763574886375832">https://x.com/petergyang/status/2097763574886375832</a>      <a href="https://x.com/petergyang/status/2097729250505966046">https://x.com/petergyang/status/2097729250505966046</a>      <a href="https://x.com/petergyang/status/2097719517057253527">https://x.com/petergyang/status/2097719517057253527</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nan Yu</span>
+      <span class="builder-role">Product Staff, OpenAI (prev Linear)</span>
+    </div>
+    <p class="summary-en">A single-line post announcing something called "Apple Orbital Strike," with no accompanying explanation in the feed.</p>
+    <p class="summary-zh zh">一句话帖子，宣布了一个叫"Apple Orbital Strike"的东西，feed 中没有附带说明。</p>
+    <div class="urls">      <a href="https://x.com/thenanyu/status/2097726586191851790">https://x.com/thenanyu/status/2097726586191851790</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">CEO, Vercel</span>
+    </div>
+    <p class="summary-en">Rauch promotes an "AI Benchmarks" event co-hosted with Benchmark in San Francisco, calling it "the most aptly named event in SF history" and arguing that benchmark labs are "the companies that benchmark models and guide the world towards skill, truth and efficiency." His second post is a cost curve update: "8 price cuts, fee removals and structure improvements, plus 16 model discounts… in the last 6 months alone. More to come…"</p>
+    <p class="summary-zh zh">Rauch 为与 Benchmark 在旧金山联办的"AI Benchmarks"活动站台，称这是"旧金山历史上名字最贴切的活动"，并认为做评测的公司是"为模型定基准、把世界引向能力、真实与效率的公司"。第二条是成本曲线更新："8 次降价、费用取消与结构优化，外加 16 个模型折扣……而这仅仅是过去 6 个月。后面还有……"</p>
+    <div class="urls">      <a href="https://x.com/rauchg/status/2097837950612717804">https://x.com/rauchg/status/2097837950612717804</a>      <a href="https://x.com/rauchg/status/2097828203658383674">https://x.com/rauchg/status/2097828203658383674</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aaron Levie</span>
+      <span class="builder-role">CEO, Box</span>
+    </div>
+    <p class="summary-en">Levie makes the demand-side case in one breath: "The world is going to be using coding agents for far more than anyone would have thought before" — new tool categories, software for companies that couldn't afford it, agents defending against cyber risk, automating research in life sciences, legacy system upgrades, and "hundreds of other use cases." His mechanism is simple: lower the cost of code and you do far more with it. Then he supplies the counterweight to his own optimism. The gap between AI capability and measured GDP impact is explained by diffusion, not by capability: "getting data prepared and put into a pipeline, process reengineering and change management, aligning on how the new workflow should function." And even after all that, you are still bound by "the speed of the real world."</p>
+    <p class="summary-zh zh">Levie 一口气讲完了需求侧的逻辑："世界使用 coding agent 的广度，会远远超出任何人此前的想象"——全新的工具类目、给此前负担不起的公司做软件、用 agent 抵御网络风险、自动化生命科学的研究、升级遗留系统与基础设施，以及"上百种其他用例"。他的机制很简单：把代码的成本降下来，能用它做的事就会多得多。紧接着他给自己的乐观加了一个配重。AI 能力与 GDP 可测影响之间的落差，要由扩散速度解释，而不是能力本身："把数据准备好并接进管道、流程再造和变更管理、就新流程该怎么运作达成一致。"而即便这些都解决了，你依然受制于"现实世界的速度"。</p>
+    <div class="urls">      <a href="https://x.com/levie/status/2097920810543468551">https://x.com/levie/status/2097920810543468551</a>      <a href="https://x.com/levie/status/2097738533297689012">https://x.com/levie/status/2097738533297689012</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Garry Tan</span>
+      <span class="builder-role">President &amp; CEO, Y Combinator</span>
+    </div>
+    <p class="summary-en">One post today, and it is off-topic for this digest: an attack on a California insurance commissioner candidate over local housing politics. Recorded here as it appeared, with no AI or builder content to summarize.</p>
+    <p class="summary-zh zh">今天只有一条帖子，且与本刊主题无关：就加州地方住房政治抨击一位保险专员候选人。按 feed 原样记录在此，其中没有可供摘要的 AI 或 builder 内容。</p>
+    <div class="urls">      <a href="https://x.com/garrytan/status/2097728692596486487">https://x.com/garrytan/status/2097728692596486487</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Matt Turck</span>
+      <span class="builder-role">VC, FirstMark Capital</span>
+    </div>
+    <p class="summary-en">A throwaway joke about VCs staying up as late as founders, timed to the latest-ever US Open finishing the night before. No AI substance.</p>
+    <p class="summary-zh zh">一句随口的玩笑：投资人也能像创始人一样熬夜，起因是前一晚创纪录最晚收场的美网公开赛。没有 AI 实质内容。</p>
+    <div class="urls">      <a href="https://x.com/mattturck/status/2097738051577422256">https://x.com/mattturck/status/2097738051577422256</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Zara Zhang</span>
+      <span class="builder-role">Builder</span>
+    </div>
+    <p class="summary-en">A two-line aphorism on building: "Idea is easy. Conviction is hard."</p>
+    <p class="summary-zh zh">一句关于做事的两行格言："想法容易，信念难。"</p>
+    <div class="urls">      <a href="https://x.com/zarazhangrui/status/2097599758391255259">https://x.com/zarazhangrui/status/2097599758391255259</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nikunj Kothari</span>
+      <span class="builder-role">Partner, FPV Ventures</span>
+    </div>
+    <p class="summary-en">A one-word reaction ("Finally") attached to a link, with no stated context in the feed.</p>
+    <p class="summary-zh zh">一个单词的反应（"终于"）配一条链接，feed 中未给出具体所指。</p>
+    <div class="urls">      <a href="https://x.com/nikunj/status/2097870497505837478">https://x.com/nikunj/status/2097870497505837478</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Steinberger</span>
+      <span class="builder-role">OpenClaw &amp; OpenAI</span>
+    </div>
+    <p class="summary-en">Steinberger reports the infrastructure result he has been chasing: "Finally got cloud sessions working *fast* in OpenClaw," covering Remote Terminal, WebVNC and CUA for computer use. His second post is the more interesting organisational one — Dashboards/Mini-Apps was an idea he pushed two months ago, and it has now "replaced lots of custom tooling we built around OC," to the point where "everything's a sidebar entry, a dashboard or a plugin now for our team server." A third post is a two-word endorsement with a link.</p>
+    <p class="summary-zh zh">Steinberger 报告了他一直在追的基础设施结果："终于让 OpenClaw 的云端会话跑得*快*了"，覆盖 Remote Terminal、WebVNC 以及用于 computer use 的 CUA。第二条更有意思，是组织层面的变化：Dashboards/Mini-Apps 是他两个月前推的想法，如今已经"取代了我们在 OC 外围自建的大量定制工具"，以至于"对我们团队服务器来说，现在一切都是侧边栏条目、一个 dashboard，或者一个插件"。第三条是带链接的两个字推荐。</p>
+    <div class="urls">      <a href="https://x.com/steipete/status/2097935551735423464">https://x.com/steipete/status/2097935551735423464</a>      <a href="https://x.com/steipete/status/2097880507753382201">https://x.com/steipete/status/2097880507753382201</a>      <a href="https://x.com/steipete/status/2097830230899769349">https://x.com/steipete/status/2097830230899769349</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Dan Shipper</span>
+      <span class="builder-role">CEO, Every</span>
+    </div>
+    <p class="summary-en">Shipper takes apart a widely circulated automation-and-jobs report on its underlying assumptions. Two of them do the heavy lifting: that jobs can be decomposed into tasks, and that human tasks created by automation are always modelled as a fraction of automated ones — in other words, "the underlying assumption is automation always reduces human labor (or at best leaves it the same)." His objection is from experience: "automation often creates multiples more work" than it removes, and once you relax that assumption the report's conclusions move significantly. His other post is one line of workplace affection — "i love looking at the @every slack."</p>
+    <p class="summary-zh zh">Shipper 拆解了一份流传很广的自动化与就业报告的底层假设。其中两个假设承担了主要推演：一是工作可以被拆成任务；二是自动化所创造的人类任务，始终被建模为自动化任务的一个分数——也就是说，"底层假设是自动化总会减少人类劳动（最多只是保持不变）"。他的反驳来自经验："自动化常常创造出数倍于此的新工作"，而一旦放松这个假设，报告的结论就会大幅移动。另一条帖子是一句对工作场所的喜爱："我喜欢看 @every 的 Slack。"</p>
+    <div class="urls">      <a href="https://x.com/danshipper/status/2097796322145562900">https://x.com/danshipper/status/2097796322145562900</a>      <a href="https://x.com/danshipper/status/2097758891270697101">https://x.com/danshipper/status/2097758891270697101</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aditya Agarwal</span>
+      <span class="builder-role">General Partner, SPC</span>
+    </div>
+    <p class="summary-en">Agarwal frames Waymo as "one of the greatest examples of human-oriented technology," while noting how long the road was: Dmitri Dolgov joined Google's self-driving project in 2009 and now leads Waymo as co-CEO. He is appearing at SPC this month. The other two posts are event logistics — an RSVP link and a "more coming soon" teaser.</p>
+    <p class="summary-zh zh">Agarwal 把 Waymo 称为"以人为本的技术最杰出的例子之一"，同时指出这条路有多长：Dmitri Dolgov 在 2009 年加入谷歌的自动驾驶项目，如今以联席 CEO 身份执掌 Waymo。他本月会来 SPC。另外两条是活动组织类帖子——一个报名链接和一句"更多内容即将发布"的预告。</p>
+    <div class="urls">      <a href="https://x.com/adityaag/status/2097736851872153633">https://x.com/adityaag/status/2097736851872153633</a>      <a href="https://x.com/adityaag/status/2097736850244845898">https://x.com/adityaag/status/2097736850244845898</a>      <a href="https://x.com/adityaag/status/2097736847879192917">https://x.com/adityaag/status/2097736847879192917</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Sam Altman</span>
+      <span class="builder-role">CEO, OpenAI</span>
+    </div>
+    <p class="summary-en">Altman's substantive post is the plainest statement of the day about capacity: "This would suck, but we will prioritize great service for customers until we can get back on top of things." He also welcomes Paul — "Grateful you are doing this, and all you have done for AI safety. Excited to work together again." The third is personal: the Ocarina of Time remake is "the best news in a long time," and he will be unavailable on November 5 and 6.</p>
+    <p class="summary-zh zh">Altman 今天最有信息量的一条，是关于产能最直白的表述："这确实很糟，但在我们重新掌控局面之前，会把客户服务放在第一位。"他还欢迎 Paul 加入——"很感激你愿意做这件事，也感激你为 AI 安全所做的一切。很高兴能再次共事。"第三条是私人内容：《塞尔达传说：时之笛》重制版是"很久以来最好的消息"，而他 11 月 5 日和 6 日将不在线。</p>
+    <div class="urls">      <a href="https://x.com/sama/status/2097776310940569783">https://x.com/sama/status/2097776310940569783</a>      <a href="https://x.com/sama/status/2097696043492143157">https://x.com/sama/status/2097696043492143157</a>      <a href="https://x.com/sama/status/2097695001341829212">https://x.com/sama/status/2097695001341829212</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Claude</span>
+      <span class="builder-role">Anthropic</span>
+    </div>
+    <p class="summary-en">Anthropic's account announces five new Claude Marketplace listings — CrowdStrike, Cursor, Factory, Gamma and Vercel — with the commercially significant detail that "enterprises can now use their Anthropic spend commitment to buy more Claude-powered products and agents." A companion post invites builders on the Claude Platform to get listed so customers can buy more easily.</p>
+    <p class="summary-zh zh">Anthropic 官方账号宣布 Claude Marketplace 新上线五家——CrowdStrike、Cursor、Factory、Gamma 与 Vercel——其中在商业上最关键的一句是"企业现在可以用他们在 Anthropic 的支出承诺，去购买更多由 Claude 驱动的产品和 agent"。同发的另一条邀请在 Claude Platform 上做开发的团队去上架，方便客户购买。</p>
+    <div class="urls">      <a href="https://x.com/claudeai/status/2097718982920855834">https://x.com/claudeai/status/2097718982920855834</a>      <a href="https://x.com/claudeai/status/2097718980437831935">https://x.com/claudeai/status/2097718980437831935</a></div>
+  </article>
+
+</section>
+
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🧭</span>
+    <h2 class="section-title">Takeaway</h2>
+    <span class="section-meta">No Podcast Today</span>
+  </div>
+
+  <div class="takeaway">
+    <span class="takeaway-label">The Takeaway</span>
+    Capacity is still the story, and it is now visible in the small print. OpenAI spent the day on the unglamorous side of scale — a banked-resets bug in ChatGPT Work and Codex, a make-good to everyone in the affected window, and Altman's flat promise to prioritize service "until we can get back on top of things." While the plumbing absorbs the attention, the commercial layer keeps compounding underneath it: Anthropic opened Claude Marketplace to CrowdStrike, Cursor, Factory, Gamma and Vercel and let enterprises draw down existing spend commitments; Vercel counted eight price cuts and sixteen model discounts in six months. Levie supplies both the demand thesis — cheaper code means hundreds of new use cases — and the brake on it, which is that diffusion runs on data pipelines, process reengineering and the speed of the real world, none of which scale like a model does.
+  </div>
+
+  <div class="takeaway zh">
+    <span class="takeaway-label">核心结论</span>
+    主线仍然是产能，而且它现在出现在小字里。OpenAI 这一天都花在规模不体面的那一面：ChatGPT Work 与 Codex 里已入账 resets 未生效的故障、给受影响时间窗内所有人的补偿，以及 Altman 那句不带修饰的承诺——在"重新掌控局面之前"优先保服务。管道吸走注意力的同时，商业层在下面持续加码：Anthropic 把 Claude Marketplace 开放给 CrowdStrike、Cursor、Factory、Gamma 和 Vercel，并允许企业动用已有的支出承诺；Vercel 半年内数出 8 次降价和 16 个模型折扣。Levie 同时提供了需求侧论点——代码更便宜意味着上百种新用例——和它的刹车：扩散速度取决于数据管道、流程再造和现实世界的速度，这几样没有一样能像模型那样指数级扩张。
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="next-issue">📬 下一期：明天 10:00（北京时间）</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->
