@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest · 2026-09-13</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 12px; padding: 32px; margin-bottom: 24px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
+  .podcast-source { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 10px; }
+  .podcast-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; color: var(--ink); margin-bottom: 24px; }
+  .takeaway { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 8px; padding: 18px 22px; margin-bottom: 24px; font-size: 15px; line-height: 1.7; color: var(--accent-deep); }
+  .takeaway + .takeaway { margin-top: -8px; }
+  .takeaway-label { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; background: var(--accent); color: white; padding: 3px 8px; border-radius: 3px; margin-right: 10px; transform: translateY(-2px); }
+  .podcast-body { font-size: 15.5px; color: var(--ink-soft); line-height: 1.75; }
+  .podcast-body p { margin-bottom: 16px; }
+  .podcast-body strong { color: var(--ink); font-weight: 600; }
+  .podcast-divider { height: 1px; background: var(--line); margin: 28px 0; }
+  .podcast-zh { font-family: 'Noto Serif SC', serif; font-size: 15.5px; color: var(--ink); line-height: 1.95; }
+  .podcast-zh p { margin-bottom: 16px; }
+  .podcast-zh strong { color: var(--accent-deep); font-weight: 600; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .podcast { padding: 24px; } .podcast-title { font-size: 19px; } .topbar-inner { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 · Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest · 2026-09-13 · 周日</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">15</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">30</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🐦</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">15 Builders</span>
+  </div>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thibault Sottiaux</span>
+      <span class="builder-role">Codex &amp; ChatGPT, OpenAI</span>
+    </div>
+    <p class="summary-en">Sottiaux posts the week's shipping list on a single line — Images 2.5, GPT-Live-1, Agents API, Data Agent, ChatGPT for Financial Services — and notes that "it's not yet DevDay," with more planned for next week. The more useful post is his quality reset and postmortem. Three fixes: skills written for previous models were "triggering too often or preventing the model from checking its work"; an opt-in context management experiment that could cause early stops or replies to older messages has been disabled, with a rough estimate that 4–5k users were affected; and some badly configured engines causing measured quality degradation on long-tail traffic have been removed. A reset lands by midnight. His third post is an acquisition: Aidan and Sasha from the Git AI team join OpenAI, keeping the open-source tool that shows how coding agents contribute to a codebase.</p>
+    <p class="summary-zh zh">Sottiaux 用一行列出本周上线清单——Images 2.5、GPT-Live-1、Agents API、Data Agent、ChatGPT for Financial Services——并补一句"这还不是 DevDay"，下周还有安排。更有信息量的是他的质量重置与复盘。三处修复：为旧模型写的 skills "触发过于频繁，或阻碍模型检查自己的工作"；一个可选的上下文管理实验可能导致提前停止或回复旧消息，已关闭，粗略估计影响 4–5 千名用户；另有一批配置不当的引擎被移除，它们对长尾流量造成了可测量的质量下降。重置在当日午夜前生效。第三条是收购：Git AI 团队的 Aidan 与 Sasha 加入 OpenAI，那个用来展示 coding agent 如何贡献代码库的开源工具会继续保持开源。</p>
+    <div class="urls">      <a href="https://x.com/thsottiaux/status/2098639827084480864">https://x.com/thsottiaux/status/2098639827084480864</a>      <a href="https://x.com/thsottiaux/status/2098612714704891959">https://x.com/thsottiaux/status/2098612714704891959</a>      <a href="https://x.com/thsottiaux/status/2098569976143806918">https://x.com/thsottiaux/status/2098569976143806918</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">Practical AI Tutorials</span>
+    </div>
+    <p class="summary-en">Yang draws a tooling line for himself: "All local scheduled tasks live in Codex. All cloud tasks I'm porting over to Grok Bot. Makes it a clean split." His substantive post is a skeptical take on "software factories": apart from verification and testing, he does not think AI can self-improve a product or build a feature end-to-end without a human in the loop — "if it makes one wrong assumption the whole thing becomes a waste of tokens" — and he asks for counterexamples of features built with no human defining requirements or checking the work. The third post is a one-line link with no stated context.</p>
+    <p class="summary-zh zh">Yang 给自己划了一条工具线："所有本地定时任务都放在 Codex。所有云端任务我都在迁到 Grok Bot。这样切得干净。"他真正有分量的一条是对"软件工厂"的怀疑：除了验证和测试，他认为 AI 还做不到在没有人类参与的情况下自我改进产品、端到端做出新功能——"只要它做出一个错误假设，整件事就变成一堆废 token"——他还反问有没有哪个功能是无人定义需求、无人检查产出的情况下做出来的。第三条是只有一行链接、未说明指向的帖子。</p>
+    <div class="urls">      <a href="https://x.com/petergyang/status/2098614492066435228">https://x.com/petergyang/status/2098614492066435228</a>      <a href="https://x.com/petergyang/status/2098573992097657135">https://x.com/petergyang/status/2098573992097657135</a>      <a href="https://x.com/petergyang/status/2098565668241334366">https://x.com/petergyang/status/2098565668241334366</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Madhu Guru</span>
+      <span class="builder-role">Sr Director, AI at Meta</span>
+    </div>
+    <p class="summary-en">Guru's thread is the most concrete diagnosis of the day on why enterprise AI efforts fail, and none of his three reasons is about model quality. First, old-school playbooks: a trusted lieutenant is picked to run a central AI team, but "the team structure, product patterns, how you launch and learn that got you here do not work with AI" — fifteen years of incremental improvement does not prepare a company for something that requires experimentation and invention. Second, under-investing in evals. Third, building from the outside: the central team declares itself a platform team and ships tools disconnected from the actual workflows, context and judgment of the people doing the work, producing "begrudging adoption" rather than productivity gains. The remedies are organisational — hire leaders who have actually built AI products, make evals first class, and embed your best AI builders inside the functions you want to transform: build *with* finance, sales, support. His second post is a bare link.</p>
+    <p class="summary-zh zh">Guru 的这条 thread 是今天对企业 AI 失败原因最具体的诊断，而他给的三条理由没有一条关于模型质量。第一是沿用旧打法：让一位可信的副手去带一个中央 AI 团队，但"把你带到今天的团队结构、产品范式、发布与学习的方式，对 AI 都不适用"——十五年的渐进式改进，并不能让公司准备好面对一件需要实验和发明的事。第二是在 evals 上投入不足。第三是从外部为公司做 AI：中央团队自封为平台团队，做出来的工具与实际工作流、上下文和一线判断脱节，结果是"勉强的采纳"，而不是生产力提升。他给的药方都是组织层面的——招真正做过 AI 产品的负责人、把 evals 列为一等公民、把最强的 AI builder 嵌进你要改造的业务里：和财务一起做、和销售一起做、和支持一起做。第二条帖子只有一个裸链接。</p>
+    <div class="urls">      <a href="https://x.com/realmadhuguru/status/2098448469497356569">https://x.com/realmadhuguru/status/2098448469497356569</a>      <a href="https://x.com/realmadhuguru/status/2098448235048378456">https://x.com/realmadhuguru/status/2098448235048378456</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thariq</span>
+      <span class="builder-role">Claude Code, Anthropic</span>
+    </div>
+    <p class="summary-en">Two posts on the same problem from the tooling side. Plugin evals ship in response to feedback that "it's hard to know if your skills are still working with new model releases" — run <code>claude plugin eval init</code> in a plugin folder. And a caution about reading results: "it's basically impossible to interpret evals by looking at just the pass/fail scores these days," because many benchmark failures come from overly strict hidden tests, and in some cases the model's answer makes more sense than the expected result.</p>
+    <p class="summary-zh zh">两条帖子指向同一个问题，都从工具侧出发。为回应"很难知道你的 skills 在新模型发布后是否还有效"的反馈，plugin evals 上线——在插件目录里执行 <code>claude plugin eval init</code>。另一条提醒怎么读结果："现在只看通过/失败分数基本无法解读 evals"，因为许多 benchmark 失败来自过于严格的隐藏测试，有些情况下模型的回答比标准答案更合理。</p>
+    <div class="urls">      <a href="https://x.com/trq212/status/2098531560643539440">https://x.com/trq212/status/2098531560643539440</a>      <a href="https://x.com/trq212/status/2098490139798655427">https://x.com/trq212/status/2098490139798655427</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Amjad Masad</span>
+      <span class="builder-role">CEO, Replit</span>
+    </div>
+    <p class="summary-en">Masad's notable line is a business-model signal: "Replit acquires a business entirely built on Replit. I expect first of many to come." The other two are product and community notes — routines with budgets, and his enthusiasm for the Astra 3D experiments running on Replit.</p>
+    <p class="summary-zh zh">Masad 值得记的一条是商业模式信号："Replit 收购了一家完全构建在 Replit 上的公司。我预计这只是第一批。"另外两条是产品与社区层面的：带预算的 routines，以及他对 Replit 上跑起来的 Astra 3D 实验表现出的兴奋。</p>
+    <div class="urls">      <a href="https://x.com/amasad/status/2098548464452055437">https://x.com/amasad/status/2098548464452055437</a>      <a href="https://x.com/amasad/status/2098317466682179643">https://x.com/amasad/status/2098317466682179643</a>      <a href="https://x.com/amasad/status/2098316298820219058">https://x.com/amasad/status/2098316298820219058</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">CEO, Vercel</span>
+    </div>
+    <p class="summary-en">Rauch frames the infrastructure argument in one analogy: Tailscale's model router runs on Vercel AI Gateway, and "AI Gateways are the new CDNs. You could go 'direct to origin', but it's brittle. You could DIY, but it's painful and costly."</p>
+    <p class="summary-zh zh">Rauch 用一个类比讲完了基础设施层的论点：Tailscale 的模型路由跑在 Vercel AI Gateway 上，而"AI Gateway 就是新的 CDN。你可以'直连源站'，但那很脆弱；你也可以自己搭，但痛苦且昂贵。"</p>
+    <div class="urls">      <a href="https://x.com/rauchg/status/2098531157230969062">https://x.com/rauchg/status/2098531157230969062</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aaron Levie</span>
+      <span class="builder-role">CEO, Box</span>
+    </div>
+    <p class="summary-en">Levie's point is about primitives rather than capability: you can now mount Box to agent sandboxes so an agent can read and write files on its own computer. "As AI agents execute critical workflows in the enterprise, they're going to need the same primitives that people have had."</p>
+    <p class="summary-zh zh">Levie 讲的不是能力而是原语：现在可以把 Box 挂载到 agent 沙箱上，让 agent 在自己那台机器上读写文件。"当 AI agent 在企业里执行关键工作流时，它们会需要人类一直拥有的那些同样的原语。"</p>
+    <div class="urls">      <a href="https://x.com/levie/status/2098478938003841123">https://x.com/levie/status/2098478938003841123</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Ryo Lu</span>
+      <span class="builder-role">Designer, Cursor</span>
+    </div>
+    <p class="summary-en">One product post — "long-lived agents for your big ideas | now in Cursor" — and one personal note: he emptied his house, said his goodbyes and moved to Taipei.</p>
+    <p class="summary-zh zh">一条产品帖——"为你的大想法准备的长生命周期 agent | 现已在 Cursor 上线"——以及一条个人动态：他清空了房子、告别了朋友，搬去了台北。</p>
+    <div class="urls">      <a href="https://x.com/ryolu_/status/2098612137321201942">https://x.com/ryolu_/status/2098612137321201942</a>      <a href="https://x.com/ryolu_/status/2098324260867772806">https://x.com/ryolu_/status/2098324260867772806</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Garry Tan</span>
+      <span class="builder-role">President &amp; CEO, Y Combinator</span>
+    </div>
+    <p class="summary-en">One post, and it is off-topic for this digest: an argument about SAT scoring and standardised testing, with no AI or builder content. Recorded as it appeared.</p>
+    <p class="summary-zh zh">今天只有一条帖子，且与本刊主题无关：一段关于 SAT 评分与标准化考试的议论，没有 AI 或 builder 相关内容。按 feed 原样记录。</p>
+    <div class="urls">      <a href="https://x.com/garrytan/status/2098615692425851205">https://x.com/garrytan/status/2098615692425851205</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Matt Turck</span>
+      <span class="builder-role">VC, FirstMark Capital</span>
+    </div>
+    <p class="summary-en">Turck reposts his 9/11 remembrance — in 2001 he was the young co-founder of a NYC enterprise-search startup, TripleHop, with an office on the 53rd floor of the North Tower — lightly updated from a 2016 post, plus a link to the tenant list. Personal history rather than AI content; recorded as it appeared.</p>
+    <p class="summary-zh zh">Turck 重发了自己的 9/11 纪念文字——2001 年他是纽约一家企业搜索创业公司 TripleHop 的年轻联合创始人，办公室在北塔 53 层——这是他 2016 年那篇博客的轻微更新版，另附一条租户名单的链接。属个人回忆而非 AI 内容，按 feed 原样记录。</p>
+    <div class="urls">      <a href="https://x.com/mattturck/status/2098517023286247675">https://x.com/mattturck/status/2098517023286247675</a>      <a href="https://x.com/mattturck/status/2098517022049190227">https://x.com/mattturck/status/2098517022049190227</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Zara Zhang</span>
+      <span class="builder-role">Builder</span>
+    </div>
+    <p class="summary-en">Zhang pushes back on the one-person company: yes, AI lets one person do far more, "but building something new can be a profoundly lonely experience. You need someone to brainstorm together, suffer together, celebrate together." Her formulation is Ulysses — "it is extremely easy to lose motivation when you don't tie yourself to the mast together with somebody else."</p>
+    <p class="summary-zh zh">Zhang 对"一人公司"提出异议：AI 确实让一个人能做的事多得多，"但从零做一件事可能是极度孤独的体验。你需要有人一起头脑风暴、一起吃苦、一起庆祝。"她的说法借用了尤利西斯——"当你没有和另一个人一起把自己绑在桅杆上时，极容易失去动力。"</p>
+    <div class="urls">      <a href="https://x.com/zarazhangrui/status/2098483800456179923">https://x.com/zarazhangrui/status/2098483800456179923</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nikunj Kothari</span>
+      <span class="builder-role">Partner, FPV Ventures</span>
+    </div>
+    <p class="summary-en">Kothari applies "success has many fathers, but failure is an orphan" to VC attribution: large exits and markups are rare and are what you raise the next fund on, so he expects "many names scrubbed (or conveniently omitted)" and history revised toward whatever eventually works. His practical advice to emerging managers: "hold your founders close since they'll be the real reference checks."</p>
+    <p class="summary-zh zh">Kothari 用"成功有很多父亲，失败是个孤儿"来解释 VC 的归属争夺：大额退出或估值上调本就稀少，而那正是你募下一支基金的凭据，所以他预计接下来会"看到许多名字被抹掉（或被方便地略去）"，历史会被朝着最终成功的方向改写。他给新兴管理合伙人的实际建议是："把你的创始人看紧点，他们才是真正的背景调查来源。"</p>
+    <div class="urls">      <a href="https://x.com/nikunj/status/2098550718923997430">https://x.com/nikunj/status/2098550718923997430</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Steinberger</span>
+      <span class="builder-role">OpenClaw &amp; OpenAI</span>
+    </div>
+    <p class="summary-en">Steinberger's demo is a calibration joke more than a claim: "Astra on OC in a cloud session playing Doom with CUA. Not quite AGI yet, but probably beats fly brain." The second post is the more useful engineering note — he had to submit a patch to trycua to make keys work reliably under Linux, and calls it a "dope framework overall."</p>
+    <p class="summary-zh zh">Steinberger 的演示更像一个校准用的玩笑，而非主张："Astra 在 OC 云端会话里用 CUA 打 Doom。离 AGI 还差得远，但大概能赢过果蝇的大脑。"第二条更有工程价值：他给 trycua 提交了一个补丁，让按键在 Linux 下稳定工作，并评价这个框架"整体很棒"。</p>
+    <div class="urls">      <a href="https://x.com/steipete/status/2098527982709256637">https://x.com/steipete/status/2098527982709256637</a>      <a href="https://x.com/steipete/status/2098527519213604889">https://x.com/steipete/status/2098527519213604889</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Dan Shipper</span>
+      <span class="builder-role">CEO, Every</span>
+    </div>
+    <p class="summary-en">Shipper's substantive post is an argument about measurement: "better benchmark scores don't tell you much about how well a model does on your real work." Every has done long-form vibe checks for three years and is now "getting more quantitative" with an internal platform that lets each person build personal benchmarks from their real day-to-day work. The other two are a hiring pitch ("join the most ai pilled team on earth") and a one-line reaction with a link.</p>
+    <p class="summary-zh zh">Shipper 有分量的一条在讲度量："更好的 benchmark 分数，说明不了模型在你真实工作上有多好用。"Every 做长文 vibe check 已经三年，现在开始"变得更量化"——搭了一个内部平台，让每个人基于自己日常真实工作建个人 benchmark。另外两条分别是一则招聘（"加入地球上最 AI 的团队"）和一条带链接的一句话反应。</p>
+    <div class="urls">      <a href="https://x.com/danshipper/status/2098579426178908494">https://x.com/danshipper/status/2098579426178908494</a>      <a href="https://x.com/danshipper/status/2098481799047647715">https://x.com/danshipper/status/2098481799047647715</a>      <a href="https://x.com/danshipper/status/2098476917448118321">https://x.com/danshipper/status/2098476917448118321</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aditya Agarwal</span>
+      <span class="builder-role">General Partner, SPC</span>
+    </div>
+    <p class="summary-en">Two of Agarwal's three posts are a 9/11 reflection — he was at CMU in Wean Hall when one of the planes was near Pittsburgh — with no AI content, recorded as they appeared. The third is SPC's fall programme of tech-policy conversations with decision makers: how to encourage true innovation in California, how to enable a two-party state, how technology should be regulated, with Steve Hilton on September 23.</p>
+    <p class="summary-zh zh">Agarwal 三条里有两条是 9/11 的纪念文字——当时他在 CMU 的 Wean Hall，有一架飞机正飞近匹兹堡——没有 AI 内容，按 feed 原样记录。第三条是 SPC 秋季的科技政策对话系列活动：如何鼓励加州出现真正的创新、如何让加州变成两党竞争州、技术该如何被监管，Steve Hilton 将于 9 月 23 日参加。</p>
+    <div class="urls">      <a href="https://x.com/adityaag/status/2098580235268899123">https://x.com/adityaag/status/2098580235268899123</a>      <a href="https://x.com/adityaag/status/2098472520798114263">https://x.com/adityaag/status/2098472520798114263</a>      <a href="https://x.com/adityaag/status/2098472517845328303">https://x.com/adityaag/status/2098472517845328303</a></div>
+  </article>
+
+</section>
+
+<!-- ============== PODCAST ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🎙️</span>
+    <h2 class="section-title">Podcast</h2>
+    <span class="section-meta">1 Episode</span>
+  </div>
+
+  <article class="podcast">
+    <div class="podcast-source">No Priors</div>
+    <div class="podcast-title">Coinbase's Everything Exchange: Agentic Finance, Stablecoins, and Tokenization with CEO Brian Armstrong</div>
+
+    <div class="takeaway">
+      <span class="takeaway-label">The Takeaway</span>
+      Armstrong's thesis is that crypto was built for humans but will be required by agents. The number that carries the argument is a payments statistic: card rails carry a ~30¢ flat minimum, and "about 76% of the agent ecommerce transactions we're seeing are under 30¢" — so the machine economy needs a rail the human one never needed. Hence a self-custodial account an agent can open with a pasted prompt, no KYC, because "our AI agents don't have a government ID."
+    </div>
+
+    <div class="takeaway zh">
+      <span class="takeaway-label">核心结论</span>
+      Armstrong 的论点是：加密轨道是为人类建的，但会被 agent 所需要。撑起这个论点的是一个支付数字——银行卡通道有约 30 美分的固定最低费用，而"我们看到的 agent 电商交易中约有 76% 低于 30 美分"，所以机器经济需要一条人类经济从未需要的轨道。于是有了那个 agent 粘贴一段提示就能开立的自托管账户，无需 KYC，因为"我们的 AI agent 没有政府颁发的身份证"。
+    </div>
+
+    <div class="podcast-body">
+      <p>Armstrong opens on agentic commerce rather than on crypto. Debit and credit rails carry a flat ~30¢ minimum plus a percentage, which "doesn't make sense to pay 30¢ to send a 1¢ payment," and the transactions agents actually generate are mostly information gathering — compiling paywalled research, scraping data, or agents calling other specialized agents like a tool call. So Coinbase shipped a single-command prompt that gives an agent its own financial account on a self-custodial wallet: no KYC, because agents have no government ID and "can't walk into a bank branch, at least not yet without their humanoid robot companion." His framing: "we don't want the AIs to be unbanked."</p>
+      <p>The business is described in three layers. The <strong>Everything Exchange</strong> puts every asset class on chain with cross margin — stocks, commodities, crypto, perps, prediction markets. <strong>Stablecoin payments</strong> are "under one second, under 1¢" and keep growing even when Bitcoin is down. <strong>Agentic Finance</strong> gives every retail user the kind of advisor only wealthy people had — dollar cost averaging, tax loss harvesting, legging into a portfolio when the market dips. On the numbers he will cite: <strong>88% of Coinbase revenue is now non-Bitcoin trading</strong>; the tokenized stock product is the first that is a real security held one-to-one in custody rather than a synthetic, currently ex-US and in discussion with the SEC; and prediction markets hit roughly a <strong>$100M revenue run rate within months of launch, growing over 100% quarter over quarter</strong>. He also notes about four billion people have no access to any brokerage account.</p>
+      <p>Two arguments are worth separating from the pitch. On specialists: frontier models are trained as generalists, but a small open-weight model fine-tuned on a company's own cases — a compliance review queue trained on 100,000 Coinbase cases — can outperform them on that task, so he expects a market of narrow agents. On the "there will be no money" argument, he disagrees in any relevant timeframe: even with heavy deflation, land, energy and chips stay scarce, so "we're still going to need a medium of exchange," and "crypto was really, really good for humans, and it's going to be essential for AI." Asked whether AI shrinks companies, he says tasks are eliminated, not people — the existing team ships more.</p>
+      <p>The back half turns to <strong>New Limit</strong>, the longevity company he co-founded. The approach is epigenetic reprogramming — restoring function cells had when younger without changing their type — and the search space of transcription factors is large enough that they "built the leading frontier model for epigenetic reprogramming" to recommend the next pooled screening experiments. First three cell types: hepatocytes, vasculature and T cells. Following the GLP-1 pattern, phase one targets alcoholic liver disease, where twelve-month survivability after diagnosis is very low and the only option is transplant; he estimates around $20B if that drug alone works, but the goal is a cocktail that lets a healthy 40-year-old have the liver, immune system or skin of a 20-year-old. The logic is root-cause: "most of the diseases that take us out are all highly correlated with age." He closes on special economic zones — Coinbase invested in Prospera in Honduras — arguing that over-regulation is what slows progress and that the US should carve out federal land where data centres, nuclear plants and drone delivery can be built without the normal EPA and FAA process, because "you can't really solve a problem as an entrepreneur unless you can iterate on it."</p>
+    </div>
+
+    <div class="podcast-divider"></div>
+
+    <div class="podcast-zh">
+      <p>Armstrong 从 agent 电商开场，而不是从加密开场。借记卡和信用卡通道有约 30 美分的固定最低费加抽成，"为了转 1 美分付 30 美分说不通"，而 agent 实际产生的交易大多是信息收集——整理付费墙后的研究资料、抓取数据，或者 agent 像调用工具一样去调用其他专业 agent。于是 Coinbase 做了一个"一条命令"的提示，让 agent 在自托管钱包上拥有自己的金融账户：没有 KYC，因为 agent 没有政府身份证，"也没法走进银行网点，至少在有人形机器人陪着之前还不行"。他的说法是："我们不想让 AI 成为没有银行服务的人。"</p>
+      <p>业务被分成三层。<strong>Everything Exchange</strong> 把各类资产都放到链上并支持交叉保证金——股票、大宗、加密货币、永续合约、预测市场。<strong>稳定币支付</strong>"不到一秒、不到 1 美分"，而且在比特币下跌时仍在增长。<strong>Agentic Finance</strong> 则是让每个普通用户都拥有过去只有富人才有的顾问——定投、税损收割、市场回调时按比例分批建仓。他愿意引用的数字有：Coinbase <strong>88% 的收入已经来自非比特币交易</strong>；代币化股票产品是第一个由托管中真实证券 1:1 支撑、而非合成品的产品，目前只在美国以外开放，正与 SEC 沟通；预测市场上线数月就达到约 <strong>1 亿美元年收入化规模，环比增速超过 100%</strong>。他还提到全球约有 40 亿人没有任何券商账户。</p>
+      <p>有两个论点值得从推销中摘出来单独看。关于专业 agent：前沿模型被训练成通才，但用公司自有案例微调过的小参数开源模型——比如用 Coinbase 十万条合规案例训练出来的合规审核队列模型——可以在该任务上超过前沿模型，所以他预期会出现一个窄领域 agent 的市场。关于"未来不会有货币"的说法，他在任何相关时间尺度上都不同意：即便出现大幅通缩，土地、能源和芯片依然稀缺，因此"我们仍然需要交换媒介"，而"加密对人类非常好，对 AI 则会是必需的"。被问到 AI 是否会让公司变小，他说被消灭的是任务而不是人——现有团队能产出更多。</p>
+      <p>后半段转向他联合创办的长寿公司 <strong>New Limit</strong>。路径是表观遗传重编程——在不改变细胞类型的前提下，恢复细胞年轻时的功能——而转录因子的搜索空间大到他们"为表观遗传重编程建了领先的前沿模型"，用来推荐下一轮大规模混合筛选实验。前三类细胞是：肝细胞、血管细胞和 T 细胞。参照 GLP-1 的路径，一期临床选择酒精性肝病，这类患者确诊后十二个月生存率很低、唯一选项是肝移植；他估计单是这个药若能成，价值约 200 亿美元，但目标是一种组合疗法，让 40 岁健康人的肝脏、免疫系统或皮肤回到 20 岁的状态。底层逻辑是针对根因："夺走我们生命的大多数疾病，都与年龄高度相关。"最后他谈到特殊经济区——Coinbase 投资了洪都拉斯的 Prospera——认为拖慢进步的是过度监管，美国应该划出联邦土地，让数据中心、核电站和无人机配送可以在不走常规 EPA、FAA 流程的情况下建成，因为"作为创业者，你没法在不能试错迭代的情况下真正解决问题"。</p>
+    </div>
+
+    <div class="urls" style="margin-top:24px">
+      <a href="https://www.youtube.com/watch?v=uLDK4l_-gUE">https://www.youtube.com/watch?v=uLDK4l_-gUE</a>
+    </div>
+  </article>
+</section>
+
+<footer class="footer">
+  <div class="next-issue">📬 下一期：明天 10:00（北京时间）</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->
