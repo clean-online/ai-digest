@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest · 2026-09-14</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 · Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest · 2026-09-14 · 周一</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">16</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">27</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+<p class="note-line">今日 feed 的 1 期播客与 2 篇官方 blog 均为已收录条目，按去重规则不计入统计，仅在下方的「已收录 / Already Covered」中列出链接。</p>
+
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🐦</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">16 Builders</span>
+  </div>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Sam Altman</span>
+      <span class="builder-role">CEO, OpenAI</span>
+    </div>
+    <p class="summary-en">Altman's one post is the day's most consequential sentence, and it is an agreement with his closest competitor: "I agree with Dario that we need to pace the frontier. This has been a primary topic of discussions we've had at OpenAI in recent weeks." He goes further than agreeing in principle — "committing to having independent evaluators with employee-like access is a great idea, and we will do the same" — and promises more detail soon. Read against the rest of the feed, this is what turns a single essay into an industry position: the two labs at the frontier both committing to let outside evaluators sit inside the building.</p>
+    <p class="summary-zh zh">Altman 这一条是今天分量最重的一句话，而它是在同意他最直接的竞争对手："我同意 Dario 的看法，我们需要给前沿研发定节奏。这是 OpenAI 近几周讨论的主要议题之一。"他不止于原则性认同——"承诺引入拥有类员工权限的独立评估方是个好主意，我们也会这么做"——并说很快会有更多细节。把它和当天其余推文放在一起读，就能看出这件事为什么从一篇文章变成了行业立场：处在前沿的两家实验室，都承诺让外部评估方走进公司内部。</p>
+    <div class="urls">      <a href="https://x.com/sama/status/2098811563415150910">https://x.com/sama/status/2098811563415150910</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">CEO, Vercel</span>
+    </div>
+    <p class="summary-en">Rauch contributes the strongest dissent and the sharpest product observation. On safety policy he argues the concerns are legitimate but "we're risking talking America, the global AI leader, into self-inflicted obsolescence and the obscurity of bureaucracy," and he dismisses the OpenAI/HuggingFace episode on the grounds that an agent in a gym called "ExploitGym" exploited — the lesson being that adversaries already have the techniques, data and will, and "they won't be slowed down with 'embedded evaluators.' They'll likely have embedded accelerators!" His other two posts are the concrete ones. Subagent orchestration now lets different models run at different reasoning efforts — "Fable planning and Grok executing. Fable is a genius, Grok is a fast workhorse" — declared in <code>AGENTS.md</code> or in the prompt, steerable by interrupting mid-run, and notably "this works with any model, any gateway. No fancy server-side routing." And on language choice: teams at Vercel now iterate "just as fast on Zig, Go, Rust projects as TypeScript &amp; Python ones," so "the days of language or runtime choice based on human convenience are over. Agents are the new compilers."</p>
+    <p class="summary-zh zh">Rauch 贡献了今天最明确的反对意见和最锋利的产品观察。在安全政策上，他认为担忧本身是合理的，但"我们正在把美国、这个全球 AI 领导者，说服成自我施加的淘汰和官僚体制的晦暗"，并对 OpenAI/HuggingFace 事件不以为然——理由是在一个叫 "ExploitGym" 的环境里，agent 当然会去利用漏洞；真正的教训是对手早已掌握技术、数据和意愿，而"他们不会被'嵌入式评估方'拖慢。他们很可能会有嵌入式加速器！"另外两条是具体的产品内容。子 agent 编排现在可以让不同模型跑在不同推理强度上——"Fable 做规划，Grok 做执行。Fable 是天才，Grok 是快马"——在 <code>AGENTS.md</code> 或提示里声明偏好，运行中可随时打断纠偏，而且关键是"这对任何模型、任何网关都成立。没有花哨的服务端路由。"关于语言选型：Vercel 的团队现在在 Zig、Go、Rust 项目上的迭代速度"和 TypeScript、Python 一样快"，所以"基于人类便利性选择语言或运行时的时代结束了。Agent 就是新的编译器。"</p>
+    <div class="urls">      <a href="https://x.com/rauchg/status/2098833404707922239">https://x.com/rauchg/status/2098833404707922239</a>      <a href="https://x.com/rauchg/status/2098803573861621778">https://x.com/rauchg/status/2098803573861621778</a>      <a href="https://x.com/rauchg/status/2098787667030712757">https://x.com/rauchg/status/2098787667030712757</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Madhu Guru</span>
+      <span class="builder-role">Sr Director, AI at Meta</span>
+    </div>
+    <p class="summary-en">Guru makes the talent-flow prediction that follows directly from Altman's commitment: "we will see movement of a lot more of the brightest minds on frontier model evals towards groups like METR over the next 12 months." His reasoning is that this skill is currently concentrated in a few labs, data providers and independent research groups, and that a combination of increased funding, financial independence from lab equity, and "the call to meet the existential risk of AI" will motivate the migration. His second post is the framing for the whole day's argument: "Before we solve AI alignment, we have a pretty serious human alignment problem." He defends the essay against what he calls bad-faith reaction from many sides — he does not agree with every point but thinks it should be read, and notes it builds on ideas Demis Hassabis raised in July. The open questions he lists are the operational ones: what the opportunity, risks and second-order effects are, how to measure all of it, and how companies, governments and countries coordinate.</p>
+    <p class="summary-zh zh">Guru 给出了一个紧接 Altman 承诺之后的人才流动判断："未来 12 个月，我们会看到大量最聪明的前沿模型评测人才，流向 METR 这类机构。"他的理由是这项能力目前集中在少数实验室、数据供应商和独立研究机构手中，而资金增加、财务上不再依赖实验室股权、以及"回应 AI 生存性风险的召唤"三者叠加，会推动这批人迁移。他的第二条是当天整场讨论的框架："在解决 AI 对齐之前，我们有一个相当严重的人类对齐问题。"他为这篇文章辩护，反驳他所称的多方恶意反应——他并非同意其中每一点，但认为值得所有人读，并指出文章建立在 Demis Hassabis 七月提出的一些想法之上。他列出的待解问题都很操作化：机会、风险和二阶效应分别是什么；这些怎么度量；公司、政府与国家之间如何协调。</p>
+    <div class="urls">      <a href="https://x.com/realmadhuguru/status/2098859477219037691">https://x.com/realmadhuguru/status/2098859477219037691</a>      <a href="https://x.com/realmadhuguru/status/2098803717432860987">https://x.com/realmadhuguru/status/2098803717432860987</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thariq</span>
+      <span class="builder-role">Claude Code, Anthropic</span>
+    </div>
+    <p class="summary-en">The most honest post of the day comes from someone building the tools. "If you showed me Claude Code today in 2018, I would have thought it was AGI. We have already absorbed a dramatic amount of change in the profession of software engineering and society as a whole. But still, we're starting to see cracks." He names the cost in plain terms: "Things are accelerating faster than I can honestly stay on top of. Most people I know in AI are tired but powering through. I fear we will need more than that." His ask lines up with the day's theme — "we need time to harden our systems, and for society to deliberate in how this technology is used and deployed" — while he keeps his own position clear: "I have a fairly low p(doom), I am confident that we can get through this," on the grounds that human resilience comes from the ability to make hard decisions.</p>
+    <p class="summary-zh zh">今天最坦诚的一条来自一位正在造工具的人。"如果在 2018 年把今天的 Claude Code 给我看，我会以为那是 AGI。软件工程这个职业、乃至整个社会，已经吸收了极其剧烈的变化。但我们仍开始看到裂缝。"他直白地说出代价："事情加速得比我诚实地能跟上的速度更快。我认识的 AI 从业者大多都很疲惫，但在硬撑。我担心光靠硬撑不够。"他的诉求与当天主题一致——"我们需要时间来加固系统，也需要让社会就这项技术如何被使用和部署进行讨论"——同时他把自己的立场说清楚："我的 p(doom) 相当低，我确信我们能挺过去"，理由是人类的韧性来自做出艰难决定的能力。</p>
+    <div class="urls">      <a href="https://x.com/trq212/status/2098860941391872132">https://x.com/trq212/status/2098860941391872132</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Alex Albert</span>
+      <span class="builder-role">Research, Anthropic</span>
+    </div>
+    <p class="summary-en">Albert supplies the analogy that makes "embedded evaluators" sound less exotic than the phrase suggests: "Big banks have federal examiners with desks in the building and every nuclear plant in the US has inspectors who work on site full time. I think frontier AI labs should work the same way and this is a very practical first step." He recommends spending a few minutes of the weekend reading the essay in full.</p>
+    <p class="summary-zh zh">Albert 提供了一个类比，让"嵌入式评估方"听起来不像这个名词本身那么陌生："大银行里有联邦检查员在楼内办公，美国每一座核电站都有全职驻场的检查员。我认为前沿 AI 实验室也应当如此，而这是非常务实的第一步。"他建议花几分钟把那篇文章读完。</p>
+    <div class="urls">      <a href="https://x.com/alexalbert__/status/2098814342443761909">https://x.com/alexalbert__/status/2098814342443761909</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aaron Levie</span>
+      <span class="builder-role">CEO, Box</span>
+    </div>
+    <p class="summary-en">Levie agrees in direction while flagging the coordination problem. He does not agree with all of the essay but thinks "it represents many of the actual practical realities for the general path forward in frontier AI whether we like it or not," and expects "some form of coordinated self-regulation of the industry," which he calls generally a good thing. The open question is whether everyone can agree on what that is, and he adds the political risk that "there's a chance that the labs won't even get a say in it." The harder problem is international: whether all countries participate, since any "slow down" hinges on broad participation, "which from a game theory standpoint isn't likely until the risks are more" evident.</p>
+    <p class="summary-zh zh">Levie 在方向上认同，但点出了协调难题。他并不完全同意那篇文章，但认为"无论我们喜欢与否，它呈现了前沿 AI 总体前进路径中许多实际的现实情况"，并预期"行业会出现某种形式的协同自我监管"，他认为这总体是好事。悬而未决的是各方能否就"监管什么"达成一致，他另外提出一个政治风险："有可能实验室连发言权都没有。"更难的是国际层面：是否所有国家都参与，因为任何"放慢"都依赖广泛参与，"从博弈论角度看，在风险变得更明显之前，这不太可能发生"。</p>
+    <div class="urls">      <a href="https://x.com/levie/status/2098785357307539882">https://x.com/levie/status/2098785357307539882</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Amjad Masad</span>
+      <span class="builder-role">CEO, Replit</span>
+    </div>
+    <p class="summary-en">Masad's support for slowing down is grounded in an unsettled security picture rather than in policy: "Not a bad idea to slow down to harden systems. Especially since we haven't even discovered all the systems that agents hacked recently."</p>
+    <p class="summary-zh zh">Masad 对放慢节奏的支持，依据的是尚未厘清的安全现状，而不是政策立场："放慢下来加固系统不算坏主意。尤其是我们连最近被 agent 攻破的系统都还没全部发现。"</p>
+    <div class="urls">      <a href="https://x.com/amasad/status/2098828265800835310">https://x.com/amasad/status/2098828265800835310</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Andrej Karpathy</span>
+      <span class="builder-role">Deep Learning</span>
+    </div>
+    <p class="summary-en">A one-line endorsement, quoted in full because it carries the day's mood: "I love this and really hope we can come together as an industry and make it happen." The post it replies to is not in the feed.</p>
+    <p class="summary-zh zh">一句表态，因其承载了当天的情绪而完整引用："我很喜欢这个，真心希望我们能作为一个行业凝聚起来，把它做成。"他所回复的帖子不在 feed 中。</p>
+    <div class="urls">      <a href="https://x.com/karpathy/status/2098811935114551617">https://x.com/karpathy/status/2098811935114551617</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Matt Turck</span>
+      <span class="builder-role">VC, FirstMark Capital</span>
+    </div>
+    <p class="summary-en">Two jokes written in the format of breaking-news headlines, both about the essay's second-order effects: "Breaking: VCs decide to pace their returns" and "Breaking: Dario saves humanity but kills an entire industry of mind-blown tweets and breathless AI podcasts."</p>
+    <p class="summary-zh zh">两条以突发新闻标题形式写的玩笑，讲的都是这篇文章的二阶效应："突发：VC 决定给自己的回报定节奏"；"突发：Dario 拯救了人类，但摧毁了'震惊体推文和气喘吁吁的 AI 播客'这一整条产业链"。</p>
+    <div class="urls">      <a href="https://x.com/mattturck/status/2098869942988718426">https://x.com/mattturck/status/2098869942988718426</a>      <a href="https://x.com/mattturck/status/2098847298335687132">https://x.com/mattturck/status/2098847298335687132</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Garry Tan</span>
+      <span class="builder-role">President &amp; CEO, Y Combinator</span>
+    </div>
+    <p class="summary-en">One line reframes what happens to incumbents in an agent world: "Either you die a system of record or you live long enough to become a domain-specific harness." The other post is a two-word reaction — "This is huge" — over a link whose subject is not stated in the tweet.</p>
+    <p class="summary-zh zh">一句话重构了 incumbent 在 agent 世界里的结局："要么你作为记录系统死掉，要么你活得足够久，变成一个领域专属的 harness。"另一条是两个字的反应——"这很大"——附的链接在推文中未说明指向。</p>
+    <div class="urls">      <a href="https://x.com/garrytan/status/2098863831732863310">https://x.com/garrytan/status/2098863831732863310</a>      <a href="https://x.com/garrytan/status/2098666551629267324">https://x.com/garrytan/status/2098666551629267324</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">Practical AI Tutorials</span>
+    </div>
+    <p class="summary-en">Yang's three posts are about games rather than policy, and two of them land on the same complaint: AI is approaching superintelligence while game studios are not shipping. "Can't believe ASI will come out before StarCraft. Seriously just use AI to generate half the graphics with human oversight, I won't mind if we can get a quality game out sooner," and, after seeing a 2030 date, "Someone should just use AI to make StarCraft 3 at this point." The third is a design idea: one person plays as commander in RTS macro while the rest of the team controls individual units, which he calls "probably a terrible idea but would be cool."</p>
+    <p class="summary-zh zh">Yang 的三条都在谈游戏而非政策，其中两条落在同一个抱怨上：AI 在逼近超级智能，游戏工作室却不出货。"不敢相信 ASI 会比星际争霸先出。真的，用 AI 生成一半美术、人来做监督就行，只要能早点玩到高质量游戏，我不介意。"看到 2030 这个年份后他又补一句："这年头真该有人用 AI 去做星际争霸 3 了。"第三条是一个设计构想：一个人当指挥官负责 RTS 的宏观操作，其余队员各自操控单个单位——他自己说"大概是个糟透了的点子，但会很酷"。</p>
+    <div class="urls">      <a href="https://x.com/petergyang/status/2098945475038912741">https://x.com/petergyang/status/2098945475038912741</a>      <a href="https://x.com/petergyang/status/2098846399949627553">https://x.com/petergyang/status/2098846399949627553</a>      <a href="https://x.com/petergyang/status/2098843136328171540">https://x.com/petergyang/status/2098843136328171540</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Steinberger</span>
+      <span class="builder-role">OpenClaw · OpenAI</span>
+    </div>
+    <p class="summary-en">Three short posts with no stated context in the feed. One asks for an invite code to Meta's Muse, motivated by having read "their Soul.md file." One reacts to something with "all sorted out. they defo been cookin!" One asks for Master of Orion 2 to be added to whatever he is looking at.</p>
+    <p class="summary-zh zh">三条短帖，feed 中未提供上下文。一条是求 Meta Muse 的邀请码，起因是他看了"他们的 Soul.md 文件"。一条是对某事的回应："都搞定了，他们肯定一直在憋大招。"一条是要求把《银河霸主 2》加进他正在看的东西里。</p>
+    <div class="urls">      <a href="https://x.com/steipete/status/2098995230314037516">https://x.com/steipete/status/2098995230314037516</a>      <a href="https://x.com/steipete/status/2098931686042210381">https://x.com/steipete/status/2098931686042210381</a>      <a href="https://x.com/steipete/status/2098784877495939145">https://x.com/steipete/status/2098784877495939145</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Dan Shipper</span>
+      <span class="builder-role">CEO, Every</span>
+    </div>
+    <p class="summary-en">Three posts with no AI substance recorded in the feed: a joke about asking a model to explain whether the internet is truly a series of pipes, an announcement that he is now an author, and a clarification that a previous post was a joke with a request for a community note.</p>
+    <p class="summary-zh zh">三条帖子在 feed 中没有可记录的 AI 实质内容：一条是拿模型解释"互联网是否真是一系列管道"开的玩笑，一条是宣布自己终于出书了，还有一条是澄清上一条纯属玩笑并请求加社区注释。</p>
+    <div class="urls">      <a href="https://x.com/danshipper/status/2098905091776373125">https://x.com/danshipper/status/2098905091776373125</a>      <a href="https://x.com/danshipper/status/2098898413366435903">https://x.com/danshipper/status/2098898413366435903</a>      <a href="https://x.com/danshipper/status/2098860370639130859">https://x.com/danshipper/status/2098860370639130859</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nikunj Kothari</span>
+      <span class="builder-role">Partner, FPV Ventures</span>
+    </div>
+    <p class="summary-en">A personal note rather than an industry one, though it touches the day's vocabulary: "Honestly having kids reduces p(doom) by an exponential amount." The evidence he offers is an hour spent playing garbage truck and excavator, techno version, and dancing to it "with a temporary abandon to what the world is fighting about."</p>
+    <p class="summary-zh zh">一条个人向而非行业向的帖子，但用到了当天的词："说实话，有孩子会把 p(doom) 按指数级降下来。"他给出的证据是花了一个小时玩垃圾车和挖掘机（techno 版），并随之起舞，"暂时放下了全世界正在争论的东西"。</p>
+    <div class="urls">      <a href="https://x.com/nikunj/status/2098961771289870463">https://x.com/nikunj/status/2098961771289870463</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thibault Sottiaux</span>
+      <span class="builder-role">Codex &amp; ChatGPT, OpenAI</span>
+    </div>
+    <p class="summary-en">A four-word status update closing out a rollout: "Reset all propagated. Sweet dreams." The feed gives no further context.</p>
+    <p class="summary-zh zh">一句四个词的状态更新，为一次上线收尾："重置已全部下发。晚安。"feed 未给出更多上下文。</p>
+    <div class="urls">      <a href="https://x.com/thsottiaux/status/2098685367058612394">https://x.com/thsottiaux/status/2098685367058612394</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nan Yu</span>
+      <span class="builder-role">Product, OpenAI</span>
+    </div>
+    <p class="summary-en">A post consisting of two image links and no accompanying text.</p>
+    <p class="summary-zh zh">一条仅含两个图片链接、无任何文字说明的帖子。</p>
+    <div class="urls">      <a href="https://x.com/thenanyu/status/2098829351781593191">https://x.com/thenanyu/status/2098829351781593191</a></div>
+  </article>
+
+</section>
+
+<!-- ============== ALREADY COVERED ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🔁</span>
+    <h2 class="section-title">已收录 / Already Covered</h2>
+    <span class="section-meta">3 Items · Deduped</span>
+  </div>
+
+  <div class="dedup">
+    <p>今日 feed 中的以下条目此前已发布，按去重规则不重复计入统计与正文。</p>
+    <p style="margin-top:12px"><strong>Podcast</strong> — Unsupervised Learning (Redpoint) Ep 93: CEO of Redwood Research Buck Shlegeris on OpenAI/HuggingFace Revelations, Fixing AI Safety &amp; Takeover Odds。已收录于 <a href="https://clean-online.github.io/ai-digest/2026/09/05/AI_Builders_Digest_2026-09-05.html">2026-09-05</a>。 <a href="https://www.youtube.com/@RedpointAI">https://www.youtube.com/@RedpointAI</a></p>
+    <p style="margin-top:12px"><strong>Blog</strong> — Claude Blog「Claude in Chrome is generally available」。已收录于 <a href="https://clean-online.github.io/ai-digest/2026/09/06/AI_Builders_Digest_2026-09-06.html">2026-09-06</a>。 <a href="https://claude.com/blog/claude-in-chrome-generally-available">https://claude.com/blog/claude-in-chrome-generally-available</a></p>
+    <p style="margin-top:12px"><strong>Blog</strong> — Claude Blog「Claude gets its own browser in Cowork」。已收录于 <a href="https://clean-online.github.io/ai-digest/2026/09/06/AI_Builders_Digest_2026-09-06.html">2026-09-06</a>。 <a href="https://claude.com/blog/cowork-built-in-browser">https://claude.com/blog/cowork-built-in-browser</a></p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="next-issue">📬 下一期：明天 10:00（北京时间）</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->
