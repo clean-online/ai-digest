@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest · 2026-09-15</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 · Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest · 2026-09-15 · 周二</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">15</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">24</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+<p class="note-line">今日 feed 的 1 期播客为已收录条目，按去重规则不计入统计，仅在下方「已收录 / Already Covered」中列出链接。</p>
+
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🐦</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">15 Builders</span>
+  </div>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Sam Altman</span>
+      <span class="builder-role">CEO, OpenAI</span>
+    </div>
+    <p class="summary-en">OpenAI CEO Sam Altman posts the day's governing frame, and he names both failure modes rather than only the one his industry likes to talk about. "First, we could lose control of the future to AI. This is unacceptable; we are unapologetically on Team Humanity, and AI must always serve people." The second is the one that gets less airtime: "we could end up in a world with too much concentration of power. If an extraordinarily powerful AI is used by one person or company to impress their worldview onto everyone else, the results could be extremely dystopian." Avoiding both, he says, means "walking a narrow middle path." His second post is where the position becomes concrete. He welcomes "a federal framework that sets consistent safety requirements for frontier AI," but adds "we do not believe we need to wait for an anti-trust exemption or legislation to begin the work," and names independent auditors as an idea he is excited by. The admission buried in that post is the most quotable line of the day: past self-governance was "focused primarily on the deployment of completed models, not what happens during their development."</p>
+    <p class="summary-zh zh">OpenAI CEO Sam Altman 给出了今天的框架，而且他把两种失败方式都点名了，不只讲行业里更爱讲的那种。"第一，我们可能把未来输给 AI。这是不可接受的；我们毫不掩饰地站在人类这边，AI 必须始终服务于人。"第二种则更少被提起："我们可能落入一个权力过度集中的世界。如果一个极其强大的 AI 被某个人 or 某公司用来把自己的世界观强加给所有人，结果可能极其反乌托邦。"他说，避开这两者需要"走一条狭窄的中间道路"。第二条帖子才是立场变得具体的地方。他欢迎"为前沿 AI 设定一致安全要求的联邦框架"，但补上一句"我们不认为需要等反垄断豁免或立法才能开始这项工作"，并点名 independent auditors 是他看好的想法。埋在那条帖子里的坦白是今天最值得记的一句：过去的自律机制"主要聚焦在已完成模型的部署，而不是模型开发过程中发生的事"。</p>
+    <div class="urls">      <a href="https://x.com/sama/status/2099352016988614852">https://x.com/sama/status/2099352016988614852</a>      <a href="https://x.com/sama/status/2099348812305473766">https://x.com/sama/status/2099348812305473766</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aaron Levie</span>
+      <span class="builder-role">CEO, Box</span>
+    </div>
+    <p class="summary-en">Box CEO Aaron Levie makes the argument that the other side of the debate keeps skipping: safety requirements are not an exception carved out for AI, they are what every other mission-critical industry already lives with. He concedes the word is loaded — "Pacing" can be somewhat of a trigger word because it sounds like an arbitrary slow down of capability or a way to hobble competitors through undue regulation — but argues "the specific improvement goals laid out in Dario's are absolute necessities in AI development. We expect equivalent in areas like aerospace, life sciences, health care." His reasoning is a list of where the technology ends up: "AI is going to be the technology underpinning our financial trading systems, our medical devices, our biotech breakthroughs, defense systems, government workflows." He does not pretend the mechanism is easy — getting there "without meaningfully slowing down innovation progress or reducing competition" is "one of the most complex questions in the 21st century" — but his conclusion is flat: "the need is clear."</p>
+    <p class="summary-zh zh">Box CEO Aaron Levie 补上了争论另一方一直跳过的那一环：安全要求不是给 AI 开的特例，而是其他每一个关键行业早就在过的日子。他承认这个词有副作用——"Pacing"在某种程度上是个触发词，因为它听起来像是对能力的任意减速，或是通过不当监管拖住竞争对手——但他主张"Dario 列出的那些具体改进目标，在 AI 开发中是绝对必需的。在航空航天、生命科学、医疗健康这些领域，我们对等的要求同样是标配"。他的理由是这项技术最终会落在哪里："AI 将会是支撑我们金融交易系统、医疗设备、生物技术突破、国防系统、政府工作流程的那项技术。"他没有假装机制好做——既要做到"又不显著拖慢创新进度、也不减少竞争"，是"21 世纪最复杂的问题之一"——但他的结论很干脆："需求是明确的。"</p>
+    <div class="urls">      <a href="https://x.com/levie/status/2099167992835924301">https://x.com/levie/status/2099167992835924301</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">Practical AI Tutorials</span>
+    </div>
+    <p class="summary-en">Peter Yang posts the single most useful set of numbers in the feed, and they argue against the premise of the whole debate. Quoting a chart Brex's CEO likes to use: "Each dot is 3.2 million people. Every gray box is someone that never used AI in the world (84%). Green boxes are free chatbot users (16%). Orange boxes are people who pay $20 a month for AI (~0.3%). And this tiny red box is people using agents effectively (~0.04%)." His read is that the data is from February 2026 and has probably moved since, "but we're still super early." The point lands harder next to the governance argument: the industry is negotiating how to pace the frontier while roughly 84% of the world has not used the technology at all. His other two posts are minor by comparison — curiosity about who runs a particular account, and a bug report that Record and Replay will not trigger, addressed to OpenAI's developer account.</p>
+    <p class="summary-zh zh">Peter Yang 贴出了 feed 里最有用的一组数字，而它们恰好在反驳整场争论的前提。他引用 Brex CEO 喜欢用的一张图："每个点代表 320 万人。每一个灰格子是世界上从未用过 AI 的人（84%）。绿格子是免费聊天机器人用户（16%）。橙格子是每月为 AI 付 20 美元的人（约 0.3%）。而这个极小的红格子，是真正有效使用 agent 的人（约 0.04%）。"他的解读是这份数据来自 2026 年 2 月，之后情况大概有变化，"但我们仍然处在极早期"。把这个数字和治理讨论放在一起读，分量更重：行业在谈判如何给前沿定节奏，而世界上大约 84% 的人根本还没用过这项技术。他的另外两条相比之下是小事——一条是好奇某个账号到底是谁在运营，一条是给 OpenAI 开发者账号报 Record and Replay 无法触发的 bug。</p>
+    <div class="urls">      <a href="https://x.com/petergyang/status/2099200231820963891">https://x.com/petergyang/status/2099200231820963891</a>      <a href="https://x.com/petergyang/status/2099345068893298816">https://x.com/petergyang/status/2099345068893298816</a>      <a href="https://x.com/petergyang/status/2099175305818890472">https://x.com/petergyang/status/2099175305818890472</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Zara Zhang</span>
+      <span class="builder-role">Builder</span>
+    </div>
+    <p class="summary-en">Builder Zara Zhang writes the sharpest product critique of the day, and it is about behaviour rather than benchmark scores. Her complaint: "Astra: I have done X / Me: This is wrong, you should do Y instead / Astra: You're right. I should do Y / Me: ... / Why doesn't it just go and do Y, like the other models??" The pattern she is describing is a model that concedes the correction but does not act on it, which turns agreement into a dead end instead of a step forward. It is a small post, but it is the kind of gap that matters more than a leaderboard position once agents are expected to finish work rather than discuss it.</p>
+    <p class="summary-zh zh">Builder Zara Zhang 写出了今天最锋利的产品批评，而且它关乎行为而不是榜单分数。她的抱怨是："Astra：我做了 X / 我：这不对，你应该做 Y / Astra：你说得对，我应该做 Y / 我：…… / 为什么它不直接去做 Y，像其他模型那样？？"她描述的是这样一个模式：模型承认了纠正，却不据此行动，于是"同意"变成了死路而不是下一步。这条帖子很小，但一旦 agent 被期待去把活干完而不是讨论活怎么干，这类落差比榜单排名更影响体验。</p>
+    <div class="urls">      <a href="https://x.com/zarazhangrui/status/2099348631291883945">https://x.com/zarazhangrui/status/2099348631291883945</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Amjad Masad</span>
+      <span class="builder-role">CEO, Replit</span>
+    </div>
+    <p class="summary-en">Replit CEO Amjad Masad's substantive post is short and lands on the cost side of the capacity story the feed has been tracking for days: "It was painful to see so many users being priced out of AI coding for a while. But now it's free to build again!" Read alongside the governance debate, it is a reminder that the same capacity constraints that make pacing arguments plausible on safety grounds also show up as access problems for ordinary users. His other post is a one-line joke — "Nominal determinism strikes again" — over a link whose subject the tweet does not state.</p>
+    <p class="summary-zh zh">Replit CEO Amjad Masad 有实质内容的那条很短，落在 feed 这几天一直在追的产能故事的成本侧："看到这么多用户有一阵子被 AI 编程的价格挡在门外，挺难受的。但现在又可以免费造东西了！"把它和治理讨论放在一起读，这是一个提醒：同样一批产能约束，让"定节奏"在安全层面显得有道理，也同时以普通用户用不起的形式显现出来。他的另一条是一句话玩笑——"Nominal determinism strikes again"——附的链接指向什么，推文里没写。</p>
+    <div class="urls">      <a href="https://x.com/amasad/status/2099197117013340450">https://x.com/amasad/status/2099197117013340450</a>      <a href="https://x.com/amasad/status/2099343474734911917">https://x.com/amasad/status/2099343474734911917</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Steinberger</span>
+      <span class="builder-role">OpenClaw · OpenAI</span>
+    </div>
+    <p class="summary-en">Peter Steinberger of OpenClaw and OpenAI posts the only hard engineering number in the feed. Worktrees in the next release run "about 80% faster via apfs/brtfs/xfs/ReFS folder clones," which also "saves lots of disk space" — the win coming from leaning on filesystem-level copy instead of duplicating files. Of the tool doing the work he notes "This is all written in Rust. Because you can't escape Rust." His third post is a process note rather than an announcement: he will test a change "for a few weeks and if we see that this helps the majority of users I'll try to get this into codex!"</p>
+    <p class="summary-zh zh">OpenClaw 与 OpenAI 的 Peter Steinberger 贴出了 feed 里唯一一个硬工程数字。下一个版本里 worktree 通过 apfs/brtfs/xfs/ReFS 的文件夹克隆"快了约 80%"，同时"省下大量磁盘空间"——收益来自直接借助文件系统层的复制，而不是把文件复制一遍。关于干这个活的工具，他说"这全是 Rust 写的。因为你躲不开 Rust。"他的第三条是流程说明而不是发布：他会先测"几周，如果看到对多数用户有帮助，我会试着把它弄进 codex"。</p>
+    <div class="urls">      <a href="https://x.com/steipete/status/2099197266636783989">https://x.com/steipete/status/2099197266636783989</a>      <a href="https://x.com/steipete/status/2099201162922938418">https://x.com/steipete/status/2099201162922938418</a>      <a href="https://x.com/steipete/status/2099262092633411832">https://x.com/steipete/status/2099262092633411832</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Boris Cherny</span>
+      <span class="builder-role">Claude Code, Anthropic</span>
+    </div>
+    <p class="summary-en">Boris Cherny of Claude Code at Anthropic flags a use case that has nothing to do with shipping software: "Fable solved the Cyphral Distich (a 370 year old cypher). Super cool way to use Claude." A 370-year-old cipher falling to a general-purpose model is the kind of result that reads as a party trick until you notice it is the same capability profile that makes the governance argument hard to settle — broad problem-solving, applied to whatever the user points it at.</p>
+    <p class="summary-zh zh">Anthropic Claude Code 的 Boris Cherny 提到一个跟交付软件毫无关系的用例："Fable 解开了 Cyphral Distich（一个有 370 年历史的密码）。用 Claude 的方式很酷。"一个 370 年前的密码被通用模型攻破，这种结果容易被当成花活，直到你意识到它背后是同一套能力画像——广泛的解题能力，指向什么就解决什么——也正是这套能力让治理争论难以定论。</p>
+    <div class="urls">      <a href="https://x.com/bcherny/status/2099322487603634395">https://x.com/bcherny/status/2099322487603634395</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Dan Shipper</span>
+      <span class="builder-role">CEO, Every</span>
+    </div>
+    <p class="summary-en">Every CEO Dan Shipper turns the day's policy vocabulary into a product decision, which is the most practical reading of "pacing" anyone offered: "started using Astra medium for simple tasks / call that pacing the frontier." Choosing a smaller model for simple work reduces compute demand by choice rather than by rule, and his framing suggests the frontier labs may end up being paced by their own users' cost sensitivity as much as by any framework. His other post is a two-word line over an unstated link: "we're going to the moon."</p>
+    <p class="summary-zh zh">Every CEO Dan Shipper 把当天的政策词汇翻译成了一个产品决策，这是所有人对"pacing"最落地的读法："开始用 Astra medium 跑简单任务 / 这就叫给前沿定节奏。"给简单任务选更小的模型，是出于选择而非规则来压低算力需求；他的说法暗示，前沿实验室最终被"定节奏"的原因，可能更多来自用户自己的成本敏感度，而不是任何框架。他的另一条是配了未说明链接的一句话："我们要去月球了。"</p>
+    <div class="urls">      <a href="https://x.com/danshipper/status/2099231248027730195">https://x.com/danshipper/status/2099231248027730195</a>      <a href="https://x.com/danshipper/status/2099152769080828197">https://x.com/danshipper/status/2099152769080828197</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">CEO, Vercel</span>
+    </div>
+    <p class="summary-en">Vercel CEO Guillermo Rauch posts one line, and it is a mood rather than an argument: "You don't get it, I build software to relax." It reads as the counterweight to a day spent on existential risk — a reminder that for a large part of this industry, building is still the thing people do for enjoyment.</p>
+    <p class="summary-zh zh">Vercel CEO Guillermo Rauch 只发了一条，是一种情绪而非论点："你不懂，我写软件是为了放松。"它像是给一整天都在谈生存性风险的内容配了一个反向砝码——提醒人们，对这个行业的很大一部分人来说，造东西依然是他们为了开心而做的事。</p>
+    <div class="urls">      <a href="https://x.com/rauchg/status/2099248037507797164">https://x.com/rauchg/status/2099248037507797164</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Madhu Guru</span>
+      <span class="builder-role">Sr Director, AI at Meta</span>
+    </div>
+    <p class="summary-en">Meta Sr Director of AI Madhu Guru posts a one-line product note rather than the governance commentary he has been contributing this week: "Stud traders like Kaushik love Muse!" The subject is Meta's Muse, and the post contains no further detail in the feed.</p>
+    <p class="summary-zh zh">Meta AI 高级总监 Madhu Guru 发了一条产品向的一句话，而不是本周他一直在贡献的治理评论："Stud traders 像 Kaushik 这样的都很喜欢 Muse！"说的是 Meta 的 Muse，feed 中没有更多细节。</p>
+    <div class="urls">      <a href="https://x.com/realmadhuguru/status/2099224198732517750">https://x.com/realmadhuguru/status/2099224198732517750</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aditya Agarwal</span>
+      <span class="builder-role">General Partner, SPC</span>
+    </div>
+    <p class="summary-en">SPC General Partner Aditya Agarwal writes one sentence that speaks directly to the concentration-of-power half of Altman's post: "Imagine a world where we didn't have to rely on any one organization to be good and virtuous." It is the design goal underneath most decentralization arguments, stated without the ideology usually attached to them.</p>
+    <p class="summary-zh zh">SPC 普通合伙人 Aditya Agarwal 写了一句话，正面回应 Altman 那条里"权力集中"的那一半："想象一个我们不必依赖任何单一组织保持善良与正直的世界。"这是多数去中心化主张底下的设计目标，只是他把通常附在上面的意识形态剥离了。</p>
+    <div class="urls">      <a href="https://x.com/adityaag/status/2099259374544003527">https://x.com/adityaag/status/2099259374544003527</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Garry Tan</span>
+      <span class="builder-role">President &amp; CEO, Y Combinator</span>
+    </div>
+    <p class="summary-en">Y Combinator President and CEO Garry Tan draws the line between YC's public content and its actual product: "The content about startups we do is merely the teaser for the specific advice we give 1:1 when you actually are a YC startup." A useful reminder for anyone treating founder-media output as the substance of what an accelerator does.</p>
+    <p class="summary-zh zh">Y Combinator 总裁兼 CEO Garry Tan 划清了 YC 公开内容和它真正交付的东西之间的界线："我们做的关于创业的内容，只是当你真正成为 YC 创业公司时，我们一对一给的具体建议的预告片。"对任何把"创始人媒体内容"当作加速器实质产出的人来说，这是个有用的提醒。</p>
+    <div class="urls">      <a href="https://x.com/garrytan/status/2099181676039704870">https://x.com/garrytan/status/2099181676039704870</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nikunj Kothari</span>
+      <span class="builder-role">Partner, FPV Ventures</span>
+    </div>
+    <p class="summary-en">FPV Ventures partner Nikunj Kothari's substantive post is career advice aimed at candidates reading valuation headlines as a safety signal, and he says it is the most common conundrum founders bring him: "Applicants your entry valuation being higher and your total comp being higher is often a bug and not a feature. Just because a company has raised at a higher valuation doesn't mean they are realistically more secure and the better place to go." His prescription is to "look at the numbers objectively — what's the market, what's the traction and how well positioned are they," then model the exit yourself and account for 409a prices and tax. The urgency is the market context: "It's so freaking important right now when everything is upside down and numbers are not rooted in reality." He notes he has first-hand experience, having worked at a company that raised $60M from one of the best investors. His other two posts are humour — a seed investor reacting to a forgotten company being acquired, and a list of questions to ask when joining a startup.</p>
+    <p class="summary-zh zh">FPV Ventures 合伙人 Nikunj Kothari 有实质内容的那条是给候选人的职业建议，针对的是把估值头条当成安全信号来读的人，而他说这是创始人找他吐槽最多的一个困境："求职者们，入职时的估值更高、总薪酬更高，往往是个 bug 而不是 feature。一家公司融资估值更高，并不代表它实际上更稳、更值得去。"他的处方是"客观地看数字——市场是什么、traction 如何、他们的位置好不好"，然后自己对退出价做测算，并把 409a 定价和税务算进去。紧迫感来自市场环境："在现在一切都被颠倒、数字都不扎根于现实的时候，这件事重要得要命。"他说这是亲身体会——他曾在一家从最好的投资机构之一融了 6000 万美元的公司工作过。他的另外两条是玩笑：一条是种子投资人看到一家早就忘掉的公司突然被收购时的反应，一条是入职创业公司时该问的问题清单。</p>
+    <div class="urls">      <a href="https://x.com/nikunj/status/2099198567923765357">https://x.com/nikunj/status/2099198567923765357</a>      <a href="https://x.com/nikunj/status/2099271686969569309">https://x.com/nikunj/status/2099271686969569309</a>      <a href="https://x.com/nikunj/status/2099272635926671532">https://x.com/nikunj/status/2099272635926671532</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Matt Turck</span>
+      <span class="builder-role">VC, FirstMark Capital</span>
+    </div>
+    <p class="summary-en">FirstMark Capital VC Matt Turck posts one joke in the form of a reaction image caption: "Seed investor when a company he forgot about years ago gets acquired out of nowhere." It pairs with Nikunj Kothari's post on the same theme, which suggests the two were reacting to the same news.</p>
+    <p class="summary-zh zh">FirstMark Capital 投资人 Matt Turck 发了一条配图反应式的玩笑："种子投资人看到一家自己多年前就忘掉的公司突然被收购时的样子。"它和 Nikunj Kothari 同一主题的那条正好成对，看起来两人是在回应同一条消息。</p>
+    <div class="urls">      <a href="https://x.com/mattturck/status/2099257395708879286">https://x.com/mattturck/status/2099257395708879286</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nan Yu</span>
+      <span class="builder-role">Product, OpenAI</span>
+    </div>
+    <p class="summary-en">OpenAI product staff member Nan Yu posts a single line of product naming commentary with no further context in the feed: "37 signals would have called the the Nuse Feed."</p>
+    <p class="summary-zh zh">OpenAI 产品团队的 Nan Yu 发了一句关于产品命名的评论，feed 中没有更多上下文："37 signals 大概会把它叫成 Nuse Feed。"</p>
+    <div class="urls">      <a href="https://x.com/thenanyu/status/2099216347138011190">https://x.com/thenanyu/status/2099216347138011190</a></div>
+  </article>
+
+</section>
+
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🧭</span>
+    <h2 class="section-title">Takeaway</h2>
+    <span class="section-meta">No Podcast Today</span>
+  </div>
+
+  <div class="takeaway">
+    <div class="takeaway-label">The Takeaway</div>
+    <p>The governance argument moved from principle to mechanism today. Sam Altman named both failure modes rather than only the fashionable one — loss of control <em>and</em> concentration of power — and conceded that existing self-governance covered "the deployment of completed models, not what happens during their development." That is the gap a federal framework plus independent auditors is meant to close. Aaron Levie supplied the rebuttal to the rebuttal: safety requirements are not special treatment for AI, they are what aerospace and life sciences already live with.</p>
+    <p>Set against that, Peter Yang's numbers are the day's cold water. Of the world, 84% have never used AI, 0.3% pay for it, and roughly 0.04% use agents effectively. The same feed that is negotiating how to pace the frontier is describing a technology almost nobody has actually adopted. Dan Shipper's joke is the most practical response anyone offered — picking a smaller model for simple tasks is pacing you choose yourself, driven by cost rather than by rule. And Zara Zhang's complaint about a model that agrees with a correction but does not act on it is a reminder that the near-term bottleneck is still behaviour, not capability.</p>
+  </div>
+
+  <div class="takeaway zh">
+    <div class="takeaway-label">核心结论</div>
+    <p>治理讨论今天从原则推进到了机制。Sam Altman 把两种失败模式都点名了，而不只是那个更时髦的——失去控制<em>以及</em>权力集中——并承认现有的自律机制覆盖的是"已完成模型的部署，而不是模型开发过程中发生的事"。这正是"联邦框架 + 独立审计方"要补的缺口。Aaron Levie 补上了对反方反驳的回应：安全要求不是给 AI 的特殊待遇，而是航空航天、生命科学早就在过的日子。</p>
+    <p>与之对照，Peter Yang 那组数字是今天的冷水。全球 84% 的人从未用过 AI，0.3% 的人为它付费，真正有效使用 agent 的大约 0.04%。同一份 feed 里，一边在谈判如何给前沿定节奏，一边在描述一项几乎还没人被真正采用的技术。Dan Shipper 的玩笑是所有人里最实用的回应——给简单任务选更小的模型，是你自己给自己定的节奏，由成本驱动而不是由规则驱动。而 Zara Zhang 那条关于"模型承认纠正却不据此行动"的抱怨提醒我们，近期的瓶颈仍然是行为，不是能力。</p>
+  </div>
+</section>
+
+<!-- ============== ALREADY COVERED ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🔁</span>
+    <h2 class="section-title">已收录 / Already Covered</h2>
+    <span class="section-meta">1 Item · Deduped</span>
+  </div>
+
+  <div class="dedup">
+    <p>今日 feed 中的以下条目此前已发布，按去重规则不重复计入统计与正文。</p>
+    <p style="margin-top:12px"><strong>Podcast</strong> — No Priors: Redefining Chip Architecture with Arm CEO Rene Haas。已收录于 <a href="https://clean-online.github.io/ai-digest/2026/09/06/AI_Builders_Digest_2026-09-06.html">2026-09-06</a>。 <a href="https://www.youtube.com/@NoPriorsPodcast">https://www.youtube.com/@NoPriorsPodcast</a></p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="next-issue">📬 下一期：明天 10:00（北京时间）</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->
