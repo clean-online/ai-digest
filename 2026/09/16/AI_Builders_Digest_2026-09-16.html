@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest · 2026-09-16</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 · Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest · 2026-09-16 · 周三</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">12</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">23</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+<p class="note-line">今日 feed 的 1 期播客与 4 篇官方博客全部为此前已收录条目，按去重规则不计入统计，仅在下方「已收录 / Already Covered」中列出链接与回链。</p>
+
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🐦</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">12 Builders</span>
+  </div>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aaron Levie</span>
+      <span class="builder-role">CEO, Box</span>
+    </div>
+    <p class="summary-en">Box CEO Aaron Levie writes the day's most concrete forecast, and the interesting part is the number he attaches to how early it still is. The stack he lists — "agent swarms, better computer use, the next wave of APIs and MCPs coming online, and new form factors like Muse or Instinct, vertical enterprise agents, background workflow agents" — leads to one claim: "We're going to throw agents at vastly more tasks in our professional and personal lives than we had initially imagined." His multiplier is about volume rather than capability: what agents go out and find for us "is going to be 100X more volume than what we can imagine previously prompting in a single session." His examples are deliberately unglamorous — agents that "surgically recruit talent for you 24/7," watch "every signal in your customer's business for when to pitch them," and "review every line of code written for security issues and bugs." Then the calibration that keeps it from being hype: "We're probably 1% of the way into the shape of what all these agents look like, where they get deployed from, how they get managed, how we budget for them, and so on."</p>
+    <p class="summary-zh zh">Box CEO Aaron Levie 给出了今天最具体的一份预测，而真正有意思的是他给"现在有多早"标上的数字。他列出的那一摞东西——"agent 集群、更好的 computer use、即将上线的新一波 API 与 MCP，以及 Muse 或 Instinct 这类新形态、垂直领域企业 agent、后台工作流 agent"——导向一个判断："我们在职业和个人生活里，会把 agent 扔向远比最初设想多得多的任务。"他说的倍数是关于体量而不是能力：agent 替我们出去找回来、在后台做完的事，"体量会比我们此前想象的单次会话提示多出 100 倍"。他举的例子刻意不酷炫——"24 小时不间断替你精准招人"、盯着"客户公司里的每一个信号判断什么时候该去推销"、以及"逐行审查写下的每一行代码有没有安全问题和 bug"。而让这段话不至于变成吹嘘的是他那句校准："我们大概只走完了 1%——关于这些 agent 长什么样、从哪里被部署、怎么被管理、怎么给它们做预算，等等。"</p>
+    <p class="summary-en">His second post is the bill for the first one, and it is the clearest statement of the trade-off anyone has offered this week: "Protecting enterprise data in a world where agents are using our systems 100X more than people ever did is going to be one of the more complex security and governance challenges of the 21st century." The bind is symmetric — "If you give an agent too much unfettered information access, it will be difficult to truly control and protect your data; and conversely, if you lock everything down completely, you won't get any real productivity gains from AI." Levie puts his own product on the table rather than only naming the problem: Box Shield now offers "granular controls on what content agents can and can't work with based on document classification level," and is building features that "automatically detect and alert (or block) when data is being accessed or used in unusual or anomalous ways by agents." He frames the rest as an industry-wide build-out, naming OpenAI and Anthropic alongside Palo Alto Networks, Cisco, CrowdStrike and Okta, plus startups Enclave, Method, Alterion and Runlayer.</p>
+    <p class="summary-zh zh">他的第二条是第一条的账单，也是本周所有人对这个取舍最清楚的表述："在一个 agent 使用我们系统的频次比人类高出 100 倍的世界里保护企业数据，会是 21 世纪更复杂的几个安全与治理挑战之一。"这个两难是对称的——"如果你给 agent 太多不受约束的信息访问权限，你的数据就很难真正被控制和保护；反过来，如果你把一切全锁死，你又拿不到任何真实的 AI 生产力收益。"Levie 把自己家的产品摆上了桌，而不只是点出问题：Box Shield 现在提供"基于文档密级的细粒度控制，决定 agent 能动哪些内容、不能动哪些"，并且正在做"当数据被 agent 以异常或反常方式访问使用时，自动检测并告警（或阻断）"的能力。他把剩下的部分描述成一场全行业的建设，点名了 OpenAI 与 Anthropic，也点名了 Palo Alto Networks、Cisco、CrowdStrike、Okta，以及 Enclave、Method、Alterion、Runlayer 这些创业公司。</p>
+    <div class="urls">      <a href="https://x.com/levie/status/2099739019517235618">https://x.com/levie/status/2099739019517235618</a>      <a href="https://x.com/levie/status/2099550035239424465">https://x.com/levie/status/2099550035239424465</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">CEO, Vercel</span>
+    </div>
+    <p class="summary-en">Vercel CEO Guillermo Rauch posts the day's cleanest engineering thesis in one line: "Agents are only as good as the proof-checkers, compilers, type systems, and linters you give them." The product he attaches to it is shadcn/lint, which "helps agents stay on track with the rules of your design system," and the generalization is the part worth keeping: "Meta: verifiers + skills are the new 'frameworks'!" His second post is a hire that reads as a bet on where the layer below agents is going. Steren, "creator of Google Cloud Run," joins Vercel to lead the Fluid family of compute products (Functions, Containers, Sandbox, Builds), and Rauch's framing is historical: "Serverless was the last chapter of the cloud, and Steren helped define the paradigm at Google. Agents are the next frontier, and they require new compute primitives designed for them." The third is a product note on fx — it "auto-upgrades," ctrl+g "restarts + resumes the chat," and 0.0.10 is "much, much faster for longer sessions."</p>
+    <p class="summary-zh zh">Vercel CEO Guillermo Rauch 用一句话写下了今天最干净的工程判断："agent 的上限，取决于你给它配的证明检查器、编译器、类型系统和 linter。"他挂在后面的产品是 shadcn/lint，用来"帮 agent 遵守你设计系统的规则"，而真正值得记住的是他那句推广："verifiers + skills 就是新的‘框架’！"他的第二条是一则招聘，读起来像是在赌 agent 下面那一层会往哪走。Google Cloud Run 的创造者 Steren 加入 Vercel，领导 Fluid 系列计算产品（Functions、Containers、Sandbox、Builds），Rauch 的说法带着历史感："Serverless 是云的上一章，而 Steren 在 Google 参与定义了那个范式。Agent 是下一个前沿，而它们需要为它们重新设计的计算原语。"第三条是 fx 的产品说明——它"会自动升级"，ctrl+g 可以"重启并恢复会话"，0.0.10 在长会话下"快非常多"。</p>
+    <div class="urls">      <a href="https://x.com/rauchg/status/2099540886409695346">https://x.com/rauchg/status/2099540886409695346</a>      <a href="https://x.com/rauchg/status/2099514906366328902">https://x.com/rauchg/status/2099514906366328902</a>      <a href="https://x.com/rauchg/status/2099653035685445760">https://x.com/rauchg/status/2099653035685445760</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thibault Sottiaux</span>
+      <span class="builder-role">Codex &amp; ChatGPT, OpenAI</span>
+    </div>
+    <p class="summary-en">Thibault Sottiaux of Codex and ChatGPT at OpenAI posts two lines, and together they sketch both ends of a release cycle. The forward-looking one sets expectations unusually high for a normal week: "This week will also be a level of ships that you could have expected for DevDay 2025. Crazy." The backward-looking one is a rare public prompt for subtraction rather than addition: "What's a feature we should remove from Codex that isn't useful anymore?" Read against the feed's running capacity story, the pairing is telling — a team shipping at conference-keynote volume is also asking users what to delete.</p>
+    <p class="summary-zh zh">OpenAI 负责 Codex 与 ChatGPT 的 Thibault Sottiaux 发了两条，合起来正好画出一个发布周期的两端。朝前看的那条把预期抬到了一个平常周不该有的高度："这周的发布量，会是你原本以为要等到 DevDay 2025 才会看到的那种级别。离谱。"朝后看的那条是罕见的公开提问，问的是减法而不是加法："Codex 里有什么已经没用、应该被删掉的功能？"把它和 feed 里这段时间持续追踪的产能故事放在一起读，这个组合很说明问题——一支在以主题演讲级别发版本的团队，同时在问用户该删掉什么。</p>
+    <div class="urls">      <a href="https://x.com/thsottiaux/status/2099744972195131850">https://x.com/thsottiaux/status/2099744972195131850</a>      <a href="https://x.com/thsottiaux/status/2099393115241300166">https://x.com/thsottiaux/status/2099393115241300166</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thariq</span>
+      <span class="builder-role">Claude Code, Anthropic</span>
+    </div>
+    <p class="summary-en">Thariq of Claude Code at Anthropic points at two long-form conversations about how the work has changed. On the Latent Space recording: "just finished recording on latent space / I'm excited about this one- we get very technical about things we haven't really talked about much yet." On a conversation with Sid and Robert about building Claude Code, his summary names three themes — "how much things have changed, how hard it's been to keep up with model capabilities and also what we miss about software engineering before AI." That last clause is the one that rarely gets said out loud by people shipping the tools.</p>
+    <p class="summary-zh zh">Anthropic Claude Code 的 Thariq 指向了两段长对话，讲的都是这份工作本身变了什么。关于 Latent Space 那期录制："刚录完 latent space / 我对这期挺兴奋——我们讲得非常技术，聊了很多之前基本没怎么谈过的东西。"关于和 Sid、Robert 聊 Claude Code 是怎么造出来的，他总结的三个主题是——"变化有多大、跟上模型能力有多难，以及我们有多怀念 AI 之前的软件工程"。最后一个分句，是做这些工具的人很少会公开说出口的那种话。</p>
+    <div class="urls">      <a href="https://x.com/trq212/status/2099671266068496802">https://x.com/trq212/status/2099671266068496802</a>      <a href="https://x.com/trq212/status/2099551141621329994">https://x.com/trq212/status/2099551141621329994</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nikunj Kothari</span>
+      <span class="builder-role">Partner, FPV Ventures</span>
+    </div>
+    <p class="summary-en">FPV Ventures partner Nikunj Kothari's substantive post is an investment memo, and the argument is a structural one about payments rather than an AI story. Piston removes the fuel card entirely: "It moves the payment over its own rails without networks or any intermediaries. Piston pays the station and then invoices the fleet." The reason is that fraud and reconciliation are properties of the card, not bugs in it — "a lot of these cards are not even tied to a particular driver. They often get stolen, skimmed, or misused. The fleet owner then has to eat the fraud and then spend a long time reconciling what exactly happened." Every transaction is "tied to a specific driver with the time, location, and fuel type attached." His numbers: payment volume "grown 8x," merchant network "grown 40x," retention "above 98%," live "across 2,000 stations and across 48 states," and fleets "pay nothing for it today." He is leading the Series A and joining the board. His other post is a Dreamforce travel joke — Lyft bikes beat sitting in a Waymo or Uber, because "just like open source models you get 90% of the value for 10% of the time!"</p>
+    <p class="summary-zh zh">FPV Ventures 合伙人 Nikunj Kothari 有实质内容的那条是一份投资备忘录，而其中的论点属于支付结构，不是 AI 故事。Piston 的做法是彻底去掉加油卡："它把支付搬到自己的轨道上，不走卡组织、不经过任何中介。Piston 先付给加油站，再向车队开票。"理由是欺诈和对账属于卡这种载体本身的性质，而不是卡上的 bug——"很多卡甚至没有绑定到具体司机。它们经常被偷、被侧录、被滥用。车队老板得自己吞下欺诈损失，然后再花很长时间去核对到底发生了什么。"而每一笔交易都"绑定到具体司机，附带时间、地点和油品类型"。他给的数字：支付量"增长 8 倍"、商户网络"增长 40 倍"、留存"保持在 98% 以上"、已覆盖"2,000 座加油站、48 个州"，车队"目前一分钱不用付"。他领投了这轮 A 轮并进入董事会。他的另一条是 Dreamforce 出行玩笑——骑 Lyft 单车比堵在 Waymo 或 Uber 里快得多，因为"就像开源模型一样，你用 10% 的时间拿到 90% 的价值！"</p>
+    <div class="urls">      <a href="https://x.com/nikunj/status/2099631145268969840">https://x.com/nikunj/status/2099631145268969840</a>      <a href="https://x.com/nikunj/status/2099536440006955445">https://x.com/nikunj/status/2099536440006955445</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Boris Cherny</span>
+      <span class="builder-role">Claude Code, Anthropic</span>
+    </div>
+    <p class="summary-en">Boris Cherny of Claude Code announces an extension surface: "Claude Mods are landing now. Someone already built a Tetris-in-Claude mod 🤯." He points to the issue tracker for "the latest community update, technical details, and more cool demos." It is a small post, but mods are how a tool becomes a platform, and the first community artifact being a game is the usual signal that the surface is open enough for people to do things the builders did not plan for.</p>
+    <p class="summary-zh zh">Anthropic Claude Code 的 Boris Cherny 宣布了一个扩展层："Claude Mods 正在上线。已经有人做出了一个 Claude 里的俄罗斯方块 mod 🤯。"他指向 issue 页面看"最新的社区进展、技术细节，以及更多酷炫 demo"。这条很小，但 mod 正是一个工具变成平台的方式；而社区第一个产物是个游戏，通常意味着这个接口开放到足以让人做出建造者原本没计划过的东西。</p>
+    <div class="urls">      <a href="https://x.com/bcherny/status/2099551291601248485">https://x.com/bcherny/status/2099551291601248485</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Matt Turck</span>
+      <span class="builder-role">VC, FirstMark Capital</span>
+    </div>
+    <p class="summary-en">FirstMark Capital VC Matt Turck supplies the day's reality check in one sentence, and it is the shortest explanation of why the pacing debate may not resolve: "Ok, this was a fun weekend, but we all understand AI progress is not going to slow down, right? Too many players, too many economic incentives and too much prisoner's dilemma, both domestically and globally." No villains named, no mechanism proposed — just the observation that a coordination problem with this many participants tends not to coordinate. His other post is appreciation for a competitor's marketing: Ramp's "actual Broadway musical about bills" is "unhinged in the best possible way," with a nod to the fact that they do it with no CMO.</p>
+    <p class="summary-zh zh">FirstMark Capital 投资人 Matt Turck 用一句话给出了今天的现实检验，也是对"给前沿定节奏"这场争论为什么可能不会有结果的最短解释："好吧，这个周末挺好玩，但我们都明白 AI 的进展不会慢下来，对吧？玩家太多，经济激励太多，囚徒困境太重——国内如此，全球也如此。"没点名谁，也没提机制，只给出一个观察：参与者多到这个程度的协调问题，通常不会协调成功。他的另一条是在夸竞争对手的营销：Ramp 那部"真的把账单拍成百老汇音乐剧"的作品"疯得恰到好处"，还特意提了一句他们没有 CMO。</p>
+    <div class="urls">      <a href="https://x.com/mattturck/status/2099589199104033031">https://x.com/mattturck/status/2099589199104033031</a>      <a href="https://x.com/mattturck/status/2099634379093848156">https://x.com/mattturck/status/2099634379093848156</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Josh Woodward</span>
+      <span class="builder-role">VP, Google Labs &amp; Gemini</span>
+    </div>
+    <p class="summary-en">Josh Woodward, VP at Google across Google Labs and the Gemini app, posts an update on the power-user group and a recruiting line. Two months in, "20+ features tested later, your feedback has been incredible." A new cohort is "now getting early access to what's next for Daily Brief &amp; Personal Intelligence," and onboarding continues. His other post is a two-word hiring pitch: "Come design with us!" Read together, they are a reminder that the consumer-facing side of this cycle still runs on small closed cohorts rather than open launches.</p>
+    <p class="summary-zh zh">Google 负责 Google Labs 与 Gemini 应用的 VP Josh Woodward 发了一条核心用户群进展和一句招聘。上线两个月，"测了 20 多个功能之后，你们的反馈非常棒"。新一批用户"正在获得 Daily Brief 与 Personal Intelligence 下一步的早期访问权"，并且还在继续拉人。他的另一条是四个词的招聘："Come design with us!"（来和我们一起做设计）。两条放在一起是个提醒：这一轮周期里面向消费者的那一侧，仍然靠小范围封闭用户群推进，而不是开放发布。</p>
+    <div class="urls">      <a href="https://x.com/joshwoodward/status/2099558443078365287">https://x.com/joshwoodward/status/2099558443078365287</a>      <a href="https://x.com/joshwoodward/status/2099574899555930114">https://x.com/joshwoodward/status/2099574899555930114</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">Practical AI Tutorials</span>
+    </div>
+    <p class="summary-en">Peter Yang's three posts are all short, and the one with content is about interface rather than models: "Voice has made me more productive going on walks in nature than staring at my screen which is an incredible feeling." It is a small data point, but it points at the shift from AI as a place you go to AI as something you talk to while doing something else. The other two are reactions with no stated subject in the feed — "Screw it I can't wait to 2030" and "She sounds super cool tbh."</p>
+    <p class="summary-zh zh">Peter Yang 的三条都很短，其中有内容的那条讲的是界面而不是模型："语音让我在自然里散步时比盯着屏幕更高效，这种感觉难以置信。"这只是个小样本，但它指向的转变是：从"AI 是一个你要去的地方"变成"AI 是你在做别的事时对着说话的对象"。另外两条是反应式内容，feed 里没有说明具体对象——"管他呢，我等不及到 2030 年"和"说实话她听起来挺酷的"。</p>
+    <div class="urls">      <a href="https://x.com/petergyang/status/2099677771408846975">https://x.com/petergyang/status/2099677771408846975</a>      <a href="https://x.com/petergyang/status/2099706366327951658">https://x.com/petergyang/status/2099706366327951658</a>      <a href="https://x.com/petergyang/status/2099668196651610556">https://x.com/petergyang/status/2099668196651610556</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aditya Agarwal</span>
+      <span class="builder-role">General Partner, SPC</span>
+    </div>
+    <p class="summary-en">SPC General Partner Aditya Agarwal posts twice about a demo he is connected to, and states the goal in unusually plain terms: "This is an incredible demo. AI can be human. That is the ultimate goal. So proud to have been their earliest partner. As always, a lot more to build." His second post is the same pitch without the context: "Seriously you'll want to see this for yourself." The feed does not name the company, so the claim stays at the level he put it — a demo whose point is affect rather than throughput.</p>
+    <p class="summary-zh zh">SPC 普通合伙人 Aditya Agarwal 为一个和他有关的 demo 发了两条，把目标说得异常直白："这是一个不可思议的 demo。AI 可以是像人的。这才是终极目标。能成为他们最早的合作方我很骄傲。一如既往，还有太多要建。"他的第二条是同一件事但没给上下文："说真的，你会想亲眼看看。"feed 里没有点名是哪家公司，所以这里也只保留他自己给出的信息层级——一个卖点在"像人"而不是"吞吐"的 demo。</p>
+    <div class="urls">      <a href="https://x.com/adityaag/status/2099529959262019887">https://x.com/adityaag/status/2099529959262019887</a>      <a href="https://x.com/adityaag/status/2099576440413184148">https://x.com/adityaag/status/2099576440413184148</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Steinberger</span>
+      <span class="builder-role">OpenClaw · OpenAI</span>
+    </div>
+    <p class="summary-en">Peter Steinberger of OpenClaw and OpenAI posts a single line of intent rather than an announcement: "This is so useful. pushing to add this to codex as well." The feed does not state what "this" refers to, since the tweet's substance sits in the linked post. What it does show is the direction of travel — a capability seen elsewhere being pulled into Codex.</p>
+    <p class="summary-zh zh">OpenClaw 与 OpenAI 的 Peter Steinberger 发的是一句意图，不是发布："这个太有用了。正在推动把它也加进 codex。"feed 里没有说明"这个"指什么，因为推文的实质内容在被转的那条里。能看到的只是方向——一个在别处出现的能力正在被拉进 Codex。</p>
+    <div class="urls">      <a href="https://x.com/steipete/status/2099571935495827761">https://x.com/steipete/status/2099571935495827761</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Amjad Masad</span>
+      <span class="builder-role">CEO, Replit</span>
+    </div>
+    <p class="summary-en">Replit CEO Amjad Masad's only post in the feed carries no text — just two image links. Whatever it points to is not recoverable from the feed, and nothing about it is summarized here.</p>
+    <p class="summary-zh zh">Replit CEO Amjad Masad 在 feed 里的唯一一条没有文字，只有两个图片链接。它指向什么无法从 feed 中还原，因此这里不对内容作任何概括。</p>
+    <div class="urls">      <a href="https://x.com/amasad/status/2099749752892186925">https://x.com/amasad/status/2099749752892186925</a></div>
+  </article>
+
+</section>
+
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🧭</span>
+    <h2 class="section-title">Takeaway</h2>
+    <span class="section-meta">No Podcast Today</span>
+  </div>
+
+  <div class="takeaway">
+    <div class="takeaway-label">The Takeaway</div>
+    <p>Today's feed is about scale, and two people put numbers on it from opposite ends. Aaron Levie says agents will handle "100X more volume" of background work than a single prompting session ever did, then immediately discounts it: "We're probably 1% of the way into the shape of what all these agents look like, where they get deployed from, how they get managed, how we budget for them." That gap between the volume arriving and the operating model not existing yet is the actual story.</p>
+    <p>The responses on offer are all about infrastructure rather than models. Rauch's line — "Agents are only as good as the proof-checkers, compilers, type systems, and linters you give them," and "verifiers + skills are the new 'frameworks'" — plus the Steren hire to build compute primitives "designed for" agents, puts the bottleneck one layer below the model. Levie's second post puts it one layer above: the 100X access problem is a governance one, and his framing of the trade-off is the sharpest in the feed — too much access and you cannot protect the data, lock it all down and you get no productivity gain.</p>
+    <p>Matt Turck's prisoner's dilemma post is the reason none of this gets solved by agreement. "Too many players, too many economic incentives and too much prisoner's dilemma, both domestically and globally" is an argument about structure, not about bad actors. Against that, the smaller signals still matter: Sottiaux's team shipping at DevDay volume while asking users what feature to delete, and Claude Mods landing with a Tetris implementation as its first community artifact.</p>
+  </div>
+
+  <div class="takeaway zh">
+    <div class="takeaway-label">核心结论</div>
+    <p>今天的 feed 讲的是规模，而且有两个人从两端各给出了一个数字。Aaron Levie 说 agent 会承接"比单次提示会话多 100 倍"的后台工作量，紧接着又自己打了折："我们大概只走完了 1%——关于这些 agent 长什么样、从哪里被部署、怎么被管理、怎么给它们做预算。"真正的新闻不是体量，而是这个落差：体量已经在路上，而运营这套体量的方式还不存在。</p>
+    <p>今天给出的答案全在基础设施层，不在模型层。Rauch 那句——"agent 的上限，取决于你给它配的证明检查器、编译器、类型系统和 linter"，以及"verifiers + skills 就是新的‘框架’"——再加上把 Steren 招进来做"为 agent 设计"的计算原语，把瓶颈压到了模型下面一层。Levie 的第二条则把瓶颈抬到模型上面一层：100 倍的访问量是个治理问题，而他给出的取舍表述是 feed 里最锋利的——给太多权限就没法保护数据，全锁死就拿不到生产力。</p>
+    <p>Matt Turck 那条囚徒困境，说明了为什么这些都不会靠共识解决。"玩家太多，经济激励太多，囚徒困境太重——国内如此，全球也如此"，这是关于结构的论证，不是关于谁的论证。在这个背景下，那些更小的信号依然值得看：Sottiaux 的团队一边以 DevDay 的密度发版本，一边问用户该删掉哪个功能；Claude Mods 上线的第一个社区产物是俄罗斯方块。</p>
+  </div>
+</section>
+
+<!-- ============== ALREADY COVERED ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🔁</span>
+    <h2 class="section-title">已收录 / Already Covered</h2>
+    <span class="section-meta">5 Items · Deduped</span>
+  </div>
+
+  <div class="dedup">
+    <p>今日 feed 中的以下条目此前均已发布，按去重规则不重复计入统计与正文。</p>
+    <p style="margin-top:12px"><strong>Podcast</strong> — AI &amp; I by Every: How a Professional Writer Writes With AI。已收录于 <a href="https://clean-online.github.io/ai-digest/2026/09/04/AI_Builders_Digest_2026-09-04.html">2026-09-04</a>。 <a href="https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL">https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL</a></p>
+    <p style="margin-top:10px"><strong>Blog</strong> — Anthropic Engineering: How we contain Claude across products。已收录于 <a href="https://clean-online.github.io/ai-digest/2026/09/07/AI_Builders_Digest_2026-09-07.html">2026-09-07</a>。 <a href="https://www.anthropic.com/engineering/how-we-contain-claude">https://www.anthropic.com/engineering/how-we-contain-claude</a></p>
+    <p style="margin-top:10px"><strong>Blog</strong> — Anthropic Engineering: An update on recent Claude Code quality reports。已收录于 <a href="https://clean-online.github.io/ai-digest/2026/09/07/AI_Builders_Digest_2026-09-07.html">2026-09-07</a>。 <a href="https://www.anthropic.com/engineering/april-23-postmortem">https://www.anthropic.com/engineering/april-23-postmortem</a></p>
+    <p style="margin-top:10px"><strong>Blog</strong> — Anthropic Engineering: Scaling Managed Agents: Decoupling the brain from the hands。已收录于 <a href="https://clean-online.github.io/ai-digest/2026/09/07/AI_Builders_Digest_2026-09-07.html">2026-09-07</a>。 <a href="https://www.anthropic.com/engineering/managed-agents">https://www.anthropic.com/engineering/managed-agents</a></p>
+    <p style="margin-top:10px"><strong>Blog</strong> — Claude Blog: Claude Code now supports artifacts。已收录于 <a href="https://clean-online.github.io/ai-digest/2026/09/07/AI_Builders_Digest_2026-09-07.html">2026-09-07</a>。 <a href="https://claude.com/blog/artifacts-in-claude-code">https://claude.com/blog/artifacts-in-claude-code</a></p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="next-issue">📬 下一期：明天 10:00（北京时间）</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->
