@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest · 2026-09-17</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 28px 30px; margin-bottom: 24px; }
+  .podcast-source { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
+  .podcast-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; margin-bottom: 18px; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 · Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest · 2026-09-17 · 周四</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">14</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">27</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+<p class="note-line">今日 feed 快照 2026-09-16T06:42Z，1 期播客与 1 篇官方博客均为首次收录，未触发去重。</p>
+
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🐦</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">14 Builders</span>
+  </div>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aaron Levie</span>
+      <span class="builder-role">CEO, Box</span>
+    </div>
+    <p class="summary-en">Box CEO Aaron Levie posts the day's structural argument, and it is the same one he makes at length on today's podcast: the gap is not in the model. "There's a massive chasm between the power of AI models and the ultimate workflows that enterprises are trying to automate. This gap is the opportunity for the applied AI layer to fill." His list of what fills it is operational rather than technical — "connect the intelligence to workflows, often reengineer processes, aggregate the right context and data, allow for the right human in the loop experiences, drive change management, do domain specific evals, manage the security and governance of the data and process." The counterintuitive part is his claim about what better models do to this layer: "even as models improve at incredible rates, this layer still must exist - and may become even more important and useful. Greater capability enables even more complex tasks to be tackled, amplifying the challenges if you don't do this well."</p>
+    <p class="summary-zh zh">Box CEO Aaron Levie 给出了今天的结构性论点，和他今天在播客里展开讲的是同一件事：缺口不在模型。"AI 模型的能力，与企业最终想要自动化的工作流之间，存在一道巨大的鸿沟。填补这道鸿沟，就是应用层 AI 的机会。"他列出来用来填补这道鸿沟的东西，全是运营层面的而不是技术层面的——"把智能接到工作流上、经常要重构流程、把正确的上下文和数据聚合起来、留出正确的人类在环体验、推动变革管理、做领域专属的评测、管理数据与流程的安全和治理"。反直觉的是他对"模型变强之后这层会怎样"的判断："即便模型以难以置信的速度进步，这一层仍然必须存在，而且可能变得更重要、更有用。能力越强，能承接的任务就越复杂，而如果你这一层做不好，问题也会被放大。"</p>
+    <div class="urls">      <a href="https://x.com/levie/status/2099976021311398230">https://x.com/levie/status/2099976021311398230</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thariq</span>
+      <span class="builder-role">Claude Code, Anthropic</span>
+    </div>
+    <p class="summary-en">Thariq of Claude Code at Anthropic reverses a position many people hold, and gives the reasons rather than just the conclusion: "I was not expecting things to go this way, but I think MCPs are better than CLIs for most integrations." Three things changed in his telling — "The models have gotten much better at tool calling, we can defer tools &amp; MCP is now stateless." He also pre-answers the objection about composability: "If you need to compose/filter data, add params like query to your MCP tools." It is a short post, but it is the kind of statement that gets quoted for a while because it moves the default recommendation rather than adding an option.</p>
+    <p class="summary-zh zh">Anthropic Claude Code 的 Thariq 推翻了一个很多人持有的立场，而且给的是理由不是结论："我没想到会走到这一步，但我认为对大多数集成来说，MCP 比 CLI 更好。"按他的说法变了三件事——"模型在工具调用上进步很大，我们可以延迟加载工具，而且 MCP 现在是无状态的。"他还提前回答了关于可组合性的质疑："如果你需要组合或过滤数据，就给你的 MCP 工具加上 query 之类的参数。"这条很短，但属于会被引用一段时间的那种判断，因为它挪动的是默认推荐，而不是多给了你一个选项。</p>
+    <div class="urls">      <a href="https://x.com/trq212/status/2099958388230873165">https://x.com/trq212/status/2099958388230873165</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">CEO, Vercel</span>
+    </div>
+    <p class="summary-en">Vercel CEO Guillermo Rauch announces Vercel Labs, and the framing is about publishing negative results as much as positive ones: it is "the home for the in-public research and experimentation arm of Vercel," and "247 million downloads in, we wanted to, also in public, share what we're supporting, what we're researching, and what experiments didn't pan out." His second post is a platform bet stated plainly: "The future is multi-model. Trying to hide the choice confuses and hurts customers, who can't participate in the upside of the most exciting market competition of our times, nor master the best tool for the job." The third is lower-level and worth noting because it is about the browser rather than the model — Safari 27 "supports JSPI, a magic WebAssembly capability for sync native code to suspend on an async Promise," and his conclusion is that "As more code goes native, I expect WebAssembly to play a huge role in the future of the web."</p>
+    <p class="summary-zh zh">Vercel CEO Guillermo Rauch 宣布成立 Vercel Labs，而他的说法里"公开负面结果"和公开正面结果的份量一样重：这里是"Vercel 公开研究与实验部门的所在地"，"在 2.47 亿次下载之后，我们希望同样公开地分享我们在支持什么、在研究什么，以及哪些实验没有跑通"。他的第二条是一个被直白说出口的平台判断："未来是多模型的。试图把这个选择藏起来，只会让用户困惑并受损——他们既没法参与我们这个时代最激动人心的市场竞争带来的红利，也没法真正掌握最适合当前任务的工具。"第三条层级更低，但值得记，因为它是关于浏览器而不是模型的——Safari 27"支持 JSPI，这是一个神奇的 WebAssembly 能力，让同步的原生代码可以挂起在一个异步 Promise 上"，他的结论是"随着越来越多的代码走向原生，我认为 WebAssembly 会在 Web 的未来里扮演极其重要的角色"。</p>
+    <div class="urls">      <a href="https://x.com/rauchg/status/2099911447598059812">https://x.com/rauchg/status/2099911447598059812</a>      <a href="https://x.com/rauchg/status/2099905740505055680">https://x.com/rauchg/status/2099905740505055680</a>      <a href="https://x.com/rauchg/status/2099974859023683975">https://x.com/rauchg/status/2099974859023683975</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Dan Shipper</span>
+      <span class="builder-role">CEO, Every</span>
+    </div>
+    <p class="summary-en">Every CEO Dan Shipper reports on roughly a week of testing a new foundation model, and the reason his team bothered is that it breaks the output assumption: "we almost never test new foundation models but we've been testing this for ~a week." What it does instead of writing is score — "it doesn't produce words as output, it produces probabilities. so it can efficiently act as a judge in cases where you'd need a Fable-level model—but in our testing was 25x faster and 600x lower priced." His forecast is deliberately boring in its time horizon: "the kind of things that will be obviously indispensible in 6-12 months." A model that is 600x cheaper at judging is the kind of number that changes what gets built on top, since evaluation stops being the expensive part.</p>
+    <p class="summary-zh zh">Every CEO Dan Shipper 报告了对一个新基础模型大约一周的测试，而他们这次愿意花时间的原因是它打破了输出形式的假设："我们几乎不测新的基础模型，但这个我们测了大概一周。"它做的事不是写，而是打分——"它输出的不是词，而是概率。所以它可以高效地充当裁判，用在那些原本你需要 Fable 级别模型的场景——而在我们的测试里，它快 25 倍、便宜 600 倍。"他给的时间尺度刻意不激动人心："属于那种 6 到 12 个月后你会发现明显离不开的东西。"一个在"裁判"这件事上便宜 600 倍的模型，是会改变上层能造出什么的那类数字——因为评测不再是最贵的那部分。</p>
+    <div class="urls">      <a href="https://x.com/danshipper/status/2099947471518474522">https://x.com/danshipper/status/2099947471518474522</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Garry Tan</span>
+      <span class="builder-role">President &amp; CEO, Y Combinator</span>
+    </div>
+    <p class="summary-en">Y Combinator CEO Garry Tan's posts split between a tooling result and two short takes. The tooling one has a number: running Capy "with GStack/GBrain on some fix waves on outstanding issues/PRs and it did what would have taken a day with raw Codex/Claude Code in about half as much time, using the same frontier models." The "same frontier models" clause is what makes it interesting — the gain is attributed to the harness, not to a better model. Of the two short ones, "I think Muse is going to win tbh" is a product call with no reasoning attached. The third is off-topic for this feed — he writes that he has "lost 18 lbs in two months" using peptides, and it is included here only because it is in the feed, not because it bears on AI.</p>
+    <p class="summary-zh zh">Y Combinator CEO Garry Tan 的几条分成一个有数字的工具结果和两条短评。工具那条带数字：用 Capy"配合 GStack/GBrain 跑几波积压 issue/PR 的修复，原本用裸 Codex/Claude Code 要一天的活，大约一半时间就做完了，用的是同样的前沿模型"。"用的是同样的前沿模型"这个分句才是关键——收益被归因到 harness，而不是更好的模型。两条短的里，"说实话我觉得 Muse 会赢"是一个没给推理过程的产品判断。第三条和这个 feed 的主题无关——他写自己用肽类"两个月减了 18 磅"，这里列出它只是因为它在 feed 里，不代表它和 AI 有关。</p>
+    <div class="urls">      <a href="https://x.com/garrytan/status/2099964487667454097">https://x.com/garrytan/status/2099964487667454097</a>      <a href="https://x.com/garrytan/status/2099980972641124629">https://x.com/garrytan/status/2099980972641124629</a>      <a href="https://x.com/garrytan/status/2099948078606520676">https://x.com/garrytan/status/2099948078606520676</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aditya Agarwal</span>
+      <span class="builder-role">General Partner, SPC</span>
+    </div>
+    <p class="summary-en">SPC General Partner Aditya Agarwal's three posts are all about one outcome, and the numbers are the reason they are worth reading: Profound is "now worth $1.8B," and "One third of the Fortune 100 runs on it." He closed a "$180M Series D, co-led by @sequoia and @kleinerperkins with participation from @lightspeedvp, @khoslaventures, @Saga_Ventures, @EvanticCapital, and SPC." The part that is actually an investment thesis is his claim about sequence: "We didn't find the company. We watched it form." Its founders "met at @spc" — "an Uber maps engineer and a founder with no college degree who willed businesses into existence" — and "Neither arrived with the idea. The partnership formed first." His third post is a one-line restatement with no new information.</p>
+    <p class="summary-zh zh">SPC 普通合伙人 Aditya Agarwal 的三条都在讲同一个结果，而值得读的原因是那几个数字：Profound"现在估值 18 亿美元"，"《财富》100 强里有三分之一跑在它上面"。公司完成了"1.8 亿美元 D 轮，由 Sequoia 与 Kleiner Perkins 联合领投，Lightspeed、Khosla Ventures、Saga Ventures、Evantic Capital 和 SPC 参投"。其中真正构成投资论点的是他关于顺序的那句："我们不是找到了这家公司。我们是看着它长出来的。"两位创始人"在 SPC 认识"——"一位 Uber 地图工程师，和一位没有大学学历、硬是把一家家生意做起来的创始人"——而且"两个人来的时候都没有那个想法。是先有了这个搭档关系。"他的第三条只是同一件事的换一句话重述，没有新信息。</p>
+    <div class="urls">      <a href="https://x.com/adityaag/status/2099939685657141257">https://x.com/adityaag/status/2099939685657141257</a>      <a href="https://x.com/adityaag/status/2099939689738191146">https://x.com/adityaag/status/2099939689738191146</a>      <a href="https://x.com/adityaag/status/2099905666324312141">https://x.com/adityaag/status/2099905666324312141</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">Practical AI Tutorials</span>
+    </div>
+    <p class="summary-en">Peter Yang's most useful post is a list of what people actually built when he gave away bot codes, and the pattern is that almost none of it is glamorous. Growth and client work: "Find leads, draft outreach, and turn wins into case studies" and "Build a competitor comparison matrix with sources." Ops and shipping: "Monitor hundreds of ad accounts and catch broken signup/payment flows," "Watch Jira, flag blockers, and draft the weekly status update," "Triage support tickets, draft replies, and escalate with full context," and, for a hotel operator, "regularly test the booking flow so website booking errors get caught." Two of them describe this newsletter's own job — "Monitor AI builders on X, verify sources, then turn wins into hooks and scripts" and "A research desk for AI that turns noise into a daily brief." His other two posts are lighter: a failed attempt to have Muse negotiate his cable bill, and advice to solopreneurs to "design your business so you can spend more time doing work you actually enjoy," on the grounds that "if those choices leave you doing work you don't enjoy, then that defeats the purpose of becoming a solopreneur in the first place."</p>
+    <p class="summary-zh zh">Peter Yang 最有价值的一条，是他送出 bot 邀请码之后人们实际拿去做了什么的清单，而其中的规律是：几乎没一件是酷炫的。增长与客户方向："找线索、起草外联、把赢下来的单子变成案例"和"做一份带来源的竞品对比矩阵"。运营与交付方向："监控几百个广告账户，抓住坏掉的注册/支付流程"、"盯着 Jira，标记阻塞项，起草每周状态更新"、"分类处理客服工单、起草回复并带上完整上下文升级"，以及给酒店经营者的"定期测试预订流程，好让官网的预订错误被提前发现"。其中有两条描述的本就是这份日报在做的事——"监控 X 上的 AI builders、核实信源，再把有价值的变成选题钩子与脚本"和"一个把噪音变成每日简报的 AI 研究台"。他另外两条偏轻：一次让 Muse 去谈有线电视账单的失败尝试，以及给个体创业者的建议——"把你的生意设计成能让你把更多时间花在你真正喜欢的工作上"，理由是"如果那些选择让你做的是你不喜欢的工作，那一开始成为个体创业者的意义就没了"。</p>
+    <div class="urls">      <a href="https://x.com/petergyang/status/2100027487681953834">https://x.com/petergyang/status/2100027487681953834</a>      <a href="https://x.com/petergyang/status/2099978848255533280">https://x.com/petergyang/status/2099978848255533280</a>      <a href="https://x.com/petergyang/status/2099968897323778416">https://x.com/petergyang/status/2099968897323778416</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Josh Woodward</span>
+      <span class="builder-role">VP, Google Labs &amp; Gemini</span>
+    </div>
+    <p class="summary-en">Josh Woodward, VP at Google across Google Labs and the Gemini app, announces student features in NotebookLM, and the two he singles out are both about audio rather than text: "Have a live, spoken Q&amp;A with your class materials in ~100 languages," and "Record lectures and notes on the go, the audio notes save automatically into your chosen notebook." The distribution detail is the part that matters commercially — "As a university student, you can also still get a free Google AI Plan in 140+ countries for bigger limits and access to more Google products!" His other two posts are caption-only image posts reading "The offer" and "The features"; whatever they show is not recoverable from the feed, and nothing is inferred here.</p>
+    <p class="summary-zh zh">Google 负责 Google Labs 与 Gemini 应用的 VP Josh Woodward 发布了 NotebookLM 的学生功能，而他专门点出的两条都关于音频而不是文本："用大约 100 种语言，跟你课堂材料做一场实时的口语问答"，以及"在路上录讲座和笔记，音频笔记会自动存进你选定的 notebook"。真正有商业含义的是分发那句："作为大学生，你仍然可以在 140 多个国家免费拿到 Google AI 套餐，获得更高的额度和更多 Google 产品的访问权！"他另外两条是只有标题的图片帖，分别写着"报价"和"功能"；它们展示了什么无法从 feed 中还原，这里不作任何推断。</p>
+    <div class="urls">      <a href="https://x.com/joshwoodward/status/2099921866014306633">https://x.com/joshwoodward/status/2099921866014306633</a>      <a href="https://x.com/joshwoodward/status/2099921868652482741">https://x.com/joshwoodward/status/2099921868652482741</a>      <a href="https://x.com/joshwoodward/status/2099921867331235956">https://x.com/joshwoodward/status/2099921867331235956</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Amjad Masad</span>
+      <span class="builder-role">CEO, Replit</span>
+    </div>
+    <p class="summary-en">Replit CEO Amjad Masad posts three times, and they run from a technical objection to an old interview to a line of invective. The technical one is a constraint he thinks is being missed: "if your output domain is known in advance, why not just train a model to produce logprobs over enums?" The naming one is his sharpest: "The AI naming curse strikes again. 'AI Safety' firm made AI unsafe. 'Effective Altruists' are both ineffective and enabling criminal activity. 'Irregular' is regularly incompetent." He also resurfaces a two-year-old conversation with Tucker on "the origins of the cult, their tactics, and their influence network." The third post names targets but offers no evidence in the tweet itself, so it is reported here as a statement rather than as a finding.</p>
+    <p class="summary-zh zh">Replit CEO Amjad Masad 发了三条，从一条技术质疑，到一段旧访谈，再到一句骂。技术那条是他认为被人漏掉的一个约束："如果你的输出域是预先已知的，为什么不直接训一个模型，让它在枚举值上输出 logprobs？"关于命名的那条最锋利："AI 命名诅咒又来了。'AI 安全'公司把 AI 变得不安全。'有效利他主义者'既无效，又在纵容犯罪活动。'Irregular'则是一如既往地不称职。"他还翻出了一段两年前与 Tucker 的对话，讲的是"这个圈子的起源、他们的手法和影响力网络"。第三条点名了对象但推文本身没有给出证据，所以这里只作为一句表态记录，不作为结论。</p>
+    <div class="urls">      <a href="https://x.com/amasad/status/2100056178705514703">https://x.com/amasad/status/2100056178705514703</a>      <a href="https://x.com/amasad/status/2099760428314411232">https://x.com/amasad/status/2099760428314411232</a>      <a href="https://x.com/amasad/status/2100045670845763791">https://x.com/amasad/status/2100045670845763791</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Claude</span>
+      <span class="builder-role">@claudeai · Anthropic</span>
+    </div>
+    <p class="summary-en">The official Claude account announces Salesforce in Claude, now in beta: "It brings your accounts, opportunities, and pipeline into Claude, with 37 pre-built sales skills. Prep a call, review a deal, create a pipeline dashboard, or send your forecast without leaving the conversation." The number to watch is the 37 skills — it means the integration ships with opinionated workflows rather than just a data connection, which is the same distinction Aaron Levie draws in his post today between a model and an applied layer. The second post is the same announcement with a link and no additional detail.</p>
+    <p class="summary-zh zh">Claude 官方账号宣布 Salesforce in Claude 进入公测："它把你客户、商机和销售管道带进 Claude，附带 37 个预置的销售技能。准备一次通话、复盘一个单子、建一个管道看板，或者发出你的预测，全程不用离开对话。"值得注意的数字是 37 个技能——这意味着这个集成带上的是有主张的工作流，而不只是一个数据连接，而这正是 Aaron Levie 今天那条里区分"模型"与"应用层"的同一个分野。第二条是同一条公告加一个链接，没有额外信息。</p>
+    <div class="urls">      <a href="https://x.com/claudeai/status/2099876514330206578">https://x.com/claudeai/status/2099876514330206578</a>      <a href="https://x.com/claudeai/status/2099876515840245772">https://x.com/claudeai/status/2099876515840245772</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nikunj Kothari</span>
+      <span class="builder-role">Partner, FPV Ventures</span>
+    </div>
+    <p class="summary-en">FPV Ventures partner Nikunj Kothari writes the day's only post about financing discipline, and it is aimed at founders who have not lived through a downturn: "I'm meeting one too many founders who think the money spigot will magically flow and the next round will happen no matter what." His framing of capital is that it is conditional leverage — "Capital is a weapon for acceleration. Used well you're unbeatable. If you are so dependent on it, a simple downturn can lead to not so great consequences." The ask is concrete: "figure out the default path that ensures the survival of your company and a great self fulfilling business," then "figure out scenarios where abundant (or lack of) capital and what it does to your business." He declines to forecast: "we don't know how capital markets evolve in the next 6-18 months."</p>
+    <p class="summary-zh zh">FPV Ventures 合伙人 Nikunj Kothari 写了今天唯一一条关于融资纪律的内容，对象是那些没经历过下行的创始人："我见到太多创始人觉得钱会理所当然地继续流，下一轮无论如何都会发生。"他对资本的定义是"有条件的杠杆"——"资本是加速用的武器。用得好你不可战胜。但如果你对它依赖到这个程度，一次简单的下行就能带来不太妙的后果。"他的要求是具体的："先找出一条默认路径，它能确保公司活下来，并且是一门自己能跑通的好生意"，然后再去"推演资金充裕（或匮乏）的各种情景，以及它们会对你的生意造成什么"。他明确拒绝预测："我们不知道未来 6 到 18 个月资本市场会怎么演变。"</p>
+    <div class="urls">      <a href="https://x.com/nikunj/status/2100008917980102863">https://x.com/nikunj/status/2100008917980102863</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Sam Altman</span>
+      <span class="builder-role">CEO, OpenAI</span>
+    </div>
+    <p class="summary-en">OpenAI CEO Sam Altman's post is eleven characters and one image: "big 🚢 this week and then for devday 🚢🚢🚢🚢🚢🚢." There is no detail to summarize, and none is invented here. It is included because it is the clearest single signal in the feed that the shipping pace people have been describing from the outside — Sottiaux's "level of ships that you could have expected for DevDay 2025" earlier this week — is intentional rather than incidental.</p>
+    <p class="summary-zh zh">OpenAI CEO Sam Altman 这条只有十一个字符和一张图："本周有大船 🚢，然后 devday 🚢🚢🚢🚢🚢🚢。"没有可概括的细节，这里也不做任何补充。列出它是因为这是 feed 里最清晰的一个信号，说明外界这段时间描述的发布节奏——Sottiaux 本周早些时候说的"你原本会以为要等到 DevDay 2025 才看得到的发布量"——是有意为之，不是巧合。</p>
+    <div class="urls">      <a href="https://x.com/sama/status/2099872600977760451">https://x.com/sama/status/2099872600977760451</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thibault Sottiaux</span>
+      <span class="builder-role">Codex &amp; ChatGPT, OpenAI</span>
+    </div>
+    <p class="summary-en">Thibault Sottiaux of Codex and ChatGPT at OpenAI posts a single short line pairing a year-end theme with a physical object: "2026 is the year of efficiency and Tuesday is for random swag drops on your door handle." There is no technical content in the tweet itself, and nothing is inferred from the attached image. It is recorded here as a tone marker rather than a data point.</p>
+    <p class="summary-zh zh">OpenAI 负责 Codex 与 ChatGPT 的 Thibault Sottiaux 只发了一条短句，把一个年度主题和一个实物凑在一起："2026 是效率之年，而星期二是往你门把手上随机挂周边的日子。"推文本身没有技术内容，这里也不对附图作任何推断。它在这里作为语气标记被记录，不是一个数据点。</p>
+    <div class="urls">      <a href="https://x.com/thsottiaux/status/2099922755655479624">https://x.com/thsottiaux/status/2099922755655479624</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Steinberger</span>
+      <span class="builder-role">OpenClaw · OpenAI</span>
+    </div>
+    <p class="summary-en">Peter Steinberger of OpenClaw and OpenAI posts one line welcoming a new teammate: "Excited to have you on board, Graham!" The feed does not say who Graham is or what he will work on, and nothing is added here beyond the greeting itself.</p>
+    <p class="summary-zh zh">OpenClaw 与 OpenAI 的 Peter Steinberger 发了一条欢迎新同事的话："很高兴你加入，Graham！"feed 里没有说明 Graham 是谁、将负责什么，这里也不在这句欢迎之外补充任何内容。</p>
+    <div class="urls">      <a href="https://x.com/steipete/status/2099960081207242808">https://x.com/steipete/status/2099960081207242808</a></div>
+  </article>
+
+</section>
+
+<!-- ============== PODCAST ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🎧</span>
+    <h2 class="section-title">Podcast</h2>
+    <span class="section-meta">1 Episode</span>
+  </div>
+
+  <div class="podcast">
+    <div class="podcast-source">Training Data</div>
+    <h3 class="podcast-title">Box's Aaron Levie: On Reinventing Yourself in the AI Age and Enterprise Diffusion</h3>
+    <p class="summary-en">Aaron Levie spends most of this episode arguing that the interesting money is not in the model, and he is unusually explicit that he is arguing his own book. On whether application companies have become the hottest "neo-labs": the reason is not that models stopped mattering, it is that "there's a lot of gap between the model and the workflow," and once you build that bridge you end up with "enough data, enough sort of domain expertise where that becomes its own sort of flywheel." His historical comparison is the cloud: if you had looked at early GCP or AWS in the data space, "I guarantee you would not have predicted Snowflake or Databricks existing." His own numbers on the size of that gap: Box sits on "hundreds of billions of files," his personal Box account has "on the order of tens of millions of files," and the company runs at roughly $1.3B in revenue run rate — his point being that even that only covers a fraction of enterprise data, since "there's a lot of people not using Box" and their files are still "in on premises systems, legacy file shares."</p>
+    <p class="summary-zh zh">Aaron Levie 这期大部分时间都在论证：有意思的钱不在模型里。而且他非常坦率地承认自己是在为自己的立场辩护。关于应用公司是否已经成为最热的"新实验室"，他的理由不是模型不重要了，而是"模型和实际工作流之间有很大的缝隙"，而一旦你把这道桥搭起来，就会积累出"足够的数据、足够的领域专长，让它自己变成一个飞轮"。他用的历史类比是云：如果你在数据领域看过早期的 GCP 或 AWS，"我敢保证你不会预测到 Snowflake 或 Databricks 会出现"。他给这道缝隙算的账是：Box 存着"数千亿份文件"，他个人的 Box 账户里有"大约几千万份"，公司年化收入约 13 亿美元——而他真正的意思是，即便如此也只覆盖了企业数据的一小部分，因为"还有很多人没在用 Box"，他们的文件依旧躺在"本地系统、遗留文件共享里"。</p>
+    <p class="summary-en">The most quotable forecast is about who starts the work: "in five years from now, I would bet, like, 90% of all tokens in the enterprise are things that a user never kicked off, and they just see a result." That is why he thinks chat is a permanent but incomplete interface — "Everybody will have it," the same way "your product has a search box," but "most of the enterprise is sort of made up of these processes and workflows that are kind of just happening behind the scenes," and those need "a dashboard... a workflow... a queue... a task list." His rule for systems of record is two-sided: build an agent that is "provably... 10 or 20 points better than an off the shelf agent at using your system," and separately "go headless" by exposing APIs to outside agents via MCP. His own evidence for the second half is behavioral — "I use Salesforce more today, probably by an order of magnitude, than I ever have because I MCP into it via Claude or ChatGPT."</p>
+    <p class="summary-zh zh">最值得引用的是他关于"谁发起工作"的预测："我敢打赌，五年后企业里 90% 的 token 消耗，都是用户根本没有主动发起的，他们只看到结果。"这也是为什么他认为聊天是一个会长期存在但不完整的界面——"每家都会有"，就像"你的产品有个搜索框"一样，但"企业的大部分是由那些在后台默默运行着的流程和工作流构成的"，而这些需要的是"一个看板……一个工作流……一个队列……一个任务清单"。他给记录系统的规则是双向的：一方面要做一个"可证明地比通用 agent 在你系统里好 10 到 20 个点"的 agent；另一方面要"去掉界面"，把 API 通过 MCP 开放给外部 agent。他为后半条拿出的证据是自己的行为——"我今天用 Salesforce 的频率，大概比过去高一个数量级，因为我是通过 Claude 或 ChatGPT 的 MCP 接进去的。"</p>
+    <p class="summary-en">On diffusion, he explains the coding gap with six properties rather than with model quality. Code is "almost 100% represented by the amount of text that you can generate"; the labs treat it as their own benchmark and get to run their own evals daily; the audience is technical enough to fix a broken MCP server instead of calling IT; and it is "a very, very high paying vertical." Take those away and you get his sales-rep counterexample — the value is "convincing an external customer to buy," so even perfect automation is still "rate limited and constrained by... did the customer respond to them? Do they want to meet?" His conclusion for the Valley is a warning about timelines: "Silicon Valley has to prepare for diffusion taking lot longer than they think," and his conclusion for investors is that this is where the applied layer's value sits — "a trillion dollars of applied layer AI value is... how do you go get the technology to the lawyer or to the sales rep." Two smaller operational details: Box runs two evals — a "complex work eval" across life sciences, financial services, public sector and tech, plus a holdback eval on how Box employees use their own data — with "hundreds of different tests" per model, sensitive enough that "we see when things move by half a point." And on open weights, his position is nuanced: adoption is "probably higher than people think, lower than what enterprises actually want, and much, much, much, much, much lower than what it'll be in five years," with "30 plus percent" of current interest attributable to "the sexiness of... I wanna try GLM," and real remaining problems like models that "randomly... speak Chinese mid chain."</p>
+    <p class="summary-zh zh">关于扩散速度，他用了六个性质来解释编码与其他领域的落差，而不是用模型质量。代码"几乎 100% 由你能生成的文本量代表"；实验室把它当作自己的基准，每天都能跑自己的评测；使用者的技术能力足以自己修好一个坏掉的 MCP 服务器，而不是打电话给 IT；而且它是"一个薪酬非常非常高的垂直领域"。把这些拿掉，就得到他举的销售反例——销售的价值在于"说服一个外部客户购买"，所以即便自动化做到完美，也仍然"被这些事限速和约束……客户回复了吗？他们愿意见面吗？"他给硅谷的结论是一条关于时间尺度的警告："硅谷必须做好准备，扩散花的时间会比他们以为的长很多"；而他给投资人的结论是，应用层价值就在这里——"一万亿美元的应用层 AI 价值，就是你怎么把技术送到律师手里、送到销售手里"。另外两个较小的运营细节：Box 跑两套评测——一套覆盖生命科学、金融服务、公共部门和科技的"复杂工作评测"，加上一套基于 Box 员工如何使用自己数据的留存评测——每个模型"几百项不同的测试"，灵敏到"模型进步半个点我们都能看到"。关于开源权重，他的立场很细腻：采用率"大概比人们以为的高，比企业真正想要的低，而比五年后会达到的水平低非常多非常多"，其中"30% 以上"的当前兴趣可以归因于"那种很酷的感觉——我想试试 GLM"，而真问题也还在，比如模型会"随机在推理中途开始说中文"。</p>
+    <div class="urls">      <a href="https://www.youtube.com/playlist?list=PLOhHNjZItNnMm5tdW61JpnyxeYH5NDDx8">https://www.youtube.com/playlist?list=PLOhHNjZItNnMm5tdW61JpnyxeYH5NDDx8</a></div>
+
+    <div class="takeaway">
+      <div class="takeaway-label">The Takeaway</div>
+      <p>Today's feed lines up behind one claim, stated twice by the same person in two formats. On X, Aaron Levie writes that there is "a massive chasm between the power of AI models and the ultimate workflows that enterprises are trying to automate." On Training Data he spends an hour explaining why that chasm does not close as models improve — it widens, because "greater capability enables even more complex tasks to be tackled, amplifying the challenges if you don't do this well."</p>
+      <p>The rest of the feed is evidence from the layer below that argument. Thariq says MCPs now beat CLIs for most integrations, which is a claim about tool plumbing rather than intelligence. Rauch launches Vercel Labs and argues the future is multi-model and that hiding the choice "hurts customers." Dan Shipper reports a model that outputs probabilities instead of words and is "25x faster and 600x lower priced" as a judge — if evaluation gets that cheap, the applied layer's real bottleneck (Levie's "domain specific evals") gets cheaper too. Garry Tan's Capy result is the same pattern at the harness level: same frontier models, half the time.</p>
+      <p>Levies's 90% forecast is the one to hold onto, because it reframes what gets built. If most enterprise tokens are spent on work "a user never kicked off," then chat interfaces are a place to check in rather than the product, and the systems that win are the ones holding the data and the workflow — which is also why Salesforce in Claude shipping 37 pre-built skills, rather than just a connector, is the more informative announcement of the day.</p>
+    </div>
+
+    <div class="takeaway zh">
+      <div class="takeaway-label">核心结论</div>
+      <p>今天的 feed 都排在同一个判断后面，而这个人用两种形式把这个判断说了两遍。在 X 上，Aaron Levie 写"AI 模型的能力，与企业最终想要自动化的工作流之间存在一道巨大鸿沟"。在 Training Data 里，他花了一小时解释为什么这道鸿沟不会随着模型变强而收窄，反而会变宽——"能力越强，能承接的任务就越复杂，而如果你这一层做不好，问题也会被放大"。</p>
+      <p>feed 里剩下的内容，都是来自这个论点之下一层的证据。Thariq 说对大多数集成而言 MCP 已经胜过 CLI，这是一个关于工具管道的判断，不是关于智能的判断。Rauch 成立 Vercel Labs，主张未来是多模型的，而把这个选择藏起来"会伤害客户"。Dan Shipper 报告了一个输出概率而不是词语的模型，作为裁判"快 25 倍、便宜 600 倍"——如果评测便宜到这个程度，应用层真正的瓶颈（Levie 说的"领域专属评测"）也会跟着变便宜。Garry Tan 用 Capy 跑出的结果是同一个模式在 harness 层的体现：同样的前沿模型，一半的时间。</p>
+      <p>最值得记住的是 Levie 那个 90% 的预测，因为它重新定义了该造什么。如果企业里大部分 token 都花在"用户根本没有主动发起"的工作上，那么聊天界面就只是一个回来查看的地方，而不是产品本身；赢下来的是那些握着数据和工作流的系统——这也是为什么 Salesforce in Claude 带着 37 个预置技能、而不是只给一个连接器上线，是今天信息量更大的那条公告。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============== OFFICIAL BLOGS ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">📝</span>
+    <h2 class="section-title">Official Blogs</h2>
+    <span class="section-meta">1 Post</span>
+  </div>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Claude Blog</span>
+      <span class="builder-role">Anthropic</span>
+    </div>
+    <p class="summary-en">Anthropic's Claude for Small Business update is mostly a distribution story told in numbers. The product now has "43 workflows and 27 new integrations with tools small businesses already use, including Shopify, Salesforce, TikTok, Atlassian, Zoom, Xero, Gusto, Square, Stripe, and Zapier." Launched in May, it "has since been installed more than 900,000 times." The roadmap came from a tour: "more than 1,000 owners in 10 cities told us what they wanted Claude to take on next. About a third asked for help growing the business: generating leads, answering inbound inquiries, and writing proposals." The fall push is training rather than features — "free workshops in 10 US cities," over "750 workshops" run by "more than 150 organizations we've trained as Approved Claude SMB Trainers," and "14 integration partners" hosting webinars. The customer quotes are the part that states the value in dollars and hours: a founder who says "What used to take me 120 hours now takes me five minutes," another who reports "I made $20,000 in the last month and a half using Claude to do these professional proposals," and a five-person company describing a workflow where "we tell it what the end goal is. It goes and tests, and 90% of the time it gets it right."</p>
+    <p class="summary-zh zh">Anthropic 的 Claude for Small Business 这次更新，本质上是一个用数字讲出来的分发故事。产品现在有"43 个工作流和 27 个新集成，接的都是小企业本来就在用的工具，包括 Shopify、Salesforce、TikTok、Atlassian、Zoom、Xero、Gusto、Square、Stripe 和 Zapier"。5 月上线以来，"安装量已超过 90 万次"。路线图来自一次巡回："10 座城市里 1,000 多位经营者告诉了我们他们下一步想让 Claude 接手什么。大约三分之一的人希望帮他们做增长：获客、回复询盘、写方案。"秋季的动作在培训侧而不是功能侧——"在美国 10 个城市办免费 workshop"，由"150 多家我们培训过的 Approved Claude SMB Trainers"在各自社区办"750 多场"，另有"14 家集成伙伴"办免费网络研讨会。真正用美元和小时数把价值说清楚的是客户那几句话：一位创始人说"原本要花 120 小时的事现在 5 分钟就完了"；另一位说"过去一个半月我用 Claude 写专业方案赚了 2 万美元"；还有一家五人公司描述他们的工作方式——"我们告诉它最终目标是什么。它去测试，90% 的情况下能做对。"</p>
+    <div class="urls">      <a href="https://claude.com/blog/claude-for-small-business-launches-new-workflows-integrations-and-training-programs">https://claude.com/blog/claude-for-small-business-launches-new-workflows-integrations-and-training-programs</a></div>
+  </article>
+</section>
+
+<footer class="footer">
+  <div class="next-issue">📬 下一期：明天 10:00（北京时间）</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->
