@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest · 2026-09-18</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 28px 30px; margin-bottom: 24px; }
+  .podcast-source { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
+  .podcast-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; margin-bottom: 18px; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 · Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest · 2026-09-18 · 周五</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">16</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">33</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+<p class="note-line">今日 feed 快照 2026-09-17T06:42Z；当日无播客条目，1 篇官方博客为首次收录（未触发去重）。</p>
+
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🐦</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">16 Builders</span>
+  </div>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Boris Cherny</span>
+      <span class="builder-role">Claude Code, Anthropic</span>
+    </div>
+    <p class="summary-en">Boris Cherny of Claude Code at Anthropic posts the announcement of the day, and he frames it as a two-step history rather than a feature: "Claude Code showed that AI could do real work, not just answer questions. Developers hand Claude a feature, come back to shipped code... Cowork proved knowledge workers could do the same: hand Claude the brief, come back to finished files. Today, chat and Cowork start merging into one Claude." The stated direction is one product holding one context: "one Claude that carries context across everything you're working on, wherever you are. Simple enough for everyone to access Claude's full capabilities." He notes he has been using it daily "for the last few weeks" and that the rollout is slow: "We'll be fine-tuning the experience as we go to ensure it is fast and reliable." His second post is the one that changes the surface area — "Claude Docs, Claude Slides, and Claude Design are in every conversation," so asking for a presentation returns "one you can open, edit, and export as PowerPoint or PDF," and "There's no separate tool to navigate to. They're just in the chat."</p>
+    <p class="summary-zh zh">Anthropic Claude Code 的 Boris Cherny 发了今天的头条公告，而他把它讲成一段两步的历史，而不是一个功能："Claude Code 证明了 AI 能做真正的工作，而不只是回答问题。开发者把需求交给 Claude，回来看到的是已上线的代码……Cowork 证明了知识工作者也可以这样：把简报交给 Claude，回来看到的是做好的文件。今天，chat 和 Cowork 开始合并成一个 Claude。"他说的方向是一个产品持有一份上下文："一个 Claude，能带着你在做的所有事情的上下文，无论你在哪儿。简单到每个人都能用上 Claude 的完整能力。"他提到自己这几周每天都在用，也说这次是慢速放量："我们会在过程中持续调优体验，确保它又快又稳。"真正改变产品版图的其实是他的第二条——"Claude Docs、Claude Slides 和 Claude Design 现在在每一段对话里"，所以你要一份演示稿，拿到的是"一份你能打开、编辑，并导出为 PowerPoint 或 PDF 的东西"，而且"没有需要另行跳转的独立工具。它们就在对话里。"</p>
+    <div class="urls">      <a href="https://x.com/bcherny/status/2100259951398789487">https://x.com/bcherny/status/2100259951398789487</a>      <a href="https://x.com/bcherny/status/2100260544087535639">https://x.com/bcherny/status/2100260544087535639</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Cat Wu</span>
+      <span class="builder-role">Claude Code &amp; Cowork, Anthropic</span>
+    </div>
+    <p class="summary-en">Cat Wu of Claude Code and Cowork at Anthropic supplies the reason, and it is about routing: "Many of you shared that you didn't want to choose which Claude product to use for any task. As Claude models have become more capable, we've found that Claude can handle the routing for you. Based on your prompt, Claude will decide whether to give a quick answer or do deeper agentic work, and what kind of output best fits the task." She draws the control boundary explicitly: "You're in control the whole time: you can still stop, redirect, or exert finer control over Claude's effort or approach." The rollout is "slowly over the next few weeks to get it right." Her post is the clearest statement in the feed of the trade being made — the model decides the depth of work, in exchange for not making the user pick a product first.</p>
+    <p class="summary-zh zh">Anthropic 负责 Claude Code 与 Cowork 的 Cat Wu 给出的是理由，而这个理由关于路由："你们很多人说过，不想为了某个任务去选该用哪一个 Claude 产品。随着 Claude 模型变得更强大，我们发现路由这件事 Claude 可以自己处理。根据你的提示，Claude 会判断该给一个快速回答，还是做更深的 agentic 工作，以及哪种输出形式最适合这个任务。"她也把控制的边界明确画了出来："全程你都掌握着控制权：你仍然可以叫停、转向，或者对 Claude 投入的精力和采取的方式做更细的控制。"放量节奏是"在未来几周内慢慢来，把它做对"。她这条是 feed 里对这笔交易说得最清楚的一条——由模型来决定工作的深度，换来的是用户不必先挑一个产品。</p>
+    <div class="urls">      <a href="https://x.com/_catwu/status/2100260655312089562">https://x.com/_catwu/status/2100260655312089562</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Claude</span>
+      <span class="builder-role">@claudeai · Anthropic</span>
+    </div>
+    <p class="summary-en">The official Claude account posts three times in the same minute, and together they cover continuity, what is in beta, and how editing works. Continuity first: "If you've been working in Cowork, everything is where you left it: chats, projects, artifacts, connectors, and skills." Beta next: "Claude Design, Claude Slides, and Claude Docs are in beta on all paid plans." The editing model is the part worth reading closely, because it is co-editing rather than generation — "Fix a line in the doc yourself, leave a comment for Claude on a slide, or select an element and move it" — and the handoff is meant to be final rather than intermediate: "present the deck straight from Claude, export the doc in the format you already use, or share everything at one link." Their worked example chains the three: "Draft the one-pager in Claude Docs, turn it into a deck with Claude Slides, and mock up a matching visual in Claude Design, all from one place."</p>
+    <p class="summary-zh zh">Claude 官方账号在同一分钟里发了三条，合起来覆盖了连续性、什么进了 beta、以及编辑是怎么做的。先说连续性："如果你之前在 Cowork 里工作，一切都还在你离开时的位置：对话、项目、artifacts、连接器和技能。"然后是 beta："Claude Design、Claude Slides 和 Claude Docs 在所有付费套餐上进入 beta。"最值得细读的是编辑模式，因为它是共同编辑而不是生成——"你可以自己改文档里的一行，在某一页幻灯片上给 Claude 留一条评论，或者选中一个元素直接挪动它"——而交付端是被当成终点而不是中间态来设计的："直接从 Claude 里演示这份演示稿，把文档导出成你本来就在用的格式，或者用一个链接分享全部内容"。他们给的例子把三者串成一条链："在 Claude Docs 里起草一页纸的材料，用 Claude Slides 把它变成一份演示稿，再用 Claude Design 做一个配套的视觉稿，全都在同一个地方完成。"</p>
+    <div class="urls">      <a href="https://x.com/claudeai/status/2100258495543071016">https://x.com/claudeai/status/2100258495543071016</a>      <a href="https://x.com/claudeai/status/2100258494221812123">https://x.com/claudeai/status/2100258494221812123</a>      <a href="https://x.com/claudeai/status/2100258492590207079">https://x.com/claudeai/status/2100258492590207079</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Alex Albert</span>
+      <span class="builder-role">Research, Anthropic</span>
+    </div>
+    <p class="summary-en">Alex Albert of Anthropic adds a one-post internal reaction with no new facts attached: "The team did an amazing job with this merge. The resulting UX feels so much better than chat or Cowork did on their own. And the new slides/docs/design integrations work very well." It is listed here as a signal of how the company is framing the change internally — a UX simplification, not a capability launch.</p>
+    <p class="summary-zh zh">Anthropic 的 Alex Albert 补了一条内部视角的反应，没有附带任何新事实："这个合并团队做得非常出色。合并后的 UX 比 chat 或 Cowork 各自单独存在时要好得多。而且新的 slides/docs/design 集成工作得非常顺畅。"这里列出它，是因为它能说明公司内部在怎么定义这次改动——是一次 UX 简化，不是一次能力发布。</p>
+    <div class="urls">      <a href="https://x.com/alexalbert__/status/2100295757953917120">https://x.com/alexalbert__/status/2100295757953917120</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Dan Shipper</span>
+      <span class="builder-role">CEO, Every</span>
+    </div>
+    <p class="summary-en">Every CEO Dan Shipper posts three times, and two of them are pure enthusiasm with nothing behind them: "THEY DID IT / THE END OF THE TABS ERA IS UPON US" and "big big big big big." The third carries the actual claim, written as a joke diagram — "LLMs are just autocomplete / jev is just a JSON classifier," with a handshake emoji between the two lines and a red flag after it. Read literally, it says a model that only emits a classification relates to a general LLM the way autocomplete relates to writing; the flag is there because he thinks that framing is being oversold. Note that the same name appears in Guillermo Rauch's post today with a performance number attached, which makes this the deflationary reading of the same day's news.</p>
+    <p class="summary-zh zh">Every CEO Dan Shipper 发了三条，其中两条是纯粹的欢呼，背后什么都没有："他们做到了 / 标签页时代结束了"和"大 大 大 大 大"。第三条才有实质主张，而且是用一个玩笑式的对照写出来的——"LLM 不过是自动补全 / jev 不过是个 JSON 分类器"，两行之间是一个握手 emoji，后面跟了一面红旗。照字面读，它的意思是：一个只输出分类结果的模型，和一个通用 LLM 的关系，就像自动补全和写作的关系；而那面红旗放在那里，是因为他认为这个说法被吹过头了。值得注意的是，同一个名字今天也出现在 Guillermo Rauch 那条带性能数字的帖子里，所以这条可以看作是对同一天新闻的一种"降温"读法。</p>
+    <div class="urls">      <a href="https://x.com/danshipper/status/2100251499443998766">https://x.com/danshipper/status/2100251499443998766</a>      <a href="https://x.com/danshipper/status/2100269017977987341">https://x.com/danshipper/status/2100269017977987341</a>      <a href="https://x.com/danshipper/status/2100284086703046903">https://x.com/danshipper/status/2100284086703046903</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">CEO, Vercel</span>
+    </div>
+    <p class="summary-en">Vercel CEO Guillermo Rauch posts the day's only hard performance number, and the architecture detail is as interesting as the speed: "We're seeing extraordinary results from @typesafeai. Default mode in fx is auto, with a safety reviewer analyzing every command. That reviewer runs on GPT Luna today. Jev is up to 18x faster (p95) <em>and</em> more accurate. It's coming to @vercel AI Gateway and likely new default." The shape of it — a fast model doing the work, a separate reviewer model checking each command — is what makes an 18x claim plausible without a capability regression. His other two posts are bare links with no accompanying text; what they point to cannot be recovered from the feed, and nothing is inferred here.</p>
+    <p class="summary-zh zh">Vercel CEO Guillermo Rauch 给出了今天唯一一个硬性能数字，而其中的架构细节和速度本身一样有意思："我们在 @typesafeai 上看到了非常出色的结果。fx 的默认模式是 auto，会有一个安全审查器分析每一条命令。这个审查器目前跑在 GPT Luna 上。Jev 快了 18 倍（p95），而且更准。它会进入 Vercel AI Gateway，而且很可能成为新的默认。"它的结构——一个快模型干活，另一个审查模型逐条检查命令——正是让"18 倍"这个说法在不出能力回退的情况下变得可信的原因。他另外两条是没有任何文字的纯链接；它们指向什么无法从 feed 中还原，这里不作推断。</p>
+    <div class="urls">      <a href="https://x.com/rauchg/status/2100307962262872105">https://x.com/rauchg/status/2100307962262872105</a>      <a href="https://x.com/rauchg/status/2100260457617736051">https://x.com/rauchg/status/2100260457617736051</a>      <a href="https://x.com/rauchg/status/2100380166811951410">https://x.com/rauchg/status/2100380166811951410</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aaron Levie</span>
+      <span class="builder-role">CEO, Box</span>
+    </div>
+    <p class="summary-en">Box CEO Aaron Levie writes the demand-side counterpart to Rauch's number, and his list is all gate tasks rather than generation tasks: "Being able to process information insanely quickly, at crazy low costs, with high levels of capability is huge for a wide number of enterprise tasks." What he names — "Data classification tasks, routing decisions inside of a workflow, decision making when handed a particular domain problem, quick judgment calls about safety or security" — are, in his words, "the gates in a large number of processes." He opens by saying these are "entire universes of AI innovation that still exist that weren't even on most of our radars," and closes with the application: "This model and approach could be quite cool in agentic workflows in the enterprise."</p>
+    <p class="summary-zh zh">Box CEO Aaron Levie 写的是 Rauch 那个数字在需求侧的另一半，而他列的清单全是"关卡型"任务，不是生成型任务："能够以极快的速度、极低的成本、又保持很高水平的能力来处理信息，这对大量企业任务来说意义重大。"他点出来的那些——"数据分类任务、工作流内部的路由决策、拿到某个特定领域问题时的决策、关于安全或安保的快速判断"——用他的话说，是"大量流程里的关卡"。他开头说这些是"仍然存在的、甚至连我们大多数人雷达上都没有的整整一个个 AI 创新宇宙"，结尾落在应用上："这种模型和思路，在企业里的 agentic 工作流中可能会相当好用。"</p>
+    <div class="urls">      <a href="https://x.com/levie/status/2100448648672993540">https://x.com/levie/status/2100448648672993540</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thariq</span>
+      <span class="builder-role">Claude Code, Anthropic</span>
+    </div>
+    <p class="summary-en">Thariq of Claude Code at Anthropic posts three times in one burst, and together they argue that the shell should stop being the universal adapter: "I think increasingly you can just give Claude tools shaped in the way you want vs tricking it with a layer of indirection / e.g. for data storage do you really want a file system or do you want an API to a database." The consequence he draws: "bash is no longer all you need, if your goal is just reliably tool calling / but sandboxes + bash are still good for work that involves code generation &amp; execution." He marks it as a change of mind rather than a restatement — "this is again, an update to me from last year." His third post is about where the sandbox sits: "I think Claude Managed Agents strikes the right balance here, the sandbox is optional and can be spun up independently of the rest of the agent loop," and he reports having ported an old bash-tool-calling project to CMA successfully.</p>
+    <p class="summary-zh zh">Anthropic Claude Code 的 Thariq 一口气发了三条，合起来在论证一件事：shell 不该再继续充当万能适配器。"我越来越觉得，你可以直接把工具做成你想要的样子交给 Claude，而不是用一层间接去骗它 / 比如数据存储，你真正想要的是一个文件系统，还是一个通往数据库的 API？"他由此得出的结论是："如果你的目标只是可靠地调用工具，bash 已经不再是你唯一需要的东西了 / 但对于涉及代码生成与执行的工作，沙箱 + bash 依然很好用。"他明确说这是改变了想法，而不是重复旧观点——"这又是我相对去年的一个更新"。第三条讲的是沙箱该放在哪一层："我觉得 Claude Managed Agents 在这里取得了正确的平衡，沙箱是可选的，可以独立于 agent 循环的其余部分拉起来"，他还说把自己一个早先基于 bash 工具调用的旧项目移植到 CMA，跑得不错。</p>
+    <div class="urls">      <a href="https://x.com/trq212/status/2100315537251463523">https://x.com/trq212/status/2100315537251463523</a>      <a href="https://x.com/trq212/status/2100315535758217422">https://x.com/trq212/status/2100315535758217422</a>      <a href="https://x.com/trq212/status/2100315538472009897">https://x.com/trq212/status/2100315538472009897</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Madhu Guru</span>
+      <span class="builder-role">Sr Director, AI at Meta</span>
+    </div>
+    <p class="summary-en">Madhu Guru, Senior Director of AI at Meta and previously the lead on Gemini, Veo and Nano Banana at Google, posts one line that takes a side in the governance argument: "Safety and security are <em>features</em> of your AI product and model - not guardrails that need to be imposed on you from the outside." The emphasis is his. It is a short post, but it is the clearest statement in today's feed of the position that safety belongs to the builder rather than to a regulator.</p>
+    <p class="summary-zh zh">Meta AI 高级总监、此前在 Google 负责 Gemini、Veo 与 Nano Banana 的 Madhu Guru 只发了一行，在治理争论里明确站了队："安全和安保是你 AI 产品和模型的<em>功能</em>，而不是需要从外部强加到你身上的护栏。"加重语气是他原文里就有的。这条很短，但它是今天 feed 里对"安全属于建设者、不属于监管者"这一立场说得最清楚的一条。</p>
+    <div class="urls">      <a href="https://x.com/realmadhuguru/status/2100312717739667963">https://x.com/realmadhuguru/status/2100312717739667963</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thibault Sottiaux</span>
+      <span class="builder-role">Codex &amp; ChatGPT, OpenAI</span>
+    </div>
+    <p class="summary-en">Thibault Sottiaux of Codex and ChatGPT at OpenAI posts three times, and only one carries content: a four-item checklist for Astra — "Fast / Frontier / Efficient / For everyone." It is the same positioning the OpenAI side has been repeating this week, stated as four ticks. His other two posts, "Sometimes physics can't be cheated" and "What is ChatGPT," are one-liners attached to media; what they refer to cannot be recovered from the feed, and nothing is added here.</p>
+    <p class="summary-zh zh">OpenAI 负责 Codex 与 ChatGPT 的 Thibault Sottiaux 发了三条，只有一条有实质内容：给 Astra 列的四项清单——"快 / 前沿 / 高效 / 面向所有人"。这是 OpenAI 这一侧本周一直在重复的同一定位，只是被写成了四个勾。他另外两条，"有时候物理规律是骗不过的"和"什么是 ChatGPT"，都是配了媒体的一句话；它们指什么无法从 feed 中还原，这里不作补充。</p>
+    <div class="urls">      <a href="https://x.com/thsottiaux/status/2100297380968997327">https://x.com/thsottiaux/status/2100297380968997327</a>      <a href="https://x.com/thsottiaux/status/2100363668051603608">https://x.com/thsottiaux/status/2100363668051603608</a>      <a href="https://x.com/thsottiaux/status/2100295443620007993">https://x.com/thsottiaux/status/2100295443620007993</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Sam Altman</span>
+      <span class="builder-role">CEO, OpenAI</span>
+    </div>
+    <p class="summary-en">OpenAI CEO Sam Altman posts a schedule slip, plainly and without naming the thing: "the main thing i was excited about launching this week will be next week instead, but imo worth the wait!" There is no detail in the tweet about what is slipping, and none is invented here. It is worth recording mainly as a datapoint on the shipping cadence both labs are running right now — Anthropic merging products the same day, OpenAI deferring its main launch by a week.</p>
+    <p class="summary-zh zh">OpenAI CEO Sam Altman 发了一条延期通知，说得直接，但没点名是什么："我本来最期待本周发布的那件事，改到下周了，不过我觉得值得等！"推文里没有任何关于是什么延期的细节，这里也不做补充。记下它主要是因为它是当下两家实验室发布节奏的一个数据点——Anthropic 在同一天合并产品，OpenAI 把主线发布推后一周。</p>
+    <div class="urls">      <a href="https://x.com/sama/status/2100351958167220547">https://x.com/sama/status/2100351958167220547</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">Practical AI Tutorials</span>
+    </div>
+    <p class="summary-en">Peter Yang's substantive post is his skill stack for producing a podcast, and it is a workflow rather than a prompt: "/podcast-prep does research on the guest and then preps an interview guide"; "/podcast-edit reviews the raw transcript, then works with me to pick engaging quotes for the intro reel along with moments to cut"; "/podcast-production orchestrates 5 skills to turn the full episode into 6 different assets." His defense of skills against better base models is the part that generalizes: "Some people think the latest models make skills redundant but they've been indispensable for me to get AI to follow my specific edit and browser-use instructions." His other two posts are about a children's reading app his 4.5-year-old uses, written as a recommendation with a referral link; there is no AI content in them beyond the product itself.</p>
+    <p class="summary-zh zh">Peter Yang 有实质内容的那条是他做播客用的技能栈，而它是一套工作流，不是一句提示词："/podcast-prep 会研究嘉宾，然后准备一份采访提纲"；"/podcast-edit 会过一遍原始转写稿，然后和我一起挑出适合放进开场短片的金句，以及要剪掉的片段"；"/podcast-production 会调度 5 个技能，把整期节目变成 6 种不同的素材"。其中真正有普适价值的是他为"技能"辩护的那句，针对的是"模型更强了所以技能没必要了"这种看法："有些人觉得最新的模型让技能变得多余，但对我来说，要让 AI 遵循我特定的剪辑和浏览器操作指令，它们一直不可或缺。"他另外两条是关于他 4 岁半孩子在用的一款儿童阅读应用，写成推荐并附了推荐链接；除了产品本身，里面没有 AI 相关内容。</p>
+    <div class="urls">      <a href="https://x.com/petergyang/status/2100328939034128856">https://x.com/petergyang/status/2100328939034128856</a>      <a href="https://x.com/petergyang/status/2100402704275435872">https://x.com/petergyang/status/2100402704275435872</a>      <a href="https://x.com/petergyang/status/2100402721803342098">https://x.com/petergyang/status/2100402721803342098</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Zara Zhang</span>
+      <span class="builder-role">Builder</span>
+    </div>
+    <p class="summary-en">Zara Zhang writes the day's dissenting post, and it is about tone rather than capability: "I find myself using Claude less these days because the way it speaks has just become insufferable / Like it's constantly trying to showcase how smart/sophisticated it is, rather than actually communicating a point across." No evidence or example is attached in the tweet, so it is reported as a statement. It lands on the same day Anthropic's news is about simplification, which is the reason it is worth reading alongside the announcement rather than after it.</p>
+    <p class="summary-zh zh">Zara Zhang 写了今天唯一的反对意见，而它针对的是语气而不是能力："这些天我发现自己用 Claude 变少了，因为它说话的方式已经让人难以忍受 / 就像它时刻在努力展示自己有多聪明、多有深度，而不是真的把一个意思传达清楚。"推文里没有附任何证据或例子，所以这里只作为一条陈述记录。它恰好出现在 Anthropic 宣布"简化"的同一天，这正是它值得和那条公告放在一起读、而不是放在后面读的原因。</p>
+    <div class="urls">      <a href="https://x.com/zarazhangrui/status/2100278750776824115">https://x.com/zarazhangrui/status/2100278750776824115</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nikunj Kothari</span>
+      <span class="builder-role">Partner, FPV Ventures</span>
+    </div>
+    <p class="summary-en">FPV Ventures partner Nikunj Kothari's substantive post is about a home agent he built on Nous Research, and the detail that makes it interesting is that it is shared: "It's also our first 'group' bot where my wife and I interact with it on a daily basis - which has been fun learning especially when it fails." His claim is about granularity of permission, not intelligence — "only read certain emails, convert in line attachments to structured data or logged in browser sessions" — and he says he could not reproduce it elsewhere: "I have tried to recreate with Grok Bot and similar and you can't get this level of granularity and control." His other two posts are personal: baking a Black Forest cake for his wife's birthday, credited in his own words to "@ChatGPT."</p>
+    <p class="summary-zh zh">FPV Ventures 合伙人 Nikunj Kothari 有实质内容的那条，讲他在 Nous Research 上搭的家庭 agent，而让它有意思的细节是它是共享的："这也是我们第一个'群体'bot，我和妻子每天都会和它交互——尤其是它失败的时候，学起来挺有意思。"他的主张关乎权限的颗粒度，而不是智能——"只读取特定邮件、把行内附件转成结构化数据、或者已登录的浏览器会话"——并且他说在别处复现不出来："我试过用 Grok Bot 和类似产品重建，达不到这种颗粒度和控制力。"他另外两条是私人内容：为妻子生日烤黑森林蛋糕，按他自己的说法要"感谢 @ChatGPT"。</p>
+    <div class="urls">      <a href="https://x.com/nikunj/status/2100212813625196917">https://x.com/nikunj/status/2100212813625196917</a>      <a href="https://x.com/nikunj/status/2100115958862107100">https://x.com/nikunj/status/2100115958862107100</a>      <a href="https://x.com/nikunj/status/2100117565150470652">https://x.com/nikunj/status/2100117565150470652</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Garry Tan</span>
+      <span class="builder-role">President &amp; CEO, Y Combinator</span>
+    </div>
+    <p class="summary-en">Y Combinator President and CEO Garry Tan posts one line that is a claim about where the memory lives: "I can use any harness I want and it's the same personality and full memory of my personal AGI." Read as stated, it separates three layers — harness, personality, memory — and asserts that the last two are portable across the first, which is the inverse of the usual assumption that switching tools costs you context. His second post is an event announcement (speaking at Supabase Select) and carries no AI content.</p>
+    <p class="summary-zh zh">Y Combinator 总裁兼 CEO Garry Tan 发了一条，主张的是"记忆存在哪里"这件事："我可以用任何我想要的 harness，而它还是同一个性格，带着我那个个人 AGI 的完整记忆。"照字面读，他把三层拆开了——harness、性格、记忆——并主张后两层可以跨第一层迁移，这与"换工具就要丢上下文"的常规假设正好相反。他的第二条是一个活动公告（在 Supabase Select 上对话），没有 AI 内容。</p>
+    <div class="urls">      <a href="https://x.com/garrytan/status/2100339347669279149">https://x.com/garrytan/status/2100339347669279149</a>      <a href="https://x.com/garrytan/status/2100354983053111365">https://x.com/garrytan/status/2100354983053111365</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aditya Agarwal</span>
+      <span class="builder-role">General Partner, SPC</span>
+    </div>
+    <p class="summary-en">SPC General Partner Aditya Agarwal posts twice. One is a one-line claim with no elaboration attached: "Great ideas rarely emerge from isolation." The other is an event notice — hosting a California governor candidate at SPC — which has no AI content and is listed only because it is in the feed.</p>
+    <p class="summary-zh zh">SPC 普通合伙人 Aditya Agarwal 发了两条。一条是没有任何展开的一句话主张："好想法很少在孤立中产生。"另一条是活动通知——在 SPC 接待一位加州州长候选人——没有 AI 内容，这里列出它只是因为它在 feed 里。</p>
+    <div class="urls">      <a href="https://x.com/adityaag/status/2100347763502329951">https://x.com/adityaag/status/2100347763502329951</a>      <a href="https://x.com/adityaag/status/2100275836792492463">https://x.com/adityaag/status/2100275836792492463</a></div>
+  </article>
+
+</section>
+
+<!-- ============== TAKEAWAY (NO PODCAST TODAY) ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🧭</span>
+    <h2 class="section-title">Takeaway</h2>
+    <span class="section-meta">No Podcast Today</span>
+  </div>
+
+  <div class="takeaway">
+    <div class="takeaway-label">The Takeaway</div>
+    <p>Today's feed is one event with four accounts posting it: chat and Cowork become one Claude, and Docs, Slides and Design move into the conversation. The mechanism Cat Wu names is the part that matters beyond this launch — routing is now the model's job, so "Claude will decide whether to give a quick answer or do deeper agentic work, and what kind of output best fits the task." Boris Cherny's history of it is the same move described from the other end: first developers stopped writing the code, then knowledge workers stopped assembling the files, and now the product holding both collapses into one surface. On the evidence of the blog, the trigger was user behaviour, not capability — "People used both, and told us the frustrating part was deciding where a task belonged."</p>
+    <p>The second thread is cheap and fast becoming its own category, and it shows up twice with opposite valuations. Rauch's version has a number and an architecture: a safety reviewer "analyzing every command" running on GPT Luna, with Jev "up to 18x faster (p95) and more accurate," heading for Vercel AI Gateway "and likely new default." Shipper's version of the same name is a joke with a red flag on it — "jev is just a JSON classifier." Levie supplies the demand side for whichever reading is right: what you spend that on is "data classification tasks, routing decisions inside of a workflow," and "quick judgment calls about safety or security," which he calls "the gates in a large number of processes."</p>
+    <p>Underneath both, the plumbing changed. Thariq's three posts say stop making the shell the universal adapter — "give Claude tools shaped in the way you want vs tricking it with a layer of indirection" — while conceding that "sandboxes + bash are still good for work that involves code generation &amp; execution." Garry Tan pushes the same decoupling one layer up: "I can use any harness I want and it's the same personality and full memory of my personal AGI."</p>
+    <p>Two notes against the grain. Zara Zhang says she is "using Claude less these days because the way it speaks has just become insufferable" — a tone complaint landing on the same day the announcement is about simplicity, which is a reminder that capability and voice are now separate product problems. And Sam Altman says the main launch he was excited about slips "to next week instead," so the cadence comparison for the day is Anthropic collapsing surfaces while OpenAI defers.</p>
+  </div>
+
+  <div class="takeaway zh">
+    <div class="takeaway-label">核心结论</div>
+    <p>今天的 feed 是同一件事、四个账号在发：chat 和 Cowork 合成一个 Claude，Docs、Slides 和 Design 走进对话。其中超出本次发布本身、更值得记住的是 Cat Wu 点出的机制——路由现在归模型管，所以"Claude 会判断该给一个快速回答，还是做更深的 agentic 工作，以及哪种输出形式最适合这个任务"。Boris Cherny 讲的那段历史，是同一件事从另一头说的：先是开发者不再自己写代码，然后知识工作者不再自己拼文件，现在承载这两件事的产品收敛成了一个界面。按官方博客给的说法，触发这次改动的是用户行为而不是能力——"两个都有人在用，而他们告诉我们，最烦的是要决定一个任务该属于哪里。"</p>
+    <p>第二条主线是"又快又便宜"正在成为独立品类，而它今天出现了两次，估值方向相反。Rauch 的版本有数字也有架构：一个"逐条分析命令"的安全审查器跑在 GPT Luna 上，而 Jev"快了 18 倍（p95）而且更准"，将会进入 Vercel AI Gateway"而且很可能成为新的默认"。Shipper 对同一个名字的版本是个插了红旗的玩笑——"jev 不过是个 JSON 分类器"。无论哪个读法对，Levie 提供了需求侧的答案：这些算力该花在"数据分类任务、工作流内部的路由决策"以及"关于安全或安保的快速判断"上，而他把这些称为"大量流程里的关卡"。</p>
+    <p>在这两条之下，管道层也变了。Thariq 那三条的意思是别再让 shell 当万能适配器——"直接把工具做成你想要的样子交给 Claude，而不是用一层间接去骗它"——同时也承认"对于涉及代码生成与执行的工作，沙箱 + bash 依然很好用"。Garry Tan 把同样的解耦又往上推了一层："我可以用任何我想要的 harness，而它还是同一个性格，带着我那个个人 AGI 的完整记忆。"</p>
+    <p>还有两条反向的注脚。Zara Zhang 说自己"这些天用 Claude 变少了，因为它说话的方式已经让人难以忍受"——一条关于语气的抱怨，恰好落在宣布"简化"的同一天，提醒了一件事：能力和说话方式现在是两个独立的产品问题。而 Sam Altman 说他最期待的发布"改到下周了"，所以这一天的节奏对照是：Anthropic 在收敛界面，OpenAI 在推迟发布。</p>
+  </div>
+</section>
+
+<!-- ============== OFFICIAL BLOGS ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">📝</span>
+    <h2 class="section-title">Official Blogs</h2>
+    <span class="section-meta">1 Post</span>
+  </div>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Claude Blog</span>
+      <span class="builder-role">Anthropic</span>
+    </div>
+    <p class="summary-en">Anthropic's post states the reason for the merge in one sentence, and it is about the user's decision cost rather than the model: "We built Cowork as a separate place for bigger work, and Design for visual work. People used both, and told us the frustrating part was deciding where a task belonged. What they'd started in one also didn't carry into the other. So we stopped making you choose." The scope sentence is the operational one — "It's rolling out on Pro and Max plans over the next few weeks, with more plans to follow" — with "Team and Free plans will follow soon," and Enterprise admins getting "at least 30 days" notice. The three new surfaces are "Claude Docs and Claude Slides are new today, and Claude Design now works inside your conversations too," all "in beta on paid plans," and "Enterprise admins choose when to turn them on."</p>
+    <p class="summary-zh zh">Anthropic 这篇用一句话讲清了合并的理由，而这个理由关乎用户的决策成本，不是模型："我们当初把 Cowork 做成一个做大事的地方，把 Design 做成一个做视觉的地方。两个都有人在用，而他们告诉我们，最烦的是要决定一个任务该属于哪里。在其中一个里开了头，也带不进另一个。所以我们不再让你选。"真正有运营含义的是范围那句——"未来几周内在 Pro 和 Max 套餐上开放，更多套餐随后跟进"——"Team 和 Free 套餐很快跟进"，而企业管理员会提前至少 30 天收到通知。三个新界面是"Claude Docs 和 Claude Slides 今天上线，Claude Design 现在也能在你的对话里工作"，全部"在付费套餐上处于 beta"，并且"由企业管理员决定何时开启"。</p>
+    <p class="summary-en">Two details are worth pulling out. First, the autonomy default: "By default, Claude asks before taking an action. If you'd rather let it keep working and check in only when something needs a closer look, you can turn that on. You keep the final say." Second, the worked example in the post is a weekly pipeline report due at noon, asked for before leaving the house, checked from a phone, and finished as "a doc with notes from your teammate, and the slides are ready" — the point being that "Both came out of the same conversation, so the slides already match the report." It can also be scheduled: "Schedule it for every Monday, and Claude starts on the report without being asked." The customer quote is from Andrew Keller, Senior Economist: "I could have Claude pull up [my legal research database], and it would pull all the cases, read them, figure out which other cases I might need, download them, and store them in a folder for my personal review."</p>
+    <p class="summary-zh zh">有两个细节值得单独拎出来。一是自主性的默认值："默认情况下，Claude 在采取行动前会先问你。如果你更希望它一直做下去、只在需要你细看时才来找你，也可以打开这个选项。最终决定权始终在你。"二是文章里给的那个完整例子：一份中午要交的每周管道报告，出门前交代给 Claude，路上用手机看进度，回到工位时它已经是"一份带同事批注的文档，演示稿也已经准备好"——关键在于"两者出自同一段对话，所以演示稿本来就和报告对得上"。它还可以被排期："把它设成每周一自动执行，Claude 就会不用你吩咐就开始做这份报告。"客户引言来自高级经济学家 Andrew Keller："我可以让 Claude 调出我的法律研究数据库，它会把所有判例拉出来、读完、判断出我可能还需要哪些别的判例、下载下来，存进一个文件夹供我个人复核。"</p>
+    <div class="urls">      <a href="https://claude.com/blog/cowork-is-now-claude">https://claude.com/blog/cowork-is-now-claude</a></div>
+  </article>
+</section>
+
+<footer class="footer">
+  <div class="next-issue">📬 下一期：明天 10:00（北京时间）</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->
