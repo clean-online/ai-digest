@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest · 2026-09-19</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 · Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest · 2026-09-19 · 周六</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">15</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">25</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+<p class="note-line">今日 feed 快照 2026-09-18T06:41Z；当日无播客、无官方博客条目，25 条推文均为首次收录（未触发去重）。</p>
+
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🐦</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">15 Builders</span>
+  </div>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Boris Cherny</span>
+      <span class="builder-role">Claude Code, Anthropic</span>
+    </div>
+    <p class="summary-en">Boris Cherny of Claude Code at Anthropic describes the day's launch as a change in what he manages, not a feature: "Projects have changed not only how I interact with Claude but how I code. I stopped managing sessions. I just send thoughts as they come, Claude splits them into threads, and the project remembers how I work. It's where I do a ton of my coding now." The screenshot attached is his own CLI prompt log from the previous day. His second post confirms the rollout has started: "Projects are how I write a lot of my code these days. Really excited for everyone to try the new experience! Rolling out now."</p>
+    <p class="summary-zh zh">Anthropic Claude Code 的 Boris Cherny 把今天的发布描述成"他管的东西变了"，而不是一个新功能："Projects 改变的不仅是我和 Claude 的交互方式，还有我写代码的方式。我不再管理会话了。我脑子里冒出什么就发什么，Claude 把它们拆成线程，而项目记得我的工作习惯。我现在大部分代码都在这里写。"配图是他自己前一天的 CLI 提示记录。第二条确认放量已经开始："这些天我大量的代码都是用 Projects 写的。非常期待大家来试这个新体验！现在开始放量。"</p>
+    <div class="urls">      <a href="https://x.com/bcherny/status/2100669598995816511">https://x.com/bcherny/status/2100669598995816511</a>      <a href="https://x.com/bcherny/status/2100639991244427490">https://x.com/bcherny/status/2100639991244427490</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Cat Wu</span>
+      <span class="builder-role">Claude Code &amp; Cowork, Anthropic</span>
+    </div>
+    <p class="summary-en">Cat Wu of Claude Code and Cowork at Anthropic gives the operator's version, and the word she keeps using is abstraction: "In the new Projects experience, Claude coordinates all of your sessions. I've been using it every day since it lets me operate at a higher level of abstraction. I fire off a batch of tasks and move on. Claude has context on everything I'm working on and can give me an aggregated status update whenever I ask." The memory is the part framed as new rather than bigger — "It also has long-lived memory that evolves as I use it." Rollout is "over the coming weeks."</p>
+    <p class="summary-zh zh">Anthropic 负责 Claude Code 与 Cowork 的 Cat Wu 给的是使用者视角的版本，而她反复用的词是"抽象层级"："在新的 Projects 体验里，Claude 会协调你所有的会话。我每天都在用它，因为它让我能在一个更高的抽象层级上工作。我扔出去一批任务就去干别的了。Claude 对我手上所有事情都有上下文，我随时问它，它就能给一份汇总的进度更新。"记忆那部分是被当成"性质变了"而不是"容量变大了"来讲的——"它还有会随我使用而演进的长期记忆"。放量节奏是"未来几周内"。</p>
+    <div class="urls">      <a href="https://x.com/_catwu/status/2100641163120423057">https://x.com/_catwu/status/2100641163120423057</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Claude</span>
+      <span class="builder-role">@claudeai · Anthropic</span>
+    </div>
+    <p class="summary-en">The official Claude account posts three times in the same minute, and they cover memory, the cloud boundary, and migration. Memory first, with two examples that are exactly the kind of thing a session cannot hold: "A project builds over time. Every thread adds to and draws from its shared memory, so Claude can remember that the release moved to Friday, or who to ask before touching the billing service." The boundary next: "Threads run in the cloud, so they keep working even when your computer is offline, but they can't reach files or tools on your computer or your internal network yet. Local support is coming very soon." Then migration — "Existing projects on Pro and Max plans keep working as they do today. We'll upgrade them as the rollout expands across Claude" — with a waitlist for earlier access.</p>
+    <p class="summary-zh zh">Claude 官方账号在同一分钟里发了三条，分别讲了记忆、云端边界和迁移。先说记忆，配的两个例子恰好都是会话级上下文装不下的东西："一个项目是随时间生长的。每个线程都会往共享记忆里写入、也从中取用，所以 Claude 能记得发布日期挪到了周五，或者动计费服务之前该问谁。"然后是边界："线程跑在云端，所以即使你的电脑离线它们也继续工作，但它们暂时还无法触达你电脑上的文件或工具、以及你的内网。本地支持很快就来。"最后是迁移——"Pro 和 Max 套餐上已有的项目照现在的方式继续可用。随着放量铺开到整个 Claude，我们会把它们升级过来"——另有一份提前体验的等待列表。</p>
+    <div class="urls">      <a href="https://x.com/claudeai/status/2100632684074549309">https://x.com/claudeai/status/2100632684074549309</a>      <a href="https://x.com/claudeai/status/2100632687316730327">https://x.com/claudeai/status/2100632687316730327</a>      <a href="https://x.com/claudeai/status/2100632688625348890">https://x.com/claudeai/status/2100632688625348890</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thariq</span>
+      <span class="builder-role">Claude Code, Anthropic</span>
+    </div>
+    <p class="summary-en">Thariq of Claude Code at Anthropic supplies the architecture, and it is the most concrete line in the whole cluster: "Projects brings the architecture of Claude Tag to Claude Code. It has one agent per project that manages memory and spins off subagents for tasks. You can ask it to be proactive, to do things on a schedule, etc." His endorsement is comparative rather than superlative — "It feels a lot nicer than a bunch of sessions, try it out!" Read with the official post, the schedule line is the one that connects to the agent-runs-in-background thread below.</p>
+    <p class="summary-zh zh">Anthropic Claude Code 的 Thariq 补上了架构，而这是整组里最具体的一句："Projects 把 Claude Tag 的架构带进了 Claude Code。每个项目有一个 agent，负责管理记忆，并为各项任务派生子 agent。你可以要求它主动一些、按日程做事等等。"他的推荐是比较级而不是最高级——"它比一堆会话好用多了，试试看！"和官方那条放在一起读，"按日程做事"这句正好接上了下面那条"agent 在后台跑"的主线。</p>
+    <div class="urls">      <a href="https://x.com/trq212/status/2100638355872706571">https://x.com/trq212/status/2100638355872706571</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aaron Levie</span>
+      <span class="builder-role">CEO, Box</span>
+    </div>
+    <p class="summary-en">Box CEO Aaron Levie writes the day's demand-side argument, and it is a share-of-inference claim with a timeline on it: "Agents already make up the majority of inference. This will quickly trend toward nearly all inference over the next year or two. The vast majority of tokens used in the world will be agents that are executing unbelievable amounts of tasks for us in the background 24/7." His list of what those agents do is long and specific — "read all code changes to secure our software, process all of our data inside of workflows, handle a significant majority of the research that goes into recruiting and customer prospecting, review every event stream and log from every system in the world, go out and execute tasks for us in our personal lives." The pace claim is personal and dated: "Just in the past week I've introduced multiple completely new workflows that would not have been possible technically even a month ago."</p>
+    <p class="summary-zh zh">Box CEO Aaron Levie 写的是今天需求侧的论点，是一个带时间表的"推理份额"判断："agent 已经占了推理的大头。未来一两年内，这个比例会迅速走向接近全部推理。世界上消耗的绝大多数 token，都将是那些在后台 7×24 为我们执行海量任务的 agent。"他列的 agent 在做什么那一串很长也很具体——"读取所有代码变更来保护我们的软件、在工作流内部处理我们所有的数据、承担招聘和客户挖掘中绝大部分的调研工作、审阅世界上每个系统产生的每一条事件流和日志、以及走出去替我们处理个人生活中的事务"。关于速度的那句是个人化的、也标了日期："光是过去这一周，我就引入了多个全新的工作流，而它们在一个月前技术上根本做不到。"</p>
+    <div class="urls">      <a href="https://x.com/levie/status/2100799668573946191">https://x.com/levie/status/2100799668573946191</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">CEO, Vercel</span>
+    </div>
+    <p class="summary-en">Vercel CEO Guillermo Rauch posts the day's hardest volume numbers, and they are about supply rather than demand: "It's likely that more software will be produced next year than in all of the history of computing. It took Vercel 10 years to get to 1 billion deployments, but then we added another 1.4 billion in the last 10 months alone." He names what that software looks like — "Some of this will be tiny, personal and even disposable software. An HTML file with some javascript ("artifacts"), a report, a pricing calculator, a slide deck" — and then the number that matters for it: "We've brought down the time to deploy, upload, assign a domain and globally propagate an artifact to 1 second," including "our global CDN, Firewall, immutable deployments, domain assignment, observability, rollbacks." His third post is about the agent learning the CLI: "When you pressure your agent to ship a hotfix really fast, it can now 𝚟𝚎𝚛𝚌𝚎𝚕 --𝚝𝚞𝚛𝚋𝚘 --𝚙𝚛𝚘𝚍. It'll use the fastest available build machine." His first post is a one-line joke — "Vercel is the Vercel for Java."</p>
+    <p class="summary-zh zh">Vercel CEO Guillermo Rauch 给出了今天最硬的一组产量数字，而它们讲的是供给侧而不是需求侧："明年生产出来的软件，很可能比整个计算史上加起来的还要多。Vercel 用了 10 年才做到 10 亿次部署，但光是过去 10 个月我们就又加了 14 亿次。"他描述了这些软件长什么样——"其中一部分会是极小的、个人的、甚至一次性的软件。一个带点 javascript 的 HTML 文件（'artifacts'）、一份报告、一个定价计算器、一组幻灯片"——然后给出了对它们真正重要的那个数字："我们把完成部署、上传、分配域名、并把一个 artifact 全球分发的时间压到了 1 秒"，而这 1 秒里还包含"我们的全球 CDN、防火墙、不可变部署、域名分配、可观测性、回滚"。第三条讲的是 agent 学会了用命令行："当你催着 agent 赶紧上一个热修复时，它现在会用 𝚟𝚎𝚛𝚌𝚎𝚕 --𝚝𝚞𝚛𝚋𝚘 --𝚙𝚛𝚘𝚍。它会用上当前最快的构建机器。"第一条是个一句话玩笑——"Vercel 就是 Java 界的 Vercel。"</p>
+    <div class="urls">      <a href="https://x.com/rauchg/status/2100698591417499972">https://x.com/rauchg/status/2100698591417499972</a>      <a href="https://x.com/rauchg/status/2100682030170489160">https://x.com/rauchg/status/2100682030170489160</a>      <a href="https://x.com/rauchg/status/2100745015362552312">https://x.com/rauchg/status/2100745015362552312</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nikunj Kothari</span>
+      <span class="builder-role">Partner, FPV Ventures</span>
+    </div>
+    <p class="summary-en">FPV Ventures partner Nikunj Kothari ships the day's most concrete autonomous-agent artifact, and he is explicit that he built it because nothing else cleared his bar: "I have been obsessed with self driving companies for more than a year now.. tried a LOT of products, none of them met the bar and decided to just build one myself with 'claude' in the loop." The site is nosugarforkids — a catalog of healthy snacks for kids, chat-based recommendations, and "a tier list based on the nutrients and what's actually good." The agent is a daily loop: "checks catalog for new additions / prunes any products that may be dead / finds new content ideas to help increase reach / checks dataforSEO and Google Search Console for performance / writes and edits new pieces that might be useful to help / keeps quality high, and tries to not introduce slop / (new) reaches out to publications to get backlinks." The result after no distribution at all: "Even with ZERO backlinks today and no social presence whatsoever, site has organically grown to ~6k impressions a day and 60 clicks." His follow-up adds "There's a full blown MCP (and WebMCP) for this as well if you want to direct your agent towards it."</p>
+    <p class="summary-zh zh">FPV Ventures 合伙人 Nikunj Kothari 做出了今天最具体的一个自主 agent 产物，而他说得很明白，之所以自己动手是因为别的产品都没过他的线："我迷'自动驾驶公司'这个想法已经一年多了……试了很多产品，没有一个够格，于是决定自己搭一个，把 claude 放在循环里。"这个站点叫 nosugarforkids——一个只收录健康儿童零食的目录、可以聊天获取推荐，以及"基于营养成分和实际好坏做出来的一份分级榜"。那个 agent 是一个每日循环："检查目录有没有新增 / 清掉可能已经失效的商品 / 找新的内容选题来提升触达 / 查 dataforSEO 和 Google Search Console 的表现 / 撰写和编辑可能有帮助的新内容 / 保持质量、尽量不产出垃圾内容 /（新增）主动联系媒体换外链。"在完全没有分发的情况下结果是："在今天一个外链都没有、也完全没有社交媒体存在感的情况下，这个站点自然增长到了每天约 6,000 次曝光和 60 次点击。"他补的一条说："这里还配了一整套 MCP（以及 WebMCP），如果你想把你的 agent 指向它的话。"</p>
+    <div class="urls">      <a href="https://x.com/nikunj/status/2100714665571737885">https://x.com/nikunj/status/2100714665571737885</a>      <a href="https://x.com/nikunj/status/2100718806004064730">https://x.com/nikunj/status/2100718806004064730</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Google Labs</span>
+      <span class="builder-role">Google</span>
+    </div>
+    <p class="summary-en">Google Labs announces the new CC, and the target is a household rather than a worker: "Today, we're announcing the new CC – an AI agent built for families to spend less time on logistics and more time together." The feature list is about shared state — "Add up to 5 members to your CC agent," a shared "Your Day Ahead" brief email, "Autosync schedules &amp; to-dos with a shared Google Calendar and Tasks," coordination in Google Chat, delegated paperwork such as "permission slips, forms, and more" — and one detail on scope of memory worth noting: "CC remembers what applies to everyone (ie., family grocery lists, favorite restaurants) versus what applies to one person (ie., dietary restrictions, local timezones)." Availability is "US only, 18+."</p>
+    <p class="summary-zh zh">Google Labs 发布了新版 CC，而它面向的对象是家庭，不是单个工作者："今天，我们发布新的 CC——一个为家庭打造的 AI agent，让家人少花时间在琐事协调上，多花时间在一起。"功能清单基本都关于共享状态——"最多可以给你的 CC agent 添加 5 名成员"、一封共享的"你的一天"简报邮件、"与共享的 Google 日历和 Tasks 自动同步日程与待办"、在 Google Chat 里协作、以及代办事宜如"许可单、表格等等"——其中有一条关于记忆范围的细节值得注意："CC 会区分哪些是适用于所有人的（比如家庭采购清单、常去的餐厅），哪些只适用于某一个人（比如饮食禁忌、所在时区）。"上线范围是"仅限美国，18 岁以上"。</p>
+    <div class="urls">      <a href="https://x.com/GoogleLabs/status/2100653821907366366">https://x.com/GoogleLabs/status/2100653821907366366</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Josh Woodward</span>
+      <span class="builder-role">VP, Google Labs &amp; Gemini</span>
+    </div>
+    <p class="summary-en">Josh Woodward, VP at Google across Google Labs and Gemini, posts twice on the same family-agent launch from the personal side: "Have a family? We ❤️ this in ours." His second post is a product recommendation with no metrics attached — "If you're not using @Gemini_Notebook on your phone yet, you're missing out. This is such a cool story!" Both are short, and neither carries a claim that can be checked; they are listed as the consumer-facing end of the same day's Google push.</p>
+    <p class="summary-zh zh">Google 负责 Labs 与 Gemini 的副总裁 Josh Woodward 就同一个家庭 agent 发布发了两条，视角是个人那一侧："有家庭吗？我们家离不开它。"第二条是一句没有任何指标的产品推荐："如果你还没在手机上用 @Gemini_Notebook，那你错过了。这真是个很棒的故事！"两条都很短，也都没有承载可被核对的主张；这里列出它们，是作为 Google 当天这波动作在消费端的那一头。</p>
+    <div class="urls">      <a href="https://x.com/joshwoodward/status/2100665648825483726">https://x.com/joshwoodward/status/2100665648825483726</a>      <a href="https://x.com/joshwoodward/status/2100616682431807860">https://x.com/joshwoodward/status/2100616682431807860</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Garry Tan</span>
+      <span class="builder-role">President &amp; CEO, Y Combinator</span>
+    </div>
+    <p class="summary-en">Y Combinator President and CEO Garry Tan posts three times. One carries a technical claim about how memory is being built: "Memorable found a way to optimize memory with embeddings instead of more tokens which is a powerful new way to do memory." The other two are stance statements with no elaboration — "Be careful what you wish for. This is why we need alignment to humankind vs any other goal," and "The future is already here. We just have to choose it and spread it faster." What the media attached to them shows cannot be recovered from the feed, so nothing is added here.</p>
+    <p class="summary-zh zh">Y Combinator 总裁兼 CEO Garry Tan 发了三条。其中一条承载了一个关于记忆怎么做的技术主张："Memorable 找到了一种用 embeddings、而不是堆更多 token 来优化记忆的方法，这是做记忆的一种很有力的新方式。"另外两条是没有展开的立场表态——"小心你许的愿。这就是为什么我们需要对齐于人类，而不是任何其他目标"，以及"未来已经在这里了。我们只需要选择它，然后更快地把它传播开去。"它们配的媒体内容无法从 feed 中还原，这里不作补充。</p>
+    <div class="urls">      <a href="https://x.com/garrytan/status/2100668489178456268">https://x.com/garrytan/status/2100668489178456268</a>      <a href="https://x.com/garrytan/status/2100636443127210112">https://x.com/garrytan/status/2100636443127210112</a>      <a href="https://x.com/garrytan/status/2100612808568172830">https://x.com/garrytan/status/2100612808568172830</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aditya Agarwal</span>
+      <span class="builder-role">General Partner, SPC</span>
+    </div>
+    <p class="summary-en">SPC General Partner Aditya Agarwal posts once, and it is an endorsement of a specific approach rather than a general statement: "This is the right way to solve alignment and safety. @GoodfireAI is the leading non-frontier-lab company that is working on this. This is generationally important." The tweet does not say what the approach is or what Goodfire announced; the link is not recoverable from the feed, and no content is inferred. It is recorded as a position taken by an investor, on the same day the alignment question comes up in Garry Tan's posts.</p>
+    <p class="summary-zh zh">SPC 普通合伙人 Aditya Agarwal 发了一条，而且它是对某个具体路线的背书，不是泛泛而谈："这是解决对齐与安全的正确方式。@GoodfireAI 是做这件事的公司里、非前沿实验室中最领先的一家。这件事具有代际意义。"推文里没说这个路线是什么、也没说 Goodfire 发布了什么；链接无法从 feed 中还原，这里不推断任何内容。记下它，是作为一位投资人在同一天（Garry Tan 也就对齐问题发了帖）所站的立场。</p>
+    <div class="urls">      <a href="https://x.com/adityaag/status/2100746235426836708">https://x.com/adityaag/status/2100746235426836708</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thibault Sottiaux</span>
+      <span class="builder-role">Codex &amp; ChatGPT, OpenAI</span>
+    </div>
+    <p class="summary-en">Thibault Sottiaux of Codex and ChatGPT at OpenAI posts a single question, and it is a workflow hypothesis rather than an announcement: "Has anyone yet tried to get Astra and Fable to agree on the perfect styleguide? And then host it somewhere with a web mcp." Read as written, it assumes two models from different labs can be made to converge on one artifact, and that the artifact is then served to agents over MCP. It is one line with no reported result, so it is reported as a question, not an outcome.</p>
+    <p class="summary-zh zh">OpenAI 负责 Codex 与 ChatGPT 的 Thibault Sottiaux 只发了一条提问，而它更像是一个工作流假设，不是公告："有人试过让 Astra 和 Fable 就一份完美的风格指南达成一致吗？然后再把它托管在某个带 web mcp 的地方。"照字面读，它预设了两件事：来自不同实验室的两个模型可以被引导着收敛到同一份产物上，而这份产物随后通过 MCP 提供给 agent 使用。这条只有一行，没有报告任何结果，所以这里按"提问"记录，而不是"成果"。</p>
+    <div class="urls">      <a href="https://x.com/thsottiaux/status/2100645454245720513">https://x.com/thsottiaux/status/2100645454245720513</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Amjad Masad</span>
+      <span class="builder-role">CEO, Replit</span>
+    </div>
+    <p class="summary-en">Replit CEO Amjad Masad posts one line in favour of capacity build-out: "This is why we need a gazillion data centers (worth it)." The tweet links to something not recoverable from the feed, so what "this" refers to is not stated here. It is listed as a position on infrastructure, arriving the same day Levie argues that nearly all inference will be agents running in the background.</p>
+    <p class="summary-zh zh">Replit CEO Amjad Masad 发了一条支持产能建设的话："这就是为什么我们需要数不清的数据中心（值得）。"推文链接指向的内容无法从 feed 中还原，所以"这"指的是什么这里不作说明。列出它，是作为一条关于基础设施的立场——它出现的同一天，Levie 正在论证几乎所有推理都将是后台运行的 agent。</p>
+    <div class="urls">      <a href="https://x.com/amasad/status/2100829093923320083">https://x.com/amasad/status/2100829093923320083</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">Practical AI Tutorials</span>
+    </div>
+    <p class="summary-en">Peter Yang posts twice, both about the same @Muse product and both short: "My little @Muse red panda is both cute and saving me money - a winning combination," and "Aww it's so cute." There is no mechanism, no number, and no comparison behind the saving claim, so it is reported as an endorsement and nothing more.</p>
+    <p class="summary-zh zh">Peter Yang 发了两条，都是关于同一个 @Muse 产品，也都很短："我那只 @Muse 小熊猫既可爱，又帮我省钱——双赢组合"，以及"啊太可爱了"。省钱这个说法背后没有机制、没有数字、也没有对比基准，所以这里只作为一条推荐记录，不作任何补充。</p>
+    <div class="urls">      <a href="https://x.com/petergyang/status/2100740523539751337">https://x.com/petergyang/status/2100740523539751337</a>      <a href="https://x.com/petergyang/status/2100683741878468768">https://x.com/petergyang/status/2100683741878468768</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Dan Shipper</span>
+      <span class="builder-role">CEO, Every</span>
+    </div>
+    <p class="summary-en">Every CEO Dan Shipper posts four words with a link: "it's happening!" What it refers to cannot be recovered from the feed, and nothing is inferred. It is the thinnest item in today's set and is included only because the count is taken from what the feed returns.</p>
+    <p class="summary-zh zh">Every CEO Dan Shipper 发了一条四个字加一个链接："it's happening!"（正在发生！）它指的是什么无法从 feed 中还原，这里不作推断。这是今天这一批里内容最薄的一条，收录它只是因为统计以 feed 返回的内容为准。</p>
+    <div class="urls">      <a href="https://x.com/danshipper/status/2100587802748440581">https://x.com/danshipper/status/2100587802748440581</a></div>
+  </article>
+
+</section>
+
+<!-- ============== TAKEAWAY (NO PODCAST TODAY) ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🧭</span>
+    <h2 class="section-title">Takeaway</h2>
+    <span class="section-meta">No Podcast Today</span>
+  </div>
+
+  <div class="takeaway">
+    <div class="takeaway-label">The Takeaway</div>
+    <p>Today's feed is one launch with four Anthropic accounts posting it, and the launch is not a feature — it is a change in what the user is asked to hold. Boris Cherny's line is the plainest statement of it: "I stopped managing sessions. I just send thoughts as they come, Claude splits them into threads, and the project remembers how I work." Cat Wu supplies the abstraction above it — "I fire off a batch of tasks and move on. Claude has context on everything I'm working on" — and Thariq supplies the shape underneath: "one agent per project that manages memory and spins off subagents for tasks." Yesterday's news was Anthropic collapsing chat and Cowork into one surface; today's is the unit of organisation moving from the session to the project.</p>
+    <p>The boundary is stated as honestly as the capability. Threads "run in the cloud, so they keep working even when your computer is offline," but they "can't reach files or tools on your computer or your internal network yet. Local support is coming very soon." So the project is continuous and the machine is not, and that gap is where the current limits are.</p>
+    <p>Read against Aaron Levie, the same move is happening in the market rather than the product. He says agents "already make up the majority of inference," will trend "toward nearly all inference over the next year or two," and that "the vast majority of tokens used in the world will be agents that are executing unbelievable amounts of tasks for us in the background 24/7." His pace claim is the one worth keeping, because it is dated and falsifiable: "Just in the past week I've introduced multiple completely new workflows that would not have been possible technically even a month ago." A project that wakes up on a schedule is the product form of that sentence.</p>
+    <p>The evidence for it today is small and real rather than large and projected. Nikunj Kothari's nosugarforkids runs a Claude agent that "wakes up once a day" to check the catalog, prune dead products, find content ideas, read Search Console data, write and edit pieces, and now "reaches out to publications to get backlinks" — and after no distribution at all it is at "~6k impressions a day and 60 clicks." Rauch's numbers sit on the supply side of the same story: 1 billion deployments in ten years, "another 1.4 billion in the last 10 months alone," with deploy time down to 1 second, because "more software will be produced next year than in all of the history of computing."</p>
+    <p>Two smaller threads. Google is pushing the same coordination idea at a household instead of a developer — CC for families, up to 5 members, and one line on scope that generalises: it "remembers what applies to everyone ... versus what applies to one person." And the safety argument is being funded outside the labs: Aditya Agarwal calls GoodfireAI "the leading non-frontier-lab company that is working on this" and the work "generationally important," while Garry Tan restates the goal as "alignment to humankind vs any other goal."</p>
+  </div>
+
+  <div class="takeaway zh">
+    <div class="takeaway-label">核心结论</div>
+    <p>今天的 feed 是一次发布、四个 Anthropic 账号在发，而这次发布不是一个功能，是"用户需要自己拿着的东西"变了。Boris Cherny 那句说得最直白："我不再管理会话了。我脑子里冒出什么就发什么，Claude 把它们拆成线程，而项目记得我的工作习惯。"Cat Wu 补上了它上面那一层抽象——"我扔出去一批任务就去干别的了。Claude 对我手上所有事情都有上下文"——Thariq 补上了下面的结构："每个项目有一个 agent，负责管理记忆，并为各项任务派生子 agent"。昨天的新闻是 Anthropic 把 chat 和 Cowork 收敛成一个界面；今天的则是组织单位从"会话"移到了"项目"。</p>
+    <p>边界和能力被讲得一样诚实。线程"跑在云端，所以即使你的电脑离线它们也继续工作"，但它们"暂时还无法触达你电脑上的文件或工具、以及你的内网。本地支持很快就来"。所以项目是连续的，机器不是——当前的所有限制都在这个缺口里。</p>
+    <p>和 Aaron Levie 那条放在一起读，同样的迁移正发生在市场上，而不是产品里。他说 agent"已经占了推理的大头"，会在"未来一两年内"走向"接近全部推理"，而且"世界上消耗的绝大多数 token，都将是那些在后台 7×24 为我们执行海量任务的 agent"。其中最值得留下来的是他那句关于速度的话，因为它标了日期、也可以被证伪："光是过去这一周，我就引入了多个全新的工作流，而它们在一个月前技术上根本做不到。"一个能按日程自己醒过来的项目，就是这句话在产品形态上的样子。</p>
+    <p>今天的证据是小而实的，不是大而预测的。Nikunj Kothari 的 nosugarforkids 跑着一个每天"醒来一次"的 Claude agent：检查目录、清掉失效商品、找内容选题、读 Search Console 数据、撰写和编辑内容，现在还会"主动联系媒体换外链"——在完全没有分发的情况下，它做到了"每天约 6,000 次曝光和 60 次点击"。Rauch 的数字落在同一个故事的供给侧：十年做到 10 亿次部署，"光是过去 10 个月就又加了 14 亿次"，部署时间压到 1 秒，因为"明年生产出来的软件，很可能比整个计算史上加起来的还要多"。</p>
+    <p>另有两条较小的线。Google 在把同一个"协调"的想法推向家庭而不是开发者——面向家庭的 CC，最多 5 名成员，其中有一句关于记忆范围的话具有普适性：它"会区分哪些是适用于所有人的……哪些只适用于某一个人"。而安全这条线正在实验室之外获得资金：Aditya Agarwal 称 GoodfireAI 是"做这件事的公司里、非前沿实验室中最领先的一家"，并说这项工作"具有代际意义"；Garry Tan 则把目标重述为"对齐于人类，而不是任何其他目标"。</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="next-issue">📬 下一期：明天 10:00（北京时间）</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->
