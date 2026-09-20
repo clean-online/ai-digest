@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest · 2026-09-20</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 12px; padding: 32px; margin-bottom: 24px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
+  .podcast-source { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 10px; }
+  .podcast-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; color: var(--ink); margin-bottom: 24px; }
+  .takeaway { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 8px; padding: 18px 22px; margin-bottom: 24px; font-size: 15px; line-height: 1.7; color: var(--accent-deep); }
+  .takeaway + .takeaway { margin-top: -8px; }
+  .takeaway-label { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; background: var(--accent); color: white; padding: 3px 8px; border-radius: 3px; margin-right: 10px; transform: translateY(-2px); }
+  .podcast-body { font-size: 15.5px; color: var(--ink-soft); line-height: 1.75; }
+  .podcast-body p { margin-bottom: 16px; }
+  .podcast-body strong { color: var(--ink); font-weight: 600; }
+  .podcast-divider { height: 1px; background: var(--line); margin: 28px 0; }
+  .podcast-zh { font-family: 'Noto Serif SC', serif; font-size: 15.5px; color: var(--ink); line-height: 1.95; }
+  .podcast-zh p { margin-bottom: 16px; }
+  .podcast-zh strong { color: var(--accent-deep); font-weight: 600; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .podcast { padding: 24px; } .podcast-title { font-size: 19px; } .topbar-inner { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 · Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest · 2026-09-20 · 周日</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">13</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">28</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+<p class="note-line">今日 feed 快照 2026-09-19T06:37Z；28 条推文与 1 期播客均为首次收录（未触发去重），无官方博客条目。播客条目 feed 只给出频道页链接，未作补抓。</p>
+
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🐦</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">13 Builders</span>
+  </div>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">CEO, Vercel</span>
+    </div>
+    <p class="summary-en">Vercel CEO Guillermo Rauch posts the day's only hard market-share number, and it is a token-volume split rather than a revenue one: "Looks like today may be a record day for token volume % of open models on Vercel AI Gateway: Open 78.4% / Closed 21.6%." He immediately supplies the correction that keeps the number honest — spend runs the other way, and even where open models rank high it is inference spend routed through providers, not money reaching the labs: "While spend usually tells a different story, #3 and #4 today are Moonshot AI &amp; DeepSeek. Adding Z.ai, their combined spend surpasses OpenAI (#2). (Do note that's the spend for inference of the model across providers (mostly in the US), not revenue going directly to the open weight labs.)" His other two posts are about Jev, the fast cheap model that appeared in this digest two days ago as an announcement and today shows up with usage: "The data and the anecdata on Jev's adoption are shocking. Everyone is adopting it. I think it's a great product, but this is also downstream of the 'AI is too expensive/slow' zeitgeist. People are eager to optimize and put AI in even more places!" And, announcing availability, "Free Jev on Vercel. I know what I'm doing this weekend."</p>
+    <p class="summary-zh zh">Vercel CEO Guillermo Rauch 给出了今天唯一一组硬市场份额数字，而它是 token 量口径，不是收入口径："看起来今天可能是 Vercel AI Gateway 上开放模型 token 量占比创纪录的一天：开放 78.4% / 闭源 21.6%。"他紧接着自己补上了让这个数字不失真的说明——花钱那一侧的排序是反过来的，而且即便开放模型排到了前面，那也是经由各供应商路由出去的推理支出，不是流进实验室的钱："不过支出通常讲的是另一个故事，今天第 3 和第 4 是 Moonshot AI 和 DeepSeek。加上 Z.ai，它们的支出合计超过了 OpenAI（第 2）。（要注意这是模型在各供应商上的推理支出，主要发生在美国，不是直接流向开放权重实验室的收入。）"另外两条都关于 Jev——那个又快又便宜的模型两天前在本刊里还是一条发布消息，今天带上了使用量："关于 Jev 采用情况的数据和坊间反馈都惊人。所有人都在用它。我认为它是个很棒的产品，但这同时也是'AI 太贵/太慢'这个时代情绪的下游产物。人们急着做优化，急着把 AI 塞进更多地方！"另一条是宣布可用性："Vercel 上的 Jev 免费。我知道这个周末要干什么了。"</p>
+    <div class="urls">      <a href="https://x.com/rauchg/status/2101186741042663579">https://x.com/rauchg/status/2101186741042663579</a>      <a href="https://x.com/rauchg/status/2101116978677285241">https://x.com/rauchg/status/2101116978677285241</a>      <a href="https://x.com/rauchg/status/2101079472732848510">https://x.com/rauchg/status/2101079472732848510</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aaron Levie</span>
+      <span class="builder-role">CEO, Box</span>
+    </div>
+    <p class="summary-en">Box CEO Aaron Levie writes the demand-side case for the same model, and he frames it as a new class of call rather than a faster chatbot: "Jev will be super helpful for agents to make split second decisions in workflows, data classification, judgment calls, and hundreds of other use-cases in the enterprise." The demo he describes is ordinary on purpose — "It pulls an incident report from Box, asks whether it's customer-facing and how severe it is, moves the file into escalate, monitor, or review folders, and sets a metadata template instance with the result" — and the two words that carry the argument are in the next sentence: "This all happens nearly instantly and at almost no cost." His list of where it generalises is the enterprise backlog itself: "insurance claims, contract management, loan processing, security reviews, customer log analysis." He closes by calling it "a great new class of AI use-case."</p>
+    <p class="summary-zh zh">Box CEO Aaron Levie 写的是同一个模型在需求侧的理由，而他把它定义为"一类新的调用"，而不是一个更快的聊天机器人："Jev 会非常有用——它让 agent 在工作流里做瞬间决策：数据分类、判断取舍，以及企业里上百种其他用例。"他描述的演示故意做得很平常："它从 Box 里取出一份事故报告，问这份报告是否面向客户、严重程度如何，然后把文件移动到 escalate、monitor 或 review 文件夹，并把结果写进一个元数据模板实例。"真正撑起论点的是下一句里的两个词："这一切几乎瞬间完成，而且成本几乎为零。"他列的适用范围就是企业里那堆积压活本身："保险理赔、合同管理、贷款审批、安全审查、客户日志分析"。结尾他把这称为"一类很棒的新型 AI 用例"。</p>
+    <div class="urls">      <a href="https://x.com/levie/status/2101007708044574906">https://x.com/levie/status/2101007708044574906</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nikunj Kothari</span>
+      <span class="builder-role">Partner, FPV Ventures</span>
+    </div>
+    <p class="summary-en">FPV Ventures partner Nikunj Kothari supplies the unit economics, and it is the most quotable number of the day: "Jev scoring 3000 kid snacks with multiple criteria in 28 seconds for $0.11." He also built a directory for it — "Built a website called Jevable which showcases all the fun demos on X - filterable by a few categories. Feel free to add your own project by using the + button!" — which is the kind of artifact that only appears once adoption is real. His third post is a two-word reaction, "Oops @typesafeai," with no stated subject; the handle is written @typesafeai there and @typefaceai in his Jevable post, and which is correct cannot be settled from the feed, so both are reported as they appear.</p>
+    <p class="summary-zh zh">FPV Ventures 合伙人 Nikunj Kothari 补上了单位经济模型，那是今天最值得引用的一组数字："Jev 按多个标准给 3,000 种儿童零食打分，用时 28 秒，花费 0.11 美元。"他还为它搭了一个目录站："我建了一个叫 Jevable 的网站，把 X 上所有好玩的演示都收录进去，可以按几个类别筛选。想加你自己的项目，用那个 + 按钮就行！"——这类产物只有在采用量真的起来之后才会出现。第三条只是两个字的反应："Oops @typesafeai"，没有说明所指对象；这个账号名在那里写作 @typesafeai，而在他发 Jevable 那条里写作 @typefaceai，哪个是对的无法从 feed 中判定，因此两处都按原文记录。</p>
+    <div class="urls">      <a href="https://x.com/nikunj/status/2101101305125290367">https://x.com/nikunj/status/2101101305125290367</a>      <a href="https://x.com/nikunj/status/2101077053567332618">https://x.com/nikunj/status/2101077053567332618</a>      <a href="https://x.com/nikunj/status/2101006585481073093">https://x.com/nikunj/status/2101006585481073093</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thariq</span>
+      <span class="builder-role">Claude Code, Anthropic</span>
+    </div>
+    <p class="summary-en">Thariq of Claude Code at Anthropic posts the one concrete spec change of the day, in three parts posted within a second of each other. The behaviour: "We're adding support for AGENTS.md to Claude Code. Starting today in version 2.1.277, if there is no CLAUDE.md in a folder, Claude will check for and use AGENTS.md. You can toggle this behavior in /config." The mechanism underneath, which is the part that generalizes: "AGENTS.md support is built off of Claude Code mods, our upcoming way to customize the Claude Code harness. This is a built-in mod, but you'll be able to build custom versions of project instructions yourself as you'd like too." The third is a one-line pointer to the mod's source, with nothing else attached. Read together: a file-format convention that started outside Anthropic is now read natively, and it is implemented as a modifiable layer rather than a hard-coded rule.</p>
+    <p class="summary-zh zh">Anthropic Claude Code 的 Thariq 发了今天唯一一条具体的规格变更，分成三条、彼此相差不到一秒。行为那层："我们正在给 Claude Code 增加 AGENTS.md 支持。从今天的 2.1.277 版本起，如果某个文件夹里没有 CLAUDE.md，Claude 会去找并使用 AGENTS.md。你可以在 /config 里开关这个行为。"底下那层机制才是可推广的部分："AGENTS.md 支持是构建在 Claude Code mods 之上的，这是我们即将推出的、用来定制 Claude Code harness 的方式。这是一个内置 mod，但你也能按自己的需要构建自定义版本的项目指令。"第三条是一行指向该 mod 源码的链接，没有别的内容。三条放在一起读的意思是：一个起源于 Anthropic 之外的文件格式约定，现在被原生读取了，而且它是作为一层可修改的机制实现的，不是一条写死的规则。</p>
+    <div class="urls">      <a href="https://x.com/trq212/status/2101009395052343462">https://x.com/trq212/status/2101009395052343462</a>      <a href="https://x.com/trq212/status/2101009393731223817">https://x.com/trq212/status/2101009393731223817</a>      <a href="https://x.com/trq212/status/2101009392611278961">https://x.com/trq212/status/2101009392611278961</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thibault Sottiaux</span>
+      <span class="builder-role">Codex &amp; ChatGPT, OpenAI</span>
+    </div>
+    <p class="summary-en">Thibault Sottiaux of Codex and ChatGPT at OpenAI posts one note from inside a rehearsal, and it is the clearest signal on the calendar: "We were working on the keynote today with @romainhuet and @sama and most of the fun was trying to figure out how to explain it all to you because there is so much good stuff in there that it's a bit ridiculous all in quick succession." He puts a partial date on the first tranche — "We'll have some things next week already to not keep you waiting so long" — and the rest stays unannounced: "very excited to show you all new things we've been working on and how it will all come together in the coming months." No product is named, and none is inferred.</p>
+    <p class="summary-zh zh">OpenAI 负责 Codex 与 ChatGPT 的 Thibault Sottiaux 发了一条来自彩排现场的记录，也是日历上最清楚的一个信号："今天我和 @romainhuet、@sama 一起弄 keynote，其中最好玩的部分是想办法怎么把这一切讲给你们听，因为好东西实在太多了，挤在一起密集放出有点离谱。"他给第一批内容标了一个模糊的时间："下周我们就会先放一些东西出来，不让你们等太久"，其余仍未公布："非常期待向你们展示我们一直在做的所有新东西，以及它们在未来几个月里会怎么拼到一起。"没有点名任何产品，这里也不作推断。</p>
+    <div class="urls">      <a href="https://x.com/thsottiaux/status/2101157729037586694">https://x.com/thsottiaux/status/2101157729037586694</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">Practical AI Tutorials</span>
+    </div>
+    <p class="summary-en">Peter Yang posts three times, and two of them are the day's most concrete consumer-agent evidence. The claim: "Meta's @Muse is the best personal agent I've tried to date. It actually save me $800+ a year on my cable and phone bills, which is just insane value for a free AI agent." The receipt is a transcript — "I find this phone transcript from @Muse on how it negotiated $288 in annual savings for my Comcast cable bill super fascinating" — and his read on what it implies for the other side of that phone call is the line worth keeping: "Honestly, I think most companies' customer support lines are NOT ready for agents." His forecast is stated as a forecast: "I can see Muse becoming Meta's next billion-user app." His third post is a self-deprecating one-liner with no content attached — "How smart AI gets is inversely correlated with my ability to compose a coherent sentence with no spelling or grammar mistakes" — included because the count follows what the feed returns.</p>
+    <p class="summary-zh zh">Peter Yang 发了三条，其中两条是今天最具体的消费级 agent 证据。主张是这样的："Meta 的 @Muse 是我到目前为止用过最好的个人 agent。它实实在在地在我的有线电视和电话账单上每年帮我省了 800 多美元，对一个免费的 AI agent 来说这价值有点离谱。"凭据是一份通话记录："我觉得 @Muse 那份和 Comcast 有线电视客服谈判、谈下每年 288 美元节省的电话录音特别有意思"，而他从中读出的、关于电话另一头的判断是今天最值得留下的一句："说实话，我认为大多数公司的客服热线还没准备好面对 agent。"他的预测是作为预测给出的："我能想象 Muse 成为 Meta 下一个十亿用户的应用。"第三条是一条没有承载内容的自嘲——"AI 变得多聪明，和我写出一句没有拼写和语法错误的通顺句子的能力成反比"——收录它只是因为统计以 feed 返回的内容为准。</p>
+    <div class="urls">      <a href="https://x.com/petergyang/status/2101104320897040627">https://x.com/petergyang/status/2101104320897040627</a>      <a href="https://x.com/petergyang/status/2101083891507593576">https://x.com/petergyang/status/2101083891507593576</a>      <a href="https://x.com/petergyang/status/2101033599319613533">https://x.com/petergyang/status/2101033599319613533</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Steinberger</span>
+      <span class="builder-role">OpenClaw &amp; OpenAI</span>
+    </div>
+    <p class="summary-en">Peter Steinberger of OpenClaw posts three fragments of the same setup, and what they describe is an agent that is a member of the team rather than a tool on one machine: "The coolest part: roboclaw runs our team server, is live on Discord, talks with gpt-live and knows about all the sessions it's juggling. We can ask it about context to current and past sessions right while we have meetings." The second is about what a colleague now does to his work — "Love having @vhbrzezowski hijacking my sessions and desloping them before the PR lands" — plus a workflow tip: "Open the home sidebar and ask your claw to reorganize your sessions to keep your sessions organized." The third is a fragment ending a longer thread, and the substance in it is the comparison: "CUA works on all of these too, so agent can be more efficient than just screenshots."</p>
+    <p class="summary-zh zh">OpenClaw 的 Peter Steinberger 发了三条、讲的都是同一套环境，而它们描述的是一个"团队成员"式的 agent，不是装在一台机器上的工具："最酷的部分是：roboclaw 跑着我们的团队服务器，挂在 Discord 上，和 gpt-live 对话，并且知道它正在同时处理的所有会话。我们开会的当下就能问它当前和过去会话的上下文。"第二条讲的是同事现在对他的产出做什么："我很喜欢 @vhbrzezowski 劫持我的会话，并在 PR 落地之前把里面的垃圾内容清掉"，外加一条工作流建议："打开 home 侧边栏，让你的 claw 重新整理会话，好让会话保持有序。"第三条是一个更长串推文的结尾片段，其中实质内容是那个对比："CUA 在这些上面也都能用，所以 agent 可以比只靠截图效率更高。"</p>
+    <div class="urls">      <a href="https://x.com/steipete/status/2101141707375227372">https://x.com/steipete/status/2101141707375227372</a>      <a href="https://x.com/steipete/status/2101139037801283997">https://x.com/steipete/status/2101139037801283997</a>      <a href="https://x.com/steipete/status/2101115690719809873">https://x.com/steipete/status/2101115690719809873</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Dan Shipper</span>
+      <span class="builder-role">CEO, Every</span>
+    </div>
+    <p class="summary-en">Every CEO Dan Shipper posts three times, and only the first carries a full argument: "There are certainly over the top AI demos on X, but it very sad to see someone call @jackcheng's work 'fake'. He's one of the smartest, most intellectually honest, and craft-focused people I've ever worked with. And his demo is both real and an interesting peak into the future. Not a good look!" The other two are reactions with links and no stated subject — "THIS CANNOT STAND" and "Roose on the loose. Very concerning." What either refers to cannot be recovered from the feed, so nothing is added. On the 18th Shipper was the one pouring cold water on the same class of demo ("jev is just a JSON classifier"); today he is defending one.</p>
+    <p class="summary-zh zh">Every CEO Dan Shipper 发了三条，只有第一条承载了完整论证："X 上确实有夸张过头的 AI 演示，但看到有人把 @jackcheng 的作品称作'假的'，实在令人难过。他是我合作过的最聪明、最诚实于事实、也最在意手艺的人之一。他的演示是真实的，也是对未来一次有趣的窥见。这样不好看！"另外两条是带链接的反应，没有说明所指——"THIS CANNOT STAND"（这不能忍）和"Roose on the loose. Very concerning"（Roose 出来了，令人担忧）。两者指的是什么无法从 feed 中还原，这里不作补充。值得一提的是：18 号那天，对同一类演示泼冷水的正是 Shipper（"jev 不过是个 JSON 分类器"）；今天他在为其中一个辩护。</p>
+    <div class="urls">      <a href="https://x.com/danshipper/status/2101155521818476693">https://x.com/danshipper/status/2101155521818476693</a>      <a href="https://x.com/danshipper/status/2101023880282251340">https://x.com/danshipper/status/2101023880282251340</a>      <a href="https://x.com/danshipper/status/2100961925840404886">https://x.com/danshipper/status/2100961925840404886</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Zara Zhang</span>
+      <span class="builder-role">Builder</span>
+    </div>
+    <p class="summary-en">Zara Zhang posts two lines that read as a rule rather than an observation: "It's hard not to create slop when most things you consume are slop. To fix output, first fix input." No product, metric, or example is attached; it is recorded as stated, and it lands on the same day Peter Yang describes an agent negotiating a bill and Steinberger describes a teammate "desloping" sessions before a PR.</p>
+    <p class="summary-zh zh">Zara Zhang 发的两行更像是一条准则，而不是一个观察："当你消费的大多数东西都是垃圾内容时，你很难不产出垃圾内容。要修输出，先修输入。"没有产品、没有指标、也没有例子；这里按原文记录。它出现的同一天，Peter Yang 正在描述一个 agent 打电话谈账单，Steinberger 正在描述同事在 PR 落地前给他的会话"去垃圾内容"。</p>
+    <div class="urls">      <a href="https://x.com/zarazhangrui/status/2101123389528457596">https://x.com/zarazhangrui/status/2101123389528457596</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aditya Agarwal</span>
+      <span class="builder-role">General Partner, SPC</span>
+    </div>
+    <p class="summary-en">SPC General Partner Aditya Agarwal posts one sentence with a link: "AI is a full circle. Everything old is new again." The link target cannot be recovered from the feed and no subject is named, so nothing is inferred; it is listed as an investor's framing, arriving the same day a 2019-era technique is being argued as the future of inference in the podcast below.</p>
+    <p class="summary-zh zh">SPC 普通合伙人 Aditya Agarwal 发了一句话加一个链接："AI 是一个完整的圆。一切旧的东西都会重新变新。"链接指向什么无法从 feed 中还原，也没有点名对象，因此这里不推断内容；列出它，是作为一位投资人的框架性表述——而它出现的同一天，下面那期播客正在把一项 2019 年的技术论证为推理的未来。</p>
+    <div class="urls">      <a href="https://x.com/adityaag/status/2101097330107875437">https://x.com/adityaag/status/2101097330107875437</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nan Yu</span>
+      <span class="builder-role">Product Staff, OpenAI</span>
+    </div>
+    <p class="summary-en">Nan Yu of OpenAI product staff posts twice, both about video rather than AI, and both with links the feed does not resolve: "The pre-roll was legendary," and "This is the best movie ever made." Neither carries a claim about the industry, and none is added here. These are the thinnest items in today's set and are included because the count is taken from what the feed returns.</p>
+    <p class="summary-zh zh">OpenAI 产品团队的 Nan Yu 发了两条，讲的都是视频而不是 AI，两者都带着 feed 无法还原的链接："那段片头是传奇级别的"，以及"这是有史以来最好的电影"。两条都不承载关于行业的任何主张，这里也不作补充。这是今天这一批里内容最薄的一组，收录它们只是因为统计以 feed 返回的内容为准。</p>
+    <div class="urls">      <a href="https://x.com/thenanyu/status/2101140304976056779">https://x.com/thenanyu/status/2101140304976056779</a>      <a href="https://x.com/thenanyu/status/2101013559287435709">https://x.com/thenanyu/status/2101013559287435709</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Claude</span>
+      <span class="builder-role">@claudeai · Anthropic</span>
+    </div>
+    <p class="summary-en">The official Claude account posts three times in the same second, and only one has text: "What are you building this weekend?" The other two are media links with no caption, and what they show cannot be recovered from the feed. It is listed as the official account's weekend prompt, on a day when the same question is being answered in public by Nikunj Kothari's Jevable and Peter Steinberger's roboclaw.</p>
+    <p class="summary-zh zh">Claude 官方账号在同一秒内发了三条，其中只有一条有文字："这个周末你在做什么？"另外两条是无文案的媒体链接，它们展示的是什么无法从 feed 中还原。这里把它记为官方账号的周末提问——而同一天，Nikunj Kothari 的 Jevable 和 Peter Steinberger 的 roboclaw 正在公开回答同一个问题。</p>
+    <div class="urls">      <a href="https://x.com/claudeai/status/2101017910365901059">https://x.com/claudeai/status/2101017910365901059</a>      <a href="https://x.com/claudeai/status/2101017908843352238">https://x.com/claudeai/status/2101017908843352238</a>      <a href="https://x.com/claudeai/status/2101017907136258511">https://x.com/claudeai/status/2101017907136258511</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Amjad Masad</span>
+      <span class="builder-role">CEO, Replit</span>
+    </div>
+    <p class="summary-en">Replit CEO Amjad Masad posts two links with no text at all. Neither target can be recovered from the feed, so no subject is stated and nothing is inferred. It is the thinnest item in today's set and is included only because the count is taken from what the feed returns.</p>
+    <p class="summary-zh zh">Replit CEO Amjad Masad 发的是两个完全没有文字的链接。两者指向什么都无法从 feed 中还原，因此这里不说明对象、也不推断内容。这是今天这一批里内容最薄的一条，收录它只是因为统计以 feed 返回的内容为准。</p>
+    <div class="urls">      <a href="https://x.com/amasad/status/2101129866779545727">https://x.com/amasad/status/2101129866779545727</a></div>
+  </article>
+
+</section>
+
+<!-- ============== PODCAST ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🎙️</span>
+    <h2 class="section-title">Podcast</h2>
+    <span class="section-meta">1 Episode</span>
+  </div>
+
+  <article class="podcast">
+    <div class="podcast-source">No Priors</div>
+    <div class="podcast-title">Why Diffusion Will Win AI Inference with Inception Co-Founder and CEO Stefano Ermon</div>
+
+    <div class="takeaway">
+      <span class="takeaway-label">The Takeaway</span>
+      Ermon's argument is architectural, and it turns on where the parallelism lives. Autoregressive models parallelised <em>training</em> in 2017 when RNNs gave way to transformers, but inference is still one token at a time — "extremely memory bound," moving weights around the memory hierarchy while doing "very little arithmetic." A diffusion model's inference workload "is basically very, very similar to the workload you have for training," so it is the thing GPUs are actually built for. His closing rule is the bitter lesson applied one level down: "the more parallel solution is the one that is eventually going to win," because economics are "dominated by the kind of intelligence per watt, the intelligence per dollar."
+    </div>
+
+    <div class="takeaway zh">
+      <span class="takeaway-label">核心结论</span>
+      Ermon 的论点是架构层面的，而它落在"并行性在哪里"这一点上。自回归模型在 2017 年把<em>训练</em>并行化了（RNN 让位给 transformer），但推理仍然是一次一个 token——"极度受内存带宽限制"，大部分时间在内存层级之间搬权重，而"做的算术极少"。扩散模型的推理负载"和你训练时的负载非常非常相似"，因此它正是 GPU 真正擅长的那种工作负载。他的收尾法则是把 bitter lesson 往下一层套用："越并行的方案最终越会赢"，因为经济性"取决于你能从模型里拿到多少每瓦特智能、每美元智能"。
+    </div>
+
+    <div class="podcast-body">
+      <p>Ermon is a Stanford professor and now co-founder and CEO of Inception, and the company is small and live: "about two years old, around 50 people," with Mercury models "on par with the Haiku models, flash models, mini nano models from OpenAI, if you look at benchmarks, while being significantly faster," and "we are serving these models in production today." The result that started it is the 2024 paper — at GPT-2 scale, under a billion parameters, a transformer trained as a diffusion model matched an autoregressive model's perplexity on the same data, "and the diffusion model was significantly faster... we were able to generate text like 10x faster."</p>
+      <p>The hardware argument is the part that generalises past his own company. Autoregressive decoding "does not map well to GPUs" because it is sequential and memory bound; diffusion processes many tokens at once, so its inference looks like training. He extends it to post-training: with reasoning models "a lot of it is scaling test and compute," and with RL "a lot of the bottleneck is generating rollouts," so a model that scales better at inference also scales better during RL. On hardware, the gains are "multiplicative" rather than competitive — one named customer, OpenCall, was serving its voice-agent LLM on Cerebras custom chips and switched to Inception's diffusion models to get "the same speed... on NVIDIA GPUs, which means much more availability... and lower costs, higher quality," with an OpenAI-compatible API so the surrounding harness did not change.</p>
+      <p>Two claims are worth separating from the pitch. On controllability: an autoregressive model makes you "wait until you've generated the full object" before you can score it against a constraint, whereas diffusion is coarse-to-fine and can be steered mid-generation by an external reward function — "there is a lot of evidence in the academic literature, at least, that diffusion models are easier to control." On data: denoising is effectively data augmentation, so diffusion models "tend to be a little bit more data efficient," which only becomes decisive "where data becomes the bottleneck." He sizes the near-term market himself rather than claiming the whole thing — from OpenRouter's task taxonomy he estimates that "between 20-30%" of workloads are ones "where latency is really, really important."</p>
+      <p>The costs he names are ecosystem costs, and they are honest. Diffusion LLMs "cannot run on vLLM or SGLang," so Inception "had to build our own serving engine"; the SFT and RLHF stack is also built in-house; and because they chose not to open source, "there is less an opportunity for the community to contribute... it's harder to adopt. It's hard to do on prem kind of like deployments." His moat is described the same way — IP and trade secrets first, then the serving engine ("if you don't have the serving engine... you're still stuck"), then evals and data built from real customers. Asked about recursive self-improvement, he is explicit that it is not here yet: models have "accelerated our development process a lot," but "right now the human ingenuity is still super important." The academic record he closes on is his own group's: diffusion with Yang Song in 2019, FlashAttention, and DPO.</p>
+    </div>
+
+    <div class="podcast-divider"></div>
+
+    <div class="podcast-zh">
+      <p>Ermon 是斯坦福教授，现在是 Inception 的联合创始人兼 CEO，而这家公司规模不大、但已经在跑："成立约两年，约 50 人"，Mercury 模型"如果看基准测试，与 OpenAI 的 Haiku、flash、mini nano 这类模型质量相当，但明显更快"，而且"我们今天已经在生产环境服务这些模型"。一切的起点是 2024 年那篇论文——在 GPT-2 规模、不到十亿参数的条件下，一个按扩散方式训练的 transformer 在同样数据上追平了自回归模型的困惑度，"而扩散模型明显更快……我们生成文本的速度能快大约 10 倍"。</p>
+      <p>硬件那层论证是可以外推到他自己公司之外的部分。自回归解码"不能很好地映射到 GPU 上"，因为它是串行且受内存带宽限制的；扩散模型一次处理许多 token，所以它的推理形态和训练相似。他把这个论证延伸到了后训练：推理模型"很大一部分是在扩展测试时计算"，而 RL"很大一部分瓶颈在于生成 rollout"，因此一个在推理侧扩展性更好的模型，在 RL 阶段也会扩展得更好。关于硬件，两方面的收益是"相乘"的而不是互相竞争的——他点名的一个客户 OpenCall，原本把语音 agent 的 LLM 跑在 Cerebras 的定制芯片上，后来切换到 Inception 的扩散模型，为的是"在 NVIDIA GPU 上拿到同样的速度，这意味着可得性高得多……而且成本更低、质量更高"，同时 API 与 OpenAI 兼容，因此外层的 harness 不用改。</p>
+      <p>有两个主张值得从推销中摘出来单独看。关于可控性：自回归模型必须"等整个对象生成完"才能拿它对某个约束打分，而扩散是由粗到细生成的，可以在生成中途被外部奖励函数引导——"至少在学术文献里有大量证据表明，扩散模型更容易控制"。关于数据：去噪本身等价于数据增强，所以扩散模型"往往数据效率略高一些"，而这只有在"数据成为瓶颈的地方"才变得决定性。他给出近期市场规模时是自己在估、而不是宣称拿下全部——参照 OpenRouter 的任务分类，他估计"大约 20%–30%"的工作负载属于"延迟极其重要"的那一类。</p>
+      <p>他列出的成本都是生态层面的成本，而且说得很诚实。扩散 LLM"没法跑在 vLLM 或 SGLang 上"，所以 Inception"不得不自建服务引擎"；SFT 与 RLHF 的整套工具链也是自研的；而因为选择了不开源，"社区参与贡献的机会就更少……采用难度更高。做本地化部署也很难。"他描述护城河的方式是一样的——先是 IP 与商业秘密，然后是那个服务引擎（"如果你没有服务引擎……你还是卡住"），再是基于真实客户建起来的评测与数据。被问到递归自我改进时，他说得很明白：这还没到——模型"大幅加速了我们的开发流程"，但"眼下人的创造力仍然极其重要"。最后他落在自己课题组的学术记录上：2019 年与杨Song一起做出的扩散工作、FlashAttention，以及 DPO。</p>
+    </div>
+
+    <div class="urls" style="margin-top:24px">
+      <a href="https://www.youtube.com/@NoPriorsPodcast">https://www.youtube.com/@NoPriorsPodcast</a>
+    </div>
+  </article>
+</section>
+
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🧭</span>
+    <h2 class="section-title">Takeaway</h2>
+    <span class="section-meta">X + Podcast</span>
+  </div>
+
+  <div class="takeaway">
+    <div class="takeaway-label">The Takeaway</div>
+    <p>Today the same thesis is argued from two ends, and the two ends are about four hours apart. On the product end it is Jev: Nikunj Kothari's "3000 kid snacks with multiple criteria in 28 seconds for $0.11," and Aaron Levie's Box demo where an incident report is classified, routed into escalate/monitor/review, and tagged — "This all happens nearly instantly and at almost no cost." On the architecture end it is Stefano Ermon on No Priors, arguing that autoregressive inference is "extremely memory bound" while diffusion inference "is basically very, very similar to the workload you have for training," so "the more parallel solution is the one that is eventually going to win." Both are saying that the binding constraint has moved from capability to cost-and-latency, and Rauch names the mood behind it: "downstream of the 'AI is too expensive/slow' zeitgeist."</p>
+    <p>Jev is worth reading as a sequence rather than a novelty. It was in this digest on the 18th as an announcement — Rauch's "up to 18x faster (p95) and more accurate," heading into Vercel AI Gateway and "likely new default," with Dan Shipper's red-flag version of the same name, "jev is just a JSON classifier." Two days later the name carries usage: "The data and the anecdata on Jev's adoption are shocking," free on Vercel, a community directory built for it, and a Box demo attached. Levie's list is where the volume actually comes from — "insurance claims, contract management, loan processing, security reviews, customer log analysis" — which is the enterprise backlog, not the chat window.</p>
+    <p>Rauch's gateway numbers are the one figure to keep an eye on, with its own caveat attached. Open models were 78.4% of token volume on Vercel AI Gateway on what he thinks may be a record day, but spend runs differently: Moonshot AI and DeepSeek were #3 and #4, and "adding Z.ai, their combined spend surpasses OpenAI (#2)" — with his own note that this is "spend for inference of the model across providers (mostly in the US), not revenue going directly to the open weight labs." Volume share and money share are not the same number, and he said so before anyone else could.</p>
+    <p>The plumbing is moving in a quieter way. Thariq's AGENTS.md support — "if there is no CLAUDE.md in a folder, Claude will check for and use AGENTS.md," built on "Claude Code mods" — is a convention that started outside Anthropic being read natively, and implemented as a layer you can replace. Steinberger's roboclaw "runs our team server, is live on Discord... and knows about all the sessions it's juggling," which is the same shift from one machine to one shared context, done at team scale.</p>
+    <p>One consumer datapoint that is easy to file under anecdote and probably should not be: Peter Yang says Muse "save me $800+ a year on my cable and phone bills," and posts the transcript of it negotiating "$288 in annual savings" off a Comcast bill. His inference is the sentence that matters — "most companies' customer support lines are NOT ready for agents." That is a cost argument pointed at the other side of the phone.</p>
+  </div>
+
+  <div class="takeaway zh">
+    <div class="takeaway-label">核心结论</div>
+    <p>今天同一个论点从两端被论证，而两端相隔大约四小时。产品那一端是 Jev：Nikunj Kothari 的"按多个标准给 3,000 种儿童零食打分，28 秒、0.11 美元"，以及 Aaron Levie 的 Box 演示——一份事故报告被分类、路由进 escalate/monitor/review，并被打上标签，"这一切几乎瞬间完成，而且成本几乎为零"。架构那一端是 No Priors 上的 Stefano Ermon：自回归推理"极度受内存带宽限制"，而扩散推理"和训练时的负载非常非常相似"，所以"越并行的方案最终越会赢"。两边讲的是同一件事：约束条件已经从"能力"移到了"成本与延迟"。而 Rauch 给这股情绪命了名："'AI 太贵/太慢'这个时代情绪的下游产物"。</p>
+    <p>Jev 值得当作一条序列来读，而不是一个新奇玩意儿。18 号那天它在本刊里还是一条发布消息——Rauch 说它"最高快 18 倍（p95）而且更准"，将进入 Vercel AI Gateway 并"很可能成为新的默认"，同时 Dan Shipper 给同一个名字配了插红旗的版本："jev 不过是个 JSON 分类器"。两天之后，这个名字带上了使用量："关于 Jev 采用情况的数据和坊间反馈都惊人"，在 Vercel 上免费，有人为它建了社区目录，还挂上了一个 Box 演示。而真正撑起量的是 Levie 那串清单——"保险理赔、合同管理、贷款审批、安全审查、客户日志分析"——那是企业的积压活，不是聊天窗口。</p>
+    <p>Rauch 那组网关数字是最值得盯住的一个指标，但也自带免责说明。在他认为可能创纪录的一天里，开放模型占了 Vercel AI Gateway 上 78.4% 的 token 量，但支出的排序不同：Moonshot AI 和 DeepSeek 排在第 3、第 4，而"加上 Z.ai，它们的支出合计超过了 OpenAI（第 2）"——他自己注明这是"模型在各供应商上的推理支出，主要发生在美国，不是直接流向开放权重实验室的收入"。量份额和钱份额不是一个数字，而他先把这句话说了。</p>
+    <p>底层管道正在以更安静的方式迁移。Thariq 那条 AGENTS.md 支持——"如果某个文件夹里没有 CLAUDE.md，Claude 会去找并使用 AGENTS.md"，构建在 "Claude Code mods" 之上——是一个起源于 Anthropic 之外的约定被原生读取，而且是以一层可替换的机制实现的。Steinberger 的 roboclaw"跑着我们的团队服务器，挂在 Discord 上……并且知道它正在同时处理的所有会话"，这是同一个迁移（从一台机器到一个共享上下文）在团队尺度上的版本。</p>
+    <p>有一条消费侧的数据点，很容易被归为轶事、但大概不该：Peter Yang 说 Muse"在我的有线电视和电话账单上每年帮我省了 800 多美元"，并贴出了它从 Comcast 账单上谈下"每年 288 美元节省"的通话记录。他从中推出的那句才是关键——"大多数公司的客服热线还没准备好面对 agent"。这是一个把成本论证对准电话另一头的判断。</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="next-issue">📬 下一期：明天 10:00（北京时间）</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->
