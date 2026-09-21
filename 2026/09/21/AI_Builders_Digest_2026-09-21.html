@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest · 2026-09-21</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 12px; padding: 32px; margin-bottom: 24px; box-shadow: 0 1px 2px rgba(0,0,0,0.02); }
+  .podcast-source { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 10px; }
+  .podcast-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; color: var(--ink); margin-bottom: 24px; }
+  .takeaway { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 8px; padding: 18px 22px; margin-bottom: 24px; font-size: 15px; line-height: 1.7; color: var(--accent-deep); }
+  .takeaway + .takeaway { margin-top: -8px; }
+  .takeaway-label { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; background: var(--accent); color: white; padding: 3px 8px; border-radius: 3px; margin-right: 10px; transform: translateY(-2px); }
+  .podcast-body { font-size: 15.5px; color: var(--ink-soft); line-height: 1.75; }
+  .podcast-body p { margin-bottom: 16px; }
+  .podcast-body strong { color: var(--ink); font-weight: 600; }
+  .podcast-divider { height: 1px; background: var(--line); margin: 28px 0; }
+  .podcast-zh { font-family: 'Noto Serif SC', serif; font-size: 15.5px; color: var(--ink); line-height: 1.95; }
+  .podcast-zh p { margin-bottom: 16px; }
+  .podcast-zh strong { color: var(--accent-deep); font-weight: 600; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .podcast { padding: 24px; } .podcast-title { font-size: 19px; } .topbar-inner { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 · Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest · 2026-09-21 · 周一</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">8</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">11</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+<p class="note-line">今日 feed 快照 2026-09-20T06:37Z；11 条推文与 1 期播客均为首次收录（未触发去重），无官方博客条目。播客条目 feed 只给出频道视频页链接，未作补抓。转写稿中的人名拼写有明显 ASR 误差（Terence Tao 作 “Tens Tau”、Tim Rocktäschel 作 “Tim Rokteschel”、Jeff Clune 作 “Jeff Kuhn / Jeff Klune”），正文按可辨认的原名记录并注明。</p>
+
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🐦</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">8 Builders</span>
+  </div>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aaron Levie</span>
+      <span class="builder-role">CEO, Box</span>
+    </div>
+    <p class="summary-en">Box CEO Aaron Levie writes today's central claim, and it is about who the customer is. "Personal agents are the ultimate manifestation of 'build something that agents want.'" The form factor, as he defines it, is handoff rather than chat: "you want to be able to hand off a task to the agent and ensure that it is fully completed end to end," which requires the agent to "successfully operate with your tools or use its own to complete the task. Use your MCP or CLI, easily navigate your site, be able to transact, and more." The sentence that reframes consumer software is the next one: "The new attention you need to compete for is not from the user itself but instead for the agent." He then ranks what wins under that rule: "the tools that allow agents to order food, handle ecommerce transactions, book flights, work with the local economy, and interact with our data and information best, are the ones that will get used the most." He sizes it in one line: "This will ultimately be the biggest opportunity and shakeup in consumer tech since the App Store itself."</p>
+    <p class="summary-zh zh">Box CEO Aaron Levie 给出了今天的核心主张，而它讲的是"客户是谁"这件事。"个人 agent 是 'build something that agents want' 的终极体现。"他定义的形态是"交付"而不是"对话"："你希望的是把一个任务交给 agent，并确保它被端到端地完整完成"，这就要求 agent 能"成功使用你的工具、或者用它自己的工具来完成任务。用你的 MCP 或 CLI，顺畅地浏览你的站点，能够完成交易，等等。"真正重构消费级软件的是下一句："你需要去争夺的注意力不再来自用户本身，而是来自 agent。"接着他给出了在新规则下什么会赢："那些最能帮 agent 点餐、处理电商交易、订机票、对接本地经济、以及最好地与我们的数据和信息打交道的工具，就是被用得最多的工具。"他用一句话定了量级："这最终会是自 App Store 以来消费级科技最大的机会与洗牌。"</p>
+    <div class="urls">      <a href="https://x.com/levie/status/2101427997597446636">https://x.com/levie/status/2101427997597446636</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aditya Agarwal</span>
+      <span class="builder-role">General Partner, SPC · Co-Founder, Bevel Health</span>
+    </div>
+    <p class="summary-en">Aditya Agarwal posts the counterweight, and it is about the same thing Levie is describing — agents being given access — read from the other side. "After seeing the rush of announcements by Gemini (Google), OpenAi and Anthropic about even more agent intrusions......I take it for 100% granted that a number of of major companies have been penetrated by nation states without them knowing about it." The doubled "of" is as posted. No evidence is offered and none is available in the feed; it is recorded as a stated position, not as a finding. Placed next to Levie's post, it is the same event producing opposite conclusions: one reads broader agent access as the largest consumer opening since the App Store, the other reads it as an unpatched entry point.</p>
+    <p class="summary-zh zh">Aditya Agarwal 给出了反方向的那一半，讲的其实是同一件事——agent 正在被赋予访问权限——只是从另一面读。"在看完 Gemini（Google）、OpenAI 和 Anthropic 扎堆宣布越来越多的 agent 侵入之后……我把'已有若干大公司在自己不知情的情况下被民族国家渗透'视为 100% 的既定事实。"原文中重复的 "of of" 按原样保留。他没有给出证据，feed 里也没有可佐证的材料；这里按"一个被陈述的立场"记录，而不是当作一个已证实的结论。把它和 Levie 那条放在一起看，是同一件事推出相反判断：一边把 agent 权限的扩大读成自 App Store 以来最大的消费级机会，另一边把它读成一个尚未补上的入口。</p>
+    <div class="urls">      <a href="https://x.com/adityaag/status/2101426570850451914">https://x.com/adityaag/status/2101426570850451914</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">CEO, Vercel</span>
+    </div>
+    <p class="summary-en">Vercel CEO Guillermo Rauch posts twice. The one that carried is the plainest sentence of the day, and it is a claim about what people want rather than what models can do: "The coolest thing about the recent wave of AI is that everyone is excited about building. All short-term drama aside, this is an immeasurably good development for the world. The people want to create and ship, not just consume." It drew 1,177 likes and 76 reposts, the second-largest of today's set. His other post is a long quotation from Ronald Reagan's 1989 farewell address — "a tall, proud city built on rocks stronger than oceans... a city with free ports that hummed with commerce and creativity" — with no AI subject stated in the feed. It is listed as it appears.</p>
+    <p class="summary-zh zh">Vercel CEO Guillermo Rauch 发了两条。传播更远的那条是今天最平实的一句话，而它讲的是"人们想要什么"，不是"模型能做什么"："这一波 AI 最酷的地方在于，每个人都对'造东西'感到兴奋。抛开短期那些戏剧性不谈，这对世界来说是一件好到无法衡量的事。人们想要创造和发布，而不只是消费。"它拿到 1,177 个赞和 76 次转发，是今天这批里第二高的。另一条是里根 1989 年告别演说的一段长引文——"一座高大而骄傲的城市，建在比海洋更坚固的岩石上……一座自由港嗡嗡作响、充满商业与创造力的城市"——feed 里没有给出任何 AI 相关的语境。这里按原文照录。</p>
+    <div class="urls">      <a href="https://x.com/rauchg/status/2101397206595231765">https://x.com/rauchg/status/2101397206595231765</a>      <a href="https://x.com/rauchg/status/2101420720807100855">https://x.com/rauchg/status/2101420720807100855</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nikunj Kothari</span>
+      <span class="builder-role">Partner, FPV Ventures</span>
+    </div>
+    <p class="summary-en">FPV Ventures partner Nikunj Kothari answers the question he says he gets daily. The setup: "I spend ~2 hours a day programming, building side projects, tinkering obsessively, trying new repos.." and the DM — "aren't you a VC, why are you doing this?" His reason is that this cycle moves too fast to learn secondhand: "things are moving SO fast that if you don't do this, I simply don't understand how folks will ever learn what's coming next." He splits it into three layers: "1) You have to understand the model capabilities to see where the next set of models will improve - still so much alpha in reading technical papers (model research)"; "2) You need to see what tools do they need to be successful and complete even longer long horizon tasks (infra)"; "3) You need to understand the harness capabilities that will make these models help building autonomous companies (app layer)." He is explicit that talking to builders is also valid — "and I do that too" — but his own method is narrower: "I was never honestly good at learning without getting my hands dirty." The closing instruction is the part worth keeping: "just get started and find time to tinker daily. Once you do it for 10 days, I'm sure you'll be equally obsessed!"</p>
+    <p class="summary-zh zh">FPV Ventures 合伙人 Nikunj Kothari 回答了他自称每天都会收到的那个问题。他的日常："我每天花大约 2 小时写代码、做副项目、着了魔似地折腾、试新的 repo……"以及那条私信："你不是 VC 吗，干嘛做这个？"他的理由是这一轮变化太快，二手信息跟不上："事情变化得太快了，如果你不这么做，我实在不明白人怎么能知道接下来会发生什么。"他把这件事拆成三层："1）你必须理解模型能力，才能看出下一批模型会在哪里变好——读技术论文里仍然有大量 alpha（模型研究）"；"2）你需要看清它们需要什么工具才能成功完成更长的长程任务（基础设施）"；"3）你需要理解 harness 的能力，什么样的 harness 才能让这些模型去帮着建自主运转的公司（应用层）"。他明确说跟 builder 聊同样有效——"我也这么做"——但他自己的方法更窄："说实话，我从来就不擅长不亲手弄脏地学习。"最后那句建议才是最值得留下的："先开始，每天找时间折腾。坚持十天，我保证你也会一样上瘾！"</p>
+    <div class="urls">      <a href="https://x.com/nikunj/status/2101340098356990058">https://x.com/nikunj/status/2101340098356990058</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nan Yu</span>
+      <span class="builder-role">Product staff, OpenAI (soon) · prev Head of Product, Linear</span>
+    </div>
+    <p class="summary-en">Nan Yu posts a rollout question rather than an announcement: "I'm trying to place calls with both muse and instinct and they both claim to be unable to do so… is this still rolling out?" Muse and Instinct first appeared in this digest on the 16th, inside Aaron Levie's list of new form factors; today's post is the first sign of anyone trying to use that capability in public. The feed carries no reply and no answer, so none is stated. Read alongside Levie's post above, it is the gap between the pitch — hand off a task and have it completed end to end — and what the products currently do when asked.</p>
+    <p class="summary-zh zh">Nan Yu 发的是一条"进度问询"，不是发布："我在试着让 muse 和 instinct 都去打电话，但它们两个都说自己做不到……这个还在灰度中吗？"Muse 和 Instinct 最早出现在 9 月 16 日那期，是在 Aaron Levie 列出的新形态清单里；今天这条是第一次有人在公开场合试着用这个能力。feed 里没有回复、也没有答案，因此这里不作任何补充。把它和上面 Levie 那条一起读，能看到的是"叙事"与"现状"之间的距离——一边说把任务交出去就会被端到端完成，另一边是产品被要求做事时当前的回答。</p>
+    <div class="urls">      <a href="https://x.com/thenanyu/status/2101383106372805103">https://x.com/thenanyu/status/2101383106372805103</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">AI tutorials and interviews for busy people</span>
+    </div>
+    <p class="summary-en">Peter Yang posts three times. The one with a build in it is a personal skill he is deciding whether to publish: "I have a simple markdown file and a /tastemaker skill that I use to add ratings for movies, TV shows, and books I've seen. Then every week it looks up new releases and stuff I haven't seen and makes incredibly relevant suggestions. Should I open source this?" The ratings themselves are the other post — "Apple TV is full of bangers, canceled my Netflix," with Widow's Peak at 9.5/10 and Silo season 3 at 9/10; the taste data is the input the skill runs on. His third post promotes the next episode of his podcast: "My next podcast episode is almost guaranteed to save you some money," with "@ebloch, product lead for ChatGPT Finances at @OpenAI," sharing "six practical personal finance prompts" — named as "1. Find tax savings proactively 2. Maximize credit card rewards 3. Create interactive forecasts like your path to financial independence ...and more."</p>
+    <p class="summary-zh zh">Peter Yang 发了三条。带东西的那条是一个他还在犹豫要不要公开的私人 skill："我有一个很简单的 markdown 文件加一个 /tastemaker skill，用来给看过的电影、剧集和书打分。然后它每周会去查新上映的和我没看过的，给出非常贴合的推荐。要不要开源？"另一条就是那些评分本身——"Apple TV 上全是好东西，我把 Netflix 退了"，其中 Widow's Peak 9.5/10、Silo 第三季 9/10；这些口味数据正是那个 skill 跑起来的输入。第三条是在预热下一期播客："我的下一期播客几乎可以保证帮你省点钱"，嘉宾是"@ebloch，OpenAI 的 ChatGPT Finances 产品负责人"，会分享"六个可实操的个人财务提示词"——列出的包括"1. 主动找出可以省税的地方 2. 把信用卡返现最大化 3. 生成交互式预测，比如你实现财务自由的路径……等等"。</p>
+    <div class="urls">      <a href="https://x.com/petergyang/status/2101503916743749878">https://x.com/petergyang/status/2101503916743749878</a>      <a href="https://x.com/petergyang/status/2101497327861248090">https://x.com/petergyang/status/2101497327861248090</a>      <a href="https://x.com/petergyang/status/2101342055352201519">https://x.com/petergyang/status/2101342055352201519</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thibault Sottiaux</span>
+      <span class="builder-role">Codex &amp; ChatGPT, OpenAI</span>
+    </div>
+    <p class="summary-en">OpenAI's Thibault Sottiaux posts four words and nothing else: "2026 is the year of linux desktop." It is the most-liked post in today's set (9,804 likes, 470 reposts) and the thinnest — the feed states no subject, and the phrase has a long history outside this feed, so no reading of it is offered here. It is counted because the count follows what the feed returns.</p>
+    <p class="summary-zh zh">OpenAI 的 Thibault Sottiaux 只发了四个词，没有别的："2026 is the year of linux desktop"（2026 年是 Linux 桌面之年）。这是今天这批里点赞最高的一条（9,804 赞、470 转发），也是内容最薄的一条——feed 里没有给出任何指向，而这个说法在 feed 之外有很长的历史，因此这里不提供任何解读。收录它，是因为统计以 feed 返回的内容为准。</p>
+    <div class="urls">      <a href="https://x.com/thsottiaux/status/2101431497437950458">https://x.com/thsottiaux/status/2101431497437950458</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Garry Tan</span>
+      <span class="builder-role">President &amp; CEO, Y Combinator</span>
+    </div>
+    <p class="summary-en">Y Combinator's Garry Tan posts a line and a link: "Stop racial discrimination in the University of California system." The subject is university admissions policy, not AI, and the link target cannot be recovered from the feed. It is the one item today with no connection to the rest of the set and is included only because the count is taken from what the feed returns.</p>
+    <p class="summary-zh zh">Y Combinator 的 Garry Tan 发了一句话加一个链接："停止加州大学系统中的种族歧视。"话题是大学招生政策，与 AI 无关，链接指向什么也无法从 feed 中还原。这是今天这批里唯一与其余内容毫无关联的一条，收录它只是因为统计以 feed 返回的内容为准。</p>
+    <div class="urls">      <a href="https://x.com/garrytan/status/2101456284482441656">https://x.com/garrytan/status/2101456284482441656</a></div>
+  </article>
+
+</section>
+
+<!-- ============== PODCAST ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🎙️</span>
+    <h2 class="section-title">Podcast</h2>
+    <span class="section-meta">1 Episode</span>
+  </div>
+
+  <article class="podcast">
+    <div class="podcast-source">The MAD Podcast with Matt Turck</div>
+    <div class="podcast-title">When AI Improves Itself | Richard Socher (Recursive)</div>
+
+    <div class="takeaway">
+      <span class="takeaway-label">The Takeaway</span>
+      Socher's claim about recursive self-improvement is narrower than the phrase suggests, and the narrowing is the interesting part. The mechanism is simulation plus verification: "Anything you can simulate, AI will solve," and once that is running on AI research itself, "before you know it, you're in this recursive self improvement loop and we believe that that will be a great unlock." What separates him from the usual RSI framing is his refusal of the takeoff that normally comes attached to it: "as bullish and excited as I am about AI, I'm not a believer in this crazy hard takeoff," because "there are certain things that will just require time because of physics and constraints in the real world." Recursive's sequencing follows directly from that — "we are fairly sure that we have to start with AI for AI," reach "the equivalent of 50,000 PhDs," and only then go after biology.
+    </div>
+
+    <div class="takeaway zh">
+      <span class="takeaway-label">核心结论</span>
+      Socher 关于递归自我改进的主张，比这个词组听上去要窄，而"窄在哪里"才是最有意思的部分。机制是"模拟 + 验证"："任何你能模拟的东西，AI 都会解出来"，而一旦这套东西跑在 AI 研究自身上，"不知不觉你就进入了这个递归自我改进的循环，我们相信那会是一次巨大的解锁"。真正把他和通常那套 RSI 叙事区分开的，是他拒绝接受那个常常绑定在一起的"起飞"："尽管我对 AI 极其乐观和兴奋，但我不相信那种疯狂的硬起飞"，因为"有些事情就是需要时间——因为物理规律，因为现实世界的约束"。Recursive 的推进顺序正是从这里推出来的："我们相当确定必须先做 AI for AI"，先达到"相当于 5 万个博士"的水平，然后才去碰生物学。
+    </div>
+
+    <div class="podcast-body">
+      <p>The occasion is his book <strong>The Eureka Machine</strong> (out September 22), and its opening premise is that scientific progress has slowed even as inputs have grown. Knowledge went from "a body of knowledge to a labyrinth of knowledge" — 34,000 journals — and fields fragmented into subfields so deep that a biology PhD often cannot answer a question one layer away. Academia then punishes the crossing: his DecaNLP paper, the one that described what is now called prompt engineering, was rejected on the grounds that "not even humans have one system to answer all these different kinds of questions." His framing for AI's role is a level-of-analysis argument: science got good at taking things apart, and AI is what weaves them back together — "what calculus did for physics, AI will do for biology."</p>
+      <p>On why next-token prediction transfers at all, he gives the geography version: predicting "I was in New York and I was driving north too ___" forces a model to encode where Boston is, and "by virtue of doing that billions and billions of times... you actually incorporate knowledge about geography." The same thing shows up in proteins — residues that are close in folded 3D space are correlated inside a model trained only on sequences. His hedge is explicit: "all models are wrong, some are useful," and proteins have 3D structure that a string does not capture.</p>
+      <p>The rule he keeps returning to is that simulation plus a verifier is the sufficient condition. Games, then math — "Math is going to change massively within the next few years," and Terence Tao (written "Tens Tau" in the transcript) and other frontier mathematicians "already fully aware of it" — then programming, which he calls the most powerful thing we can both simulate and verify: "AI is eating software," and a screenshot of a website plus "make it look exactly like that" generates unlimited training pairs. What cannot be simulated yet is the natural science layer: "we cannot yet perfectly simulate a complex cell, let alone tissues or organs and and full humans."</p>
+      <p>The Eureka Machine itself is four pillars plus an agent swarm. One: language models ingesting the world's knowledge, with a cycle he finds worth noting — closed labs trained on the open internet, Chinese open-source labs "siphoned a lot of that knowledge out of those closed source models by distilling it," then open-sourced it back, "so now the knowledge is back in the open internet where it started." Two: scientific measurement, the things humans cannot perceive — gravitational waves, gamma rays — folded into foundational world models, with the virtual cell as the goalpost that "no one in its full glory" has built. Three: simulation, which today exists "in many small bits and pieces." Four: robotic process automation and real-world experiments, where he names Periodic Labs and judges the timing himself: "from investing perspective, I feel like it's a little bit early but in like two to three years, I think it'll be right on time." The binding limit is stated without hedging: "compute is the biggest constraint."</p>
+      <p>On biology, the shift he describes is from reading to writing, and he dates his own part in it to 2018: ProGen at Salesforce, first-authored by Ali Madani, who has since started Profluent — "they've now closed like multi billion dollar contracts with Eli Lilly," making proteins better than CRISPR-Cas9 at gene editing. He notes a first: a trial where "they basically created a different drug for every different patient in the trial. This is a first for the FDA too." On timelines he is the skeptic of his own side — instead of one drug after eight years, companies now reach "multiple different drugs in late stage two trials" within "six to eighteen months," and will go public with "eight plus different drugs." Clinical trials are moving to China, "cheaper, faster," with the caveat "you also have to worry a little bit whether your IP gets sort of sucked into the ether," and to Australia, which "decentralized clinical trials and every hospital can run its own clinical trials."</p>
+      <p>The two asides that will travel furthest are about labor and economics. On jobs: "if you care about the outputs of an industry or a company then you love AI. If you get paid hourly you probably hate AI," and the deciding variable is elasticity — illustrators saw price fall by roughly a thousand times without demand rising to match, while coding got cheaper and demand grew, the Jevons case. On economics, he returns to the 2018 Salesforce AI economist: agents gathering resources and building houses, a meta agent setting taxes and subsidies against a reward of "equality times productivity," which recovered the Saez formula — provably optimal in "a one step economy" — and then beat it by handling the temporal case where agents learn to dump gains around the tax year. Those papers were desk-rejected from Nature and Science; his line is that the field "often becomes just a political field." He does not expect it adopted in the US: "my hunch is like Singapore or China will probably be more likely to try to use those ideas."</p>
+      <p>On Recursive: eight co-founders including Tim Rocktäschel and Jeff Clune (the transcript writes "Tim Rokteschel" and "Jeff Kuhn / Jeff Klune"), coming from open-endedness research and from the automation-ladder view — "we automated feature engineering... then we automated architecture engineering... What's the next level of automation? It's like the actual ideation, and implementation validation of general ideas in all of AI research." The raise is about $670M ("we raised that in the end, like, $6.70 ish"), of which roughly $410M went to a single Amazon compute deal — "that will probably be one of the smallest compute deals that will happen in our future." He draws the line against the neo-lab category: "We are a real company, not an academic lab." First artifacts are narrow and concrete: on some AI-research problems their system "can already outperform months and sometimes years of human endeavor," and it generates new CUDA kernels, benchmarked on what he calls NVIDIA's "SOLEXEC bench." Releases are promised this year; the details are not shared. He closes on the ceiling rather than the floor: intelligence as prediction, action and goals, ten spaces of it, and "boy are we far away from the true upper bounds of any of the spaces of intelligence."</p>
+    </div>
+
+    <div class="podcast-divider"></div>
+
+    <div class="podcast-zh">
+      <p>这期访谈的由头是他的新书<strong>《The Eureka Machine》</strong>（9 月 22 日上市），开篇的前提是：科学进步变慢了，尽管投入一直在涨。知识从"一个知识体系"变成了"一座知识的迷宫"——三万四千种期刊——各学科碎成了深到"一个生物学博士往往答不出相邻一层的问题"的子领域。而学术界还会惩罚跨界：他那篇 DecaNLP 论文（也就是描述今天被称作提示工程的那篇）被拒的理由是"就连人类也没有一个能回答所有这些不同种类问题的系统"。他给 AI 的定位是一个"分析层级"的论证：科学擅长把东西拆开，而 AI 负责把它们重新织回去——"微积分对物理学做的事，AI 将对生物学做一遍"。</p>
+      <p>关于为什么"预测下一个 token"这件事本身可以迁移，他给的是地理版的解释：预测"我在纽约，正开车往北去 ___"会迫使模型把"波士顿在哪"编码进去，"靠着把这件事做上几十亿次……你实际上把地理知识装了进去"。同样的事情在蛋白质上也出现了：在折叠后的三维空间里彼此接近的残基，在一个只按序列训练的模型内部也是相关的。他的保留说得很明白："所有模型都是错的，有些是有用的"，而蛋白质有三维结构，一串字符并不能捕捉到。</p>
+      <p>他反复回到那条规则：模拟 + 验证器就是充分条件。先是游戏，然后是数学——"数学在未来几年里会发生巨变"，Terence Tao（转写稿写作 "Tens Tau"）和其他前沿数学家"已经完全意识到了"——然后是编程，他称之为我们既能模拟又能验证的最强领域："AI 正在吃掉软件"，而一张网站截图加上"让它长得一模一样"就能生成无限训练对。目前还不能模拟的是自然科学那一层："我们还无法完美模拟一个复杂的细胞，更不用说组织、器官和完整的人体。"</p>
+      <p>Eureka Machine 本身是四根柱子加一个 agent 集群。第一根：语言模型吞下全世界的知识，他还特意点出了一个循环——闭源实验室拿开放互联网训练，中国的开源实验室"通过蒸馏把大量知识从那些闭源模型里抽了出来"，然后又开源回去，"于是这些知识又回到了它起初所在的开放互联网上"。第二根：科学测量，那些人类感官够不到的东西——引力波、伽马射线——汇入基础性的世界模型，其中"虚拟细胞"是那个"还没有人以完整形态建成"的标杆。第三根：模拟，目前只以"许多零散的小块"存在。第四根：机器人流程自动化与真实世界实验，他点了 Periodic Labs，并自己判断时点："从投资角度看我觉得稍微早了一点，但再过两到三年，我觉得时机就正好了"。而约束条件他说得毫不含糊："算力是最大的约束。"</p>
+      <p>在生物学上，他描述的变化是从"读"到"写"，而他把自己参与的那一步定在 2018 年：Salesforce 时期的 ProGen，第一作者 Ali Madani，后来创办了 Profluent——"他们现在已经跟礼来签下了几十亿美元级别的合同"，做出的蛋白质在基因编辑上比 CRISPR-Cas9 更好、更精准。他提到一个"首次"：一项试验里"他们基本上为试验中的每一位患者造了一种不同的药，这对 FDA 来说也是第一次"。在时间线上，他对自家这一侧也保持怀疑：不再是八年磨一种药，而是"六到十八个月"就有"多个不同的药进入二期后段"，上市时手里会有"八种以上的药"。临床试验正在迁往中国——"更便宜、更快"，但要注意"你的 IP 会不会被吸进虚空里"——以及澳大利亚，后者"把临床试验去中心化了，每家医院都能自己跑试验"。</p>
+      <p>两段插话会传得最远，一段关于劳动，一段关于经济学。关于就业："如果你关心的是一个行业或一家公司的产出，你会爱 AI。如果你按小时拿钱，你大概会恨 AI。"而决定变量是需求弹性：插画师看到价格跌了大约一千倍，需求却没有相应涨一千倍；而编程变便宜之后需求反而涨了，那是杰文斯式的情形。关于经济学，他回到 2018 年 Salesforce 的 AI 经济学家：一群 agent 采集资源、盖房子，一个元 agent 制定税收与补贴，目标函数是"平等乘以生产率"——这套系统复现了 Saez 公式（那个公式在"单步经济"里可证最优），然后靠处理"多步时序"的情形超过了它：agent 会学会在税年前后倒腾收益来避税。这些论文被《自然》《科学》直接拒稿；他的说法是这个领域"常常就变成了一个政治性的领域"。他不认为这些东西会在美国被采用："我猜更可能是新加坡或者中国会去试着用这些想法。"</p>
+      <p>关于 Recursive：八位联合创始人，包括 Tim Rocktäschel 与 Jeff Clune（转写稿写作 "Tim Rokteschel"、"Jeff Kuhn / Jeff Klune"），一边来自开放式演化研究，一边来自"自动化阶梯"的视角——"我们自动化了特征工程……然后又自动化了架构工程……下一层自动化是什么？就是真正地去产生想法，并在整个 AI 研究里完成这些通用想法的实现与验证。"融资约 6.7 亿美元（"我们最后融到的，大概 6.7 左右"），其中约 4.1 亿美元给了一笔跟亚马逊的算力交易——"那大概会是我们未来里最小的算力交易之一"。他明确把自己和 neo-lab 这个品类划开："我们是一家真正的公司，不是一个学术实验室。"最早出来的东西很窄也很具体：在某些 AI 研究问题上，他们的系统"已经能超过人类几个月、有时是几年的努力"，而且它能生成新的 CUDA kernel，跑在他称为 NVIDIA "SOLEXEC bench" 的基准上。今年内会有发布，细节未披露。结尾他讲的是上限而不是下限：智能 = 预测、行动、目标，共十个智能空间，而"我们离任何一个智能空间的真实上限都还远得很"。</p>
+    </div>
+
+    <div class="urls" style="margin-top:24px">
+      <a href="https://www.youtube.com/@DataDrivenNYC/videos">https://www.youtube.com/@DataDrivenNYC/videos</a>
+    </div>
+  </article>
+</section>
+
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🧭</span>
+    <h2 class="section-title">Takeaway</h2>
+    <span class="section-meta">X + Podcast</span>
+  </div>
+
+  <div class="takeaway">
+    <p>Today splits into a claim and its counterweight, and both are about the same thing: what agents are being allowed to do. Aaron Levie states the opening in the largest terms available to him — "The new attention you need to compete for is not from the user itself but instead for the agent," and therefore "the tools that allow agents to order food, handle ecommerce transactions, book flights... are the ones that will get used the most," which he calls "the biggest opportunity and shakeup in consumer tech since the App Store itself." Aditya Agarwal, roughly six minutes earlier, reads the same announcements the other way: "even more agent intrusions" means he takes it "for 100% granted that a number of of major companies have been penetrated by nation states without them knowing about it." Neither cites evidence; both are positions. The distance between them is the actual news.</p>
+    <p>Nan Yu's post is where the pitch meets the product. Muse and Instinct showed up in this digest on the 16th as form factors in Levie's list; today someone is trying to use one of them — "I'm trying to place calls with both muse and instinct and they both claim to be unable to do so… is this still rolling out?" No answer is in the feed. That gap, between "hand off a task and ensure that it is fully completed end to end" and a product that declines the request, is worth holding onto when reading Levie's App Store line.</p>
+    <p>The mood around it is Rauch's, and it is the plainest sentence of the day: "everyone is excited about building... The people want to create and ship, not just consume." Nikunj Kothari supplies the practitioner's version — two hours a day, three layers to keep up with (model research, infra for longer horizon tasks, harnesses for the app layer), and one instruction: "just get started and find time to tinker daily." Both are saying the same thing about where the learning happens now.</p>
+    <p>The podcast is the supply-side argument for the same shift, and its value today is that it arrives with its own brake. Socher's sufficient condition is simulation plus verification — "Anything you can simulate, AI will solve" — which is why he expects math and programming to fall first and biology to take longer. But he will not sign up to the takeoff: "I'm not a believer in this crazy hard takeoff," because verification in the real world takes real time. Put next to Levie, the contrast is clean: one is arguing about agents being handed the ability to transact, the other about what has to be true before AI can run its own experiments.</p>
+  </div>
+
+  <div class="takeaway zh">
+    <p>今天分成了一个主张和它的反作用力，而两者讲的是同一件事：agent 正被允许做什么。Aaron Levie 用了他能用到的最大口径来陈述这个机会："你需要去争夺的注意力不再来自用户本身，而是来自 agent"，因此"那些最能帮 agent 点餐、处理电商交易、订机票……的工具，就是被用得最多的"，他把这称为"自 App Store 以来消费级科技最大的机会与洗牌"。而 Aditya Agarwal 在大约六分钟之前，把同一批发布往另一个方向读："越来越多的 agent 侵入"意味着他把"已有若干大公司在自己不知情的情况下被民族国家渗透"视为 100% 的既定事实。两人都没有引用证据；两者都是立场。它们之间的那段距离，才是真正的新闻。</p>
+    <p>Nan Yu 那条是叙事撞上产品的地方。Muse 和 Instinct 在 16 号那期里作为 Levie 清单中的新形态出现过；今天有人开始试着用其中一个了："我在试着让 muse 和 instinct 都去打电话，但它们两个都说自己做不到……这个还在灰度中吗？"feed 里没有答案。这段距离——一边是"把任务交出去并确保它被端到端完成"，一边是一个当场拒绝请求的产品——在读 Levie 那句 App Store 时值得一起记住。</p>
+    <p>围绕这件事的情绪由 Rauch 给出，那是今天最平实的一句话："每个人都对'造东西'感到兴奋……人们想要创造和发布，而不只是消费。"Nikunj Kothari 补上了从业者版本：每天两小时，要跟上的三层（模型研究、支撑更长任务的基础设施、应用层的 harness），以及一条建议："先开始，每天找时间折腾。"两人讲的是同一件事——现在学习发生在哪里。</p>
+    <p>播客是同一次迁移在供给侧的论证，而它今天的价值在于自带刹车。Socher 的充分条件是"模拟 + 验证"——"任何你能模拟的东西，AI 都会解出来"——这正是他预期数学和编程先被拿下、生物学要更久的原因。但他不接受那个"起飞"："我不相信那种疯狂的硬起飞"，因为现实世界里的验证需要真实的时间。把它和 Levie 放在一起，对比很干净：一个在论证 agent 该被赋予交易的能力，另一个在论证 AI 要能自己跑实验之前，什么必须先成立。</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="next-issue">📬 下一期：明天 10:00（北京时间）</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->
