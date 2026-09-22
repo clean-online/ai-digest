@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest · 2026-09-22</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 · Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest · 2026-09-22 · 周二</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">10</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">14</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+<p class="note-line">今日 feed 的 1 期播客为已收录条目，按去重规则不计入统计，仅在下方「已收录 / Already Covered」中列出链接。</p>
+
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🐦</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">10 Builders</span>
+  </div>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Swyx</span>
+      <span class="builder-role">Latent Space · smol_ai</span>
+    </div>
+    <p class="summary-en">Swyx posts a scheduling note rather than an argument: "Jev pod tomorrow — subscribe on apple /youtube @latentspacepod. thanks to @allenpark and Ke for making this happen!" There is no technical content in the post itself. Its value is as a marker of how quickly Jev has moved through this feed: on 09-18 it appeared here as a Vercel release announcement, on 09-20 it came with usage numbers and a Box demo, and now one of the field's main podcasts has recorded a dedicated episode on it.</p>
+    <p class="summary-zh zh">Swyx 发的是一条排期通知，而不是论点："Jev pod tomorrow — subscribe on apple /youtube @latentspacepod. thanks to @allenpark and Ke for making this happen!"帖子本身没有技术内容。它的价值在于标记了 Jev 在这份 feed 里推进的速度：09-18 出现时是 Vercel 的发布消息，09-20 带上了使用量和一个 Box 演示，而现在该领域主要播客之一为它专门录了一期。</p>
+    <div class="urls">      <a href="https://x.com/swyx/status/2101873256097804529">https://x.com/swyx/status/2101873256097804529</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">Practical AI Tutorials</span>
+    </div>
+    <p class="summary-en">Peter Yang writes the most structured item in today's feed: a numbered read on the personal agent race, which he labels "armchair." The ranking separates distribution from product. On Meta's Muse: "The app is intuitive, and Meta is aggressively promoting it across all its properties. Once you use the Muse app, you realize that it makes little sense for an agent to live in an existing messaging app like iMessage" — and he expects it to become "the company's most successful homegrown app after Facebook. It will be much bigger than Threads." On ChatGPT: still the leader "because it already has 1B+ users," with models, computer use and voice "arguably better than Muse feature by feature," but "it's hard to build one product for both work and personal use"; he says he started using Grok Bot for work because "the Work/Codex split remains too confusing." He does not read Grok Bot as a Muse competitor at all, since it is work-focused: "My bull case for Grok Bot is that it's a few features away from becoming multiplayer agentic Slack for both bots and humans." Google he calls "obviously the dark horse candidate" — all these agents "live off Gmail, Google Calendar, and your Google app's data," while Google's own Spark is "a secondary tab in Gemini." Then the column nobody has filled: "Speaking of multiplayer, nobody has figured this out yet. I can't easily add my spouse to a Muse chat to plan a vacation." His own stack is Muse for personal, Grok Bot for cloud tasks, Claude for specific use cases and ChatGPT for everything else, and his closing advice is about portability: "Everyone should design their personal skills and files so they're easy to port between harnesses and agents."</p>
+    <p class="summary-zh zh">Peter Yang 写出了今天 feed 里最有结构的一条：一份编号式的个人 agent 竞赛解读，他自己标注为"armchair"。这份排名把分发和产品分开看。关于 Meta 的 Muse："这个 app 很直观，而且 Meta 正在它所有产品里大力推它。你一旦用过 Muse app，就会意识到让一个 agent 住在 iMessage 这种现有消息应用里，其实说不通"——他预计它会成为"这家公司在 Facebook 之后最成功的自研 app，会比 Threads 大得多"。关于 ChatGPT：它仍是领先者"因为它已经有 10 亿以上用户"，模型、computer use 和语音"逐项对比大概都优于 Muse"，但"很难用一个产品同时覆盖工作和个人用途"；他说自己开始用 Grok Bot 处理工作，是因为"Work/Codex 的拆分还是太让人困惑"。他完全不把 Grok Bot 当成 Muse 的竞品，因为它聚焦工作："我对 Grok Bot 的看多理由是，它再差几个功能，就会变成同时给 bot 和人用的多人协作版 agentic Slack。"Google 他称为" obviously 的黑马候选"——这些个人 agent 都"靠 Gmail、Google Calendar 和你 Google app 的数据活着"，而 Google 自己的 Spark 目前"只是 Gemini 里的一个次级 tab"。然后是还没有人填上那一栏："说到多人协作，目前没人解决。我没法轻松把我的配偶加进一个 Muse 对话里去规划度假。"他自己的组合是 Muse 管个人、Grok Bot 跑云端任务、Claude 处理特定用例、ChatGPT 兜底其他；结尾的建议关于可移植性："每个人都应该把自己的 personal skills 和文件设计成便于在 harness 与 agent 之间迁移，否则你会有一半时间花在从一个工具搬到另一个工具上。"</p>
+    <p class="summary-en">His follow-up is a caveat to his own ranking, added after the thread: Apple "have all the devices and a great reputation on privacy... They can easily win this race but what holds them back imo is their annual release cycle for major updates and not being on @X and all the other platforms seeking user feedback. The iteration speed for Siri (from the outside) just feels far too slow to compete." His third post is a newsletter signup.</p>
+    <p class="summary-zh zh">他的补充是对自己那份排名的一个修正，在长帖之后追加：Apple"拥有所有设备，隐私口碑也很好……他们完全可以赢下这场比赛，但拖住他们的是我认为的主要更新的年度发布节奏，以及他们不在 @X 和其他平台上收集用户反馈。Siri 的迭代速度（从外部看）就是慢得不足以竞争。"他的第三条是 newsletter 订阅引导。</p>
+    <div class="urls">      <a href="https://x.com/petergyang/status/2101917073081598255">https://x.com/petergyang/status/2101917073081598255</a>      <a href="https://x.com/petergyang/status/2101865476145959373">https://x.com/petergyang/status/2101865476145959373</a>      <a href="https://x.com/petergyang/status/2101862331345154469">https://x.com/petergyang/status/2101862331345154469</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thariq</span>
+      <span class="builder-role">Claude Code, Anthropic</span>
+    </div>
+    <p class="summary-en">Thariq posts a reflection on games rather than on agents: "there is something about video games that give high stakes and responsibilities to young people who couldn't really get them irl — but it is a fine line and at some point you need to graduate." It is a single line, off the day's main topics, and the feed carries no further elaboration.</p>
+    <p class="summary-zh zh">Thariq 发的是一段关于游戏的感想，而不是关于 agent 的："电子游戏有某种东西，能把高赌注和责任感交给那些在现实里其实拿不到这些东西的年轻人——但这条线很细，到了某个时刻你需要毕业。"只有一句话，不在当天的主题上，feed 里也没有更多展开。</p>
+    <div class="urls">      <a href="https://x.com/trq212/status/2101844435353145452">https://x.com/trq212/status/2101844435353145452</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Amjad Masad</span>
+      <span class="builder-role">CEO, Replit</span>
+    </div>
+    <p class="summary-en">Replit CEO Amjad Masad posts one line over a photo: "Built my son his first computer." The post carries no AI content; it is a personal note that happens to be in the feed.</p>
+    <p class="summary-zh zh">Replit CEO Amjad Masad 配图发了一句话："给我儿子装了他的第一台电脑。"这条没有 AI 内容，只是碰巧出现在 feed 里的一条个人记录。</p>
+    <div class="urls">      <a href="https://x.com/amasad/status/2101852258468299182">https://x.com/amasad/status/2101852258468299182</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">CEO, Vercel</span>
+    </div>
+    <p class="summary-en">Vercel CEO Guillermo Rauch makes the day's most concrete capability claim, and it is about verification rather than generation. Pointing out that something "wasn't rendering right in a mobile (in-app) browser" was enough to set off a full loop: "The thing goes to the depths of Mordor to reproduce, simulate, fix, deploy, verify. It created an ephemeral vercel deployment to throw at an iPhone simulator! The absolute grind on these things." His conclusion is about stamina, not intelligence: "Humans could simply never match this level of intensity. We'd run of energy, we'd extrapolate, we'd hope it'd work out." And then the forward claim: "The software of the future will be of a quality and performance we've never experienced before." Set against what he posted on 09-16 — that an agent's ceiling is set by the checker, compiler, type system and linter you hand it — this is that argument observed rather than argued: the loop closed because the agent could stand up its own ephemeral environment to check against.</p>
+    <p class="summary-zh zh">Vercel CEO Guillermo Rauch 给出了今天最具体的一条能力主张，而它讲的是验证而不是生成。他只是指出有个东西"在移动端（应用内）浏览器里渲染不对"，就足以触发一整条回路："这玩意儿会一路走到魔渊深处去复现、模拟、修复、部署、验证。它甚至创建了一个临时 Vercel 部署，丢给 iPhone 模拟器去跑！这些事上的那股死磕劲。"他的结论关乎耐力而不是智力："人类根本不可能匹配这种强度的投入。我们会没电，我们会靠推断，我们会指望它刚好能work。"然后是向前的判断："未来的软件，其质量与性能会是我们从未体验过的。"把它和他在 09-16 发的内容放在一起读——agent 的上限取决于你交给它的 checker、compiler、type system 和 linter——这一条是那个论点被观察到、而不是被论证出来：回路之所以能闭合，是因为 agent 能自己搭一个临时环境去对照检查。</p>
+    <p class="summary-en">His other post is two bare links with no stated subject.</p>
+    <p class="summary-zh zh">他的另一条是两个没有说明主题的裸链接。</p>
+    <div class="urls">      <a href="https://x.com/rauchg/status/2101846262840799251">https://x.com/rauchg/status/2101846262840799251</a>      <a href="https://x.com/rauchg/status/2101728091710341176">https://x.com/rauchg/status/2101728091710341176</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aaron Levie</span>
+      <span class="builder-role">CEO, Box</span>
+    </div>
+    <p class="summary-en">Box CEO Aaron Levie posts four words over an image: "Literally impenetrable from agent swarms." It is a one-line reaction with no argument attached in the feed, though it lands directly on the day's recurring subject of agents being handed real permissions inside systems that were not designed for them.</p>
+    <p class="summary-zh zh">Box CEO Aaron Levie 配图发了四个词："Literally impenetrable from agent swarms。"这是一句带图的即时反应，feed 里没有附带的论证，不过它正落在当天反复出现的那个主题上：agent 正在被交到那些原本不是为它们设计的系统里的真实权限。</p>
+    <div class="urls">      <a href="https://x.com/levie/status/2101731574668747081">https://x.com/levie/status/2101731574668747081</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Matt Turck</span>
+      <span class="builder-role">VC, FirstMark Capital</span>
+    </div>
+    <p class="summary-en">FirstMark Capital VC Matt Turck writes the day's best line about hype turnover: "Everyone is obsessed with Jev now, but I'm old enough to remember when people couldn't shut up about Instinct, all the way back to mid last week. Simpler times." The joke works because it is close to literal — in this feed, Instinct came up on 09-16 as one of the new form factors in Aaron Levie's list, and Jev arrived on 09-18.</p>
+    <p class="summary-zh zh">FirstMark Capital 投资人 Matt Turck 写出了今天关于热度更替最好的一句："现在所有人都迷 Jev，但我年纪够大，还记得大家曾经开口闭口都是 Instinct，那要一路追溯到上周中了。简单的年代。"这个玩笑之所以成立，是因为它几乎就是字面事实——在这份 feed 里，Instinct 在 09-16 作为 Aaron Levie 新形态清单里的一项出现过，Jev 则是 09-18 才到的。</p>
+    <div class="urls">      <a href="https://x.com/mattturck/status/2101820308009206077">https://x.com/mattturck/status/2101820308009206077</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nikunj Kothari</span>
+      <span class="builder-role">Partner, FPV Ventures</span>
+    </div>
+    <p class="summary-en">FPV Ventures partner Nikunj Kothari's only post today has nothing to do with technology. He floats a cloud kitchen concept called "next day curry" — ordering the best curries, storing them overnight and serving them the next day — built on the observation that leftover Manchurian, ramen, Thai and Indian curries all taste better on the second day. He calls the idea "blasphemous to the purists."</p>
+    <p class="summary-zh zh">FPV Ventures 合伙人 Nikunj Kothari 今天唯一一条与技术无关。他提出一个叫"next day curry"的云厨房点子——把最好的咖喱点来、存放过夜、第二天再供应——依据是剩菜更好吃这个观察：Manchurian、拉面、泰式与印度咖喱都是第二天更好吃。他称这个想法"对原教旨主义者来说大概是大不敬"。</p>
+    <div class="urls">      <a href="https://x.com/nikunj/status/2101742225906655315">https://x.com/nikunj/status/2101742225906655315</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Steinberger</span>
+      <span class="builder-role">OpenClaw · OpenAI</span>
+    </div>
+    <p class="summary-en">Peter Steinberger of OpenClaw and OpenAI ships the day's most literal answer to a question that was left open in this feed yesterday. "Your claw can now FaceTime you!" — an agent initiating a video call to its owner. On 09-21 Nan Yu was asking whether the calling capability shown for Muse and Instinct was still in limited rollout, with no answer in the feed; today a different product is offering the capability openly rather than in a grey release. His second post is one line over a link: "New benchmark dropped."</p>
+    <p class="summary-zh zh">OpenClaw 与 OpenAI 的 Peter Steinberger 上线了今天对这个悬而未决问题最直接的一个回答："Your claw can now FaceTime you!"——agent 主动给它的主人发起视频通话。09-21 那天 Nan Yu 还在问 Muse 与 Instinct 展示过的通话能力是不是仍在灰度，feed 里没有答案；今天换了一个产品，把这个能力公开提供了，而不是灰度。他的第二条是配链接的一句话："New benchmark dropped。"</p>
+    <div class="urls">      <a href="https://x.com/steipete/status/2101748928274419843">https://x.com/steipete/status/2101748928274419843</a>      <a href="https://x.com/steipete/status/2101748820237500557">https://x.com/steipete/status/2101748820237500557</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Dan Shipper</span>
+      <span class="builder-role">CEO, Every</span>
+    </div>
+    <p class="summary-en">Every CEO Dan Shipper posts two lines recommending a book — "highly recommend / this is my favorite book" — over a link whose subject the feed does not state. Thin content; noted for completeness.</p>
+    <p class="summary-zh zh">Every CEO Dan Shipper 配链接发了一句推荐书的话——"highly recommend / this is my favorite book"——链接指向什么 feed 里没写。内容很薄，为完整性照实记录。</p>
+    <div class="urls">      <a href="https://x.com/danshipper/status/2101816740741329218">https://x.com/danshipper/status/2101816740741329218</a></div>
+  </article>
+
+</section>
+
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🧭</span>
+    <h2 class="section-title">Takeaway</h2>
+    <span class="section-meta">No Podcast Today</span>
+  </div>
+
+  <div class="takeaway">
+    <div class="takeaway-label">The Takeaway</div>
+    <p>The personal agent race got its first real scorecard today. Peter Yang's numbered read is the first attempt in this feed to rank the field rather than champion one product, and it separates distribution from product quality: ChatGPT leads on users ("1B+"), Muse leads on product intuition plus Meta's promotion machine, Grok Bot is quietly aiming at work rather than at personal use, and Google is the dark horse that owns the data these agents run on while leaving its own Spark as "a secondary tab in Gemini." The one column nobody has filled is multiplayer — "I can't easily add my spouse to a Muse chat to plan a vacation." His parting advice, that personal skills and files should be portable across harnesses, is the practical version of the same observation: the field is not settled enough to bet your setup on one winner.</p>
+    <p>The capability side moved in the same direction. Rauch's post is a small story with a large claim — the agent did not propose a fix, it reproduced the bug, simulated it, stood up an ephemeral deployment, and verified against an iPhone simulator. What he says humans cannot match is not cleverness but grind: "We'd run of energy, we'd extrapolate, we'd hope it'd work out." That is the verifier argument he made on 09-16, this time with an instance attached to it.</p>
+    <p>Two smaller signals bracket the day. Jev keeps compounding: a Vercel release on 09-18, usage numbers on 09-20, and now a dedicated Latent Space episode — which Matt Turck immediately deflates by pointing out that Instinct had its week only days earlier. And Steinberger's "your claw can now FaceTime you" closes, from a different product, the question Nan Yu left open on 09-21 about whether agents can place calls. Yesterday it was a capability being asked about; today it is one being shipped.</p>
+  </div>
+
+  <div class="takeaway zh">
+    <div class="takeaway-label">核心结论</div>
+    <p>个人 agent 竞赛今天拿到了第一份像样的评分表。Peter Yang 那份编号解读，是这份 feed 里第一次试图给整个赛道排序，而不是替某一个产品站台；它把分发和产品分开看：ChatGPT 赢在用户（"1B+"），Muse 赢在产品直觉加上 Meta 的推广机器，Grok Bot 悄悄瞄的是工作场景而非个人场景，Google 是握着这些 agent 所依赖数据、却把自己的 Spark 只放在"Gemini 里一个次级 tab"的黑马。唯一还没人填上的是多人协作那一栏——"我没法轻松把我的配偶加进一个 Muse 对话里去规划度假"。他结尾那句"personal skills 和文件要便于跨 harness 迁移"是同一个观察的实用版：这个赛道远没到可以把自己的配置押在某一个赢家身上的程度。</p>
+    <p>能力侧朝着同一个方向推进。Rauch 那条是个小题材、大主张——agent 没有只是提出一个修复方案，而是复现了 bug、做了模拟、搭了一个临时部署、再对着 iPhone 模拟器验证。他说人类匹配不了的并不是聪明，而是死磕："我们会没电，我们会靠推断，我们会指望它刚好能work。"这正是他在 09-16 提出的 verifier 论点，只不过这次附上了一个实例。</p>
+    <p>当天两端还有两个更小的信号。Jev 仍在叠加：09-18 是 Vercel 的发布，09-20 是使用量，现在是一期专门的 Latent Space 节目——Matt Turck 立刻给它降温，指出 Instinct 的热度也就在几天之前。而 Steinberger 那句"你的 claw 现在可以 FaceTime 你"，从另一个产品那边回应了 Nan Yu 在 09-21 留下的、关于 agent 能不能打电话的问题：昨天是一个被追问的能力，今天是一个已经上线的能力。</p>
+  </div>
+</section>
+
+<!-- ============== ALREADY COVERED ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">🔁</span>
+    <h2 class="section-title">已收录 / Already Covered</h2>
+    <span class="section-meta">1 Item · Deduped</span>
+  </div>
+
+  <div class="dedup">
+    <p>今日 feed 中的以下条目此前已发布，按去重规则不重复计入统计与正文。</p>
+    <p style="margin-top:12px"><strong>Podcast</strong> — No Priors: Coinbase's Everything Exchange: Agentic Finance, Stablecoins, and Tokenization with CEO Brian Armstrong。已收录于 <a href="https://clean-online.github.io/ai-digest/2026/09/13/AI_Builders_Digest_2026-09-13.html">2026-09-13</a>。 <a href="https://www.youtube.com/@NoPriorsPodcast">https://www.youtube.com/@NoPriorsPodcast</a></p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="next-issue">📬 下一期：明天 10:00（北京时间）</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->
