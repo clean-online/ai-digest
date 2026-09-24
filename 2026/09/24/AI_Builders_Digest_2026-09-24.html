@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest &#183; 2026-09-24</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 &#183; Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest &#183; 2026-09-24 &#183; 周四</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">17</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">43</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+<p class="note-line">今日 feed 无播客条目，也无官方博客条目（两类数组均为空），故 Podcast 与 Blog 均计 0；下方 X 段落的 17 位 builder 与 43 条推文为 feed 全部内容，全部渲染。</p>
+
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">&#128036;</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">17 Builders</span>
+  </div>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thibault Sottiaux</span>
+      <span class="builder-role">Codex &amp; ChatGPT, OpenAI</span>
+    </div>
+    <p class="summary-en">OpenAI&#39;s Thibault Sottiaux announces GPT-6 Sol and Luna, and the first thing he states is a price: "We are also permanently reducing the API price by 50% making both of them viable for a ton of new usecases and making your usage go further too, even on the subscriptions." On capability he stays deliberately vague &#8212; "a very significant improvement across the board, but also in writing and general &#39;you know when you try it&#39; quality" &#8212; the second half of which is an invitation to test rather than a measurement. His third post gives the mechanism behind the price cut: "We have been focusing on efficiency and intelligence for all... Only possible when you have incredible models at the top end of the capability that you can then use to make a big difference in everything else."</p>
+    <p class="summary-zh zh">OpenAI 的 Thibault Sottiaux 发布 GPT-6 Sol 和 Luna，而他先说的一句是价格："我们还将 API 价格永久性下调 50%，让这两个模型能撑起大量新用例，也让你手上的用量更耐用，订阅用户同样如此。"能力那一侧他故意说得含糊——"全面提升非常显著，写作和那种&#39;你一试就知道&#39;的整体质感也是"——后半句更像一个邀请你去试的说法，而不是一个度量。他的第三条给出了这次降价的机制："我们一直在为所有人做效率和智能。只有当你手上有能力最顶端的极强模型，你才能拿它去带动其他所有东西发生大的变化。"</p>
+    <p class="summary-en">The reset he promised lands in the same post. On 09-23 this feed carried his tease &#8212; "We are almost Tuesday and I promised a reset for Tuesday" &#8212; which followed his 09-11 disclosure that resets were not fully applying when used in ChatGPT Work and Codex, with a make-good and an apology to everyone in the affected window. Today: "We are loading a banked reset into all accounts of our Plus, Pro and Business users. Let&#39;s go!" The day he named was Tuesday, and the reset is dated to it. What does not appear anywhere in this feed is the consumer agent Nikunj reported as imminent yesterday; what launched is two models and a price cut.</p>
+    <p class="summary-zh zh">他承诺过的那次 reset，就在同一条里落地了。09-23 那期 feed 里是他的预告——"我们快到周二了，我答应过周二会有一次 reset"——而这条预告又接在他 09-11 的披露之后：resets 在 ChatGPT Work 与 Codex 中使用时没有完全生效，他给出了补偿和给受影响时间窗内所有人的致歉。今天这句是："我们正在向所有 Plus、Pro 和 Business 用户的账户里补入一次 banked reset。开始吧！"他点名的那天是周二，而这次 reset 就是对得上这个日期的。这份 feed 里没有出现的是 Nikunj 昨天说的那个即将到来的消费级 agent；今天落地的是两个模型和一次降价。</p>
+    <p class="summary-en">His second post is a tease with nothing in it: "Maybe our cutest launch so far. But still packing the biggest punch." There is no product and no number to evaluate. It is recorded because it is his, and because the launch it points at is in the same feed.</p>
+    <p class="summary-zh zh">他的第二条是一条空预告："可能是我们到目前为止最可爱的一次发布。但打出来的力道仍是最大的。"里面没有产品，也没有可评估的数字。之所以收录，只因为这是他发的，也因为它所指的那场发布就在同一份 feed 里。</p>
+    <div class="urls"><a href="https://x.com/thsottiaux/status/2102509507415048245">https://x.com/thsottiaux/status/2102509507415048245</a><a href="https://x.com/thsottiaux/status/2102463847714247142">https://x.com/thsottiaux/status/2102463847714247142</a><a href="https://x.com/thsottiaux/status/2102440619616682120">https://x.com/thsottiaux/status/2102440619616682120</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Cat Wu</span>
+      <span class="builder-role">Claude Code &amp; Cowork, Anthropic</span>
+    </div>
+    <p class="summary-en">Anthropic&#39;s Cat Wu makes Opus 5.5 the default, and every number she gives is about throughput rather than raw capability: "Claude Opus 5.5 is now the default model in Claude Code and the Claude app, including Cowork, for Pro, Max, and Team plans... We&#39;re defaulting to effort medium across products, which is comparable to Fable 5.1 on intelligence but faster. Your rate limits will go 25% further on Opus 5.5 compared to Opus 5." The decision worth noting is what gets defaulted: not the strongest setting, but a middle one that matches the previous model on intelligence while running faster, with 25% more headroom on the same plan.</p>
+    <p class="summary-zh zh">Anthropic 的 Cat Wu 把 Opus 5.5 设成了默认，而她给出的每个数字都是关于吞吐而非绝对能力的："Claude Opus 5.5 现已是 Claude Code 和 Claude 应用（含 Cowork）在 Pro、Max、Team 套餐下的默认模型……我们在各产品里默认 effort 为 medium，智能水平和 Fable 5.1 相当，但更快。Opus 5.5 相比 Opus 5，你的速率额度会多走 25%。"值得记的是被默认的是哪一档：不是最强档，而是一个中间档——智能上追平上一代模型但更快，同一套餐下还多出 25% 的余量。</p>
+    <p class="summary-en">Her qualitative claim sits next to it: she has been using Opus 5.5 as a daily driver and "love[s] its clear communication skills and ability to write in my style". Her second post points at Opus 5.5 and Claude Tag in Slack without saying anything more than "If you&#39;re looking for ways to try..." &#8212; a pointer, not an argument.</p>
+    <p class="summary-zh zh">她那条定性判断挂在旁边：她一直把 Opus 5.5 当日常主力在用，"喜欢它清晰的表达能力，以及它能用我的风格来写"。她的第二条只指向了 Slack 里的 Opus 5.5 和 Claude Tag，除了"如果你想找地方试一下……"之外没有更多内容——是一个指路，不是一个论点。</p>
+    <div class="urls"><a href="https://x.com/_catwu/status/2102569951974584612">https://x.com/_catwu/status/2102569951974584612</a><a href="https://x.com/_catwu/status/2102437713781944397">https://x.com/_catwu/status/2102437713781944397</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Claude</span>
+      <span class="builder-role">Anthropic (official)</span>
+    </div>
+    <p class="summary-en">The official @claudeai account posts the launch in one line &#8212; "Claude Opus 5.5 is available today. What will you explore?" &#8212; and pairs it with two outputs rather than a benchmark: "An algorithmic drawing program created by @kevin_t_ngo. Every drawing is based on a different seed", and "A toy brick-building app. Turn a photo or a description into a buildable model with custom instructions." Both are small, finished, and meant to be opened. That is the whole of the official account&#39;s contribution today: an availability notice and two things to try.</p>
+    <p class="summary-zh zh">官方账号 @claudeai 用一句话发布："Claude Opus 5.5 今天上线。你想去探索什么？"配上的不是基准测试，而是两个产出："一个由 @kevin_t_ngo 做的算法绘图程序。每幅画基于一个不同的 seed"，以及"一个玩具积木搭建应用。把一张照片或一段描述变成可搭建的模型，还能加自定义说明。"两个都很小、做完了、并且是用来直接打开的。这就是官方账号今天的全部内容：一条上线通知，加两个可以试的东西。</p>
+    <div class="urls"><a href="https://x.com/claudeai/status/2102471892099866883">https://x.com/claudeai/status/2102471892099866883</a><a href="https://x.com/claudeai/status/2102471889092276516">https://x.com/claudeai/status/2102471889092276516</a><a href="https://x.com/claudeai/status/2102471885061812714">https://x.com/claudeai/status/2102471885061812714</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aaron Levie</span>
+      <span class="builder-role">Box CEO</span>
+    </div>
+    <p class="summary-en">Box CEO Aaron Levie writes the day&#39;s only complete argument, and it is about price. "The frontier models just became substantially cheaper, with the Opus 5.5 price cuts, and now with GPT-6 Sol and Luna dropping token prices by 50%. The rate at which the cost per task (on a like-for-like basis) drops in AI is unlike any other type of technology in history." The mechanism he names is Jevons paradox: every time the cost drops, "the use-cases you can deploy agents against dramatically increase" &#8212; processing all of your data, scanning code for security issues, reading through log data to make decisions, agent swarms in workflows. One thing to keep separate: this is not the model named Jev that Vercel shipped last week and that ran through the 09-18 and 09-20 issues. Similar sound, unrelated thing.</p>
+    <p class="summary-zh zh">Box CEO Aaron Levie 写了今天唯一一段完整的论证，而它讲的是价格。"前沿模型刚刚变得大幅便宜——Opus 5.5 降价，现在 GPT-6 Sol 和 Luna 又把 token 价格砍掉 50%。AI 里&#39;单位任务的成本&#39;（在同等可比基础上）下降的速度，历史上没有任何一类技术是这样的。"他点出的机制是 Jevons paradox：成本每降一次，"你值得把 agent 投进去的用例就大幅增加"——处理全部数据、扫代码找安全问题、把日志读完来做决策、工作流里跑 agent 集群。有一点要分开：这不是 Vercel 上周发布的那个叫 Jev 的模型，那个名字出现在 09-18 和 09-20 两期里。读音相近，两回事。</p>
+    <p class="summary-en">His second post is where the claim gets tested, and it is the only place in today&#39;s feed with task-level numbers. Box ran Opus 5.5 against Opus 5 on complex enterprise knowledge work over unstructured data: 63% fewer tokens used, 42% less verbosity, 30% faster. Then four industry cases. Financial services due diligence, +39% task accuracy on 82% fewer tokens &#8212; a perfect result on every attempt, in half the words. Technology cloud cost analysis, +65% on 70% fewer tokens, and he says why it holds: the model "kept the source data&#39;s unit conventions straight all the way through", so the number at the end stands up. Consumer products client account analysis, +17% on 78% fewer, where the contract never states a senior/junior split and the model derived it from an 18-person roster and showed the rule it used. Clinical diagnostics, +15% on 78% fewer, where it caught that the two groups&#39; standard deviations differed more than 100-fold, re-ran the test the right way, and found the dry-season difference "didn&#39;t hold up after all". Three of the four wins are efficiency. The fourth is the model changing the conclusion.</p>
+    <p class="summary-zh zh">他的第二条是这个主张被检验的地方，也是今天这份 feed 里唯一有任务级数字的地方。Box 用 Opus 5.5 对 Opus 5，在非结构化数据上的复杂企业知识工作里跑了一遍：token 用量少 63%、啰嗦程度低 42%、快 30%。然后是四个行业用例。金融服务尽调，任务准确率 +39%，token 少 82%——每一次尝试都是满分结果，字数只用一半。科技行业云成本分析，+65%，token 少 70%，他还解释了为什么这个结果站得住：模型"一路把源数据的单位口径保持住了"，所以最后那个数字是成立的。消费品客户账户分析，+17%，token 少 78%——合同里从没写资深/初级怎么分，模型从一份 18 人名单里推了出来，并且把它用的规则摆了出来。临床诊断数据分析，+15%，token 少 78%——它发现两组标准差相差超过 100 倍，用正确方式重跑了一遍，结论是旱季的差异"最后并没有成立"。四项里三项赢在效率，第四项是模型改变了结论。</p>
+    <div class="urls"><a href="https://x.com/levie/status/2102477253070430322">https://x.com/levie/status/2102477253070430322</a><a href="https://x.com/levie/status/2102448415775051790">https://x.com/levie/status/2102448415775051790</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">Vercel CEO</span>
+    </div>
+    <p class="summary-en">Vercel CEO Guillermo Rauch publishes the only cross-model comparison in the feed: fresh Next.js evals, tallied as Opus 5.5 at 97%, GPT-6 Sol at 97%, Fable 5.1 at 97%, Grok 4.7 at 94%. The finding is not the ordering &#8212; three models tie at the top &#8212; but the line he puts underneath it: "Notably, Grok is 2x-7x cheaper." On his own evals, the leading models are indistinguishable, and price is the variable that separates them.</p>
+    <p class="summary-zh zh">Vercel CEO Guillermo Rauch 发布了这份 feed 里唯一一次跨模型对比：新跑的 Next.js evals，结果是 Opus 5.5 97%、GPT-6 Sol 97%、Fable 5.1 97%、Grok 4.7 94%。值钱的不是排序——三个模型在顶部打平——而是他压在下面那句："值得注意的是，Grok 便宜 2 到 7 倍。"在他自己的评测里，头部模型之间分不出差别，把它们分开的变量是价格。</p>
+    <p class="summary-en">His other two posts are the day&#39;s argument about what cheap generation does to software. "Software will never die again. You liked Google Reader? Cool, you can generate and deploy your own. Yours, forever." And on Anthropic&#39;s launch: "Love the tastefulness with which anthropic ships... Main reason I got excited about &#39;headless&#39; for the web is that any given page could take whatever whimsical or unique shape you wanted. With AI, there&#39;s no excuse not to push the design frontier."</p>
+    <p class="summary-zh zh">他另外两条是今天关于"便宜的生成能力会把软件变成什么"的论点。"软件再也不会死了。你喜欢 Google Reader？很好，你可以自己生成并部署一个你自己的。你的，永远是你的。"关于 Anthropic 这次发布："喜欢 Anthropic 发布东西的那种分寸感……我当初对 web 的&#39;headless&#39;感到兴奋，主要原因是任何一个页面都可以长成你想要的任意古怪或独特的形状。有了 AI，就没有理由不去把设计的边界往前推了。"</p>
+    <div class="urls"><a href="https://x.com/rauchg/status/2102594015669756323">https://x.com/rauchg/status/2102594015669756323</a><a href="https://x.com/rauchg/status/2102519097770885231">https://x.com/rauchg/status/2102519097770885231</a><a href="https://x.com/rauchg/status/2102438365455167883">https://x.com/rauchg/status/2102438365455167883</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Boris Cherny</span>
+      <span class="builder-role">Claude Code, Anthropic</span>
+    </div>
+    <p class="summary-en">Anthropic&#39;s Boris Cherny reports the day&#39;s most unexpected use of a model: "I used Opus 5.5 to formally verify the Claude Agent SDK using Lean. A couple short prompts = 16 PRs fixing various bugs and race conditions." He adds that TLA+ also works well and that he sometimes combines the two "to look for issues around data flow, concurrency, and state mgmt". Then he states the part that matters to anyone trying the same thing: "I don&#39;t know either language well, but Claude is excellent at both." He ends on the open question without answering it: "Is formal verification the future of coding (or at least, bug finding)?"</p>
+    <p class="summary-zh zh">Anthropic 的 Boris Cherny 报告了今天最出乎意料的一个模型用法："我用 Opus 5.5 配 Lean 对 Claude Agent SDK 做了形式化验证。几个很短的 prompt = 16 个 PR，修掉各种 bug 和竞态条件。"他补充说 TLA+ 也很好用，自己有时会把两者结合起来"去找数据流、并发和状态管理方面的问题"。然后他给出了对任何想照做的人最关键的一句："这两门语言我都不熟，但 Claude 两门都很强。"最后他抛出问题但没回答："形式化验证会是编码的未来吗（或者至少，是找 bug 的未来）？"</p>
+    <p class="summary-en">His second post is the closest thing to a controlled comparison in the feed: "We had Opus 5.5 and Fable 5.1 each port HAProxy from C to Rust. Both passed nearly all of HAProxy&#39;s tests, but Opus 5.5 finished in 9.5 hours compared to Fable 5.1&#39;s 12 hours, and for 51% less cost." Same task, both models pass, and what separates them is time and cost. His third post is an image caption with nothing to evaluate: "Opus made an infographic".</p>
+    <p class="summary-zh zh">他的第二条是这份 feed 里最接近对照实验的一条："我们让 Opus 5.5 和 Fable 5.1 各自把 HAProxy 从 C 移植到 Rust。两个都通过了 HAProxy 几乎全部测试，但 Opus 5.5 用了 9.5 小时，Fable 5.1 用了 12 小时，而且成本低 51%。"同一个任务，两个模型都通过，分开它们的是时间和成本。他的第三条只是一句图注，没有可评估的内容："Opus 做了一张信息图"。</p>
+    <div class="urls"><a href="https://x.com/bcherny/status/2102543350436180277">https://x.com/bcherny/status/2102543350436180277</a><a href="https://x.com/bcherny/status/2102543349102338309">https://x.com/bcherny/status/2102543349102338309</a><a href="https://x.com/bcherny/status/2102439069053747549">https://x.com/bcherny/status/2102439069053747549</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thariq</span>
+      <span class="builder-role">Claude Code, Anthropic</span>
+    </div>
+    <p class="summary-en">Anthropic&#39;s Thariq posts the day&#39;s clearest statement of restraint, and it is aimed at what his own side just shipped: "the right way to use model capabilities is not to ship 10x more features to prod / it&#39;s to spend more time understanding your users, trying experiments, building prototypes, learning about things you don&#39;t understand so that you can ship things that actually work". Read against Levie&#39;s expansion argument in the same feed, this is the direct counterweight &#8212; the same premise about capability getting cheaper, the opposite conclusion about what to do with it.</p>
+    <p class="summary-zh zh">Anthropic 的 Thariq 发了今天最清楚的一条克制主张，而它指向的正是自己这方刚发布的东西："用模型能力的正确方式，不是往生产环境多推 10 倍功能，而是把更多时间花在理解用户、做实验、搭原型、搞懂那些你还不懂的东西上，这样你才能推出真正能用的东西。"把它和同一份 feed 里 Levie 的扩张论放在一起读，这就是正面的反作用力——前提相同（能力在变便宜），结论相反（该拿它做什么）。</p>
+    <p class="summary-en">His other two are about where capability should not go first. On 3D generation: "if you want to make games, 3d generation is a great capability to help you imagine your game come to life / but you should figure out how to make a good, satisfying game loop first (talking to myself here)". And on cost: "workflows are a huge part of how I use Claude these days, I&#39;m glad we have Fable-like intelligence that works with workflows from a cost perspective" &#8212; the price change showing up as a change in what is affordable to run repeatedly rather than once.</p>
+    <p class="summary-zh zh">另外两条讲的是能力不该先往哪儿走。关于 3D 生成："如果你想做游戏，3D 生成是个很棒的能力，能帮你想像游戏成形的样子，但你应该先想清楚怎么做出一个好的、让人满足的游戏循环（这是在说给我自己听）"。关于成本："workflows 现在是我用 Claude 的很大一块，我很高兴我们有了 Fable 级别的智能，而且从成本角度看它能跑得起 workflows"——价格变化在这里的体现，不是"能跑一次"，而是"能反复跑"。</p>
+    <div class="urls"><a href="https://x.com/trq212/status/2102549030303867257">https://x.com/trq212/status/2102549030303867257</a><a href="https://x.com/trq212/status/2102548686303854790">https://x.com/trq212/status/2102548686303854790</a><a href="https://x.com/trq212/status/2102477527688388752">https://x.com/trq212/status/2102477527688388752</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Alex Albert</span>
+      <span class="builder-role">Research, Anthropic</span>
+    </div>
+    <p class="summary-en">Anthropic&#39;s Alex Albert builds a world instead of arguing about one: "I&#39;ve been on a Blender kick with Opus 5.5. Its better 3D modeling and vision mean you can build an entire world from a single prompt. Historically accurate San Francisco Market street in 1906, pre-earthquake". The prompt he publishes is longer than most things in this feed and is worth quoting for its method alone. It names the sources first &#8212; 1899-1905 Sanborn fire insurance maps, the Miles Brothers film "A Trip Down Market Street" from April 1906, period photographs from OpenSFHistory, the Library of Congress and the David Rumsey collection, and USGS topography &#8212; requires every building to record "the source for each fact with a confidence level", forbids downloaded meshes, textures or HDRIs, and asks for reusable generators so that "every building traces back to data".</p>
+    <p class="summary-zh zh">Anthropic 的 Alex Albert 建了一个世界，而不是去争论一个世界："我最近在用 Opus 5.5 玩 Blender。它的 3D 建模和视觉能力更好，意味着你可以用一条 prompt 建出一整个世界。1906 年大地震前的旧金山 Market Street，按史实还原。"他贴出来的那段 prompt 比这份 feed 里大多数内容都长，光是它的方法就值得引用。它先列出来源——1899-1905 年的 Sanborn 火灾保险图、Miles Brothers 1906 年 4 月的影片《A Trip Down Market Street》、OpenSFHistory 的历史照片、美国国会图书馆和 David Rumsey 收藏、以及 USGS 地形数据——要求每栋建筑都记录"每一项事实的来源和置信度"，禁止下载现成的 mesh、贴图或 HDRI，并要求写成可复用的生成器，好让"每栋建筑都能回溯到数据"。</p>
+    <p class="summary-en">That last constraint is the one worth keeping: the output is not judged on how it looks but on whether each fact can be traced to a source with a confidence level attached. His third post is a rollout notice with nothing to evaluate: "need to make sure you&#39;ve been updated to this (rolling out to everyone soon if you haven&#39;t!)"</p>
+    <p class="summary-zh zh">值得留下的是最后那条约束：评判这个产出的不是它看起来怎么样，而是每个事实能不能追到一个来源、并且带一个置信度。他的第三条是一条发布通知，没有可评估的内容："得确认你已经更新到这个版本了（如果还没有，很快就会推给所有人！）"</p>
+    <div class="urls"><a href="https://x.com/alexalbert__/status/2102466524934271381">https://x.com/alexalbert__/status/2102466524934271381</a><a href="https://x.com/alexalbert__/status/2102466523164274839">https://x.com/alexalbert__/status/2102466523164274839</a><a href="https://x.com/alexalbert__/status/2102458350348935454">https://x.com/alexalbert__/status/2102458350348935454</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Steinberger</span>
+      <span class="builder-role">OpenClaw · OpenAI</span>
+    </div>
+    <p class="summary-en">Peter Steinberger (OpenClaw, OpenAI) reports the day&#39;s only model-found bug in the wild, and it is old: "Had ChatGPT sometimes crashing on me after updating to macOS 27 and... Astra found a ~14 year old bug in libuv." One line, no reproduction steps, no patch status. It is still the only entry today where a model&#39;s output is an upstream defect in someone else&#39;s dependency rather than a demo.</p>
+    <p class="summary-zh zh">OpenClaw 与 OpenAI 的 Peter Steinberger 报告了今天唯一一个模型在真实环境里挖出来的 bug，而且是个老 bug："升级到 macOS 27 之后 ChatGPT 有时会崩在我面前，然后……Astra 在 libuv 里找到了一个约 14 年的老 bug。"一句话，没有复现步骤，也没有修复状态。但它仍然是今天唯一一条模型产出是别人依赖库里的上游缺陷、而不是一个演示的条目。</p>
+    <div class="urls"><a href="https://x.com/steipete/status/2102501642176528743">https://x.com/steipete/status/2102501642176528743</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">AI tutorials &amp; interviews</span>
+    </div>
+    <p class="summary-en">Peter Yang gives the day&#39;s most direct endorsement and no numbers to go with it: "I talk about why Opus 5.5 is the most excited I&#39;ve been about a Claude model in awhile here" &#8212; the reasoning sits behind a link the feed does not resolve. His other two posts carry no AI content: a newsletter signup aimed at @claudeai ("Join 110,000+ subscribers here"), and a note that he "randomly played this Australian show on Apple TV and it&#39;s another banger". Both are recorded as-is.</p>
+    <p class="summary-zh zh">Peter Yang 给了今天最直接的一句背书，但没有配任何数字："我在这边讲了为什么 Opus 5.5 是我很久以来对 Claude 模型最兴奋的一次"——理由在一个 feed 无法解析的链接后面。他另外两条没有 AI 内容：一条冲着 @claudeai 发的 newsletter 订阅引导（"在这里加入 11 万+订阅者"），以及一句"在 Apple TV 上随手点开这部澳大利亚剧，又是一部好剧"。两条都照实收录。</p>
+    <div class="urls"><a href="https://x.com/petergyang/status/2102628682301046875">https://x.com/petergyang/status/2102628682301046875</a><a href="https://x.com/petergyang/status/2102589061445939508">https://x.com/petergyang/status/2102589061445939508</a><a href="https://x.com/petergyang/status/2102577425838485916">https://x.com/petergyang/status/2102577425838485916</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Dan Shipper</span>
+      <span class="builder-role">Every CEO</span>
+    </div>
+    <p class="summary-en">Every CEO Dan Shipper posts his comparative take &#8212; "my vibe check on opus 5.5 vs. sol-6" &#8212; behind a link, together with a second piece "on why AI automation creates more good work to do for human experts". Both arguments sit outside this feed, so only their framing is available: he is running today&#39;s two releases against each other, and his conclusion on automation is that it adds expert work rather than removing it. He notes he "added almost 10k new followers today" while pointing people at them. His third post is a single emoji and nothing else.</p>
+    <p class="summary-zh zh">Every CEO Dan Shipper 把他的对比看法放在链接后面——"我对 opus 5.5 和 sol-6 的 vibe check"——同时挂了另一篇"关于 AI 自动化为什么会给人类专家创造出更多好工作"。两段论证都在这份 feed 之外，所以能拿到的只有它们的框架：他在把今天这两个发布摆在一起对打，而他关于自动化的结论是它会增加专家的工作，而不是拿走。他提到自己"今天涨了差不多 1 万粉"，同时把它们指给新来的人。他的第三条只有一个表情，没有别的。</p>
+    <div class="urls"><a href="https://x.com/danshipper/status/2102557212581536207">https://x.com/danshipper/status/2102557212581536207</a><a href="https://x.com/danshipper/status/2102556723244564715">https://x.com/danshipper/status/2102556723244564715</a><a href="https://x.com/danshipper/status/2102555830080205130">https://x.com/danshipper/status/2102555830080205130</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Garry Tan</span>
+      <span class="builder-role">Y Combinator President &amp; CEO</span>
+    </div>
+    <p class="summary-en">Y Combinator&#39;s Garry Tan makes the day&#39;s only comparative claim about a harness rather than a model: "Capy (@capydotai) lets me drop PRs much much faster than I would with Codex or Claude Code alone". One sentence, no measurement. It is also the second time in a week this feed has carried him naming a tool that beats the two defaults &#8212; on 09-17 he credited Capy with getting the same model to finish in half the time. His other two posts are YC-facing: "If you&#39;re working on something cool, GStack does actually tell you to apply to YC", and "We need to teach the world to prompt and maximally use AI: to help all people see the way it can give you wings in all your pursuits / Then we need yearn to solve more problems for ourselves and for one another".</p>
+    <p class="summary-zh zh">Y Combinator 的 Garry Tan 给了今天唯一一条关于 harness 而不是模型的对比主张："Capy（@capydotai）让我发 PR 的速度比单用 Codex 或 Claude Code 快非常多。"一句话，没有度量。这也是这份 feed 一周内第二次出现他点名一个跑赢那两个默认选项的工具——09-17 他提到 Capy 用同一个模型只用了一半时间。他另外两条是面向 YC 的："如果你在做点有意思的东西，GStack 真的会提示你去申请 YC"，以及"我们需要教会全世界去写 prompt、最大化地使用 AI，让所有人看到它能在你追求的一切里给你翅膀；然后我们还需要渴望为自己和彼此解决更多问题"。</p>
+    <div class="urls"><a href="https://x.com/garrytan/status/2102544711647129902">https://x.com/garrytan/status/2102544711647129902</a><a href="https://x.com/garrytan/status/2102537390774759761">https://x.com/garrytan/status/2102537390774759761</a><a href="https://x.com/garrytan/status/2102501556348440983">https://x.com/garrytan/status/2102501556348440983</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Sam Altman</span>
+      <span class="builder-role">OpenAI</span>
+    </div>
+    <p class="summary-en">Sam Altman corrects himself first: "argh i meant VOICE not video :( / sorry to dissapoint". Something was announced or understood as video, and it was voice. The feed carries only the correction &#8212; not the original claim, and not what shipped. His other two posts are about people and companies: "Startups are naturally good at this; it is hard to keep a bigger company good at this and i think an underexplored space", and praise for a colleague &#8212; "michelle embodies this as much as anyone / openai is so, so lucky to have benefited from everything she has done so far and i think people will be quite pleased to see what she + team have cooking next!"</p>
+    <p class="summary-zh zh">Sam Altman 先更正自己："啊我是说语音不是视频 :( / 抱歉让大家失望了"。有东西被发布或被理解成了视频，而实际是语音。feed 里只有这句更正——没有原始说法，也没有说到底上了什么。他另外两条讲的是人和公司："创业公司天生擅长这件事；让一家大公司持续擅长这件事很难，我觉得这是一个还没被充分探索的空间"，以及表扬一位同事——"michelle 在这件事上的体现不亚于任何人 / openai 能有幸受益于她至今做的一切，我觉得大家会相当高兴地看到她和她团队下一步在做什么！"</p>
+    <div class="urls"><a href="https://x.com/sama/status/2102512794235207758">https://x.com/sama/status/2102512794235207758</a><a href="https://x.com/sama/status/2102469008079679640">https://x.com/sama/status/2102469008079679640</a><a href="https://x.com/sama/status/2102468713866055872">https://x.com/sama/status/2102468713866055872</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nikunj Kothari</span>
+      <span class="builder-role">Partner, FPV Ventures</span>
+    </div>
+    <p class="summary-en">FPV Ventures partner Nikunj Kothari writes the day&#39;s only post about private markets, and it is a warning about reading them: "The amount of SPVs organzied by even the &#39;best&#39; investors is simply mind boggling... if you read headlines of a large fundraise, you can be reasonably sure now that a large amount of it came from SPVs even though the headlines say something else. Combine that with tranched valuations and revenue not being the same, all I&#39;ll say don&#39;t believe the headlines anymore. Proof is in the pudding and the pudding is not publicly visible anywhere." No AI content in it, but it is a builder&#39;s account of how the round numbers in this industry get assembled.</p>
+    <p class="summary-zh zh">FPV Ventures 合伙人 Nikunj Kothari 写了今天唯一一条关于一级市场的帖子，而它是一个关于"怎么读这些数字"的警告："哪怕是&#39;最好&#39;的那批投资人，他们攒的 SPV 数量都多得离谱……现在你看到一笔大额融资的标题，你基本可以确定其中有很大一块来自 SPV，哪怕标题写的是另一回事。再叠加分期估值和收入口径不一致，我只能说：别再信标题了。证据在布丁里，而布丁在任何公开地方都看不到。"里面没有 AI 内容，但这是一个 builder 对这个行业里那些融资数字是怎么被拼出来的说法。</p>
+    <p class="summary-en">His other two posts are distribution for a video series: "A Walk In The Park (part III) feat @toddsaunders", with a chapter list running from "Software should fit your business" (00:00) to "Who Todd wants to hear from" (32:43), and a one-line follow-up &#8212; "Now also on YouTube".</p>
+    <p class="summary-zh zh">他另外两条是给一个视频系列做分发："A Walk In The Park（第三部分），嘉宾 @toddsaunders"，附的章节表从"软件应该适配你的生意"（00:00）一直到"Todd 想听到谁的声音"（32:43），以及一句后续——"现在 YouTube 上也有了"。</p>
+    <div class="urls"><a href="https://x.com/nikunj/status/2102534909076349291">https://x.com/nikunj/status/2102534909076349291</a><a href="https://x.com/nikunj/status/2102409907278602622">https://x.com/nikunj/status/2102409907278602622</a><a href="https://x.com/nikunj/status/2102395699895677325">https://x.com/nikunj/status/2102395699895677325</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aditya Agarwal</span>
+      <span class="builder-role">General Partner, SPC</span>
+    </div>
+    <p class="summary-en">SPC general partner Aditya Agarwal reframes today&#39;s safety conversation by pointing at where it started: "Safety and alignment of &#39;models&#39; is the raging topic today. But the original &#39;safety&#39; debate for AI/MachineLearning was actually in autonomous vehicles!" What he says he took from hosting Dmitri Dolgov of Waymo is the evaluation infrastructure &#8212; "the extensive eval/testing infrastructure that Waymo has built out in order to build the confidence to release 2-ton robots traveling at 30mph through urban environments". The comparison is implied rather than argued: an industry that had to prove safety before shipping, in a domain where failure is physical.</p>
+    <p class="summary-zh zh">SPC 管理合伙人 Aditya Agarwal 把今天这场安全讨论重新框了一遍，办法是指出它最初发生在哪儿："&#39;模型&#39;的安全与对齐是今天最热的话题。但 AI/机器学习最初的那场&#39;安全&#39;争论，其实发生在自动驾驶上！"他说自己主持 Waymo 的 Dmitri Dolgov 那场对谈，真正带走的是评测基础设施——"Waymo 为了建立信心、好把两吨重、以 30 英里时速穿过城市环境的机器人放出去，所建的那套庞大的 eval/测试基础设施"。这个对比是暗示出来的，没有被论证：一个必须先证明安全才能发货的行业，而它的失败是物理性的。</p>
+    <p class="summary-en">His other two posts are about the pull of the physical world and about delight. On the fireside: "The first one my 9 year old asked to attend was yesterday&#39;s with Dmitri of Waymo. The evocative beauty of building things for the physical world is undeniable." And: "In the mad dash for productivity...we often forget that AI products should be delightful and FUN", recommending a product called Sentience.</p>
+    <p class="summary-zh zh">他另外两条讲的是物理世界的吸引力，以及"让人愉快"。关于那场对谈："我 9 岁孩子第一次开口说想参加的，就是昨天和 Waymo 的 Dmitri 那场。为物理世界造东西的那种唤起感之美，是不可否认的。"另一条："在狂奔着追求生产力的时候……我们常常忘了 AI 产品应该是让人愉快、有趣的"，并推荐了一个叫 Sentience 的产品。</p>
+    <div class="urls"><a href="https://x.com/adityaag/status/2102498288658526614">https://x.com/adityaag/status/2102498288658526614</a><a href="https://x.com/adityaag/status/2102457464432284019">https://x.com/adityaag/status/2102457464432284019</a><a href="https://x.com/adityaag/status/2102421668509733058">https://x.com/adityaag/status/2102421668509733058</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Amjad Masad</span>
+      <span class="builder-role">Replit CEO</span>
+    </div>
+    <p class="summary-en">Replit CEO Amjad Masad posts a pun and nothing else: "Your intelligence is fake. It&#39;s artificial. / Mine? It&#39;s super. Super Intelligence. Aka SI." No claim, no product. It is recorded because it is in the feed, and because the joke lands on the acronym the whole industry argues about.</p>
+    <p class="summary-zh zh">Replit CEO Amjad Masad 发了一个双关，别的什么都没有："你的智能是假的。它是人工的。/ 我的？它是超级的。超级智能。简称 SI。"没有主张，没有产品。收录它只因为它在 feed 里，也因为这个玩笑正落在整个行业都在争的那个缩写上。</p>
+    <div class="urls"><a href="https://x.com/amasad/status/2102489320766800002">https://x.com/amasad/status/2102489320766800002</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Josh Woodward</span>
+      <span class="builder-role">VP, Google Labs &amp; Gemini</span>
+    </div>
+    <p class="summary-en">Google&#39;s Josh Woodward (VP, Google Labs and Gemini) posts four words and a link: "Big milestone!". Whatever the milestone is sits behind a shortened URL the feed does not resolve. Recorded only to keep the count honest &#8212; there is nothing here to summarize.</p>
+    <p class="summary-zh zh">Google 的 Josh Woodward（副总裁，Google Labs 与 Gemini）发了四个词和一个链接："Big milestone!"。那个里程碑是什么，在一个 feed 无法解析的短链后面。收录它只是为了让计数诚实——这里没有任何可总结的内容。</p>
+    <div class="urls"><a href="https://x.com/joshwoodward/status/2102498448364954083">https://x.com/joshwoodward/status/2102498448364954083</a></div>
+  </article>
+
+</section>
+
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">&#129517;</span>
+    <h2 class="section-title">Takeaway</h2>
+    <span class="section-meta">No Podcast Today</span>
+  </div>
+
+  <div class="takeaway">
+    <div class="takeaway-label">The Takeaway</div>
+    <p>Two frontier releases landed on the same day, and both led with price. Anthropic made Opus 5.5 the default in Claude Code and the Claude app, with Cat Wu setting effort to medium &#8212; "comparable to Fable 5.1 on intelligence but faster" &#8212; and rate limits going 25% further than Opus 5. OpenAI shipped GPT-6 Sol and Luna with a permanent 50% API price cut. Aaron Levie, who buys from both sides, is the one who says what that means: the cost per task on a like-for-like basis drops "unlike any other type of technology in history", and every drop opens up more use-cases worth pointing agents at. He gives it a name: Jevons paradox applied to agents.</p>
+    <p>The numbers behind his claim are the most concrete thing in the feed, and they all point one way. Box ran Opus 5.5 against Opus 5 on enterprise knowledge work: 63% fewer tokens, 42% less verbosity, 30% faster. Four industry tests, four gains &#8212; due diligence +39% task accuracy on 82% fewer tokens, cloud cost analysis +65% on 70% fewer, client account analysis +17% on 78% fewer, clinical diagnostics +15% on 78% fewer. Three are efficiency wins. The fourth is different in kind: the model noticed two groups&#39; standard deviations differed more than 100-fold, re-ran the test, and the dry-season difference "didn&#39;t hold up after all". Cheaper tokens changed an answer, not just a bill.</p>
+    <p>What the cheaper token gets spent on is where the day splits. Boris Cherny spends it on correctness: a couple of short prompts in Lean produced 16 PRs fixing bugs and race conditions in the Claude Agent SDK, in a language he says he does not know well, and he leaves the question open &#8212; "Is formal verification the future of coding (or at least, bug finding)?" Thariq spends it on restraint: "not to ship 10x more features to prod", but on understanding users, running experiments, building prototypes. Same premise about capability getting cheaper, opposite conclusions about what to do with it. Rauch&#39;s own evals sit in the middle of that argument: Opus 5.5, GPT-6 Sol and Fable 5.1 all at 97%, Grok 4.7 at 94%, and his only comment is that Grok is 2x-7x cheaper.</p>
+    <p>One thread from an earlier issue closed today. On 09-23 this feed carried Sottiaux&#39;s tease &#8212; "We are almost Tuesday and I promised a reset for Tuesday" &#8212; which followed his 09-11 disclosure that resets were not fully applying in ChatGPT Work and Codex, with a make-good and an apology. The reset arrived on the day he named: "We are loading a banked reset into all accounts of our Plus, Pro and Business users." Two things worth keeping straight. The reset and the models are what landed, not the consumer agent Nikunj reported as imminent yesterday &#8212; there is no agent announcement in this feed. And the independent benchmark gap has not closed: the only cross-model number today is Vercel running its own Next.js eval.</p>
+  </div>
+
+  <div class="takeaway zh">
+    <div class="takeaway-label">核心结论</div>
+    <p>同一天落地了两个前沿发布，而两边都把价格放在最前面。Anthropic 把 Opus 5.5 设为 Claude Code 和 Claude 应用的默认模型，Cat Wu 把 effort 定为 medium——"智能水平和 Fable 5.1 相当，但更快"——速率额度比 Opus 5 多走 25%。OpenAI 发布 GPT-6 Sol 和 Luna，API 价格永久性下调 50%。两边都买的 Aaron Levie 是那个说出这意味着什么的人：在同等可比基础上，单位任务的成本下降速度"历史上没有任何一类技术是这样的"，而每一次下降都会打开更多值得把 agent 投进去的用例。他给了它一个名字：Jevons paradox 用在 agent 上。</p>
+    <p>支撑他这个主张的数字是这份 feed 里最具体的东西，而且全部指向同一个方向。Box 用 Opus 5.5 对 Opus 5 跑企业知识工作：token 少 63%、啰嗦程度低 42%、快 30%。四个行业测试，四项增益——尽调任务准确率 +39%、token 少 82%；云成本分析 +65%、token 少 70%；客户账户分析 +17%、token 少 78%；临床诊断 +15%、token 少 78%。三项是效率上的赢。第四项性质不同：模型发现两组标准差相差超过 100 倍，重跑了检验，结论是旱季的差异"最后并没有成立"。更便宜的 token 改变的是一个答案，不只是一张账单。</p>
+    <p>便宜下来的 token 花在什么地方，是今天分歧所在。Boris Cherny 花在正确性上：几个很短的 prompt 配 Lean，产出 16 个 PR 修掉 Claude Agent SDK 里的 bug 和竞态条件，而他说自己并不熟这门语言，最后他把问题留在那里——"形式化验证会是编码的未来吗（或者至少，是找 bug 的未来）？"Thariq 花在克制上："不是往生产环境多推 10 倍功能"，而是去理解用户、做实验、搭原型。前提相同（能力在变便宜），结论相反（该拿它做什么）。Rauch 自己的评测正落在这场争论的中间：Opus 5.5、GPT-6 Sol、Fable 5.1 全是 97%，Grok 4.7 是 94%，而他唯一的评语是 Grok 便宜 2 到 7 倍。</p>
+    <p>前几期的一条线今天收口了。09-23 那期 feed 里是 Sottiaux 的预告——"我们快到周二了，我答应过周二会有一次 reset"——而这条预告又接在他 09-11 的披露之后：resets 在 ChatGPT Work 与 Codex 中使用时没有完全生效，他给出了补偿和致歉。这次 reset 在他点名的那天到了："我们正在向所有 Plus、Pro 和 Business 用户的账户里补入一次 banked reset。"两件事要分清楚。落地的是这次 reset 和这两个模型，不是 Nikunj 昨天说即将到来的那个消费级 agent——这份 feed 里没有任何 agent 发布的消息。而独立基准测试的缺口也没有补上：今天唯一的跨模型数字，是 Vercel 自己跑的 Next.js eval。</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="next-issue">&#128236; 下一期：明天 10:00（北京时间）</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->
