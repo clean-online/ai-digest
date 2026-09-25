@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest &#183; 2026-09-25</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 &#183; Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest &#183; 2026-09-25 &#183; 周五</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">17</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">37</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+<p class="note-line">今日 feed 的播客数组为空，故 Podcast 计 0；3 篇官方博客（均来自 Anthropic Engineering）此前均已收录，按去重规则计 0 并仅在下方「已收录 / Already Covered」中列出链接。下方 X 段落的 17 位 builder 与 37 条推文为 feed 全部内容，全部渲染。</p>
+
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">&#128036;</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">17 Builders</span>
+  </div>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">Vercel CEO</span>
+    </div>
+    <p class="summary-en">Vercel CEO Guillermo Rauch publishes the only new architecture in today&#8217;s feed, and he builds it out of a decomposition. Successful agents &#8212; he names Muse, Instinct, OpenClaw and Claude Code &#8212; have three parts: "🧠 Brain → model, harness (logic)", "👐 Hands → tools, computer, browser", "🗃️ Files → memories, skills, repos". The easy way is to keep all three in one stateful computer, "a Mac Mini", kept running all day with caffeinate and everything installed on it. Running agents in the cloud cost-efficiently forces them apart: the harness in Fluid compute with its event log made durable via Workflow, the hands as a dedicated browser fleet (Browserbase/Kernel), a computer (Sandbox) or lightweight tools like just-bash. What was missing was the third piece: "Today we&#8217;re introducing the perfect companion to Sandbox: Drives... we&#8217;re giving you the &#8216;external disk&#8217; you can attach at will. It&#8217;s early, and we&#8217;ll be expanding capabilities here quickly." His example is a nightly memory consolidation job that reads and writes files "without &#8216;booting up&#8217; the agent&#8217;s full computer".</p>
+    <p class="summary-zh zh">Vercel CEO Guillermo Rauch 发布了今天这份 feed 里唯一一套新架构，而它是用一个拆解推出来的。成功的 agent —— 他点名 Muse、Instinct、OpenClaw 和 Claude Code —— 有三个部分："🧠 Brain → 模型、harness（逻辑）"、"👐 Hands → 工具、电脑、浏览器"、"🗃️ Files → 记忆、skills、仓库"。省事的办法是把三样都塞进一台有状态的电脑里，"一台 Mac Mini"，用 caffeinate 让它整天跑着，CLI 和应用都装好。想要在云上低成本跑 agent，就得把它们拆开：harness 跑在 Fluid compute 上，用 Workflow 把事件日志做成持久化的，以应对重启、发布和崩溃；hands 可以是专门的浏览器集群（Browserbase/Kernel）、一台电脑（Sandbox），或者像 just-bash 这样更轻的工具。一直缺的是第三块："今天我们推出 Sandbox 的最佳搭档：Drives……我们给你的是一块可以随意挂载的&#39;外接硬盘&#39;。它还早，我们很快会在这里扩展能力。"他举的例子是一个每晚跑的记忆整合任务，可以直接读写文件，"不用把 agent 的整台电脑&#39;开机&#39;"。</p>
+    <p class="summary-en">His closing claim is about security rather than cost, and it is the strongest sentence he writes: "breaking apart the agent into these independent parts not only optimizes costs in a big way, it also *massively* improves security and auditability. I&#8217;d argue you can&#8217;t even run a secure agent otherwise!" No number, no benchmark, no customer is offered for it. It is still the only item today where someone describes how an agent ought to be assembled rather than what one did.</p>
+    <p class="summary-zh zh">他最后那句主张讲的是安全而不是成本，也是他今天写得最重的一句："把 agent 拆成这些独立的部分，不只是大幅优化成本，它还*极大*地改善了安全性和可审计性。我认为除此之外你根本跑不了一个安全的 agent！"他没有为它给出任何数字、基准或客户。但它仍然是今天唯一一条在描述 agent 应该怎么被组装、而不是某个 agent 做了什么的内容。</p>
+    <p class="summary-en">His second post is where a model enters, and it is a comparison with no published score: "ShellPerfBench. I&#8217;m really neurotic about the startup time of a new shell session. Opus 5.5 found a lot of really great optimizations other models missed." The benchmark is named, the result is asserted, and neither can be checked from here. He closes with a recommendation: "Anon, anytime you open a new terminal, you might be silently suffering. Tell your agent to optimize .𝚣𝚜𝚑𝚛𝚌 and friends"</p>
+    <p class="summary-zh zh">他的第二条是模型出场的地方，而它是一次没有公布分数的对比："ShellPerfBench。我对新 shell 会话的启动时间非常神经质。Opus 5.5 找到了很多别的模型都漏掉的极佳优化。"基准的名字给了，结果是直接断言的，两者从这里都无法核对。他最后给了一个建议："老兄，你每次开一个新终端，可能都在无声地受苦。让你的 agent 去优化 .𝚣𝚜𝚑𝚛𝚌 和它的朋友们"</p>
+    <div class="urls"><a href="https://x.com/rauchg/status/2102947745132924993">https://x.com/rauchg/status/2102947745132924993</a><a href="https://x.com/rauchg/status/2102820148629614685">https://x.com/rauchg/status/2102820148629614685</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aaron Levie</span>
+      <span class="builder-role">Box CEO</span>
+    </div>
+    <p class="summary-en">Box CEO Aaron Levie quotes someone at length and endorses it, which makes this the day&#8217;s most complete statement about what falling costs do to a creative industry. The passage argues that "as the barriers and the costs come down, more films will get made, not fewer. Studios will get to take more risks. There will be more seats at the table, and very soon entirely new forms of storytelling", and rests it on precedent: animation was "dismissed as a niche corner of the business" in the 1980s and is now one of the most profitable forms of storytelling, and "filmmakers like Steven Spielberg, James Cameron and Peter Jackson embraced new visual tools not as shortcuts, but as instruments, and expanded cinema in the process". Levie does not name the person he is quoting, and the feed does not resolve it.</p>
+    <p class="summary-zh zh">Box CEO Aaron Levie 大段引用了一个人并背书，这让他给出了今天关于"成本下降会把创意产业变成什么"最完整的一段表述。被引用的那段主张："随着门槛和成本降下来，被拍出来的电影会更多，而不是更少。制片厂可以承担更多风险。桌上会有更多位置，而且很快就会出现全新的叙事形式。"它把论证压在先例上：动画在 1980 年代"被视为行业里一个边缘角落"，如今是最赚钱的叙事形式之一；而"斯皮尔伯格、卡梅隆和彼得·杰克逊这样的电影人拥抱新的视觉工具，不是当捷径，而是当乐器，并在这个过程中拓展了电影"。Levie 没有点出他引用的是谁，feed 也无法解析。</p>
+    <p class="summary-en">His own addition is about what does not change: "even when the techniques or mediums change, the underlying need for creative skills and taste don&#8217;t go away. Just more people are able to leverage those skills effectively when a new technology arrived, and users of the tools discover novel new ways to tell stories." Read against the enterprise numbers he published in yesterday&#8217;s feed &#8212; Box measuring Opus 5.5 at 63% fewer tokens and four industry cases &#8212; today&#8217;s post carries no measurement at all. It is the same thesis, applied to a domain where he has no data to offer.</p>
+    <p class="summary-zh zh">他自己补的一句是关于什么不会变："即便技术或媒介在变，对创意能力和品味的底层需求并没有消失。只是当一项新技术到来时，有更多人能有效地用上这些能力，而工具的使用者也会发现讲故事的新方式。"把它和他昨天那份 feed 里的企业数字放在一起读 —— Box 测到 Opus 5.5 token 少 63%，外加四个行业用例 —— 今天这条没有任何度量。是同一个论点，只是被用在了一个他拿不出数据的领域。</p>
+    <p class="summary-en">His second post is an integration announcement with nothing to evaluate: "Muse and Box, together at last". It matters mainly as a signal about Muse. On 09-22 Peter Yang ranked Meta&#8217;s Muse first in his read of the personal agent race and predicted it would become "the company&#8217;s most successful homegrown app after Facebook"; today that ranking picks up an adoption data point from a company that sells to enterprises, and a second one from Garry Tan elsewhere in this feed.</p>
+    <p class="summary-zh zh">他的第二条是一条集成公告，没有可评估的内容："Muse and Box, together at last"。它的意义主要在于它是关于 Muse 的一个信号。09-22 那天 Peter Yang 在他对个人 agent 竞局的解读里把 Meta 的 Muse 排在第一，并预测它会成为"这家公司继 Facebook 之后最成功的自研 app"；今天这个排名拿到了一个来自面向企业销售的公司的采用证据，以及同一份 feed 里 Garry Tan 给出的第二个。</p>
+    <div class="urls"><a href="https://x.com/levie/status/2102934874470617303">https://x.com/levie/status/2102934874470617303</a><a href="https://x.com/levie/status/2102915863989075979">https://x.com/levie/status/2102915863989075979</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Boris Cherny</span>
+      <span class="builder-role">Claude Code, Anthropic</span>
+    </div>
+    <p class="summary-en">Boris Cherny comes back to the question he asked in yesterday&#8217;s feed, and answers a narrower one. On 09-24 he reported formally verifying the Claude Agent SDK with Lean &#8212; "16 PRs fixing various bugs and race conditions" &#8212; and left it open: "Is formal verification the future of coding (or at least, bug finding)?" Today he publishes what is actually happening instead of ruling on it: "1. Building a model of the program, targeting a tricky state machine or race-prone part of the code / 2. Finding counter-examples in the model. These are suspected bugs / 3. Reproducing the bugs / 4. Fixing the bugs in the code." His own caveat is the part that matters to anyone extrapolating from it: "It&#8217;s not that the whole codebase is formally verified (yet!..), more that the hairiest parts of the code are modeled, checked for counter-examples, and fixed." The scope is narrower than the phrase "formal verification" implies, and he is the one drawing the line.</p>
+    <p class="summary-zh zh">Boris Cherny 回到了他昨天在这份 feed 里提出的那个问题，而回答的是一个更窄的问题。09-24 他报告用 Lean 对 Claude Agent SDK 做了形式化验证——"16 个 PR，修掉各种 bug 和竞态条件"——然后把问题留在那里："形式化验证会是编码的未来吗（或者至少，是找 bug 的未来）？"今天他发布的是实际在发生什么，而不是给出一个判断："1. 为程序建一个模型，针对棘手的状态机或容易产生竞态的那部分代码 / 2. 在模型里找反例。这些就是疑似 bug / 3. 复现这些 bug / 4. 在代码里修掉它们。"他自己的那句限定，对任何想从这里往下推的人来说才是关键："并不是整个代码库都被形式化验证了（还没有！..），更多是代码里最毛糙的那些部分被建模、被检查反例、然后被修掉。"范围比"形式化验证"这个词给人的印象要窄，而划这条线的人正是他自己。</p>
+    <p class="summary-en">His second post points at a performance write-up without reproducing any of it: "If you&#8217;ve noticed how fast claude.ai and the Desktop app have become in the last few weeks, here&#8217;s how we did it. Lots of juicy learnings &amp; techniques in the blog post for engineers working on speeding up your own apps." The gains are asserted in the first clause and the method sits behind a link the feed does not resolve.</p>
+    <p class="summary-zh zh">他的第二条指向一篇性能复盘，但没有复述其中任何内容："如果你注意到 claude.ai 和桌面应用最近几周变得有多快，这就是我们怎么做到的。那篇博文里有很多很有料的心得和技巧，适合正在给自己的应用提速的工程师。"提速是前半句里断言的，方法在一个 feed 无法解析的链接后面。</p>
+    <p class="summary-en">His third is personal and carries nothing to evaluate: "It was an honor to meet Donald Knuth at the Computer History Museum today".</p>
+    <p class="summary-zh zh">他的第三条是私人内容，没有可评估的东西："今天在计算机历史博物馆见到 Donald Knuth，很荣幸"。</p>
+    <div class="urls"><a href="https://x.com/bcherny/status/2102971275543216623">https://x.com/bcherny/status/2102971275543216623</a><a href="https://x.com/bcherny/status/2102898067133595992">https://x.com/bcherny/status/2102898067133595992</a><a href="https://x.com/bcherny/status/2102854267782705648">https://x.com/bcherny/status/2102854267782705648</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">Practical AI tutorials &amp; interviews</span>
+    </div>
+    <p class="summary-en">Peter Yang names the gap that yesterday&#8217;s model releases left open, and he locates it one layer below the model: "With a model this good the Claude Code harness really needs great live voice and browser + computer use (latter is improving!)". His summary of the situation is the sentence worth keeping: "Right now one lab has the best model and another has the best harness." He does not name either lab, and the feed offers nothing to measure the claim against. It is the same argument he made on 09-22, when he published the feed&#8217;s most structured ranking of the personal agent race, carried down into the harness layer.</p>
+    <p class="summary-zh zh">Peter Yang 点出了昨天的模型发布留下的那个缺口，并把它定位在模型的下一层："模型都这么好了，Claude Code 的 harness 真的需要很棒的实时语音，以及浏览器 + computer use（后者正在变好！）"。他对局面的总结是值得留下的一句："现在是一家实验室有最好的模型，另一家有最好的 harness。"两家他都没点名，feed 里也没有任何东西可以用来衡量这个说法。这和他 09-22 那次是同一个论点 —— 那天他发布了这份 feed 里最有结构的个人 agent 竞局排序 —— 只是被下移到了 harness 这一层。</p>
+    <p class="summary-en">His read of Opus 5.5 is six lines with no numbers: "Smart / Fast / Fun to talk to / Good at writing / Friendly on rate limits / Constantly surprising at just how much it is capable of". Three of the six are about manner rather than capability, which is a fair description of what this feed has been able to check since the model became the default yesterday &#8212; the on-paper numbers came from Anthropic, and they were about throughput, not intelligence.</p>
+    <p class="summary-zh zh">他对 Opus 5.5 的评价是六行，没有任何数字："聪明 / 快 / 聊天有乐趣 / 会写东西 / 速率额度友好 / 总能让人惊讶于它到底能做多少"。六条里有三条讲的是风格而不是能力，这恰好是这份 feed 自该模型昨天成为默认以来能验证的范围 —— 纸面上的数字来自 Anthropic，而那些数字讲的是吞吐，不是智能。</p>
+    <p class="summary-en">His third post is a result with no method attached: "No more crappy corporate slides, the result of this prompt blew me away lol". The prompt is behind a link the feed does not resolve.</p>
+    <p class="summary-zh zh">他的第三条是一个结果，没有附上方法："再也不用那些糟糕的企业幻灯片了，这条 prompt 出来的结果把我惊到了 lol"。那条 prompt 在一个 feed 无法解析的链接后面。</p>
+    <div class="urls"><a href="https://x.com/petergyang/status/2102956775645552645">https://x.com/petergyang/status/2102956775645552645</a><a href="https://x.com/petergyang/status/2102952201350254667">https://x.com/petergyang/status/2102952201350254667</a><a href="https://x.com/petergyang/status/2102946952740741394">https://x.com/petergyang/status/2102946952740741394</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thariq</span>
+      <span class="builder-role">Claude Code, Anthropic</span>
+    </div>
+    <p class="summary-en">Anthropic&#8217;s Thariq posts the feed&#8217;s most efficient correction of its own genre, and it is two lines long. First the claim as it circulates: "the post: &#8216;Claude one-shot this&#8217;". Then what actually sat behind it: "the prompt: 10k characters with good takes plus skills, examples and API keys". It is the same demystification Ryo Lu argues at length elsewhere in this feed, delivered as a caption.</p>
+    <p class="summary-zh zh">Anthropic 的 Thariq 发了一条对这类内容本身最高效的修正，全长两行。先是把流传中的说法摆出来："帖子：&#39;Claude 一次就成了&#39;"。然后是它背后真正的东西："prompt：一万字符，带好的观点，加上 skills、示例和 API key"。这和 Ryo Lu 在同一份 feed 里长篇论证的是同一件事，只是用一句图注说完了。</p>
+    <p class="summary-en">The post around it explains the format: "this is a new type of post we&#8217;re trying where we share in-depth about how we do work using specific prompts and techniques you should be able to replicate / let us know if it&#8217;s useful or if you have any feedback!" Worth reading against what he said yesterday, when he argued for spending capability on understanding users and running experiments rather than "ship[ping] 10x more features to prod": publishing the input is that same position turned into a practice.</p>
+    <p class="summary-zh zh">包着它的那条帖子解释了形式："这是我们在尝试的一种新帖子类型，会深入分享我们是用哪些具体 prompt 和技术来做工作的，你应该可以复现 / 觉得有用或者有反馈就告诉我们！"值得和他昨天说的放在一起读 —— 那天他主张把能力花在理解用户和做实验上，而不是"往生产环境多推 10 倍功能"：把输入公开出来，就是同一个立场变成了一个做法。</p>
+    <p class="summary-en">His third is a two-word reaction to something the feed does not resolve: "also it does look incredible".</p>
+    <p class="summary-zh zh">他的第三条是对一个 feed 无法解析的对象的一句两个词的反应："而且它看起来确实很棒"。</p>
+    <div class="urls"><a href="https://x.com/trq212/status/2102870443321676043">https://x.com/trq212/status/2102870443321676043</a><a href="https://x.com/trq212/status/2102870353781641416">https://x.com/trq212/status/2102870353781641416</a><a href="https://x.com/trq212/status/2102857025206255902">https://x.com/trq212/status/2102857025206255902</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Ryo Lu</span>
+      <span class="builder-role">Designed at Cursor, Notion, Stripe</span>
+    </div>
+    <p class="summary-en">Ryo Lu, who designed at Cursor, Notion and Stripe, writes the day&#8217;s longest post and the only one arguing against the premise the rest of the feed is working from. It opens on the vocabulary itself: "efficiency, productivity, speed / we keep worshipping these words like they are what we live for" &#8212; "ship faster / merge more / manage more agents / compress every loop / remove every pause / turn every hour into output" &#8212; and then on the question underneath them: "but what is the point of endless production if there is no time left to think deeply?" He is specific about what he means by thinking, and what he excludes from it: "not react / not optimize / not summarize / not clear the queue / think". His account of what AI could be is generative rather than industrial: "ai could be a new canvas / a way to make strange things / personal things / impossible things &#8212; tools, worlds, poems, games, interfaces, films, languages, rituals". What he says it is becoming instead is "slop factories... more fake work pretending to be value".</p>
+    <p class="summary-zh zh">在 Cursor、Notion 和 Stripe 做过设计的 Ryo Lu 写了今天最长的一条，也是唯一一条在反对这份 feed 其余部分所依据的前提。它从词汇本身开头："效率、生产力、速度 / 我们一直像活着就是为了它们一样崇拜这些词" —— "发得更快 / 合并更多 / 管理更多 agent / 压缩每一个循环 / 去掉每一次停顿 / 把每个小时都变成产出" —— 然后是压在它们下面的那个问题："但如果已经没有时间深度思考了，无止境的生产又有什么意义？"他对"思考"是什么说得很具体，也把它排除了什么说清楚了："不是反应 / 不是优化 / 不是总结 / 不是清空队列 / 是思考"。他对 AI 可以成为什么的说法是生成性的，而不是工业性的："ai 可以是一块新的画布 / 一种造出奇怪东西的方式 / 私人的东西 / 不可能的东西 —— 工具、世界、诗、游戏、界面、电影、语言、仪式"。而他说它正在变成的是"slop 工厂……更多伪装成价值的假工作"。</p>
+    <p class="summary-en">It lands on a reversal, which is the most quotable thing in today&#8217;s feed: "the danger is not that ai makes us lazy / the danger is that ai makes us endlessly busy" &#8212; "infinite production before we have found intention / infinite execution before we have developed taste / infinite motion before we have learned how to be still". His counter-proposal is a single word rather than a method: "maybe the real frontier is not more speed / maybe it is discernment / knowing what not to make / knowing when to stop / knowing when the most productive thing is to sleep, read history, call a friend, play with a cat, walk without tracking it, or stare at the ceiling until the false urgency dissolves". It closes where it can be argued with: "if ai is going to matter, it should not just help us produce more / it should help us become more human". No company, no product, no number. It still lands on the same fault line that split yesterday&#8217;s feed between Levie&#8217;s expansion thesis and Thariq&#8217;s restraint &#8212; argued from outside both companies, and at ten times the length.</p>
+    <p class="summary-zh zh">它最后落在一个反转上，这是今天这份 feed 里最值得引用的一句："危险不在于 ai 让我们变懒 / 危险在于 ai 让我们无止境地忙碌" —— "在我们找到意图之前就有了无限生产 / 在我们养成品味之前就有了无限执行 / 在我们学会安静之前就有了无限运动"。他的反向提议是一个词，而不是一套方法："也许真正的边疆不是更快的速度 / 也许是辨别力 / 知道什么不该做 / 知道什么时候该停 / 知道什么时候最有生产力的事是睡觉、读历史、给朋友打电话、跟猫玩、不戴 tracker 去走走，或者盯着天花板直到那种虚假的紧迫感散掉"。它收在一个可以被反驳的地方："如果 ai 真的重要，它不该只是帮我们产出更多 / 它应该帮我们变得更像人"。没有公司，没有产品，没有数字。它仍然落在昨天那份 feed 把 Levie 的扩张论和 Thariq 的克制论劈开的那条断层上 —— 只是从两家公司之外来论证，而且长了十倍。</p>
+    <div class="urls"><a href="https://x.com/ryolu_/status/2102933485795369213">https://x.com/ryolu_/status/2102933485795369213</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Madhu Guru</span>
+      <span class="builder-role">Sr Director, AI at Meta</span>
+    </div>
+    <p class="summary-en">Meta&#8217;s Madhu Guru (Sr Director, AI) posts the day&#8217;s only argument about consumer demand for agents, and it is a rebuttal: "I respectfully disagree with @benthompson on this. He&#8217;s missing a key point - Consumers don&#8217;t have one relationship with &#8216;doing things&#8217;." His central example pairs two tasks with opposite desired effort: "Browsing clothes can be entertainment (for some). But hiring a roofer is miserable (for most)." Even one activity splits both ways: "sometimes you want to browse for an hour. Sometimes you want the right thing just delivered asap." He compares the counter-argument to early-2000s scepticism about buying clothes or a $500 TV online, then spells the roofer out step by step: "search, read 10 reviews, phone tag, coordinate with insurance, schedule inspection, get quotes, catch hidden costs, review their past work, hire, scheduling." His conclusion is the claim, and it is unhedged: "The latent demand for agents that remove this friction for consumers is immense." The critic&#8217;s actual argument sits outside this feed, so only the rebuttal is available here.</p>
+    <p class="summary-zh zh">Meta 的 Madhu Guru（AI 高级总监）发了今天唯一一条关于消费者对 agent 需求的论证，而它是一段反驳："我在此恭敬地不同意 @benthompson。他漏了一个关键点 —— 消费者跟&#39;做事&#39;不是只有一种关系。"他的核心例子把两件期望投入完全相反的任务摆在一起："浏览衣服对某些人来说是娱乐。但找人修屋顶对大多数人来说是受罪。"即便是同一件事也会两头分裂："有时候你想逛上一个小时。有时候你想要那件对的东西尽快送到。"他把对方的反驳比作 2000 年代初对上网买衣服或买一台 500 美元电视的怀疑，然后一步一步把修屋顶拆开："搜索、读 10 条评价、电话来回、跟保险协调、约检查、拿报价、防隐藏费用、看他们过去的活、雇人、排期。"他的结论就是那个主张，而且没有打折："能把这类摩擦从消费者身上拿掉的 agent，其潜在需求是巨大的。"那位批评者的实际论证在这份 feed 之外，所以这里能拿到的只有这段反驳。</p>
+    <div class="urls"><a href="https://x.com/realmadhuguru/status/2102777931764498536">https://x.com/realmadhuguru/status/2102777931764498536</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thibault Sottiaux</span>
+      <span class="builder-role">Codex &amp; ChatGPT, OpenAI</span>
+    </div>
+    <p class="summary-en">OpenAI&#8217;s Thibault Sottiaux writes about voice as something already in daily use rather than a feature being announced: "Voice! I&#8217;ve gotten so used to just call ChatGPT and talk about all the work, check on emails, do some coding, manage my calendar and it works across the full ecosystem of plugins, including 3P developed plugins." This is the third point in a thread this feed has been carrying since 09-21, when Nan Yu asked whether the calling ability in Muse and Instinct was still limited, and Peter Steinberger answered the next day from a different product: "Your claw can now FaceTime you!" What is new today is the scope &#8212; not one app but the plugin ecosystem, third-party included.</p>
+    <p class="summary-zh zh">OpenAI 的 Thibault Sottiaux 把语音写成了已经在日常使用中的东西，而不是一个正在发布的功能："语音！我已经太习惯直接打电话给 ChatGPT，聊所有的工作，查邮件，写点代码，管我的日历，而且它在整个插件生态里都能用，包括第三方开发的插件。"这是这份 feed 从 09-21 起一直在跟的那条线的第三个点 —— 那天 Nan Yu 问 Muse 和 Instinct 的通话能力是不是还受限，第二天 Peter Steinberger 用一个不同的产品回答了它："你的 claw 现在可以给你打 FaceTime 了！"今天新的是范围 —— 不是一个 app，而是整个插件生态，第三方也在内。</p>
+    <p class="summary-en">His second post is a commitment to a date, and the feed carries nothing else from him: "Can&#8217;t wait for DevDay next Tuesday. Some really fun stuff, but also many many things that should change the way you work. It&#8217;s been our most ambitious sprint and Astra has really made new things possible in such short amounts of time." There is nothing to evaluate in it, but the last dated promise he made in this feed landed on the day he named &#8212; on 09-23 he wrote "I promised a reset for Tuesday", and the reset arrived in the 09-24 feed.</p>
+    <p class="summary-zh zh">他的第二条是对一个日期的承诺，而 feed 里没有他别的内容："等不及下周二 DevDay 了。有些真的很好玩的东西，也有很多很多应该会改变你工作方式的东西。这是我们最有野心的一次冲刺，而 Astra 真的让新东西在这么短的时间里变成了可能。"里面没有可评估的内容，但他在这份 feed 里上一次对具名日期的承诺，是在他点名的那天兑现的 —— 09-23 他写的是"我答应过周二会有一次 reset"，而 reset 在 09-24 那份 feed 里到了。</p>
+    <div class="urls"><a href="https://x.com/thsottiaux/status/2102996313780736363">https://x.com/thsottiaux/status/2102996313780736363</a><a href="https://x.com/thsottiaux/status/2102814202117411196">https://x.com/thsottiaux/status/2102814202117411196</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Claude</span>
+      <span class="builder-role">Anthropic (official)</span>
+    </div>
+    <p class="summary-en">The official @claudeai account gives Claude Marketplace its general framing, and the structure is three tiers rather than a list of logos: "Add connectors and plugins like Slack and Notion", "Buy agents and products from companies like Cursor and CrowdStrike", "Scale with service partners like Accenture and Deloitte". The commercial mechanism was already visible in this feed on 09-11, when the same account announced five listings &#8212; CrowdStrike, Cursor, Factory, Gamma and Vercel &#8212; with the detail that mattered: "enterprises can now use their Anthropic spend commitment to buy more Claude-powered products and agents". What is new today is the third tier, which is not software at all: consulting capacity sold through the same surface.</p>
+    <p class="summary-zh zh">官方账号 @claudeai 给了 Claude Marketplace 一个总体的说法，而这个说法是三层结构，不是一串 logo："添加 Slack、Notion 这样的连接器和插件"、"从 Cursor、CrowdStrike 这样的公司购买 agent 和产品"、"借助 Accenture、Deloitte 这样的服务伙伴做扩展"。这套商业机制在这份 feed 的 09-11 那期已经出现过 —— 同一个账号当时宣布了五家上架：CrowdStrike、Cursor、Factory、Gamma 和 Vercel，并附上了关键的一句："企业现在可以用他们在 Anthropic 的支出承诺，去购买更多由 Claude 驱动的产品和 agent"。今天新的是第三层，它根本不是软件：是通过同一个界面卖出的咨询产能。</p>
+    <p class="summary-en">The companion post is an invitation to suppliers: "if you&#8217;re building for Claude, list your tools, agents or services here". Recorded as-is; there is nothing in it to evaluate.</p>
+    <p class="summary-zh zh">同发的另一条是给供应方的邀请："如果你在为 Claude 做开发，把你的工具、agent 或服务登记在这里"。照实收录；里面没有可评估的内容。</p>
+    <div class="urls"><a href="https://x.com/claudeai/status/2102840855258452037">https://x.com/claudeai/status/2102840855258452037</a><a href="https://x.com/claudeai/status/2102840851538080172">https://x.com/claudeai/status/2102840851538080172</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Swyx</span>
+      <span class="builder-role">Latent Space · smol_ai</span>
+    </div>
+    <p class="summary-en">Swyx runs the closest thing to a like-for-like comparison in today&#8217;s feed, and the workload is his own newsletter: "ran @latentspacepod AINews side by side with 6 Sol and the difference was night and day: 5.5 Opus is the new default model for AINews going forward. so much more concise and tasteful reporting, with much less slopese than even 5 Opus." Two things are worth separating in it. He compares against Opus 5 rather than against a benchmark, so there is no score, only a preference. And he is the publisher of the thing being generated: this is a provider of AI news reporting on the model that produces it.</p>
+    <p class="summary-zh zh">Swyx 跑了今天这份 feed 里最接近同等可比的一次对比，而跑的工作负载是他自己的 newsletter："把 @latentspacepod 的 AINews 拿 6 Sol 并排跑了一遍，差别是白天和黑夜：5.5 Opus 从现在起是 AINews 的新默认模型。报道要凝练得多、有分寸得多，连比 5 Opus 都少了很多 slopese。"里面有两件事值得分开看。他对比的对象是 Opus 5，而不是一个基准测试，所以没有分数，只有一个偏好。而他是被生成的那个东西的发布方：这是一个 AI 新闻的提供者在评价生产它的模型。</p>
+    <p class="summary-en">His other two are a bare link to @latentspacepod and the single word "benched". Nothing to evaluate in either; recorded because the count should reflect what the feed carried.</p>
+    <p class="summary-zh zh">他另外两条是一个指向 @latentspacepod 的纯链接，以及一个词"benched"。两条都没有可评估的内容；收录只是为了让计数反映 feed 实际带来的东西。</p>
+    <div class="urls"><a href="https://x.com/swyx/status/2102938490518609983">https://x.com/swyx/status/2102938490518609983</a><a href="https://x.com/swyx/status/2102650088137130205">https://x.com/swyx/status/2102650088137130205</a><a href="https://x.com/swyx/status/2102650014552182920">https://x.com/swyx/status/2102650014552182920</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Garry Tan</span>
+      <span class="builder-role">Y Combinator President &amp; CEO</span>
+    </div>
+    <p class="summary-en">Y Combinator&#8217;s Garry Tan compresses a go-to-market argument into two lines and does not develop either one: "Two important simultaneous important trends in how startups get customers: Make software agents want / Use agents to make people want software". Both directions are asserted without a mechanism, an example or a company named.</p>
+    <p class="summary-zh zh">Y Combinator 的 Garry Tan 把一个市场进入的论点压成了两行，两条都没有展开："创业公司获取客户的方式上，有两个同时发生的重要趋势：让软件 agent 想要 / 用 agent 让人们想要软件"。两个方向都是直接断言的，没有机制、没有例子、也没有点名任何公司。</p>
+    <p class="summary-en">His other two posts are reactions with nothing evaluable &#8212; "Muse is very impressive" and "This is not priced in yet". The first is worth recording only as a second independent signal on the same product in the same feed: Peter Yang ranked Muse first on 09-22, and Aaron Levie announced a Box integration above in this issue.</p>
+    <p class="summary-zh zh">他另外两条是没有可评估内容的反应 —— "Muse is very impressive" 和 "This is not priced in yet"。第一条值得收录，只因为它是同一份 feed 里针对同一个产品的第二个独立信号：Peter Yang 在 09-22 把 Muse 排在第一，而 Aaron Levie 在本期上面宣布了 Box 的集成。</p>
+    <div class="urls"><a href="https://x.com/garrytan/status/2102974165800399274">https://x.com/garrytan/status/2102974165800399274</a><a href="https://x.com/garrytan/status/2102972765989151226">https://x.com/garrytan/status/2102972765989151226</a><a href="https://x.com/garrytan/status/2102955139875397806">https://x.com/garrytan/status/2102955139875397806</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Steinberger</span>
+      <span class="builder-role">OpenClaw · OpenAI</span>
+    </div>
+    <p class="summary-en">Peter Steinberger (OpenClaw · OpenAI) posts three reactions and no arguments. The one with a claim in it is about remote access, and it is nine words: "Who needs VNC when there&#8217;s browsers." That is a position on how an agent should reach a machine &#8212; through the browser rather than a remote desktop protocol &#8212; stated with nothing behind it. The other two are verdicts on a model: "Astra is crushing it." and "crushed it.", both pointing at links the feed does not resolve.</p>
+    <p class="summary-zh zh">Peter Steinberger（OpenClaw · OpenAI）发了三条反应，没有一条论证。里面有主张的那条讲的是远程访问，全长九个词："有了浏览器，谁还需要 VNC。"这是一个关于 agent 应该怎么接触一台机器的立场 —— 走浏览器而不是远程桌面协议 —— 说完就完了，后面没有任何东西。另外两条是对一个模型的判词："Astra is crushing it." 和 "crushed it."，两条都指向 feed 无法解析的链接。</p>
+    <p class="summary-en">Worth noting given his place in this feed&#8217;s own threads: he is the person who answered the open question from 09-21, when Nan Yu asked whether the calling feature in Muse and Instinct was still limited. He answered it with a product rather than an argument &#8212; "Your claw can now FaceTime you!" None of today&#8217;s three carries that kind of evidence.</p>
+    <p class="summary-zh zh">考虑到他在这份 feed 自己那条线里的位置，有一点值得记：09-21 那条悬空的问题是他回答的 —— 当时 Nan Yu 问 Muse 和 Instinct 的通话功能是不是还受限。他用一个产品而不是一段论证回答了它："你的 claw 现在可以给你打 FaceTime 了！"今天这三条里没有一条带那种证据。</p>
+    <div class="urls"><a href="https://x.com/steipete/status/2103001790069526564">https://x.com/steipete/status/2103001790069526564</a><a href="https://x.com/steipete/status/2102994138614669481">https://x.com/steipete/status/2102994138614669481</a><a href="https://x.com/steipete/status/2102990776439636089">https://x.com/steipete/status/2102990776439636089</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Dan Shipper</span>
+      <span class="builder-role">Every CEO</span>
+    </div>
+    <p class="summary-en">Every CEO Dan Shipper turns his own company into a test, and the result is not in this feed: "tomorrow at 6pm we find out if an ai agent can throw a good party / the @every agent planned every&#8217;s september meetup from the food and drinks menu to the guest list." Only the setup is available, since the event is announced for the following evening. It is still the most concrete wager of the day &#8212; a social outcome, graded in public by the people who attend it, rather than a benchmark. His other post is the word "sick" and a link.</p>
+    <p class="summary-zh zh">Every CEO Dan Shipper 把自己的公司变成了一场测试，而结果不在这份 feed 里："明天下午 6 点我们就知道一个 ai agent 能不能办好一场派对 / @every 的 agent 策划了 every 的九月聚会，从食物酒水菜单到嘉宾名单。"能拿到的只有布置，因为活动预告的是第二天晚上。它仍然是今天最具体的一次打赌 —— 一个社交结果，由到场的人公开打分，而不是一个基准测试。他的另一条是一个词"sick"和一个链接。</p>
+    <div class="urls"><a href="https://x.com/danshipper/status/2102826854357016793">https://x.com/danshipper/status/2102826854357016793</a><a href="https://x.com/danshipper/status/2102810679287914502">https://x.com/danshipper/status/2102810679287914502</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Amjad Masad</span>
+      <span class="builder-role">Replit CEO</span>
+    </div>
+    <p class="summary-en">Replit CEO Amjad Masad posts one opinion about education and nothing to go with it: "You need young people to break the mold, question deeply held beliefs, and attempt the impossible. The ideal college would cultivate exactly that." No AI content, no product, no claim that can be checked. His second post is an emoji and a link.</p>
+    <p class="summary-zh zh">Replit CEO Amjad Masad 发了一条关于教育的看法，别的什么都没有："你需要年轻人去打破模具、质疑根深蒂固的信念、去尝试不可能的事。理想的大学就该培养的正是这个。"没有 AI 内容，没有产品，也没有可以核对的主张。他的第二条是一个表情和一个链接。</p>
+    <div class="urls"><a href="https://x.com/amasad/status/2102939873384792340">https://x.com/amasad/status/2102939873384792340</a><a href="https://x.com/amasad/status/2102799031038878172">https://x.com/amasad/status/2102799031038878172</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aditya Agarwal</span>
+      <span class="builder-role">General Partner, SPC</span>
+    </div>
+    <p class="summary-en">SPC general partner Aditya Agarwal makes an argument about hiring and then names it as a metric: "A team that has been working together for 3+ years is significantly higher throughput and more resilient than a team that has just formed. A key mistake I see investors/employees make all the time is to simply ask about team size as opposed to team longevity." He abbreviates the metric "AUC for teams" without expanding it, so what it measures beyond longevity is left to the reader. No AI content in it.</p>
+    <p class="summary-zh zh">SPC 管理合伙人 Aditya Agarwal 给了一个关于招人的论证，然后把它命名成了一个指标："一个已经一起工作 3 年以上的团队，在产出能力和抗打击能力上都显著高于一个刚组建的团队。我一直看到投资人/员工犯的一个关键错误，就是只问团队规模，而不是问团队的存续时间。"他把这个指标缩写成"AUC for teams"而没有展开，所以除了存续时间之外它还量什么，就留给读者了。里面没有 AI 内容。</p>
+    <p class="summary-en">His second post is about Meta and its CEO, and he states his own position in it: "You think Zuck is good when he is down and in the trenches and in lockdown and in war mode? Just see how he dominates when he has the big stack. Proud Facebook alum. LFG." A statement of allegiance rather than an argument, and it carries nothing to evaluate.</p>
+    <p class="summary-zh zh">他的第二条讲的是 Meta 和它的 CEO，而他在里面亮明了自己的位置："你觉得 Zuck 在低谷、在战壕里、在封锁状态、在战争模式下已经很强了？等着看他手上握着大筹码时是怎么支配的吧。骄傲的 Facebook 老员工。LFG。"这是一个立场宣示，不是一个论证，也没有可评估的内容。</p>
+    <div class="urls"><a href="https://x.com/adityaag/status/2102948781813792996">https://x.com/adityaag/status/2102948781813792996</a><a href="https://x.com/adityaag/status/2102782451643040074">https://x.com/adityaag/status/2102782451643040074</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nikunj Kothari</span>
+      <span class="builder-role">Partner, FPV Ventures</span>
+    </div>
+    <p class="summary-en">FPV Ventures partner Nikunj Kothari posts two items with nothing AI-related and nothing to evaluate: "When I cajole a seed investor to send me their best company.." and a bare link. Both are recorded as-is so the count reflects what the feed carried.</p>
+    <p class="summary-zh zh">FPV Ventures 合伙人 Nikunj Kothari 发了两条，既没有 AI 内容也没有可评估的东西："当我哄一位种子投资人把他们最好的公司发给我时……"以及一个纯链接。两条都照实收录，好让计数反映 feed 实际带来的东西。</p>
+    <div class="urls"><a href="https://x.com/nikunj/status/2102990479608717700">https://x.com/nikunj/status/2102990479608717700</a><a href="https://x.com/nikunj/status/2102899862127943985">https://x.com/nikunj/status/2102899862127943985</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Josh Woodward</span>
+      <span class="builder-role">VP, Google Labs &amp; Gemini</span>
+    </div>
+    <p class="summary-en">Google&#8217;s Josh Woodward (VP, Google Labs and Gemini) posts a question rather than an announcement: "More of your favorite apps are coming to Gemini! Which ones do you want next?" No apps are named and no date is given, so there is nothing here to summarize. Recorded only to keep the count honest.</p>
+    <p class="summary-zh zh">Google 的 Josh Woodward（副总裁，Google Labs 与 Gemini）发的是一个提问而不是一则公告："你喜欢的更多应用正在来到 Gemini！你下一个想要哪些？"没有点名任何应用，也没有给日期，所以这里没有任何可总结的内容。收录它只是为了让计数诚实。</p>
+    <div class="urls"><a href="https://x.com/joshwoodward/status/2102800209894056351">https://x.com/joshwoodward/status/2102800209894056351</a></div>
+  </article>
+
+</section>
+
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">&#129517;</span>
+    <h2 class="section-title">Takeaway</h2>
+    <span class="section-meta">No Podcast Today</span>
+  </div>
+
+  <div class="takeaway">
+    <div class="takeaway-label">The Takeaway</div>
+    <p>Yesterday was announcements: Opus 5.5 became the default in Claude Code and the Claude app, and GPT-6 Sol and Luna arrived with a permanent 50% API price cut. Today is the first day of use, and the evidence has a shape worth naming. Every data point about the new models comes from someone running them on their own workload and reporting the result themselves. Swyx switched his own newsletter over after running it against 6 Sol &#8212; "night and day", "much less slopese than even 5 Opus" &#8212; and he is the publisher of the thing being generated. Rauch reports that on a benchmark he names, "Opus 5.5 found a lot of really great optimizations other models missed". Neither publishes a score. The gap this feed noted on 09-24 has therefore not closed: there is still no independent cross-model number in it, only two more in-house ones.</p>
+    <p>Boris Cherny answers the question he asked yesterday, and the answer narrows it rather than settling it. On 09-24 he reported formally verifying the Claude Agent SDK with Lean and left it open: "Is formal verification the future of coding (or at least, bug finding)?" Today he publishes the mechanism &#8212; model the program, find counter-examples, reproduce, fix &#8212; with his own limit attached: "It&#8217;s not that the whole codebase is formally verified (yet!..), more that the hairiest parts of the code are modeled, checked for counter-examples, and fixed." That describes what is happening; it does not say whether it generalises. The question he posed is still open, and he is the one who scoped it down.</p>
+    <p>The case against the day&#8217;s premise is written at greater length than the case for it, which is a first for this feed. Ryo Lu argues with the vocabulary itself &#8212; "efficiency, productivity, speed / we keep worshipping these words like they are what we live for" &#8212; and lands the reversal: "the danger is not that ai makes us lazy / the danger is that ai makes us endlessly busy", closing on "maybe the real frontier is not more speed / maybe it is discernment". Thariq makes the same point in two lines by publishing the input behind an output: "the post: &#8216;Claude one-shot this&#8217; / the prompt: 10k characters with good takes plus skills, examples and API keys". Peter Yang supplies the gap neither of them names: "one lab has the best model and another has the best harness". Madhu Guru is the only one arguing demand, and he does it by splitting the word consumer in two &#8212; browsing clothes is entertainment, hiring a roofer is misery.</p>
+    <p>Two threads from earlier issues moved today. Muse, which Peter Yang ranked first in the personal agent race on 09-22, picked up two independent signals in one feed &#8212; Garry Tan calling it "very impressive" and Levie announcing "Muse and Box, together at last" &#8212; so the ranking now has adoption behind it rather than one reviewer&#8217;s read. And the calling thread that opened on 09-21, when Nan Yu asked whether the feature was still limited and Steinberger answered the next day with a product, reached OpenAI: Sottiaux says he calls ChatGPT "to talk about all the work, check on emails, do some coding, manage my calendar" across the plugin ecosystem, third-party included. What still does not appear is the consumer agent Nikunj reported as imminent on 09-23. What arrived in its place is another dated commitment from the same person whose last one landed on the day he named: "Can&#8217;t wait for DevDay next Tuesday."</p>
+  </div>
+
+  <div class="takeaway zh">
+    <div class="takeaway-label">核心结论</div>
+    <p>昨天是发布日：Opus 5.5 成为 Claude Code 和 Claude 应用的默认模型，GPT-6 Sol 和 Luna 带着永久性 50% 的 API 降价而来。今天是使用第一天，而这些证据有一个值得说出来的形状。关于新模型的每个数据点，都来自把它跑在自己的工作负载上、然后自己报告结果的人。Swyx 拿它和 6 Sol 并排跑完之后把自己的 newsletter 换了过去 —— "差别是白天和黑夜"、"连比 5 Opus 都少了很多 slopese" —— 而他是被生成的那个东西的发布方。Rauch 说在一个他点名的基准上，"Opus 5.5 找到了很多别的模型都漏掉的极佳优化"。两个都没有公布分数。所以这份 feed 在 09-24 指出的那个缺口并没有补上：里面仍然没有一个独立的跨模型数字，只是又多了两个自家跑的。</p>
+    <p>Boris Cherny 回答了他昨天提的问题，而这个回答把它收窄了，而不是把它了结了。09-24 他报告用 Lean 对 Claude Agent SDK 做了形式化验证，然后把问题留在那里："形式化验证会是编码的未来吗（或者至少，是找 bug 的未来）？"今天他发布了机制 —— 建程序模型、找反例、复现、修复 —— 并附上了他自己的限定："并不是整个代码库都被形式化验证了（还没有！..），更多是代码里最毛糙的那些部分被建模、被检查反例、然后被修掉。"这描述的是正在发生什么；它没有说这件事能不能推广。他抛出的那个问题仍然开着，而把它收窄范围的正是他自己。</p>
+    <p>反对今天这套前提的论证，写得比为它辩护的论证更长，这在这份 feed 里是第一次。Ryo Lu 直接跟词汇本身较劲 —— "效率、生产力、速度 / 我们一直像活着就是为了它们一样崇拜这些词" —— 并落在一个反转上："危险不在于 ai 让我们变懒 / 危险在于 ai 让我们无止境地忙碌"，最后收到"也许真正的边疆不是更快的速度 / 也许是辨别力"。Thariq 用两行说了同一件事，办法是把输出背后的输入公开出来："帖子：&#39;Claude 一次就成了&#39; / prompt：一万字符，带好的观点，加上 skills、示例和 API key"。Peter Yang 补上了他们两个都没点出的那个缺口："一家实验室有最好的模型，另一家有最好的 harness"。Madhu Guru 是唯一一个在论证需求的人，而他的做法是把"消费者"这个词劈成两半 —— 逛衣服是娱乐，找人修屋顶是受罪。</p>
+    <p>前几期有两条线今天动了。Muse —— Peter Yang 在 09-22 把它排在个人 agent 竞局第一位 —— 今天在同一份 feed 里拿到了两个独立信号：Garry Tan 说它"非常惊艳"，Levie 宣布"Muse and Box, together at last"。那个排名背后现在有了采用证据，而不只是一位评论者的判断。而 09-21 拉开的那条通话线 —— 那天 Nan Yu 问这个功能是不是还受限，Steinberger 第二天用一个产品回答了它 —— 今天到了 OpenAI 这一侧：Sottiaux 说他打电话给 ChatGPT"聊所有的工作，查邮件，写点代码，管我的日历"，横跨整个插件生态，第三方也在内。仍然没有出现的是 Nikunj 在 09-23 说即将到来的那个消费级 agent。取而代之的是同一个人给出的另一个带日期的承诺 —— "等不及下周二 DevDay 了" —— 而他上一次带日期的承诺，是在他点名的那天兑现的。</p>
+  </div>
+</section>
+
+<!-- ============== ALREADY COVERED ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">&#128257;</span>
+    <h2 class="section-title">已收录 / Already Covered</h2>
+    <span class="section-meta">3 Items &#183; Deduped</span>
+  </div>
+
+  <div class="dedup">
+    <p>今日 feed 中的以下 3 篇官方博客此前均已发布，按去重规则不重复计入统计与正文。附带一点：第三篇的标题用的是 brain / hands 的拆解说法，与今天 Rauch 那条 agent 三分法（Brain / Hands / Files）用了同一组词汇；feed 未显示两者之间存在关联，此处只记下用词重合。</p>
+    <p style="margin-top:12px"><strong>Blog</strong> &#8212; Anthropic Engineering: How we contain Claude across products。已收录于 <a href="https://clean-online.github.io/ai-digest/2026/09/07/AI_Builders_Digest_2026-09-07.html">2026-09-07</a>。 <a href="https://www.anthropic.com/engineering/how-we-contain-claude">https://www.anthropic.com/engineering/how-we-contain-claude</a></p>
+    <p style="margin-top:12px"><strong>Blog</strong> &#8212; Anthropic Engineering: An update on recent Claude Code quality reports。已收录于 <a href="https://clean-online.github.io/ai-digest/2026/09/07/AI_Builders_Digest_2026-09-07.html">2026-09-07</a>。 <a href="https://www.anthropic.com/engineering/april-23-postmortem">https://www.anthropic.com/engineering/april-23-postmortem</a></p>
+    <p style="margin-top:12px"><strong>Blog</strong> &#8212; Anthropic Engineering: Scaling Managed Agents: Decoupling the brain from the hands。已收录于 <a href="https://clean-online.github.io/ai-digest/2026/09/07/AI_Builders_Digest_2026-09-07.html">2026-09-07</a>。 <a href="https://www.anthropic.com/engineering/managed-agents">https://www.anthropic.com/engineering/managed-agents</a></p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="next-issue">&#128236; 下一期：明天 10:00（北京时间）</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->
