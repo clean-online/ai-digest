@@ -310,7 +310,106 @@
 - **feed 是中心化推送**：当日实际 builder 数（13）≠ 任务列的 24 人，以 feed 实有内容为准。
 - **index.html 实际路径**：仓库根 `index.html` 的 `const ISSUES` 块，新条目插到顶部。
 
+### 2026-09-21 (周一) — 成功
+- **内容获取**：`prepare-digest.js` 一次跑通，产出 8 builders / 11 tweets / 1 podcast / 0 blogs（bilingual），feed 快照 2026-09-20T06:37:53Z（较 09-20 那期的 09-19T06:37Z 前进 1 天，无丢档）。
+- **去重**：11 个推文 ID grep `2026/` 零命中；播客（MAD Podcast × Richard Socher「When AI Improves Itself」）用嘉宾全名 grep 零命中 → 全部照常收录，无「已收录」区块。
+- **主题**：X 侧是一个主张与它的反作用力——Levie「争夺的注意力不再来自用户而是来自 agent」+「自 App Store 以来消费级科技最大的机会与洗牌」，Aditya 早 6 分钟反向读同一批发布（agent 侵入面扩大 → 认定已有大公司被民族国家渗透）；Rauch「每个人都对造东西感到兴奋」定调；Nan Yu 追问 Muse/Instinct 打电话能力是否仍在灰度（回指 09-16 那期出现的新形态）；Nikunj 每天 2 小时动手的三层理由（模型研究/基础设施/harness）。
+- **Podcast**：Richard Socher（Recursive，《The Eureka Machine》9/22 上市）——「任何你能模拟的东西，AI 都会解出来」；Eureka Machine 四支柱（LM 知识 / 科学测量 / 模拟 / 机器人实验）+ agent 集群；明确不信「硬起飞」（现实世界验证需要时间）；Recursive 约 6.7 亿美元融资、其中约 4.1 亿投向亚马逊算力交易；首个产物是 CUDA kernel。feed 只给频道视频页（@DataDrivenNYC/videos）。
+- **结构**：有播客 → 卡内 takeaway + 日级 Takeaway section（`section-meta: "X + Podcast"`）。stats 8/11/1/0 四处一致，size 45029。
+- **注册与部署**：index.html `ISSUES` 顶部追加 `2026-09-21` → copy 到 `2026/09/21/` → commit `d6e90b5` → push（7e84ec8..d6e90b5）。
+- **验证**：`gh run list --limit 1`（不带 --workflow）第 3 次轮询到 run 35553393606 completed/success → GET 子路径**首查 HTTP 200**，size 45029 与本地一致；grep 命中 2 处 "by chloevchen"；根 index 200 且已含 `2026-09-21`。
+
+## 关键经验（踩坑/打法）
+- **🔴 dedup grep 不能用公司名/通用词**：grep "Recursive" 命中 3 个无关旧期（只是正文里出现过这个形容词）。判重只用嘉宾全名或完整标题。附带陷阱：连续多条 `grep -rl` 的 stdout 不带命令标签，本期把 "Recursive" 的命中误读成 "Richard Socher" 的命中，交叉复核才发现零命中 → 多条 grep 之间加 `echo` 分隔，可疑命中单独复核。
+- **转写稿 ASR 人名错拼的处理**：Terence Tao→"Tens Tau"、Tim Rocktäschel→"Tim Rokteschel"、Jeff Clune→"Jeff Kuhn/Jeff Klune"。正文用可辨认的正确原名 + 首次出现处最短括注，并在 `note-line` 一次性声明误差清单；判断不了原名时（如 "SOLEXEC bench"）照抄原文加引号，不推测。
+- **日级 Takeaway 的触发条件放宽**：09-20 定的是「X 与播客同论点」；本期 X 与播客不同论点但 X 侧有独立主线 → 仍加日级 section，并把「两端在讲不同层的事」本身写成结论。X 只剩薄内容时才退回只用卡内 takeaway。
+- **部署验证顺序**（沿用且本期有效）：`gh run list --limit 1` 不带 --workflow 轮询到 completed/success → GET 判 200 + `%{size_download}` 对齐本地 `wc -c`。
+- **feed 是中心化推送**：当日实际 builder 数（8）≠ 任务列的 24 人，以 feed 实有内容为准。
+- **index.html 实际路径**：仓库根 `index.html` 的 `const ISSUES` 块，新条目插到顶部。
+
 ## 下次运行
-- 预计 2026-09-21 由 cron 触发；若该日无新内容（stats 全 0）则按 skill 规则跳过生成。
-- 沿用：stats 口径裁决（渲染数 = feed 总数）、一 builder 一卡、X section 限定的卡片数校验、推文 ID 与 feed 列表 `diff` 校验、内容级去重（用标题/嘉宾名关键词，不用 URL 里的 ID）、`gh run list --limit 1` 不带 --workflow、curl 用 GET 不用 -I。
-- 关注：OpenAI keynote（Sottiaux 说"下周先放一些东西"）与 Jev 采用量是否继续累积，若连续出现则考虑在 takeaway 里建成更长的连续线。
+- 预计 2026-09-22 由 cron 触发；若该日无新内容（stats 全 0）则按 skill 规则跳过生成。
+- 沿用：stats 口径裁决（渲染数 = feed 总数）、一 builder 一卡、X section 限定的卡片数校验、推文 ID 与 feed 列表 `diff` 校验、内容级去重（嘉宾全名/完整标题，**不用公司名与通用词**）、`gh run list --limit 1` 不带 --workflow、curl 用 GET 不用 -I。
+- 关注：Muse/Instinct 的电话能力灰度进度（Nan Yu 的追问是否有答案）、Levie 的「agent 争夺注意力」论是否有人接话。
+
+### 2026-09-22 (周二) — 成功
+- **内容获取**：`prepare-digest.js` 一次跑通，产出 10 builders / 14 tweets / 1 podcast / 0 blogs（bilingual），feed 快照 2026-09-21T06:52:51Z（较 09-21 那期的 09-20T06:37Z 前进 1 天，无丢档）。
+- **去重**：14 个推文 ID grep `2026/` 零命中；播客（No Priors × Brian Armstrong「Everything Exchange / Agentic Finance / Tokenization」）grep "Brian Armstrong" 命中 09-13 → 剔除，最终 stats 10/14/0/0。
+- **主题**：个人 agent 竞赛第一次被完整排序（Peter Yang 六点：Muse 产品直觉 + Meta 推广领先 / ChatGPT 靠 10 亿用户但一套产品难覆盖工作+个人 / Grok Bot 瞄工作场景、可能成"多人 agentic Slack" / Google 握 Gmail+Calendar 数据但 Spark 只是 Gemini 次级 tab / 多人协作无人解决 / 建议 personal skills 跨 harness 可移植；Apple 有设备与隐私口碑但年度发布节奏太慢）。能力侧：Rauch 记录 agent 修一个移动端渲染 bug 的完整回路（复现→模拟→临时 Vercel 部署→iPhone 模拟器验证），称人类匹配不了的是"死磕强度"——这是他 09-16 verifier 论点的实例版。
+- **跨期回指两处**：① Jev 序列（09-18 Vercel 发布 → 09-20 使用量 + Box 演示 → 今天 Swyx 预告 Latent Space 专期）+ Matt Turck 用"Instinct 也就上周的事"降温；② Nan Yu 09-21 留下的"agent 打电话是否仍在灰度"未答问题，由 Steinberger「Your claw can now FaceTime you!」从另一个产品给出答案。
+- **结构**：0 podcast → 独立 Takeaway section（`section-meta: "No Podcast Today"`）+ 「已收录 / Already Covered」1 条（回链 09-13）。size 29048。
+- **注册与部署**：index.html `ISSUES` 顶部追加 `2026-09-22`（meta: 10 Builders · 14 Tweets · 0 Podcast · 0 Blog）→ copy 到 `2026/09/22/` → commit `f7d0948` → push（d6e90b5..f7d0948）。
+- **验证**：`gh run list --limit 1`（不带 --workflow）第 3 次轮询到 run 35678740550 completed/success → GET 子路径首查 HTTP 200，size 29048 与本地一致；grep 命中 2 处 "by chloevchen"；根 index 200 且已含 `2026-09-22`。
+
+## 关键经验（踩坑/打法）
+- **跨期回指的新形态**：上一期的"未答问题"被本期**另一个产品**回答（09-21 Nan Yu 问 Muse/Instinct 通话灰度 → 09-22 OpenClaw FaceTime）。回答者与产品名都不同，只 grep 产品名永远命中不了，判据是**能力语义**。已写入项目经验库。
+- **薄推文可当时间序列标记点**：Swyx 的播客预告本身无技术内容，但作为 Jev 序列的第三个时间点有价值（09-18 发布 → 09-20 使用量 → 09-22 专期）。判据是"这条能不能自己成立"——不能就写它标记了什么，不硬编观点。已写入项目经验库。
+- **podcast 槽位继续循环回吐**：本期命中 09-13，是 09-14/09-15/09-16 之后再一次判重（中间 09-17/09-20/09-21 正常收录）。连续多日 0 不等于抓取故障，先 grep 确认。
+- **部署验证顺序**（沿用且本期有效）：`gh run list --limit 1` 不带 --workflow 轮询到 completed/success → GET 判 200 + `%{size_download}` 对齐本地 `wc -c`。本期首查即 200。
+- **卡片数校验限定 X section**：本期无 blog，全文件卡片数 == X section 卡片数 == 10，两数一致。
+- **feed 是中心化推送**：当日实际 builder 数（10）≠ 任务列的 24 人，以 feed 实有内容为准。
+- **index.html 实际路径**：仓库根 `index.html` 的 `const ISSUES` 块，新条目插到顶部。
+
+## 下次运行
+- 预计 2026-09-23 由 cron 触发；若该日无新内容（stats 全 0）则按 skill 规则跳过生成。
+- 沿用：stats 口径裁决（渲染数 = feed 总数）、一 builder 一卡、X section 限定的卡片数校验、推文 ID 与 feed 列表 `diff` 校验、内容级去重（嘉宾全名/完整标题，**不用公司名与通用词**）、`gh run list --limit 1` 不带 --workflow、curl 用 GET 不用 -I。
+- 关注：Peter Yang 预告的"本周会有重大更新"是否落地；多人协作（multiplayer）是否有人先解；Jev 专期播客上线后的反馈。
+
+### 2026-09-23 (周三) — 成功
+- **内容获取**：`prepare-digest.js` 一次跑通，产出 10 builders / 21 tweets / 0 podcast / 1 blog（bilingual），feed 快照 2026-09-22T06:42:06Z（较 09-22 那期的 09-21T06:52Z 前进 1 天，无丢档）。
+- **去重**：21 个推文 ID grep `2026/` 零命中；blog「Claude in Chrome is generally available」（publishedAt 2026-08-26）grep slug 命中 09-06 → 剔除。最终 stats 10/21/0/0。
+- **主题**：agent 成为界面之后什么会变。Peter Yang 从生意侧问（"agents browse your website and get the job done without a human seeing your ads at all"）又从用户侧答（"I no longer live in email or text, I live in the chat with my agent(s)"），两条都没给数字；Aaron Levie 给结构侧+商业侧完整版（100X 软件使用量 → 原语更吃重因为 agent 能执行破坏性操作 → 安全护栏/数据管理/工作流编排三件事；变现是爬坡不是开关，机会劈给 agent 提供方与被交易层）；反方向的克制（Nikunj「boasting about tokenmaxxing have the worst product experiences」、Thariq「use big pictures and few words」一天数次）。
+- **跨期回指 3 条**：① Jev 序列到第四个点——09-18 Vercel 发布主张 → 09-20 使用量 → 09-22 播客预告 → 今天「Jev over HTTP in AI Gateway」+ 节目上线（六天从主张到分发，feed 里仍无独立 benchmark）；② 两条独立线索同指 OpenAI 消费级 agent（Sottiaux「I promised a reset for Tuesday」+ Nikunj「reportedly get ready to release their 'agent' to the masses」附"showcase the work"的请求）；③ Steinberger 更正「Meta uses OpenClaw」传闻（"They built their own agent, being inspired"），落在 Peter Yang 把 Muse 排第一的第二天。
+- **结构**：0 podcast（feed 数组空）+ blog 全去重 → 独立 Takeaway section（`section-meta: "No Podcast Today"`）+ 「已收录 / Already Covered」1 条（回链 09-06）。note-line **分列两个 0 的不同成因**（无播客 / blog 已收录），避免读者把两个 0 都读成抓取失败。
+- **stats 口径**：10/21/0/0 四处一致。校验：全文件与 X section 卡片均为 10、唯一推文 URL 21 且与 feed ID 列表 `diff` 完全一致、size 38021。
+- **注册与部署**：index.html `ISSUES` 顶部追加 `2026-09-23` → copy 到 `2026/09/23/` → commit `d5bcac7` → push（f7d0948..d5bcac7）。
+- **验证**：`gh run list --limit 1`（不带 --workflow）第 3 次轮询到 run 35811128457 completed/success → GET 子路径**首查 HTTP 200**，size 38021 与本地一致；grep 命中 2 处 "by chloevchen"；根 index 200 且已含 `2026-09-23`。
+
+## 关键经验（踩坑/打法）
+- **stats 里每个 0 都要有对应的解释句**（本期新纪律）：本期 Podcast 与 Blog 同为 0 但成因不同（feed 空 vs 已收录），沿用 09-14 那种只解释"已收录"的 note-line 会误导。已写入项目经验库。
+- **同一数字被同一人复用但换了对象 → 回指要写清对象换了**：Levie 的 100X 在 09-16 是工作量、09-23 是软件使用量。只 grep 数字会命中旧期，容易误判成重复观点跳过；只写"他又用了 100X"而不说换对象则丢信息。已写入项目经验库。
+- **部署验证顺序**（沿用且本期有效）：`gh run list --limit 1` 不带 --workflow 轮询到 completed/success → GET 判 200 + `%{size_download}` 对齐本地 `wc -c`。本期首查即 200。
+- **feed 是中心化推送**：当日实际 builder 数（10）≠ 任务列的 24 人，以 feed 实有内容为准。
+- **index.html 实际路径**：仓库根 `index.html` 的 `const ISSUES` 块，新条目插到顶部。
+
+### 2026-09-24 (周四) — 成功
+- **内容获取**：`prepare-digest.js` 一次跑通，产出 17 builders / 43 tweets / 0 podcast / 0 blogs（bilingual），feed 快照 2026-09-23T06:42:38Z（较 09-23 那期的 09-22T06:42Z 前进 1 天，无丢档）。17/43 是近期最大的一期。
+- **去重**：43 个推文 ID grep `2026/` 零命中；podcast 与 blog 两个数组本身为空（不是判重），故无「已收录」区块。
+- **主题**：同一天两个前沿发布，且都把价格放在最前——Anthropic 把 Opus 5.5 设为 Claude Code / Claude 应用（含 Cowork）默认，effort 定 medium（Cat Wu：「智能与 Fable 5.1 相当但更快」，速率额度比 Opus 5 多走 25%）；OpenAI 发布 GPT-6 Sol 与 Luna，API 价格永久下调 50%。Levie 给出当天唯一完整论证并命名为「Jevons paradox 用在 agent 上」，附 Box 的企业实测：63% 更少 token / 42% 更少冗余 / 快 30%，四个行业用例（尽调 +39%、云成本 +65%、客户账户 +17%、临床诊断 +15%），其中临床那例是模型改变了结论（发现两组标准差相差超 100 倍、重跑后旱季差异不成立）。反方向：Boris Cherny 用 Lean 做形式化验证（16 个 PR 修 bug 与竞态）、Thariq「不是往生产环境多推 10 倍功能」。
+- **跨期回指（本期主线）**：09-23 标记的关注点今天收口——Sottiaux「我答应过周二会有一次 reset」，今天兑现（banked reset 补入所有 Plus/Pro/Business 账户），且 09-11 那次「resets 未完全生效 + 补偿致歉」构成前史。同时如实写明**没兑现的部分**：Nikunj 昨天说的 OpenAI 消费级 agent 未出现，今天只有模型与降价。
+- **结构**：0 podcast + 0 blog（两个数组均空）→ 最简三段式：X → 独立 Takeaway（`section-meta: "No Podcast Today"`）→ footer。note-line 一句说明两个 0 成因相同（数组为空），并声明 17/43 为 feed 全部内容。
+- **stats 口径**：17/43/0/0 四处一致。校验：全文件与 X section 卡片均为 17、唯一推文 URL 43 且与 feed ID 列表 `diff` IDENTICAL、size 53897。
+- **注册与部署**：index.html `ISSUES` 顶部追加 `2026-09-24` → copy 到 `2026/09/24/` → commit `1581a08` → push（d5bcac7..1581a08）。
+- **验证**：`gh run list --limit 1`（不带 --workflow）第 3 次轮询到 run 35946585206 completed/success → GET 子路径**首查 HTTP 200**，size 53897 与本地一致；grep 命中 2 处 "by chloevchen"；根 index 200 且已含 `2026-09-24`。
+
+## 关键经验（踩坑/打法）
+- **承诺追踪要分「兑现了什么 / 没兑现什么」**（本期新纪律）：上一期出现"承诺某具名日期做某事"时，本期主动核对。兑现了就写兑现了；同一期里其他被预告的东西（Nikunj 的消费级 agent）没出现也要写明，否则读者会把两件事读成一件。已写入项目经验库。
+- **近名概念要显式澄清**：Levie 用的 Jevons paradox 与 Vercel 上周发布的模型 Jev 名字相近但毫无关系，正文用一句点开，避免读者混淆。已写入项目经验库。
+- **两个 0 成因相同时一句说明即可**：09-23 那条规则是"每个 0 都要有解释句"；本期 Podcast/Blog 同为 0 且成因相同（数组为空），一句覆盖两个 0，不重复写。
+- **43 条 URL 一次通过的做法**：卡片用 Python 数据结构生成、URL 按 builder 名从 JSON 直接取（不手抄），生成脚本内置卡片数/URL 数/diff 三项校验，首跑即全绿。
+- **部署验证顺序**（沿用且本期有效）：`gh run list --limit 1` 不带 --workflow 轮询到 completed/success（本期第 3 次）→ GET 判 200 + `%{size_download}` 对齐本地 `wc -c`。本期首查即 200。
+- **feed 是中心化推送**：当日实际 builder 数（17）≠ 任务列的 24 人，以 feed 实有内容为准。
+- **index.html 实际路径**：仓库根 `index.html` 的 `const ISSUES` 块，新条目插到顶部。
+
+### 2026-09-25 (周五) — 成功
+- **内容获取**：`prepare-digest.js` 一次跑通，产出 17 builders / 37 tweets / 0 podcast / 3 blogs（bilingual），feed 快照 2026-09-24T06:42:38Z（较 09-24 那期的 09-23T06:42Z 前进 1 天，无丢档）。
+- **去重**：37 个推文 ID grep `2026/` 零命中；3 篇 Anthropic Engineering blog（how-we-contain-claude / april-23-postmortem / managed-agents）全部命中 09-07、09-16 及更早期 → 全剔除，最终 stats **17/37/0/0**。本期 blog **首次带完整正文**（27759/10203/12626 字符，09-07 同样条目只有标题+URL），但判重结论不受正文有无影响。podcast 数组本身为空（非判重），故两个 0 成因不同，note-line 分开说明。
+- **主题**：发布日次日，证据全部来自跑在自己工作负载上的人——Swyx 把自家 AINews 换到 Opus 5.5（"night and day"，比的是 Opus 5 而非基准），Rauch 在 ShellPerfBench 上称 Opus 5.5 找到别的模型漏掉的优化，两者都没公布分数。唯一新架构是 Rauch 的 Vercel **Drives**（agent 拆成 Brain / Hands / Files，云端解耦存储，以安全性而非成本作主要论证）。反向论述首次写得比正向更长：Ryo Lu 长文反效率崇拜（"危险不是 ai 让我们变懒，而是让我们无止境地忙碌"、"也许真正的边疆不是更快的速度，也许是辨别力"）+ Thariq 两行拆穿"Claude 一次就成了"（背后是一万字符 prompt）。Madhu Guru 是唯一论证需求侧的，把"消费者"劈成逛衣服（娱乐）与找人修屋顶（受罪）两种。
+- **跨期收口 3 条**：① Boris 09-24 抛的"形式化验证是不是未来"由**他自己**回答，但只给机制（建模→找反例→复现→修复）并限定"不是整个代码库"→ 写「问题被收窄」而非「被回答」；② 09-22 Peter Yang 把 Muse 排第一，今日拿到两个独立采用信号（Garry Tan、Levie 的 Box 集成）；③ 通话线索（09-21 提问 → 09-22 OpenClaw 回答）延伸到 OpenAI 侧（Sottiaux 的 voice 跨全插件生态含第三方）。Nikunj 09-23 预告的消费级 agent 仍未出现，取而代之是新承诺"DevDay next Tuesday"。
+- **结构**：0 podcast（数组空）+ blog 全去重 → X → 独立 Takeaway（`section-meta: "No Podcast Today"`）→ 已收录（3 条，回链 09-07）→ footer。size 62746。
+- **注册与部署**：index.html `ISSUES` 顶部追加 `2026-09-25`（meta: 17 Builders · 37 Tweets · 0 Podcast · 0 Blog）→ copy 到 `2026/09/25/` → commit `5b66cb7` → push（1581a08..5b66cb7）。
+- **验证**：`gh run list --limit 1`（不带 --workflow）第 3 次轮询到 run 36085509981 completed/success → GET 子路径**首查 HTTP 200**，size 62746 与本地一致；grep 命中 2 处 "by chloevchen"；根 index 200 且已含 `2026-09-25`。
+
+## 关键经验（踩坑/打法）
+- **🔴 评测数字要按来源分级（本期最大收获）**：看到"模型 A 比 B 好"先问两层——① 评测者是不是被评对象的发布方/使用方？② 比的是另一个模型还是公开基准？Swyx 是自家 newsletter 的发布方在评价写它的模型，Rauch 是 Vercel CEO 在自己挑的指标上跑，两者都**不是**独立验证。两层都指向"自家" → 写"独立缺口未补上"，不写"验证出现"。已写入项目级 + 全局经验库。
+- **提问者自己回来回答 ≠ 问题了结**：Boris 给的是机制 + 范围限定，不是"是不是未来"的判词。措辞写「收窄，仍开着」。
+- **blog 判重不看正文有无**：只看 `grep -rl "<slug>" 2026/` 是否命中。正文信息量只影响渲染形态（有正文写摘要、无正文写纯链接卡）。
+- **同一期两处内容撞术语**：被去重 blog 的 "Decoupling the brain from the hands" 与 Rauch 的 Brain/Hands/Files 用词重合 → 记下重合并声明"feed 未显示有关联"，不写关联也不装作没看见。
+- **部署验证顺序**（沿用且本期有效）：`gh run list --limit 1` 不带 --workflow 轮询到 completed/success（本期第 3 次）→ GET 判 200 + `%{size_download}` 对齐本地 `wc -c`。本期首查即 200。
+- **feed 是中心化推送**：当日实际 builder 数（17）≠ 任务列的 24 人，以 feed 实有内容为准。
+- **index.html 实际路径**：仓库根 `index.html` 的 `const ISSUES` 块，新条目插到顶部。
+
+## 下次运行
+- 预计 2026-09-26 由 cron 触发；若该日无新内容（stats 全 0）则按 skill 规则跳过生成。
+- 沿用：stats 口径裁决（渲染数 = feed 总数）、一 builder 一卡、X section 限定的卡片数校验、推文 ID 与 feed 列表 `diff` 校验、内容级去重（blog slug / podcast 嘉宾全名，不用公司名与通用词）、`gh run list --limit 1` 不带 --workflow、curl 用 GET 不用 -I、评测数字来源分级。
+- 关注：Sottiaux 承诺的「DevDay next Tuesday」是否如期（他上一次带日期的承诺已兑现，可信度较高）；Vercel Drives 之后有没有人接话「brain/hands/files 三分法」；Ryo Lu 那篇长文有没有在 feed 里引发回应。

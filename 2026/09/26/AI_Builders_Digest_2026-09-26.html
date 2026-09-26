@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest &#183; 2026-09-26</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 &#183; Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest &#183; 2026-09-26</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">11</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">23</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+<p class="note-line">今日 feed 实有 11 位 builder 与 23 条推文（任务清单里的 24 人是追踪全集，不是当日全部发声者），以 feed 实有内容为准，全部渲染；播客 1 期计入正文；1 篇官方博客（Claude for Small Business）此前已于 2026-09-17 收录，按去重规则计 0，仅在下方「已收录 / Already Covered」中列出链接。</p>
+
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">&#128036;</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">11 Builders</span>
+  </div>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Swyx</span>
+      <span class="builder-role">Latent Space · smol_ai</span>
+    </div>
+    <p class="summary-en">Swyx goes back to a call he made in January and reports it starting to pay off. He named the strategy then — “Scaling without Slop” — and the numbers he gives now are 3 years to reach the first 100k on YouTube against 1.2 months for the next 100k, with what he calls similar movement on AEO/SEO and subscriber traction. The post closes as notice of “the next phase of Latent Space, AINews, and what the rest of swyx inc has been cooking”; what that phase is, he does not say here.</p>
+    <p class="summary-zh zh">Swyx 回到他一月时喊出的一句话，报告它开始兑现了。他当时给这个内容策略起的名字是 “Scaling without Slop”（不靠垃圾内容做规模），现在给的数字是：YouTube 上第一个 10 万用了 3 年，下一个 10 万只用了 1.2 个月，AEO/SEO 与订阅增长他说也是类似走势。帖子最后是预告 “Latent Space、AINews 以及 swyx inc 一直在做的其他东西的下一阶段”；那个阶段是什么，他在这里没说。</p>
+    <p class="summary-en">The numbers are his own channels measured by their publisher, which is worth holding onto given the subject is slop. His second post is a one-line opinion about events with the referent unresolved in the feed: “more conferences could implement this. so much high value time wasted without thought”.</p>
+    <p class="summary-zh zh">这些数字是他自己的渠道、由他自己这个发布方测出来的 — 考虑到主题正好是 slop，这一点值得留在手上。他的第二条是一条关于会议的短评，feed 里解析不出所指：“更多会议可以这么做。那么多高价值时间被毫无思考地浪费掉了”。</p>
+    <div class="urls"><a href="https://x.com/swyx/status/2103361254433993165">https://x.com/swyx/status/2103361254433993165</a><a href="https://x.com/swyx/status/2103223477130129726">https://x.com/swyx/status/2103223477130129726</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Josh Woodward</span>
+      <span class="builder-role">VP, Google Labs &amp; Gemini</span>
+    </div>
+    <p class="summary-en">Google’s Josh Woodward introduces Dreambeans, a Google Labs experiment he says already has “a growing cult following”. The design is scarcity rather than ranking: “a fixed number of ‘beans’ brew every morning”, and they “point you at the real world, with real people, doing things you care about together”. That is a description of intent, and the feed carries no usage number to check it against.</p>
+    <p class="summary-zh zh">Google 的 Josh Woodward 介绍了 Dreambeans，一个他说是 Google Labs 里较新的实验、已经有“越来越多的狂热追随者”。它的设计是稀缺而不是排序：“每天早上会 brew 出固定数量的 beans”，而这些 beans “把你指向真实世界，指向真实的人，指向你真正关心的一起做的事”。这是对意图的描述，feed 里没有任何使用数字可供对照。</p>
+    <p class="summary-en">Read against the rest of the feed, the notable part is what it refuses to optimise — a product from a large lab whose stated output is pointing away from the screen. His other post is a bare link with no text.</p>
+    <p class="summary-zh zh">放在今天这份 feed 里看，值得注意的是它拒绝优化的那个东西 — 一家大实验室做的产品，公开声明的产出是把人指向屏幕之外。他另一条是一个没有文字的纯链接。</p>
+    <div class="urls"><a href="https://x.com/joshwoodward/status/2103182638085501182">https://x.com/joshwoodward/status/2103182638085501182</a><a href="https://x.com/joshwoodward/status/2103182635992514569">https://x.com/joshwoodward/status/2103182635992514569</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">Practical AI tutorials &amp; interviews</span>
+    </div>
+    <p class="summary-en">Peter Yang compresses the last week of releases into three lines: “Astra blew up 3D models / Then Opus blew up videos / I don’t even know what’s next anymore”. He names no benchmark and no test of his own; the object the post points at is not resolvable in the feed. What is usable here is the shape of the sentence — a reviewer whose job is keeping up saying the cadence has outrun him.</p>
+    <p class="summary-zh zh">Peter Yang 把最近一周的发布压成三行：“Astra 把 3D 模型炸了 / 然后 Opus 把视频炸了 / 我已经不知道下一个是什么了”。他没有点名任何基准，也没有给出自己的测试；帖子指向的对象在 feed 里解析不出来。这里能用的是这句句子的形状 — 一个以“跟得上”为工作的人说，节奏已经超过他了。</p>
+    <p class="summary-en">His other two posts are reactions with nothing evaluable in them: “This is called stroking the AI’s ego and it works” and “😂 this is love”.</p>
+    <p class="summary-zh zh">他另外两条是没有可评估内容的反应：“这叫给 AI 顺毛，而且有用”，以及 “😂 这就是爱”。</p>
+    <div class="urls"><a href="https://x.com/petergyang/status/2103318850641260959">https://x.com/petergyang/status/2103318850641260959</a><a href="https://x.com/petergyang/status/2103311956639973774">https://x.com/petergyang/status/2103311956639973774</a><a href="https://x.com/petergyang/status/2103310612864569388">https://x.com/petergyang/status/2103310612864569388</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thariq</span>
+      <span class="builder-role">Claude Code, Anthropic</span>
+    </div>
+    <p class="summary-en">Anthropic’s Thariq answers a batch of feedback on plan mode with a plan rather than a defence. The split he names is between people who “are planning yourself &amp; don’t need plan mode” and people who want “the UX of entering a mode where Claude is just thinking &amp; brainstorming with you”. His resolution is to make plan mode a built-in mod, let mods add new modes or override shift+tab, and let users customize the plan mode prompt, create and share their own modes, “or just ignore it and rebind shift+tab to something else all together”.</p>
+    <p class="summary-zh zh">Anthropic 的 Thariq 面对一批关于 plan mode 的反馈，给的是方案而不是辩护。他点出的分歧在于两种人：一种是“你自己就在做规划、并不需要 plan mode”，另一种是想要“进入一个 Claude 只是跟你一起思考和头脑风暴的模式的那种体验”。他的解法是把 plan mode 做成一个内置的 mod，让 mod 可以新增模式或覆盖 shift+tab，让用户自定义 plan mode 的 prompt、创建并分享自己的模式，“或者干脆无视它，把 shift+tab 整个重绑到别的东西上”。</p>
+    <p class="summary-en">His third post recommends a piece he does not name in the feed — “incredibly thoughtful piece on AI and creativity” — and turns it back on his own product: “hopefully we can make our producst better at enabling and amplifying creatives”. No link target and no author are resolvable here.</p>
+    <p class="summary-zh zh">他的第三条推荐了一篇他在 feed 里没有点名的内容 — “一篇关于 AI 与创造力的、极其有见地的文章” — 并把它转回自己的产品：“希望我们能把产品做得更好地赋能和放大创作者”。链接目标和作者在这里都无法解析。</p>
+    <div class="urls"><a href="https://x.com/trq212/status/2103259550325575806">https://x.com/trq212/status/2103259550325575806</a><a href="https://x.com/trq212/status/2103212052391354794">https://x.com/trq212/status/2103212052391354794</a><a href="https://x.com/trq212/status/2103212051065921632">https://x.com/trq212/status/2103212051065921632</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Amjad Masad</span>
+      <span class="builder-role">Replit CEO</span>
+    </div>
+    <p class="summary-en">Replit CEO Amjad Masad posts a product line with nothing attached to it: “Muse can now make apps on Replit”. It is the third independent signal for Muse in this feed in four days, and the first from a platform rather than a reviewer or an investor — Peter Yang ranked it first in the personal agent race on 09-22, and Garry Tan and Aaron Levie both named it on 09-25.</p>
+    <p class="summary-zh zh">Replit CEO Amjad Masad 发了一条产品句，后面什么都没附：“Muse 现在可以在 Replit 上做应用了”。这是四天内这份 feed 里Muse 拿到的第三个独立信号，也是第一个来自平台方而不是评论者或投资人的 — Peter Yang 在 09-22 把它排在个人 agent 竞局第一位，Garry Tan 和 Aaron Levie 在 09-25 都点过它。</p>
+    <div class="urls"><a href="https://x.com/amasad/status/2103129037011120525">https://x.com/amasad/status/2103129037011120525</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">Vercel CEO</span>
+    </div>
+    <p class="summary-en">Vercel CEO Guillermo Rauch publishes two months of spend data from the Vercel AI Gateway, and it is the only cross-model number in today’s feed: Anthropic’s share of spend went 69% → 40%, OpenAI went 10% → 24%, Opus 5.5 reached 10% of spend within two days, OpenAI now leads on token count and takes 62% of image generations, and Kimi K3 plus DeepSeek took about half of what Anthropic lost.</p>
+    <p class="summary-zh zh">Vercel CEO Guillermo Rauch 发布了 Vercel AI Gateway 近两个月的花费数据，这是今天这份 feed 里唯一的跨模型数字：Anthropic 的花费份额从 69% 降到 40%，OpenAI 从 10% 升到 24%，Opus 5.5 在两天内占到花费的 10%，OpenAI 现在在 token 数上领先并拿走 62% 的图像生成，Kimi K3 与 DeepSeek 分掉了 Anthropic 丢掉的大约一半。</p>
+    <p class="summary-en">The grade to keep on it is about the axis, not the honesty. This measures what customers bought, collected by the gateway that sells the routing, and he publishes no score. It is evidence about distribution. The gap this feed has been carrying since 09-24 was a capability gap, and a spend share sits on a different axis — it does not close that gap, and it should not be allowed to look as though it does.</p>
+    <p class="summary-zh zh">要给它标的分级是关于“轴”，不是关于诚实。它测的是客户买了什么，由卖路由的那个网关采集，而且他没有公布任何分数。这是关于分发渠道的证据。这份 feed 从 09-24 一直带着的那个缺口是能力缺口，而花费份额是另一条轴上的东西 — 它补不上那个缺口，也不该被看成补上了。</p>
+    <div class="urls"><a href="https://x.com/rauchg/status/2103216656747262419">https://x.com/rauchg/status/2103216656747262419</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Matt Turck</span>
+      <span class="builder-role">VC, FirstMark Capital · MAD Podcast</span>
+    </div>
+    <p class="summary-en">Matt Turck posts the episode that leads this issue, and the useful part is the timestamped outline he ships with it: the hidden software layer in Jensen’s five-layer cake, “We infer during the day, fine-tune at night”, VAST’s DASE architecture, “Storage was where startups go to die”, DataEnclave, circular AI financing, and “Their lunch is being eaten”: why hyperscalers lag.</p>
+    <p class="summary-zh zh">Matt Turck 发了本期头条那期播客，有用的部分是他随附的时间戳目录：Jensen 五层蛋糕里那个隐藏的软件层、“我们白天推理，晚上微调”、VAST 的 DASE 架构、“存储是创业公司的坟场”、DataEnclave、AI 的循环融资，以及 “他们的午餐正在被吃掉”：为什么超大规模厂商落后了。</p>
+    <p class="summary-en">His framing of the guest is the part worth quoting: the middle layer of the cake “is much less understood — and thats where @VAST_Data became a $30B company few people know about”. His other post is the same episode’s links to Spotify, Apple Podcasts and YouTube.</p>
+    <p class="summary-zh zh">他介绍嘉宾的那句值得引用：蛋糕的中间层“被理解得少得多 — 而正是在那里，VAST Data 长成了一家没多少人知道的 300 亿美元公司”。他另一条是同一期节目在 Spotify、Apple Podcasts 和 YouTube 的链接。</p>
+    <div class="urls"><a href="https://x.com/mattturck/status/2103167536141353053">https://x.com/mattturck/status/2103167536141353053</a><a href="https://x.com/mattturck/status/2103167531917721866">https://x.com/mattturck/status/2103167531917721866</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nikunj Kothari</span>
+      <span class="builder-role">Partner, FPV Ventures</span>
+    </div>
+    <p class="summary-en">FPV Ventures partner Nikunj Kothari quotes an unnamed speaker on where bespoke software actually lands: “we believe that every small business owner, specifically for us in the trades, will have bespoke software, and that last mile is actually where differentiation can become, where you can provide a unique experience to your customers, to your employees”. The claim is about the trades specifically, and the speaker is not named in the feed.</p>
+    <p class="summary-zh zh">FPV Ventures 合伙人 Nikunj Kothari 引用了一位未具名发言者，讲的是定制化软件真正落在哪里：“我们相信每一个小企业主 — 对我们来说尤其是技工行业 — 都会拥有为自己定制的软件，而这最后一英里才是差异化的来源，才是你能给客户、给员工提供独特体验的地方”。这个主张明确指向技工行业，而发言者在 feed 里没有具名。</p>
+    <p class="summary-en">His other two are stage readings with no referent given: “We are in that stage of the ‘revenue’ lifecycle” and “This is the way..”.</p>
+    <p class="summary-zh zh">他另外两条是没有给出所指的阶段判断：“我们正处在‘收入’生命周期的那个阶段”，以及 “这就对了..”。</p>
+    <div class="urls"><a href="https://x.com/nikunj/status/2103360292973633770">https://x.com/nikunj/status/2103360292973633770</a><a href="https://x.com/nikunj/status/2103276414187548791">https://x.com/nikunj/status/2103276414187548791</a><a href="https://x.com/nikunj/status/2103218709234172252">https://x.com/nikunj/status/2103218709234172252</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Steinberger</span>
+      <span class="builder-role">OpenClaw · OpenAI</span>
+    </div>
+    <p class="summary-en">Peter Steinberger posts the most directly usable instruction in the feed, and it is about the goal you hand the agent rather than the tool: “If you just tell the agent to clean up, it will stop far too early. Give it an ambitious goal. Try ‘remove 20% of the least useful tests while maintaining code coverage within 2%’”. The mechanism underneath is that a bounded ask produces a bounded stop.</p>
+    <p class="summary-zh zh">Peter Steinberger 发了今天这份 feed 里最直接可用的一条操作建议，而它讲的是你交给 agent 的目标，不是工具：“如果你只是让 agent 去清理，它会停得太早。给它一个有雄心的目标。试试‘删掉 20% 最没用的测试，同时把代码覆盖率维持在 2% 以内’”。背后的机制是：有边界的请求会产生有边界的停止。</p>
+    <p class="summary-en">He reports running it: “I put Daybreak on it and found 8 more long-standing leaks. Care for your oss dependencies!” His third post is a geopolitical reaction with no argument attached — “Afghanistan is more excited about AI than we are?”</p>
+    <p class="summary-zh zh">他报告了自己跑的结果：“我把 Daybreak 放上去，又发现了 8 个长期存在的泄漏。关心一下你的开源依赖！”他的第三条是一条没有附带论证的地缘反应 — “阿富汗对 AI 比我们更兴奋？”</p>
+    <div class="urls"><a href="https://x.com/steipete/status/2103200311641076100">https://x.com/steipete/status/2103200311641076100</a><a href="https://x.com/steipete/status/2103150483062014436">https://x.com/steipete/status/2103150483062014436</a><a href="https://x.com/steipete/status/2103148444701610233">https://x.com/steipete/status/2103148444701610233</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Dan Shipper</span>
+      <span class="builder-role">Every CEO</span>
+    </div>
+    <p class="summary-en">Every CEO Dan Shipper’s two posts carry nothing evaluable in the feed: a livestream notice, “LIVE: Write-along”, and a two-word reaction, “so freaking cool”.</p>
+    <p class="summary-zh zh">Every CEO Dan Shipper 的两条帖子在 feed 里没有任何可评估的内容：一条直播通知 “LIVE: Write-along”，和一句两个词的反应 “so freaking cool”。</p>
+    <div class="urls"><a href="https://x.com/danshipper/status/2103283846645166283">https://x.com/danshipper/status/2103283846645166283</a><a href="https://x.com/danshipper/status/2103168077102043373">https://x.com/danshipper/status/2103168077102043373</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aditya Agarwal</span>
+      <span class="builder-role">General Partner, SPC</span>
+    </div>
+    <p class="summary-en">SPC general partner Aditya Agarwal reports a conversation rather than making a claim: “It was great speaking with @SteveHiltonx at @spc for a conversation on California’s future”, closing with “We have more work to do. Onwards.” Neither the substance nor the disagreement is in the feed.</p>
+    <p class="summary-zh zh">SPC 管理合伙人 Aditya Agarwal 报告的是一场对话，而不是提出一个主张：“很高兴在 @spc 与 @SteveHiltonx 聊了一场关于加州未来的对话”，收在 “我们还有更多事要做。继续。”无论实质内容还是分歧，都不在 feed 里。</p>
+    <div class="urls"><a href="https://x.com/adityaag/status/2103230206005612661">https://x.com/adityaag/status/2103230206005612661</a></div>
+  </article>
+
+</section>
+
+<!-- ============== PODCAST ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">&#127908;</span>
+    <h2 class="section-title">Podcast</h2>
+    <span class="section-meta">1 Episode</span>
+  </div>
+
+  <article class="podcast">
+    <div class="podcast-source">The MAD Podcast with Matt Turck</div>
+    <div class="podcast-title">Who Feeds the GPUs? Inside AI's Hidden $30B Layer | Renen Hallak, VAST Data</div>
+
+    <div class="takeaway">
+      <span class="takeaway-label">The Takeaway</span>
+      Renen Hallak argues for the layer almost nobody talks about, and he does it by describing what breaks on either side of it rather than by describing his own product. The five-layer cake runs energy, hardware, software infrastructure, models, applications; VAST sits in the third. His reason it had to be rebuilt is physical before it is technical: 10 kilowatt racks became 500 kilowatt racks, hard drives and 10 gig ethernet became very large SSDs and extremely fast networks, and the data changed from numbers and columns of a database to pictures, video, sound and natural language. What makes the episode worth the hour is that he then argues the enterprise case in the same breath — every organisation’s IP ends up distilled into weights it owns, and nobody wants to hand that to a lab to get it.
+    </div>
+
+    <div class="takeaway zh">
+      <span class="takeaway-label">核心结论</span>
+      Renen Hallak 为那个几乎没人谈论的层级辩护，而他的办法是描述它上下两侧各自会怎么坏掉，而不是描述自己的产品。五层蛋糕依次是能源、硬件、软件基础设施、模型、应用；VAST 在第三层。他认为这一层必须被重建的理由，在技术上之前先是物理上的：10 千瓦的机架变成了 500 千瓦的机架，机械硬盘和万兆以太网变成了极大的 SSD 和极快的网络，数据本身也从数据库的数字和列变成了图像、视频、声音和自然语言。这期值得花掉那一小时的地方在于，他紧接着用同一口气论证了企业侧的情形 — 每一家组织的 IP 最终都会被蒸馏进它自己拥有的权重里，而没人愿意为了得到它就把这些交给某家实验室。
+    </div>
+
+    <div class="podcast-body">
+      <p>The founding bet predates the transformer paper by about three years. He started at the beginning of 2016 on an observation about cats: neural nets went from a curiosity to telling which videos had cats in them, and what changed was not the algorithm but “giving those neural nets much faster access to a lot more data”. He says the pitch was hard for a reason he now counts as an advantage — “storage was where startups go to die”, so almost nobody was building there, and a company that started earlier could not have made the forward bets on NVMe over Fabrics and new media types that his architecture needed.</p>
+      <p>That architecture is DASE, disaggregated shared everything, and he explains it against the thing it replaced. Shared-nothing sharding works until it does not: communication grows quadratically inside the cluster, one failure means everybody recovers, and “you can’t really have more than a 100 nodes in one of those systems” — whereas AI needs millions. His version puts the SSDs and even the metadata on the other side of the network, so every node sees all of the information as if it were directly attached. The scale he cites from a live customer is multiple exabytes in a single cluster delivering tens of terabytes per second. The same reasoning is why he built a database: a customer with camera feeds produces trillions of vectors, and “there isn’t a database that was built for trillions of rows”.</p>
+      <p>The announcement is a change in what a model is, and it is the part that will travel. “The models don’t really live on top of the software infrastructure. Models over time have become a resource, just like a GPU is a resource or an SSD is a resource, and resources need to be managed.” So the operating system takes on model management — which model is good at coding, which at images, which is expensive — and, in the half he calls Enclave (and says he is not sure he likes the name), confidential computing: inference runs inside the enterprise’s own premises or VPC, the builder’s weights are encrypted end to end using NVIDIA’s encrypted memory, and only the builder’s inference application can read them. His claim on why now is unglamorous: “I don’t think there is a technological breakthrough that was required for this, I think it’s just an idea whose time has come.”</p>
+      <p>On agents he extends the same access model downwards. Agents get identities the way users do — “we have access control based on roles, we have access controls based on attributes” — and that governs not only which data they reach but which tool calls they can make and who they may talk to. The step he insists on is being inside the data path rather than beside it: once agents leave the data centre for cars, robots and satellites, “the stakes get higher because physical elements can create physical damage”, so the layer has to be able to intervene, not just report.</p>
+      <p>The demand number is the one he repeats twice, at the top of the episode and again near the end. An AI cloud told him a quarter ago it would need about 500 petabytes over three years; last week it came back asking for an extra two exabytes on top, and he expects it to undershoot again. He says outright: “Sometimes it scares me.” He also reports no churn — no customer has actively decided to stop, a few went out of business — and that VAST is profitable, which he attributes to selling software rather than hardware or compute while growing roughly 10x every two years.</p>
+      <p>Three of his structural calls cut against the consensus version. On neoclouds he inverts the cheap-capital argument: hyperscalers have not won because of the innovator’s dilemma and because the gap in skills grows every day they are not in the trenches — “their lunch is being eaten”, though he says they now realise it. On circular financing he reads it as liquidity supplied by insiders who can see the build-out, not by outsiders pricing it as risk. On where value accrues: hardware commoditises, the software infrastructure layer accrues, applications accrue selectively, and the model layer “is very, very difficult to say” because “we never had a model layer before” — he suggests models and applications may merge back into one.</p>
+      <p>On the Navier-Stokes result he is careful and still uses it: OpenAI “at least they claim” solved it, two more of the seven millennium problems are rumoured close, and what he takes from it is evidence for agent collaboration — “10,000 agents loose at an age old math problem and within a few days they came back with the result”. The half he says is still missing is “access to the natural world”. The operating rule he took from watching xAI is one sentence: “You find the limiting factor and you get rid of it and then you find the new limiting factor and you get rid of it”, paired with a reporting norm he attributes to Elon — “bad things should be stated loudly and often and good things once and softly”. His ten-year claim is that “in the next ten years we’ll see more difference than we did in the last thousand years”.</p>
+    </div>
+
+    <div class="podcast-divider"></div>
+
+    <div class="podcast-zh">
+      <p>创业时的那个赌注比 transformer 论文早了大约三年。他在 2016 年初起步，起点是一个关于猫的观察：神经网络从一件奇物变成了能分辨哪些视频里有猫的东西，而变化的不是算法，是“给这些神经网络更快得多的、访问更多数据的能力”。他说当时很难融资，而这个原因现在被他算作优势 — “存储是创业公司去送死的地方”，所以几乎没人在那里做，而一家更早起步的公司不可能在他这套架构所需的 NVMe over Fabrics 和新介质上提前下注。</p>
+      <p>那套架构叫 DASE，disaggregated shared everything（解耦的、共享一切），他是拿它替换掉的东西作对照来解释的。shared-nothing 分片在一定规模内成立、然后就不成立了：集群内的通信按平方增长，一处失败意味着所有人一起恢复，“这类系统里你其实没法超过大约 100 个节点” — 而 AI 需要的是百万级。他的做法是把 SSD 乃至元数据都放到网络的另一侧，于是每个节点看到全部信息，就像直连在自己身上一样。他引用的一个在跑的客户规模是：单个集群多个 EB，每秒交付数十 TB。他后来自己做数据库也是同一套推理：一个有摄像头流的客户会产生数万亿个向量，而“没有哪一个数据库是为万亿行造的”。</p>
+      <p>这次的发布改变的是“模型是什么”，也是会传得最远的部分。“模型并不是真的活在软件基础设施的上面。模型随着时间已经变成了一种资源，就像 GPU 是资源、SSD 是资源一样，而资源是需要被管理的。”于是操作系统接过了模型管理 — 哪个模型擅长写代码、哪个擅长出图、哪个贵 — 以及他称为 Enclave（并且说不确定自己喜不喜欢这个名字）的那一半：机密计算。推理跑在企业自己的机房或 VPC 里，模型方的权重端到端加密，借助 NVIDIA 的加密内存，只有模型方的推理应用能读。关于“为什么是现在”，他的说法很不浪漫：“我不认为这需要什么技术突破，我认为只是一个时机到了的想法。”</p>
+      <p>在 agent 上，他把同一套访问模型往下延展。agent 像用户一样拿到身份 — “我们有基于角色的访问控制，也有基于属性的访问控制” — 而这套控制管的不只是它们能碰哪些数据，还包括它们能做哪些工具调用、能和谁对话。他坚持的那一层是：要待在数据路径里面，而不是旁边。一旦 agent 离开数据中心进入汽车、机器人和卫星，“赌注就变高了，因为物理要素会造成物理伤害”，所以这一层必须能干预，而不只是能报告。</p>
+      <p>需求那个数字他在节目开头和接近结尾各讲了一次。一家 AI 云一个季度前告诉他三年大约需要 500 PB；上周回来要求在 500 PB 之上再加 2 EB，而他预计对方还会再低估一次。他直说了：“有时候这让我害怕。”他也报告了零流失 — 没有客户主动决定停用，有少数几家倒闭了 — 以及 VAST 是盈利的，他把这归因于卖的是软件而不是硬件或算力，同时大约每两年 10 倍地增长。</p>
+      <p>他有三个结构性判断是逆着共识版本走的。关于 neocloud，他把“便宜资本”的论证反了过来：超大规模厂商之所以没赢，是因为创新者的窘境，也因为他们不在一线、技能差距每天都在拉大 — “他们的午餐正在被吃掉”，不过他说他们现在已经意识到了。关于循环融资，他把它读成由看得见建设过程的圈内人提供的流动性，而不是由把它当风险定价的圈外人提供。关于价值沉淀在哪里：硬件会商品化，软件基础设施层会沉淀价值，应用层选择性沉淀，而模型层“非常非常难说”，因为“我们以前从来没有过模型层” — 他暗示模型层和应用层可能会重新合为一层。</p>
+      <p>关于 Navier-Stokes 那个结果，他很谨慎但仍然用了它：OpenAI “至少他们声称”解决了它，另外两个千年难题据传也已接近，而他从中取出的是 agent 协作的证据 — “一万个 agent 扑向一个古老的数学问题，几天之内就拿回了结果”。他说仍然缺的另一半是“接触自然世界”。他从观察 xAI 那里拿到的操作法则只有一句话：“你找到限制因子，把它去掉，然后找到新的限制因子，再把它去掉”，配一条他归于 Elon 的汇报规范 “坏事要大声地、经常地说，好事说一次、轻轻地说”。他十年期的判断是：“未来十年我们看到的变化，会比过去一千年看到的更多”。</p>
+    </div>
+
+    <div class="urls" style="margin-top:24px">
+      <a href="https://www.youtube.com/@DataDrivenNYC/videos">https://www.youtube.com/@DataDrivenNYC/videos</a>
+    </div>
+  </article>
+</section>
+
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">&#129517;</span>
+    <h2 class="section-title">Takeaway</h2>
+    <span class="section-meta">1 Podcast</span>
+  </div>
+
+  <div class="takeaway">
+    <div class="takeaway-label">The Takeaway</div>
+    <p>The cross-model number this feed has been missing since 09-24 arrived today, and the useful thing about it is precisely which question it does <em>not</em> answer. Guillermo Rauch publishes two months of Vercel AI Gateway spend: Anthropic 69% → 40%, OpenAI 10% → 24%, Opus 5.5 at 10% of spend inside two days, OpenAI leading on tokens and taking 62% of image generations, Kimi K3 and DeepSeek absorbing roughly half of Anthropic’s loss. Every piece of that is a share of what customers bought, gathered by the gateway that sells the routing, and he publishes no score. It is evidence about distribution, not capability. The gap left open on 09-24 and still open on 09-25 was specifically about capability, and a spend share sits on a different axis — it does not close that gap, and letting it look as though it does would be the easiest mistake available today.</p>
+    <p>What is more interesting is that the same feed contains the middle layer being assembled from the opposite direction. Rauch’s gateway routes a prompt to a model; Renen Hallak’s announcement on the MAD Podcast is about making models a managed resource inside an operating system — choosing by what each model is good at and what it costs, with confidential computing so the enterprise’s data and the builder’s weights never meet. Two unconnected sources, one day, both treating the model layer as something you schedule between rather than something you commit to. The feed shows no link between them; the observation is only that the same assumption surfaced twice independently. Peter Yang supplies the demand-side version of the same acceleration in three lines — “Astra blew up 3D models / Then Opus blew up videos / I don’t even know what’s next anymore” — from the one person in this feed whose job is keeping up.</p>
+    <p>Two things moved on threads this feed has been carrying. Muse picked up its third independent signal in four days and the first from a platform: Amjad Masad’s “Muse can now make apps on Replit”. Peter Yang ranked it first on 09-22, Garry Tan and Aaron Levie both named it on 09-25, and today is the first signal that costs the distribution side something. Separately, the most practical sentence in the feed is not about any model: Peter Steinberger’s “If you just tell the agent to clean up, it will stop far too early. Give it an ambitious goal”, with the test he actually ran — “remove 20% of the least useful tests while maintaining code coverage within 2%” — and the result, eight more long-standing leaks found in an OSS dependency.</p>
+    <p>Two things this feed was waiting on did not appear. The consumer agent Nikunj Kothari described as imminent on 09-23 is still absent, and what he posts in its place is a stage reading — “We are in that stage of the ‘revenue’ lifecycle”. Thibault Sottiaux’s “DevDay next Tuesday”, flagged yesterday as credible because his last dated commitment landed on the day he named, is not in today’s feed either. So the state of evidence for the new models is unchanged since 09-25: two in-house reports with no scores, and now a spend share from a party with an interest in the routing. One housekeeping note — today’s deduped blog is Claude for Small Business, and Nikunj’s quoted claim is about bespoke software for small businesses in the trades. Both point at small business on the same day; the feed shows no connection between them.</p>
+  </div>
+
+  <div class="takeaway zh">
+    <div class="takeaway-label">核心结论</div>
+    <p>这份 feed 从 09-24 就缺的那个跨模型数字今天来了，而关于它最有用的一点，恰恰是它<em>不</em>回答哪个问题。Guillermo Rauch 发布了 Vercel AI Gateway 两个月的花费：Anthropic 从 69% 降到 40%，OpenAI 从 10% 升到 24%，Opus 5.5 在两天内占到花费的 10%，OpenAI 在 token 数上领先并拿走 62% 的图像生成，Kimi K3 和 DeepSeek 分掉了 Anthropic 丢掉的大约一半。这里面每一项都是客户买了什么所占的份额，由卖路由的那个网关采集，而且他没有公布任何分数。这是关于分发渠道的证据，不是关于能力的。09-24 留下、09-25 仍然开着的那个缺口，明确是关于能力的，而花费份额是另一条轴上的东西 — 它补不上那个缺口，而任由它看起来像是补上了，会是今天最容易犯的一个错。</p>
+    <p>更有意思的是，同一份 feed 里还包含着从相反方向组装同一个中间层的动作。Rauch 的网关把一个 prompt 路由给某个模型；Renen Hallak 在 MAD Podcast 上的发布则是要把模型做成操作系统里一种被管理的资源 — 按每个模型擅长什么、成本多少来选，并用机密计算让企业的数据和模型方的权重永远不见面。两个没有关联的信源，同一天，都把模型层当成一种你在其间做调度的东西，而不是你押注其上的东西。feed 没有显示两者之间存在联系；这里记下的只是同一个假设各自独立地出现了两次。Peter Yang 用三行给出了同一场加速在需求侧的样本 — “Astra 把 3D 模型炸了 / 然后 Opus 把视频炸了 / 我已经不知道下一个是什么了” — 而他是这份 feed 里唯一一个以“跟得上”为工作的人。</p>
+    <p>这份 feed 一直在跟的两条线今天动了。Muse 拿到了四天里的第三个独立信号，也是第一个来自平台的：Amjad Masad 的“Muse 现在可以在 Replit 上做应用了”。Peter Yang 在 09-22 把它排在第一，Garry Tan 和 Aaron Levie 在 09-25 都点过它，而今天是第一个让分发侧付出代价的信号。另一件事：今天这份 feed 里最实用的一句话与任何模型都无关，是 Peter Steinberger 那句“如果你只是让 agent 去清理，它会停得太早。给它一个有雄心的目标”，加上他真的跑了的那个测试 — ‘删掉 20% 最没用的测试，同时把代码覆盖率维持在 2% 以内’ — 以及结果：在一个开源依赖里又找到了 8 个长期泄漏。</p>
+    <p>这份 feed 在等的两件事没有出现。Nikunj Kothari 在 09-23 说即将到来的那个消费级 agent 仍然缺席，他取而代之发的是一句阶段判断 — “我们正处在‘收入’生命周期的那个阶段”。Thibault Sottiaux 那句“等不及下周二 DevDay 了” — 昨天因为它上一次带日期的承诺在他点名的那天兑现过而被标为可信 — 也不在今天的 feed 里。所以关于新模型的证据状态自 09-25 起没有变化：两份没有分数的自家报告，现在又多了一份来自在路由上有利益关系一方的花费份额。另记一条整理说明 — 今天被去重剔除的博客是 Claude for Small Business，而 Nikunj 引用的那段主张讲的是技工行业小企业的定制软件。两者在同一天都指向小企业；feed 没有显示它们之间存在关联。</p>
+  </div>
+</section>
+
+<!-- ============== ALREADY COVERED ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">&#128257;</span>
+    <h2 class="section-title">已收录 / Already Covered</h2>
+    <span class="section-meta">1 Item &#183; Deduped</span>
+  </div>
+
+  <div class="dedup">
+    <p>今日 feed 中的以下 1 篇官方博客此前已发布，按去重规则不重复计入统计与正文。附带一点：这篇的主题是小企业，而今天 Nikunj Kothari 引用的那段话讲的是技工行业小企业的定制软件；两者在同一天都指向 small business，feed 未显示两者之间存在关联，此处只记下主题重合。</p>
+    <p style="margin-top:12px"><strong>Blog</strong> &#8212; Claude for Small Business launches new workflows, integrations, and training programs。已收录于 <a href="https://clean-online.github.io/ai-digest/2026/09/17/AI_Builders_Digest_2026-09-17.html">2026-09-17</a>。 <a href="https://claude.com/blog/claude-for-small-business-launches-new-workflows-integrations-and-training-programs">https://claude.com/blog/claude-for-small-business-launches-new-workflows-integrations-and-training-programs</a></p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="next-issue">&#128236; 下一期：明天 10:00（北京时间）</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->
