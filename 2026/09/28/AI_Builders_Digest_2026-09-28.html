@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest &#183; 2026-09-28</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; } }
+
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 &#183; Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest &#183; 2026-09-28</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">8</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">14</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+<p class="note-line">今日 feed 实有 8 位 builder 与 14 条推文（任务清单里的 24 人是追踪全集，不是当日全部发声者），以 feed 实有内容为准，全部渲染；今日 feed 无官方博客条目（blog 数组为空）；1 期播客（No Priors × Stefano Ermon）此前已于 2026-09-20 收录，按去重规则计 0，仅在下方「已收录 / Already Covered」中列出链接。</p>
+
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">&#128036;</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">8 Builders</span>
+  </div>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thibault Sottiaux</span>
+      <span class="builder-role">Codex &amp; ChatGPT · OpenAI</span>
+    </div>
+    <p class="summary-en">&ldquo;Resets all propagated. That will be all. Have a fantastic weekend.&rdquo; That closes a thread this feed has carried four times. On 09-11 he disclosed that resets were not fully applying in ChatGPT Work and Codex, with a make-good and an apology to everyone in the affected window. On 09-24 a banked reset was loaded into Plus, Pro and Business accounts, on the Tuesday he had named. On 09-27 the reset was the remedy for a Codex outage rather than a scheduled change. Today it is reported as finished. None of the four carries a number: no account count, no quota figure, no window. Still open is the DevDay he dated on 09-25 to &ldquo;next Tuesday&rdquo; &mdash; it does not appear in this snapshot.</p>
+    <p class="summary-zh zh">「Resets 全部生效了。就这些。周末愉快。」这句话收掉了一条本 feed 出现过四次的线。11 号他披露 resets 在 ChatGPT Work 与 Codex 里没有完全生效，并给了受影响时间窗内所有人补偿与致歉。24 号一次 banked reset 被载入 Plus、Pro 和 Business 账户，日期正是他此前点名的那个周二。27 号 reset 变成一次 Codex 故障的补救，而不是计划中的变更。今天报告为已完成。四次都没有带数字：没有账户数、没有额度数字、没有时间窗。仍然开着的是他 09-25 定在「下周二」的 DevDay —— 它在这份快照里没有出现。</p>
+    <div class="urls"><a href="https://x.com/thsottiaux/status/2103911959544610829">https://x.com/thsottiaux/status/2103911959544610829</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">Creator · Practical AI</span>
+    </div>
+    <p class="summary-en">&ldquo;Not sure what happened to Claude limits they went from barely usable to basically unlimited&rdquo; &mdash; a user-side observation with no number, no stated cause, and the author saying explicitly that he does not know what changed. Read next to Sottiaux reporting resets propagated the same day, these are two anecdotes about ceilings lifting at two different labs within hours. Neither is a capacity figure, and nothing in the feed connects the two.</p>
+    <p class="summary-zh zh">「不知道 Claude 的限额发生了什么，从勉强能用变成基本无限」—— 一条用户侧的观察，没有数字、没有说明原因，作者还明确写了自己不知道发生了什么变化。把它和同一天 Sottiaux 报告 resets 全部生效放在一起读，是两条关于两个不同实验室的上限在几小时内被抬高的轶事。两者都不是产能数字，feed 里也没有任何东西把两者连起来。</p>
+    <p class="summary-en">Building an app on the Gemini audio API to teach him conversational Japanese: 10 lessons, 10 phrases per lesson. He does not report what using it was like.</p>
+    <p class="summary-zh zh">用 Gemini audio API 做一个教他日语会话的应用：10 节课，每节 10 个短语。他没有报告使用它的体验。</p>
+    <p class="summary-en">First time using Google&rsquo;s Antigravity, in order to try Google&rsquo;s new audio APIs, and he does not know who to give feedback to. This is the first mention of Antigravity in this feed, and it comes from the person who on 09-22 ranked Google fourth in the personal agent race, with the note that Google holds the Gmail and Calendar data but Spark is only a secondary tab inside Gemini.</p>
+    <p class="summary-zh zh">第一次用 Google 的 Antigravity，为的是试 Google 的新 audio API，而他不知道该向谁反馈。这是 Antigravity 在本 feed 里第一次出现，而说这句话的人正是 09-22 那期把 Google 排在个人 agent 竞局第四位的人，当时他给的注解是 Google 握着 Gmail 和 Calendar 的数据，但 Spark 只是 Gemini 里的一个次级 tab。</p>
+    <div class="urls"><a href="https://x.com/petergyang/status/2104066667361992892">https://x.com/petergyang/status/2104066667361992892</a><a href="https://x.com/petergyang/status/2104059554204188833">https://x.com/petergyang/status/2104059554204188833</a><a href="https://x.com/petergyang/status/2104003094615052443">https://x.com/petergyang/status/2104003094615052443</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">Vercel CEO</span>
+    </div>
+    <p class="summary-en">&ldquo;Reject non-understanding.&rdquo; His argument: slop grenades are not only code and pull requests, and the real risk is that reading gets entirely discounted, because of the exhaustion of low-quality unverified AI prose being thrown at you all the time. The example he cites is a thread going viral about a performance improvement attributed to a compiler change, where the pull request description itself has the AI saying the gain is not from the compiler change but from how the algorithms and data structures changed &mdash; with the implication that a similar win could have been attained otherwise. He closes on what he wants instead: AI in the service of understanding the universe and enhancing human cognition and creativity.</p>
+    <p class="summary-zh zh">「拒绝不理解。」他的论证是：slop 不只是代码和 PR，真正的风险是「阅读」被彻底打折 —— 因为不断被扔来低质量、未经验证的 AI 文字而产生的疲惫。他举的例子是一条正在疯传的帖子，讲的是某项性能提升被归功于一次编译器改动，而 PR 描述里 AI 自己说增益不是来自编译器改动，而是算法和数据结构变了 —— 言下之意是同样的收益原本也可以用别的方式拿到。他的结尾是他想要的是什么：AI 服务于理解宇宙、增强人的认知与创造力。</p>
+    <p class="summary-en">A personal post, not an AI one: he announced the birth of his daughter, Lisa Rauch. Kept because it is part of what the feed carried; it contains no AI content.</p>
+    <p class="summary-zh zh">一条个人帖，不是 AI 内容：他宣布女儿 Lisa Rauch 出生。保留是因为它属于这份 feed 所承载的内容；它不含任何 AI 内容。</p>
+    <div class="urls"><a href="https://x.com/rauchg/status/2103951116648280266">https://x.com/rauchg/status/2103951116648280266</a><a href="https://x.com/rauchg/status/2103939888513274147">https://x.com/rauchg/status/2103939888513274147</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Dan Shipper</span>
+      <span class="builder-role">Every CEO</span>
+    </div>
+    <p class="summary-en">He wrote a novelization of Plato&rsquo;s Protagoras, then had Opus 5.5 turn it into a film, posting scene 1 and then scene 2. The posts are the artifact; he gives no evaluation of the result, no prompt, and no comparison against another model. Posting artifacts rather than scores is consistent with how he has used new models in this feed since 09-13 &mdash; a personal benchmark instead of a published one.</p>
+    <p class="summary-zh zh">他写了柏拉图《普罗泰戈拉》的小说化改写，然后让 Opus 5.5 把它变成一部电影，先发了场景 1，又发了场景 2。这两条帖就是成品本身；他没有对结果作评价，没有给 prompt，也没有和别的模型做比较。发成品而不发分数，与他在本 feed 里自 09-13 以来使用新模型的方式一致 —— 个人 benchmark，而不是公开 benchmark。</p>
+    <div class="urls"><a href="https://x.com/danshipper/status/2103894152316645620">https://x.com/danshipper/status/2103894152316645620</a><a href="https://x.com/danshipper/status/2103850415930708437">https://x.com/danshipper/status/2103850415930708437</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Garry Tan</span>
+      <span class="builder-role">Y Combinator President &amp; CEO</span>
+    </div>
+    <p class="summary-en">&ldquo;This is my favorite way to fix bugs now&rdquo; &mdash; Capy with GStack /autoplan pointed at a production issue, running GPT-6 at medium reasoning. No before and after, no time saved, no failure case. Capy first appeared in this feed on 09-17 with a claim of the same shape: same model, half the time.</p>
+    <p class="summary-zh zh">「这是我现在最喜欢的修 bug 方式」—— 用 Capy 配合 GStack 的 /autoplan 打一个生产环境问题，跑的是中等推理强度的 GPT-6。没有前后对比、没有省下的时间、没有失败案例。Capy 在本 feed 里第一次出现是 09-17，当时的断言是同一个形状：同一个模型，一半的时间。</p>
+    <p class="summary-en">Two lines with no object: &ldquo;Be chalant&rdquo; and &ldquo;Don&rsquo;t LARP&rdquo;. No AI content.</p>
+    <p class="summary-zh zh">两行没有对象的口号：「Be chalant」与「Don&rsquo;t LARP」。不含 AI 内容。</p>
+    <p class="summary-en">A community-organising post for Garry&rsquo;s List events, framed around parents organising over education. Not an AI post, and nothing in it touches this digest&rsquo;s topic.</p>
+    <p class="summary-zh zh">一条为 Garry&rsquo;s List 活动做社区组织动员的帖子，围绕家长为孩子教育组织起来展开。不是 AI 内容，也没有任何部分触及本日报的主题。</p>
+    <div class="urls"><a href="https://x.com/garrytan/status/2104068570938499350">https://x.com/garrytan/status/2104068570938499350</a><a href="https://x.com/garrytan/status/2103989902476259702">https://x.com/garrytan/status/2103989902476259702</a><a href="https://x.com/garrytan/status/2103932595956506885">https://x.com/garrytan/status/2103932595956506885</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thariq</span>
+      <span class="builder-role">Claude Code · Anthropic</span>
+    </div>
+    <p class="summary-en">A one-year marker: about a year ago he posted one of the first posts about using Claude Code to make videos, and each of those took a long time to iterate &mdash; pointing out details that were wrong, and so on. &ldquo;Crazy how far things have come.&rdquo; No numbers, no side-by-side, and no claim about what specifically improved.</p>
+    <p class="summary-zh zh">一个一年的时间标记：大约一年前他发了最早一批用 Claude Code 做视频的帖子，而每一条都要花很长时间迭代 —— 指出哪里不对，等等。「变化真大。」没有数字、没有并排对比，也没有说具体是哪方面变好了。</p>
+    <div class="urls"><a href="https://x.com/trq212/status/2103897226154328502">https://x.com/trq212/status/2103897226154328502</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Steinberger</span>
+      <span class="builder-role">OpenClaw · OpenAI</span>
+    </div>
+    <p class="summary-en">&ldquo;Now I see why some people talk about AGI. This is so clever!&rdquo; The feed carries only the reaction and a link; it does not say what the object is or who built it. Kept as a reaction, not as a claim about capability.</p>
+    <p class="summary-zh zh">「现在我明白为什么有些人会谈论 AGI 了。这太聪明了！」feed 只承载了这句反应和一个链接，没有说那个对象是什么、谁做的。作为一条反应保留，不作为能力断言。</p>
+    <div class="urls"><a href="https://x.com/steipete/status/2103883264054505493">https://x.com/steipete/status/2103883264054505493</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nikunj Kothari</span>
+      <span class="builder-role">VC · FPV Ventures</span>
+    </div>
+    <p class="summary-en">&ldquo;Hope you got out today&rdquo; &mdash; a one-line personal post with no AI content.</p>
+    <p class="summary-zh zh">「希望你今天出门了」—— 一行个人帖，不含 AI 内容。</p>
+    <div class="urls"><a href="https://x.com/nikunj/status/2104030951370322145">https://x.com/nikunj/status/2104030951370322145</a></div>
+  </article>
+
+</section>
+
+
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">&#129517;</span>
+    <h2 class="section-title">Takeaway</h2>
+    <span class="section-meta">No Podcast Today</span>
+  </div>
+
+  <div class="takeaway">
+    <div class="takeaway-label">The Takeaway</div>
+    <p>The longest thread this feed has been carrying closes today, and it closes with a sentence rather than a figure. Resets moved four times: 09-11, not applying in ChatGPT Work and Codex, with a make-good and an apology; 09-24, a banked reset loaded as a promised change; 09-27, a reset as the remedy for an outage; today, &ldquo;Resets all propagated.&rdquo; What was missing each time is still missing now &mdash; no account count, no quota, no window. What stays open is the DevDay he dated to &ldquo;next Tuesday&rdquo; on 09-25; it is absent from this snapshot.</p>
+    <p>The second thing is that ceilings moved at two labs within hours, and neither report is measurable. Sottiaux&rsquo;s is an operator&rsquo;s completion notice; Peter Yang&rsquo;s is a user saying Claude limits went from barely usable to basically unlimited, while writing that he does not know what happened. Two anecdotes on the same axis are still two anecdotes. By the rule this digest has applied since 09-25, a report from the person using the product cannot settle a capacity question, and by the axis test added on 09-26, neither of these is a capacity measurement in the first place. What the feed supports is narrower than &ldquo;capacity grew&rdquo;: two people&rsquo;s limits moved, and neither said by how much.</p>
+    <p>The most argued position of the day points at reading itself. Rauch&rsquo;s &ldquo;Reject non-understanding&rdquo; targets AI prose, and the case he uses is a performance win credited to a compiler when the pull request text says the win came from algorithms and data structures. The same caution lands on the two items above: a completion notice and a limits anecdote both read like measurements, and neither is one. That is the one thing worth carrying out of a feed this thin.</p>
+    <p>The rest of the feed is thinner than those three and is rendered rather than dropped, so the count matches what the feed carried: a birth announcement, two lines of slogan, a community-organising post, an &ldquo;AGI&rdquo; reaction whose object the feed never names, a one-line &ldquo;go outside&rdquo;, a one-year video-making marker, and two scenes of a Plato film posted without any evaluation of them. 8 builders, 14 tweets, and one podcast that was already covered on 09-20.</p>
+  </div>
+
+  <div class="takeaway zh">
+    <div class="takeaway-label">核心结论</div>
+    <p>本 feed 追踪得最久的那条线今天收口了，而且是用一句话收的，不是用一个数字。Resets 动了四次：09-11 在 ChatGPT Work 与 Codex 里没有生效，附带补偿与致歉；09-24 一次 banked reset 作为承诺过的变更被载入；09-27 reset 成为一次故障的补救；今天「Resets 全部生效了」。每次都缺的东西现在仍然缺 —— 没有账户数、没有额度、没有时间窗。仍然开着的是他 09-25 定在「下周二」的 DevDay；它在这份快照里缺席。</p>
+    <p>第二件事是两家实验室的上限在几小时内都被抬高了，而两份报告都不可度量。Sottiaux 那条是运营方的完成通知；Peter Yang 那条是一个用户说 Claude 的限额从勉强能用变成基本无限，同时写着他不知道发生了什么。同一条轴上的两条轶事仍然是两条轶事。按本日报自 09-25 起沿用的规则，来自产品使用方的一份报告了结不了一个产能问题；再按 09-26 加上的那条「轴」的检验，这两条从一开始就不是产能测量。feed 能支撑的说法比「产能增长了」更窄：两个人的限额动了，而且谁都没说动了多少。</p>
+    <p>今天论证最用力的一条指向的是「阅读」本身。Rauch 的「拒绝不理解」针对的是 AI 生成的文字，而他用的案例是一项性能提升被记在编译器账上，可 PR 文本自己说增益来自算法和数据结构。同样的谨慎落在上面那两条上：一条完成通知和一条限额轶事读起来都像测量，而两者都不是。这是一份这么薄的 feed 里唯一值得带走的东西。</p>
+    <p>feed 的其余部分比这三条更薄，照常渲染而不是删掉，这样数字与 feed 承载的内容一致：一条新生儿公告、两行口号、一条社区动员帖、一条 feed 从未点明对象的「AGI」反应、一行「今天出门了」、一个一年的做视频标记，以及一部柏拉图短剧的两个场景（发了但没有任何评价）。8 位 builder、14 条推文，以及一期已于 09-20 收录过的播客。</p>
+  </div>
+</section>
+
+
+<!-- ============== ALREADY COVERED ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">&#128257;</span>
+    <h2 class="section-title">已收录 / Already Covered</h2>
+    <span class="section-meta">1 Item &#183; Deduped</span>
+  </div>
+
+  <div class="dedup">
+    <p>以下条目由 feed 再次推送，但此前已收录过，按去重规则不计入本期统计（判据为在 2026/ 历史页面中 grep 到该内容）：</p>
+    <p style="margin-top:12px"><strong>Podcast</strong> &#8212; No Priors — 「Why Diffusion Will Win AI Inference with Inception Co-Founder and CEO Stefano Ermon」（publishedAt 2026-09-18）。已收录于 <a href="https://clean-online.github.io/ai-digest/2026/09/20/AI_Builders_Digest_2026-09-20.html">2026-09-20</a>。 <a href="https://www.youtube.com/@NoPriorsPodcast">https://www.youtube.com/@NoPriorsPodcast</a></p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="next-issue">&#128236; 下一期：明天 10:00（北京时间）</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->
