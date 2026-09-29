@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest &#183; 2026-09-29</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; } }
+
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 &#183; Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest &#183; 2026-09-29</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">14</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">25</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+<p class="note-line">今日 feed 实有 14 位 builder 与 25 条推文（任务清单里的 24 人是追踪全集，不是当日全部发声者），以 feed 实有内容为准，全部渲染；两个 0 的成因不同：blog 数组本身为空（今日无官方博客条目）；1 期播客（Training Data × Aaron Levie）此前已于 2026-09-17 收录，按去重规则计 0，仅在下方「已收录 / Already Covered」中列出链接。</p>
+
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">&#128036;</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">14 Builders</span>
+  </div>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thibault Sottiaux</span>
+      <span class="builder-role">Codex &amp; ChatGPT · OpenAI</span>
+    </div>
+    <p class="summary-en">Two posts. The one with substance is an architecture claim: &ldquo;Code freeze isn&rsquo;t really a thing anymore before releases and in the future the code might even be generated online per request according to some constraints.&rdquo; Coming from the person who runs Codex, this is a statement about release process rather than a capability benchmark. No number, no date, no product attached. The other post of the day is six periods, &ldquo;. . . . . .&rdquo;, with nothing else in it.</p>
+    <p class="summary-zh zh">两条。有实质内容的是一条架构主张：&ldquo;发布前的 code freeze 已经基本不再是个东西了，未来代码甚至可能按每次请求的约束在线生成。&rdquo; 这句话出自负责 Codex 的人，讲的是发布流程而不是能力跑分。没有数字、没有日期、没有挂到具体产品上。当天另一条只有六个句号。</p>
+    <div class="urls"><a href="https://x.com/thsottiaux/status/2104383749723128052">https://x.com/thsottiaux/status/2104383749723128052</a><a href="https://x.com/thsottiaux/status/2104108167806550046">https://x.com/thsottiaux/status/2104108167806550046</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">AI Writer &amp; Interviewer</span>
+    </div>
+    <p class="summary-en">Three posts. The one carrying an argument compares memory with product category: &ldquo;Notice how almost nobody has fond memories of SaaS or business software that they used back in the day but everyone remembers their favorite games. Games really are the software that has the longest staying power in our memories. LLM models are probably the inverse of that.&rdquo; No numbers, no cited examples. The other two are a recommendation to follow composer David Wise, and &ldquo;Yes I am a millennial&rdquo;, both inside the same nostalgia thread.</p>
+    <p class="summary-zh zh">三条。带论点那条做的是记忆与品类的对比：&ldquo;注意看，几乎没人对当年用过的 SaaS 或商业软件有什么美好回忆，但每个人都记得自己最喜欢的游戏。游戏才是记忆里留存时间最长的软件。LLM 大概是这件事的反面。&rdquo; 没有数字，也没有举具体例子。另外两条分别是推荐关注作曲人 David Wise，以及一句 &ldquo;Yes I am a millennial&rdquo;，都在同一串怀旧话题里。</p>
+    <div class="urls"><a href="https://x.com/petergyang/status/2104414495376564517">https://x.com/petergyang/status/2104414495376564517</a><a href="https://x.com/petergyang/status/2104406922216808505">https://x.com/petergyang/status/2104406922216808505</a><a href="https://x.com/petergyang/status/2104405655406923922">https://x.com/petergyang/status/2104405655406923922</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nan Yu</span>
+      <span class="builder-role">Product Staff, OpenAI (soon) · prev Head of Product, Linear</span>
+    </div>
+    <p class="summary-en">One post: &ldquo;We came up in the golden era&rdquo;, with two images. No AI content. It lands in the same nostalgia thread as Peter Yang&rsquo;s and Thariq&rsquo;s posts today; the three fall within four hours of each other, and the feed does not show that they are connected.</p>
+    <p class="summary-zh zh">一条：&ldquo;We came up in the golden era&rdquo;，配两张图。无 AI 内容。它与今天 Peter Yang、Thariq 的帖子落在同一串怀旧话题里，三条在四小时内先后发出，feed 未显示彼此之间有关联。</p>
+    <div class="urls"><a href="https://x.com/thenanyu/status/2104424388309496182">https://x.com/thenanyu/status/2104424388309496182</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Amanda Askell</span>
+      <span class="builder-role">Philosopher &amp; Ethicist · Anthropic</span>
+    </div>
+    <p class="summary-en">Two posts about perfume and nothing else. She bought a tiny sample bottle of each of the fanciest and best reviewed perfumes to test whether she only disliked cheap ones, and can now &ldquo;confidently confirm that all perfume smells disgusting&rdquo;, with the smell of a fresh orange as the exception she names. No AI content today.</p>
+    <p class="summary-zh zh">两条都在讲香水，没有别的。她把最贵、评价最好的香水各买了一支分装小样，想验证自己是不是只是没用过好的，结论是现在可以 &ldquo;有把握地确认所有香水闻起来都很恶心&rdquo;，唯一点名的例外是新鲜橙子的味道。今日无 AI 内容。</p>
+    <div class="urls"><a href="https://x.com/AmandaAskell/status/2104266890726309908">https://x.com/AmandaAskell/status/2104266890726309908</a><a href="https://x.com/AmandaAskell/status/2104261424625381528">https://x.com/AmandaAskell/status/2104261424625381528</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thariq</span>
+      <span class="builder-role">Claude Code · Anthropic</span>
+    </div>
+    <p class="summary-en">Two posts. The one with substance is a fear stated in a single line: &ldquo;I am most afraid of us eating the productivity gains of agents by just becoming lazier.&rdquo; That is the opposite of the position Ryo Lu took on 09-25, when he wrote that the danger is not that AI makes us lazy but that it keeps us endlessly busy. Both are one sentence with no data behind them. The other post today is &ldquo;dating myself with neopets I fear&rdquo;.</p>
+    <p class="summary-zh zh">两条。有实质内容的那条只有一句话：&ldquo;我最怕的是我们把 agent 带来的生产力收益，用变懒的方式吃掉了。&rdquo; 这与 Ryo Lu 在 09-25 那期的立场正好相反，他写的是危险不在于 AI 让人变懒，而在于让人无止境地忙碌。两句都是孤零零一句话，背后都没有数据。今天另一条是 &ldquo;dating myself with neopets I fear&rdquo;。</p>
+    <div class="urls"><a href="https://x.com/trq212/status/2104403711699423680">https://x.com/trq212/status/2104403711699423680</a><a href="https://x.com/trq212/status/2104273243599405395">https://x.com/trq212/status/2104273243599405395</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Amjad Masad</span>
+      <span class="builder-role">CEO · Replit</span>
+    </div>
+    <p class="summary-en">Two posts. One is an adoption signal with a named household: &ldquo;Cool to see Replit being popular at Chan-Zuckerberg household!&rdquo; No user count, no revenue figure, no dates. The other is a two word reaction with two links and nothing further.</p>
+    <p class="summary-zh zh">两条。一条是点名了对象的采用信号：&ldquo;Cool to see Replit being popular at Chan-Zuckerberg household!&rdquo; 没有用户数、没有收入数字、没有日期。另一条是两个词的反应，配两个链接，没有更多内容。</p>
+    <div class="urls"><a href="https://x.com/amasad/status/2104428789417857436">https://x.com/amasad/status/2104428789417857436</a><a href="https://x.com/amasad/status/2104344877798719516">https://x.com/amasad/status/2104344877798719516</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">CEO · Vercel</span>
+    </div>
+    <p class="summary-en">One long post, and the only finished artifact in today&rsquo;s feed. He ported his Mini web browser off Electron and Bun onto Rust and Swift: &ldquo;It&rsquo;s faster, more secure, and shockingly, nicer to iterate on than Electron + Bun.&rdquo; Chromium is bundled through the cef crate; an agent is embedded via fx acp, which talks to his local fx CLI over ACP and can then drive the browser through an MCP server. Dropping Electron got him Liquid Glass, faster boots, and fine-grained focus and input control he calls &ldquo;nightmare fuel in JS&rdquo;. His market claim: &ldquo;Native is the future, both on the desktop and in the cloud. I suspect the entire software world will nativify faster than people realize, as DHH hinted at Rails World.&rdquo; He credits the port to Opus 5.5 and Sol 6, and says he came across a more secure and direct way to expose MCP tools, which he is now excited about. No benchmarks anywhere in the post.</p>
+    <p class="summary-zh zh">一条长推，也是今天 feed 里唯一的成品。他把自己的 Mini 浏览器从 Electron + Bun 移植到了 Rust 与 Swift：&ldquo;更快、更安全，而且迭代起来意外地比 Electron + Bun 更顺手。&rdquo; Chromium 通过 cef crate 打包；agent 通过 fx acp 嵌入，经 ACP 与他本地的 fx CLI 通信，再由 MCP server 驱动浏览器。去掉 Electron 之后拿到了 Liquid Glass、更快的启动，以及他称之为 &ldquo;在 JS 里是噩梦&rdquo; 的细粒度焦点与输入控制。他的市场判断是：&ldquo;原生是未来，桌面端和云端都是。我怀疑整个软件世界 nativify 的速度会比人们意识到的更快，就像 DHH 在 Rails World 上暗示的那样。&rdquo; 他把这次移植归功于 Opus 5.5 和 Sol 6，并说过程中发现了一种更安全、更直接地暴露 MCP 工具的方式，现在对此很兴奋。全文没有跑分。</p>
+    <div class="urls"><a href="https://x.com/rauchg/status/2104428800134013205">https://x.com/rauchg/status/2104428800134013205</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aaron Levie</span>
+      <span class="builder-role">CEO · Box</span>
+    </div>
+    <p class="summary-en">One long post, the most complete argument of the day, and it splits the economy in two by where friction sits. Where incumbents benefit from the friction customers have changing their habits, &ldquo;switching costs will come down and competition is going to increase dramatically until some equilibrium is reached between the disruptive alternatives and the incumbents.&rdquo; Where friction is what blocks the market, agents unlock it, and he names healthcare, travel, local services, certain information services and entirely new markets as net beneficiaries. His closing: &ldquo;a future meaningfully mediated by agents that work tirelessly for us and our goals can&rsquo;t possibly function exactly the same as today. Going to be wild.&rdquo; No numbers, no named customer, no measurement.</p>
+    <p class="summary-zh zh">一条长推，今天最完整的论证，按摩擦所在的位置把经济切成两半。在位者从用户改变习惯的摩擦中获益的地方，&ldquo;转换成本会下降，竞争会剧烈加剧，直到颠覆性替代者与原在位者之间达成某种均衡&rdquo;；摩擦是在挡住市场的地方，agent 会把它打开，他点名医疗、旅行、本地服务、部分信息服务以及全新的市场是净受益方。结尾是：&ldquo;一个由 agent 有意义的居间协调、为我们和我们的目标不知疲倦工作的未来，不可能和今天一模一样地运转。会非常疯狂。&rdquo; 没有数字、没有具体客户、没有度量。</p>
+    <div class="urls"><a href="https://x.com/levie/status/2104350592290406849">https://x.com/levie/status/2104350592290406849</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Garry Tan</span>
+      <span class="builder-role">President &amp; CEO · Y Combinator</span>
+    </div>
+    <p class="summary-en">Three posts, all on one subject, bot detection. &ldquo;Anti-bot is for losers tbh&rdquo;, then &ldquo;Oh I can do this with CDP. Haha you have not actually hit any real anti-bot then&rdquo;, then &ldquo;Do not nerf / Made in San Francisco&rdquo; with an image. The first two are a position on agents driving browsers through tooling like the Chrome DevTools Protocol. The third is a slogan whose object the feed never names.</p>
+    <p class="summary-zh zh">三条，讲的是同一件事：反爬。&ldquo;Anti-bot is for losers tbh&rdquo;，接着是 &ldquo;Oh I can do this with CDP. Haha you have not actually hit any real anti-bot then&rdquo;，第三条是配图的 &ldquo;Do not nerf / Made in San Francisco&rdquo;。前两条是对 agent 通过 Chrome DevTools Protocol 这类工具驱动浏览器所持有的立场。第三条是句口号，feed 里没有点明它针对什么。</p>
+    <div class="urls"><a href="https://x.com/garrytan/status/2104402742517420517">https://x.com/garrytan/status/2104402742517420517</a><a href="https://x.com/garrytan/status/2104288345547591747">https://x.com/garrytan/status/2104288345547591747</a><a href="https://x.com/garrytan/status/2104231083701420282">https://x.com/garrytan/status/2104231083701420282</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Matt Turck</span>
+      <span class="builder-role">VC · FirstMark Capital · Host, MAD Podcast</span>
+    </div>
+    <p class="summary-en">One post, and it is an observation about who holds which view: &ldquo;It continues to be notable how many AI researchers (who understand how AI actually works) believe in neither AI doom nor massive uncontrollable acceleration, while non AI researchers (who have limited knowledge) have very definite and certain views on the topic.&rdquo; No survey, no sample size, no names. It reads differently next to the two safety episodes this feed carried on 09-05 and 09-07, where the people putting probabilities on takeover were themselves researchers.</p>
+    <p class="summary-zh zh">一条，讲的是谁持什么看法：&ldquo;值得注意的是，有多少 AI 研究者（他们理解 AI 实际是怎么运作的）既不信 AI 末日，也不信大规模不可控的加速，而非 AI 研究者（了解有限）在这个话题上却有非常确定、非常肯定的看法。&rdquo; 没有调查、没有样本量、没有点名。把它和这个 feed 在 09-05、09-07 收录的两期安全播客对着读会不太一样，那两期里给出接管概率的人本身就是研究者。</p>
+    <div class="urls"><a href="https://x.com/mattturck/status/2104331402385002831">https://x.com/mattturck/status/2104331402385002831</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Zara Zhang</span>
+      <span class="builder-role">Builder</span>
+    </div>
+    <p class="summary-en">Two posts. The one with content is a caution about how a technology&rsquo;s shine hides its failures: &ldquo;New technology can be so dazzling and flashy that it blinds us to the ways in which it&rsquo;s not working&rdquo;, and in her parenthesis, it can make you feel that if something is not working it is your fault rather than the technology&rsquo;s, because the world is moving so fast and everyone seems ahead of you. The other is a two point answer to why she posts without monetizing: self-expression is an innate instinct needing no utilitarian motive, and influence is worth far more than money.</p>
+    <p class="summary-zh zh">两条。有内容那条是对技术光环掩盖失效的提醒：&ldquo;新技术可以炫目到让我们看不见它失效的地方&rdquo;，她在括号里补的是：它有时会让你觉得如果哪件事不 work，那大概是你的问题而不是技术的问题，因为世界变化太快、似乎所有人都走在你前面。另一条是对 &ldquo;为什么不靠内容变现&rdquo; 的两点回答：自我表达是天生的本能，不需要功利理由；影响力比钱值钱得多。</p>
+    <div class="urls"><a href="https://x.com/zarazhangrui/status/2104253882025341231">https://x.com/zarazhangrui/status/2104253882025341231</a><a href="https://x.com/zarazhangrui/status/2104112917264126195">https://x.com/zarazhangrui/status/2104112917264126195</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nikunj Kothari</span>
+      <span class="builder-role">Partner · FPV Ventures</span>
+    </div>
+    <p class="summary-en">Three posts. One is a capability verdict with nothing behind it: &ldquo;Astra is absurd.. Give it decently hard verifiable end to end tasks with the right tools and watch it just fly.&rdquo; He is a user reporting on his own workload, not an independent evaluator, and he publishes no task list, no time and no score. The other two are a book recommendation request he made to ChatGPT, listing White Mirror and Challenger, and a line about the larger 13.3 inch model with Renaissance art.</p>
+    <p class="summary-zh zh">三条。一条是没有依据的能力判断：&ldquo;Astra 太夸张了。给它足够难、可验证的端到端任务，配上合适的工具，看它一路飞就行。&rdquo; 他是自己工作负载上的使用者，不是独立评测方，没有公布任务清单、耗时或分数。另外两条分别是他向 ChatGPT 要书单（列出 White Mirror 与 Challenger），以及一句关于 13.3 寸、印着文艺复兴艺术的那款更大机型。</p>
+    <div class="urls"><a href="https://x.com/nikunj/status/2104444216017637575">https://x.com/nikunj/status/2104444216017637575</a><a href="https://x.com/nikunj/status/2104261968043663591">https://x.com/nikunj/status/2104261968043663591</a><a href="https://x.com/nikunj/status/2104254321131245653">https://x.com/nikunj/status/2104254321131245653</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Steinberger</span>
+      <span class="builder-role">OpenClaw · OpenAI</span>
+    </div>
+    <p class="summary-en">One post. Blacksmith has been an amazing sponsor, he says, &ldquo;but we need to distribute the load&rdquo;, and the plan is &ldquo;let codex decide which tests actually need to run and drastically nix CI and run tests hourly&rdquo;. That is a concrete change to a release pipeline, made by the person who runs it, with no before and after numbers published. It lands the same day as Sottiaux&rsquo;s claim that code freeze is no longer really a thing.</p>
+    <p class="summary-zh zh">一条。他说 Blacksmith 一直是很好的赞助方，&ldquo;但我们需要把负载分散开&rdquo;，做法是 &ldquo;让 codex 决定哪些测试真的需要跑，大幅砍掉 CI，改成每小时跑一次测试&rdquo;。这是发布流水线上的一处具体改动，出自管它的人，没有公布改动前后的数字。它与 Sottiaux 同一天说的 &ldquo;code freeze 已经不再真是个东西&rdquo; 落在同一天。</p>
+    <div class="urls"><a href="https://x.com/steipete/status/2104305554760114488">https://x.com/steipete/status/2104305554760114488</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Dan Shipper</span>
+      <span class="builder-role">CEO · Every</span>
+    </div>
+    <p class="summary-en">One line: &ldquo;industry built on modeling humans as rational agents panics as humans adopt rational agents&rdquo;, with a link, and no industry named. It is posted about two hours after Levie&rsquo;s post on the same shift, agents making the most efficient choice on behalf of their users. The feed does not show the two are connected.</p>
+    <p class="summary-zh zh">一句话：&ldquo;industry built on modeling humans as rational agents panics as humans adopt rational agents&rdquo;，配一个链接，没有点名是哪个行业。它比 Levie 那条讲 agent 替用户做最高效选择的帖子晚约两个小时发出，指的是同一个位移。feed 未显示两者有关联。</p>
+    <div class="urls"><a href="https://x.com/danshipper/status/2104302924251951553">https://x.com/danshipper/status/2104302924251951553</a></div>
+  </article>
+
+</section>
+
+
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">&#129517;</span>
+    <h2 class="section-title">Takeaway</h2>
+    <span class="section-meta">No Podcast Today</span>
+  </div>
+
+  <div class="takeaway">
+    <div class="takeaway-label">The Takeaway</div>
+    <p>There is no launch, no benchmark and no new model in this feed today, so what remains is each person describing one shift in one sentence. Two of those sentences describe the same shift, written two hours apart with neither citing the other. Box CEO Aaron Levie splits the economy by where friction sits: markets that profit from customers&rsquo; friction lose it and see competition rise until some new equilibrium, while healthcare, travel, local services and certain information services are unlocked by it. Every CEO Dan Shipper compresses it into one line about an industry built on modelling humans as rational agents watching humans adopt rational agents. Neither offers a number, a customer or a market size.</p>
+    <p>The second thread is operational, and it is the closest thing to evidence today. OpenAI&rsquo;s Thibault Sottiaux, who runs Codex, says code freeze is not really a thing before releases anymore and that in future the code might even be generated online per request according to constraints. Peter Steinberger, inside the same 24 hours, says he plans to let Codex decide which tests actually need to run, cut CI drastically and run tests hourly. Two people, two different codebases, the same direction: the gate in front of a release is being handed to a model. Neither published a before or after number, so this is a change of practice reported by its owner, not a measured result.</p>
+    <p>Vercel CEO Guillermo Rauch supplies the only finished artifact: a browser ported off Electron onto Rust and Swift, Chromium bundled through the cef crate, an agent embedded over ACP and driving the browser through an MCP server, with Liquid Glass and faster boots as the payoff. He generalises it into a market call, that the whole software world will nativify faster than people realise, and credits the port to Opus 5.5 and Sol 6. There is no benchmark in the post, and the credibility question is the one this feed has been carrying since 09-24: the person reporting the gain is the person who shipped it and picked the comparison.</p>
+    <p>The loudest counter-current is about what the gains do to us. Anthropic&rsquo;s Thariq writes that he is most afraid of us eating the productivity gains of agents by becoming lazier, which is the exact opposite of what Ryo Lu argued on 09-25, that the danger is not laziness but being kept endlessly busy. Both are one sentence with nothing behind them, and both cannot be the main risk. Next to them sits Matt Turck&rsquo;s observation that AI researchers tend to believe in neither doom nor uncontrollable acceleration while people without that knowledge hold the most certain views, itself unsourced, and Zara Zhang&rsquo;s note that a dazzling technology can make its failures feel like your own fault.</p>
+    <p>Four things this feed has been tracking did not move today. The DevDay Sottiaux dated on 09-25 to next Tuesday falls outside this snapshot, which closes at 2026-09-28T06:57Z, so it stays open rather than counting as missed. The resets thread he closed on 09-28 with a single sentence still carries no account count, quota or window, twenty four hours later. Nobody picked up Rauch&rsquo;s 09-28 line about rejecting non-understanding, and nobody reproduced Peter Yang&rsquo;s Claude limit change from the same day. Nikunj Kothari&rsquo;s report on Astra is today&rsquo;s only capability statement, and it comes from a user on his own workload, which does not close the independent cross-model gap flagged since 09-24.</p>
+    <p>Twelve of today&rsquo;s twenty five posts carry no AI content, and they are listed here rather than dropped so that the count matches what the feed carried: six periods from Sottiaux; two perfume posts from Amanda Askell; three separate posts inside one nostalgia thread from Peter Yang, Nan Yu and Thariq; a two word reaction from Amjad Masad; the Do not nerf slogan from Garry Tan, whose other two posts do carry a position on anti-bot; a book request and a device size from Nikunj Kothari; and Zara Zhang&rsquo;s answer on why she posts without monetizing. The nostalgia cluster is the one worth noticing, three builders landing within four hours with no link shown between them.</p>
+  </div>
+
+  <div class="takeaway zh">
+    <div class="takeaway-label">核心结论</div>
+    <p>今天这份 feed 里没有发布、没有跑分、没有新模型，剩下的是每人用一句话描述同一个位移。其中两句话描述的是同一个位移，相隔两个小时写出，谁也没引谁。Box CEO Aaron Levie 按摩擦所在的位置把经济切成两半：靠用户摩擦赚钱的市场会失去它、竞争加剧直到新的均衡；医疗、旅行、本地服务和部分信息服务则被它打开。Every CEO Dan Shipper 把它压成一句：一个建立在 &ldquo;把人建模为理性 agent&rdquo; 之上的行业，正在看着人类开始采用理性 agent。两人都没给出数字、客户或市场规模。</p>
+    <p>第二条线在操作层，也是今天最接近证据的东西。OpenAI 负责 Codex 的 Thibault Sottiaux 说发布前的 code freeze 已经不再真是个东西，未来代码甚至可能按每次请求的约束在线生成。Peter Steinberger 在同一天内说他打算让 Codex 决定哪些测试真的需要跑，大幅砍掉 CI，改为每小时跑一次。两个人、两个代码库、同一个方向：发布前那道闸门正在交给模型。两人都没公布改动前后的数字，所以这是由实践者自己报告的改动，不是一个被度量的结果。</p>
+    <p>Vercel CEO Guillermo Rauch 给出了唯一的成品：一个从 Electron 移植到 Rust 与 Swift 的浏览器，Chromium 通过 cef crate 打包，agent 经 ACP 嵌入、由 MCP server 驱动浏览器，换来的是 Liquid Glass 与更快的启动。他把它推成市场判断，整个软件世界 nativify 的速度会比人们意识到的更快，并把这次移植归功于 Opus 5.5 与 Sol 6。帖子里没有跑分，可信度问题也正是这个 feed 从 09-24 起一直在背的那个：报告收益的人，就是发布它、并选定了比较对象的人。</p>
+    <p>最响的反向声音是关于这些收益会怎么对待我们。Anthropic 的 Thariq 说他最怕的是我们用变懒把 agent 的生产力收益吃掉，这与 Ryo Lu 在 09-25 那期的判断正好相反，后者说危险不是变懒，而是被弄得无止境地忙碌。两句都是孤零零一句话、背后什么都没有，而它们不可能同时是主要风险。挨着它们的是 Matt Turck 的观察：AI 研究者往往既不信末日也不信不可控加速，而缺乏这层知识的人反而持有最确定的看法（这条本身也没有出处）；以及 Zara Zhang 那句，炫目的技术会让它失效的部分看起来像你自己的错。</p>
+    <p>这个 feed 在追的四件事今天没有动。Sottiaux 在 09-25 定在 &ldquo;下周二&rdquo; 的 DevDay 落在本次快照窗口之外（窗口截止 2026-09-28T06:57Z），所以它仍然是开着的，不能算作失约。他在 09-28 用一句话收掉的 resets 线，过了 24 小时仍然没有账户数、额度或时间窗。Rauch 09-28 那句关于拒绝不理解的帖子没有人接话，Peter Yang 同一天的 Claude 限额变化也没有第二个人复现。Nikunj Kothari 对 Astra 的描述是今天唯一的能力陈述，出自使用者自己的负载，补不上这个 feed 从 09-24 起就标记出的独立跨模型缺口。</p>
+    <p>今天 25 条里 12 条没有 AI 内容，这里逐条列出而不是删掉，好让数字与 feed 承载的一致：Sottiaux 的六个句号；Amanda Askell 的两条香水帖；Peter Yang、Nan Yu、Thariq 落在同一串怀旧话题里的三条；Amjad Masad 两个词的反应；Garry Tan 的 Do not nerf 口号（他另外两条对反爬是有立场的）；Nikunj Kothari 的求书与机型尺寸；以及 Zara Zhang 回答为什么不靠内容变现。值得留意的是那串怀旧，三位 builder 在四小时内先后发出，彼此之间看不出关联。</p>
+  </div>
+</section>
+
+
+<!-- ============== ALREADY COVERED ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">&#128257;</span>
+    <h2 class="section-title">已收录 / Already Covered</h2>
+    <span class="section-meta">1 Item &#183; Deduped</span>
+  </div>
+
+  <div class="dedup">
+    <p>以下条目由 feed 再次推送，但此前已收录过，按去重规则不计入本期统计（判据为在 2026/ 历史页面中 grep 到该内容）。巧合的是本期播客的受访者正是今天在 X 侧发长推的 Aaron Levie：两处内容都出自他，但播客是 2026-09-15 上线、09-17 已收录的旧集数，与今天的推文不是同一件事，feed 未显示两者有关联。</p>
+    <p style="margin-top:12px"><strong>Podcast · Training Data</strong> &#8212; Box&rsquo;s Aaron Levie: On Reinventing Yourself in the AI Age and Enterprise Diffusion（publishedAt 2026-09-15）。已收录于 <a href="https://clean-online.github.io/ai-digest/2026/09/17/AI_Builders_Digest_2026-09-17.html">2026-09-17</a>。 <a href="https://www.youtube.com/playlist?list=PLOhHNjZItNnMm5tdW61JpnyxeYH5NDDx8">https://www.youtube.com/playlist?list=PLOhHNjZItNnMm5tdW61JpnyxeYH5NDDx8</a></p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="next-issue">&#128236; 下一期：明天 10:00（北京时间）</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->
