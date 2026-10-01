@@ -503,3 +503,12 @@
 - 沿用：三项证据分级（来源 / 比较对象 / 回答的是哪个问题）、发布日按"对比对象 + 测试集来源"排序、采用 vs 能力分轴计数、一 builder 一卡、X section 卡片数校验、推文 ID 与 feed `diff` 校验、内容级去重（blog slug / podcast 标题关键词，**不用人名/公司名/通用词**）、`gh run list --limit 1` 不带 --workflow、curl 用 GET 不用 -I、CSS 沿用 `css_0927.txt`、`/tmp/dg/data.py` + `build.py` 双文件（可选段落分支）。
 - **新增沿用（本期写入项目经验库）**：发布日多条同类数字按对比对象+测试集分级（利益方须标注但"排最前 ≠ 可复现"）；总榜与挑出的单项差一个量级时两组都留并标明限定条件差异；相反判断出现在同一条推文内部时同样并列不做取舍；定价/口径类声明缺"前后各能买到什么"对照就不做涨降定性；承诺追踪补充形态——窗口内只有前夜预告不构成兑现证据。
 - 关注：**DevDay 本体** —— 下期快照（预计 09-30T06:xxZ）将首次完整覆盖太平洋时间 09-29 的 DevDay，届时按三档判定出结论（兑现 / 未兑现），Sottiaux 那句"下周二"可以收口；他 (d) 项"明天还有不占额度的东西"是否披露；Pro $200 有没有人给出"$200 前后能做多少事"的实际对照；Sonnet 5.5 有没有中立第三方复现 Box 那组数字（目前只有 Box 自有 eval 一条带基线）；Rauch 说要回馈的两个 AI skill 是否真的发出。
+
+
+### 2026-10-01 (周四) — 成功
+- **内容获取**：`prepare-digest.js` 抓中央 feed，产出 14 builders / 32 tweets / 0 podcast / 1 blog（bilingual），快照 2026-09-30T06:45Z（较上期 09-29T06:45Z 前进 1 天，无丢档）。
+- **去重**：32 个推文 ID grep `2026/` 零命中；blogs 数组 1 条（Claude in Chrome GA，publishedAt 2026-08-26）slug 命中 09-06 / 09-14 / 09-23 → 去重计 0。两个 0 **成因不同**（数组空 vs 去重），note-line 分开说明。最终 **14/32/0/0**。
+- **主线**：DevDay **兑现**。窗口止于太平洋 09-29 23:45，首次完整覆盖该日；两个独立现场确认（Sottiaux「in person at DevDay」+ Peter Yang「除 keynote 一场没参加」），结束此前连续三期「仍开着」。发布物：Dots、6.1 Sol（Astra 的 1/5 + 95% cache read 折扣）、Ultrafast，另据 Swyx 现场提问名单还有 CUA 与 Decisions API。
+- **结构**：0 podcast + 0 blog → X 14 卡 → Takeaway（`section-meta: "No Podcast Today"`，7 段：承诺收口 / 发布清单 / 两个数字都是价格 / Dots 被按住的部分 / Astra 成两边共同标尺 / 15 条薄内容点名+双簇 / 两个留给明天的日期）→ Already Covered（1 条）→ footer。size 40670。
+- **部署**：index.html `ISSUES` 顶部追加 `2026-10-01` → copy 到 `2026/10/01/` → commit `48dfbe0` → push（ab1a4d1..48dfbe0）。
+- **验证**：`gh run list --limit 1` 第 2 次轮询到 completed/success（run 36805158080，约 20s）→ GET 子路径**首查 HTTP 200**，size 40670 与本地一致，`diff` IDENTICAL；根 index 200 且已含 `2026-10-01`。四项校验首跑全绿（14/14 卡片、32/32 URL、diff IDENTICAL、2 处 by chloevchen）。
