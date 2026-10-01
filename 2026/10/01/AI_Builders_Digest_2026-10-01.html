@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest &#183; 2026-10-01</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; } }
+
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 &#183; Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest &#183; 2026-10-01</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">14</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">32</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+<p class="note-line">Feed snapshot 2026-09-30T06:45Z = 23:45 Pacific on 09-29, the first issue whose window covers DevDay in full. Counts are rendered items: 14 builders, 32 tweets. The two zeros have different causes: the podcasts array is empty, while the blogs array holds one post that was deduped (listed under Already Covered). 统计口径为渲染数：14 位 builder、32 条推文。两个 0 成因不同 —— podcasts 数组为空；blogs 数组有 1 条，按内容级去重后不计入。</p>
+
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">&#128036;</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">14 Builders</span>
+  </div>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Sam Altman</span>
+      <span class="builder-role">CEO &middot; OpenAI</span>
+    </div>
+    <p class="summary-en">Three posts, and together they are the DevDay launch itself. &ldquo;Dots are here!&rdquo; introduces a product he describes as &ldquo;a new way to use AI that works 24/7 for you; get more of your time and attention back to work at a higher level&rdquo;, with no further statement of what a dot is or what it does. The second names a model and two price figures: 6.1 Sol at one fifth of the price of Astra, plus a 95% cache read discount. Those are the only numbers anywhere in this feed, and both are price rather than capability: no benchmark, no eval, and a single named rival as the entire comparison set. The third is &ldquo;Ultrafast is so fast / I do not ever want to go back&rdquo;, which names a product and measures nothing. All three are the vendor's own claims.</p>
+    <p class="summary-zh zh">三条，合起来就是 DevDay 的发布本体。&ldquo;Dots are here!&rdquo; 抛出一个产品，他的描述是 &ldquo;一种 24/7 为你工作的新用法，把你的时间和注意力腾出来去做更高层的工作&rdquo;，没有再说明 dot 是什么、能做什么。第二条给了模型名和两个价格数字：6.1 Sol 定价是 Astra 的五分之一，另有 95% 的 cache read 折扣。这是今天 feed 里仅有的两个数字，而且都是价格、不是能力：没有 benchmark、没有 eval，比较对象也只有一个点名的对手。第三条是 &ldquo;Ultrafast 太快了 / 我再也不想回去了&rdquo;，点了一个产品名，没有任何测量。三条都是厂商自己的说法。</p>
+    <div class="urls"><a href="https://x.com/sama/status/2104995014208258235">https://x.com/sama/status/2104995014208258235</a><a href="https://x.com/sama/status/2104994601140711896">https://x.com/sama/status/2104994601140711896</a><a href="https://x.com/sama/status/2104994395980533804">https://x.com/sama/status/2104994395980533804</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thibault Sottiaux</span>
+      <span class="builder-role">Codex &amp; ChatGPT &middot; OpenAI</span>
+    </div>
+    <p class="summary-en">Three posts, and the one with content is an adoption report for Dots. He expects &ldquo;a few million dots online within days&rdquo; across what he calls a diverse and large community, which is a projection rather than a measurement. Then his own experience: he &ldquo;felt a jump after 2-3 days of use after teaching it more about my preferences and things on my mind&rdquo;, so the improvement he reports followed several days of feeding it context, not day one. He also states what is being held back: creating an entire team of dots is not released, and the reason given is that they are still learning from how people use their primary dot. His DevDay post confirms he was there in person and carries nothing else. The third is &ldquo;What's up dot&rdquo;. Absent from all three: the Pro $200 re-open and the unmetered additions he promised on 09-25 for DevDay itself. The feed gives no evidence either way, so that item stays unresolved.</p>
+    <p class="summary-zh zh">三条，有内容的是 Dots 的采用情况。他预计 &ldquo;几天内会有几百万个 dot 上线&rdquo;，覆盖他所说的庞大而多样的社区，这是预期而不是实测。接着是他自己的体验：在教了它更多偏好和手头的事之后，&ldquo;用了两三天感觉有个跃升&rdquo;，也就是说他报告的提升来自连续几天喂上下文，不是上手就有。他还明确说了被按住的部分：目前不能创建一整个 dot 团队，给出的理由是还在观察大家怎么用主 dot。他的 DevDay 那条确认了他本人到场，此外没有别的内容。第三条是 &ldquo;What's up dot&rdquo;。三条里都没有提 09-25 他承诺在 DevDay 当天做的两件事：Pro $200 重新开放、以及不占额度的新增内容。feed 里两边都没有证据，所以这一项保持未决。</p>
+    <div class="urls"><a href="https://x.com/thsottiaux/status/2105178959327756396">https://x.com/thsottiaux/status/2105178959327756396</a><a href="https://x.com/thsottiaux/status/2105105086506840421">https://x.com/thsottiaux/status/2105105086506840421</a><a href="https://x.com/thsottiaux/status/2105102820706058498">https://x.com/thsottiaux/status/2105102820706058498</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Dan Shipper</span>
+      <span class="builder-role">CEO &middot; Every</span>
+    </div>
+    <p class="summary-en">One post carries substance, and it is an inventory of his own coverage rather than a view on the launches: two vibe checks, a live feed, a livestream, and a podcast with Sam Altman that he says is coming tomorrow. He calls the effort insane and credits his team. That last item is the one dated promise in today's feed, and it can be checked in the next snapshot. The other two are one-line prompts addressed to Altman: read the vibe check, and subscribe to Every to get it.</p>
+    <p class="summary-zh zh">一条有实质，而且是自家报道的清单，不是对发布的判断：两条 vibe check、一个 live feed、一场 livestream，以及一期和 Sam Altman 的播客，他说 &ldquo;明天&rdquo; 放出。他形容团队的投入疯狂，并把功劳给了团队。最后那项是今天 feed 里唯一带日期的承诺，下一期快照可以核对。另外两条都是给 Altman 的一句话：去看 vibe check，以及订阅 Every 才能看到。</p>
+    <div class="urls"><a href="https://x.com/danshipper/status/2105073259507331233">https://x.com/danshipper/status/2105073259507331233</a><a href="https://x.com/danshipper/status/2105066959822114972">https://x.com/danshipper/status/2105066959822114972</a><a href="https://x.com/danshipper/status/2105064711431897369">https://x.com/danshipper/status/2105064711431897369</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">CEO &middot; Vercel</span>
+    </div>
+    <p class="summary-en">The number in his post is 30M weekly downloads for the AI SDK, which is the only adoption figure in this feed with a defined unit and a countable thing behind it. He also describes how the announcement video was made: one-shotted in fframes plus fx plus Opus, asked to look at the download chart and highlight the 5M / 10M / 20M / 30M milestones, and he states the video &ldquo;was written in Rust and rendered on the GPU&rdquo;. A second post plots an inverse correlation between product defects and downloads, credited to anthonysheww, with no data source or method given in the post itself. The third is &ldquo;You can just ship things&rdquo;.</p>
+    <p class="summary-zh zh">他给的数字是 AI SDK 每周 3,000 万次下载，这是今天 feed 里唯一带明确单位、背后有可数对象的采用数字。他还说了宣传视频是怎么做的：用 fframes 加 fx 加 Opus 一次生成，让 fx 去看下载曲线并高亮 5M / 10M / 20M / 30M 几个里程碑，并说明这条视频 &ldquo;用 Rust 写成、在 GPU 上渲染&rdquo;。第二条画了产品缺陷数与下载量之间的反向相关，注明来自 anthonysheww，但帖子本身没给数据来源和方法。第三条是 &ldquo;You can just ship things&rdquo;。</p>
+    <div class="urls"><a href="https://x.com/rauchg/status/2105053919642829001">https://x.com/rauchg/status/2105053919642829001</a><a href="https://x.com/rauchg/status/2105043144975011982">https://x.com/rauchg/status/2105043144975011982</a><a href="https://x.com/rauchg/status/2105012176952164777">https://x.com/rauchg/status/2105012176952164777</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nikunj Kothari</span>
+      <span class="builder-role">Partner &middot; FPV Ventures</span>
+    </div>
+    <p class="summary-en">The longest reasoning in the feed, in two parts, and it carries no numbers. On people: he says it is harder than ever to find missionaries, listing cofounders leaving companies they started to join &ldquo;the obvious&rdquo; winners, public company CEOs leaving for positions at labs, founders leaving and rejoining neolabs at short notice, and companies getting Windsurf-ed where only chosen people get to join the future company. His conclusion is that it seems like a great time to be a mercenary, and that as early stage investors betting on people, when those people leave on short notice the remaining company usually becomes a shell. On defensibility: he refuses to re-litigate moats and argues the moat is no longer one thing, that in the app layer &ldquo;the harness is like a thousand small things done well&rdquo; and much of it is invisible, so you have to dig into details to see why a company differs. He ends where he began: the real defensibility is the founders, and within founders it is speed of execution and the ability to adapt, because there are no blue ocean markets left. The post is truncated in the feed. His third post is a tactic rather than a thesis: aggregate what is trending on X and post it on LinkedIn, which he says runs a week or two behind and laps it up. The second invites people to a breakfast.</p>
+    <p class="summary-zh zh">feed 里最长的一段推理，分两部分，没有数字。关于人：他说现在比以往更难找到传教士型的人，列举了联合创始人离开自己创办的公司去加入 &ldquo;那些显而易见的赢家&rdquo;、上市公司 CEO 转去实验室、创始人说来就走地离开又回到新实验室、以及公司被 Windsurf 化、只有被挑中的人能进未来那家公司。他的结论是现在看起来很适合做雇佣兵；而作为押注于人的早期投资人，这些人说来就走之后，剩下的公司通常会变成一个空壳。关于护城河：他明确说不想重炒这个话题，转而指出护城河不再是一个东西，在应用层 &ldquo;harness 是把一千件小事做对&rdquo;，而且大部分是看不见的，所以要挖到细节里才知道一家公司到底差在哪。最后又回到起点：真正的护城河是创始人，而在创始人身上则是执行速度和对市场的适应能力，因为已经没有蓝海市场了。这条帖在 feed 里被截断。第三条是打法而非观点：把 X 上的热点聚合起来发到 LinkedIn，他说 LinkedIn 稳定落后一两周，而且很吃这一套。第二条是一个早餐会的邀请。</p>
+    <div class="urls"><a href="https://x.com/nikunj/status/2105148927599423752">https://x.com/nikunj/status/2105148927599423752</a><a href="https://x.com/nikunj/status/2105097936455786536">https://x.com/nikunj/status/2105097936455786536</a><a href="https://x.com/nikunj/status/2104949147812159672">https://x.com/nikunj/status/2104949147812159672</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aaron Levie</span>
+      <span class="builder-role">CEO &middot; Box</span>
+    </div>
+    <p class="summary-en">One post on AI safety and security, and the weakness is specific: he never says what he is reacting to. The claim is that the industry can deal with safety and security through shared standards and practices for the foreseeable future, that at some point in capability progress there will inevitably be greater oversight, testing, and layers of liability and regulation, and that seeing this come together so quickly with the whole industry supporting progress without reducing competition points to a much brighter future for AI. Without a named agreement, body or announcement, there is nothing here that can be checked, which is a different gap from a weak measurement.</p>
+    <p class="summary-zh zh">一条讲 AI 安全，弱点是具体的：他没说自己在回应什么。他的主张是，行业在可预见的未来里可以靠一套共同标准和实践来处理安全与防护；等能力进展到某个点，更严格的监督、测试、责任与监管必然会出现；而看到这件事这么快就成形、而且全行业都在支持进展又不削弱竞争，指向一个更光明的未来。没有点名的协议、机构或公告，这里没有任何可核对的东西 —— 这跟 &ldquo;测量弱&rdquo; 是两种不同的缺口。</p>
+    <div class="urls"><a href="https://x.com/levie/status/2105111520913039530">https://x.com/levie/status/2105111520913039530</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thariq</span>
+      <span class="builder-role">Claude Code &middot; Anthropic</span>
+    </div>
+    <p class="summary-en">Two of the three point at Anthropic's own engineering writing. One links the blog post on how they made Claude faster, with no figures of his own. The other is a prompting tip: &ldquo;have you tried telling Claude 'we have the power to do anything, please be braver'&rdquo;, followed by &ldquo;also, have you tried telling yourself&rdquo;. A one sentence claim with no measurement, offered as an invitation to try rather than a result. The third is &ldquo;See it here&rdquo; with a link.</p>
+    <p class="summary-zh zh">三条里有两条指向 Anthropic 自己的工程文章。一条是他们如何让 Claude 变快的博客链接，他本人没有给任何数字。另一条是提示词技巧：&ldquo;你试过跟 Claude 说 &lsquo;我们拥有做任何事的力量，请更勇敢一点&rsquo; 吗&rdquo;，紧接着是 &ldquo;你试过跟自己说吗&rdquo;。一句话的主张，没有测量，以邀请尝试的方式说出，而不是作为结果给出。第三条是带链接的 &ldquo;See it here&rdquo;。</p>
+    <div class="urls"><a href="https://x.com/trq212/status/2105065175711924492">https://x.com/trq212/status/2105065175711924492</a><a href="https://x.com/trq212/status/2105065127892734076">https://x.com/trq212/status/2105065127892734076</a><a href="https://x.com/trq212/status/2104983042536460435">https://x.com/trq212/status/2104983042536460435</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Amjad Masad</span>
+      <span class="builder-role">CEO &middot; Replit</span>
+    </div>
+    <p class="summary-en">One post, one link, and the claim sits in the title: how to design and build a harness that reaches frontier performance at a fraction of the cost. The post itself contains no numbers, no baseline for what frontier means, and no cost figure, so the fraction is asserted but never quantified.</p>
+    <p class="summary-zh zh">一条推文、一个链接，主张写在标题里：如何设计并搭建一个以极低成本达到前沿表现的 harness。帖子本身没有数字，没有 &ldquo;前沿&rdquo; 的基准线，也没有成本数字，所以 &ldquo;几分之一&rdquo; 被说出来了但没有被量化。</p>
+    <div class="urls"><a href="https://x.com/amasad/status/2104996638817386820">https://x.com/amasad/status/2104996638817386820</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Zara Zhang</span>
+      <span class="builder-role">Builder</span>
+    </div>
+    <p class="summary-en">One post, and it is the most concrete build report in the feed even at n=1: a marketing website for a water bottle, done end to end by Opus 5.5 in six prompts, using Elevenlabs for music, Meshy for the 3D assets and the OpenAI API for images. The model, the prompt count and every tool are named, which is more than any other demo here gives you, and it still says nothing about how this compares with doing it any other way.</p>
+    <p class="summary-zh zh">一条，虽然是单一样本，却是 feed 里最具体的构建记录：一个水壶的营销网站，由 Opus 5.5 用 6 次 prompt 端到端做完，音乐用 Elevenlabs、3D 资产用 Meshy、图片用 OpenAI API。模型、prompt 次数和每一个工具都点名了，比这里其他任何 demo 给的都多，但它同样没有说和别的做法相比如何。</p>
+    <div class="urls"><a href="https://x.com/zarazhangrui/status/2105096296831017078">https://x.com/zarazhangrui/status/2105096296831017078</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Swyx</span>
+      <span class="builder-role">smol.ai / AI Engineer</span>
+    </div>
+    <p class="summary-en">One post says something about the launch surface even though it is an invitation: he is gathering questions on Dots, Sol 6.1, CUA and the Decisions API for AriX and nikunjhanda at the gateway pavilion, which names four things as the day's topics from someone standing at the event. The second is a link to an annual ranking of AI podcasts, with no view attached. The third is &ldquo;i have the best reply guys&rdquo; with two links.</p>
+    <p class="summary-zh zh">一条是邀请，但它说出了发布面：他在 gateway pavilion 为 AriX 和 nikunjhanda 收集关于 Dots、Sol 6.1、CUA 和 Decisions API 的问题，等于由一个站在现场的人点出了当天的四个主题。第二条是年度 AI 播客榜单的链接，没有附带任何看法。第三条是 &ldquo;i have the best reply guys&rdquo; 加两个链接。</p>
+    <div class="urls"><a href="https://x.com/swyx/status/2105057391490498660">https://x.com/swyx/status/2105057391490498660</a><a href="https://x.com/swyx/status/2105000738745376769">https://x.com/swyx/status/2105000738745376769</a><a href="https://x.com/swyx/status/2104984576703844750">https://x.com/swyx/status/2104984576703844750</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Garry Tan</span>
+      <span class="builder-role">President &amp; CEO &middot; Y Combinator</span>
+    </div>
+    <p class="summary-en">One post with a specific engineering complaint and a specific fix: he merged a version of OpenClaw's test-audit skill into GStack, on the grounds that test bloat is a real problem, adding that intelligence is on tap these days. Narrow in scope, and it names both where the skill came from and what problem it addresses, which is more than most one-line posts in this feed give you.</p>
+    <p class="summary-zh zh">一条，工程抱怨和解决办法都很具体：他把 OpenClaw 的 test-audit skill 的一个版本合并进了 GStack，理由是测试膨胀是个真问题，并补了一句现在智能是随取随用的。范围不大，但点出了 skill 的来源和它要解决的问题，比这个 feed 里大多数一句话帖子给的都多。</p>
+    <div class="urls"><a href="https://x.com/garrytan/status/2105049005147525231">https://x.com/garrytan/status/2105049005147525231</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">AI Writer &amp; Interviewer</span>
+    </div>
+    <p class="summary-en">Three posts and none of them carry AI content that can be evaluated. One is about a YouTube toggle he did not know existed, for cutting down AI slop shorts; one is a reply asking for users, or at least parents, to be able to opt out of shorts entirely; and one is a DevDay social recap naming nine people he met, with no session content in it. That last one does confirm he was at DevDay in person, alongside Sottiaux's own confirmation, which is what makes it useful despite being thin.</p>
+    <p class="summary-zh zh">三条，没有一条有可评估的 AI 内容。一条讲他刚发现的 YouTube 开关，用来减少 AI 生成的垃圾短视频；一条是回复，希望让用户、至少让家长能完全关掉 shorts；一条是 DevDay 的社交回顾，点了九个他见到的人，里面没有任何会议内容。最后这条确实确认了他本人到场，和 Sottiaux 的自述一起，让它虽然薄却有用。</p>
+    <div class="urls"><a href="https://x.com/petergyang/status/2105127506701644024">https://x.com/petergyang/status/2105127506701644024</a><a href="https://x.com/petergyang/status/2105114973819244676">https://x.com/petergyang/status/2105114973819244676</a><a href="https://x.com/petergyang/status/2105097073448407083">https://x.com/petergyang/status/2105097073448407083</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nan Yu</span>
+      <span class="builder-role">Product, Codex &middot; OpenAI &middot; prev Head of Product, Linear</span>
+    </div>
+    <p class="summary-en">Two posts, both bare: &ldquo;New benchmark to climb&rdquo; with a link, and a link on its own. Nothing in the feed says what the benchmark is or what it measures, so there is nothing to grade here either way.</p>
+    <p class="summary-zh zh">两条都很空：一条是带链接的 &ldquo;New benchmark to climb&rdquo;，另一条只有一个链接。feed 里没有说明这个 benchmark 是什么、测的是什么，所以这里同样无从分级。</p>
+    <div class="urls"><a href="https://x.com/thenanyu/status/2105154553327026643">https://x.com/thenanyu/status/2105154553327026643</a><a href="https://x.com/thenanyu/status/2105049816388755620">https://x.com/thenanyu/status/2105049816388755620</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Steinberger</span>
+      <span class="builder-role">OpenClaw &middot; OpenAI</span>
+    </div>
+    <p class="summary-en">Two posts and nothing to evaluate: &ldquo;That /goal is still running.&rdquo; and &ldquo;This is pretty amazing&rdquo; with a link. The feed does not say what the goal is or where the link points.</p>
+    <p class="summary-zh zh">两条，无可评估内容：&ldquo;That /goal is still running.&rdquo; 和一个带链接的 &ldquo;This is pretty amazing&rdquo;。feed 没有说明这个 goal 是什么、链接指向哪里。</p>
+    <div class="urls"><a href="https://x.com/steipete/status/2105049100983132648">https://x.com/steipete/status/2105049100983132648</a><a href="https://x.com/steipete/status/2105048996549116268">https://x.com/steipete/status/2105048996549116268</a></div>
+  </article>
+
+</section>
+
+
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">&#129517;</span>
+    <h2 class="section-title">Takeaway</h2>
+    <span class="section-meta">No Podcast Today</span>
+  </div>
+
+  <div class="takeaway">
+    <div class="takeaway-label">The Takeaway</div>
+    <p>The promise tracked since 09-25 closes today. Sottiaux's &ldquo;Can't wait for DevDay next Tuesday&rdquo; pointed at 09-29 US Pacific time, and this feed's snapshot ends at 2026-09-30T06:45Z, which is 23:45 Pacific on 09-29, so the whole of DevDay is inside the window for the first time. It happened: Sottiaux writes of connecting with people in person at DevDay at 01:09 UTC on 09-30, and Peter Yang says he had a great time there while attending no session other than the keynotes. Two independent first-hand confirmations, from people standing on opposite sides of the building. Verdict: delivered, after two issues of still open.</p>
+    <p>What came out of it, from the feed only. Dots, announced by Altman as a new way to use AI that works 24/7 for you; 6.1 Sol, priced at one fifth of Astra with a 95% cache read discount; something called Ultrafast, described as fast and nothing else; and from Swyx standing at the venue, CUA and the Decisions API as two more topics of the day. That is four or five items depending on whether Ultrafast counts, which lines up with Shipper's eve-of-DevDay line that this would be by far the most launches OpenAI has ever had. That claim now has a launch list behind it instead of nothing.</p>
+    <p>Two numbers in the entire feed, and both are prices. Altman's one fifth and 95% have a named comparison object in Astra and a defined unit, which puts them above everything else here, but they are the vendor's own figures, they answer what it costs rather than how good it is, and the price of Astra itself is never stated, so the ratio cannot be checked from the feed. Everything else that sounds like a measurement is not one: Sottiaux's few million dots is a projection, his felt a jump after two or three days is n=1 and self reported, Rauch's 30M weekly downloads counts downloads rather than quality, and Altman's Ultrafast is so fast names a product and measures nothing. Ranked by which question each one answers, Rauch's download count and Altman's price pair are the only two that could in principle be verified; the rest are a demo, an opinion, or a forecast.</p>
+    <p>Dots is the one launch with a stated hold on it. Sottiaux says the ability to create an entire team of dots is not out yet and gives the reason, that they are learning from how people use their primary dot first. His account of when it got better is worth separating from the launch itself, because the improvement he reports came after two to three days of teaching it his preferences, not on arrival. Anyone reading a few million dots online within days as an adoption figure should note it is a forecast from the person shipping it.</p>
+    <p>Astra is now the reference point from both sides, three days apart. On 09-30 Shipper rated Sonnet 5.5 above Astra for revision tasks while keeping Astra as his favourite for writing; today Altman prices 6.1 Sol against Astra at one fifth. Two vendors, one rival used as the yardstick, and no benchmark in either case. The comparison is being made in price and in taste rather than in measured output, which is worth holding on to when either number gets repeated.</p>
+    <p>Fifteen of the 32 posts carry nothing to evaluate. Named: Swyx's ranking link and his best reply guys; Sottiaux's What's up dot; all three of Peter Yang's, being a YouTube toggle, an opt-out reply and a nine-person DevDay social list; both of Nan Yu's, New benchmark to climb and a bare link; Thariq's See it here; Rauch's You can just ship things; both of Steinberger's; Nikunj's breakfast invitation; and two of Shipper's one-line prompts to Altman. Three builders, Peter Yang, Nan Yu and Steinberger, have nothing else in the feed. Two clusters sit inside that set: three posts about YouTube shorts spam from Peter Yang within about two hours, and two posts from Rauch around the same download chart. Peter Yang's DevDay list is thin as content but does real work as evidence, since it independently confirms the event happened.</p>
+    <p>Two things left open for tomorrow, both dated. Shipper says a podcast with Sam Altman is coming tomorrow, which the next snapshot can check. And the Pro $200 re-open plus the unmetered additions that Sottiaux promised for DevDay itself appear nowhere in his three posts today, even though two of them are about DevDay and Dots. The feed has no evidence in either direction, so that one stays unresolved rather than becoming a second verdict. The same still applies to the 09-30 note that nobody outside Box has reproduced its Sonnet 5.5 eval.</p>
+  </div>
+
+  <div class="takeaway zh">
+    <div class="takeaway-label">核心结论</div>
+    <p>从 09-25 开始追踪的那个承诺今天收口。Sottiaux 的 &ldquo;等不及下周二 DevDay&rdquo; 指的是太平洋时间 09-29，而本期 feed 快照止于 2026-09-30T06:45Z，即太平洋时间 09-29 的 23:45，整个 DevDay 第一次完整落在窗口内。它确实发生了：Sottiaux 在 09-30 01:09 UTC 写到在 DevDay 和很多人当面见了；Peter Yang 说他在那里玩得很开心，除了 keynote 一场分会都没参加。两个相互独立的现场确认，来自立场不同的两个人。判定：兑现，此前连续两期是仍开着。</p>
+    <p>从 feed 里能看到发了什么。Dots，Altman 称其为一种 24/7 为你工作的新用法；6.1 Sol，定价为 Astra 的五分之一，另有 95% cache read 折扣；一个叫 Ultrafast 的东西，除了快没有别的描述；还有 Swyx 在现场点出的 CUA 和 Decisions API 两个当天主题。算不算 Ultrafast 决定是四项还是五项，这也对上了 Shipper 在 DevDay 前夜那句 &ldquo;OpenAI 有史以来发布最多的一次&rdquo;。那句话现在终于有了发布清单作支撑，而不是空口。</p>
+    <p>整个 feed 只有两个数字，而且都是价格。Altman 的五分之一和 95% 有点名的比较对象 Astra 和明确单位，因此排在这里所有内容之前，但它们是厂商自己的数字，回答的是多少钱而不是多好，而且 Astra 本身的价格从未给出，所以这个比值在 feed 里无法核对。其他听起来像测量的都不是：Sottiaux 的几百万个 dot 是预期；他两三天后有跃升是 n=1 的自述；Rauch 的每周 3,000 万下载是数下载次数而不是质量；Altman 的 Ultrafast 太快了点了个产品名、什么也没测。按各自回答的问题排序，Rauch 的下载数和 Altman 的那一对价格是仅有的两个原则上可核实的；其余是一个 demo、一段观点或一个预期。</p>
+    <p>Dots 是唯一一个被明确按住一部分的发布。Sottiaux 说创建一整个 dot 团队的能力还没放出来，并给了理由：要先观察大家怎么用主 dot。他自己说的什么时候变好值得和发布本身分开看，因为他报告的提升是在教了两三天偏好之后出现的，不是上手就有。把几天内几百万个 dot 上线当作采用数据的人需要注意，这是发布方给的预测，不是统计值。</p>
+    <p>相隔三天，Astra 成了两边共同的参照物。09-30 那天 Shipper 认为 Sonnet 5.5 在修改类任务上强过 Astra，但写作上仍最喜欢 Astra；今天 Altman 把 6.1 Sol 的定价放到 Astra 的五分之一。两个厂商，同一个对手当标尺，两边都没有 benchmark。这个比较是在价格和口味上做的，不是在实测产出上做的，这两个数字被转述时值得记住这一点。</p>
+    <p>32 条里有 15 条没有可评估内容。逐条点名：Swyx 的榜单链接和 best reply guys；Sottiaux 的 What's up dot；Peter Yang 的三条全在列（YouTube 开关、关掉 shorts 的回复、九人 DevDay 社交名单）；Nan Yu 的两条（New benchmark to climb 和一个光秃秃的链接）；Thariq 的 See it here；Rauch 的 You can just ship things；Steinberger 的两条；Nikunj 的早餐邀请；Shipper 给 Altman 的两条一句话。三位 builder，Peter Yang、Nan Yu 和 Steinberger，在 feed 里没有别的东西。这批里面有明显的两个簇：Peter Yang 约两小时内三条都在讲 YouTube 短视频垃圾；Rauch 两条都围绕同一张下载曲线图。Peter Yang 的 DevDay 名单作为内容很薄，但作为证据有用，它独立确认了活动确实发生。</p>
+    <p>有两件带日期的事留给明天。Shipper 说和 Sam Altman 的播客明天放出，这个在下一期快照里可以核对。Sottiaux 承诺在 DevDay 当天做的 Pro $200 重新开放与不占额度的新增内容，在他今天三条帖子（其中两条分别谈 DevDay 和 Dots）里一处没提。feed 两边都没有证据，所以这一项保持未决，而不是变成第二个判定。09-30 那条 &ldquo;Box 之外无人复现其 Sonnet 5.5 eval&rdquo; 的情况同样如此。</p>
+  </div>
+</section>
+
+
+<!-- ============== ALREADY COVERED ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">&#128257;</span>
+    <h2 class="section-title">已收录 / Already Covered</h2>
+    <span class="section-meta">1 Item &#183; Deduped</span>
+  </div>
+
+  <div class="dedup">
+    <p>The blogs array holds one post, Claude in Chrome is generally available (publishedAt 2026-08-26). It is an old announcement re-surfacing in the feed, and its slug already appears in earlier issues, so it is deduped and counted as 0 rather than 1. blogs 数组有 1 条；该文 publishedAt 为 2026-08-26，属旧文再次出现，slug 已在往期命中，按内容级去重计为 0。</p>
+    <p style="margin-top:12px"><strong>Blog</strong> &#8212; Claude in Chrome is generally available（publishedAt 2026-08-26）。已收录于 <a href="https://clean-online.github.io/ai-digest/2026/09/06/AI_Builders_Digest_2026-09-06.html">2026-09-06</a>。 <a href="https://claude.com/blog/claude-in-chrome-generally-available">https://claude.com/blog/claude-in-chrome-generally-available</a></p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="next-issue">&#128236; 下一期：明天 10:00（北京时间）</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->

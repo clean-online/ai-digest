@@ -479,6 +479,14 @@
 - **注册与部署**：index.html `ISSUES` 顶部追加 `2026-09-29`（meta: 14 Builders · 25 Tweets · 0 Podcast · 0 Blog）→ copy 到 `2026/09/29/` → commit `d67aab7` → push（960320c..d67aab7）。
 - **验证**：`gh run list --limit 1`（不带 --workflow）第 3 次轮询到 completed/success（约 20s）→ GET 子路径**首查 HTTP 200**，size 37691 与本地一致；grep 命中 2 处 "by chloevchen"；根 index 200 且已含 `2026-09-29`。四项校验（14/14 卡片、25/25 URL、diff IDENTICAL）首跑全绿。
 
+### 2026-09-30 (周三) — 成功
+- **内容获取**：`prepare-digest.js` 一次跑通，产出 18 builders / 34 tweets / 0 podcast / 0 blogs（bilingual），feed 快照 2026-09-29T06:45:20Z（较 09-29 那期的 09-28T06:57Z 前进 1 天，无丢档）。
+- **去重**：34 个推文 ID grep `2026/` 零命中；podcasts 与 blogs 数组本身均为空（非判重）→ 两个 0 成因相同，note-line 合并说明（与上期"成因不同需分开说明"的情况相反）。最终 **18/34/0/0**。
+- **主题**：发布日。① Sonnet 5.5（Anthropic）上线，8 位 builder 在 09-28T18:06Z~09-29T05:44Z 谈它；唯一带对比对象 + 测试集的数字是 Aaron Levie（Box 自有 eval 对标 Sonnet 5：+4 总榜 / 2.4× 至交付 / 12% token / FS+18pp、Legal+7、LS+8、PS+7 / 四个单项 +48 +22 +14 +11），其余 Anthropic 侧均无测量口径或纯定性（Cat Wu 单次演示、Boris 适用范围未定、Albert 定性、Shipper 引 benchmark 不引数字）。② OpenAI DevDay 前夜，5 条指向它（Altman「We have found a new thing」/ Shipper「有史以来发布最多」/ Peter Yang 首次 / Steinberger「See ya there!」/ Sottiaux 的 Pro $200 预告），全部无内容。③ Sottiaux 长推：Pro $200 重开 + 改用量口径（"净下来相当于旧计划一半的 API 花费"、承诺不加回 5h 限制、本周 GPT-6 Sol/Luna 降至原价 50%），缺"$200 前后各能做多少事"对照 → 只写口径变化不做涨降定性。
+- **结构**：0 podcast + 0 blog（数组空）→ X → Takeaway（`section-meta: "No Podcast Today"`，7 段：双事件 / 证据分级 / 总榜 vs 单项 / 中档模型两个答案 / DevDay 窗口核对 / Pro $200 / 薄内容点名+簇）→ footer。size 48678。
+- **注册与部署**：index.html `ISSUES` 顶部追加 `2026-09-30`（meta: 18 Builders · 34 Tweets · 0 Podcast · 0 Blog）→ copy 到 `2026/09/30/` → commit `ab1a4d1` → push（d67aab7..ab1a4d1）。
+- **验证**：`gh run list --limit 1`（不带 --workflow）第 2 次轮询到 completed/success（run 36658949430，约 12s）→ GET 子路径**首查 HTTP 200**，size 48678 与本地一致；grep 命中 2 处 "by chloevchen"；根 index 200 且已含 `2026-09-30`。四项校验（18/18 卡片、34/34 URL、diff IDENTICAL）首跑全绿。
+
 ## 关键经验（踩坑/打法）
 - **🔴 承诺追踪要核对快照窗口（本期新纪律）**：Sottiaux 09-25 定在「下周二」的 DevDay 恰好是 09-29，但本期快照窗口截止 09-28T06:57Z，覆盖不到 → 写「落在本期窗口之外，仍开着」，不写「未兑现/跳票」。三档判定：窗口内出现=兑现 / 窗口内未出现=未兑现 / 窗口外=仍开着（须写出窗口截止时间）。已写入项目经验库。
 - **🔴 同一人同时占 X 与播客槽位，分别判重（本期新纪律）**：播客受访者正是当天 X 侧发长推的 Aaron Levie。不能用「人名重合」当去重判据——播客按标题关键词 grep（命中 09-17 → 去重），推文按 ID grep（零命中 → 照常渲染），两条线各自判。已写入项目经验库（与 09-21「不用公司名/通用词」同源，人名亦不可）。
@@ -491,6 +499,7 @@
 - **生成器**：`/tmp/dg/data.py` + `build.py` 双文件，可选段落分支（PODCAST=None 自动切 "No Podcast Today"）；本期 CSS 沿用 `css_0927.txt`。
 
 ## 下次运行
-- 预计 2026-09-30 由 cron 触发；若该日无新内容（stats 全 0）则按 skill 规则跳过生成。
-- 沿用：三项证据分级（来源 / 比较对象 / 回答的是哪个问题）、采用 vs 能力分轴计数、一 builder 一卡、X section 卡片数校验、推文 ID 与 feed `diff` 校验、内容级去重（blog slug / podcast 标题关键词，**不用人名/公司名/通用词**）、`gh run list --limit 1` 不带 --workflow、curl 用 GET 不用 -I。
-- 关注：Sottiaux 的 DevDay —— 下期快照（预计 09-29T06:xxZ）会首次覆盖承诺日，届时按三档判定出结论；resets 线是否终于出现账户数/额度/时间窗（09-28 收口后已 2 天无数字）；Rauch 的 nativify 有没有人接话或反驳，Vercel Fluid 后续动作；Levie 的摩擦经济学有没有第二个人给数字。
+- 预计 2026-10-01 由 cron 触发；若该日无新内容（stats 全 0）则按 skill 规则跳过生成。
+- 沿用：三项证据分级（来源 / 比较对象 / 回答的是哪个问题）、发布日按"对比对象 + 测试集来源"排序、采用 vs 能力分轴计数、一 builder 一卡、X section 卡片数校验、推文 ID 与 feed `diff` 校验、内容级去重（blog slug / podcast 标题关键词，**不用人名/公司名/通用词**）、`gh run list --limit 1` 不带 --workflow、curl 用 GET 不用 -I、CSS 沿用 `css_0927.txt`、`/tmp/dg/data.py` + `build.py` 双文件（可选段落分支）。
+- **新增沿用（本期写入项目经验库）**：发布日多条同类数字按对比对象+测试集分级（利益方须标注但"排最前 ≠ 可复现"）；总榜与挑出的单项差一个量级时两组都留并标明限定条件差异；相反判断出现在同一条推文内部时同样并列不做取舍；定价/口径类声明缺"前后各能买到什么"对照就不做涨降定性；承诺追踪补充形态——窗口内只有前夜预告不构成兑现证据。
+- 关注：**DevDay 本体** —— 下期快照（预计 09-30T06:xxZ）将首次完整覆盖太平洋时间 09-29 的 DevDay，届时按三档判定出结论（兑现 / 未兑现），Sottiaux 那句"下周二"可以收口；他 (d) 项"明天还有不占额度的东西"是否披露；Pro $200 有没有人给出"$200 前后能做多少事"的实际对照；Sonnet 5.5 有没有中立第三方复现 Box 那组数字（目前只有 Box 自有 eval 一条带基线）；Rauch 说要回馈的两个 AI skill 是否真的发出。
