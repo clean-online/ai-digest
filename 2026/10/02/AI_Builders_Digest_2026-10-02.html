@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest &#183; 2026-10-02</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 28px 30px; margin-bottom: 24px; }
+  .podcast-source { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
+  .podcast-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; margin-bottom: 18px; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; } }
+
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 &#183; Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest &#183; 2026-10-02</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">17</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">34</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+<p class="note-line">Feed snapshot 2026-10-01T06:46Z = 23:46 Pacific on 09-30, one day on from yesterday&rsquo;s window with no gap between them. Counts are rendered items: 17 builders, 34 tweets, 1 podcast. The single zero has one cause: the blogs array is empty, so there is no deduped item to list and no Already Covered section today. 统计口径为渲染数：17 位 builder、34 条推文、1 期播客。唯一的 0 只有一个成因——blogs 数组为空，因此今天没有去重条目，也没有「已收录」小节。</p>
+
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">&#128036;</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">17 Builders</span>
+  </div>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thibault Sottiaux</span>
+      <span class="builder-role">Codex &amp; ChatGPT &middot; OpenAI</span>
+    </div>
+    <p class="summary-en">Three posts and two carry shipping news. The latest is an &ldquo;one more thing&rdquo;: MCP servers can now be built and deployed from inside ChatGPT, with access restricted to whoever you choose or shared with the world. It is a statement about capability and permissions, with no numbers and nothing to compare against. The middle one is the first demand figure anyone has attached to a DevDay release: GPT-6.1 Sol is called the most requested model &ldquo;pretty much ever&rdquo; across both the API and subscriptions, and it comes with an admission that ChatGPT and Codex were under heavy load, that more capacity is online, and that speed should reach almost twice what was served yesterday &ldquo;in the coming hours.&rdquo; The demand claim is a ranking with no baseline; the speed claim is a promise with a time window, which makes it checkable in the next snapshot. The third is a demo: he asked his dot to paint him, got something cartoonish, told it to try harder and find a recent photo of him online, and says it did better, with a video of him clicking through the dot&rsquo;s computer. One n=1 before-and-after, and nothing about what the dot actually did to find the picture.</p>
+    <p class="summary-zh zh">三条，两条带发布信息。最新那条是&ldquo;还有一件事&rdquo;：现在可以直接在 ChatGPT 里构建并部署 MCP 服务器，还能把访问范围限定给指定的人，或者公开分享。这是一句关于能力和权限的陈述，没有数字，也没有比较对象。中间那条是第一次有人给 DevDay 的发布物一个需求数字：GPT-6.1 Sol 被称为&ldquo;几乎是有史以来&rdquo;需求最高的模型，API 和订阅两侧都算；同时承认 ChatGPT 与 Codex 此前处于高负载，现在加了容量，速度&ldquo;在未来几小时内&rdquo;应该能到昨天服务的近两倍。需求那条是一个没有基准线的排序；速度那条是带时间窗的承诺，下一期快照可以核对。第三条是一个 demo：他让他的 dot 画他，先拿到一个卡通化的结果，要求它再努力一点、去网上找一张他近期的照片，他说这次好些了，并附了一段他点击浏览 dot 电脑的视频。单一样本的 before/after，没有说明 dot 究竟做了什么才找到那张照片。</p>
+    <div class="urls"><a href="https://x.com/thsottiaux/status/2105519215092584786">https://x.com/thsottiaux/status/2105519215092584786</a><a href="https://x.com/thsottiaux/status/2105464274747527543">https://x.com/thsottiaux/status/2105464274747527543</a><a href="https://x.com/thsottiaux/status/2105395200248156556">https://x.com/thsottiaux/status/2105395200248156556</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aaron Levie</span>
+      <span class="builder-role">CEO &middot; Box</span>
+    </div>
+    <p class="summary-en">One post, the longest piece of argument in the feed, and it is a thesis about where the money goes rather than a news item: the opportunity is in being &ldquo;the deployment layer for AI into the economy,&rdquo; because &ldquo;the amount of work it takes to change out workflows in enterprises tends to be far greater than anyone realizes or would prefer.&rdquo; He enumerates that work &mdash; moving legacy systems to the cloud, updating data organization and access, connecting software to agents in new ways, reengineering workflows for agents, figuring out HITL, generating and maintaining evals, and keeping the whole thing current as models change &mdash; and adds that &ldquo;the full list may even be longer.&rdquo; The distinction he is drawing is between deploying a tool and delivering output: with software you implemented a well understood category and then stepped back, whereas with agents &ldquo;you&rsquo;re deploying work output in a process.&rdquo; His forecast is a services market split by industry, by company size and by problem inside companies, with traditional SIs adapting unevenly and new firms founded inside the window. It is a vendor describing a market it sells into, and it carries no numbers, no customers and no named examples.</p>
+    <p class="summary-zh zh">一条，是 feed 里最长的一段论证，讲的是钱会流向哪里，不是一条新闻：机会在于做&ldquo;AI 进入实体经济的部署层&rdquo;，因为&ldquo;在企业里换掉一套工作流要花的工夫，远比任何人以为的、或者希望的多&rdquo;。他把这些工作逐项列出来：把遗留系统迁上云、更新数据的组织与访问方式、把软件以新的方式接到 agent 上、为 agent 重新设计工作流、把 HITL 想清楚、生成并维护评测，以及随着新模型发布持续更新整个系统——并且补了一句&ldquo;这份清单可能还更长&rdquo;。他真正在划的界线，是部署工具和交付产出之间的区别：软件时代你实施的是一个已被充分理解的品类，做完就退后；而有了 agent，&ldquo;你交付的是流程中的工作产出&rdquo;。他预测会出现一个按行业、按公司规模、按企业内部具体问题切分的服务市场，传统 SI 会现代化但适应程度参差不齐，窗口期内也会有新公司成立。这是厂商对自己所处市场的自我论述，没有数字、没有客户、没有点名的例子。</p>
+    <div class="urls"><a href="https://x.com/levie/status/2105354449795621179">https://x.com/levie/status/2105354449795621179</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">CEO &middot; Vercel</span>
+    </div>
+    <p class="summary-en">Two posts with content and one that is a single word. The argument is about data quality in token marketplaces: most aggregators are noisy because of promo tokens from providers that train on your data, and because of providers that only claim zero data retention. His case for Vercel AI Gateway rests on four things &mdash; real usage from real customers, a platform at scale given as 400k+ paying customers and thousands of enterprises, and zero markup &mdash; plus a selection rule: they turn down free-token promotions from companies with dubious ZDR claims every week, and do not compete on provider count because &ldquo;most providers suck. You want the best providers.&rdquo; The 400k+ is his own figure and the noise claim names no other aggregator. The second post is Connect: with code now &ldquo;free,&rdquo; the final boss of building is connecting to stuff, and the pitch is that Connect removes static credentials, which he calls both DX hell and a massive liability. Reach is stated as 20M+ developers. The third is the word &ldquo;Faster&rdquo; and a link.</p>
+    <p class="summary-zh zh">两条有实质内容，一条只有一个词。论点关于 token 市场的数据质量：大多数聚合器噪音极大，来源一是用你的数据训练、来回倒腾促销 token 的供应商，二是那些只是&ldquo;声称&rdquo;自己是零数据留存（ZDR）的供应商。他为 Vercel AI Gateway 辩护的四条理由是：真实客户产生的真实用量、平台规模（给出的数字是 40 万+付费客户和数千家企业）、以及零加价；另外还补了一条选择标准——他们每周都会拒绝那些带着可疑 ZDR 声明找上门的免费 token 推广，也不以&ldquo;供应商最多&rdquo;为荣，因为&ldquo;大多数供应商都很烂，你要的是最好的那批&rdquo;。40 万+是他自己的数字，噪音那一条没有点名任何别的聚合器。第二条讲 Connect：代码既然已经&ldquo;免费&rdquo;，难的就是把东西连起来，而 Connect 的卖点是去掉静态凭证——他说这既是 DX 地狱，也是一项重大责任。覆盖规模写的是 2000 万+开发者。第三条只有一个词 Faster 和一个链接。</p>
+    <div class="urls"><a href="https://x.com/rauchg/status/2105476587756138942">https://x.com/rauchg/status/2105476587756138942</a><a href="https://x.com/rauchg/status/2105390544096841942">https://x.com/rauchg/status/2105390544096841942</a><a href="https://x.com/rauchg/status/2105285688820400259">https://x.com/rauchg/status/2105285688820400259</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nan Yu</span>
+      <span class="builder-role">Product, Codex &middot; OpenAI &middot; prev Head of Product, Linear</span>
+    </div>
+    <p class="summary-en">One post, and the only first-hand account of OpenAI&rsquo;s internal culture in this feed, from someone about a week into the job. The claim is a bias towards action high enough that a casual conversation about a possible feature becomes a PR by the time he gets back to his desk, and a Slack exchange ending in &ldquo;let&rsquo;s grab lunch next week&rdquo; produces a calendar invite within five minutes. He states the cost himself: everything feels like it is behind a hair trigger, things change out from under you. Then he argues it cannot be taught and is unbelievably hard to get back once lost. The part that carries is his closing observation, that OpenAI is no longer a tiny company, has several massive buildings in San Francisco, and this energy still persists. It is one week of impression, not a measurement, and it comes from someone whose employer is the subject.</p>
+    <p class="summary-zh zh">一条，也是 feed 里唯一的 OpenAI 内部文化一手描述，出自一个入职约一周的人。他说的那种&ldquo;对行动的极端偏好&rdquo;高到什么程度：随口聊到一个可能的功能，等他回到工位，PR 已经摆在他面前；在 Slack 上认识一个人说到&ldquo;下周一起吃个饭&rdquo;，五分钟内日历邀请就到了。代价是他自己写的：一切都像扣在扳机上，东西会从你脚底下被抽走。接着他论证这种能量教不出来，一旦丢了也极难找回。真正有分量的是最后那句观察：OpenAI 已经不算小公司了，在旧金山有好几栋大楼，而这种能量居然还在。这是入职一周的印象，不是测量，而且说话的人就在这家公司里。</p>
+    <div class="urls"><a href="https://x.com/thenanyu/status/2105316751802348005">https://x.com/thenanyu/status/2105316751802348005</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aditya Agarwal</span>
+      <span class="builder-role">General Partner &middot; SPC</span>
+    </div>
+    <p class="summary-en">One post, an investing heuristic rather than news. The question he says he keeps asking at SPC is what the maximalist version of this company is, and his answer is that starting small now makes it harder to get funded, harder to hire great people, and harder to make a dent in the future. He names the mechanism himself and calls it the paradox of AI: it makes building easier while dramatically raising the floor on what it means to be a great startup. Nothing is attached &mdash; no evidence, no company named, and no way to check the funding or hiring claim from this feed. Read it as a stated prior from someone whose job is to fund companies at exactly this stage.</p>
+    <p class="summary-zh zh">一条，是一条投资判断而不是新闻。他说他在 SPC 反复问的问题是&ldquo;这家公司最大化的版本是什么&rdquo;，而他给出的结论是，现在从小做起反而更难融资、更难招到优秀的人，最终也更难对未来留下痕迹。机制是他自己点出来的，并称之为 AI 的悖论：它让构建变容易了，却大幅抬高了&ldquo;什么才算是一家了不起的创业公司&rdquo;的地板。没有附任何东西——没有证据、没有点名公司、feed 里也无法核对关于融资和招人的那部分说法。这应当被读作一个以投资这个阶段的公司为业的人公开的先验。</p>
+    <div class="urls"><a href="https://x.com/adityaag/status/2105339569139056776">https://x.com/adityaag/status/2105339569139056776</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">AI Writer &amp; Interviewer</span>
+    </div>
+    <p class="summary-en">Three posts, and one of them is the most useful evaluation of Gemini 4 in this feed because it separates layers: &ldquo;Google cooked on Gemini 4! Now they just need to be more competitive on coding harness (Antigravity) + personal agent (Spark).&rdquo; That is a claim that the model is competitive while two named products around it are not, with no evidence offered for either half and no stated comparison for either. The second is &ldquo;This is getting nuclear&rdquo; over a link. The third is a joke about the gap between what people say to him at DevDay and what they write in his YouTube comments. None of the three carries anything measurable, and unlike yesterday his DevDay post is now about the reception rather than the event.</p>
+    <p class="summary-zh zh">三条，其中一条是 feed 里对 Gemini 4 最有价值的一句评价，因为它做了分层：&ldquo;Google 在 Gemini 4 上真做出来了！现在他们只需要在编码 harness（Antigravity）和个人 agent（Spark）上更有竞争力。&rdquo; 这是一个&ldquo;模型有竞争力、但周边两个点名的产品没有&rdquo;的判断，两半都没有给证据，也都没有列出比较对象。第二条是配链接的一句&ldquo;This is getting nuclear&rdquo;。第三条是拿 DevDay 现场别人对他说的话，和 YouTube 评论区里的骂声之间的落差开玩笑。三条都没有任何可测量的内容，而且和昨天不同，他今天讲 DevDay 的那条谈的是外界反应，不再是活动本身。</p>
+    <div class="urls"><a href="https://x.com/petergyang/status/2105486915147645063">https://x.com/petergyang/status/2105486915147645063</a><a href="https://x.com/petergyang/status/2105427638236180883">https://x.com/petergyang/status/2105427638236180883</a><a href="https://x.com/petergyang/status/2105393240392585359">https://x.com/petergyang/status/2105393240392585359</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Dan Shipper</span>
+      <span class="builder-role">CEO &middot; Every</span>
+    </div>
+    <p class="summary-en">Three posts. Two are about the same thing and both give a commitment rather than a finding: he says he thought this model was already out, tags Sundar Pichai asking for a vibe check, and later confirms &ldquo;we will be ready to vibe check!&rdquo; Josh Woodward&rsquo;s Gemini 4 Argon post falls inside the same window, which identifies the model, but none of the three says what a vibe check consists of, on which tasks, or what would count as passing. The third is &ldquo;read it on @every,&rdquo; a pointer to his own outlet with nothing in the feed saying where it lands. The Sam Altman episode he promised yesterday is in this feed as a podcast item; none of these three posts is what delivers it.</p>
+    <p class="summary-zh zh">三条。两条讲同一件事，而且给出的都是承诺而不是结论：他说他以为这个模型早就发了，@sundarpichai 想请他来做 vibe check，随后又确认&ldquo;我们会准备好做 vibe check！&rdquo; Josh Woodward 那条 Gemini 4 Argon 就落在同一个时间窗内，因此模型可辨认，但三条里没有一条说明 vibe check 是什么、在哪些任务上做、什么算通过。第三条是&ldquo;read it on @every&rdquo;，指向自家平台，feed 里没有任何信息说明它落到哪里。他昨天承诺的那期 Sam Altman 播客确实出现在本期 feed 里，但是以播客条目的形式出现的，不是这三条中的任何一条。</p>
+    <div class="urls"><a href="https://x.com/danshipper/status/2105443942330503416">https://x.com/danshipper/status/2105443942330503416</a><a href="https://x.com/danshipper/status/2105399004649689347">https://x.com/danshipper/status/2105399004649689347</a><a href="https://x.com/danshipper/status/2105391711950393423">https://x.com/danshipper/status/2105391711950393423</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Google Labs</span>
+      <span class="builder-role">Google &middot; AI Tools &amp; Experiments</span>
+    </div>
+    <p class="summary-en">One post and it is a sunset with a date. Opal, the Labs experiment for customising workflows, shuts down on November 17, 2026, and the post says what it produced along the way: it inspired Gems made by Labs, and today supports the global launch of Skills in Gemini. This is the only item in the feed with a firm future date on it, and it is a named case of an experiment being folded into a shipped product rather than killed outright. No usage number is given for Opal, so there is nothing to say about how many people it affects.</p>
+    <p class="summary-zh zh">一条，是一条带日期的下线公告。Google Labs 里用于自定义工作流的实验产品 Opal 将于 2026 年 11 月 17 日关停，帖子也说明了它一路沉淀出了什么：先是启发了 Labs 做的 Gems，今天又支撑了 Gemini 里 Skills 的全球上线。这是今天 feed 里唯一带确切未来日期的一条，也是一个实验被并入已发布产品、而不是直接砍掉的具名案例。没有给出 Opal 的用量数字，因此影响到多少人无从说起。</p>
+    <div class="urls"><a href="https://x.com/GoogleLabs/status/2105352889665564838">https://x.com/GoogleLabs/status/2105352889665564838</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Steinberger</span>
+      <span class="builder-role">OpenClaw &middot; OpenAI</span>
+    </div>
+    <p class="summary-en">Two posts, both about friction rather than capability. The first is a specific interface decision with a reason attached: inter-agent communication in the chat stream has become irritating enough that the OC harness now shows it as a single expandable line, and he expects others to follow. That second half is a prediction about what gets copied, not an observation. The second names a different bottleneck, a fierce fight between CI and GitHub over which slows him down, and says it is time to rethink how they work without saying what the fix would be. Both are useful as signal about where friction actually sits in agent tooling, and neither measures anything.</p>
+    <p class="summary-zh zh">两条，讲的都是摩擦力而不是能力。第一条是一个具体的界面决策，并且给了理由：agent 之间的对话出现在聊天流里让他越来越烦，于是 OpenClaw 的 harness 把这些消息压成一行可展开的内容，他预计别人会跟进。后半句是一个关于&ldquo;什么会被抄走&rdquo;的预测，不是观察。第二条点出的是另一处瓶颈——CI 和 GitHub 在比赛谁更拖慢他——并说需要重新想工作方式，但没说改法是什么。两条作为&ldquo;摩擦实际出现在 agent 工具链的哪一环&rdquo;的信号都有用，两条都没有测量任何东西。</p>
+    <div class="urls"><a href="https://x.com/steipete/status/2105362785534361996">https://x.com/steipete/status/2105362785534361996</a><a href="https://x.com/steipete/status/2105341288958869952">https://x.com/steipete/status/2105341288958869952</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nikunj Kothari</span>
+      <span class="builder-role">Partner &middot; FPV Ventures</span>
+    </div>
+    <p class="summary-en">Two posts. The first is the most concrete statement in the feed about where automation stops, and it is a list of three: sourcing and writing outbound, which he is convinced no amount of tech helps with; meeting founders, primarily in person, because Zoom is worse; and writing pass notes, every one of which he still writes by hand and calls the hardest part of the job. He adds that he has no EA and never intends to hire one, calling it possibly famous last words. It is one person&rsquo;s list with no measure of how much of the rest is actually automated, but the shape is the informative part: what is left is persuasion, physical presence, and judgement written down. The second is an open ask for demos of an insanely good multiplayer experience, which says what he wants and nothing about what exists.</p>
+    <p class="summary-zh zh">两条。第一条是 feed 里关于&ldquo;自动化停在哪里&rdquo;最具体的陈述，而且是一份三项清单：找项目并写外发邮件，他认定技术在这里帮不上忙；见创始人，主要线下，因为 Zoom 差得多；写 pass notes，每一条仍是他手写，他说这其实是这份工作最难的部分。他还补了一句：他没有助理、也从不打算招一个，并说这可能是一句著名的遗言式flag。这是一个人的清单，没有度量其余部分究竟自动化了多少，但有信息量的是它的形状：剩下的是说服、到场、以及写下来的判断。第二条是公开求&ldquo;极佳的多人体验&rdquo;的 demo，说明了他在找什么，没有说市面上有什么。</p>
+    <div class="urls"><a href="https://x.com/nikunj/status/2105532229866942772">https://x.com/nikunj/status/2105532229866942772</a><a href="https://x.com/nikunj/status/2105397656994652178">https://x.com/nikunj/status/2105397656994652178</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Garry Tan</span>
+      <span class="builder-role">President &amp; CEO &middot; Y Combinator</span>
+    </div>
+    <p class="summary-en">Three posts, and the longest is a relayed case rather than an opinion. At YC&rsquo;s Startup Industrial Base event he asked Transportation Secretary Sean Duffy what Americans should be able to do in ten years that they cannot today; the answer is air traffic management, described as a command center where people sit in front of six screens with a paper flight chart above them, four planes reaching one runway at once, and airlines scheduling 32 flights into a window that takes 15. The tool named is SMART from Air Space Intelligence, a small company Duffy says beat the biggest ones, and the worked example is a 2.5 hour ground stop that might only need 45 minutes. Duffy&rsquo;s own framing, quoted, is &ldquo;it&rsquo;s dumb AI, not smart AI,&rdquo; with controllers still making every call, and Tan&rsquo;s conclusion is that none of it needs a breakthrough. Every number belongs to the official, none is sourced, and the claim that a small vendor won a competition is relayed twice removed. The second post is a product judgement: other editors let you coordinate child agents top down, whereas Capy has agent swarms speaking to one another as peers and self coordinating, which he says lets you explore the space organically instead of pre-arranging it &mdash; and he asks whether anyone has seen this before, so the novelty claim is offered as a question. The third is &ldquo;chefs kiss&rdquo; over a link.</p>
+    <p class="summary-zh zh">三条，最长的那条记录的是一个转述来的案例，不是观点。在 YC 的 Startup Industrial Base 活动上，他问交通部长 Sean Duffy：如果这个十年走对了，美国人应该能做到今天做不到的什么？答案是空中交通管理——被描述成一个指挥中心，人们坐在六块屏幕前、头顶挂着一张纸质飞行图，四架飞机同时抵达一条跑道，而航空公司会给一个 15 分钟只容得下 15 架的窗口排 32 班。点名的工具是 Air Space Intelligence 的 SMART，Duffy 说这家小公司击败了最大的那些公司；举的例子是一次 2.5 小时的地面等待其实只需要 45 分钟。Duffy 自己的说法被直接引用：&ldquo;这是笨 AI，不是聪明 AI&rdquo;，每一次决策仍然由管制员做出；Garry Tan 的结论是，这一切都不需要技术突破。数字全部属于那位部长，没有一个是可溯源的；&ldquo;小供应商赢了竞标&rdquo;这个说法是转述了两手的。第二条是产品判断：其他编辑器让你自上而下地指挥子 agent，而 Capy 里 agent 集群以对等方式互相交谈、自行协调，他说这让你能有机地探索空间而不是事先排布——他问有没有人见过这种，所以&ldquo;这是新的&rdquo;这个判断是以提问形式给出的。第三条是配链接的一句&ldquo;chefs kiss&rdquo;。</p>
+    <div class="urls"><a href="https://x.com/garrytan/status/2105472268482875898">https://x.com/garrytan/status/2105472268482875898</a><a href="https://x.com/garrytan/status/2105449821645480046">https://x.com/garrytan/status/2105449821645480046</a><a href="https://x.com/garrytan/status/2105395957357588561">https://x.com/garrytan/status/2105395957357588561</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Swyx</span>
+      <span class="builder-role">smol.ai / AI Engineer</span>
+    </div>
+    <p class="summary-en">Three posts. The first is the only non-software analogy in the feed and it is specific: Flow is doing for hardware engineering what Git and GitHub did for software, by aligning thousands of stakeholders on complex, irreversible, high value pipelines from cars to rockets, and his line is that you cannot go back to spreadsheet_final_FINAL_v23 once you have been in Flow. He states his interest up front, proud to be a friend first and a small investor second, which matters because he is describing a company he backs. No numbers, no customers, no before and after. The second is a chart placement: being on a top podcast list and ahead of MKBHD, with the caveat that he does nothing to optimise for Apple Podcasts; that measures rank, not quality or reach. The third is a question about whether it is normal for professional tech media to crop out other people&rsquo;s logos without attribution, with no answer attached.</p>
+    <p class="summary-zh zh">三条。第一条是 feed 里唯一的非软件类比，而且很具体：Flow 对硬件工程所做的事，就是 Git 和 GitHub 对软件工程所做的事——它把成千上万的利益相关方对齐到复杂、不可逆、高价值的流水线上，从汽车到火箭；他的说法是，一旦用过 Flow，你就再也回不去 spreadsheet_final_FINAL_v23 了。他在开头就说明了立场：先是朋友，其次才是小投资人——这一点值得留意，因为他描述的是自己投的公司。没有数字、没有客户、没有前后对比。第二条是一个榜单名次：进了播客热门榜，还排在了 MKBHD 前面，前提是他说自己完全没为 Apple Podcasts 做过优化；这测的是排名，不是质量或触达。第三条是在问专业科技媒体裁掉别人的 logo 又不署名算不算正常，没有附带答案。</p>
+    <div class="urls"><a href="https://x.com/swyx/status/2105538561672085751">https://x.com/swyx/status/2105538561672085751</a><a href="https://x.com/swyx/status/2105419486383964544">https://x.com/swyx/status/2105419486383964544</a><a href="https://x.com/swyx/status/2105348724331606411">https://x.com/swyx/status/2105348724331606411</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Matt Turck</span>
+      <span class="builder-role">VC &middot; FirstMark Capital</span>
+    </div>
+    <p class="summary-en">One post, a link and a one-line reading of it: SaaS companies seeing Anthropic&rsquo;s ARR growth flatline. The feed contains neither the chart nor the source, so the claim cannot be checked here; flatline is his characterisation rather than a figure; and the subject is a private company&rsquo;s revenue, which nobody outside it is positioned to verify. It is worth sitting next to the Box eval question still open from 09-30, but it does not answer it: an ARR observation is not a third-party reproduction of a benchmark.</p>
+    <p class="summary-zh zh">一条，一个链接加一句解读：SaaS 公司正在看到 Anthropic 的 ARR 增长趋于平坦。feed 里既没有底层的图也没有来源，所以这个说法在这里无法核对；&ldquo;趋于平坦&rdquo;是他的定性而不是一个数字；而讨论对象是一家未上市公司的收入，公司之外没有人有位置去验证。它值得和 09-30 起仍未解决的 Box 评测问题放在一起看，但它没有回答后者：一个 ARR 观察不等于对某项 benchmark 的第三方复现。</p>
+    <div class="urls"><a href="https://x.com/mattturck/status/2105261211906384132">https://x.com/mattturck/status/2105261211906384132</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Claude</span>
+      <span class="builder-role">Anthropic &middot; Official</span>
+    </div>
+    <p class="summary-en">Two posts that are one announcement: Claude Founder House comes to SF Tech Week on October 6&ndash;8 and Stockholm on October 14, with talks, workshops and office hours for founders, CEOs and builders. The dates are firm and this is the second dated item in the feed, but nothing here says what will be said or shown at either.</p>
+    <p class="summary-zh zh">两条其实是同一条公告：Claude Founder House 将在 10 月 6&ndash;8 日来到旧金山科技周，并在 10 月 14 日来到斯德哥尔摩，面向创始人、CEO 和 builder 提供演讲、工作坊和办公时间。日期是确定的，这也是 feed 里第二个带确切日期的条目，但这里没有任何关于届时会讲什么、展示什么的内容。</p>
+    <div class="urls"><a href="https://x.com/claudeai/status/2105370681613672773">https://x.com/claudeai/status/2105370681613672773</a><a href="https://x.com/claudeai/status/2105370680485417401">https://x.com/claudeai/status/2105370680485417401</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thariq</span>
+      <span class="builder-role">Claude Code &middot; Anthropic</span>
+    </div>
+    <p class="summary-en">Three posts in one thread, all self-assessment of a game prototype he built, and unusually candid about the gap. The graphics and feel are not high quality enough for you to play; he wants the character to have a big jump but has tried maybe two or three variations without fitting it into a control scheme he likes; a real game would go through three or four variations of this character and have maybe eight to ten characters; and he would rather work on it with a small group of two or three people, because the animations and design are fine but someone with expertise could make it much better. The counts are his own estimates of work still ahead, not measurements of anything built. It is most useful as a builder stating in public where a prototype stops being enough.</p>
+    <p class="summary-zh zh">三条在同一串里，全部是他对自己做的一个游戏原型的自评，而且对差距相当坦率：画面和手感还达不到能让你玩的程度；他想让这个角色有一个大跳，但试了两三种做法都没能放进他喜欢的操控方案；真要做成一个游戏，这个角色大概要走三到四个版本，整个游戏大概要有八到十个角色；而且他更希望能有两三个有专长的人一起做，因为动画和美术已经还行，但有专长的人能让它好很多。这些数字都是他对未来工作量的估算，不是对已做出来的东西的测量。它最大的价值在于：这是一个 builder 公开说出&ldquo;原型到哪一步就不够了&rdquo;。</p>
+    <div class="urls"><a href="https://x.com/trq212/status/2105333509246386546">https://x.com/trq212/status/2105333509246386546</a><a href="https://x.com/trq212/status/2105333507711271060">https://x.com/trq212/status/2105333507711271060</a><a href="https://x.com/trq212/status/2105333506226503710">https://x.com/trq212/status/2105333506226503710</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Josh Woodward</span>
+      <span class="builder-role">VP &middot; Google Labs &middot; Gemini</span>
+    </div>
+    <p class="summary-en">One post, three words and a link: &ldquo;Gemini 4 Argon!&rdquo; It is the only Google-side post in this feed that states the launch, and it gives a name with no description, no benchmark, no availability and no pricing. Everything said today about what Gemini 4 is good or bad at comes from other people in this feed, not from this post.</p>
+    <p class="summary-zh zh">一条，三个词加一个链接：&ldquo;Gemini 4 Argon!&rdquo; 这是 feed 里唯一一条由 Google 侧亲口说出这次发布的帖子，而它只给了一个名字——没有描述、没有 benchmark、没有可用性说明、没有定价。今天关于 Gemini 4 好不好、好在哪的全部说法都来自 feed 里的其他人，不是来自这条帖子。</p>
+    <div class="urls"><a href="https://x.com/joshwoodward/status/2105396307250782446">https://x.com/joshwoodward/status/2105396307250782446</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Amjad Masad</span>
+      <span class="builder-role">CEO &middot; Replit</span>
+    </div>
+    <p class="summary-en">One post, six words and a link: &ldquo;Make and one-click publish Meta VR apps.&rdquo; It states a capability and a target platform and nothing else &mdash; no pricing, no availability, and no indication of what kind of app can actually be produced this way.</p>
+    <p class="summary-zh zh">一条，六个词加一个链接：&ldquo;制作并一键发布 Meta VR 应用。&rdquo; 它说明了一项能力和一个目标平台，此外什么都没有——没有定价、没有可用性、也没有说明用这个方式究竟能做出什么样的应用。</p>
+    <div class="urls"><a href="https://x.com/amasad/status/2105321112389443805">https://x.com/amasad/status/2105321112389443805</a></div>
+  </article>
+
+</section>
+
+
+<!-- ============== PODCAST ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">&#127911;</span>
+    <h2 class="section-title">Podcast</h2>
+    <span class="section-meta">1 Episode</span>
+  </div>
+
+  <div class="podcast">
+    <div class="podcast-source">AI &amp; I by Every</div>
+    <h3 class="podcast-title">How Sam Altman Uses Dots to Take Back His Time</h3>
+    <p class="summary-en">Dan Shipper opens by renaming AI &amp; I to the Every Podcast, and this first episode is recorded at DevDay. Asked what riding the rising capability of coding models has taught him, Altman answers with demand rather than displacement: &ldquo;people just want so much more stuff,&rdquo; developers &ldquo;have never been able to do more, but there&rsquo;s never been a higher bar either,&rdquo; and what surprised him on the upside was &ldquo;how much latent demand existed in the world&rdquo; and how much people &ldquo;have remained at the center of everything.&rdquo; He does concede one direction: there will be areas &ldquo;where there&rsquo;s actually not much creativity required and we don&rsquo;t care about the person doing it,&rdquo; and those will be done by AI. His reason for staying human-centered is blunter than the usual framing &mdash; &ldquo;we just, we don&rsquo;t care that much about what the machines do&rdquo; &mdash; and his illustration is the Navier-Stokes episode, where 10,000 agents worked four days in coordination and almost none of the public reaction was about the problem being solved.</p>
+    <p class="summary-zh zh">Dan Shipper 在开场把 AI &amp; I 改名为 Every Podcast，而这第一期是在 DevDay 现场录的。被问到模型编码能力一路走高教会了他什么，Altman 的回答落在需求而不是替代上：&ldquo;人们就是想要多得多的东西&rdquo;，开发者&ldquo;从未有过这么强的能力，但也从未有过这么高的门槛&rdquo;，而真正让他意外的是向上的那一侧——&ldquo;世界上潜藏着多么大的需求&rdquo;，以及人在整个过程中&ldquo;始终处在中心&rdquo;。他也确实让步了一个方向：会有一些领域&ldquo;其实不需要多少创造力，我们也不在乎是谁在做&rdquo;，那些会由 AI 完成。而他给出的&ldquo;为什么仍然以人为中心&rdquo;的理由，比常见的说法更直白——&ldquo;我们其实并不那么在乎机器做了什么&rdquo;——他的例子是 Navier-Stokes 那次：一万个 agent 协同工作了四天，而公众反应几乎没有一条是关于问题本身被解出来的。</p>
+    <p class="summary-en">Dots is the product the episode is named for, and the account is entirely personal. It is the first thing, he says, that has given him back his mornings: early morning used to be his deepest work window, running a large company meant checking his phone immediately and polluting that window, and now he trusts his dot to judge what needs him and handle the rest. Two incidents come from the day itself. Five minutes before the keynote demo, his dot messaged that it could see he was in the DevDay keynote, knew what the demo was, and that the setup would probably break it &mdash; would he like it to try to fix it. It could not fix it yet, and Altman floats that a next version might go fix it in prod. Then, before this recording, in a day of back-to-back commitments, the dot used his only break to surface one thing he had to pay attention to, which he says he would never have found. There is also a failure that turned into a success: he spent 10 to 20 minutes failing to find something in Slack with Codex, concluded he might have dreamed it, and the next day the dot told him it had kept thinking overnight and found it &mdash; it had been a screenshot, and the dot had gone through screenshots one by one. His dot is called Dottie, Shipper&rsquo;s is Boo, both say it has become their default way to use chat, and both flag it as rough and buggy.</p>
+    <p class="summary-zh zh">Dots 是这期标题里的产品，而关于它的全部描述都是个人体验。他说这是第一件把他的早晨还给了他的东西：清晨原本是他最能做深度工作的时间段，管理一家大公司意味着必须立刻看手机，把这个窗口污染掉，而现在他信任他的 dot 去判断什么需要他、其余自己处理掉。两个案例都发生在当天。keynote demo 开始前五分钟，他的 dot 发消息说它看到他在 DevDay keynote 现场、知道 demo 是什么、并且这套 setup 大概会让 demo 挂掉——问要不要它试着修。它当时还修不了，Altman 顺口说下一代也许能直接去生产环境修。然后，在录这一期之前，在一整天的连轴安排里，dot 利用他仅有的一段空隙提示了一件他必须注意的事，他说这件事他自己永远找不到。还有一个先失败后成功的例子：他用 Codex 在 Slack 里找一样东西找了 10 到 20 分钟没找到，甚至怀疑自己是不是记错了，结果第二天 dot 告诉他它想了一夜并找到了——那东西其实是一张截图，dot 是一张一张翻截图找到的。他的 dot 叫 Dottie，Shipper 的叫 Boo；两人都说它已经成了自己用聊天的默认方式，也都说它现在还很粗糙、有 bug。</p>
+    <p class="summary-en">Two things he states as unsolved, and they are the most useful part of the episode precisely because they are admissions. On platforms: &ldquo;we clearly have not yet figured out the App Store equivalent, but we have figured out how to build a platform that a lot of people are building incredible value on top of,&rdquo; and he frames the choice as between labs that hope there will be only one company and OpenAI&rsquo;s bet on &ldquo;a renaissance in the number of companies.&rdquo; On speed: he does all his prompting on Ultrafast, ties the difference to Brett Victor&rsquo;s point about creators needing an immediate connection to what they create, and says the frontier will always cost more &mdash; &ldquo;you can pay us for it and do it now,&rdquo; with &ldquo;8X at a great price in the not distant future&rdquo; and 100X after that. He attributes the push to their own chip and to a decision to democratize speed the way they did price. On the day&rsquo;s volume, Shipper counts 22 new things against about nine last year and four or five the year before; Altman says they cut a bunch of things to fit 50 minutes and answers &ldquo;just wait for next year.&rdquo; On Decisions API he credits Diogo, formerly at OpenAI, for having pushed this class of idea for a long time, says the top request on the previous model was cheaper and faster, and that seeing the response to Jev made them more excited to prioritize that direction. He also says the most important ingredient behind Dots was Astra, because they needed a model past the intelligence bar.</p>
+    <p class="summary-zh zh">有两件事是他明确说&ldquo;还没解决&rdquo;的，而它们之所以是这一期里最有价值的部分，正是因为是自认。关于平台：&ldquo;我们显然还没找到 App Store 的等价物，但我们已经找到了怎么做一个让很多人在上面创造巨大价值的平台&rdquo;；他把这个选择描述成两种立场之间——一边是希望世界上只剩一家公司的实验室，一边是 OpenAI 押注的&ldquo;公司数量的文艺复兴&rdquo;。关于速度：他所有的 prompt 都在 Ultrafast 上做，把这个差异接到了 Brett Victor 那句&ldquo;创造者需要与所造之物建立即时连接&rdquo;上，并说前沿永远会更贵——&ldquo;你现在就可以付钱用&rdquo;，&ldquo;在不远的将来会有一个好价格下的 8 倍&rdquo;，再之后是 100 倍。他把这股推力归因于自家芯片，以及一个决定：要像当年把价格民主化那样，把速度也民主化。关于当天的发布量，Shipper 数出 22 项，对比去年的约 9 项和前年的四五项；Altman 说为了塞进 50 分钟砍掉了一批，并回了一句&ldquo;等明年吧&rdquo;。关于 Decisions API，他把功劳给了曾在 OpenAI 的 Diogo，说这类想法他推了很久，上一代模型上最高的呼声是更便宜、更快，而看到外界对 Jev 的反应让他们更有动力往这个方向排优先级。他还说 Dots 背后最重要的原料是 Astra，因为他们需要一个跨过智能门槛的模型。</p>
+    <div class="urls"><a href="https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL">https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL</a></div>
+  </div>
+</section>
+
+
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">&#129517;</span>
+    <h2 class="section-title">Takeaway</h2>
+    <span class="section-meta">1 Podcast</span>
+  </div>
+
+  <div class="takeaway">
+    <div class="takeaway-label">The Takeaway</div>
+    <p>The second promise closes today, and it closes on the artifact rather than on a report of it. Yesterday&rsquo;s issue flagged that Dan Shipper said a Sam Altman podcast would drop tomorrow, said from inside a window ending 23:45 Pacific on 09-29, so tomorrow meant 09-30 Pacific. This feed carries it: <em>How Sam Altman Uses Dots to Take Back His Time</em> on AI &amp; I by Every, publishedAt 2026-09-30T20:05:56Z, which is 13:05 Pacific on 09-30. Verdict: delivered. Note what did not deliver it: Shipper&rsquo;s own three posts in this feed are two vibe-check lines and a pointer to Every, none of which mentions the episode.</p>
+    <p>DevDay gets a number, and it comes from the person who gave the keynote rather than from the people watching it. Shipper counts 22 new things, against about nine last year and four or five the year before, and Altman&rsquo;s additions are that they cut items to fit 50 minutes and &ldquo;just wait for next year.&rdquo; The count is the host&rsquo;s, uncorrected on tape, and it is not an official list &mdash; which matters because the items actually named across the last three issues still come to about nine: Dots, 6.1 Sol, Ultrafast, CUA, Decisions API, MCP servers in ChatGPT, Space, native apps, subscription portability. Nobody has published the list of 22, so the number is currently a claim about volume with no inventory behind it.</p>
+    <p>The two things Altman says are not solved are worth more than the launches, because they are the only statements in this feed that set a limit. On the App Store: &ldquo;we clearly have not yet figured out the App Store equivalent.&rdquo; On speed: Ultrafast is available now if you pay, &ldquo;8X at a great price in the not distant future,&rdquo; and 100X after that. Both are said from the stage by the person shipping them, which is a different grade of claim than a launch announcement, and the second is a dated-ish roadmap rather than a result.</p>
+    <p>Dots is the only product here with an actual use account, and it comes with its own failure case, which is what makes it usable. Altman describes his mornings back, then gives the keynote incident: the dot detected that the demo setup would break the demo, proposed fixing it, and could not. That is the only place in this feed where a limit is stated rather than implied &mdash; detection and proposal yes, action no &mdash; and his own framing is that a later version might fix it in prod. The Slack screenshot story is the mirror image: he gave up after 10 to 20 minutes with Codex, and the dot found it overnight by going through images one by one. All of it is n=1, all self-reported, and both he and Shipper call the product rough and buggy in the same breath.</p>
+    <p>Astra is the yardstick for the third day running, and today it is used differently again. On 09-30 Shipper used it as a taste comparison, on 10-01 Altman used it as a price anchor, and today he uses it as a cause: the most important ingredient behind Dots was Astra, because they needed a model past the intelligence bar. Same rival, three different jobs, and not one benchmark in any of the three. That pattern is worth tracking as rhetoric rather than as measurement.</p>
+    <p>Gemini 4 Argon lands inside the same window, and the judgement around it splits along the same line Levie argues at length. Woodward announces it in three words and nothing else; Peter Yang says the model is competitive but the coding harness (Antigravity) and the personal agent (Spark) are not; Shipper thought it had already shipped and is asking Pichai for a vibe check, with no stated criteria. Levie&rsquo;s post the same day argues the work is in the deployment layer, which is a vendor arguing his own book &mdash; but three independent people pointing at the layer around the model rather than at the model is a stronger signal than any one of them alone. None of the three Gemini claims is measurable here.</p>
+    <p>Eleven of the 34 posts carry nothing that can be evaluated. Named: Swyx&rsquo;s logo-cropping question; Peter Yang&rsquo;s &ldquo;This is getting nuclear&rdquo; and his DevDay versus YouTube-comments joke; all three of Shipper&rsquo;s; Rauch&rsquo;s &ldquo;Faster&rdquo;; Garry Tan&rsquo;s &ldquo;chefs kiss&rdquo;; Amjad&rsquo;s Meta VR line; Nikunj&rsquo;s multiplayer ask; and Woodward&rsquo;s three-word launch. Three builders have nothing else in the feed &mdash; Amjad Masad, Josh Woodward and Dan Shipper &mdash; but thin is not the same as useless: Woodward&rsquo;s three words are what let us identify which model Shipper means, and Shipper&rsquo;s vibe-check line is a commitment the next snapshot can hold him to. Two clusters sit inside that set: four posts about Gemini 4 within about four hours (Shipper 20:17Z, Yang 20:23Z, Woodward 20:36Z, Shipper again 23:45Z), and Thariq&rsquo;s three posted within two seconds of each other.</p>
+    <p>Four things left open. Sottiaux&rsquo;s speed promise is the only dated one: almost twice yesterday&rsquo;s speed &ldquo;in the coming hours,&rdquo; which the next snapshot can check directly. Shipper&rsquo;s Gemini 4 vibe check has no date but is a commitment made in public. The Pro $200 re-open and the unmetered additions Sottiaux promised for DevDay itself go unmentioned for the second issue running, across two windows that both cover DevDay in full &mdash; still unresolved rather than failed, since absence from the feed is not evidence of absence. And the 09-30 note that nobody outside Box has reproduced its Sonnet 5.5 eval is unchanged: Matt Turck&rsquo;s Anthropic ARR line today sits next to it without answering it.</p>
+  </div>
+
+  <div class="takeaway zh">
+    <div class="takeaway-label">核心结论</div>
+    <p>第二个承诺今天收口，而且是靠实物收口的，不是靠关于它的转述。上一期标记了 Dan Shipper 说和 Sam Altman 的播客明天放出；那句话出自一个止于太平洋时间 09-29 23:45 的窗口，所以&ldquo;明天&rdquo;指 09-30。本期 feed 里就有：<em>How Sam Altman Uses Dots to Take Back His Time</em>，AI &amp; I by Every，publishedAt 2026-09-30T20:05:56Z，即太平洋时间 09-30 13:05。判定：兑现。值得注意的是兑现它的并不是他本人那三条帖子——本期 Shipper 的三条是两行 vibe check 加一个指向 Every 的链接，没有一条提到这期节目。</p>
+    <p>DevDay 终于有了一个数字，而且这个数字来自做 keynote 的那个人，不是来自台下的人。Shipper 数出 22 项，对比去年的约 9 项和前年的四五项；Altman 补的是为了塞进 50 分钟砍掉了一批，以及一句&ldquo;等明年吧&rdquo;。这个数字是主持人在录音里数出来的，本人没有纠正，而且它不是一份官方清单——这一点要紧，因为过去三期里被点名的发布物加起来仍然只有九项左右：Dots、6.1 Sol、Ultrafast、CUA、Decisions API、ChatGPT 里的 MCP 服务器、Space、原生应用、订阅随身带走。没有人发过那 22 项的清单，所以这个数字目前是一个关于体量的说法，背后没有存货。</p>
+    <p>Altman 说&ldquo;还没解决&rdquo;的那两件事比发布物更值钱，因为它们是今天 feed 里唯一划出边界的表述。关于 App Store：&ldquo;我们显然还没找到 App Store 的等价物。&rdquo; 关于速度：Ultrafast 现在付钱就能用，&ldquo;在不远的将来会有一个好价格下的 8 倍&rdquo;，再之后是 100 倍。两句话都是做产品的人站在台上自己说的，和发布公告不是一个等级的主张；第二句更像一条带模糊时间点的路线图，而不是一个结果。</p>
+    <p>Dots 是这里唯一一个有真实使用记录的产品，而且它自带一个失败案例，这正是它能用的原因。Altman 先讲早晨回来了，然后讲了 keynote 那件事：dot 检测到 demo 的 setup 会让 demo 挂掉、提议去修、但没修成。这是今天 feed 里唯一一处把限制<strong>说</strong>出来而不是暗示出来的地方——能发现、能提议、不能动手——而他自己的说法是下一代也许能直接去生产环境修。Slack 截图那个故事是它的镜像：他用 Codex 找了 10 到 20 分钟放弃，dot 用一夜时间一张张翻图找到了。全部是 n=1、全部是自述，而且他和 Shipper 是同一口气在说这个产品还很粗糙、有 bug。</p>
+    <p>Astra 连续第三天当标尺，而且今天的用法又不一样。09-30 那天 Shipper 拿它做口味比较，10-01 那天 Altman 拿它做价格锚点，今天他拿它当原因：Dots 背后最重要的原料是 Astra，因为他们需要一个跨过智能门槛的模型。同一个对手，三种不同的用途，三次里没有一次 benchmark。这个模式值得当作修辞来跟踪，而不是当作测量。</p>
+    <p>Gemini 4 Argon 落在同一个窗口里，而围绕它的判断沿着 Levie 长文论证的那条线分裂。Woodward 用三个词宣布了它，此外什么都没说；Peter Yang 说模型有竞争力，但编码 harness（Antigravity）和个人 agent（Spark）没有；Shipper 以为它早就发了，正在向 Pichai 讨一个 vibe check，而没说标准是什么。Levie 同一天那条长文论证工作在部署层，这是厂商在为自己的立场辩护——但三个互相独立的人都指向模型周围那一层而不是模型本身，这个信号比任何一个人单独说都强。三条关于 Gemini 的说法在这里都无法测量。</p>
+    <p>34 条里有 11 条没有可评估内容。逐条点名：Swyx 关于裁 logo 的提问；Peter Yang 的&ldquo;This is getting nuclear&rdquo;和他拿 DevDay 现场与 YouTube 评论区对照的那条玩笑；Shipper 的三条全在列；Rauch 的&ldquo;Faster&rdquo;；Garry Tan 的&ldquo;chefs kiss&rdquo;；Amjad 的 Meta VR 那条；Nikunj 求多人体验 demo 那条；以及 Woodward 那句三个词的发布。三位 builder 在 feed 里没有别的东西——Amjad Masad、Josh Woodward 和 Dan Shipper——但薄不等于没用：正是 Woodward 那三个词让我们能认出 Shipper 说的是哪个模型，而 Shipper 那句 vibe check 是一个下一期可以拿来对他兑现的承诺。这批里面有两个簇：约四小时内四条都在讲 Gemini 4（Shipper 20:17Z、Yang 20:23Z、Woodward 20:36Z、Shipper 23:45Z），以及 Thariq 那三条在两秒内连发。</p>
+    <p>有四件事留着。Sottiaux 的速度承诺是唯一带日期的：&ldquo;未来几小时内&rdquo;达到昨天的近两倍，下一期快照可以直接核对。Shipper 的 Gemini 4 vibe check 没有日期，但是一个公开做出的承诺。Sottiaux 承诺在 DevDay 当天做的 Pro $200 重新开放与不占额度的新增内容，连续第二期只字未提，而这两个窗口都完整覆盖了 DevDay——仍然判未决而不是失败，因为 feed 里没有不等于没有发生。09-30 那条&ldquo;Box 之外无人复现其 Sonnet 5.5 评测&rdquo;的情况不变：Matt Turck 今天那条 Anthropic ARR 的说法摆在旁边，但没有回答它。</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="next-issue">&#128236; 下一期：明天 10:00（北京时间）</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->
