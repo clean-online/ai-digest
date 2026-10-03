@@ -512,3 +512,17 @@
 - **结构**：0 podcast + 0 blog → X 14 卡 → Takeaway（`section-meta: "No Podcast Today"`，7 段：承诺收口 / 发布清单 / 两个数字都是价格 / Dots 被按住的部分 / Astra 成两边共同标尺 / 15 条薄内容点名+双簇 / 两个留给明天的日期）→ Already Covered（1 条）→ footer。size 40670。
 - **部署**：index.html `ISSUES` 顶部追加 `2026-10-01` → copy 到 `2026/10/01/` → commit `48dfbe0` → push（ab1a4d1..48dfbe0）。
 - **验证**：`gh run list --limit 1` 第 2 次轮询到 completed/success（run 36805158080，约 20s）→ GET 子路径**首查 HTTP 200**，size 40670 与本地一致，`diff` IDENTICAL；根 index 200 且已含 `2026-10-01`。四项校验首跑全绿（14/14 卡片、32/32 URL、diff IDENTICAL、2 处 by chloevchen）。
+
+### 2026-10-02 (周五) — 成功
+- **内容获取**：`prepare-digest.js` 抓中央 feed，产出 17 builders / 34 tweets / 1 podcast / 0 blog（bilingual），快照 2026-10-01T06:46Z（太平洋 09-30 23:46，较上期 09-30T06:45Z 前进 1 天，无丢档）。
+- **去重**：34 个推文 ID grep `2026/` 零命中；播客标题「Take Back His Time / Sam Altman Uses Dots」零命中（其他命中为不同集数）；blogs 数组为空 → 无 Already Covered 小节，note-line 说明「唯一的 0 只有一个成因」。
+- **主线**：Shipper 上期「明天」的 Altman 播客**兑现**（publishedAt 2026-09-30T20:05:56Z = 太平洋 09-30 13:05，对得上 09-29 说出的「明天」）。但兑现它的是播客条目本身——他当天三条推文（两行 vibe check + 一个指向 Every 的链接）一条都没提到。DevDay 发布量首次由 keynote 本人给出数字：22 项（去年约 9、前年 4-5），且说为塞进 50 分钟砍掉一批；但跨三期可点名的发布物仅约 9 项，无人发过清单。
+- **结构**：X 17 卡 → Podcast（EN/ZH 各 3 段 + URL，无内嵌 takeaway）→ Takeaway（8 段 EN + 8 段 ZH）→ footer。size 63003。CSS 在 10-01 基线上补回 `.podcast` / `.podcast-source` / `.podcast-title`（取自 09-17）。
+- **部署**：index.html `ISSUES` 顶部追加 `2026-10-02` → copy 到 `2026/10/02/` → commit `41ff1e9` → push（cf57e65..41ff1e9）。
+- **验证**：`gh run list --limit 1` 第 3 次轮询到 completed/success（run 36955022381，约 20s）→ GET 子路径**首查 HTTP 200**，size 63003 与本地一致，`diff` IDENTICAL；根 index 200 且已含 `2026-10-02`。四项校验首跑全绿（17/17 卡片、34/34 URL 与 feed 完全一致、播客 URL 命中、2 处 by chloevchen）。
+
+## 下次运行
+- 预计 2026-10-03 由 cron 触发；若该日无新内容（stats 全 0）则按 skill 规则跳过生成。
+- 沿用：三项证据分级（来源 / 比较对象 / 回答的是哪个问题）、发布日按"对比对象 + 测试集来源"排序、一 builder 一卡、X section 卡片数校验、推文 ID 与 feed `diff` 校验、内容级去重（blog slug / podcast 标题关键词，不用人名/公司名/通用词）、`gh run list --limit 1` 不带 --workflow、curl 用 GET 不用 -I、`/tmp/dg/` 下的 raw.json + dump.txt + ids.txt。
+- **本期新增沿用（已写入项目经验库）**：①承诺的兑现证据是产出物本身，可能与承诺人当天发言完全分离（确认后补一句"兑现它的并不是他本人那几条帖子"）；②有计数没清单时数字只当体量声明，注明来源是谁数的、并点出无人发过清单；③自认的限制（如"没找到 App Store 等价物"）比发布公告更值钱，单列一段前置，带模糊时间点的定性为路线图而非结果；④薄内容的第二种用途是锚定另一条内容里的未点名指代（Woodward 三个词让我们认出 Shipper 说的是 Gemini 4），不只是确认事件。
+- 关注：**Sottiaux 的 Sol 速度** —— 唯一带日期（"未来几小时内"达到昨日近两倍），下期可直接核对；**Shipper 的 Gemini 4 vibe check** —— 无日期但为公开承诺，注意是否给出标准；**Pro $200 重开 + 不占额度新增内容** —— 连续第二期未提，两个窗口均完整覆盖 DevDay，仍判未决不判未兑现；**Box Sonnet 5.5 eval 第三方复现** —— 仍未出现；**Opal 2026-11-17 关停** 与 **Claude Founder House 10-06~08 / 10-14** 两个已定日期，届时按窗口判定。
