@@ -526,3 +526,17 @@
 - 沿用：三项证据分级（来源 / 比较对象 / 回答的是哪个问题）、发布日按"对比对象 + 测试集来源"排序、一 builder 一卡、X section 卡片数校验、推文 ID 与 feed `diff` 校验、内容级去重（blog slug / podcast 标题关键词，不用人名/公司名/通用词）、`gh run list --limit 1` 不带 --workflow、curl 用 GET 不用 -I、`/tmp/dg/` 下的 raw.json + dump.txt + ids.txt。
 - **本期新增沿用（已写入项目经验库）**：①承诺的兑现证据是产出物本身，可能与承诺人当天发言完全分离（确认后补一句"兑现它的并不是他本人那几条帖子"）；②有计数没清单时数字只当体量声明，注明来源是谁数的、并点出无人发过清单；③自认的限制（如"没找到 App Store 等价物"）比发布公告更值钱，单列一段前置，带模糊时间点的定性为路线图而非结果；④薄内容的第二种用途是锚定另一条内容里的未点名指代（Woodward 三个词让我们认出 Shipper 说的是 Gemini 4），不只是确认事件。
 - 关注：**Sottiaux 的 Sol 速度** —— 唯一带日期（"未来几小时内"达到昨日近两倍），下期可直接核对；**Shipper 的 Gemini 4 vibe check** —— 无日期但为公开承诺，注意是否给出标准；**Pro $200 重开 + 不占额度新增内容** —— 连续第二期未提，两个窗口均完整覆盖 DevDay，仍判未决不判未兑现；**Box Sonnet 5.5 eval 第三方复现** —— 仍未出现；**Opal 2026-11-17 关停** 与 **Claude Founder House 10-06~08 / 10-14** 两个已定日期，届时按窗口判定。
+
+### 2026-10-03 (周六) — 成功
+- **内容获取**：`prepare-digest.js` 抓中央 feed，产出 20 builders / 41 tweets / 1 podcast / 3 blog（bilingual），快照 2026-10-02T06:45Z（太平洋 10-01 23:45，较上期 10-01T06:46Z 前进 1 天，无丢档）。
+- **去重**：41 个推文 ID 在 `2026/` 下零命中；播客标题「Why AI Agents Cheat / Eric Ho / Goodfire」零命中；3 篇 blog 全部为往期已收录（how-we-contain-claude 最早 06-05、april-23-postmortem 与 managed-agents 最早 05-11）→ Blog 计 0 + Already Covered 小节（**注意**：上一期 09-25 给三篇都写了 09-07，实际最早是 06-05/05-11，本期按 grep 排序取真实最早）。
+- **主线**：Sol 速度承诺分两层收口——故障+修复由 Sottiaux 与 Altman 两个账号交叉印证（delivered），但上期承诺的「近 2 倍」被无声丢掉（未兑现）。本期唯一带时间戳的未决项：付费账号全局重置，太平洋 10-02 10:00（17:00Z），落在快照之后 → 下期直接核对。Astra 第四次被引用，用途从质量→价格→因果漂移到架构（Ho 称其为 latent reasoning 模型），四天四用法、零官方基准。播客单集 URL 用 t.co 重定向解析得到 `watch?v=MrnhtyPGCKI`（feed 只给频道页）。
+- **结构**：X 20 卡 → Podcast（EN/ZH 各 3 段 + 单集 URL）→ Takeaway（8 段 EN + 8 段 ZH）→ Already Covered（3 条）→ footer。size 78502。CSS 沿用 10-02 基线（含 .podcast / .dedup）。
+- **部署**：index.html `ISSUES` 顶部追加 `2026-10-03` → copy 到 `2026/10/03/` → commit `68451e3` → push（41ff1e9..68451e3）。
+- **验证**：`gh run list --limit 1` 第 2 次轮询 completed/success（run 37088938509，约 20s）→ GET 子路径**首查 HTTP 200**，size 78502 与本地一致，`diff` IDENTICAL；根 index 200 且已含 `2026-10-03`。四项校验首跑全绿（20/20 卡片、41/41 URL 与 feed 完全一致、播客 URL 命中、2 处 by chloevchen）。
+
+## 下次运行
+- 预计 2026-10-04 由 cron 触发；若该日无新内容（stats 全 0）则按 skill 规则跳过生成。
+- 沿用：三项证据分级、一 builder 一卡、推文 ID 与 feed `diff` 校验、内容级去重（blog slug / podcast 标题关键词）、`gh run list --limit 1` 不带 --workflow、curl 用 GET 不用 -I、`/tmp/dg/` 下的 raw.json + dump.txt + ids.txt。
+- **本期新增沿用（已写入项目经验库）**：①承诺收口要分两层判定（底层 delivered / 具体数值未兑现），只有保留原数字才能发现滑动；②反复被引用但零基准的实体，记「用途漂移」而不是流水账，并定性为修辞；③Already Covered 的日期必须 `grep -rl slug | sort | head -1` 自行取最早，不能照抄上一期写的日期；④播客单集 URL 用 `curl -L -w %{url_effective}` 解 t.co 拿 watch?v=；⑤只在音频里出现的信息（Goodfire×HF 合作）要标注「尚无书面形式」，否则下期去重抓不到。
+- 关注：**付费账号全局重置（太平洋 10-02 10:00）** —— 唯一带时间戳，下期直接核对；**Pro $200 重开** —— 连续第三期未提，倾向判「已放下」；**Shipper 的 Gemini 4 vibe check** —— 连续第二期缺席；**Box 之外无人复现 Sonnet 5.5 设计评测** —— 第四期无进展，旁新增同类型自评；**Ho 的 2028 解码预测** —— 定义已收窄，可对齐性提高；**Goodfire × Hugging Face 合作** —— 仅播客口述，留意是否出现书面形式；**Opal 2026-11-17 关停** 与 **Claude Founder House 10-06~08 / 10-14** 两个已定日期。
