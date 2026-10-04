@@ -540,3 +540,18 @@
 - 沿用：三项证据分级、一 builder 一卡、推文 ID 与 feed `diff` 校验、内容级去重（blog slug / podcast 标题关键词）、`gh run list --limit 1` 不带 --workflow、curl 用 GET 不用 -I、`/tmp/dg/` 下的 raw.json + dump.txt + ids.txt。
 - **本期新增沿用（已写入项目经验库）**：①承诺收口要分两层判定（底层 delivered / 具体数值未兑现），只有保留原数字才能发现滑动；②反复被引用但零基准的实体，记「用途漂移」而不是流水账，并定性为修辞；③Already Covered 的日期必须 `grep -rl slug | sort | head -1` 自行取最早，不能照抄上一期写的日期；④播客单集 URL 用 `curl -L -w %{url_effective}` 解 t.co 拿 watch?v=；⑤只在音频里出现的信息（Goodfire×HF 合作）要标注「尚无书面形式」，否则下期去重抓不到。
 - 关注：**付费账号全局重置（太平洋 10-02 10:00）** —— 唯一带时间戳，下期直接核对；**Pro $200 重开** —— 连续第三期未提，倾向判「已放下」；**Shipper 的 Gemini 4 vibe check** —— 连续第二期缺席；**Box 之外无人复现 Sonnet 5.5 设计评测** —— 第四期无进展，旁新增同类型自评；**Ho 的 2028 解码预测** —— 定义已收窄，可对齐性提高；**Goodfire × Hugging Face 合作** —— 仅播客口述，留意是否出现书面形式；**Opal 2026-11-17 关停** 与 **Claude Founder House 10-06~08 / 10-14** 两个已定日期。
+
+### 2026-10-04 (周日) — 成功
+- **内容获取**：`prepare-digest.js` 抓中央 feed，产出 16 builders / 35 tweets / 1 podcast / 1 blog（bilingual），快照 2026-10-03T06:48Z（太平洋 10-02 23:48，较上期 10-02T06:45Z 前进 1 天，无丢档）。
+- **去重**：35 个推文 ID 在 `2026/` 下零命中；播客（No Priors × Walter Goodwin / Fractile「Frontier Chips for Frontier AI Labs」）三个关键词均零命中 → 收录；blog 1 条（Claude for Small Business，publishedAt Sep 15）slug 命中 09-17 / 09-26，`sort | head -1` 取最早 09-17 → 计 0 + Already Covered（1 条）。最终 **16/35/1/0**。
+- **主线**：重置承诺**兑现**，且是第三种收口形态 —— 底层已执行 + 子集（Pro 500）故障 + 25 分钟内修复（04:01Z → 04:26Z）。判据是「抱怨只有在重置已跑过的前提下才成立」。与 09-29「窗口外仍开着」、10-03「底层兑现/数字被丢」区分开。同时新建一条：本期首次出现的「Pro 500」无法与沉寂四期的「Pro $200 重新开放」互相认领，两条线分开记（delivered / still open）。第二个主题是速度 —— Altman 的 Cerebras 表态（无数字、不确认任何具体交易）与播客整期的内存带宽论证互不引用，并列但不合并定性。播客两个可迁移论证：更快的聊天机器人只是「更快的马」，真正的电梯是长时 agent；前沿实验室全押自有硬件是非理性的（对手若在自家芯片上找到计算突破，你可能在铺够量之前的九个月里死掉）。
+- **结构**：X 16 卡 → Podcast（EN/ZH 各 3 段 + 频道页 URL，feed 只给频道页、当天无 t.co 指向单集，直接沿用不再解析）→ Takeaway（EN 8 段 + 独立 `takeaway zh` 块 8 段「核心结论」）→ Already Covered（1 条）→ footer。size 61472。CSS 沿用 10-03 基线。
+- **部署**：index.html `ISSUES` 顶部追加 `2026-10-04`（meta: 16 Builders · 35 Tweets · 1 Podcast · 0 Blog）→ copy 到 `2026/10/04/` → commit `3d263d3` → push（68451e3..3d263d3）。
+- **验证**：`gh run list --limit 1` 第 3 次轮询 completed/success（run 37170666201，约 16s）→ GET 子路径**首查 HTTP 200**，size 61472 与本地一致，`diff` IDENTICAL；根 index 200 且已含 `2026-10-04`。四项校验首跑全绿（16/16 卡片、35/35 URL 与 feed 完全一致、播客 URL 命中、2 处 by chloevchen）。
+- **注意**：URL 校验 grep 需加 `sort -u`，HTML 里每个 URL 出现在 href 与文本两处，不去重会得到 70 行而误判 diff 失败。
+
+## 下次运行
+- 预计 2026-10-05 由 cron 触发；若该日无新内容（stats 全 0）则按 skill 规则跳过生成。
+- 沿用：三项证据分级、一 builder 一卡、推文 ID 与 feed `diff` 校验（**`sort -u`**）、内容级去重（blog slug / podcast 标题关键词，不用人名/公司名/通用词）、`gh run list --limit 1` 不带 --workflow、curl 用 GET 不用 -I、`/tmp/dg/` 下 raw.json + dump.txt + ids.txt + css.txt + data.py + build.py。
+- **本期新增沿用（已写入项目经验库）**：①承诺收口第三形态（底层已执行 + 子集故障 + 已修复），并记信源数差异 —— 上期有第二账号交叉印证，本期没有；②feed 未给出同一性说明时，新实体名不能替旧承诺收口，「出现从未用过的名称」本身即不收口的理由，并写明需要哪句话才能闭合；③同日两个互不引用的信源指向同一主题时并列不合并，只有出现可核对的量才升级为合并结论；④薄内容计数要把判定标准写进句子（本期 20/35，标准：未点名对象 / 无数字 / 无 AI 内容），否则跨期数字会被误读为「越来越水」；⑤播客单集 URL 仅在存在 t.co 短链时才解析，feed 只给频道页就直接沿用。
+- 关注：**Pro 500 与 Pro $200 重新开放是否同一件事**（需 OpenAI 一句表态）；**Cerebras 合作**是否给出交易条款或产能数字；**Fractile 平台 2027H2 爬坡**与 Goodwin「除以四」≈2.5 年的 intent→GDSII 原型预测；**Gemini 4 vibe check**（第三期缺席）；**Sonnet 5.5 外部复现**（第五期无进展）；已定日期：半额用量 10-15 截止、Founder House 10-06~08 / 10-14、Opal 2026-11-17 关停。
