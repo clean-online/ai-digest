@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest &#183; 2026-10-05</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+
+
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 28px 30px; margin-bottom: 24px; }
+  .podcast-source { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
+  .podcast-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; margin-bottom: 18px; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; } }
+
+
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 &#183; Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest &#183; 2026-10-05</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">13</div>
+    <div class="stat-label">Builders</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">25</div>
+    <div class="stat-label">Tweets</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Podcast</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Blog</div>
+  </div>
+</div>
+
+<p class="note-line">Feed snapshot 2026-10-04T08:22Z = 01:22 Pacific on 10-04, roughly 25 hours on from the 10-03T06:48Z window with no gap between them; every tweet in it falls between 03:54 and 22:41 Pacific on Saturday 10-03. Counts are rendered items: 13 builders, 25 tweets. Both zeros have the same cause, and it is worth stating precisely because it is easy to misread as a fetch failure: the feed did carry one podcast and one blog, but the podcast is dated 09-24 and the blog Sep 16, so both are back-fill of older material rather than today's output, and both were carried in earlier issues. Podcast and Blog therefore read 0, and both items are listed by name in Already Covered at the bottom. 统计口径为渲染数：13 位 builder、25 条推文。两个 0 的成因相同，且值得写清楚，因为它很容易被误读成抓取失败 —— feed 里确实带了 1 期播客和 1 篇博客，但播客的发布日期是 09-24、博客是 Sep 16，都是往期内容的回填而不是当天产出，且两者都已在往期收录过，故 Podcast 与 Blog 均计 0，只在文末「已收录」中按名列出。</p>
+
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">&#128036;</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">13 Builders</span>
+  </div>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thibault Sottiaux</span>
+      <span class="builder-role">Codex &amp; ChatGPT &middot; OpenAI</span>
+    </div>
+    <p class="summary-en">Three posts, and together they are the closest thing to a product roadmap this feed has carried in several days. &ldquo;All right, we&rsquo;re locking in. Only things being worked on are simplifications, more efficiency for more usage, groundbreaking features or new models.&rdquo; The justification he gives is that feedback is clear people want things to get simpler. Four categories, no ordering between them, no dates, no list of what actually gets simplified and no measure of what &ldquo;simpler&rdquo; would look like, so it is a posture statement rather than a plan. What makes it worth marking is the sequence: yesterday he posted a throwaway line about future models being better at code deletion and simplification; today simplification is one of four sanctioned workstreams. A joke became posture inside a day, which is the kind of thing only a daily feed catches. Grading: one account, the vendor&rsquo;s own, no second source, no artifact.</p>
+    <p class="summary-zh zh">三条，合起来是这份 feed 好几天以来最接近产品路线图的东西。&ldquo;好了，我们锁定了。现在只在做四类事情：简化、用同样的资源换更多用量、突破性的功能、以及新模型。&rdquo;他给的理由是：反馈很清楚，大家想要的是更简单。四个类别，彼此之间没有优先级，没有日期，没有哪一处会被简化的清单，也没有 &ldquo;更简单&rdquo; 长什么样的度量 &mdash;&mdash; 所以这是一句姿态声明，不是计划。值得记下的是这个时序：昨天他随手发了一句，说未来的模型会更擅长代码删除和简化；今天 &ldquo;简化&rdquo; 成了四个被认可的工作方向之一。一句玩笑在一天之内变成了姿态，这种事只有日更的 feed 抓得到。证据分级：单一账号，厂商自己，无第二来源，无产物。</p>
+    <p class="summary-en">The other item is the first account in this feed of a personal agent doing a real task with the steps written out. He reached inbox zero for the first time in his life by making it an active goal for his dot, and lists what it did: delete whole categories of email not worth keeping, validating them in batch; identify labels for the types of work he does and label everything accordingly; then walk him through the emails needing a reply, searching for relevant context in the background to help get them right. He adds that he got through a lot of feedback people send him directly. Two things are worth separating from the enthusiasm. The task chosen is cleanup, not production &mdash; the backlog that accumulates rather than the output that ships, which is the same shape Altman described yesterday as a gravity well of dread. And he closes with &ldquo;Let&rsquo;s see how long it lasts&rdquo;, which is the honest part: inbox zero is a state, not a result, and no one has reported durability. One person, his own product, a Saturday.</p>
+    <p class="summary-zh zh">另一条是这份 feed 里第一次有人把个人 agent 干的活儿按步骤写出来。他有生以来第一次做到 inbox zero，办法是把它设成他的 dot 的一个主动目标；他列出了它做的事：批量删除所有不需要保留的邮件类别并逐批确认；识别出他做的工作类型对应的标签，然后把所有邮件打好标签；最后带他走一遍需要回复的邮件，同时在后台检索相关上下文好让回复更准。他补充说自己顺带处理掉了很多别人直接发来的反馈。有两点要从这份热情里分出来看。选的这个任务是清理，不是产出 &mdash;&mdash; 是会堆积起来的存量，而不是能交付的增量，这跟 Altman 昨天描述的那个 &ldquo;恐惧引力井&rdquo; 是同一个形状。而他用 &ldquo;看看能维持多久&rdquo; 收尾，这是最诚实的部分：inbox zero 是一种状态，不是一项成果，目前还没有人报告过它的持续性。一个人、他自己的产品、一个周六。</p>
+    <p class="summary-en">What is absent matters as much as what is here. Neither the &ldquo;Pro $200 re-open&rdquo; he announced on 09-25 nor the Pro 500 tier named on 10-04 appears anywhere in these three posts, and this is the fifth consecutive issue in which the re-open has not been mentioned. Absence across five windows is not proof it was dropped, but it is now the stronger reading, and the item stays open rather than closed.</p>
+    <p class="summary-zh zh">没有什么和有什么一样重要。他 09-25 宣布的 &ldquo;Pro $200 重新开放&rdquo; 和 10-04 点名的 Pro 500 档位，在这三条里都没有出现 &mdash;&mdash; 这是重新开放连续第五期未被提及。横跨五个窗口的缺席不能证明它被放弃了，但这是目前更强的读法；该条目保持未决，不收口。</p>
+    <div class="urls"><a href="https://x.com/thsottiaux/status/2106610099720720811">https://x.com/thsottiaux/status/2106610099720720811</a><a href="https://x.com/thsottiaux/status/2106603980386394123">https://x.com/thsottiaux/status/2106603980386394123</a><a href="https://x.com/thsottiaux/status/2106602729875685780">https://x.com/thsottiaux/status/2106602729875685780</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">Creator &middot; practical AI tutorials and interviews</span>
+    </div>
+    <p class="summary-en">Three posts, none of them gradeable. The middle one is the only one carrying an observation, and it fails on a specific count rather than on vagueness: a Google CEO actually uses this app and replies to feedback, while a YouTube CEO only uses it as a comms channel to post announcements. That is a real distinction about how executives engage with a product, but no app is named and no CEO is named, so there is nothing to check. The other two are a reaction to Foundation season one &mdash; the emperor plot is good, the rest seems meh so far &mdash; and a park anecdote about talking to his agents and being scratched by a squirrel.</p>
+    <p class="summary-zh zh">三条，没有一条可评级。中间那条是唯一带观察的，而它失分失在一个具体的地方，不是失在含糊上：某位 Google CEO 真的在用这个 app 并回复反馈，而某位 YouTube CEO 只把它当成发公告的通讯渠道。这是一个关于高管如何与产品互动的真区别，但 app 没点名、CEO 也没点名，所以没有可核对的东西。另外两条分别是：对《基地》第一季的反应 &mdash;&mdash; 皇帝线不错，其余目前看一般 &mdash;&mdash; 以及在公园里跟自己的 agent 说话、然后被松鼠抓了。</p>
+    <div class="urls"><a href="https://x.com/petergyang/status/2106593772863955419">https://x.com/petergyang/status/2106593772863955419</a><a href="https://x.com/petergyang/status/2106505635017986394">https://x.com/petergyang/status/2106505635017986394</a><a href="https://x.com/petergyang/status/2106454236456513670">https://x.com/petergyang/status/2106454236456513670</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nan Yu</span>
+      <span class="builder-role">Product, Codex &middot; OpenAI</span>
+    </div>
+    <p class="summary-en">One post, four words: &ldquo;The man has spoken&rdquo;, with a link. It is timestamped 05:41Z, forty-two minutes after Sottiaux&rsquo;s locking-in post at 04:59Z, and the two are colleagues on the same product. The timing and the relationship make a reading obvious, but the feed carries no quote-link, no named subject and no content beyond those four words, so the connection is not asserted here. Rendered rather than dropped so the count stays checkable.</p>
+    <p class="summary-zh zh">一条，四个词：&ldquo;The man has spoken&rdquo;，带一个链接。时间戳是 05:41Z，比 Sottiaux 那条 04:59Z 的锁定帖晚 42 分钟，两人是同一个产品的同事。时序和这层关系让一种读法显得很明显，但 feed 里没有引用关系、没有点名对象、除了这四个词之外没有任何内容，所以这里不断言它们之间存在关联。渲染而非删掉，这样统计数字仍然可核对。</p>
+    <div class="urls"><a href="https://x.com/thenanyu/status/2106620595534491948">https://x.com/thenanyu/status/2106620595534491948</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Madhu Guru</span>
+      <span class="builder-role">Sr Director, AI &middot; Meta</span>
+    </div>
+    <p class="summary-en">One post, and it states a position that the day&rsquo;s other substantive post independently agrees with. AI adoption is largely a product problem today. Even among the 2% that are paying, the depth of usage is shallow. The cause he names is interface, not capability: most AI products look like airplane cockpits with a hundred levers &mdash; connectors, permissions, model selection, token usage. He dates a change at twelve months, when product teams come into their own and make AI products easier to use. Grading: the 2% is the only number and it arrives with no source, no population and no date, so it cannot be tracked across issues; the twelve months has no mechanism behind it. The cockpit metaphor is the part that carries, because it says the levers are all configuration rather than capability.</p>
+    <p class="summary-zh zh">一条，讲了一个立场，而当天另一条有分量的帖子独立地同意这个立场。今天 AI 的采纳在很大程度上是一个产品问题。即便在付费的那 2% 里，使用深度也很浅。他给的原因是界面而不是能力：多数 AI 产品看起来像有一百个操纵杆的飞机驾驶舱 &mdash;&mdash; 连接器、权限、模型选择、token 用量。他把变化定在十二个月之后，届时产品团队会成熟起来、把 AI 产品做得更好用。证据分级：2% 是唯一的数字，但它没有出处、没有总体、没有日期，所以无法跨期追踪；十二个月这个期限背后没有机制。真正有分量的是驾驶舱这个比喻，因为它说的是那些操纵杆全是配置项，而不是能力项。</p>
+    <div class="urls"><a href="https://x.com/realmadhuguru/status/2106450089938157720">https://x.com/realmadhuguru/status/2106450089938157720</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Amjad Masad</span>
+      <span class="builder-role">CEO &middot; Replit</span>
+    </div>
+    <p class="summary-en">Three posts, none with anything to grade. One is a product name &mdash; &ldquo;Replit Drift&rdquo; &mdash; with no description anywhere in the feed, so a named launch arrives here with no account of what it does. One promotes a conversation with Alex Atallah of OpenRouter, described as going really deep and somewhat technical. One is &ldquo;Who&rsquo;s building this?&rdquo; with a link and no object. That last one sits interestingly next to Ryo Lu&rsquo;s essay on convergence, posted a few hours earlier, but it names nothing and so cannot be counted as part of that cluster.</p>
+    <p class="summary-zh zh">三条，没有一条有可评级的内容。一条是一个产品名 &mdash;&mdash; &ldquo;Replit Drift&rdquo; &mdash;&mdash; feed 里没有任何描述，所以一个点名发布在这里出现，却没有任何关于它做什么的说明。一条是给与 OpenRouter 的 Alex Atallah 的对话做推广，形容为聊得很深、有点技术性。一条是 &ldquo;这是谁在做？&rdquo; 带一个链接、没有对象。最后这条与几小时前 Ryo Lu 那篇讲趋同的长文摆在一起很有意思，但它没有点名任何东西，因此不能算进那个簇里。</p>
+    <div class="urls"><a href="https://x.com/amasad/status/2106506305875947966">https://x.com/amasad/status/2106506305875947966</a><a href="https://x.com/amasad/status/2106450234369085609">https://x.com/amasad/status/2106450234369085609</a><a href="https://x.com/amasad/status/2106406812316827874">https://x.com/amasad/status/2106406812316827874</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">CEO &middot; Vercel</span>
+    </div>
+    <p class="summary-en">Three posts, and one of them is the most portable thing said today &mdash; portable because it is a definition rather than a prediction. Security will become a larger and larger function in software companies, and security is two things at once: verification engineering, his example being &ldquo;my code is probably memory-safe&rdquo;, and capital allocation, his question being &ldquo;what surface should I throw most tokens at?&rdquo;. The second half is the part worth keeping, because it converts a security budget into a question about which attack surface deserves the compute. He pairs it with the problem that falls out for small teams: as the world&rsquo;s paranoia grows with ever-more-sophisticated AI adversaries, how can you trust a two-person-and-a-dog company &mdash; and conversely, given the state of global cybersecurity and the reliance on centralization, there are vast areas small teams can now disrupt.</p>
+    <p class="summary-zh zh">三条，其中一条是今天最可迁移的内容 &mdash;&mdash; 可迁移是因为它是一个定义，不是一个预测。安全在软件公司里会变成越来越大的一个职能，而安全同时是两件事：验证工程，他举的例子是 &ldquo;我的代码大概是内存安全的&rdquo;；以及资本配置，他的问题形式是 &ldquo;我应该把大部分 token 投到哪个面上&rdquo;。后半句是值得留下的部分，因为它把一个安全预算转换成了一个 &ldquo;哪个攻击面配得上这些算力&rdquo; 的问题。他紧接着给出由此落到小团队身上的难题：随着对手越来越精密、世界的疑虑越来越重，你怎么敢信任一家两个人和一条狗的公司 &mdash;&mdash; 而反过来，鉴于全球网络安全的现状和对中心化的依赖，现在也有大片领域是小团队可以去掀翻的。</p>
+    <p class="summary-en">His second post is a belief statement with no mechanism and no date attached to it: AI will make everything free, including itself, and the last domino to fall will be free energy, which is humanity&rsquo;s final frontier. There is no path described between here and there, so it should be read as a statement of where he thinks this ends rather than as a forecast. The third is a summer photograph with no AI content.</p>
+    <p class="summary-zh zh">他第二条是一个既无机制也无日期的信念声明：AI 会让一切都免费，包括它自己；最后倒下的那块多米诺骨牌是免费能源，那是人类最后的前沿。他没有描述从这里到那里的任何路径，所以应该把它读作 &ldquo;他认为这件事终点在哪&rdquo; 的声明，而不是一个预测。第三条是一张夏天的照片，没有 AI 内容。</p>
+    <div class="urls"><a href="https://x.com/rauchg/status/2106524265034162421">https://x.com/rauchg/status/2106524265034162421</a><a href="https://x.com/rauchg/status/2106516538836856945">https://x.com/rauchg/status/2106516538836856945</a><a href="https://x.com/rauchg/status/2106503460384538793">https://x.com/rauchg/status/2106503460384538793</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aaron Levie</span>
+      <span class="builder-role">CEO &middot; Box</span>
+    </div>
+    <p class="summary-en">One long post, and it is the other half of the day&rsquo;s main thread. Agent adoption is still very bimodal: coding and coding-adjacent tasks have taken off, and then there is everything else. Within coding itself the spread is wide &mdash; some small percentage of developers running background agents on projects in parallel, everyone else still working with agents one to one. Outside coding, real agentic adoption is still very early, and his reason is that the workflows themselves need to be reengineered. He then lists what that means, and the list is the substance: not deploying a chat system for better research efficiency, but workflows rebuilt, data wired up in new ways, new practices for accountability and liability of decisions once agents are in the mix, governance and compliance paradigm changes, and security upgrades. His closing claim is that you can basically expect 100X more agent adoption from what has been seen so far. Grading: 100X has no baseline, no horizon and no measurement, and it comes from a CEO whose product sits inside the lagging category he is describing. The number should be set aside; the list should be kept.</p>
+    <p class="summary-zh zh">一条长帖，是当天主线的另一半。Agent 的采纳至今仍然非常双峰：编码和编码相关的工作已经起量，然后是其他所有事情。即便在编码内部，分布也很宽 &mdash;&mdash; 大概有一小部分开发者在并行地跑后台 agent 处理多个项目，其余所有人仍然是一对一个 agent 地工作。编码之外，真正的 agentic 采纳还很早期，而他给的理由是工作流本身需要被重新设计。他接着列出了这意味着什么，这份清单才是实质：不是部署一个聊天系统来提高检索效率，而是工作流要重建、数据要以新方式接起来、agent 参与决策后要对问责与责任建立新的做法、治理与合规的范式要变、安全要升级。他的收尾主张是：基本可以预期 agent 采纳还会有 100 倍于目前的规模。证据分级：100 倍没有基线、没有期限、没有测量，而且它出自一位自家产品正落在他描述的那个落后品类里的 CEO。这个数字应该放到一边；那份清单应该留下。</p>
+    <div class="urls"><a href="https://x.com/levie/status/2106583814709633413">https://x.com/levie/status/2106583814709633413</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Ryo Lu</span>
+      <span class="builder-role">Designer &middot; Cursor, Notion, Stripe alum</span>
+    </div>
+    <p class="summary-en">Two posts, and one of them is the longest and most self-contained piece of writing in this feed today. &ldquo;Convergence to the mean&rdquo; names a mechanism where most posts only report a mood. When everyone looks at everyone else to decide what to make, we stop making anything of our own; we borrow the language, the aesthetic and the features, and call it learning from the market. Everything starts to feel familiar, polished, interchangeable &mdash; nothing wrong, nothing alive. Then the step that does the work: numbers are easier to compare than feelings, so we make things that produce numbers, study what gets attention, and shape ourselves around it, until the feedback stops informing the work and starts authoring it. AI makes that loop frictionless. His line on why more input is not the same as a point of view is the one to keep: it can draw from more references than we could see in a lifetime, but access to every perspective isn&rsquo;t the same as having one, because it hasn&rsquo;t lived a particular life that makes one detail unbearable and another beautiful. Ask it to choose without bringing intention and you get something plausible and easy to approve; ship it, measure it, copy it, feed it back &mdash; a tidal wave of mid.</p>
+    <p class="summary-zh zh">两条，其中一条是今天这份 feed 里最长、也最自成一体的一篇文章。&ldquo;向均值收敛&rdquo; 给出一个机制，而多数帖子只是报告一种情绪。当每个人看着别人来决定自己做什么，我们最终会停止做出属于自己的东西；我们借来语言、审美和功能，并称之为向市场学习。一切开始变得熟悉、精致、可以互换 &mdash;&mdash; 没什么错，也没什么活的。接着是真正起作用的那一步：数字比感受更容易比较，所以我们去做那些能产生数字的东西，研究什么能获得注意，然后把自己塑造成那个形状，直到反馈不再为作品提供信息、而是开始代笔。AI 让这个回路变得没有摩擦。他那句 &ldquo;更多输入不等于有观点&rdquo; 的话是值得留下的一句：它能引用的参考比我们一辈子能看到的都多，但能接触到每一种视角，并不等于拥有其中一种 &mdash;&mdash; 因为它没有活过某一段具体的生命，不会觉得某个细节无法忍受、而另一个细节很美。不带自己的意图去让它替你选，你会得到一个说得通、容易通过的东西；然后你发布它、测量它、复制它、再喂回下一轮 &mdash;&mdash; 一场平庸的潮水。</p>
+    <p class="summary-en">The second half widens it from output to the people making the output, and this is where the piece stops being a complaint. We describe ourselves in categories platforms can distribute and markets understand &mdash; designer, founder, creator &mdash; and the parts that don&rsquo;t fit become inconvenient, even when those contradictions might produce the most interesting work: we become easier to classify and harder to tell apart. His prescription is to approach making things the way artists do, where a perspective is developed through the work itself and the life outside the work is how you come to have something to say rather than a distraction from it. He extends it to software, which is his actual subject: software can be a medium too, a piece of it expresses beliefs about how life should feel and what deserves your attention, but we talk about it as an industry, adding a feature because someone else has it without asking whether it belongs. He closes with three questions that have no answer on a competitor&rsquo;s roadmap &mdash; what are you trying to let someone feel, understand, or do; why this particular shape; what have you noticed that the existing tools don&rsquo;t seem to notice. No numbers, no citations, entirely first-person, and the only argument today that names a mechanism rather than a result.</p>
+    <p class="summary-zh zh">后半段把它从产物扩大到了做产物的人，而文章正是在这里不再只是抱怨。我们用平台能分发、市场能理解的类别来描述自己 &mdash;&mdash; 设计师、创始人、创作者 &mdash;&mdash; 而那些不合类别的部分就变得不方便，哪怕正是这些矛盾可能产出我们最有意思的作品：我们变得更容易被归类，也更难被分辨。他的处方是像艺术家那样去对待创作 &mdash;&mdash; 观点是在作品里被磨出来的，而作品之外的生活是你得以有话要说的方式，不是干扰。他把它延伸到软件，这才是他真正的题目：软件也可以是一种介质，一件软件表达的是关于生活应该是什么感觉、什么值得你注意的信念，但我们把它当成一个行业来谈 &mdash;&mdash; 因为别人有某个功能就加上它，却不问它是否属于这里。他用三个问题收尾，而这三个问题在竞争对手的路线图上找不到答案：你想让某个人感受到、理解到、或者做到什么；为什么是这个形状；你注意到了什么、是现有工具似乎没注意到的。没有数字，没有引用，全篇第一人称，也是今天唯一一个给出机制而不是给出结果的论证。</p>
+    <p class="summary-en">His other post is a bare link with no text. Note the independence: Steinberger posts the same observation the same day in one line, laughing about how we are all building the same thing, with no reference to this essay. Two sources, no contact between them, one with a mechanism and one without.</p>
+    <p class="summary-zh zh">他的另一条是一个没有任何文字的纯链接。注意这里的独立性：Steinberger 在同一天用一句话发出同一个观察 &mdash;&mdash; 笑我们都在做同一个东西 &mdash;&mdash; 且没有引用这篇文章。两个来源，彼此无关联，一个给了机制，一个没给。</p>
+    <div class="urls"><a href="https://x.com/ryolu_/status/2106343073127256507">https://x.com/ryolu_/status/2106343073127256507</a><a href="https://x.com/ryolu_/status/2106337039201505453">https://x.com/ryolu_/status/2106337039201505453</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Zara Zhang</span>
+      <span class="builder-role">Builder &middot; feed curator</span>
+    </div>
+    <p class="summary-en">One post, and it is a question rather than a claim: how will the world change if coding agents get 10x better? No answer appears anywhere in this feed, and the 10x is a hypothetical with no baseline given &mdash; better than what, measured how. It is rendered because it is the kind of question the next several issues will either answer or keep failing to answer, and noting that it went unanswered today is what makes that observable later.</p>
+    <p class="summary-zh zh">一条，而且它是一个提问而不是一个主张：如果编码 agent 再好上 10 倍，世界会怎么变？这份 feed 里没有任何地方回答了它，而那个 10 倍是一个没有给出基线的假设 &mdash;&mdash; 比什么好、怎么量。它被渲染出来，是因为接下来几期要么回答这个问题、要么继续答不上，而记下 &ldquo;今天无人回答&rdquo; 正是让这件事日后可被观察的前提。</p>
+    <div class="urls"><a href="https://x.com/zarazhangrui/status/2106405482852434359">https://x.com/zarazhangrui/status/2106405482852434359</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nikunj Kothari</span>
+      <span class="builder-role">Partner &middot; FPV Ventures</span>
+    </div>
+    <p class="summary-en">Three posts, and two of them carry a position. The sharper one names two companies moving in opposite directions as personal agents become inevitable: Amazon is protecting its ads cash cow and its brand, while DoorDash, albeit smaller, is opening the gates slowly with CLIs and allowing ordering via text. No numbers, no links to either company&rsquo;s actual interface, and &ldquo;slowly&rdquo; is doing a lot of work in that sentence, but it is the one concrete distribution observation in the feed today. The second is a position on usage volume as an end in itself: do it for a bit to explore the edges and maybe find the right purpose, but tokenmaxxing for the sake of doing it is not honestly useful in this era. &ldquo;Tokenmaxxing&rdquo; is not defined and no threshold is given, so it cannot be applied, but the distinction between exploring and maximising is clear. The third is an El Ni&ntilde;o forecast refresh with no AI content.</p>
+    <p class="summary-zh zh">三条，其中两条带立场。更锋利的那条点名了两家走向相反的公司：随着个人 agent 变得不可避免，亚马逊在保护它的广告现金牛和品牌，而 DoorDash 尽管体量更小，正在用 CLI 和 &ldquo;发短信下单&rdquo; 慢慢开门。没有数字，也没有指向任何一家公司实际界面的链接，而且 &ldquo;慢慢&rdquo; 这个词在那句话里承担了太多重量，但它仍是今天 feed 里唯一具体的分发层观察。第二条是关于 &ldquo;把用量本身当目的&rdquo; 的立场：做一阵子用来摸清边界、也许能找到真正的用途，但为了 token 最大化而做，在这个时代老实说没什么用。&ldquo;tokenmaxxing&rdquo; 没有被定义，也没有给出阈值，所以无法套用，但 &ldquo;探索&rdquo; 与 &ldquo;最大化&rdquo; 之间的区别是清楚的。第三条是刷新厄尔尼诺预报，没有 AI 内容。</p>
+    <div class="urls"><a href="https://x.com/nikunj/status/2106576328648741278">https://x.com/nikunj/status/2106576328648741278</a><a href="https://x.com/nikunj/status/2106488814940414455">https://x.com/nikunj/status/2106488814940414455</a><a href="https://x.com/nikunj/status/2106452873513201930">https://x.com/nikunj/status/2106452873513201930</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Steinberger</span>
+      <span class="builder-role">OpenClaw &amp; OpenAI</span>
+    </div>
+    <p class="summary-en">Two posts. The first is one line with a link &mdash; laughing about how we all are building the same thing &mdash; which is the same observation Ryo Lu makes at length in the same window, from a different person, with no reference between them. The second is concrete and enters tracking: OpenClaw&rsquo;s Android app has been in review limbo at Google for over a week, and he is asking publicly whether anyone at Google could help. That is a dated, checkable item about friction at the distribution layer rather than about model capability, and it is the kind of thing that either resolves in the next issue or becomes a longer pattern.</p>
+    <p class="summary-zh zh">两条。第一条是一句话带一个链接 &mdash;&mdash; 笑我们都在做同一个东西 &mdash;&mdash; 这与 Ryo Lu 在同一窗口里用长文给出的观察是同一个，来自不同的人，彼此之间没有引用。第二条是具体的，且进入追踪：OpenClaw 的 Android 应用在 Google 那边卡在审核状态已经超过一周，他在公开问有没有认识 Google 的人能帮忙。这是一个带日期、可核对的条目，讲的是分发层的摩擦而不是模型能力，而且属于那种 &ldquo;下一期要么解决、要么变成一种长期模式&rdquo; 的事情。</p>
+    <div class="urls"><a href="https://x.com/steipete/status/2106489264443981978">https://x.com/steipete/status/2106489264443981978</a><a href="https://x.com/steipete/status/2106446147791597774">https://x.com/steipete/status/2106446147791597774</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aditya Agarwal</span>
+      <span class="builder-role">General Partner &middot; SPC</span>
+    </div>
+    <p class="summary-en">One post, and its structure is worth separating from its claim. The setup is a correction of a misconception: being very rich does not buy unlimited access, because the world&rsquo;s leading cancer doctor will still see you for twenty to thirty minutes no matter how much money you have. The twenty to thirty minutes is concrete but unsourced, and it is doing the work of an anecdote rather than a measurement. The claim built on it is that AI does two things at once &mdash; it democratizes access and it makes the amount of time available unlimited &mdash; which he calls the practical effect of intelligence too cheap to meter. That last phrase is a deliberate reuse of the mid-century promise about nuclear power, and it should be read as rhetoric rather than as a price claim; no price or unit is given anywhere.</p>
+    <p class="summary-zh zh">一条，而它的结构值得和它的主张分开看。前半部分是对一个误解的纠正：非常有钱也买不到无限的可及性，因为世界顶级的癌症医生不管你有多少钱，仍然只会给你二十到三十分钟。这二十到三十分钟是具体的，但没有出处，它承担的是一个轶事的作用，而不是一次测量。建立在其上的主张是：AI 同时做两件事 &mdash;&mdash; 它既让可及性民主化，又让每个人可支配的时间变得无限 &mdash;&mdash; 他称之为 &ldquo;智能便宜到无法计量&rdquo; 的实际效果。最后这个说法是对上世纪那个关于核电气的承诺的有意复用，应该当作修辞来读，而不是当作一个价格主张；通篇没有给出任何价格或计量单位。</p>
+    <div class="urls"><a href="https://x.com/adityaag/status/2106503075209044336">https://x.com/adityaag/status/2106503075209044336</a></div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Sam Altman</span>
+      <span class="builder-role">CEO &middot; OpenAI</span>
+    </div>
+    <p class="summary-en">One post, one sentence, and it is the only safety statement in this feed today: he is very uncomfortable about people trying to ascribe religious force or a surrender of human judgment to AI models, and thinks it is a real safety issue. Two things make it worth more than its length. It is about the user&rsquo;s relationship to the model rather than about the model&rsquo;s capabilities, which is a different axis from most safety talk in this feed. And it names nothing &mdash; no person, no movement, no incident, no product &mdash; so what prompted it cannot be established from the feed, and there is no stated policy, design change or artifact attached to it. Rendered with that gap marked rather than filled in.</p>
+    <p class="summary-zh zh">一条帖子，一句话，是今天这份 feed 里唯一的安全表态：他对有人试图把宗教性的力量归属于 AI 模型、或把人类的判断交出去，感到非常不舒服，并认为这是一个真实的安全问题。有两点让它比它的篇幅更有分量。它讲的是 &ldquo;用户与模型的关系&rdquo;，而不是 &ldquo;模型的能力&rdquo;，这与这份 feed 里多数安全话题不是同一个轴。而且它没有点名任何东西 &mdash;&mdash; 没有人、没有运动、没有事件、没有产品 &mdash;&mdash; 所以触发它的是什么无法从 feed 里确定，也没有任何配套的政策、设计改动或产物。渲染出来，并把这个缺口标出来，而不是填上去。</p>
+    <div class="urls"><a href="https://x.com/sama/status/2106388373221118198">https://x.com/sama/status/2106388373221118198</a></div>
+  </article>
+
+</section>
+
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">&#129517;</span>
+    <h2 class="section-title">Takeaway</h2>
+    <span class="section-meta">No Podcast Today</span>
+  </div>
+
+  <div class="takeaway">
+    <div class="takeaway-label">The Takeaway</div>
+    <p>Today&rsquo;s main thread is one that two people arrive at independently: the bottleneck on adoption is not model capability. Madhu Guru puts it from the product side &mdash; even among the 2% who pay, depth is shallow, because the surface looks like an airplane cockpit with a hundred levers. Aaron Levie puts it from the deployment side &mdash; coding and coding-adjacent work has taken off, everything else has not, because the workflows themselves have to be rebuilt. Neither cites the other, and that is what makes the pair worth more than either alone: one builds AI products inside a platform company, the other sells into the knowledge-work category that is lagging, and they describe the same wall from opposite sides of it.</p>
+    <p>Both attach a number and both numbers fail grading the same way, so they should be set aside before either is quoted. The 2% carries no source, no population and no date, which means it cannot be checked now or tracked across issues. The 100X has no baseline, no horizon and no measurement, and it comes from a CEO whose own product sits inside the lagging category he is describing. What survives grading is Levie&rsquo;s list of what has to change first: workflows rebuilt rather than wrapped, data wired up differently, new practice on accountability and liability once agents make decisions, governance and compliance paradigms shifting, security upgraded. That list is checkable. 100X is not.</p>
+    <p>OpenAI&rsquo;s product posture moved today, and it was announced as an anecdote rather than as a plan. Sottiaux says they are locking in, and that only four kinds of work get done now: simplifications, more efficiency for more usage, groundbreaking features, new models. No ordering, no dates, no list of what gets simplified, no measure of what simpler would look like. The sequence is the part a daily feed is for. Yesterday he posted a throwaway line about future models being better at code deletion and simplification; today simplification is one of four sanctioned workstreams. Also worth stating plainly: neither the Pro $200 re-open from 09-25 nor the Pro 500 tier named on 10-04 appears anywhere here, which is the fifth consecutive issue without a mention. Absence across five windows is not proof it was dropped, but it is now the stronger reading.</p>
+    <p>His inbox-zero post is the first account in this feed of a personal agent doing a real task with the steps written out, and two things in it should be separated from the enthusiasm. The task chosen is cleanup, not production &mdash; the backlog that accumulates rather than the output that ships, which is the same shape Altman described as a gravity well of dread. And he closes with &ldquo;let&rsquo;s see how long it lasts&rdquo;, which is the honest part: inbox zero is a state, not a result, and no one has reported durability. It is one person on his own product on a Saturday, so what it establishes is that the workflow is possible, not that it holds.</p>
+    <p>The day&rsquo;s best piece of writing is also its most independent, and it is the only argument today that supplies a mechanism rather than a verdict. Ryo Lu&rsquo;s convergence to the mean names no product and cites nothing: copying works, so we borrow language, aesthetic and features until everything is polished and interchangeable; numbers are easier to compare than feelings, so we build things that produce numbers until the feedback stops informing the work and starts authoring it; AI makes that loop frictionless. His sentence on why more input is not the same as a point of view is the line to keep &mdash; access to every perspective isn&rsquo;t the same as having one, because it hasn&rsquo;t lived a particular life that makes one detail unbearable and another beautiful. Steinberger posts the same observation the same day in one line, laughing about how we are all building the same thing, with no reference between them. One source has a mechanism, the other only has the symptom.</p>
+    <p>Rauch contributes the most portable thing said today, and it is portable because it is a definition rather than a forecast. Security is verification engineering &mdash; my code is probably memory-safe &mdash; plus capital allocation: what surface should I throw most tokens at. The second half is the part worth keeping, because it turns a security budget into a question about which attack surface deserves the compute. His other post, that AI will make everything free including itself with free energy as the last domino, has no mechanism and no date, and belongs in the belief column rather than the forecast one.</p>
+    <p>Altman&rsquo;s single sentence is the only safety statement in the feed, and it is unusual in where it points. He is uncomfortable with people ascribing religious force to AI models or surrendering human judgment to them, and calls it a real safety issue &mdash; which is a statement about the user&rsquo;s relationship to the model, not about what the model can do. Nothing is named, so what prompted it cannot be established here, and no policy or artifact is attached. On distribution, Nikunj gives the concrete version with two named companies moving opposite ways: Amazon protecting its ads business and brand, DoorDash opening the gates with CLIs and ordering by text. Two items also enter tracking: Steinberger&rsquo;s Android app has been in Google review for over a week, and Zara Zhang&rsquo;s question about coding agents getting 10x better went unanswered.</p>
+    <p>Twelve of the twenty-five posts carry nothing that can be graded &mdash; no subject named, no number, or no AI content at all. By name: Peter Yang&rsquo;s three, being a Foundation reaction, an observation about two unnamed CEOs&rsquo; engagement with an unnamed app, and a squirrel; Nan Yu&rsquo;s four words, posted forty-two minutes after Sottiaux&rsquo;s with nothing in the feed establishing who the man is; Amjad&rsquo;s three, including a named Replit Drift with no description and a podcast promo; Rauch&rsquo;s summer photograph; Ryo Lu&rsquo;s bare link; Zara Zhang&rsquo;s question; Nikunj&rsquo;s El Ni&ntilde;o refresh; and Steinberger&rsquo;s one-line laugh. They are rendered rather than dropped so the counts stay checkable. Two clusters are worth marking: the sameness theme surfaced from two unconnected sources in one day, and Amjad&rsquo;s &ldquo;who&rsquo;s building this&rdquo; would join it if it named anything.</p>
+    <p>What to carry into the next issue. The Pro $200 re-open is now five windows without a mention and needs one sentence from OpenAI to either close or retire it; until then it stays open. Sottiaux&rsquo;s simplification posture has no artifact behind it yet, so any named simplification, deprecation or UI change would be new. Steinberger&rsquo;s Android review is over a week old and is checkable by outcome. Three items do not move: the Gemini 4 vibe check is absent for a fourth issue, nothing outside Anthropic has reproduced the Sonnet 5.5 eval for a sixth, and no one answered the 10x coding-agent question. Two structural notes are worth keeping across issues: today&rsquo;s podcast and blog were both back-fill dated 09-24 and Sep 16 rather than new output, and the adoption-bottleneck claim now has two independent sources saying it from opposite ends, which makes it the thing to test rather than the thing to repeat. Dated items still ahead: the half-usage promotion ends 10-15, Founder House runs 10-06 to 10-08 and again on 10-14, and Opal shuts down on 2026-11-17.</p>
+  </div>
+
+  <div class="takeaway zh">
+    <div class="takeaway-label">核心结论</div>
+    <p>今天的主线是两个人各自独立地到达的同一个结论：采纳的瓶颈不是模型能力。Madhu Guru 从产品侧说 &mdash;&mdash; 即便在付费的那 2% 里，使用深度也很浅，因为界面看起来像一个有一百个操纵杆的飞机驾驶舱。Aaron Levie 从部署侧说 &mdash;&mdash; 编码和编码相关的工作已经起量，其他所有事情都还没有，因为工作流本身必须重建。两人都没有引用对方，而这正是这一对加起来比任何单独一条更有价值的原因：一个在平台公司里做 AI 产品，另一个把产品卖进那个正在落后的知识工作品类，他们从这堵墙的两侧描述了同一堵墙。</p>
+    <p>两人都挂了一个数字，而两个数字以同样的方式过不了证据分级，所以在引用任何一个之前都应先把它们放到一边。2% 没有出处、没有总体、没有日期，这意味着它现在无法核对、也无法跨期追踪。100 倍没有基线、没有期限、没有测量，而且它出自一位自家产品正落在他描述的落后品类里的 CEO。经得起分级的是 Levie 那份 &ldquo;必须先改变什么&rdquo; 的清单：工作流是重建而不是包一层，数据要以新方式接起来，agent 参与决策后要对问责与责任建立新做法，治理与合规的范式要变，安全要升级。这份清单是可核对的，100 倍不是。</p>
+    <p>OpenAI 的产品姿态今天动了，而它是以轶事的形式宣布的，不是以计划的形式。Sottiaux 说他们锁定了，现在只做四类事：简化、用同样的资源换更多用量、突破性功能、新模型。没有优先级，没有日期，没有哪处会被简化的清单，也没有 &ldquo;更简单&rdquo; 的度量。而时序正是日更 feed 存在的意义所在。昨天他随手发了一句，说未来的模型会更擅长代码删除和简化；今天简化成了四个被认可的工作方向之一。还有一点值得直说：09-25 的 Pro $200 重新开放、10-04 点名的 Pro 500 档位，在这里都没有出现 &mdash;&mdash; 这是连续第五期未被提及。横跨五个窗口的缺席不能证明它被放弃了，但这是目前更强的读法。</p>
+    <p>他那条 inbox zero 是这份 feed 里第一次有人把个人 agent 干的活儿按步骤写出来，其中有两点应该从那份热情里分出来看。选的任务是清理，不是产出 &mdash;&mdash; 是会堆积的存量，而不是能交付的增量，这与 Altman 描述的 &ldquo;恐惧引力井&rdquo; 是同一个形状。而他用 &ldquo;看看能维持多久&rdquo; 收尾，这是最诚实的部分：inbox zero 是一种状态，不是一项成果，目前还没有人报告过它的持续性。这是一个人在周六用自己的产品做的事，所以它能确立的是 &ldquo;这套流程可行&rdquo;，而不是 &ldquo;它撑得住&rdquo;。</p>
+    <p>今天最好的一篇文章也是最独立的一篇，而且是今天唯一给出机制而不是给出判断的论证。Ryo Lu 的《向均值收敛》没有点名任何产品、也没有任何引用：复制是有效的，于是我们借来语言、审美和功能，直到一切都变得精致且可以互换；数字比感受更容易比较，于是我们去做能产生数字的东西，直到反馈不再为作品提供信息而是开始代笔；AI 让这个回路变得没有摩擦。他那句 &ldquo;更多输入不等于拥有观点&rdquo; 的话值得留下 &mdash;&mdash; 能接触到每一种视角，并不等于拥有其中一种，因为它没有活过某一段具体的生命，不会觉得某个细节无法忍受、而另一个细节很美。Steinberger 在同一天用一句话发出同一个观察，笑我们都在做同一个东西，两者之间没有引用关系。一个来源给了机制，另一个只有症状。</p>
+    <p>Rauch 贡献了今天最可迁移的内容，而它可迁移是因为它是一个定义，不是一个预测。安全是验证工程 &mdash;&mdash; 我的代码大概是内存安全的 &mdash;&mdash; 加上资本配置：我应该把大部分 token 投到哪个面上。后半句是值得留下的部分，因为它把一个安全预算转换成了一个 &ldquo;哪个攻击面配得上这些算力&rdquo; 的问题。他另一条说 AI 会让一切免费、包括它自己，最后倒下的是免费能源，既无机制也无日期，应该归到信念那一栏，而不是预测那一栏。</p>
+    <p>Altman 那唯一一句话是 feed 里唯一的安全表态，而它不寻常的地方在于它指向哪里。他对有人把宗教性力量归属于 AI 模型、或把人类判断交出去感到不舒服，并称之为真实的安全问题 &mdash;&mdash; 这是一个关于 &ldquo;用户与模型的关系&rdquo; 的声明，而不是关于 &ldquo;模型能做什么&rdquo;。它没点名任何东西，所以触发它的是什么无法在此确定，也没有任何政策或产物配套。在分发层，Nikunj 给出了具体版本，点名两家走向相反的公司：亚马逊在保护它的广告业务和品牌，DoorDash 用 CLI 和发短信下单开门。另有两条进入追踪：Steinberger 的 Android 应用在 Google 审核里卡了超过一周；Zara Zhang 那个关于编码 agent 再好 10 倍的提问无人回答。</p>
+    <p>25 条里有 12 条没有任何可供评级的内容 &mdash;&mdash; 没有点名对象、没有数字，或者根本没有 AI 内容。逐条点名：Peter Yang 的三条，分别是对《基地》的反应、关于两位未点名 CEO 如何对待一款未点名 app 的观察、以及一只松鼠；Nan Yu 那四个词，比 Sottiaux 那条晚 42 分钟发出，而 feed 里没有任何东西能确定 &ldquo;那个人&rdquo; 是谁；Amjad 的三条，包括一个在 feed 里没有描述的 Replit Drift 和一条播客推广；Rauch 的夏日照片；Ryo Lu 的纯链接；Zara Zhang 的提问；Nikunj 的厄尔尼诺刷新；以及 Steinberger 那句一笑。它们是渲染而非删掉，这样统计数字仍然可核对。有两个簇值得记：&ldquo;趋同&rdquo; 这个主题在一天之内从两个互不关联的来源冒出来；而 Amjad 那句 &ldquo;这是谁在做&rdquo; 如果点名了任何东西，本来也会加入它。</p>
+    <p>带进下一期的东西。Pro $200 重新开放已经五个窗口没有出现，需要 OpenAI 给一句话来收口或作废，在那之前保持未决。Sottiaux 的简化姿态目前还没有任何产物支撑，所以任何被点名的简化、下线或界面改动都会是新信息。Steinberger 的 Android 审核已经超过一周，可以按结果核对。三项没有移动：Gemini 4 的 vibe check 连续第四期缺席；Anthropic 之外复现 Sonnet 5.5 设计评测连续第六期无人接手；那个 10 倍编码 agent 的提问无人回答。有两条结构性笔记值得跨期保留：今天的播客和博客都是日期为 09-24 和 Sep 16 的回填而不是新产出；而 &ldquo;采纳瓶颈在产品&rdquo; 这个主张现在有了两个独立来源从两端说出，这让它成为值得去检验的东西，而不是值得重复的东西。仍在前面的日期：半额用量活动 10-15 截止，Founder House 在 10-06 至 10-08 以及 10-14 举行，Opal 于 2026-11-17 关停。</p>
+  </div>
+</section>
+
+<!-- ============== ALREADY COVERED ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">&#128257;</span>
+    <h2 class="section-title">已收录 / Already Covered</h2>
+    <span class="section-meta">2 Items &#183; Deduped</span>
+  </div>
+
+  <div class="dedup">
+    <p>今日 feed 中带了 1 期播客与 1 篇官方博客，但两者的发布日期分别是 2026-09-24 与 Sep 16, 2026，都不是当天的产出，而是往期内容被 feed 重新带出；且两者都已在往期收录过，按去重规则不重复计入统计与正文。附带一点：被回填的这篇博客讲的是把 Cowork 与 chat 合并成 &ldquo;一个 Claude&rdquo;，方向是收敛入口；而今天 Sottiaux 宣布的四类工作里第一类就是 &ldquo;简化&rdquo; &mdash;&mdash; 两家厂商在同一天（一个以回填的形式、一个以新帖的形式）都把 &ldquo;少一点入口&rdquo; 当成要交付的东西。feed 未显示两者之间存在关联，此处只记下这个对照。</p>
+    <p style="margin-top:12px"><strong>Podcast</strong> &#8212; Who Feeds the GPUs? Inside AI&rsquo;s Hidden $30B Layer | Renen Hallak, VAST Data（publishedAt 2026-09-24）。已收录于 <a href="https://clean-online.github.io/ai-digest/2026/09/26/AI_Builders_Digest_2026-09-26.html">2026-09-26</a>。 <a href="https://www.youtube.com/watch?v=awoR908Yu5Y">https://www.youtube.com/watch?v=awoR908Yu5Y</a></p>
+    <p style="margin-top:12px"><strong>Blog</strong> &#8212; Claude Cowork and chat are now one Claude（publishedAt Sep 16, 2026）。已收录于 <a href="https://clean-online.github.io/ai-digest/2026/09/18/AI_Builders_Digest_2026-09-18.html">2026-09-18</a>。 <a href="https://claude.com/blog/cowork-is-now-claude">https://claude.com/blog/cowork-is-now-claude</a></p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="next-issue">&#128236; 下一期：明天 10:00（北京时间）</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->
