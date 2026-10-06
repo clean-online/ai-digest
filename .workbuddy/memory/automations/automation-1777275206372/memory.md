@@ -555,3 +555,17 @@
 - 沿用：三项证据分级、一 builder 一卡、推文 ID 与 feed `diff` 校验（**`sort -u`**）、内容级去重（blog slug / podcast 标题关键词，不用人名/公司名/通用词）、`gh run list --limit 1` 不带 --workflow、curl 用 GET 不用 -I、`/tmp/dg/` 下 raw.json + dump.txt + ids.txt + css.txt + data.py + build.py。
 - **本期新增沿用（已写入项目经验库）**：①承诺收口第三形态（底层已执行 + 子集故障 + 已修复），并记信源数差异 —— 上期有第二账号交叉印证，本期没有；②feed 未给出同一性说明时，新实体名不能替旧承诺收口，「出现从未用过的名称」本身即不收口的理由，并写明需要哪句话才能闭合；③同日两个互不引用的信源指向同一主题时并列不合并，只有出现可核对的量才升级为合并结论；④薄内容计数要把判定标准写进句子（本期 20/35，标准：未点名对象 / 无数字 / 无 AI 内容），否则跨期数字会被误读为「越来越水」；⑤播客单集 URL 仅在存在 t.co 短链时才解析，feed 只给频道页就直接沿用。
 - 关注：**Pro 500 与 Pro $200 重新开放是否同一件事**（需 OpenAI 一句表态）；**Cerebras 合作**是否给出交易条款或产能数字；**Fractile 平台 2027H2 爬坡**与 Goodwin「除以四」≈2.5 年的 intent→GDSII 原型预测；**Gemini 4 vibe check**（第三期缺席）；**Sonnet 5.5 外部复现**（第五期无进展）；已定日期：半额用量 10-15 截止、Founder House 10-06~08 / 10-14、Opal 2026-11-17 关停。
+
+### 2026-10-05 (周一) — 成功
+- **内容获取**：`prepare-digest.js` 抓中央 feed，产出 13 builders / 25 tweets / 1 podcast / 1 blog（bilingual），快照 2026-10-04T08:22Z（太平洋 10-04 01:22，较上期 10-03T06:48Z 前进约 25 小时，无丢档）；25 条推文全部落在太平洋 10-03 03:54–22:41。
+- **去重**：25 个推文 ID 在 `2026/` 下零命中；播客「Who Feeds the GPUs / Hallak / VAST Data」命中 09-26；blog「cowork-is-now-claude」命中 09-18 与 09-27，`sort | head -1` 取最早 09-18。**两个 0 成因相同**：publishedAt 分别为 09-24 与 Sep 16，均为**回填旧内容**而非当天新产出 → note-line 明确写「不是抓取失败，带了但是旧的」。最终 **13/25/0/0**。
+- **主线**：采纳瓶颈被两个互不引用的信源独立定位在产品/工作流而非模型能力 —— Madhu Guru（产品侧：付费的 2% 深度也浅、界面像一百个操纵杆的驾驶舱）与 Aaron Levie（部署侧：双峰，编码起量、其余早期，因为工作流本身要重建）。两人位置相反（供给端 vs 需求端，且 Levie 自己的产品正在那个落后品类里）。第二个主题是 OpenAI 转向「更简单」：Sottiaux 宣布只做四类事（简化 / 提效换用量 / 突破性功能 / 新模型）；**跨期时序** —— 昨天他随口说的「未来的模型会更擅长代码删除和简化」，一天之内升级为官方姿态。他的 inbox zero 是 feed 里第一次有人把个人 agent 干的活按步骤写出来（批量删类别 / 按工作类型打标签 / 带上下文走回复），任务选的是清理不是产出，且自己承认「看看能维持多久」。Ryo Lu 长文《convergence to the mean》是今天唯一给出机制而非判断的论证，Steinberger 同一天用一句话发出同一观察且无引用。Rauch 给出最可迁移的定义：安全 = 验证工程 + 资本配置。Altman 唯一一句安全表态指向「用户与模型的关系」而非模型能力，未点名任何对象。
+- **结构**：X 13 卡 → Takeaway（EN 9 段 + 独立 `takeaway zh` 块 9 段）→ Already Covered（2 条：播客 09-26、博客 09-18）→ footer。size 60247。CSS 沿用 10-04 基线（含 .podcast / .dedup）。
+- **部署**：index.html `ISSUES` 顶部追加 `2026-10-05`（meta: 13 Builders · 25 Tweets · 0 Podcast · 0 Blog）→ copy 到 `2026/10/05/` → commit `a9735ad` → push（84172d8..a9735ad）。
+- **验证**：`gh run list --limit 1` 第 4 次轮询 completed/success（run 37254420903，约 24s）→ GET 子路径**首查 HTTP 200**，size 60247 与本地一致；grep 命中 2 处 "by chloevchen"；线上卡片数 13；根 index 200 且已含 `2026-10-05`。四项校验首跑全绿（13/13 卡片、25/25 URL 与 feed 完全一致、diff IDENTICAL、2 处 by chloevchen）。
+
+## 下次运行
+- 预计 2026-10-06 由 cron 触发；若该日无新内容（stats 全 0）则按 skill 规则跳过生成。
+- 沿用：三项证据分级、一 builder 一卡、推文 ID 与 feed `diff` 校验（**`sort -u`**）、内容级去重（blog slug / podcast 标题关键词，不用人名/公司名/通用词）、`gh run list --limit 1` 不带 --workflow、curl 用 GET 不用 -I、`/tmp/dg/` 下 raw.json + dump.txt + ids.txt + css.txt + data.py + build.py。
+- **本期新增沿用（已写入项目经验库）**：①feed 会回填旧内容，去重前先看 publishedAt 区分「新产出被判重」vs「旧内容回填」，并在 note-line 写清「不是抓取失败」；②跨期时序对照 —— 上一期某人的随口一句与本期同主题的正式声明要对照，这个升级本身就是信息；③结论一致 + 利益方向相反 + 互不引用 = 值得检验，结论一致 + 利益方向相同 = 只是回声；④利益方同一条里同时有量级断言与前置条件清单时，取清单、弃量级。
+- 关注：**Pro $200 重新开放**（第五期未提，倾向「已放下」，需 OpenAI 一句话收口或作废）；**Sottiaux 的简化姿态**目前无产物支撑，任何被点名的简化/下线/界面改动都是新信息；**Steinberger 的 OpenClaw Android 审核**已超一周，按结果核对；**Gemini 4 vibe check**（第四期缺席）；**Sonnet 5.5 外部复现**（第六期无进展）；**10x 编码 agent 提问**无人回答；已定日期：半额用量 10-15 截止、Founder House 10-06~08 / 10-14、Opal 2026-11-17 关停。
