@@ -583,3 +583,17 @@
 - 沿用：三项证据分级、一 builder 一卡、推文 ID 与 feed `diff` 校验（**`sort -u`**）、内容级去重（blog slug / podcast 标题关键词，不用人名/公司名/通用词）、`gh run list --limit 1` 不带 --workflow、curl 用 GET 不用 -I、`/tmp/dg/` 下 raw.json + dump.txt + ids.txt + css.txt。
 - **本期新增沿用（已写入项目经验库）**：①承诺升级到「带时钟的节奏承诺」时，要写出满足它的**最小行为**（连续发小东西即可满足），核对清单随之改成「看它被描述成改进还是归到 reset 分支」；②两个 0 成因不同必须分开说明 —— 先看数组长度再看 publishedAt，区分「数组为空/源头未产出」与「回填+判重」；③同一主题两个来源分工不同时按「谁提供了什么」拆开记（内部人给节奏 / 外部人给清单），不当重复；④对**已完成**工作的成本承认比成功案例更值钱，并把「标准移动」与「靠实力赢」写成两句、紧接写明它没给数字；⑤书面形式有粒度 —— 话题有书面 ≠ 具体主张有书面。
 - 关注：**Sottiaux 28 天承诺第 1 天** —— 唯一直接可核对项，看是「改进」还是「reset」；**Goodfire × Hugging Face 合作**仍只有音频形式（Turck 今日帖未提）；**Rauch 下个版本**的会话存储与 libfx 云端持久化，两者均无数字；**Pro $200 重新开放**（第六个窗口未提，需 OpenAI 一句收口或作废）；**Gemini 4 vibe check**（第五期缺席）；**Sonnet 5.5 外部复现**（第七期无进展，今日 Opus 5.5 轶事不算——不同模型且非复现）；**Steinberger Android 审核**（仍无进展）；**10x 编码 agent 提问**仍无人回答；已定日期：半额用量 10-15 截止、Founder House 10-06~08（今天开始）/ 10-14、Opal 2026-11-17 关停。
+
+### 2026-10-07 (周三) — 成功
+- **内容获取**：`prepare-digest.js` 抓中央 feed，产出 15 builders / 30 tweets / 0 podcast / 0 blog（bilingual），快照 2026-10-06T06:45:56Z（太平洋 10-05 23:45，较上期 10-05T07:02Z 前进约 23h40m，无丢档）；30 条推文全部落在太平洋 10-05 06:20–23:28。
+- **去重**：30 个推文 ID 在 `2026/` 下零命中。两个 0 成因**相同**（podcasts 与 blogs 数组均为空，源头未产出），note-line 合并一句 —— 与 10-06「成因不同分开写」互为对称面。
+- **主线**：① evals 一天两次被挪到流程最前 —— Madhu Guru（Meta，供给侧）「你的 evals 就是你的产品说明书」与 Aaron Levie（Box，需求侧，自家产品落在他 10-05 自称早期的品类里）讲那块还不存在的东西（真实环境/模拟环境/eval 基础设施/专人负责/一次一家企业），互不引用 + 利益相反 → 值得检验不是值得重复；Levie 同条的「Huge space」按 10-05 规则取清单弃量级。② **Rauch 昨天论证 → 今天实物**：10-06 成本承认/标准移动 → 10-07 发布 gdp-ts（编译期授权证明），写明「变的是证据形状不是证据量」，并指出他复用了昨天的证据清单 → 同一论点讲两次、不是两个论点。③ Sottiaux 28 天承诺第 1 天：改进/reset 两个分支都没命中，产出是状态表述 + 称赞同事的 collaborative spaces + 指向别人帖子的指针，定性为「记分牌还没打开」。④ Nan Yu「You can just fix things」同雇主一致 = 回声，写成 Guru/Levie 那一对的对照组并补「没有宾格」。⑤ 两条带机制无数字的编码成本主张（Garry Tan 实验室 harness 烧 token 动机 / Thariq 规划比原始 HTML 省 token）。⑥ Anthropic 给 Cowork 加 local hands，与 Peter Yang 10-06 的收回主张方向相反，按方向事实记录。⑦ 同窗口两件语言学习小工具（Peter Yang / Ryo Lu）只记巧合不成趋势。
+- **结构**：X 15 卡 → Takeaway（EN 9 段 + 独立 `takeaway zh` 块 9 段）→ Already Covered（0 项，说明两个 0 同因 + 30 ID 零命中 + Goodfire 仍只有音频）→ footer。size 60021。CSS 沿用 10-06 基线。
+- **部署**：index.html `ISSUES` 顶部追加 `2026-10-07`（meta: 15 Builders · 30 Tweets · 0 Podcast · 0 Blog）→ copy 到 `2026/10/07/` → commit `0eaf7a5` → push（0dd517b..0eaf7a5）。
+- **验证**：`gh run list --limit 1` 第 3 次轮询 completed/success（run 37561026374）→ GET 子路径**首查 HTTP 200**，size 60021 与本地一致，`diff` IDENTICAL；线上卡片 15 张、2 处 by chloevchen；根 index 200 且已含 `2026-10-07`。四项校验首跑全绿。
+
+## 下次运行
+- 预计 2026-10-08 由 cron 触发；若该日无新内容（stats 全 0）则按 skill 规则跳过生成。
+- 沿用：三项证据分级、一 builder 一卡、推文 ID 与 feed `diff` 校验（**`sort -u`**）、内容级去重、`gh run list --limit 1` 不带 --workflow、curl 用 GET 不用 -I、`/tmp/dg/` 下 raw.json + build 脚本（URL 从 raw.json 取，脚本内断言 URL 全量/计数/占位符/签名）。
+- **本期新增沿用（已写入项目经验库）**：①两个 0 的判定顺序固定为「先看数组长度，再看 publishedAt」——均为 0 则合并一句，长度不同或日期早于窗口则分开写，并在 note-line 显式对比上一期；②同一雇主的一致判为回声后不要丢掉，要写成独立信源那一对的对照组并给出反事实；③「昨天论证 → 今天实物」要写「证据形状变了不是量变了」，并检查是否复用同一份证据清单（复用则写明是同一论点讲两次，避免虚增信源）；④n≤2 且无互相引用时只能记巧合，不能写成趋势。
+- 关注：**Sottiaux 28 天承诺第 2 天** —— 核对项不变（改进 or reset 分支）；**Rauch 的 gdp-ts** 现已可安装，下期可看有无外部评价或采用；**Goodfire × Hugging Face 合作**仍只有音频形式（Turck 今日帖讲的是加密投资，未提）；**Pro $200 重新开放**已连续七个窗口未提，需 OpenAI 一句收口或作废；**Gemini 4 vibe check** 连续第六期缺席；**Sonnet 5.5 外部复现**仍无（第八期无进展）；**Steinberger Android 审核**无进展；**10x 编码 agent 提问**仍无人回答；**Muse/Instinct/AGI Science Loops**（Garry Tan 新提的三个词，feed 未定义）、**Halmos**（首次出现）待后续能否落地；已定日期：半额用量 10-15 截止、Founder House 10-06~08（进行中）/ 10-14、Opal 2026-11-17 关停。
