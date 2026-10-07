@@ -569,3 +569,17 @@
 - 沿用：三项证据分级、一 builder 一卡、推文 ID 与 feed `diff` 校验（**`sort -u`**）、内容级去重（blog slug / podcast 标题关键词，不用人名/公司名/通用词）、`gh run list --limit 1` 不带 --workflow、curl 用 GET 不用 -I、`/tmp/dg/` 下 raw.json + dump.txt + ids.txt + css.txt + data.py + build.py。
 - **本期新增沿用（已写入项目经验库）**：①feed 会回填旧内容，去重前先看 publishedAt 区分「新产出被判重」vs「旧内容回填」，并在 note-line 写清「不是抓取失败」；②跨期时序对照 —— 上一期某人的随口一句与本期同主题的正式声明要对照，这个升级本身就是信息；③结论一致 + 利益方向相反 + 互不引用 = 值得检验，结论一致 + 利益方向相同 = 只是回声；④利益方同一条里同时有量级断言与前置条件清单时，取清单、弃量级。
 - 关注：**Pro $200 重新开放**（第五期未提，倾向「已放下」，需 OpenAI 一句话收口或作废）；**Sottiaux 的简化姿态**目前无产物支撑，任何被点名的简化/下线/界面改动都是新信息；**Steinberger 的 OpenClaw Android 审核**已超一周，按结果核对；**Gemini 4 vibe check**（第四期缺席）；**Sonnet 5.5 外部复现**（第六期无进展）；**10x 编码 agent 提问**无人回答；已定日期：半额用量 10-15 截止、Founder House 10-06~08 / 10-14、Opal 2026-11-17 关停。
+
+### 2026-10-06 (周二) — 成功
+- **内容获取**：`prepare-digest.js` 抓中央 feed，产出 11 builders / 18 tweets / 1 podcast / 0 blog（bilingual），快照 2026-10-05T07:02Z（太平洋 10-05 00:02，较上期 10-04T08:22Z 前进约 23 小时，无丢档）；18 条推文全部落在太平洋 10-04 09:05–20:58。
+- **去重**：18 个推文 ID 在 `2026/` 下零命中；播客「Re-Founding Incumbents / Michael Lee / Sequence Holdings」三关键词均只命中 09-27。**两个 0 成因不同（与 10-05 相反，未合并说明）**：Blog 为 0 是数组为空（feed 未带任何博客）；Podcast 为 0 是 feed 带了 1 期但 publishedAt 2026-09-24，属回填且已于 09-27 收录。最终 **11/18/0/0**。
+- **主线**：「简化」这条线跨期三步升级收口 —— 10-04 闲话 → 10-05 姿态（四类工作，无日期无清单）→ 10-06 带时钟（28 天，每天一件改进或 full reset）。定性为**对节奏的承诺、不是对结果的承诺**，并写明连续 28 天发小东西即可满足它。5.5 小时后 Peter Yang（不在 OpenAI）发出 OpenAI 自己没发的「该砍什么」清单（Work vs Codex / Spaces vs Pages vs Sites / 模型与 effort 选择器）并判定 Work 发布是错误、应像 Anthropic 收回 Cowork 那样收回 —— 内部人给节奏、外部人给清单，互不引用，按供给物拆开记。Rauch 对**已完成**的 Go→Rust 迁移给出成本承认（RoI「内部相当有争议」），承重句「对人最好的不再必然是对生意最好的」定性为标准移动而非 Rust 靠实力赢，且无任何数字。Dan Shipper 预测自家 dot 的人格（boo）一年内消失、交互形态留下，证据弱（一个 OpenClaw 先例、n=1）但作为厂商信号强。Astra 拿第五种用途：Rauch 用它当自己路线图的前提（模型变快→harness 开销更关键），第一次不是标尺而是别人工程优先级的理由。
+- **结构**：X 11 卡 → Takeaway（EN 9 段 + 独立 `takeaway zh` 块 9 段）→ Already Covered（1 条播客）→ footer。size 54750。CSS 沿用 10-05 基线（含 .podcast / .dedup）。
+- **部署**：index.html `ISSUES` 顶部追加 `2026-10-06`（meta: 11 Builders · 18 Tweets · 0 Podcast · 0 Blog）→ copy 到 `2026/10/06/` → commit `0dd517b` → push（a9735ad..0dd517b）。
+- **验证**：`gh run list --limit 1` 第 3 次轮询 completed/success（run 37403030684，约 20s）→ GET 子路径**首查 HTTP 200**，size 54750 与本地一致，`diff` IDENTICAL；线上卡片 11 张、2 处 by chloevchen；根 index 200 且已含 `2026-10-06`。四项校验首跑全绿。
+
+## 下次运行
+- 预计 2026-10-07 由 cron 触发；若该日无新内容（stats 全 0）则按 skill 规则跳过生成。
+- 沿用：三项证据分级、一 builder 一卡、推文 ID 与 feed `diff` 校验（**`sort -u`**）、内容级去重（blog slug / podcast 标题关键词，不用人名/公司名/通用词）、`gh run list --limit 1` 不带 --workflow、curl 用 GET 不用 -I、`/tmp/dg/` 下 raw.json + dump.txt + ids.txt + css.txt。
+- **本期新增沿用（已写入项目经验库）**：①承诺升级到「带时钟的节奏承诺」时，要写出满足它的**最小行为**（连续发小东西即可满足），核对清单随之改成「看它被描述成改进还是归到 reset 分支」；②两个 0 成因不同必须分开说明 —— 先看数组长度再看 publishedAt，区分「数组为空/源头未产出」与「回填+判重」；③同一主题两个来源分工不同时按「谁提供了什么」拆开记（内部人给节奏 / 外部人给清单），不当重复；④对**已完成**工作的成本承认比成功案例更值钱，并把「标准移动」与「靠实力赢」写成两句、紧接写明它没给数字；⑤书面形式有粒度 —— 话题有书面 ≠ 具体主张有书面。
+- 关注：**Sottiaux 28 天承诺第 1 天** —— 唯一直接可核对项，看是「改进」还是「reset」；**Goodfire × Hugging Face 合作**仍只有音频形式（Turck 今日帖未提）；**Rauch 下个版本**的会话存储与 libfx 云端持久化，两者均无数字；**Pro $200 重新开放**（第六个窗口未提，需 OpenAI 一句收口或作废）；**Gemini 4 vibe check**（第五期缺席）；**Sonnet 5.5 外部复现**（第七期无进展，今日 Opus 5.5 轶事不算——不同模型且非复现）；**Steinberger Android 审核**（仍无进展）；**10x 编码 agent 提问**仍无人回答；已定日期：半额用量 10-15 截止、Founder House 10-06~08（今天开始）/ 10-14、Opal 2026-11-17 关停。
