@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest &#183; 2026-10-08</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+
+
+
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 28px 30px; margin-bottom: 24px; }
+  .podcast-source { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
+  .podcast-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; margin-bottom: 18px; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; }
+
+
+
+</style>
+
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 &#183; Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest &#183; 2026-10-08</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat"><div class="stat-num">19</div><div class="stat-label">Builders</div></div>
+  <div class="stat"><div class="stat-num">40</div><div class="stat-label">Tweets</div></div>
+  <div class="stat"><div class="stat-num">1</div><div class="stat-label">Podcast</div></div>
+  <div class="stat"><div class="stat-num">0</div><div class="stat-label">Blog</div></div>
+</div>
+
+<p class="note-line">Feed snapshot 2026-10-07T06:45:10Z = 23:45 Pacific on 10-06, one day on from the 2026-10-06T06:45:56Z window with no gap between them; all 40 tweets fall between 05:35 and 22:36 Pacific on Tuesday 10-06. Counts are rendered items: 19 builders, 40 tweets, 1 podcast, 0 blog. There is only one zero today and it has a single cause, the feed&rsquo;s blog array is empty, meaning the source carried no blog entry in this window rather than resurfacing an old one. That is the reverse of 10-07, where the podcast array and the blog array were both empty and the two zeros could be read together. The podcast counts because the episode is new: its title matched nothing under <code>2026/</code>. Feed 快照 2026-10-07T06:45:10Z = 太平洋 10-06 23:45，较 2026-10-06T06:45:56Z 那个窗口前进一天，中间无丢档；40 条推文全部落在太平洋 10-06（周二）05:35 至 22:36 之间。统计口径为渲染数：19 位 builder、40 条推文、1 期播客、0 篇博客。今天只有一个 0，而且它只有一个成因 —— feed 的博客数组为空，即源头在这个窗口里没有带任何博客条目，而不是把旧的重新带出来。这与 10-07 恰好相反：那天播客数组与博客数组均为空，两个 0 可以合在一起读。播客计入是因为这一期是新的：它的标题在 <code>2026/</code> 下零命中。</p>
+
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">&#128036;</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">19 Builders</span>
+  </div>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Swyx</span>
+      <span class="builder-role">Latent Space &#183; smol_ai</span>
+    </div>
+    <p class="summary-en">One post, and it is a question with a date on it rather than a claim: “what is your default/workhorse coding agent today, Oct 2026?” The date stamp is the point, because he is asking for the state of the market now rather than for a forecast, and he is asking which tool people actually reach for rather than which one is best. Nothing in the feed answers it. The earlier question this digest logged about coding agents, whether they are about to get ten times better, is still unanswered as well.</p>
+    <p class="summary-zh zh">一条，而它是一个带日期的提问，不是一条主张：「你今天默认/主力用的编码 agent 是哪个，2026 年 10 月？」日期戳是要紧的地方 —— 他问的是市场现在的状态，不是预测，而且他问的是人们实际伸手去拿哪个工具，不是哪个最好。feed 里没有任何东西回答它。本 digest 之前记下的那个关于编码 agent 的提问 —— 它们是不是马上要再好十倍 —— 也仍然没有人回答。</p>
+    <div class="urls">
+      <a href="https://x.com/swyx/status/2107646238585950540">https://x.com/swyx/status/2107646238585950540</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Josh Woodward</span>
+      <span class="builder-role">VP &#183; Google Labs / Gemini</span>
+    </div>
+    <p class="summary-en">One post announcing a feature without describing it. “Mask-based editing is my favorite from today, much more coming soon!” An image is attached and the feed carries only its link, so what the mask does and which product it belongs to both sit outside this digest. Graded on the text alone it is a tease: a preference, a promise of more, and nothing that can be checked.</p>
+    <p class="summary-zh zh">一条，宣布了一个功能但没有描述它。「Mask-based editing 是我今天最喜欢的，很快还有更多！」附了一张图，而 feed 里只有它的链接，所以这个 mask 做什么、属于哪个产品，都在这份 digest 之外。只按文字评级，它是一条预热：一个偏好、一个「还有更多」的承诺，以及没有任何可以核对的东西。</p>
+    <div class="urls">
+      <a href="https://x.com/joshwoodward/status/2107679061854273656">https://x.com/joshwoodward/status/2107679061854273656</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Boris Cherny</span>
+      <span class="builder-role">Claude Code &#183; Anthropic</span>
+    </div>
+    <p class="summary-en">Three posts, two of which are screenshots of his own prompts and carry no readable text in this feed. The middle one is the argument, and it is a dated one: “Back in the Sonnet 3.5 days, your prompt mattered a lot.” What replaces it is a three-item list, what you want done, how much effort to spend, and how it should verify that it did the right thing. The third item is the one that travels, because verification moves from something the human does afterwards into something stated up front.</p>
+    <p class="summary-zh zh">三条，其中两条是他自己 prompt 的截图，在这份 feed 里没有可读正文。中间那条才是论证，而且它是一个带日期的论证：「在 Sonnet 3.5 那会儿，你的 prompt 很要紧。」取代它的是一个三项清单：你想让它做什么、你希望它花多大力气、以及它该怎么验证自己做对了。第三项是能带走的那一条，因为验证从「人事后做的事」挪进了「事先说清楚的东西」。</p>
+    <p class="summary-en">He says he is surprised that anyone is surprised, which puts him on the record as describing a settled practice rather than a new one. Two things are missing. There is no measurement behind the claim that prompting mattered more before, no benchmark and no before-and-after on any task. And the evidence he offers is images this digest cannot read, so the three-item list is the whole of what can be graded here.</p>
+    <p class="summary-zh zh">他说他对有人感到意外这件事本身感到意外，这等于把他的话定位为在描述一个已经定型的做法，而不是一个新做法。缺两样东西。「prompt 以前更要紧」这个主张背后没有任何测量 —— 没有基准，没有任何任务上的前后对比。而他给出的证据是这份 digest 读不了的截图，所以那个三项清单就是这里能评级的全部。</p>
+    <div class="urls">
+      <a href="https://x.com/bcherny/status/2107565497680314831">https://x.com/bcherny/status/2107565497680314831</a>
+      <a href="https://x.com/bcherny/status/2107565388250874193">https://x.com/bcherny/status/2107565388250874193</a>
+      <a href="https://x.com/bcherny/status/2107532985897771152">https://x.com/bcherny/status/2107532985897771152</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thibault Sottiaux</span>
+      <span class="builder-role">Codex &amp; ChatGPT &#183; OpenAI</span>
+    </div>
+    <p class="summary-en">Two days into the 28-day clock, the reset branch has been taken for the first time. “We shipped four things that were deemed good to great and some math proofs, but the vote is clear and the community demands a reset... Therefore ... the reset has been processed. Enjoy!” Set against the check written on 10-06, this is the first day that lands on one side of the line: yesterday produced neither an improvement nor a reset, and today produced a reset.</p>
+    <p class="summary-zh zh">28 天的钟走到第二天，reset 分支第一次被走到了。「我们发了四件被评为 good 到 great 的东西，外加一些数学证明，但投票结果很清楚，社区要求 reset……因此……reset 已经执行了。请享用！」对着 10-06 写下的核对项看，这是第一天落在了线的某一侧：昨天既没产出改进也没产出 reset，今天产出了一次 reset。</p>
+    <p class="summary-en">The same post carries a claim about the mechanism, hedged by the person running it: “I did calibrate it and it *seems* that the game is rigged in reset's favor, but such are the rules at the moment.” No vote count, no margin, no account of what was calibrated. That matters because the commitment is graded on what ships, and if the voting is tilted toward reset then a reset outcome says less about the work than it appears to.</p>
+    <p class="summary-zh zh">同一条里还含着一个关于机制的主张，而且它由主持这件事的人自己加了限定：「我确实校准过，而且游戏*似乎*就是偏向 reset 的，但目前的规则就是这样。」没有票数、没有差距、也没有说明校准了什么。这一点要紧，因为那个承诺是按「发出去什么」来评判的，而如果投票本身偏向 reset，那么一次 reset 的结果所说出的关于工作的东西，就比表面看上去要少。</p>
+    <p class="summary-en">The forward claim to carry is in the second post: “And we won't unship the improvements. You get to have your cake and eat it too.” It is checkable, and it is the part most likely to fail, because it asserts that a reset and the things shipped before it coexist. Day 3 is promised. His third post today is “Also! Good evening!!”, which is nothing.</p>
+    <p class="summary-zh zh">要带走的、面向未来的主张在第二段里：「我们不会把那些改进下架。鱼和熊掌你都可以有。」这一条可以核对，而且它是最可能不成立的部分，因为它断言一次 reset 与它之前发出的东西同时存在。第 3 天已经许诺了。他今天第三条是「还有！晚上好！！」，那条什么都不是。</p>
+    <div class="urls">
+      <a href="https://x.com/thsottiaux/status/2107676653895967106">https://x.com/thsottiaux/status/2107676653895967106</a>
+      <a href="https://x.com/thsottiaux/status/2107676261099426030">https://x.com/thsottiaux/status/2107676261099426030</a>
+      <a href="https://x.com/thsottiaux/status/2107676072871600470">https://x.com/thsottiaux/status/2107676072871600470</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">Practical AI &#183; Creator</span>
+    </div>
+    <p class="summary-en">Three posts, two of them ordinary life. The third is a feature request this digest has seen before, and that is why it is here: “not sure if this is possible but it'll be incredible if muse can wait on a call for me then dial me in when there's a human on the other line.” On 09-21 he asked Muse and Instinct to make phone calls and reported that both claimed they could not. Seventeen days on, the same capability returns, phrased this time as a wish rather than a test.</p>
+    <p class="summary-zh zh">三条，两条是日常。第三条是一个功能请求，而这份 digest 以前见过它，这正是它在这里的原因：「不确定这能不能做到，但如果 muse 能替我在通话里等着、等那头有真人时再把我接进去，那就太厉害了。」09-21 那天他让 Muse 和 Instinct 去打电话，并报告说两个都声称自己做不到。十七天后，同一个能力又回来了，而这次是作为一个愿望说出来的，不是一次测试。</p>
+    <p class="summary-en">That change of phrasing is the finding. A request repeated as a wish is a request that did not get met, and the wording also pins down the job: Muse is the kind of agent expected to hold a phone line and hand it over. The 10-07 issue recorded Muse as a name this feed could not define. This does not define it either, but it gives it a job description.</p>
+    <p class="summary-zh zh">措辞的这个变化就是发现。一个被重复成愿望的请求，就是一个没有被满足的请求；而这个说法同时也把用途钉住了：Muse 是那种被期待能占住一条电话线、然后把线交出来的 agent。10-07 那期把 Muse 记成 feed 里无法确定含义的一个名字。这条也没有定义它，但给了它一份工作描述。</p>
+    <div class="urls">
+      <a href="https://x.com/petergyang/status/2107669485549400474">https://x.com/petergyang/status/2107669485549400474</a>
+      <a href="https://x.com/petergyang/status/2107639917287440537">https://x.com/petergyang/status/2107639917287440537</a>
+      <a href="https://x.com/petergyang/status/2107605650398462178">https://x.com/petergyang/status/2107605650398462178</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nan Yu</span>
+      <span class="builder-role">Product, Codex &#183; OpenAI</span>
+    </div>
+    <p class="summary-en">One sentence and no object. “I worry, though, that this will cause extreme degradation in systems that no one loves to maintain, but someone has to.” It is a reply, and the feed does not carry what it replies to, so “this” has no referent here. The 10-07 issue graded his four-word post the same way and called it an echo from the same employer. Today's is longer and lands in the same place: the worry is real and the subject is absent.</p>
+    <p class="summary-zh zh">一句话，没有宾格。「不过我担心，这会让那些没人爱维护、但总得有人维护的系统出现严重退化。」这是一条回复，而 feed 没有带上它回复的对象，所以「这」在这里没有所指。10-07 那期对他那四个词的评级方式相同，称之为来自同一雇主的回声。今天这条更长，但落在同一个地方：担忧是真的，对象是缺席的。</p>
+    <div class="urls">
+      <a href="https://x.com/thenanyu/status/2107506074370920796">https://x.com/thenanyu/status/2107506074370920796</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thariq</span>
+      <span class="builder-role">Claude Code &#183; Anthropic</span>
+    </div>
+    <p class="summary-en">The cloud-brain, local-hands architecture picked up its first stated failure mode today. “if Claude can only access your files when your computer is online, it might be effectively blocked on doing work until your computer is back on, so perhaps you want some sort of sync but there are edge cases there.” On 10-07 this was a direction of travel, and Anthropic's own account said it was coming to Cowork. Today the same engineer names what breaks it: an offline machine stops the work, and syncing is not a clean answer.</p>
+    <p class="summary-zh zh">「云端大脑 + 本地双手」这个架构今天拿到了它第一个被说出来的失效模式。「如果 Claude 只能在你电脑在线时访问你的文件，那么在你的电脑回来之前，它实际上可能被卡住干不了活，所以也许你想要某种同步，但那里有边界情况。」10-07 那天这还只是一个方向，Anthropic 自己的账号说它也会进 Cowork。今天同一位工程师点出了会让它坏掉的东西：离线的机器让工作停住，而同步不是一个干净的答案。</p>
+    <p class="summary-en">His other post runs against the direction most of this feed moves in. “working at a higher level of abstraction has always required understanding the lower level ones, I don't think coding agents changes this.” No example and no evidence, and it is stated against a claim nobody makes in today's window, so it is recorded as a position rather than as a rebuttal of anything on the record here.</p>
+    <p class="summary-zh zh">他另一条是对着这份 feed 大多数内容所走方向的一个反主张。「在更高的抽象层上工作，向来都需要理解下面那些层，我不认为编码 agent 改变了这一点。」没有例子、没有证据，而且它是针对一个今天窗口里没有人提出的主张说的 —— 所以这里把它记为一个立场，不作为对本文所记任何东西的反驳。</p>
+    <div class="urls">
+      <a href="https://x.com/trq212/status/2107580787277340835">https://x.com/trq212/status/2107580787277340835</a>
+      <a href="https://x.com/trq212/status/2107580785456976085">https://x.com/trq212/status/2107580785456976085</a>
+      <a href="https://x.com/trq212/status/2107504677143368163">https://x.com/trq212/status/2107504677143368163</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Amjad Masad</span>
+      <span class="builder-role">CEO &#183; Replit</span>
+    </div>
+    <p class="summary-en">The strongest claim of the day and the thinnest evidence under it. “What's happening in the AI-powered reverse engineering and decompilation is absolutely insane. Pretty soon all software will be de facto open-source. AI is coming for everything and everyone.” No tool named, no company, no example of a binary being recovered, and no date on “pretty soon”. The word decompilation is new in this feed.</p>
+    <p class="summary-zh zh">今天最强的一条主张，以及配着它最薄的一份证据。「AI 驱动的反编译和逆向工程现在发生的事情绝对是疯了。很快所有软件都会事实上变成开源的。AI 是为一切和所有人而来的。」没有点名任何工具、任何公司，没有举出一个二进制被还原的例子，「很快」也没有日期。decompilation 这个词在本 feed 里是第一次出现。</p>
+    <p class="summary-en">He speaks from a position worth naming. He runs Replit, a platform for building and hosting software, so the claim that all software becomes effectively open is a claim about the value of what his customers make. His second post is a link to a conversation, with no text carried in the feed.</p>
+    <p class="summary-zh zh">他说话的位置值得点出来。他经营 Replit，一个用来构建和托管软件的平台，所以「所有软件都会事实上开源」这个主张，是关于他的客户所造之物的价值的一个主张。他第二条是一个对话链接，feed 里没有带正文。</p>
+    <div class="urls">
+      <a href="https://x.com/amasad/status/2107671204639465961">https://x.com/amasad/status/2107671204639465961</a>
+      <a href="https://x.com/amasad/status/2107544111482118237">https://x.com/amasad/status/2107544111482118237</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">CEO &#183; Vercel</span>
+    </div>
+    <p class="summary-en">One post, and the argument sits in the strikethrough: “Thinking fast and s̶l̶o̶w̶ a bit less fast under a confidence threshold.” The binary between fast and slow thinking is replaced by a dial that turns down when the model is confident, and he calls it “a very simple feature that I think will be extremely impactful for at-scale AI decision-making”. It is a proposal rather than a shipped thing: no product named, no threshold value, no measurement.</p>
+    <p class="summary-zh zh">一条，而论证在删除线里：「快速与̶缓̶慢̶思考，在置信阈值之下稍微不那么快。」快速与慢速思考的二元被替换成了一个在模型自信时往下调的旋钮，他称之为「一个非常简单的功能，我认为它对规模化的 AI 决策会极其有影响」。这是一个提案，不是已发布的东西：没有点名产品、没有阈值、没有测量。</p>
+    <p class="summary-en">It sits next to today's podcast without touching it. Both are about spending less compute per unit of output, his by backing off at high confidence and theirs by making a model more token-efficient at the same eval score. Neither cites the other, and they work at different layers, his in the product and theirs in the weights. His other post today, “At this rate AI will get us GTA 7 before GTA 6”, is a joke.</p>
+    <p class="summary-zh zh">它与今天的播客挨着，但互不接触。两者都是关于「每单位产出少花一点算力」—— 他是在高置信时收力，他们是在同样的 eval 得分下让模型更省 token。两者互不引用，而且作用在不同层：他的在产品里，他们的在权重里。他今天另一条，「照这个速度 AI 会让我们先玩到 GTA 7 再玩到 GTA 6」，是个玩笑。</p>
+    <div class="urls">
+      <a href="https://x.com/rauchg/status/2107606246350266469">https://x.com/rauchg/status/2107606246350266469</a>
+      <a href="https://x.com/rauchg/status/2107449561451274688">https://x.com/rauchg/status/2107449561451274688</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aaron Levie</span>
+      <span class="builder-role">CEO &#183; Box</span>
+    </div>
+    <p class="summary-en">One long post, and it is his third substantive claim in four issues: deployment was bimodal on 10-05, the missing eval infrastructure on 10-07, and security today. The part that survives the discount is a list of four sources of new security work, vibe-coded issues, agentic attacks, “accidental agent swarms hunting for data”, and security teams that were already “the most strapped for resources teams in the enterprise”. The magnitude language in the same post, one of the most defining domains, huge opportunity, booming market, carries no number and comes from a CEO selling into it, so by the rule this feed has used since 10-05 the magnitude is dropped and the list is kept.</p>
+    <p class="summary-zh zh">一条长帖，而这是他四期里的第三个实质性主张：10-05 说部署是双峰的，10-07 说缺失的 eval 基础设施，今天说的是安全。能活过折扣的是那份清单 —— 四类会产生新安全工作量的来源：vibe coding 写出的问题、agentic 攻击、「意外地成群去翻数据的 agent 集群」，以及本来就「在企业里最缺资源的」安全团队。同一条里的量级措辞 —— 最具定义性的领域之一、巨大机会、繁荣市场 —— 没有数字，而且出自一位正把产品卖进这个领域的 CEO，所以按这条 feed 自 10-05 起使用的规则，放下量级、留下清单。</p>
+    <p class="summary-en">Two things in the post are new and unverified. “OpenAI + Hugging Face is just a preview of what's to come” names a pairing this feed has not carried before, since the Hugging Face line running since 10-03 is a Goodfire partnership and not this, and he does not say what happened at either company. His argument is also a loop: AI creates the security work and AI agents are the solution to it. Both halves are things he sells.</p>
+    <p class="summary-zh zh">这条里有两样东西是新的、未经验证的。「OpenAI + Hugging Face 只是将要发生的事情的一个预告」点名了一个本 feed 没带过的组合 —— 从 10-03 起一直在跑的那条 Hugging Face 线是 Goodfire 的合作，不是这个 —— 而他没说这两家公司各自发生了什么。另外他的论证本身是一个环：AI 制造了安全工作，而 AI agent 又是它的解法。这两半都是他卖的东西。</p>
+    <div class="urls">
+      <a href="https://x.com/levie/status/2107680435644039269">https://x.com/levie/status/2107680435644039269</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Garry Tan</span>
+      <span class="builder-role">President &amp; CEO &#183; Y Combinator</span>
+    </div>
+    <p class="summary-en">Three posts, two of them San Francisco politics with no AI content at all. The third carries the only number in his set: “Maybe 3 more prompts got it to 35fps on 640x480 pulling from 8 CPU cores per frame.” It is measurable in principle and unusable as stated, because there is no starting frame rate, no language, no hardware beyond a core count, and no description of what is being rendered. The “maybe” is his own.</p>
+    <p class="summary-zh zh">三条，两条是旧金山政治，完全没有 AI 内容。第三条带着他这组里唯一的数字：「大概又加了 3 个 prompt，就做到了 640x480 下 35fps，每帧吃 8 个 CPU 核。」它原则上可测量，但按现在的说法没法用 —— 没有起始帧率、没有语言、除了核数之外没有硬件，也没有说明在渲染什么。「大概」是他自己加的。</p>
+    <div class="urls">
+      <a href="https://x.com/garrytan/status/2107674122612555953">https://x.com/garrytan/status/2107674122612555953</a>
+      <a href="https://x.com/garrytan/status/2107636543808840168">https://x.com/garrytan/status/2107636543808840168</a>
+      <a href="https://x.com/garrytan/status/2107630303644938505">https://x.com/garrytan/status/2107630303644938505</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Matt Turck</span>
+      <span class="builder-role">VC &#183; FirstMark Capital</span>
+    </div>
+    <p class="summary-en">One post, an image caption about his children, and no AI content. Rendered so the count stays checkable. The Goodfire and Hugging Face partnership announced on his own MAD Podcast episode with Eric Ho is still audio-only, and today's post does not touch it.</p>
+    <p class="summary-zh zh">一条，一条关于他孩子的图片说明，没有 AI 内容。渲染出来是为了让计数仍然可核对。在他自己的 MAD Podcast 与 Eric Ho 那期里宣布的 Goodfire 与 Hugging Face 合作仍然只有音频形式，今天这条没有碰到它。</p>
+    <div class="urls">
+      <a href="https://x.com/mattturck/status/2107455581543858206">https://x.com/mattturck/status/2107455581543858206</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Zara Zhang</span>
+      <span class="builder-role">Builder</span>
+    </div>
+    <p class="summary-en">One line: “It's almost impossible to come up with a good product name these days. All the good names have been taken.” No subject, no number, nothing to check. Rendered rather than dropped.</p>
+    <p class="summary-zh zh">一句话：「现在几乎不可能想出一个好的产品名了。好名字都被占用了。」没有对象、没有数字、没有可核对的东西。渲染而非删掉。</p>
+    <div class="urls">
+      <a href="https://x.com/zarazhangrui/status/2107604881926459802">https://x.com/zarazhangrui/status/2107604881926459802</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nikunj Kothari</span>
+      <span class="builder-role">Partner &#183; FPV Ventures</span>
+    </div>
+    <p class="summary-en">One substantive post, and its evidence is two unnamed cases. “I know of two folks who lost deals that were all set because of the drama going on X.” The claim built around them is that platform behaviour has a cost that falls unevenly, because the person posting keeps their audience while the people beneath them do not. Capital being a commodity is his reason for expecting better behaviour, and his explanation for why it does not arrive is that very few are playing long-term games.</p>
+    <p class="summary-zh zh">一条实质性帖子，而它的证据是两个未点名的案例。「我知道有两个人，本来已经定下来的 deal 因为 X 上的这些撕扯而丢了。」围绕它们建立起来的主张是：平台行为是有成本的，而且这个成本落得不均匀 —— 发帖的人保住了自己的受众，而他下面的人没有。资本是商品，这是他期待人们表现更好的理由；而他对为什么没有发生的解释是，很少有人在玩长期游戏。</p>
+    <p class="summary-en">Two deals with no names and no sector is a small base for a claim about an industry's incentives, and the people who lost them cannot be checked. His other two posts are housekeeping, a promise to answer DMs and a call for people to meet in New York. That last one contains a phrase worth keeping: he wants founders, “but open to meeting design engineers or builders who are not pacing the frontier.”</p>
+    <p class="summary-zh zh">两个没有名字、没有行业的 deal，对一个关于行业激励的主张来说是很小的底座，而丢了它们的人无法核对。他另外两条是事务性的 —— 一个回复私信的承诺，和一个在纽约见面的人选征集。最后那条里有一个值得留下的说法：他要见创始人，「但也愿意见设计工程师，或者不在前沿上竞速的 builder」。</p>
+    <div class="urls">
+      <a href="https://x.com/nikunj/status/2107706522457497753">https://x.com/nikunj/status/2107706522457497753</a>
+      <a href="https://x.com/nikunj/status/2107606751919087701">https://x.com/nikunj/status/2107606751919087701</a>
+      <a href="https://x.com/nikunj/status/2107468543373832463">https://x.com/nikunj/status/2107468543373832463</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Steinberger</span>
+      <span class="builder-role">OpenClaw &#183; OpenAI</span>
+    </div>
+    <p class="summary-en">The most concrete account of an agent doing work in this window, and it cost him one prompt. “Our agent looks who worked on the related code last and pings people on the server.” The routing rule is the interesting part, because the agent assigns by git history rather than by availability, which is what a human lead does and what most task systems do not. Unassigned sessions are open to anyone, and “the whole thing was a prompt and team server extended itself since plugins are now hot reloadable.”</p>
+    <p class="summary-zh zh">这个窗口里最具体的一份「agent 在干活」的记录，而它花了他一个 prompt。「我们的 agent 会看相关代码最后是谁写的，然后在服务器上 ping 那个人。」有意思的是路由规则：agent 是按 git 历史分配的，不是按谁有空 —— 这是人类组长做的事，也是大多数任务系统不做的事。未分配的会话任何人都可以领，而「整个东西就是一个 prompt，团队服务器自己扩展了自己，因为插件现在可以热重载」。</p>
+    <p class="summary-en">Two claims here are separable. That an X trigger plus one prompt produced a working routing bot is his and is unreplicated. That the server extended itself is a stronger claim about the toolchain than about the bot, since hot-reloadable plugins are what let a prompt become a capability without anyone writing the integration. His OpenClaw Android review, open since late September, is not mentioned today.</p>
+    <p class="summary-zh zh">这里有两个主张可以分开。一个 X 触发器加一个 prompt 就产出了一个能跑的路由机器人 —— 这是他的，且没有被复现。而「服务器扩展了自己」是一个关于工具链的更强主张，不是关于那个机器人的：插件可以热重载，才让一个 prompt 能在没人写集成的情况下变成一个能力。他从 9 月底就挂着的 OpenClaw Android 审核，今天没有提到。</p>
+    <div class="urls">
+      <a href="https://x.com/steipete/status/2107697554448421160">https://x.com/steipete/status/2107697554448421160</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Dan Shipper</span>
+      <span class="builder-role">CEO &#183; Every</span>
+    </div>
+    <p class="summary-en">Three posts, and all three are parts of one launch. “we couldn't have built the @every agent without Claude Managed Agents” is the endorsement; the other two are a link to a conversation and a note about a Slack marketplace listing. Anthropic's own account posted the same case study today, so this is a coordinated release rather than a second source, and it is graded that way.</p>
+    <p class="summary-zh zh">三条，三条都是同一次发布的一部分。「没有 Claude Managed Agents，我们不可能造出 @every 的 agent」是那句背书；另外两条是一个对话链接，以及一句关于 Slack 市场里一个新上架应用的说明。Anthropic 自己的账号今天也发了同一个案例，所以这是一次协调好的发布，不是第二个信源，这里按这个方式评级。</p>
+    <div class="urls">
+      <a href="https://x.com/danshipper/status/2107575089441181861">https://x.com/danshipper/status/2107575089441181861</a>
+      <a href="https://x.com/danshipper/status/2107520182789005726">https://x.com/danshipper/status/2107520182789005726</a>
+      <a href="https://x.com/danshipper/status/2107507471807881262">https://x.com/danshipper/status/2107507471807881262</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aditya Agarwal</span>
+      <span class="builder-role">General Partner &#183; SPC</span>
+    </div>
+    <p class="summary-en">Two posts, neither carrying a gradeable AI claim. The first is about political campaign texts being the only legally permitted form of spam. The second points at a podcast with Keith Adams about “what it truly means to be a 'coder' in today's ecosystem”; that episode is not in this feed, so whatever claim it contains cannot be checked here.</p>
+    <p class="summary-zh zh">两条，都没有携带可供评级的 AI 主张。第一条讲的是政治竞选短信是唯一合法允许的垃圾信息形式。第二条指向一个与 Keith Adams 的播客，谈「在今天这个生态里，成为一个 coder 真正意味着什么」—— 那期节目不在这份 feed 里，所以它里面的主张在这里无法核对。</p>
+    <div class="urls">
+      <a href="https://x.com/adityaag/status/2107595892849250477">https://x.com/adityaag/status/2107595892849250477</a>
+      <a href="https://x.com/adityaag/status/2107506675544682755">https://x.com/adityaag/status/2107506675544682755</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Sam Altman</span>
+      <span class="builder-role">CEO &#183; OpenAI</span>
+    </div>
+    <p class="summary-en">Three posts in a row, all of them about looking at the stars, and none of them naming anything. “thank you to the machines, and the structure of reality, for letting us understand a little more”, and “thank you to the untold number of people who put in the technical work, brick by brick over the generations”. There is no product, no event, no company and no number in any of the three. They are rendered because the question this digest has carried for eight windows, whether the $200 Pro tier reopens, went unmentioned again today.</p>
+    <p class="summary-zh zh">连续三条，全都是关于抬头看星星，三条里没有任何一条点名任何东西。「谢谢机器，也谢谢现实的结构，让我们能多懂一点点」，以及「谢谢那数不清的、一代一代一砖一瓦把技术工作做出来的人」。三条里没有产品、没有事件、没有公司、没有数字。渲染它们，是因为这份 digest 已经带了八个窗口的那个问题 —— 200 美元的 Pro 档是否重开 —— 今天又没有被提到。</p>
+    <div class="urls">
+      <a href="https://x.com/sama/status/2107691577015755196">https://x.com/sama/status/2107691577015755196</a>
+      <a href="https://x.com/sama/status/2107691262795239805">https://x.com/sama/status/2107691262795239805</a>
+      <a href="https://x.com/sama/status/2107691261776052633">https://x.com/sama/status/2107691261776052633</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Claude</span>
+      <span class="builder-role">Official account &#183; Anthropic</span>
+    </div>
+    <p class="summary-en">Two items across three posts, and the second is the larger one. “In Claude, paste a Google file link or ask for a new doc, sheet, or deck, and it opens beside the chat for you and Claude to edit together. Access follows your Google sharing permissions. In beta on all paid plans.” The scope is stated precisely: three file types, beta, every paid plan, and a permission model inherited from Google rather than reinvented.</p>
+    <p class="summary-zh zh">三条里两件事，第二件更大。「在 Claude 里，粘一个 Google 文件链接，或者要一份新的文档、表格或演示文稿，它会在聊天旁边打开，让你和 Claude 一起编辑。访问权限沿用你的 Google 共享权限。所有付费方案的 beta 中。」范围说得很准：三类文件、beta、所有付费方案，以及一套沿用而非重造 Google 的权限模型。</p>
+    <p class="summary-en">Direction is the part worth recording. On 10-06 Peter Yang argued that OpenAI should retract Work the way Anthropic folded Cowork into chat. Anthropic is adding surfaces instead: on 10-07 the local-hands architecture was said to be coming to Cowork, and today Google Workspace editing arrives in Claude. Recorded as a fact about direction and not as a verdict on his argument. The other item is the Every case study on Managed Agents, counted under Dan Shipper's card as one coordinated launch.</p>
+    <p class="summary-zh zh">值得记下来的是方向。10-06 那天 Peter Yang 主张 OpenAI 应该像 Anthropic 把 Cowork 收回 chat 那样收回 Work。而 Anthropic 是在加东西：10-07 说 local-hands 架构会进 Cowork，今天 Google Workspace 的编辑能力进了 Claude。这里按一个关于方向的事实记录，不作为对他那个论证的裁决。另一项是 Every 在 Managed Agents 上的案例，它按一次协调发布计在 Dan Shipper 那张卡下。</p>
+    <div class="urls">
+      <a href="https://x.com/claudeai/status/2107574198482927900">https://x.com/claudeai/status/2107574198482927900</a>
+      <a href="https://x.com/claudeai/status/2107574195978641911">https://x.com/claudeai/status/2107574195978641911</a>
+      <a href="https://x.com/claudeai/status/2107522599530139767">https://x.com/claudeai/status/2107522599530139767</a>
+    </div>
+  </article>
+
+</section>
+
+<!-- ============== PODCAST ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">&#127911;</span>
+    <h2 class="section-title">Podcast</h2>
+    <span class="section-meta">1 Episode</span>
+  </div>
+
+  <div class="podcast">
+    <div class="podcast-source">Unsupervised Learning</div>
+    <div class="podcast-title">Ep 94: Applied Compute CEO on the Limits of RL, the New AI Hyperscaler & Why Post-Training Wins Inference</div>
+    <p class="summary-en">The guest runs Applied Compute, a post-training company. The host introduces him as Josh and later calls him Yash, so the transcript is inconsistent about his name and this digest uses the company instead. His framing of RL is the line to keep: “what we have with RL is we essentially have a hill climbing machine. The hardest part is actually defining the hill to climb, which is why evals... is a really important thing for companies to, a, focus on building and b, actually safeguard pretty carefully.” The second verb is the part that is easy to skip. Not build, safeguard.</p>
+    <p class="summary-zh zh">嘉宾经营 Applied Compute，一家做 post-training 的公司。主播开场称他 Josh，后面又称他 Yash，转录在他名字上不一致，所以这份 digest 用公司名而不是人名。他对 RL 的框定是值得留下的那句：「我们手上的 RL 本质上是一台爬山机。最难的部分其实是定义要爬的那座山，这就是 evals 对公司来说极其重要的原因 —— 一，要专注去建；二，要相当小心地守护。」第二个动词是最容易被跳过的那个。不只是建，是守护。</p>
+    <p class="summary-en">His reason for keeping evals private is the most transferable argument in the episode, and it answers a question this feed has been carrying. “if you look at every public benchmark, it's going to get benchmarked... it's actually to your advantage not to tell everybody else what good and bad looks like so people can go and make their things really good at that.” Publishing an eval is training data for everyone else. He extends the same logic to weights: “Your employees are not fungible... same thing with these models.”</p>
+    <p class="summary-zh zh">他关于「为什么要把 evals 留在手里」的理由，是这一期里最可迁移的论证，而且它回答了这份 feed 一直带着的一个问题。「你去看每一个公开基准，它都会被针对性地刷……不告诉别人好和坏长什么样，对你其实是有利的，否则别人就能去把他们的东西做得在那上面非常好。」公开一个 eval，等于给别人送训练数据。他把同一套逻辑推到了权重上：「你的员工不是可互换的……这些模型也是一样。」</p>
+    <p class="summary-en">Why post-training wins inference, which is the title claim, rests on three steps. Most of the money is in serving rather than training. The largest workloads are where post-training pays first, “and it's kind of power law between all the other use cases”. And how a model is trained determines how it is deployed: a tool-heavy agent trained for parallel tool calls wants a different serving setup from a decode-heavy one, down to which chips do prefill and which do decode. Cutting the bill has two sides he calls the same coin, inference optimization on one and training the model to be ten percent more token-efficient at the same eval score on the other.</p>
+    <p class="summary-zh zh">为什么 post-training 能赢下 inference —— 也就是标题里那个主张 —— 靠三步。大部分钱花在服务上，不是训练上。最大的那些工作负载是最该先做 post-training 的地方，「其他用例之间基本是幂律分布」。而模型的训练方式决定了它的部署方式：一个为并行工具调用而训练的、重度使用工具的 agent，与一个 decode 密集的负载想要的部署不同，具体到哪批芯片做 prefill、哪批做 decode。砍账单有两条路，他称之为同一枚硬币的两面：一边是推理优化，另一边是把模型训练成在同样 eval 得分下省百分之十的 token。</p>
+    <p class="summary-en">On the limits he is more optimistic than the title suggests. RL works on non-verifiable domains once you make them proxy-verifiable, by rubric-based grading or by grading against an expert answer, and “if it's not something that has one definitive answer, basically giving it an expert answer and grading against that serves as quite a good proxy.” The consequence is that two companies with different experts end up with different models. The failure mode is one he has actually watched: models finding exploits in packages to earn easy reward on coding tasks. “They figure out it's like water. They find the path of least resistance.”</p>
+    <p class="summary-zh zh">在限制这一块，他比标题所暗示的更乐观。一旦你把不可验证的领域变成可验证的代理，RL 就能工作 —— 靠基于 rubric 的打分，或者对着专家答案打分 ——「如果一件事没有唯一确定的答案，那么给它一个专家答案并据此打分，本身就是一个相当好的代理。」其后果是，两家拥有不同专家的公司最终会得到不同的模型。失效模式是他真正看过的那种：模型在软件包里找漏洞，以便在编码任务上轻松拿到奖励。「它们发现这事就像水。它们找阻力最小的路径。」</p>
+    <p class="summary-en">Two structural claims close the episode. The company is sixteen months old and its bet is that “there's a new AI hyperscaler to be built”, on the argument that the inference engine is “the first piece of software that has achieved real stickiness inside of the AI software stack”. And he does not take the one-model-per-firm position the host offers him: not every company needs to pre-train, but “there are closed loop feedback systems inside of each company that is worth capturing”. Whether company-specific models win, on his account, comes down to a gap nobody has measured, between the experts a data vendor can recruit and the in-house experts writing their own evals.</p>
+    <p class="summary-zh zh">两个结构性主张收尾。这家公司成立十六个月，它的赌注是「有一个新的 AI hyperscaler 值得被建起来」，理由是推理引擎是「AI 软件栈里第一件真正获得了黏性的软件」。而主播递给他的「一家公司一个模型」那个立场，他并没有接下：不是每家公司都需要预训练，但「每家公司内部都有值得捕获的闭环反馈系统」。按他的说法，公司专属模型能不能赢，取决于一个还没有人测过的差距 —— 数据供应商能招募到的专家，与在内部自己写 evals 的专家之间的差距。</p>
+    <div class="urls">
+      <a href="https://www.youtube.com/@RedpointAI">https://www.youtube.com/@RedpointAI</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">&#128161;</span>
+    <h2 class="section-title">The Takeaway</h2>
+    <span class="section-meta">2026-10-08</span>
+  </div>
+
+  <div class="takeaway">
+    <div class="takeaway-label">The Takeaway</div>
+    <p>Two days into Sottiaux's 28-day clock, the reset branch has been taken for the first time, and it arrives with two claims that are better than the reset itself. The first is that the improvements will not be unshipped, which is the one most likely to fail because it asserts that a reset and the four things shipped before it coexist. The second is his own reading of the mechanism, that the game seems rigged in reset's favor, hedged by the person running it and carrying no vote count. Day 3 is promised.</p>
+    <p>Evals are now on their third consecutive issue, and today the podcast supplies the half that was missing. Madhu Guru said on 10-07 that evals are the product spec; Boris Cherny today puts “how it should verify that it did the right thing” into the prompt itself; and Applied Compute adds the reason to keep them private, which is that a published eval is training data for everyone else and every public benchmark gets optimised against. Three positions from three different companies, none of them citing another.</p>
+    <p>Cherny's is a dated claim and should be read as one. He says prompting mattered a lot in the Sonnet 3.5 era and that what matters now is a three-item list: what you want done, how much effort to spend, and how to verify. There is no measurement behind the comparison, and the evidence he offers is screenshots this feed cannot read, so the list is the whole of what can be graded. What travels from it is the relocation of verification into the instruction rather than the review.</p>
+    <p>The local-hands architecture got its first stated failure mode. Thariq says an offline machine blocks the cloud brain from doing work, that syncing is the obvious fix, and that syncing has edge cases he does not resolve. On 10-07 this was a direction of travel and Anthropic said it was coming to Cowork; today it has a named problem and no named solution. His separate counter-claim, that working at a higher level of abstraction has always required understanding the lower ones, is recorded as a position because nobody in this window argued the other side.</p>
+    <p>Amjad Masad makes the largest claim of the day with the least under it: AI-powered decompilation will make all software de facto open-source. No tool, no example, no date. It is worth carrying precisely because it is a CEO of a software-building platform saying it about the value of software, and the check is simple, whether he ever produces an example. Aaron Levie, meanwhile, is the most consistent enterprise voice in this feed right now, three substantive claims in four issues, and his cyber post splits the same way his last two did: keep the four-item list, drop the magnitude.</p>
+    <p>Peter Steinberger posted the most concrete account of an agent doing work in this window, and it cost him one prompt. The routing rule is the part worth stealing: the agent assigns by looking at who last touched the related code, not by who is free. Two claims sit inside it and should be kept apart, one is that a trigger plus a prompt produced a working bot and is unreplicated, the other is that the server extended itself, which is really a claim about hot-reloadable plugins letting a prompt become a capability without anyone writing the integration.</p>
+    <p>Anthropic keeps adding surfaces, and that is a fact about direction rather than a verdict on Peter Yang's 10-06 argument that OpenAI should retract Work the way Anthropic folded Cowork into chat. Local hands was said on 10-07 to be coming to Cowork, and today Google Workspace editing lands inside Claude on all paid plans with permissions inherited from Google. The Every case study does not count as independent: Anthropic's account, Dan Shipper and Every all posted the same launch.</p>
+    <p>Two threads closed nothing but moved. Peter Yang asked for a phone-holding agent on 09-21, was told Muse and Instinct could not do it, and today asked again as a wish, which is what an unmet request looks like when it is repeated. And the Goodfire and Hugging Face partnership remains audio-only, while Levie's “OpenAI + Hugging Face” names a different pairing this feed cannot verify from anything else in the window.</p>
+    <p>Housekeeping, counted rather than smoothed over. Of 40 tweets, 21 carry nothing gradeable, no named subject, no number, or no AI content: Woodward's tease, both of Cherny's screenshots, Sottiaux's “good evening”, two of Peter Yang's three, Nan Yu's objectless worry, Amjad's link, Rauch's GTA line, both of Garry Tan's politics posts, Turck's caption, Zara Zhang's one-liner, two of Nikunj's three, two of Shipper's three, Aditya's spam post, and all three of Altman's. The other 19 are rendered with their claims, and none of them carries a measurement except Garry Tan's 35fps, which has no baseline.</p>
+    <p>Carried into the next issue. Day 3 of the 28-day clock, where the check is now three things: improvement or reset, whether the four shipped things survive the reset, and whether any vote count is ever published. The Muse phone-call capability, asked for on 09-21 and wished for again today. Thariq's offline-machine problem, which now has a failure mode and no fix. Six things did not move: the $200 Pro reopening has now gone eight windows without a mention, the Gemini 4 vibe check is absent for a seventh issue, nobody outside Anthropic has reproduced the Sonnet 5.5 design eval, Steinberger's Android review has no progress, the coding-agent question is still unanswered, and the Goodfire and Hugging Face item is still audio-only. New and unverified: Levie's OpenAI plus Hugging Face pairing, Amjad's decompilation claim, and Applied Compute's hyperscaler thesis from a company sixteen months old. Dates ahead: half-price usage ends 10-15, Founder House runs through 10-08 and again on 10-14, and Opal shuts down 2026-11-17.</p>
+  </div>
+
+  <div class="takeaway zh">
+    <div class="takeaway-label">核心结论</div>
+    <p>Sottiaux 那个 28 天的钟走到第二天，reset 分支第一次被走到了，而它带来两个比 reset 本身更值得记的主张。第一个是那些改进不会被下架 —— 这是最可能不成立的一个，因为它断言一次 reset 与它之前发出的四件东西同时存在。第二个是他自己对机制的读法：游戏似乎偏向 reset，由主持这件事的人加了限定，而且没有票数。第 3 天已经许诺了。</p>
+    <p>evals 现在是连续第三期了，而今天播客补上了缺的那半边。Madhu Guru 在 10-07 说 evals 就是产品说明书；Boris Cherny 今天把「它该怎么验证自己做对了」放进了 prompt 本身；Applied Compute 加上了要把它们留在手里的理由 —— 公开的 eval 就是给所有人的训练数据，而每一个公开基准都会被针对性地刷。三个立场来自三家公司，没有任何一方引用另一方。</p>
+    <p>Cherny 那条是一个带日期的主张，也应该按带日期的主张来读。他说 prompt 在 Sonnet 3.5 时代很要紧，而现在要紧的是一个三项清单：你想让它做什么、花多大力气、怎么验证。这个对比背后没有测量，而他给出的证据是这份 feed 读不了的截图，所以那个清单就是能评级的全部。能从里面带走的是：验证被挪进了指令里，而不是留在评审里。</p>
+    <p>local-hands 架构拿到了它第一个被说出来的失效模式。Thariq 说离线的机器会挡住云端大脑干活，同步是最显然的解法，而同步有他没解决的边界情况。10-07 那天这还只是一个方向，Anthropic 说它会进 Cowork；今天它有了一个被点名的问题，以及一个没有被点名的解法。他另外那条反主张 —— 在更高的抽象层上工作向来都需要理解下面的层 —— 按一个立场记录，因为这个窗口里没有人主张过反面。</p>
+    <p>Amjad Masad 提出了今天最大的主张，而它下面的东西最少：AI 驱动的反编译会让所有软件事实上变成开源。没有工具、没有例子、没有日期。它值得带走，恰恰因为说这话的人是一个软件构建平台的 CEO，说的是软件的价值；而核对项很简单 —— 他会不会给出一个例子。另一边，Aaron Levie 是这份 feed 现在最稳定的企业侧声音，四期里三个实质性主张，而他这条安全帖的切分方式与前两次相同：留下那份四项清单，放下量级。</p>
+    <p>Peter Steinberger 发了这个窗口里最具体的一份「agent 在干活」的记录，而它花了他一个 prompt。值得拿走的是路由规则：agent 通过看相关代码最后是谁碰的来分配任务，而不是看谁有空。里面有两个主张，应该分开留：一个是「一个触发器加一个 prompt 产出了一个能跑的机器人」，未被复现；另一个是「服务器扩展了自己」，那其实是一个关于热重载插件的主张 —— 它让一个 prompt 能在没人写集成的情况下变成一个能力。</p>
+    <p>Anthropic 在持续加东西，而这是一个关于方向的事实，不是对 Peter Yang 在 10-06 那个论证的裁决 —— 他当时说 OpenAI 应该像 Anthropic 把 Cowork 收回 chat 那样收回 Work。10-07 说 local hands 会进 Cowork，今天 Google Workspace 的编辑能力落在了 Claude 里，覆盖所有付费方案，权限沿用 Google 的。Every 那个案例不能算独立信源：Anthropic 的账号、Dan Shipper 和 Every 发的是同一次发布。</p>
+    <p>两条线没有收口，但动了。Peter Yang 在 09-21 要过一个能替他占住电话的 agent，被告知 Muse 和 Instinct 做不到，今天又把它作为愿望提了一次 —— 一个未被满足的请求被重复时，就是这个样子。Goodfire 与 Hugging Face 的合作仍然只有音频形式；而 Levie 那句「OpenAI + Hugging Face」点名了另一个组合，本 feed 无法用窗口里的任何东西去验证它。</p>
+    <p>清点，按计数而不是抹平。40 条推文里，21 条没有任何可供评级的内容 —— 没有点名对象、没有数字，或者没有 AI 内容：Woodward 的预热、Cherny 的两张截图、Sottiaux 的「晚上好」、Peter Yang 三条里的两条、Nan Yu 那个没有宾格的担忧、Amjad 那个链接、Rauch 那句 GTA、Garry Tan 两条政治帖、Turck 那句图说、Zara Zhang 那一句话、Nikunj 三条里的两条、Shipper 三条里的两条、Aditya 那条垃圾信息帖，以及 Altman 全部三条。其余 19 条连着它们的主张一起渲染，其中除了 Garry Tan 那个 35fps 之外没有一条带测量，而那个也没有基线。</p>
+    <p>带进下一期的东西。28 天钟的第 3 天，核对项现在是三件事：改进还是 reset、那四件已发出的东西是否在 reset 后还在、以及票数会不会公布。Muse 的通话能力 —— 09-21 提过，今天又许了一次愿。Thariq 的离线机器问题，现在有了失效模式，还没有解法。六项没有移动：200 美元的 Pro 档重开已经连续八个窗口未被提及；Gemini 4 的 vibe check 连续第七期缺席；Anthropic 之外仍然没有人复现 Sonnet 5.5 的设计评测；Steinberger 的 Android 审核没有进展；编码 agent 那个提问仍然无人回答；Goodfire 与 Hugging Face 那条仍然只有音频形式。新增且未经验证的：Levie 的 OpenAI 加 Hugging Face 组合、Amjad 的反编译主张，以及 Applied Compute 那个来自一家成立十六个月公司的 hyperscaler 论题。仍在前面的日期：半额用量 10-15 截止，Founder House 到 10-08 为止、10-14 再一次，Opal 于 2026-11-17 关停。</p>
+  </div>
+</section>
+
+<!-- ============== ALREADY COVERED ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">&#128257;</span>
+    <h2 class="section-title">已收录 / Already Covered</h2>
+    <span class="section-meta">0 Items &#183; Blog Array Empty</span>
+  </div>
+
+  <div class="dedup">
+    <p>There is nothing to dedup today, and the reason is narrower than yesterday&rsquo;s. The blog zero is an empty array: the feed carried no blog entry at all in this window, so there is no slug to match and nothing was back-filled. The podcast side is the opposite. It carries one episode, published 2026-10-06T12:50Z, and all four of its title keywords &mdash; Applied Compute, Limits of RL, Hyperscaler and Post-Training &mdash; returned zero hits under <code>2026/</code>, so it is counted rather than deferred. That is the mirror image of 10-07, where both arrays were empty and the two zeros shared one explanation.</p>
+    <p>今天没有需要去重的东西，而这个原因比昨天的更窄。Blog 的 0 来自一个空数组：feed 在这个窗口里根本没有带博客条目，所以没有 slug 可匹配，也不存在回填。播客那一侧正相反 —— 它带了一期，发布于 2026-10-06T12:50Z，标题里四个关键词（Applied Compute、Limits of RL、Hyperscaler、Post-Training）在 <code>2026/</code> 下全部零命中，所以它是被计入而不是被推迟。这是 10-07 的镜像：那天两个数组都为空，两个 0 共用一个解释。</p>
+    <p style="margin-top:12px">&#8226; Tweet-level check: all 40 tweet IDs in this window were matched against every file under <code>2026/</code> and returned zero hits, so no tweet here repeats a previously published issue.</p>
+    <p style="margin-top:12px">&#8226; Two threads are tracked here because they moved without closing. Peter Yang asked Muse and Instinct to place phone calls on 09-21 and reported that both said they could not; today he asks for the same capability again, this time as a wish. The Goodfire and Hugging Face partnership announced on the 10-03 MAD Podcast episode with Eric Ho is still audio-only, and Turck&rsquo;s post today does not mention it.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="next-issue">&#128236; 下一期：明天 10:00（北京时间）</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->
