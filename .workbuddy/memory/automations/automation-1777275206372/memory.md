@@ -597,3 +597,19 @@
 - 沿用：三项证据分级、一 builder 一卡、推文 ID 与 feed `diff` 校验（**`sort -u`**）、内容级去重、`gh run list --limit 1` 不带 --workflow、curl 用 GET 不用 -I、`/tmp/dg/` 下 raw.json + build 脚本（URL 从 raw.json 取，脚本内断言 URL 全量/计数/占位符/签名）。
 - **本期新增沿用（已写入项目经验库）**：①两个 0 的判定顺序固定为「先看数组长度，再看 publishedAt」——均为 0 则合并一句，长度不同或日期早于窗口则分开写，并在 note-line 显式对比上一期；②同一雇主的一致判为回声后不要丢掉，要写成独立信源那一对的对照组并给出反事实；③「昨天论证 → 今天实物」要写「证据形状变了不是量变了」，并检查是否复用同一份证据清单（复用则写明是同一论点讲两次，避免虚增信源）；④n≤2 且无互相引用时只能记巧合，不能写成趋势。
 - 关注：**Sottiaux 28 天承诺第 2 天** —— 核对项不变（改进 or reset 分支）；**Rauch 的 gdp-ts** 现已可安装，下期可看有无外部评价或采用；**Goodfire × Hugging Face 合作**仍只有音频形式（Turck 今日帖讲的是加密投资，未提）；**Pro $200 重新开放**已连续七个窗口未提，需 OpenAI 一句收口或作废；**Gemini 4 vibe check** 连续第六期缺席；**Sonnet 5.5 外部复现**仍无（第八期无进展）；**Steinberger Android 审核**无进展；**10x 编码 agent 提问**仍无人回答；**Muse/Instinct/AGI Science Loops**（Garry Tan 新提的三个词，feed 未定义）、**Halmos**（首次出现）待后续能否落地；已定日期：半额用量 10-15 截止、Founder House 10-06~08（进行中）/ 10-14、Opal 2026-11-17 关停。
+
+### 2026-10-08 (周四) — 成功
+- **内容获取**：`prepare-digest.js` 抓中央 feed，产出 19 builders / 40 tweets / 1 podcast / 0 blog（bilingual），快照 2026-10-07T06:45:10Z（太平洋 10-06 23:45，较上期 10-06T06:45:56Z 前进一天，无丢档）；40 条推文全部落在太平洋 10-06 05:35–22:36。
+- **去重**：40 个推文 ID 在 `2026/` 下零命中；播客（Unsupervised Learning Ep 94 / Applied Compute「Limits of RL, New AI Hyperscaler, Why Post-Training Wins Inference」）四个关键词（Applied Compute / Limits of RL / Hyperscaler / Post-Training）全部零命中 → 计入；blogs 数组长度为 0。最终 **19/40/1/0**。note-line 按「只有一个 0」写，显式点明它是 10-07（两个 0 同因）的镜像。
+- **主线**：Sottiaux 28 天承诺第 2 天**第一次走到 reset 分支**（第四种收口形态，前三为 09-29 窗口外仍开 / 10-03 底层兑现数字被丢 / 10-04 底层执行+子集故障+已修复），并派生两个新承诺 ——「改进不下架、鱼和熊掌兼得」（可核对、最易失败）与「游戏似乎偏向 reset」（主持者自述、无票数）。evals 连续第三期：Guru（10-07 是产品说明书）→ Cherny（把「怎么验证」写进 prompt，证据是读不了的截图）→ 播客（不要把 eval 公开，公开的 eval 就是给所有人的训练数据），三家互不引用。Thariq 给 local-hands 架构补上第一个失效模式（离线机器 + 同步边界情况）。Amjad 最强主张最薄证据（反编译让所有软件事实上开源）。Levie 四期第三个实质主张，清单留、量级弃，新出未验证的「OpenAI + Hugging Face」组合。Steinberger 最具体的 agent 工作流（按 git 历史路由、成本一个 prompt、服务器自扩展）。Anthropic 持续加面（Google Workspace 编辑进 Claude）对照 Peter Yang 10-06 的收回主张。
+- **跨期收口**：Peter Yang 09-21 让 Muse/Instinct 打电话（被告知做不到）→ 今天作为愿望重提 = 能力未交付，愿望句同时锚定 Muse 用途。
+- **结构**：X 19 卡 → Podcast（EN/ZH 各 5 段 + 频道页 URL，feed 未给单集链接）→ Takeaway（EN 10 段 + 独立 `takeaway zh` 块 10 段）→ Already Covered（0 项，解释 blog 空数组 vs 播客计入）→ footer。size 53519 字符 / 67018 字节。CSS 沿用 10-07 基线（含 .podcast / .dedup）。
+- **部署**：index.html `ISSUES` 顶部追加 `2026-10-08`（meta: 19 Builders · 40 Tweets · 1 Podcast · 0 Blog）→ copy 到 `2026/10/08/` → commit `80ffafa` → push（ec477f2..80ffafa）。
+- **验证**：`gh run list --limit 1` 第 3 次轮询 completed/success（run 37716809698，约 24s）→ GET 子路径**首查 HTTP 200**，67018 字节与本地 `diff` IDENTICAL；线上 19 卡、40/40 URL 与 feed 一致（**比对时记得 `sed 's|status/||'` 去掉前缀，否则 diff 会假失败**）、2 处 by chloevchen；根 index 200 且已含 `2026-10-08`。四项校验首跑全绿。
+- **生成脚本**：`/tmp/dg/content.py`（文案）+ `/tmp/dg/build_1008.py`（渲染 + 断言）。**注意**：`/tmp/dg/build.py` 是往期遗留文件，Write 工具要求先 Read 才能覆盖 —— 直接换文件名更快。
+
+## 下次运行
+- 预计 2026-10-09 由 cron 触发；若该日无新内容（stats 全 0）则按 skill 规则跳过生成。
+- 沿用：三项证据分级、一 builder 一卡、推文 ID 与 feed `diff` 校验（**`sort -u`**）、内容级去重（blog slug / podcast 标题关键词）、`gh run list --limit 1` 不带 --workflow、curl 用 GET 不用 -I、`/tmp/dg/` 下 raw.json + dump.txt + ids.txt + css.txt + content.py + build_YYYYMMDD.py。
+- **本期新增沿用（已写入项目经验库）**：①「请求被重复成愿望」= 能力未交付，按能力动词 grep 全站、比较句法（测试式→愿望式），愿望句顺带给出用途锚点；②0 的成因三态写法固定三段式（数组长度 → 命中证据 → 显式对比上一期是合并/分开/镜像）；③分支型承诺记「走到哪一支」并把派生新承诺单列，机制描述要写谁说的 + 有无量化；④截图证据写「读不了」、不充抵证据量，多账号指向同一次发布只算一个信源。
+- 关注：**Sottiaux 第 3 天**（改进 or reset + 那四件东西是否还在 + 是否公布票数）；**Muse 通话能力**；**Thariq 离线机器问题**是否有解法；**Amjad 是否给出反编译例子**；**Levie 的 OpenAI + Hugging Face** 是否可验证；**Applied Compute 的 hyperscaler** 后续；六项未移动：**Pro $200 重开**（第八窗口）、**Gemini 4 vibe check**（第七期缺席）、**Sonnet 5.5 外部复现**、**Steinberger Android 审核**、**10x 编码 agent 提问**、**Goodfire × HF 仍只有音频**；已定日期：Founder House 10-14、半额用量 10-15 截止、Opal 2026-11-17 关停。
