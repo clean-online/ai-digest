@@ -613,3 +613,19 @@
 - 沿用：三项证据分级、一 builder 一卡、推文 ID 与 feed `diff` 校验（**`sort -u`**）、内容级去重（blog slug / podcast 标题关键词）、`gh run list --limit 1` 不带 --workflow、curl 用 GET 不用 -I、`/tmp/dg/` 下 raw.json + dump.txt + ids.txt + css.txt + content.py + build_YYYYMMDD.py。
 - **本期新增沿用（已写入项目经验库）**：①「请求被重复成愿望」= 能力未交付，按能力动词 grep 全站、比较句法（测试式→愿望式），愿望句顺带给出用途锚点；②0 的成因三态写法固定三段式（数组长度 → 命中证据 → 显式对比上一期是合并/分开/镜像）；③分支型承诺记「走到哪一支」并把派生新承诺单列，机制描述要写谁说的 + 有无量化；④截图证据写「读不了」、不充抵证据量，多账号指向同一次发布只算一个信源。
 - 关注：**Sottiaux 第 3 天**（改进 or reset + 那四件东西是否还在 + 是否公布票数）；**Muse 通话能力**；**Thariq 离线机器问题**是否有解法；**Amjad 是否给出反编译例子**；**Levie 的 OpenAI + Hugging Face** 是否可验证；**Applied Compute 的 hyperscaler** 后续；六项未移动：**Pro $200 重开**（第八窗口）、**Gemini 4 vibe check**（第七期缺席）、**Sonnet 5.5 外部复现**、**Steinberger Android 审核**、**10x 编码 agent 提问**、**Goodfire × HF 仍只有音频**；已定日期：Founder House 10-14、半额用量 10-15 截止、Opal 2026-11-17 关停。
+
+### 2026-10-09 (周五) — 成功
+- **内容获取**：`prepare-digest.js` 抓中央 feed，产出 19 builders / 41 tweets / 1 podcast / 0 blog（bilingual），快照 2026-10-08T06:47:17Z（太平洋 10-07 23:47，较上期 2026-10-07T06:45:10Z 前进一天零两分钟，无丢档）；41 条推文全部落在太平洋 10-07 04:48–23:41。
+- **去重**：41 个推文 ID 在 `2026/` 下零命中；播客（AI & I by Every「Why Every Traded Personal Agents for One Company Agent」）三个关键词（Traded Personal Agents / Company Agent / Why Every Traded）零命中 → 计入；blogs 数组长度为 0。最终 **19/41/1/0**。note-line 判定为「与 10-08 **相同**」而非镜像 —— 连续第二天唯一的 0 来自空数组，并显式对比 10-05/10-06 那种「回填旧日期」的 0。
+- **主线**：① Sottiaux 28 天时钟第 3 天**落在两条分支之外**（第五种收口形态）—— 既非改进也非 reset，而是「悄悄重新上线 codex cloud」；同时确认 Day 2 的 reset 已「landed across all accounts」，但对票数以反问「How are we doing so far?」代替，兑现与量化拆开记。② Anthropic 是全场唯一给数字的信源（缓存读取 $0.10/M → 长时任务便宜约 20%；Haiku 5.5 快得多且便宜 75%，Albert 补上 Haiku 4.5 = 2025-10-15 这个分母），对齐结果为第一方评测，未关掉「外部复现 Sonnet 5.5」那条线。③ 反编译主题第二天：Amjad 给主张、Peter Yang 补经济后果，例子仍为零 → 改用可证伪性评价（SaaS 成本压在为人建的界面面积上，可拿产品成本结构检验）。④ Thariq（输入端精度）与 Rauch（输出端停止条件）互不引用地指向同一块缺失；Aditya Agarwal 从职业侧走到同一次「稀缺项从工具挪到领域」。⑤ Dan Shipper 长帖与播客是同一材料的两种媒介，按「只在一处出现的东西」拆开（只有长帖有权限失效与功能持平判断；只有播客有放弃个人 agent 的原因、自上而下的影子组织架构、工程管理论证）。⑥ 游戏主题 n=3 但类型不同且无互相引用，只有 Google Labs 的 Playground 可核对。
+- **跨期收口**：打电话能力第三次出现 —— 09-21 Peter Yang 测试 Muse/Instinct 被拒 → 10-08 愿望式重提 → 今天 Every 播客嘉宾就 Grok Bot 说「总有一天我会把它 FaceTime 进我的训练」。三人/三产品/始终将来时，无厂商表态。
+- **结构**：X 19 卡 → Podcast（EN/ZH 各 5 段 + 频道页 URL）→ Takeaway（EN 8 段 + 独立 `takeaway zh` 块 8 段「核心结论」）→ Already Covered（0 项）→ footer。size 53152 字符 / 66717 字节。CSS 沿用 10-08 基线。
+- **部署**：index.html `ISSUES` 顶部追加 `2026-10-09`（meta: 19 Builders · 41 Tweets · 1 Podcast · 0 Blog）→ copy 到 `2026/10/09/` → commit `8e55fa7` → push（80ffafa..8e55fa7）。
+- **验证**：`gh run list --limit 1` 第 3 次轮询 completed/success（run 37873739854）→ GET 子路径**首查 HTTP 200**，66717 字节与本地 `diff` IDENTICAL；线上 19 卡、41/41 URL 与 feed 一致（比对时 `sed 's|.*status/||'` 去前缀）、2 处 by chloevchen；根 index 200 且含 `2026-10-09`。四项校验首跑全绿。
+- **生成脚本**：`/tmp/dg/c1009.py`（文案）+ `/tmp/dg/b1009.py`（渲染 + 断言）。URL 由脚本按 tweet id 从 raw.json 取，不手抄。
+
+## 下次运行
+- 预计 2026-10-10 由 cron 触发；若该日无新内容（stats 全 0）则按 skill 规则跳过生成。
+- 沿用：三项证据分级、一 builder 一卡、推文 ID 与 feed `diff` 校验（**`sort -u`**）、内容级去重（blog slug / podcast 标题关键词）、`gh run list --limit 1` 不带 --workflow、curl 用 GET 不用 -I、`/tmp/dg/` 下 raw.json + dump.txt + ids.txt + css.txt + cMMDD.py + bMMDD.py（新文件名避免 Write 需先 Read）。
+- **本期新增沿用（已写入项目经验库）**：①分支型承诺的核对项要写成 A/B/第三条三态，并把「兑现」与「量化」拆开；②同一人同一窗口两种媒介共用例子时按「只在一处出现的东西」拆开，不当两次印证，且同一人重复自己的旧预测不增加证据；③证据为零时改用可证伪性评价（给了机制的版本比只给结论的版本进步，即使证据量相同）；④note-line 的「与上一期关系」必须独立判定（相同/镜像/相反/更窄），不能沿用上一期写过的词；⑤n=3 且类型不同、无互相引用仍不成趋势，可核对的只有带已发布产物的那一条，并要把它自己写明的限制一起记上。
+- 关注：**Sottiaux Day 4** —— codex cloud 是否属于 reset 前那四件东西、票数是否公布、「悄悄」是否成模式；**打电话能力**（第三次出现，Grok Bot）；**Pro $200 重开**（第九窗口未提）；**Gemini 4 vibe check**（第八期缺席）；**Sonnet 5.5 外部复现**（仍无，今日 Haiku 5.5 对齐结果为第一方）；**Steinberger Android 审核**；**10x 编码 agent 提问**；**Goodfire × HF**（仍只有音频）；**Amjad 反编译无例子**；**Thariq 离线机器无解法**；新增未验证：**NVIDIA OpenShell**（首现，仅「早期采用」）、**Google Labs Playground**（实验性、仅美国）、**Sam Altman 自定义 UI**（无范围说明）；已定日期：半额用量 10-15 截止、Founder House 10-14、Opal 2026-11-17 关停。

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AI Builders Digest &#183; 2026-10-10</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+
+
+
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 28px 30px; margin-bottom: 24px; }
+  .podcast-source { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
+  .podcast-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; margin-bottom: 18px; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; }
+
+
+
+</style>
+
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+    <span>双语 &#183; Bilingual</span>
+  </div>
+</header>
+
+<section class="header">
+  <div class="eyebrow">Daily Digest &#183; 2026-10-10</div>
+  <h1>AI Builders Digest</h1>
+</section>
+
+<div class="stats">
+  <div class="stat"><div class="stat-num">15</div><div class="stat-label">Builders</div></div>
+  <div class="stat"><div class="stat-num">32</div><div class="stat-label">Tweets</div></div>
+  <div class="stat"><div class="stat-num">1</div><div class="stat-label">Podcast</div></div>
+  <div class="stat"><div class="stat-num">0</div><div class="stat-label">Blog</div></div>
+</div>
+
+<p class="note-line">Stats count what this feed rendered: 15 builders, 32 tweets, 1 podcast, 0 blog. The blog zero is an empty array, not a failed fetch &mdash; the feed carried no blog entries at all in this window. That is the same shape as 10-09 and 10-08, where the single zero also came from an empty blog array, so the relationship to the previous issue is the same rather than a mirror image of it. The podcast episode is counted: &#8220;Amin Vahdat&#8221; and &#8220;Vahdat&#8221; return zero hits across every file under <code>2026/</code>. It is dated 2026-10-06, three days earlier than this window&#8217;s tweets, and is appearing here for the first time.</p>
+<p class="note-line zh">统计口径为本 feed 实际渲染的数量：15 位 builder、32 条推文、1 期播客、0 篇博客。博客的 0 来自空数组，不是抓取失败 &mdash;&mdash; 这个窗口里 feed 一篇博客都没带。这与 10-09、10-08 是同一形态，唯一的 0 同样来自空数组，因此与上一期的关系是「相同」，而不是「镜像」。播客这一集计入：&#8220;Amin Vahdat&#8221; 与 &#8220;Vahdat&#8221; 在 <code>2026/</code> 下的所有文件里零命中。它的日期是 2026-10-06，比本期推文窗口早三天，是第一次出现在本 digest 中。</p>
+
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">&#128036;</span>
+    <h2 class="section-title">X / Twitter</h2>
+    <span class="section-meta">15 Builders &#183; 32 Tweets</span>
+  </div>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Swyx</span>
+      <span class="builder-role">Latent Space / smol AI</span>
+    </div>
+    <p class="summary-en">Swyx posted the same template joke twice with the placeholder left unfilled &mdash; &#8220;the talented {role} will already have posts covering most of them&#8221; &mdash; each with its own link, then followed with a pitch for one-off consulting aimed at teams that cannot hire for a role. Across the three posts nothing is named: no topic, no role, no product.</p>
+    <p class="summary-zh zh">Swyx 把同一个模板玩笑发了两遍，占位符 {role} 没填就发出去了 ——&#8220;有才华的 {role} 大概早就写过覆盖其中大部分的帖子了&#8221;——两条各带一个链接；第三条是为招不到人的团队提供一次性咨询的广告。三条里没有任何东西被点名：没有话题、没有职位、没有产品。</p>
+    <div class="urls">
+      <a href="https://x.com/swyx/status/2108391703488958475">https://x.com/swyx/status/2108391703488958475</a>
+      <a href="https://x.com/swyx/status/2108391663827849390">https://x.com/swyx/status/2108391663827849390</a>
+      <a href="https://x.com/swyx/status/2108388128390086675">https://x.com/swyx/status/2108388128390086675</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thibault Sottiaux</span>
+      <span class="builder-role">Codex &amp; ChatGPT @ OpenAI</span>
+    </div>
+    <p class="summary-en">Day 4 of the 28-day commitment, and it is the first day that lands on the improvement branch: &#8220;We have improved steering to be instant, leading to the model now reacting much faster to adjustments you make, allowing you to course-correct direction in realtime and not have the model waste effort.&#8221; The same post also releases GPT-6.1 Sol ultrafast. Every claim is an adjective &mdash; instant, much faster, realtime, no wasted effort &mdash; with no before-and-after figure, and the vote count he was asked about on Day 3 goes unmentioned. Earlier in the window he posted &#8220;Today, we are announcing ChatGPT&#8221;, for which the feed supplies no context.</p>
+    <p class="summary-zh zh">28 天承诺第 4 天，也是第一次落在「改进」这一支：&#8220;我们把 steering 改成了即时生效，模型现在对你做的调整反应快得多，让你能实时修正方向，模型也不会白花力气。&#8221;同一条里还发布了 GPT-6.1 Sol ultrafast。每一项都是形容词 —— 即时、快得多、实时、不白花力气 —— 没有前后对比的数字，第 3 天被追问的票数今天也没提。窗口早些时候他还发了&#8220;今天，我们发布 ChatGPT&#8221;，feed 没有给出这句话的上下文。</p>
+    <div class="urls">
+      <a href="https://x.com/thsottiaux/status/2108349826727588000">https://x.com/thsottiaux/status/2108349826727588000</a>
+      <a href="https://x.com/thsottiaux/status/2108275041276420573">https://x.com/thsottiaux/status/2108275041276420573</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Yang</span>
+      <span class="builder-role">AI 教程作者 / 产品</span>
+    </div>
+    <p class="summary-en">Peter Yang reports that Grok bot&#8217;s new email feature did not work for him: he tagged it on a thread and it did not reply, and he asks what people are using it for. This is the first first-person failure report in this feed about an agent communication feature, and it arrives one day after a guest on the 10-09 Every episode said &#8220;one day I will FaceTime my Grok bot into my workouts&#8221;. His other two posts are a newsletter pitch citing 110,000+ subscribers and a one-line reaction.</p>
+    <p class="summary-zh zh">Peter Yang 说 Grok bot 的新邮件功能他没用起来：他在一条对话里 @ 了它，它没有回复，于是问大家拿它来干什么。这是本 feed 里第一次出现关于 agent 通信功能的第一人称失效报告，而它出现在 10-09 那期 Every 节目嘉宾说出&#8220;总有一天我会把我的 Grok bot FaceTime 进我的训练&#8221;的第二天。他另外两条是通讯订阅推广（11 万+ 订阅者）和一句反应。</p>
+    <div class="urls">
+      <a href="https://x.com/petergyang/status/2108412799684915576">https://x.com/petergyang/status/2108412799684915576</a>
+      <a href="https://x.com/petergyang/status/2108410706546905437">https://x.com/petergyang/status/2108410706546905437</a>
+      <a href="https://x.com/petergyang/status/2108285232055263734">https://x.com/petergyang/status/2108285232055263734</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nan Yu</span>
+      <span class="builder-role">Codex 产品 @ OpenAI</span>
+    </div>
+    <p class="summary-en">One post, one word &mdash; &#8220;huge&#8221; &mdash; plus a link. The feed does not show what it is responding to.</p>
+    <p class="summary-zh zh">一条帖子，一个词 ——&#8220;huge&#8221;—— 外加一个链接。feed 没有显示它在回应什么。</p>
+    <div class="urls">
+      <a href="https://x.com/thenanyu/status/2108354844658737637">https://x.com/thenanyu/status/2108354844658737637</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Madhu Guru</span>
+      <span class="builder-role">Meta AI 高级总监</span>
+    </div>
+    <p class="summary-en">Madhu Guru lays out a map rather than making a claim: every layer of the computing stack has to be rebuilt once the primary user is an agent. Enterprise software is already being made agent-ready through APIs, connectors and MCPs; personal agents now force the same conversation on consumer products, with e-commerce as the early example. What is left, in his list: desktop and mobile OSes where agents are first-class users, cloud infrastructure built for agents to operate directly, identity and permissions designed for thousands of agents acting on our behalf, and interfaces for agents and humans working together. His closing move is a heuristic, not a prediction &mdash; walk each layer and ask what has to change when the primary user is an agent. No layer carries a number, and the single example goes unnamed.</p>
+    <p class="summary-zh zh">Madhu Guru 给的是一张地图，不是一个主张：一旦主要用户变成 agent，计算栈的每一层都要重做。企业软件已经在通过 API、连接器和 MCP 做 agent 适配；现在个人 agent 把同样的问题推到了消费级产品上，电商是早期的例子。他列出的剩余部分包括：把 agent 当作一等用户的桌面与移动操作系统、为 agent 直接操作而建的云基础设施、为成千上万代为行事的 agent 设计的身份与权限，以及给 agent 和人协同使用的界面。收尾给的是一条启发式做法而不是预测 —— 逐层走一遍，问「当主要用户是 agent 时，什么必须改变」。没有一层配了数字，唯一的例子也没有点名。</p>
+    <div class="urls">
+      <a href="https://x.com/realmadhuguru/status/2108236391641706813">https://x.com/realmadhuguru/status/2108236391641706813</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Thariq</span>
+      <span class="builder-role">Claude Code @ Anthropic</span>
+    </div>
+    <p class="summary-en">One thread: Thariq shipped a Chrome extension he says he now uses every day, noticed the repository was still private after he hit send, made it public mid-thread, and pointed to instructions for enabling API credits. What is missing is what would let anyone evaluate it &mdash; no usage number, no description of what the extension does, and no statement of whose API it draws on.</p>
+    <p class="summary-zh zh">同一个 thread：Thariq 做了一个他说现在每天都在用的 Chrome 插件，发出去之后才发现仓库还是私有的，于是在串里改成公开，并附上了开启 API credits 的说明。缺的是能让人评价它的东西 —— 没有使用量，没有插件功能的描述，也没有说它调用的是哪家的 API。</p>
+    <div class="urls">
+      <a href="https://x.com/trq212/status/2108312751202537946">https://x.com/trq212/status/2108312751202537946</a>
+      <a href="https://x.com/trq212/status/2108312534222778407">https://x.com/trq212/status/2108312534222778407</a>
+      <a href="https://x.com/trq212/status/2108301672409960922">https://x.com/trq212/status/2108301672409960922</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Guillermo Rauch</span>
+      <span class="builder-role">Vercel CEO</span>
+    </div>
+    <p class="summary-en">On hiring: &#8220;Few things more enjoyable in work and life than discovering new talent. Seeing greatness in people, sometimes even before they fully see it themselves.&#8221; No AI content, and no object named.</p>
+    <p class="summary-zh zh">谈招人：&#8220;工作和生活中没几件事比发现新的人才更让人愉快。在别人身上看到卓越，有时甚至比他们自己更早看到。&#8221;没有 AI 内容，也没有点名任何对象。</p>
+    <div class="urls">
+      <a href="https://x.com/rauchg/status/2108399406009798764">https://x.com/rauchg/status/2108399406009798764</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aaron Levie</span>
+      <span class="builder-role">Box CEO</span>
+    </div>
+    <p class="summary-en">Aaron Levie endorses a policy he opens by calling weird, and builds the case as a wager rather than a claim about models: he does not believe AI is conscious, he says, but he does not want future models trained on endless content of humans being rude to models, and if we want safe and aligned models we probably want them to have many good interactions in their training data. He allows that Anthropic may hold more extreme beliefs than this and closes on &#8220;Just be nice to the AI.&#8221; Two things are absent: the feed does not include the policy he is responding to, and the mechanism &mdash; that human-model interactions end up in training data &mdash; is asserted, not evidenced. Separately he announced Box Mount, which lets developers mount Box as a file system directly inside any agent sandbox, on the argument that agents doing complex work need files and data the way a person would. &#8220;The future is headless&#8221; carries no measurement.</p>
+    <p class="summary-zh zh">Aaron Levie 支持一项他自己开头就说&#8220;听着奇怪&#8221;的政策，但他把论证搭成了赌注，而不是对模型的主张：他说他不相信 AI 有意识，但也不希望未来的模型是用无穷无尽「人对模型很粗鲁」的内容训出来的；如果我们想要安全对齐的模型，大概就该让它们的训练数据里有大量良好的互动。他承认 Anthropic 在这件事上可能持有更极端的信念，收尾是&#8220;对 AI 好一点就行&#8221;。有两点是缺的：feed 没有包含他所回应的那条政策本身，而「人与模型的互动会进入训练数据」这个机制是被断言的，没有给证据。另外他发布了 Box Mount，让开发者把 Box 当作文件系统直接挂载进任何 agent 沙箱，理由是做复杂工作的 agent 需要像人一样接触文件和数据。&#8220;未来是无头的&#8221;这句话没有任何测量。</p>
+    <div class="urls">
+      <a href="https://x.com/levie/status/2108426594054533545">https://x.com/levie/status/2108426594054533545</a>
+      <a href="https://x.com/levie/status/2108279490510193078">https://x.com/levie/status/2108279490510193078</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Garry Tan</span>
+      <span class="builder-role">Y Combinator CEO</span>
+    </div>
+    <p class="summary-en">&#8220;Logical: in the future ICs with agents will be more productive and create better outcomes than equivalent people managers from prior eras.&#8221; A prediction with no baseline and no definition of what counts as equivalent. His other two posts &mdash; &#8220;Actually truth already stranger than fiction&#8221; and &#8220;GTA SF omg&#8221; &mdash; carry no AI content.</p>
+    <p class="summary-zh zh">&#8220;合乎逻辑：未来带着 agent 的一线工程师，会比过去同等水平的管理者产出更高、结果更好。&#8221;这是一个没有基线、也没有定义什么叫「同等」的预测。他另外两条 ——&#8220;现实已经比小说更离奇&#8221;和&#8220;GTA SF omg&#8221;—— 没有 AI 内容。</p>
+    <div class="urls">
+      <a href="https://x.com/garrytan/status/2108433505038606620">https://x.com/garrytan/status/2108433505038606620</a>
+      <a href="https://x.com/garrytan/status/2108408546128011351">https://x.com/garrytan/status/2108408546128011351</a>
+      <a href="https://x.com/garrytan/status/2108408297988723076">https://x.com/garrytan/status/2108408297988723076</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Matt Turck</span>
+      <span class="builder-role">FirstMark 投资人 / MAD Podcast 主持人</span>
+    </div>
+    <p class="summary-en">Matt Turck published his conversation with Andy Pavlo, now building a research lab at ClickHouse, on what happens to databases when billions of agents hit them, and posted the full chapter list. The headings are where today&#8217;s only numbers on this topic sit: Neon&#8217;s claim that agents create 80% of databases &mdash; the heading itself ends in a question mark &mdash; a chapter on why agents keep deleting production databases, text-to-SQL going from 60% to 99.5%, 60% of open-source databases now carrying AI commits, and LLMs delivering 85% of the tuning in 15 minutes. Two limits on them: these are Turck&#8217;s chapter titles rather than verified claims, and this is a different episode from the one this feed&#8217;s podcast slot carries today.</p>
+    <p class="summary-zh zh">Matt Turck 发布了他与 Andy Pavlo（现正在 ClickHouse 筹建研究实验室）的对话，主题是当数十亿 agent 打过来时数据库会怎样，并贴出了完整的章节表。今天这个话题上唯一的数字都在这些标题里：Neon 称 80% 的数据库是 agent 建的 —— 这个标题本身以问号结尾 —— 有一章讲为什么 agent 一直在删生产库，text-to-SQL 从 60% 提到 99.5%，60% 的开源数据库现在带着 AI 提交的代码，以及 LLM 在 15 分钟内完成 85% 的调优。两点限制：这些是 Turck 写的章节标题，不是被验证过的结论；而且这一集和本 feed 今天播客槽位带的那一集不是同一期。</p>
+    <div class="urls">
+      <a href="https://x.com/mattturck/status/2108223142699110727">https://x.com/mattturck/status/2108223142699110727</a>
+      <a href="https://x.com/mattturck/status/2108223141055180992">https://x.com/mattturck/status/2108223141055180992</a>
+      <a href="https://x.com/mattturck/status/2108223135673696504">https://x.com/mattturck/status/2108223135673696504</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Nikunj Kothari</span>
+      <span class="builder-role">FPV Ventures 合伙人</span>
+    </div>
+    <p class="summary-en">Nikunj Kothari writes up a conversation with a seed-stage founder close to $1M in revenue whose runway is dwindling and who believes the models have not caught up to what he wants to build. He says he has this exact conversation at least twice a week, and gives three options: go cockroach and reach default profitable, then raise large once demand arrives; find an orthogonal area that is growing fast and ride the new capabilities; or sell, get acqui-hired into a more ambitious company, and start again in a year or two. His market read &mdash; the seed-to-Series-A bar gets harder every month, the old-school metrics are no longer relevant, and only a few categories have real pull on the VC side &mdash; carries no measurement, and it comes from someone who sits on the side that sets the bar.</p>
+    <p class="summary-zh zh">Nikunj Kothari 记录了他和一位种子轮创始人的对话：营收接近 100 万美元，现金流在变薄，本人认为模型还没追上他想做的东西。他说同样的对话他每周至少要谈两次，并给出三个选项：像蟑螂一样活下来做到默认盈利，等能力到位、需求出现再融一轮大的；找一个正交的、增长很快的方向，借新能力上位；或者卖掉、被收购加入一家更有野心的公司，一两年后重新开始。他对市场的判断 —— 种子到 A 轮的门槛每个月都在变高、老派指标已经不再相关、只有少数几个品类在 VC 端有真实拉力 —— 没有配任何测量，而且它出自设定这道门槛的一方。</p>
+    <div class="urls">
+      <a href="https://x.com/nikunj/status/2108410378233549106">https://x.com/nikunj/status/2108410378233549106</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Peter Steinberger</span>
+      <span class="builder-role">@OpenClaw + @OpenAI</span>
+    </div>
+    <p class="summary-en">&#8220;WE GOT IT! .claw incoming!&#8221; is the whole post, plus a link. The feed does not say what was obtained or what .claw refers to, and nothing in it connects to the OpenClaw Android review that has been sitting open in this feed for over a week.</p>
+    <p class="summary-zh zh">整条帖子就是&#8220;我们拿到了！.claw 要来了！&#8221;，外加一个链接。feed 没有说明拿到了什么，也没有解释 .claw 指什么；帖子里没有任何内容能把它和本 feed 里已经挂了一周多的 OpenClaw Android 审核对上。</p>
+    <div class="urls">
+      <a href="https://x.com/steipete/status/2108374513931165759">https://x.com/steipete/status/2108374513931165759</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Dan Shipper</span>
+      <span class="builder-role">Every CEO</span>
+    </div>
+    <p class="summary-en">Dan Shipper posted a job opening for Checks, described as a personal benchmarking platform built to help anyone measure how good new models are for their real work. This is the first appearance of the name Checks in this digest, and the post presents it as already built; there is no user count, no benchmark output, and no statement of whether results are shared or kept private. His other post is the single word &#8220;yup&#8221;.</p>
+    <p class="summary-zh zh">Dan Shipper 发了一个岗位招聘，招的是 Checks —— 被描述为一个&#8220;个人基准测试平台&#8221;，用来帮任何人衡量新模型对自己的真实工作有多好。Checks 这个名字是本 digest 里第一次出现，帖子把它当作已经建好的东西来讲；没有用户数，没有跑分结果，也没有说明结果是公开还是私有的。他另一条只有一个词&#8220;yup&#8221;。</p>
+    <div class="urls">
+      <a href="https://x.com/danshipper/status/2108216876853596486">https://x.com/danshipper/status/2108216876853596486</a>
+      <a href="https://x.com/danshipper/status/2108215087030800657">https://x.com/danshipper/status/2108215087030800657</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Aditya Agarwal</span>
+      <span class="builder-role">SPC 普通合伙人</span>
+    </div>
+    <p class="summary-en">Aditya Agarwal published a conversation with Waymo&#8217;s Dmitri Dolgov and framed it with a question instead of an answer: when is an autonomous vehicle actually good enough? The other two posts are publication pointers. The substance sits behind links this digest cannot read, so the question as posed is all that can be rated &mdash; and it has the same shape as the evaluation question this feed has been tracking, moved to a different domain.</p>
+    <p class="summary-zh zh">Aditya Agarwal 发布了与 Waymo 的 Dmitri Dolgov 的对话，并用一个问题而不是一个答案来定调：一辆自动驾驶车到底什么时候才算足够好？另外两条是发布指引。实质内容在本 digest 读不到的链接后面，所以能被评价的只有这个被提出来的问题本身 —— 而它的形状，和本 feed 一直在追踪的那个「怎么评估」的问题是一样的，只是换了一个领域。</p>
+    <div class="urls">
+      <a href="https://x.com/adityaag/status/2108260509241991586">https://x.com/adityaag/status/2108260509241991586</a>
+      <a href="https://x.com/adityaag/status/2108255511443542176">https://x.com/adityaag/status/2108255511443542176</a>
+      <a href="https://x.com/adityaag/status/2108254520744517652">https://x.com/adityaag/status/2108254520744517652</a>
+    </div>
+  </article>
+
+  <article class="builder">
+    <div class="builder-head">
+      <span class="builder-name">Claude</span>
+      <span class="builder-role">Anthropic 官方账号</span>
+    </div>
+    <p class="summary-en">The official Claude account paused the Claude Startups program&#8217;s Team offer and its $1,000 API credit offer, saying it underestimated demand: with hundreds of thousands of applicants it is re-reviewing applications, and some accounts that had already been approved will not get the offer. Offers already claimed stay in place, and Max or Team subscribers keep their monthly credits. This is a first-party reversal that reaches backwards, and it is the only hard number attached to a decision today. Separately, Claude Docs, Slides and Design came out of beta on every plan including Free, with a human and Claude editing the same doc, deck or design together, plus a pointer to the list of supported external tools.</p>
+    <p class="summary-zh zh">Claude 官方账号暂停了 Claude Startups 项目的 Team 权益与 1,000 美元 API credits 权益，说他们低估了需求：在数十万申请者面前要重新审核，一些已经被批准通过的账号将拿不到这项权益。已经领取的权益保留，Max 或 Team 订阅者的月度 credits 照常。这是一次会追溯生效的第一方撤回，也是今天唯一一个挂在某个决定上的硬数字。另外，Claude Docs、Slides 与 Design 结束 beta，在所有套餐（包括免费版）上线，人和 Claude 可以一起编辑同一份文档、演示或设计，并附上了支持的外部工具清单。</p>
+    <div class="urls">
+      <a href="https://x.com/claudeai/status/2108404561413349695">https://x.com/claudeai/status/2108404561413349695</a>
+      <a href="https://x.com/claudeai/status/2108271561337606300">https://x.com/claudeai/status/2108271561337606300</a>
+      <a href="https://x.com/claudeai/status/2108271559928389679">https://x.com/claudeai/status/2108271559928389679</a>
+    </div>
+  </article>
+
+</section>
+
+<!-- ============== PODCAST ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">&#127911;</span>
+    <h2 class="section-title">Podcast</h2>
+    <span class="section-meta">1 Episode</span>
+  </div>
+
+  <div class="podcast">
+    <div class="podcast-source">Training Data</div>
+    <div class="podcast-title">Google&#8217;s AI Infrastructure Chief, Amin Vahdat, on the Physics &amp; Economics of Frontier AI</div>
+    <p class="summary-en">Google&#8217;s AI infrastructure chief Amin Vahdat is running one of the largest capital buildouts in the industry &mdash; the host puts Google&#8217;s CapEx above $200 billion this year &mdash; and he refuses to be measured in FLOPS. FLOPS, he says, is a theoretical maximum under chosen conditions; what his team is held to is goodput, the performance a real workload actually delivers once failures, restarts and recovery are counted. It is a Google term, he adds, that others are starting to pick up. The reason it matters is scale: at 100,000 accelerators working synchronously at microsecond-to-millisecond granularity, something fails &#8220;multiple times a day and perhaps&#8230; multiple times an hour&#8221;, and one failure can stall the entire job while everyone waits for a checkpoint to be restored. Asked for the most common failure reason, he says there isn&#8217;t one: &#8220;If there were a common failure reason, we&#8217;d have figured it out and fixed it. It is a long tail of constant discovery.&#8221;</p>
+    <p class="summary-zh zh">Google AI 基础设施负责人 Amin Vahdat 正在操盘业内规模最大的一次资本开支 —— 主持人给出的数字是 Google 今年 CapEx 超过 2,000 亿美元 —— 而他拒绝用 FLOPS 被衡量。他说 FLOPS 是选定条件下的理论上限；他的团队被考核的是 goodput，即一个真实工作负载在把故障、重启与恢复都算进去之后，实际交付出来的性能。他补了一句，这是 Google 的术语，业内开始有人跟着用。它之所以重要是因为规模：在十万块加速器以微秒到毫秒的粒度同步工作时，&#8220;一天会坏很多次，取决于配置，可能一小时就坏很多次&#8221;，而一次故障就能让整个任务停下来，所有人等着从某个检查点恢复。被问到最常见的故障原因时，他说没有那种东西：&#8220;如果有常见原因，我们早就查出来修好了。这是一条不断有新发现的长尾。&#8221;</p>
+    <p class="summary-en">The second move he makes is to shift credit for progress away from silicon. Google&#8217;s target is to double effective serving capacity, measured as token generation capability, roughly every six months, and his claim is that &#8220;as much or more of that is going to come from software as it is from hardware&#8221;, through dozens or hundreds of individual optimizations landing again and again. Asked how the gains have actually split, he says he does not have the exact breakdown, but that in his experience most of the improvement in intelligence per watt has come from the model side, a fair amount from software systems, and that hardware supplies a multiplier that &#8220;lifts everyone else up year over year&#8221; at 2x or more. The breakdown is his recollection rather than a measurement, and it comes from the person accountable for the hardware.</p>
+    <p class="summary-zh zh">他的第二个动作，是把进步的功劳从芯片身上挪走。Google 的目标是让有效服务容量（以 token 生成能力衡量）大约每六个月翻一倍，而他的说法是&#8220;这里面来自软件的至少和来自硬件的一样多，甚至更多&#8221;，靠的是几十上百个一次次落地的单独优化。被问到实际拆分比例时，他说没有精确的数字，但按他的经验，每瓦智能的提升大部分来自模型侧，软件系统贡献相当一部分，硬件提供的是一个&#8220;逐年把所有其他人抬起来&#8221;的乘数，2 倍甚至更多。这个拆分是他的回忆而不是测量，而且出自对硬件负责的那个人。</p>
+    <p class="summary-en">The TPU program is his case for specialisation, told as a bet against the grain. It started in 2013, when the conventional wisdom was that you do not build custom silicon for a single workload &mdash; he calls it &#8220;the bitter lesson of chips&#8221;, that specialisation never wins &mdash; and he says quite a few people inside Google were unsure it would work. The first chip was inference only, the second added training, and then transformers arrived and, in his words, &#8220;completely shifted the TPU program&#8221;. This year the program split into two chips, 8I for inference and 8T for training, and the calculus he describes is about projected market size rather than speed: a serving chip that is 2x faster does not justify itself if serving is going to be 2% or 5% of the market. Both chips can still run the other&#8217;s workload, which is what keeps them fungible across a six-year hardware lifetime.</p>
+    <p class="summary-zh zh">TPU 项目是他为专用化辩护的案例，而且是被他讲成一次逆向下注的赌博。它起步于 2013 年，当时的共识是不该为单一工作负载做定制芯片 —— 他称之为&#8220;芯片版的 bitter lesson&#8221;，即专用化永远赢不了 —— 而且他说 Google 内部也有不少人不确定它能不能成。第一块芯片只做推理，第二块加上了训练，然后 transformer 出现了，用他的话说&#8220;彻底改变了 TPU 项目&#8221;。今年这个项目拆成了两块芯片，8I 做推理、8T 做训练，而他描述的算盘打的是预估市场规模而不是速度：一块在服务上快 2 倍的芯片，如果服务只占市场的 2% 或 5%，就不值得做。两块芯片都还能跑对方的工作负载，这正是它们在六年硬件寿命里保持可互换的原因。</p>
+    <p class="summary-en">Co-design is where he locates the advantage, and he is specific about the mechanism: DeepMind researchers and chip engineers get into the same room for days or weeks, and when a model optimization needs hardware support they will change a chip definition in flight or delay a tape out by a week or two. Across company boundaries he calls that &#8220;somewhere between hard and impossible&#8221;. Hardware is planned two to five years ahead across five or six pipeline stages, so the trade is explicit &mdash; researchers have learned not to bring a 0.5% tweak to a chip that is about to tape out. Asked whether the architecture has been rewritten as models changed, he says that at a medium level of detail it has not really changed since TPU v1: large matrix multiply units, a sparse core, and remote load and store over the ICI network have carried generations of models. They are, he says, &#8220;using Gemini to design hardware for future Geminis&#8221;.</p>
+    <p class="summary-zh zh">协同设计是他定位优势的地方，而且他把机制讲得很具体：DeepMind 的研究员和芯片工程师会关在同一间屋子里待上几天到几周，当某个模型优化需要硬件支持时，他们会改动正在执行中的芯片定义，或者把一次 tape out 推迟一两周。跨公司边界做这件事，他用&#8220;介于困难和不可能之间&#8221;来形容。硬件是提前两到五年、分五六个流水线阶段来规划的，所以这个交换条件是明确的 —— 研究员们已经学会不要把 0.5% 的微调拿去打扰一块马上要 tape out 的芯片。被问到架构有没有随着模型变化被重写，他说在中等细节层面上，从 TPU v1 以来它其实没怎么变：大型矩阵乘单元、一个 sparse core、以及通过 ICI 网络做远程读写，这几样撑住了好几代模型。他说他们正在&#8220;用 Gemini 为未来的 Gemini 设计硬件&#8221;。</p>
+    <p class="summary-en">Two forward-looking claims carry the most uncertainty. Long-horizon agents change the shape of the load: with no human in the loop to rate-limit, interaction time drops from seconds to milliseconds, and the parsing and orchestration land on CPUs, so demand for CPU, networking and storage rises alongside accelerated compute &mdash; which fights the specialisation he has just argued for, because a CPU rack beside a TPU rack breaks the density and power uniformity the building was designed around. Power he calls &#8220;the single most fundamental constraint that we face&#8221;, and his preference is grid connection over generating his own, on the argument of statistical multiplexing.</p>
+    <p class="summary-zh zh">两个朝前看的说法带着最多不确定性。长程 agent 改变了负载的形状：没有人在这个循环里做限速，交互时间从几秒掉到几毫秒，而解析与编排落在 CPU 上，于是 CPU、网络和存储的需求随着加速算力一起往上涨 —— 这恰好和他刚才主张的专用化打架，因为把 CPU 机架放在 TPU 机架旁边，会破坏整栋楼是按之设计的密度与配电均一性。电力被他称为&#8220;我们面对的最根本的那一个约束&#8221;，而他偏向并网而不是自己发电，理由是统计复用。</p>
+    <p class="summary-en">He also puts a number on hardware lifetime that cuts against the prevailing debate: seven- and eight-year-old TPUs are still at 100% utilization, even though the depreciation lifetime is about six years and newer generations are more power efficient. Replacement happens by pod rather than by chip &mdash; a pod might be 9,600 chips across roughly 150 racks &mdash; and the new pod&#8217;s footprint often does not fit the vacancy the old one leaves, so retrofitting is &#8220;a bit of an art&#8221;. Asked what the frontier supercomputer looks like in ten years, he first declines: &#8220;the cone of uncertainty there is way, way too wide&#8221;. Then he offers it anyway &mdash; racks manufactured centrally, deeply integrated, possibly multiple megawatts each, wheeled in and plugged into water, power and fiber. On orbital data centres, which Google is pursuing as a moonshot, his arithmetic is 1.4x solar irradiance from having no atmospheric attenuation and 90% to 100% sunlight coverage in sun-synchronous orbit against roughly 28% to 35% on land; he immediately lists what gets harder, since cooling in space is harder rather than easier and repair is harder, and his summary is &#8220;no fundamental showstoppers&#8221;.</p>
+    <p class="summary-zh zh">他还给了一个与当下争论方向相反的硬件寿命数字：七年前和八年前的 TPU 仍然跑在 100% 利用率上，尽管折旧年限大约是六年，而新的一代更省电。更换是按 pod 而不是按芯片进行的 —— 一个 pod 可能是 9,600 块芯片、约 150 个机架 —— 而新 pod 的占地常常对不上旧 pod 留出来的空位，所以改造&#8220;有点像一门手艺&#8221;。被问到十年后最前沿的超算长什么样，他先拒绝了：&#8220;那里的不确定性锥形太宽太宽了&#8221;。然后他还是给了 —— 机架集中制造、深度集成、每个可能好几兆瓦，推进来接上水、电和光纤就行。至于太空数据中心（Google 正把它当 moonshot 在推进），他给的算术是：没有大气衰减带来 1.4 倍的太阳辐照，加上太阳同步轨道上 90% 到 100% 的光照覆盖率，对比陆地上的约 28% 到 35%；他紧接着列出变难的部分 —— 太空里的散热是更难而不是更容易，维修也更难 —— 而他的总结是&#8220;没有根本性的拦路石&#8221;。</p>
+    <div class="urls">
+      <a href="https://www.youtube.com/playlist?list=PLOhHNjZItNnMm5tdW61JpnyxeYH5NDDx8">https://www.youtube.com/playlist?list=PLOhHNjZItNnMm5tdW61JpnyxeYH5NDDx8</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">&#128161;</span>
+    <h2 class="section-title">The Takeaway</h2>
+    <span class="section-meta">2026-10-10</span>
+  </div>
+
+  <div class="takeaway">
+    <div class="takeaway-label">The Takeaway</div>
+    <p>The 28-day clock reaches Day 4 and lands on the improvement branch for the first time. The four days now read: Day 1 produced a status statement that hit neither branch, Day 2 took the reset branch, Day 3 took a third path in the form of a release, and Day 4 says &#8220;We have improved steering to be instant&#8221;. That is the branch the commitment was written for, and it took four days to reach it. What has not changed is the absence of measurement: instant, much faster, realtime and no wasted effort are all adjectives, and the vote count first asked about on Day 3 has now gone unmentioned for a second consecutive day.</p>
+    <p>Day 4 also bundles a release into the improvement, which matters for a specific reason. The promise derived on Day 2 was that improvements would not be taken down. An improvement shipped alongside a release is consistent with that promise, but it does not test it &mdash; the test is whether the four things shipped before the reset are still there, and nothing today enumerates them. The release itself, GPT-6.1 Sol ultrafast, combines two names that this digest recorded separately from DevDay on 10-01; the feed does not say whether this is the same artifact or a new one, so it should not be counted as either.</p>
+    <p>Two sources today describe agents as a new class of user, and they do not meet. Madhu Guru supplies the map &mdash; every layer of the stack rebuilt, OSes, cloud, identity, interfaces &mdash; with no numbers anywhere in it. Matt Turck supplies the only numbers available on the topic, but they arrive as chapter titles for a different episode with Andy Pavlo: agents create 80% of databases per Neon, text-to-SQL moved from 60% to 99.5%, 60% of open-source databases now carry AI commits. Graded, that is thin: the 80% is Neon&#8217;s own figure relayed second-hand, the heading carrying it ends in a question mark, and Neon sells the category the claim is about. The number that would test Guru&#8217;s thesis exists, and it is exactly the kind of number that cannot carry the weight.</p>
+    <p>A structural mismatch is worth flagging because it will confuse anyone checking the links. The podcast in this feed&#8217;s slot is Amin Vahdat on Google&#8217;s AI infrastructure, dated 2026-10-06. The episode Matt Turck is promoting in his tweets is a different one, Andy Pavlo on databases. Both are real and both are here, but they are not the same conversation, and the Vahdat episode is arriving three days after its publication date rather than inside the window the tweets cover.</p>
+    <p>The agent-communication line moved, and the valence flipped. On 09-21 Peter Yang tested Muse and Instinct on phone calls and reported both refused; on 10-08 he asked for it again as a wish; on 10-09 a guest on the Every episode said he would one day FaceTime his Grok bot into his workouts. Today Peter Yang reports that Grok bot&#8217;s email feature did not reply when he tagged it. Same product, one day apart, and the simpler capability is reported broken while the harder one is still being wished for. A wish and a failure report are different kinds of evidence and should not be merged; read together they still say that nothing here has been delivered.</p>
+    <p>The evaluation line moved from talk to artifact. Dan Shipper&#8217;s Checks is the first named product in a thread this digest has been carrying since 09-13, through 09-27, 10-05, 10-07 and 10-08. What changed is the shape of the evidence rather than the amount of it: there is now something that can be installed and argued about, where before there were only positions. There is still no user count, no benchmark output, and no statement on whether results are public &mdash; which leaves a live tension unaddressed, since the 10-08 podcast argued plainly that a public eval is training data for everyone.</p>
+    <p>Anthropic&#8217;s reversal on the Claude Startups program is the only decision today with a hard number attached, and it reaches backwards: hundreds of thousands of applicants, and some accounts already approved will lose the offer. It is first-party and checkable in kind, but the number is also the justification, so it should be read as a demand statement rather than an outcome. One coincidence sits in the same window and should be recorded as a coincidence only: an Anthropic engineer posted instructions for enabling API credits several hours before the pause was announced. Two posts, one employer, no reference between them &mdash; that is not a contradiction, and it is not evidence of one.</p>
+    <p>Two early-stage investors read the same market in opposite directions on the same day without referencing each other. Garry Tan: ICs with agents will out-produce equivalent managers from prior eras. Nikunj Kothari: the seed-to-Series-A bar gets harder every month and the old metrics no longer matter. They are not answering the same question &mdash; one is about individual productivity, the other about whether a company gets funded &mdash; so both can hold at once, and forcing a verdict would be a mistake. Nikunj&#8217;s read also needs its own discount: it comes from the side that sets the bar, and &#8220;at least 2x a week&#8221; is a self-reported frequency, not a sample.</p>
+    <p>Thirteen of the 32 posts carry nothing that can be graded, counted under the standard used here: no named object, or no number, or no AI content at all. They are Swyx&#8217;s unfilled template joke posted twice plus the consulting pitch, Sottiaux&#8217;s context-free announcement of ChatGPT, two of Peter Yang&#8217;s three, Nan Yu&#8217;s single word, Rauch&#8217;s note on spotting talent, two of Garry Tan&#8217;s three, Shipper&#8217;s &#8220;yup&#8221;, and two of Aditya Agarwal&#8217;s three. They are rendered rather than dropped so the four numbers at the top stay checkable.</p>    <p>Carrying forward: Day 5 of the 28-day clock, and whether the vote count ever appears; whether .claw is ever explained; whether anyone answers Peter Yang on Grok bot&#8217;s email; whether Checks ships numbers or stays a job posting; whether the Vahdat episode resurfaces in a later window now that its date is on record. Still unmoved after today: Pro $200 reopening, the Gemini 4 vibe check, external reproduction of the Sonnet 5.5 numbers, the OpenClaw Android review, the unanswered 10x coding-agent question, and Goodfire x Hugging Face, which still exists only in audio.</p>
+  </div>
+
+  <div class="takeaway zh">
+    <div class="takeaway-label">核心结论</div>
+    <p>28 天的时钟走到第 4 天，第一次落在「改进」这一支。这四天现在读起来是：第 1 天给出的是两条分支都没命中的状态表述，第 2 天走了 reset 分支，第 3 天走了「发布」这条第三条路，第 4 天说的是&#8220;我们把 steering 改成了即时生效&#8221;。这正是承诺写下来的那一支，用了四天才走到。没变的是测量的缺席：即时、快得多、实时、不白花力气，全是形容词；而第 3 天第一次被追问的票数，已经连续第二天没有出现。</p>
+    <p>第 4 天还把一次发布并进了改进里，这件事有个具体的重要性。第 2 天派生出来的承诺是改进不会被下架。一次跟着发布一起上线的改进与那个承诺是一致的，但并没有检验它 —— 检验点是 reset 之前发出的那四件东西是否还在，而今天没有任何一处把它们列出来。这次发布本身，GPT-6.1 Sol ultrafast，把本 digest 在 10-01 从 DevDay 分别记下的两个名字合在了一起；feed 没有说明这是同一个东西还是新的，所以它既不该被算作前者，也不该被算作后者。</p>
+    <p>今天有两个信源把 agent 描述成新的一类用户，而他们没有相遇。Madhu Guru 给的是地图 —— 栈的每一层都要重做，操作系统、云、身份、界面 —— 里面一处数字都没有。Matt Turck 给的是这个话题上唯一能拿到的数字，但它们是以另一期节目（与 Andy Pavlo 的那期）的章节标题形式出现的：Neon 称 80% 的数据库是 agent 建的、text-to-SQL 从 60% 提到 99.5%、60% 的开源数据库现在带着 AI 提交的代码。分级下来它是薄的：80% 是 Neon 自己的数字、二手转述，承载它的标题以问号结尾，而 Neon 卖的正是这个说法所指的品类。能检验 Guru 论点的那个数字是存在的，但它恰恰是承担不了这个重量的那一类数字。</p>
+    <p>一个结构性错位值得点出来，因为它会让去核对链接的人困惑。本 feed 播客槽位里的这一期是 Amin Vahdat 讲 Google 的 AI 基础设施，日期 2026-10-06；而 Matt Turck 在推文里推的是另一期，Andy Pavlo 讲数据库。两者都是真的，也都在这里，但不是同一场对话；而且 Vahdat 这一集是在它的发布日期三天之后才出现，并不落在推文覆盖的窗口里。</p>
+    <p>agent 通信这条线动了，而且正负翻转了。09-21 Peter Yang 测试 Muse 和 Instinct 打电话，报告两个都拒绝；10-08 他把它作为愿望重新提出；10-09 Every 那期的嘉宾说总有一天会把自己的 Grok bot FaceTime 进训练。今天 Peter Yang 报告说 Grok bot 的邮件功能在他 @ 之后没有回复。同一个产品，前后一天，更简单的那个能力被报告为坏了，而更难的那个还在被许愿。愿望和失效报告是两种证据，不该合并；放在一起读，它们仍然只说明这里什么都没有交付。</p>
+    <p>评估这条线从讨论变成了实物。Dan Shipper 的 Checks 是本 digest 从 09-13 一路带到 09-27、10-05、10-07、10-08 之后，这条线上第一个有名字的产品。变的是证据的形状而不是证据的量：现在有了一个可以装上、可以拿来争论的东西，而此前只有立场。仍然没有用户数、没有跑分结果、也没有说明结果是否公开 —— 这让一个正在生效的张力没被回应：10-08 那期播客说得非常直接，公开的 eval 就是给所有人的训练数据。</p>
+    <p>Anthropic 在 Claude Startups 项目上的撤回，是今天唯一带着硬数字的决定，而且它会追溯生效：数十万申请者，部分已经被批准的账号将失去这项权益。它是第一方的、在性质上可核对的，但这个数字同时也是它的理由，所以该按需求声明来读，而不是按结果来读。同一窗口里有一个巧合，只该按巧合记录：在暂停公告发出前几个小时，一位 Anthropic 工程师发了开启 API credits 的说明。两条帖子、同一个雇主、彼此没有引用 —— 这不是矛盾，也不是矛盾的证据。</p>
+    <p>两位早期投资人在同一天、互不引用地给出了方向相反的读法。Garry Tan：带着 agent 的一线工程师会胜过过去同等水平的管理者。Nikunj Kothari：种子到 A 轮的门槛每个月都在变高，老指标已经不再重要。他们回答的不是同一个问题 —— 一个是个人产出，一个是公司能不能融到钱 —— 所以两者可以同时成立，强行判一个胜负是错的。Nikunj 的读法还要单独打个折：它出自设定门槛的一方，而&#8220;每周至少两次&#8221;是自报频率，不是样本。</p>
+    <p>32 条里有 13 条没有可评级的内容，按这里一贯的标准计数：未点名对象、无数字、或根本没有 AI 内容，满足其一即计入。它们是 Swyx 那个占位符没填就发了两遍的模板玩笑加咨询广告、Sottiaux 那句没有上下文的发布 ChatGPT、Peter Yang 三条里的两条、Nan Yu 那一个词、Rauch 那段关于发现人才的话、Garry Tan 三条里的两条、Shipper 的那个&#8220;yup&#8221;、以及 Aditya Agarwal 三条里的两条。它们被渲染而不是被删掉，这样顶部那四个数字仍然可以核对。</p>    <p>带进下一期：28 天时钟的第 5 天，以及票数到底会不会出现；.claw 会不会被解释；有没有人回应 Peter Yang 关于 Grok bot 邮件的问题；Checks 会不会给出数字，还是停在一条招聘帖上；Vahdat 这一集在日期已记录在案之后，会不会在后面的窗口里再次出现。今天之后仍未移动的：Pro $200 重新开放、Gemini 4 的 vibe check、Sonnet 5.5 数字的外部复现、OpenClaw 的 Android 审核、那个没人回答的 10x 编码 agent 提问，以及仍然只有音频形式的 Goodfire x Hugging Face。</p>
+  </div>
+</section>
+
+<!-- ============== ALREADY COVERED ============== -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-icon">&#128257;</span>
+    <h2 class="section-title">已收录 / Already Covered</h2>
+    <span class="section-meta">0 Items &#183; Blog Array Empty</span>
+  </div>
+
+  <div class="dedup">
+    <p>&#8226; Blog: the <code>blogs</code> array in this window is empty, so there is no blog entry to deduplicate and nothing to list here. This is the third consecutive issue where the only zero comes from an empty array rather than from a match.</p>
+    <p>&#8226; Podcast: counted, not deferred. &#8220;Amin Vahdat&#8221;, &#8220;Vahdat&#8221;, &#8220;AI Infrastructure&#8221; and &#8220;Physics&#8221; all return zero hits under <code>2026/</code>. The one hit for &#8220;Frontier AI&#8221; is 10-04, whose episode was a different guest on a different topic, and broad phrases are not used as a dedup test here in any case.</p>
+    <p style="margin-top:12px">&#8226; Tweet-level check: all 32 tweet IDs in this window were matched against every file under <code>2026/</code> and returned zero hits, so no tweet here repeats a previously published issue.</p>
+    <p style="margin-top:12px">&#8226; One thing to note for later windows: this episode&#8217;s publication date is 2026-10-06, three days before the tweets in this window, so it is arriving late rather than fresh. Its guest name is now on record, which is what a later dedup check will match against.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="next-issue">&#128236; 下一期：明天 10:00（北京时间）</div>
+  <div class="signature">by chloevchen</div>
+</footer>
+
+</body>
+</html>
+<!-- by chloevchen -->
