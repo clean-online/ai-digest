@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest · 2026-10-11</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+
+
+
+
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 28px 30px; margin-bottom: 24px; }
+  .podcast-source { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
+  .podcast-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; margin-bottom: 18px; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; }
+
+
+
+
+</style>
+</head>
+<body>
+<header class="topbar">
+<div class="topbar-inner">
+<a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+<span>双语 &#183; Bilingual</span>
+</div>
+</header>
+<section class="header">
+<div class="eyebrow">Daily Digest &#183; 2026-10-11</div>
+<h1>AI Builders Digest</h1>
+</section>
+<div class="stats">
+<div class="stat"><div class="stat-num">15</div><div class="stat-label">Builders</div></div>
+<div class="stat"><div class="stat-num">27</div><div class="stat-label">Tweets</div></div>
+<div class="stat"><div class="stat-num">1</div><div class="stat-label">Podcast</div></div>
+<div class="stat"><div class="stat-num">0</div><div class="stat-label">Blog</div></div>
+</div>
+<p class="note-line">Stats count what this feed rendered: 15 builders, 27 tweets, 1 podcast, 0 blog. The blog zero has a different cause this time. The array was not empty; it carried three Anthropic Engineering entries, and every one of them resolves to a URL already published in this digest: how-we-contain-claude on 2026-06-05, april-23-postmortem on 2026-05-11, and managed-agents on 2026-05-12. That is the inverse of 10-10, 10-09 and 10-08, where the only zero came from an array with nothing in it at all. The podcast is counted, and unlike the 10-10 episode it sits inside this window rather than three days outside it: it is dated 2026-10-09, the same Pacific day as all 27 tweets. &#8220;Misha Laskin&#8221;, &#8220;Laskin&#8221;, &#8220;Beam&#8221; and &#8220;Reflection&#8221; return zero hits across every file under <code>2026/</code>; &#8220;No Priors&#8221; returns 26, but that is the channel name and is not used as a dedup test here.</p>
+<p class="note-line zh">统计口径为本 feed 实际渲染的数量：15 位 builder、27 条推文、1 期播客、0 篇博客。博客的 0 这次成因不同：数组不是空的，它带了三篇 Anthropic Engineering 的文章，而三篇的 URL 在本 digest 里都已经出现过 &#8212;&#8212; how-we-contain-claude 见 2026-06-05、april-23-postmortem 见 2026-05-11、managed-agents 见 2026-05-12。这与 10-10、10-09、10-08 正好相反，那三期的 0 都来自一个空数组。播客这一集计入，而且和 10-10 那期不同，它落在窗口之内而不是早三天：日期是 2026-10-09，与这里的 27 条推文同属太平洋时间的同一天。&#8220;Misha Laskin&#8221;、&#8220;Laskin&#8221;、&#8220;Beam&#8221;、&#8220;Reflection&#8221; 在 <code>2026/</code> 下的所有文件里零命中；&#8220;No Priors&#8221; 命中 26 处，但那是频道名，按这里的规则不作为判重依据。</p>
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128036;</span>
+<h2 class="section-title">X / Twitter</h2>
+<span class="section-meta">15 Builders &#183; 27 Tweets</span>
+</div>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Swyx</span>
+<span class="builder-role">Latent Space / smol AI</span>
+</div>
+<p class="summary-en">Swyx is selling the last tickets to AIE NYC, calling it the biggest technical conference the series has run in New York and its first with a finance mainstage, and framing it as the point where his two careers meet: investment bank to hedge fund, big tech to NYC startup. Separately he relaunched Coding Career, the write-up of his own path that he posted six years ago, now free or on Amazon. Neither post carries a number, and the sell-out claim is a forecast about this weekend rather than a count.</p>
+<p class="summary-zh zh">Swyx 在卖 AIE NYC 的最后一批票：他说这是该系列在纽约办过的规模最大的技术会议，也是第一次设金融主会场，并把它描述成自己两段职业生涯的交汇点 &#8212;&#8212; 从投行到对冲基金，从大厂到纽约创业公司。另外他重新发布了 Coding Career，那份他六年前写下的个人路径，现在可以免费拿或在亚马逊上买。两条都没有数字，&#8220;会在本周末售罄&#8221;是一个预测，不是一个计数。</p>
+<div class="urls">
+<a href="https://x.com/swyx/status/2108780918060036335">https://x.com/swyx/status/2108780918060036335</a>
+<a href="https://x.com/swyx/status/2108563331376124389">https://x.com/swyx/status/2108563331376124389</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thibault Sottiaux</span>
+<span class="builder-role">Codex &amp; ChatGPT @ OpenAI</span>
+</div>
+<p class="summary-en">Day 5 of the 28-day commitment, and today the clock is not mentioned at all. Three posts, all product or routing: a ChatGPT subscription now also being a Devin subscription, a &#8220;pretty big upgrade&#8221; to Dots, and feedback being routed to two named people. That is a fifth shape for this series. Day 1 gave a status statement that hit neither branch, Day 2 took the reset branch, Day 3 shipped something, Day 4 reached the improvement branch, and Day 5 says nothing about the commitment in either direction. The check that would settle Day 2's promise that improvements do not get pulled is still unanswered, because nothing here enumerates the four things that existed before the reset. Of the three posts, the Devin bundling is the only one a reader can settle without OpenAI's help: the subscription either includes it or it does not.</p>
+<p class="summary-zh zh">28 天承诺第 5 天，今天时钟完全没有被提到。三条帖子全是产品或分流：ChatGPT 订阅现在同时也是 Devin 订阅、Dots 有了一次&#8220;相当大的升级&#8221;、以及把反馈转给两位具名的人。这是这条线的第五种形态 &#8212;&#8212; 第 1 天是两条分支都没命中的状态表述，第 2 天走了 reset 分支，第 3 天发了东西，第 4 天走到改进分支，而第 5 天两个方向都没提。能检验第 2 天那句&#8220;改进不会被下架&#8221;的核对项依然没有答案，因为今天没有任何一处列举 reset 之前的那四件东西。三条里只有 Devin 那条是读者自己就能核实的：订阅里包含不包含，是一个二选一的事实。</p>
+<div class="urls">
+<a href="https://x.com/thsottiaux/status/2108777962053292398">https://x.com/thsottiaux/status/2108777962053292398</a>
+<a href="https://x.com/thsottiaux/status/2108773703064657936">https://x.com/thsottiaux/status/2108773703064657936</a>
+<a href="https://x.com/thsottiaux/status/2108650026671231468">https://x.com/thsottiaux/status/2108650026671231468</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Yang</span>
+<span class="builder-role">AI 教程作者 / 产品</span>
+</div>
+<p class="summary-en">Two posts. The first is a priority claim with no target and nothing behind it: stop building more personal assistants to manage email, build more AI startups to manage and cure disease instead. The second is operational, and it moves the Grok bot line. He now advises giving the bot's email address a name that is not your own, so that &#8220;let me copy in Peter to find a time&#8221; reads correctly when a chief-of-staff bot is on the thread. The advice presupposes the feature is back in use. He reported it broken on 10-10 and does not say it was repaired, so what sits on the record is a failure report followed by configuration advice with no fix in between.</p>
+<p class="summary-zh zh">两条。第一条是一个优先级主张，既没有对象也没有依据：别再做更多管理邮件的个人助理了，去做更多用 AI 管理和治疗疾病的创业公司。第二条是操作层面的，它推动了 Grok bot 这条线 &#8212;&#8212; 他现在建议给 bot 的邮箱起一个不是你本人名字的名字，这样当这个&#8220;参谋长&#8221; bot 在邮件线程里时，&#8220;我把 Peter 抄送进来约个时间&#8221;这句话才读得通。这条建议默认功能已经重新在用。他在 10-10 报告过它失效，而且没有说已被修复，所以留在记录上的是：一份失效报告，后面跟着配置建议，中间没有修复说明。</p>
+<div class="urls">
+<a href="https://x.com/petergyang/status/2108679515681722787">https://x.com/petergyang/status/2108679515681722787</a>
+<a href="https://x.com/petergyang/status/2108624122339287335">https://x.com/petergyang/status/2108624122339287335</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nan Yu</span>
+<span class="builder-role">Codex 产品 @ OpenAI</span>
+</div>
+<p class="summary-en">Two posts from the Codex product side. One is a question with a butterfly emoji, &#8220;Is this recursive self-improvement?&#8221;, and the feed does not show what it is quoting. The other is the one worth keeping, because it names a progression: first we wrote code by hand, then we tab-completed the code, then we moved to prompting agents, and now we tab-complete the prompts too. It is an observation about interface rather than a measurement, and no product is named in either post.</p>
+<p class="summary-zh zh">来自 Codex 产品侧的两条。一条是一个带蝴蝶 emoji 的提问：&#8220;这就是递归自我改进吗？&#8221;，feed 没有显示它在引用什么。另一条更值得留下来，因为它点出了一条演进路径：先是我们手写代码，然后是补全代码，然后变成给 agent 写提示词，现在我们连提示词也开始补全了。这是关于交互界面的观察，不是测量；两条里也都没有点名任何产品。</p>
+<div class="urls">
+<a href="https://x.com/thenanyu/status/2108671887266246730">https://x.com/thenanyu/status/2108671887266246730</a>
+<a href="https://x.com/thenanyu/status/2108671762984731037">https://x.com/thenanyu/status/2108671762984731037</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Madhu Guru</span>
+<span class="builder-role">Meta AI 高级总监</span>
+</div>
+<p class="summary-en">Madhu Guru takes a position on a causal question and answers it with three drivers rather than one: open-weight models did not start the fall in price per unit of intelligence, they are a tailwind on a trend that was already under way. The drivers he lists are model builders distilling their best models into cheaper smaller ones, infrastructure efficiency, and competition between providers; his shorthand is that version x of a mid-size model carries the intelligence of version x-1 of the large one at lower cost. No number is attached to any of the three, and as stated the claim cannot be tested, because &#8220;price per unit of intelligence&#8221; is never defined. It also answers a different question from the podcast in this same window, which asks whether open models win on share rather than what pushes price down.</p>
+<p class="summary-zh zh">Madhu Guru 对一个因果问题下了判断，而且给了三个驱动因素而不是一个：开放权重模型并不是单位智能价格下降的起点，它们是已经在进行中的趋势上的顺风。他列出的三个因素是：模型方把最好的模型蒸馏成更便宜的小模型、基础设施效率、以及模型供应商之间的竞争；他的简化说法是中型模型的第 x 版，等于大型模型第 x-1 版的智能，但更便宜。三个都没有配数字，而且按他这个说法无法检验，因为&#8220;单位智能的价格&#8221;自始至终没有被定义。它回答的也和同一窗口里那期播客不是同一个问题：播客问的是开放模型在份额上会不会赢，他问的是价格是被什么推下去的。</p>
+<div class="urls">
+<a href="https://x.com/realmadhuguru/status/2108618266776387886">https://x.com/realmadhuguru/status/2108618266776387886</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thariq</span>
+<span class="builder-role">Claude Code @ Anthropic</span>
+</div>
+<p class="summary-en">Thariq gives the clearest before-and-after in the window, and it is about portability rather than capability. Before joining Anthropic he spent about two weeks on a side project built with Opus 4; it used the Agent SDK, so it needed a constantly running process, and by his account it did not work that well. One prompt to Opus 5.5 ported it to Claude Managed Agents and made it considerably more reliable. The prompt count is the only number in the post, the comparison is n=1 and self-reported, and &#8220;more reliable&#8221; has no measure behind it. His other post shows merged pull requests from other people landing on a new-tab page.</p>
+<p class="summary-zh zh">Thariq 给出了本窗口里最清楚的一组前后对比，而它讲的是可迁移性，不是能力。在加入 Anthropic 之前，他用 Opus 4 花了大约两周做了一个副项目；它用的 Agent SDK 需要一个常驻进程，按他的说法跑得并不好。给 Opus 5.5 一个提示词就把它迁到了 Claude Managed Agents，而且可靠得多。提示词的条数是这条帖子里唯一的数字，这个对比是 n=1 的自述，&#8220;可靠得多&#8221;背后也没有任何度量。他另一条展示的是别人提交的 PR 被合进了一个新标签页页面。</p>
+<div class="urls">
+<a href="https://x.com/trq212/status/2108802833986552174">https://x.com/trq212/status/2108802833986552174</a>
+<a href="https://x.com/trq212/status/2108689101503566319">https://x.com/trq212/status/2108689101503566319</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Amjad Masad</span>
+<span class="builder-role">Replit CEO</span>
+</div>
+<p class="summary-en">One post, and it is a question put to the timeline rather than a claim: some communities are excited by AI's impact on their field, others are petrified, and what decides which? Nobody answers it inside this window. It joins the 10x coding-agent question as the second open question this feed has recorded without a reply.</p>
+<p class="summary-zh zh">一条帖子，而且它是抛给时间线的问题，不是主张：有些群体对 AI 进入自己的领域感到兴奋，有些则被吓坏了，决定因素是哪些？这个窗口里没有人回答它。它和那个 10x 编码 agent 的提问一起，成为本 feed 记录下来的第二个没有得到回答的公开提问。</p>
+<div class="urls">
+<a href="https://x.com/amasad/status/2108597112707686552">https://x.com/amasad/status/2108597112707686552</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Guillermo Rauch</span>
+<span class="builder-role">Vercel CEO</span>
+</div>
+<p class="summary-en">Guillermo Rauch posts the only graded numbers in the window, and each one comes with a baseline. Across the Vercel network 58.18% of traffic is bot-originated over the last 30 days, against 32% in January 2024. More than 60% of deployments on Vercel are now agentic, against roughly 3% in January 2026. Up to 83% of pageviews on Vercel's own documentation sites now come from agents, and he says the share reliably rises as they optimise content for them. His conclusion is that direct human traffic becomes a rounding error and the web gets built for and by agents. These are first-party and the baselines are dated, which is more than anything else today offers; the limit is that they describe one company's network, and the 83% is a documentation-site figure rather than a web-wide one. His second post carries no numbers at all: agents are buying infrastructure from the marketplace through the CLI often enough to surprise them, and that is now extending to domains.</p>
+<p class="summary-zh zh">Guillermo Rauch 给出了本窗口里唯一可评级的数字，而且每一个都带基线。整个 Vercel 网络里，过去 30 天 58.18% 的流量来自 bot，2024 年 1 月这个数是 32%。Vercel 上现在 60% 以上的部署是 agent 发起的，2026 年 1 月约为 3%。Vercel 自家文档站点的浏览量里最多有 83% 来自 agent，而且他说随着他们针对 agent 优化内容，这个比例稳定上升。他的结论是：直接来自人的互联网流量会变成一个舍入误差，而网络会变成由 agent 建造、也为 agent 建造。这些数字是第一方的、基线是有日期的，这比今天其他所有内容都更可用；局限是它们描述的是一家公司的网络，而 83% 是文档站点的数字，不是全网的数字。他第二条一个数字都没有：agent 通过 CLI 在他们的市场上买基础设施的频率已经高到让他们惊讶，而现在这件事正在扩展到域名。</p>
+<div class="urls">
+<a href="https://x.com/rauchg/status/2108733051283050964">https://x.com/rauchg/status/2108733051283050964</a>
+<a href="https://x.com/rauchg/status/2108669027363295323">https://x.com/rauchg/status/2108669027363295323</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aaron Levie</span>
+<span class="builder-role">Box CEO</span>
+</div>
+<p class="summary-en">Aaron Levie argues that agents spawning other agents, background agents, and agent swarms will consume far more tokens than a person prompting one agent at a time, and that AI used as a chat system that only works at the pace you prompt it will look like a relic within a year or two. The structure of the claim is worth keeping: the consumers of compute move from prompted turns to continuous background work, which is his reason for saying we are still early and that more compute and infrastructure are needed. The magnitude is not. The 1,000x figure arrives with no derivation, no baseline and no time horizon attached to the multiplier, so it is recorded here as a magnitude claim and carried no further.</p>
+<p class="summary-zh zh">Aaron Levie 的主张是：agent 生成 agent、后台常驻的 agent、以及 agent 集群，消耗的 token 会远远超过一个人一次一次地给单个 agent 下提示；而那种只能以你提示的速度为你工作的聊天式 AI，在一两年内会看起来像个古董。这个主张的结构值得留下来 &#8212;&#8212; 算力的消费者从&#8220;被提示的一轮&#8221;转移到&#8220;持续的后台工作&#8221;，这是他说我们还在很早期、还需要更多算力和基础设施的理由。量级则不然。1,000 倍这个数字没有推导、没有基线、也没有说明这个倍数是多久之内发生的，所以它在这里只作为一个量级主张被记录，没有被带进任何结论。</p>
+<div class="urls">
+<a href="https://x.com/levie/status/2108750943680630893">https://x.com/levie/status/2108750943680630893</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Garry Tan</span>
+<span class="builder-role">Y Combinator CEO</span>
+</div>
+<p class="summary-en">Three posts, none of them about AI. They are about San Francisco politics: support for Nancy Tung as the only person he credits with preventing ongoing misconduct, a call to defund the kind of activism-as-journalism he associates with Eskenazi, and a claim that hard-left actors and the legacy media are running a witch hunt. He is on the builder list, so the posts are rendered rather than dropped, but there is no AI content and nothing here is checkable inside this digest.</p>
+<p class="summary-zh zh">三条帖子，没有一条关于 AI。它们讲的是旧金山政治：他支持 Nancy Tung，称她是唯一一个在他看来真正阻止了正在发生的 misconduct 的人；他呼吁停止资助他所关联的那种&#8220;行动主义式新闻&#8221;；以及他说极左势力和传统媒体正在搞猎巫。他在 builder 名单里，所以这些帖子被渲染出来而不是删掉，但里面没有 AI 内容，也没有任何东西可以在本 digest 内部核实。</p>
+<div class="urls">
+<a href="https://x.com/garrytan/status/2108756559564242964">https://x.com/garrytan/status/2108756559564242964</a>
+<a href="https://x.com/garrytan/status/2108756335705907335">https://x.com/garrytan/status/2108756335705907335</a>
+<a href="https://x.com/garrytan/status/2108756019132379586">https://x.com/garrytan/status/2108756019132379586</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Matt Turck</span>
+<span class="builder-role">FirstMark 投资人 / MAD Podcast</span>
+</div>
+<p class="summary-en">Matt Turck posts a professional-level company or product video made from one prompt, in the company's own style, and frames it as the vision Synthesia has been pursuing since the early days, happening slowly and then all at once. His closing line is that it is available to everyone today. What is missing is what would let a reader check it: no product name beyond the company he credits, no link to the thing he ran, and no before-and-after.</p>
+<p class="summary-zh zh">Matt Turck 发了一条：用一个提示词做出了一条专业水准的公司或产品视频，而且是他自己的风格，并把它描述成 Synthesia 从早期就在追的那个愿景，正在缓慢发生、然后一下子全发生。他的收尾是：今天所有人都能用。缺的是能让读者去核对的东西 &#8212;&#8212; 除了他点名的那家公司之外没有产品名，没有他跑的那个东西的链接，也没有前后对比。</p>
+<div class="urls">
+<a href="https://x.com/mattturck/status/2108561284635480443">https://x.com/mattturck/status/2108561284635480443</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Zara Zhang</span>
+<span class="builder-role">Builder</span>
+</div>
+<p class="summary-en">Two posts, both reactions. One is a screenshot joke that a model keeps reaching for the Claude logo when it designs websites; the other points at a thread and says never to underestimate people's creativity. Neither names what it is responding to beyond that.</p>
+<p class="summary-zh zh">两条，都是回应。一条是截图玩笑：某模型做网站设计时总爱用 Claude 的 logo；另一条指向一个 thread，说永远不要低估人的创造力。除此之外两条都没有点明它们在回应什么。</p>
+<div class="urls">
+<a href="https://x.com/zarazhangrui/status/2108711659846132092">https://x.com/zarazhangrui/status/2108711659846132092</a>
+<a href="https://x.com/zarazhangrui/status/2108584212660129820">https://x.com/zarazhangrui/status/2108584212660129820</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nikunj Kothari</span>
+<span class="builder-role">FPV Ventures 合伙人</span>
+</div>
+<p class="summary-en">The substantive post is about founder behaviour: exclude VCs when you promote your product on X, because he gets three DMs a day proposing collaboration on what he reads as paid partnerships, and he says it shows poor judgement and that the word spreads ahead of a raise. His follow-up adds that you should not chase it with an email either. The three-a-day figure is his own reported frequency rather than a sample, and it comes from the party who sets the bar, so it is recorded as a norms claim and not as a measurement. His third post is about karma and carries no AI content.</p>
+<p class="summary-zh zh">有实质内容的那条讲的是创始人行为：在 X 上推广产品时把 VC 排除掉，因为他一天会收到三条私信，提议在一个他判断是付费合作的机会上&#8220;合作&#8221;；他说这显得判断力很差，而且消息会传开，影响下一轮融资。他补充说也别再用邮件追一次。一天三条是他自己报的频率，不是样本，而且它出自设定门槛的一方，所以这里按&#8220;规范主张&#8221;记录，不当作测量。他第三条讲的是因果报应，没有 AI 内容。</p>
+<div class="urls">
+<a href="https://x.com/nikunj/status/2108710061627588964">https://x.com/nikunj/status/2108710061627588964</a>
+<a href="https://x.com/nikunj/status/2108620851130380610">https://x.com/nikunj/status/2108620851130380610</a>
+<a href="https://x.com/nikunj/status/2108616889605951834">https://x.com/nikunj/status/2108616889605951834</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Dan Shipper</span>
+<span class="builder-role">Every CEO</span>
+</div>
+<p class="summary-en">One link and a title, &#8220;Working With Agents in Slack&#8221;. The feed supplies the headline and nothing else, so there is nothing to grade beyond the fact that Every is publishing on running agents inside Slack.</p>
+<p class="summary-zh zh">一个链接加一个标题：&#8220;在 Slack 里和 agent 一起工作&#8221;。feed 只给了标题，除此之外什么都没有，所以能记录的只有一件事：Every 正在发关于在 Slack 里跑 agent 的内容。</p>
+<div class="urls">
+<a href="https://x.com/danshipper/status/2108588611000275009">https://x.com/danshipper/status/2108588611000275009</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aditya Agarwal</span>
+<span class="builder-role">SPC 普通合伙人</span>
+</div>
+<p class="summary-en">Aditya Agarwal hosted Sergey Levine at SPC this week and posts praise: perhaps the best example of clarity in action he has seen in a long time. No topic, no artifact, no number. It is recorded because it puts a named researcher in the room with a named fund on a dated day, which is the kind of item that becomes checkable later if either side says more.</p>
+<p class="summary-zh zh">Aditya Agarwal 本周在 SPC 接待了 Sergey Levine，并发了一条称赞：他很久没见过这么好的、&#8220;行动中的清晰&#8221;的例子。没有话题、没有产出物、没有数字。它被记录下来是因为它把一个具名的研究者和一个具名的基金放在了一个有日期的场合里 &#8212;&#8212; 这类条目在以后任一方多说一句时就变成可核对的东西。</p>
+<div class="urls">
+<a href="https://x.com/adityaag/status/2108578813751791926">https://x.com/adityaag/status/2108578813751791926</a>
+</div>
+</article>
+</section>
+<!-- ============== PODCAST ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#127911;</span>
+<h2 class="section-title">Podcast</h2>
+<span class="section-meta">1 Episode</span>
+</div>
+<div class="podcast">
+<div class="podcast-source">No Priors</div>
+<div class="podcast-title">Beam: The Great American Open Model with ReflectionAI Co-Founder and CEO Misha Laskin</div>
+<p class="summary-en">Reflection AI went from roughly 30 people a year ago to roughly 300 now, and released Beam, its first open model. Misha Laskin, a DeepMind researcher with a physics PhD, describes the year as assembling a plane while flying it, and when asked what was hardest he answers that everything was hard, and that the honest answer to what made the models work is thirty things rather than one. The headcount is the only number in the opening, and the rest is a list: talent, retention, mission, data, compute, and the infrastructure that makes compute usable.</p>
+<p class="summary-zh zh">Reflection AI 从一年前大约 30 人变成现在的约 300 人，并发布了 Beam，他们的第一个开放模型。Misha Laskin 是 DeepMind 的研究员、物理学博士，他把这一年描述成&#8220;一边飞一边把飞机装起来&#8221;；被问到最难的是什么时，他的回答是全都很难，而&#8220;是什么让模型跑通了&#8221;的诚实答案是三十件事，不是一件。开场里唯一的数字是人数，其余是一份清单：人才、留存、使命、数据、算力，以及让算力真正可用的基础设施。</p>
+<p class="summary-en">Beam is the most specific thing in the episode. It is a 500 billion parameter model with 23 billion active. Pretraining ran on 6,000 GB300s, originally a few weeks, which he says infrastructure work has since brought down to about twelve days. Reinforcement learning ran on a little over 10,000 GB300s for four weeks, which means more FLOPs went into RL than into pretraining, and he says he has not seen a run of that size documented anywhere in open source. These are first-party numbers from a lab that can publish them because the model is open, and nothing in the X side of this window comes close to them in specificity.</p>
+<p class="summary-zh zh">Beam 是这一集里最具体的部分。它是一个 5,000 亿参数、230 亿激活的模型。预训练用了 6,000 张 GB300，最初要跑几周，他说基础设施优化之后现在大约十二天就能跑完。强化学习用了略多于 10,000 张 GB300、跑了四周，也就是说花在 RL 上的 FLOPs 比预训练更多；他说他还没在开源世界里见过这个规模的训练被记录过。这些是一个开放实验室能自己公布的第一方数字，本窗口 X 侧的内容在具体程度上没有一条接近它们。</p>
+<p class="summary-en">On efficiency he claims Beam is three to four times more efficient than models of the same capability class and up to ten times more efficient against larger models, and he says the RL curves in the tech report never stop improving, so the limit is compute rather than the method. On the cost of entry to the frontier he offers a ladder: hundreds of millions of dollars about eighteen months ago, single-digit billions now, order ten billion going into next year, on a rough 4x compute multiplier per generation, which he tracks as 100,000 H100s, then 100,000 Blackwells, then 100,000 Vera Rubins. Neither the efficiency claim nor the ladder carries a benchmark or a derivation.</p>
+<p class="summary-zh zh">效率方面，他称 Beam 比同能力档的模型高效三到四倍，相对更大的模型最高可达十倍；他还说技术报告里的 RL 曲线一直没停过，所以限制因素是算力而不是方法。关于追赶前沿的门槛，他给了一个阶梯：大约十八个月前是几亿美元量级，现在是几十亿美元，明年是一百亿美元量级，依据是每一代模型大约 4 倍算力增长 &#8212;&#8212; 他把这条线描成 10 万张 H100、然后 10 万张 Blackwell、然后 10 万张 Vera Rubin。效率主张和这条阶梯都没有给出基准，也没有推导。</p>
+<p class="summary-en">One thing in this episode should be recorded twice rather than reconciled. Early on he says that when humans were doing the work, compute efficiency improved about 7x per year, and that in RL today &#8220;we're probably at a point where it's 30X&#8221; depending on how good the model is at improving itself. Near the end he says the rate &#8220;was roughly, let's say 7X before when it was just manual work. Now several times that, say maybe four to 5X.&#8221; Thirty times and four to five times are not the same claim about the same quantity. The episode is the only source for both, so they are written down side by side and not averaged into one figure.</p>
+<p class="summary-zh zh">这一集里有一件事应该被记两遍，而不是被调和。前面他说，在只有人做这件事的时候，算力效率大约每年提升 7 倍，而今天在 RL 上&#8220;大概已经到了 30 倍&#8221;，取决于模型自我改进的能力有多好。快到结尾时他说，这个速率&#8220;以前只靠人工的时候大概是 7 倍，现在是它的好几倍，也许是四到五倍&#8221;。30 倍和四到五倍不是对同一个量的同一个说法。这一集是两者的唯一来源，所以它们被并排记下来，没有被平均成一个数字。</p>
+<p class="summary-en">On the open-versus-closed split he says the mix on gateways like OpenRouter and Vercel has flipped in about six months from roughly 70/30 closed/open to roughly 70/30 open/closed, and he expects most tokens to end up open, drawing the Linux analogy where 95% plus of servers run an open operating system while Microsoft and Apple stay extremely valuable. He adds a distinction worth keeping: dedicated inference providers tell him 90% plus of their open workloads are customized, but their largest customers are AI natives whose entire product is one customization, and in enterprise he expects the reverse, a harness built around an untouched model first and fine-tuning later. The trigger he gives for enterprises to consider ownership is around $100 million or more a year of closed-model spend. Monetization is framed as renting a token versus owning the intelligence, apartment versus house: enterprises buy the cluster management, inference software, harness and services that make an open model usable.</p>
+<p class="summary-zh zh">关于开放与封闭的比例，他说 OpenRouter、Vercel 这类网关上的结构在大约半年里翻转了：从封闭对开放约 70/30，变成开放对封闭约 70/30；他预计大部分 token 最终会走向开放，并拿 Linux 作比 &#8212;&#8212; 95% 以上的服务器跑在开源操作系统上，而微软和苹果依然极其值钱。他还给了一个值得记住的区分：专用推理服务商告诉他，90% 以上的开放模型负载是定制过的，但他们最大的客户是 AI 原生公司，那些公司的整个产品本身就是一次大定制；而在企业侧他预期是反过来的，先围绕一个没动过的模型搭一套 harness，之后再考虑微调。他给的企业转向自有的触发点是每年一亿美元以上的封闭模型支出。商业化被他框成租用 token 与拥有智能之别，租房与买房之别：企业买的是让一个开放模型变得可用的集群管理、推理软件、harness 和服务。</p>
+<p class="summary-en">On safety he grants the closed-lab objection is legitimate but argues the worldview behind it is one perspective turned dogmatic. His historical case is 1990s encryption: closed systems had catastrophic failures designed by a small handful of engineers, opening them gave birth to the cybersecurity field, and openness is the default state of the world with respect to safety. Today, he says, a few hundred safety researchers inside closed labs cannot cover the long tail. The empirical example he offers is that a powerful closed model hacked into another company and that company could only remediate itself using open models; the host adds the OpenAI and Hugging Face incident, where they reverted to open source because guardrails on the state-of-the-art labs blocked remediation. Neither gives a date or a link. At the far end of the spectrum he is dismissive, and the host calls the 10% chance of extinction figure a made-up number. On China he lists industrial-scale distillation of closed models, cheaper data because copyrighted PDFs are trainable there, and some state support, calls the Chinese open ecosystem a gift to Western builders, argues against monopolar supply in either direction, and describes open models as Trojan horses for the infrastructure that arrives with them, with Huawei offering the full stack the way railroads once did.</p>
+<p class="summary-zh zh">安全方面，他承认封闭实验室的质疑是合理的，但认为背后的世界观是某一种视角被教条化了。他举的历史案例是 1990 年代的加密：封闭系统出现过由少数工程师设计出来的灾难性失败，开放之后才诞生了网络安全这个领域，而开放是世界在安全意义上的默认状态。他说今天封闭实验室里几百名安全研究员覆盖不了长尾。他给出的实证例子是：一个很强大的封闭模型入侵了另一家公司，而那家公司只能用开放模型来完成修复；主持人补充了 OpenAI 与 Hugging Face 那次事件 &#8212;&#8212; 他们因为前沿实验室的护栏挡住了修复路径，退回去用了开源。两处都没有给日期或链接。在光谱最远端他是轻视的，主持人直接把&#8220;10% 全人类灭绝概率&#8221;称为一个编出来的数字。关于中国，他列了三点：对封闭模型的工业化规模蒸馏、因为受版权保护的 PDF 在当地可训练而更便宜的数据、以及某种形式的国家支持；他称中国的开放生态是给西方建设者的礼物，主张任何方向上都不该是单极供应，并把开放模型描述为&#8220;随它一起到来的基础设施的特洛伊木马&#8221; &#8212;&#8212; 华为提供整栈方案，就像当年的铁路。</p>
+<p class="summary-en">The closing stretch turns to people and science. He says there is a staff-to-compute ratio to respect: 3,000 researchers would not be very helpful, a couple of hundred very much would, and AlphaGo was order ten people. The job growth he expects is in applied and deployed engineers, pods of five to ten per capability, with evals pods being where much of the headcount goes, and he says the bottleneck there is training rather than demand. On science he describes his own PhD thesis as a benchmark he has rerun for years: unusable two years ago, undergraduate level a year ago, solved correctly six months ago, and now producing things he had not considered. He also toured Stargate and argues data centers create tens of thousands of high-paying jobs and local tax revenue, that they are what factories used to be for a town, with the caveat that they are noisy and need siting.</p>
+<p class="summary-zh zh">最后一段转向人和科学。他说人力与算力之间有一个比例要守：3,000 名研究员不会更有用，而一两百名会非常有用；AlphaGo 当年是十人量级。他预期增量的岗位在应用型与部署型工程师，每个能力方向一个五到十人的小组，而相当一部分人力会放到 evals 小组里，他说那边的瓶颈是培养而不是需求。科学方面，他把自己的博士论文当作一个反复重跑的基准：两年前完全做不了，一年前是本科生水平，半年前能正确解出来，而现在会给出他当年没考虑过的东西。他还去参观了 Stargate，主张数据中心创造数以万计的高薪岗位和地方税收，对一个小镇来说就是过去的工厂，唯一的提醒是它们噪音大、选址要讲究。</p>
+<div class="urls"><a href="https://www.youtube.com/@NoPriorsPodcast">https://www.youtube.com/@NoPriorsPodcast</a></div>
+</div>
+</section>
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128161;</span>
+<h2 class="section-title">The Takeaway</h2>
+<span class="section-meta">2026-10-11</span>
+</div>
+<div class="takeaway">
+<div class="takeaway-label">The Takeaway</div>
+<p>Day 5 of the 28-day clock, and for the first time the commitment is not mentioned at all. The five days now read: Day 1 a status statement that hit neither branch, Day 2 the reset branch, Day 3 a release, Day 4 the improvement branch, Day 5 silence. Silence is a different thing from the Day 1 status statement, which at least spoke about the commitment while missing both branches. The check that Day 2 created still has not been performed: nothing in any of the five days enumerates the four things that existed before the reset, so &#8220;improvements do not get pulled&#8221; remains a promise with no test attached.</p>
+<p>One of today's 27 posts carries numbers, and it is Guillermo Rauch's. Across Vercel, 58.18% of traffic is bot-originated against 32% in January 2024; more than 60% of deployments are agentic against roughly 3% in January 2026; up to 83% of pageviews on Vercel's own docs come from agents. Two dated baselines and a stated 30-day window is more than this feed usually gets, and it is the first time the web-built-for-agents argument has arrived with a time series behind it rather than an adjective. The limits travel with it: one company's network, and the 83% is documentation sites specifically.</p>
+<p>The other 26 posts grade out as nothing under the standard used here, which counts a post as ungraded when it names no object, carries no number, or has no AI content at all. That is a higher share than 10-10's 13 of 32, and it is why the Rauch numbers stand alone. Inside those 26 there is still a tier worth reading: claims with a named object and a mechanism but no number. Madhu Guru's three drivers of falling intelligence prices and Thariq's one-prompt port from the Agent SDK to Claude Managed Agents are the two best of those, and neither is evidence.</p>
+<p>Guru and the podcast in the same window are not in conflict, and it would be wrong to score them against each other. Guru's question is what has been pushing the price of intelligence down, and his answer is distillation, infrastructure efficiency and competition, with open weights as a tailwind rather than a cause. Laskin's question is whether open models win on share of tokens, and his answer is that the mix has already flipped. One is a claim about a price trend, the other about a market split. The only place they touch is distillation, and there they mean different things: Guru counts it as a cost-reducing technique used by every model builder, Laskin counts it as a specific advantage Chinese labs hold.</p>
+<p>Aaron Levie supplies the day's clearest example of why a number is not automatically evidence. His structural claim is usable: the consumers of compute move from prompted turns to continuous background work, which is why he says adoption is early. His 1,000x is not: no derivation, no baseline, no horizon. The rule applied here is to keep the list and drop the magnitude, and it is the same rule that was applied to his &#8220;huge space&#8221; line earlier in this series.</p>
+<p>Thariq's port is the closest thing to a controlled comparison in the window, and it is still n=1. Two weeks of work with Opus 4 on the Agent SDK needed a constantly running process and did not work well; one prompt to Opus 5.5 moved it to Claude Managed Agents and made it more reliable. What is missing is what would make it generalizable: no description of the project, no reliability measure, and no second case. It is also worth separating from the Anthropic Managed Agents post in the blog array, which is already covered and is a different artifact; today's item is a user's migration, not a product announcement.</p>
+<p>The Grok bot line moves again, and the direction is worth stating precisely. On 10-10 Peter Yang reported the email feature failing when he tagged it. Today he is giving configuration advice that assumes it is in use. A failure report and a setup tip are two kinds of evidence and are not merged here, and he never says the failure was repaired. What the pair establishes is narrower than either post implies: the feature is being worked around rather than demonstrated working.</p>
+<p>The podcast is the first item in several windows to carry first-party engineering numbers, and it also contains an internal contradiction that should not be smoothed out. Beam is 500B total and 23B active, pretrained on 6,000 GB300s and post-trained on more than 10,000 GB300s for four weeks. The efficiency multiplier, however, is given twice: 30x at one point, four to five times at another, both about the same quantity. The episode is the only source, so the honest reading is that the number is unsettled inside the source itself.</p>
+<p>Carrying forward: Day 6 of the 28-day clock and whether the commitment is mentioned again; whether the four things that existed before the reset are ever enumerated; whether anyone answers Amjad's question about why some communities are excited and others petrified; whether Reflection publishes the Beam tech report the episode promises, which is what would make the RL-scale claim checkable; whether Rauch's traffic series gets a second reading from another network; whether Peter Yang says the Grok bot email was fixed. Still unmoved after today: Pro $200 reopening, the Gemini 4 vibe check, external reproduction of the Sonnet 5.5 numbers, the OpenClaw Android review, the unanswered 10x coding-agent question, and Goodfire x Hugging Face, which still exists only in audio.</p>
+</div>
+<div class="takeaway zh">
+<div class="takeaway-label">核心结论</div>
+<p>28 天时钟走到第 5 天，而这个承诺第一次完全没有被提到。这五天现在读作：第 1 天是两条分支都没命中的状态表述，第 2 天走了 reset 分支，第 3 天是一次发布，第 4 天走到改进分支，第 5 天是沉默。沉默和第 1 天那种状态表述不是一回事 &#8212;&#8212; 后者至少在谈这个承诺，只是两条分支都没命中。第 2 天创造出来的那个核对项至今没有被执行：五天里没有任何一天列举过 reset 之前的那四件东西，所以&#8220;改进不会被下架&#8221;仍然是一个没有检验方法挂在上面的承诺。</p>
+<p>今天的 27 条里有一条带数字，那就是 Guillermo Rauch 那条。整个 Vercel 上 58.18% 的流量来自 bot，2024 年 1 月是 32%；60% 以上的部署是 agent 发起的，2026 年 1 月约为 3%；Vercel 自家文档站点最多 83% 的浏览量来自 agent。两个带日期的基线加一个明确的 30 天窗口，比这个 feed 通常能拿到的要多；这也是&#8220;网络正在为 agent 而建&#8221;这个论点第一次带着时间序列出现，而不是只带形容词。局限也要一起带走：这是一家的网络，83% 特指文档站点。</p>
+<p>按这里一贯的标准 &#8212;&#8212; 未点名对象、无数字、或根本没有 AI 内容，满足其一即计入 &#8212;&#8212; 其余 26 条都评级为零。这个比例高于 10-10 的 32 条里 13 条，也是 Rauch 那组数字独自站着的原因。这 26 条里仍然有一档值得读：有点名对象、有机制、但没有数字的主张。Madhu Guru 关于智能价格下降的三个驱动因素，以及 Thariq 用一个提示词把项目从 Agent SDK 迁到 Claude Managed Agents，是这一档里最好的两个，而它们都还不是证据。</p>
+<p>同一窗口里的 Guru 和那期播客并不冲突，把它们放在一起判胜负是错的。Guru 问的是什么在把智能的价格推下去，他的答案是蒸馏、基础设施效率、竞争，开放权重是顺风而不是原因。Laskin 问的是开放模型会不会在 token 份额上赢，他的答案是结构已经翻转了。一个是关于价格趋势的主张，一个是关于市场份额的。两者唯一相接的地方是蒸馏，而在那里他们说的不是同一件事：Guru 把它算作所有模型方都在用的降本手段，Laskin 把它算作中国实验室握有的具体优势。</p>
+<p>Aaron Levie 提供了今天最清楚的一个例子，说明数字并不自动等于证据。他的结构主张是可用的：算力的消费者从&#8220;被提示的一轮&#8221;转移到&#8220;持续的后台工作&#8221;，这是他说采用还很早期的理由。他的 1,000 倍则不可用：没有推导、没有基线、没有时间范围。这里执行的规则是留清单、弃量级，和本系列前面处理他那句&#8220;巨大的空间&#8221;时用的是同一条规则。</p>
+<p>Thariq 的迁移是窗口里最接近对照比较的东西，但它仍然是 n=1。用 Opus 4 加 Agent SDK 做了两周，需要一个常驻进程而且跑得不好；给 Opus 5.5 一个提示词把它迁到 Claude Managed Agents，可靠得多。缺的是能让它变得可推广的东西：没有项目描述、没有可靠性度量、也没有第二个案例。还应该把它和博客数组里那篇 Anthropic Managed Agents 的文章分开 &#8212;&#8212; 那篇已收录，而且是另一件东西；今天这条是一个用户的迁移记录，不是产品发布。</p>
+<p>Grok bot 这条线又动了，而方向值得说准。10-10 时 Peter Yang 报告邮件功能在他 @ 之后没有响应；今天他在给配置建议，前提是它已经在用。失效报告和使用建议是两类证据，这里没有合并，而且他始终没说失效已经被修复。这两条合起来能成立的比任何一条单独暗示的都要窄：这个功能正在被绕着用，而不是被证明可用。</p>
+<p>这期播客是好几个窗口以来第一个带上第一方工程数字的条目，它也含有一个不该被抹平的内部矛盾。Beam 是 5,000 亿总参数、230 亿激活，预训练用 6,000 张 GB300，后训练用一万多张 GB300 跑了四周。但效率倍数被给了两次：一处说 30 倍，另一处说四到五倍，指的是同一个量。这一集是唯一来源，所以诚实的读法是：这个数字在来源内部本身就未定。</p>
+<p>带进下一期：28 天时钟的第 6 天，以及这个承诺会不会再被提起；reset 之前的那四件东西是否会被列举；有没有人回答 Amjad 那个&#8220;为什么有些群体兴奋、有些群体恐惧&#8221;的问题；Reflection 会不会按节目里说的发布 Beam 技术报告，那是让 RL 规模主张变得可核对的东西；Rauch 的流量序列会不会有第二家网络给出读数；Peter Yang 会不会说 Grok bot 邮件已修好。今天之后仍未移动的：Pro $200 重新开放、Gemini 4 的 vibe check、Sonnet 5.5 数字的外部复现、OpenClaw 的 Android 审核、那个没人回答的 10x 编码 agent 提问，以及仍然只有音频形式的 Goodfire x Hugging Face。</p>
+</div>
+</section>
+<!-- ============== ALREADY COVERED ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128257;</span>
+<h2 class="section-title">已收录 / Already Covered</h2>
+<span class="section-meta">3 Items &#183; All Matched</span>
+</div>
+<div class="dedup">
+<p><strong>Blog</strong> &#8212; Anthropic Engineering: How we contain Claude across products。已收录于 <a href="https://clean-online.github.io/ai-digest/2026/06/05/AI_Builders_Digest_2026-06-05.html">2026-06-05</a>。 <a href="https://www.anthropic.com/engineering/how-we-contain-claude">https://www.anthropic.com/engineering/how-we-contain-claude</a></p>
+<p><strong>Blog</strong> &#8212; Anthropic Engineering: An update on recent Claude Code quality reports。已收录于 <a href="https://clean-online.github.io/ai-digest/2026/05/11/AI_Builders_Digest_2026-05-11.html">2026-05-11</a>。 <a href="https://www.anthropic.com/engineering/april-23-postmortem">https://www.anthropic.com/engineering/april-23-postmortem</a></p>
+<p><strong>Blog</strong> &#8212; Anthropic Engineering: Scaling Managed Agents: Decoupling the brain from the hands。已收录于 <a href="https://clean-online.github.io/ai-digest/2026/05/12/AI_Builders_Digest_2026-05-12.html">2026-05-12</a>。 <a href="https://www.anthropic.com/engineering/managed-agents">https://www.anthropic.com/engineering/managed-agents</a></p>
+<p style="margin-top:12px">&#8226; Blog: the <code>blogs</code> array carried three entries this time, and all three were already published. how-we-contain-claude first ran on 2026-06-05, april-23-postmortem on 2026-05-11, and managed-agents on 2026-05-12. All three are listed below with their first appearance, and none is counted in the stats.</p>
+<p style="margin-top:12px">&#8226; This is the inverse of the last three issues. On 10-10, 10-09 and 10-08 the blog zero came from an empty array, so there was nothing to match. Today there was something to match and it matched, which is why the number at the top is still 0 while the reason underneath it has changed.</p>
+<p style="margin-top:12px">&#8226; Podcast: counted. &#8220;Misha Laskin&#8221;, &#8220;Laskin&#8221;, &#8220;Beam&#8221; and &#8220;Reflection&#8221; all return zero hits under <code>2026/</code>. &#8220;No Priors&#8221; returns 26 files, but that is the channel name and it is not used as a dedup test here.</p>
+<p style="margin-top:12px">&#8226; This episode is dated 2026-10-09, which puts it inside the tweet window for the first time in several issues. On 10-10 the podcast slot carried an episode published three days before the tweets it shipped with, which made the counts look mismatched. Today the two line up on the same Pacific day.</p>
+<p style="margin-top:12px">&#8226; Tweet-level check: all 27 tweet IDs in this window were matched against every file under <code>2026/</code> and returned zero hits, so no tweet here repeats a previously published issue.</p>
+</div>
+</section>
+<footer class="footer">
+<div class="next-issue">&#128236; 下一期：明天 10:00（北京时间）</div>
+<div class="signature">by chloevchen</div>
+</footer>
+</body>
+</html>
+<!-- by chloevchen -->
