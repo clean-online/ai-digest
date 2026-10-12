@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest · 2026-10-12</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+
+
+
+
+
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 28px 30px; margin-bottom: 24px; }
+  .podcast-source { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
+  .podcast-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; margin-bottom: 18px; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; }
+
+
+
+
+
+</style>
+</head>
+<body>
+<header class="topbar">
+<div class="topbar-inner">
+<a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+<span>双语 &#183; Bilingual</span>
+</div>
+</header>
+<section class="header">
+<div class="eyebrow">Daily Digest &#183; 2026-10-12</div>
+<h1>AI Builders Digest</h1>
+</section>
+<div class="stats">
+<div class="stat"><div class="stat-num">11</div><div class="stat-label">Builders</div></div>
+<div class="stat"><div class="stat-num">21</div><div class="stat-label">Tweets</div></div>
+<div class="stat"><div class="stat-num">0</div><div class="stat-label">Podcast</div></div>
+<div class="stat"><div class="stat-num">0</div><div class="stat-label">Blog</div></div>
+</div>
+<p class="note-line">Feed snapshot 2026-10-11T06:43Z (Pacific 10-10 23:43), one day past the 10-11 snapshot, so no gap in coverage; all 21 tweets fall inside the Pacific 10-10 window (05:12 to 22:22). The two zeros have two different causes and are not merged: the blogs array is empty, and the single podcast in the feed is a return of the 10-03 MAD Podcast episode with Eric Ho of Goodfire, carrying a new title but the same 2026-10-01 publication date, so it is counted as already covered rather than as something the feed failed to fetch.</p>
+<p class="note-line zh">feed 快照 2026-10-11T06:43Z（太平洋 10-10 23:43），比 10-11 那期前进一天，没有丢档；21 条推文全部落在太平洋 10-10 这个窗口内（05:12 到 22:22）。两个 0 的成因不同，不合并说明：blogs 数组为空；feed 里唯一的那一期播客是 10-03 那期 MAD Podcast &#215; Eric Ho（Goodfire）的再次出现，标题换了、发布日期仍是 2026-10-01，所以按已收录计，而不是按「feed 没抓到」计。</p>
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128036;</span>
+<h2 class="section-title">X / Twitter</h2>
+<span class="section-meta">11 Builders &#183; 21 Tweets</span>
+</div>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thibault Sottiaux</span>
+<span class="builder-role">Codex &amp; ChatGPT @OpenAI</span>
+</div>
+<p class="summary-en">Three posts, and they are the only place today where a promise changes shape. At 01:13Z he writes that on the day the product reaches perfection it will be resets from there onwards; at 04:01Z, &ldquo;Put the reset in the bag. All propagated.&rdquo; That closes the reset he reported on 10-09 as &ldquo;landed across all accounts&rdquo; and moves it from an event to a standing state. The third post is a poll addressed to Pro users &mdash; &ldquo;Pro users, would you rather have&rdquo; &mdash; and that is where the text stops. The options are not in the feed, nothing in it names $200 or a reopening, and no connection to the reset is stated. What is checkable today: the reset is described as complete, the daily tally has gone unpublished for three straight days, and the four things that shipped before the reset have still never been enumerated in six days.</p>
+<p class="summary-zh zh">三条，也是今天唯一一处承诺改变形状的地方。01:13Z 他写：等产品达到完美那天，从那以后就是 reset；04:01Z 是「把 reset 收进袋子里。全部已传播」。这把他 10-09 报告的「landed across all accounts」那次 reset 收了尾，并把它从一次事件改成一种常态。第三条是一个面向 Pro 用户的投票 &#8212;&#8212;「Pro users, would you rather have」，正文到这里就断了。选项不在 feed 里，里面没有提到 $200 或重开，也没有写明与这次 reset 的关系。今天可以核对的是：reset 被描述为已完成；每日计数连续第三天没有公布；reset 之前发出的那四件东西六天里一次都没有被列出来。</p>
+<div class="urls">
+<a href="https://x.com/thsottiaux/status/2109152716954222849">https://x.com/thsottiaux/status/2109152716954222849</a>
+<a href="https://x.com/thsottiaux/status/2109132167112782291">https://x.com/thsottiaux/status/2109132167112782291</a>
+<a href="https://x.com/thsottiaux/status/2109090080497508356">https://x.com/thsottiaux/status/2109090080497508356</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Yang</span>
+<span class="builder-role">Practical AI tutorials &amp; interviews</span>
+</div>
+<p class="summary-en">One post: &ldquo;Something went wrong alright.&rdquo; A reaction with no object named in the feed and no link to what went wrong, so there is nothing to grade beyond the register. Rendered so the count stays checkable. Standing context: he is the person who on 10-06 published the list of what OpenAI should cut, at a point when nobody at OpenAI was publishing one.</p>
+<p class="summary-zh zh">一条：「Something went wrong alright」。一条反应，feed 里没有点名对象，也没有链到出了什么事，所以除了语气之外没有可评级的内容。渲染出来是为了让计数可核对。补一句长期上下文：10-06 那份「OpenAI 该砍什么」的清单出自他，当时 OpenAI 内部没有人在给清单。</p>
+<div class="urls">
+<a href="https://x.com/petergyang/status/2109107670229930458">https://x.com/petergyang/status/2109107670229930458</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nan Yu</span>
+<span class="builder-role">product, codex @OpenAI</span>
+</div>
+<p class="summary-en">Three posts. The one with substance is a reply: agents make engineers extremely powerful, but PMs are still bottlenecked on the bandwidth they have to spend talking to customers, so the ideal ratio is 1:1. It is an agreement with someone else&rsquo;s observation (&ldquo;I&rsquo;ve been feeling this too&rdquo;), with no measurement behind the ratio and no headcount data. The other two are short: &ldquo;Ran outta gas / Fill issue&rdquo; at 15:52Z, and &ldquo;Everything seems to be going as planned&rdquo; at 21:37Z with two images. Neither names its object in the feed. The second lands after the reset propagation post, but the feed shows no link between the two, so it is recorded as an untargeted reaction rather than as evidence about the reset.</p>
+<p class="summary-zh zh">三条。有实质的那条是一条回复：agent 让工程师变得极其强大，但 PM 仍然卡在他们必须花在跟客户沟通上的带宽，所以理想比例是 1:1。这是在附和别人的观察（「我也一直有这个感觉」），比例背后没有测量，也没有人头数据。另外两条很短：15:52Z 的「没油了 / Fill issue」，和 21:37Z 带两张图的「一切似乎都在按计划进行」。两条在 feed 里都没有点名对象。第二条发在 reset 传播完成那条之后，但 feed 没有显示两者有关联，所以按「没有指向的反应」记录，不算关于 reset 的证据。</p>
+<div class="urls">
+<a href="https://x.com/thenanyu/status/2109035605061693774">https://x.com/thenanyu/status/2109035605061693774</a>
+<a href="https://x.com/thenanyu/status/2108976262698115550">https://x.com/thenanyu/status/2108976262698115550</a>
+<a href="https://x.com/thenanyu/status/2108948921007681902">https://x.com/thenanyu/status/2108948921007681902</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Madhu Guru</span>
+<span class="builder-role">Sr Director, AI at Meta</span>
+</div>
+<p class="summary-en">One long post, and it is the clearest statement of where he thinks the field is: agent capabilities will soon evolve at RSI pace, agentic security (identity, permissions, observability) has to outpace that, and the arc runs capability to trust to autonomy. Phase one asked whether model plus harness plus tools plus context could get work done at all; the focus now shifts to whether the harness takes the right action with the right permissions, and whether you can observe it, audit it and establish accountability. He adds that a lot of serious work has already gone into these problems over the last couple of years, and that the challenge is now both more important and harder. There is no number anywhere in it, and &ldquo;RSI pace&rdquo; is not defined.</p>
+<p class="summary-zh zh">一条长帖，也是他把行业位置讲得最清楚的一次：agent 能力很快会以 RSI 的速度演化，agentic 安全（身份、权限、可观测性）必须跑得比它更快，而演化方向是 capability 到 trust 到 autonomy。第一阶段问的是「模型 + harness + 工具 + 上下文」到底能不能把活干完；现在的焦点转向 harness 有没有以正确的权限采取正确的行动，以及你能不能观测、审计、并给它定责。他补了一句：这些问题在过去两年里已经有大量严肃工作投入，现在这个挑战既更重要也更难。通篇没有一个数字，「RSI pace」也没有定义。</p>
+<div class="urls">
+<a href="https://x.com/realmadhuguru/status/2108982858513776899">https://x.com/realmadhuguru/status/2108982858513776899</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Guillermo Rauch</span>
+<span class="builder-role">CEO @vercel</span>
+</div>
+<p class="summary-en">One post, and it carries no evidence at all: all plausible science fiction will be realized within our lifetime, and if you are reading this you are among the luckiest humans ever born &mdash; qualified by &ldquo;if we play our cards right.&rdquo; Worth reading against yesterday: on 10-11 he was the only source in the feed carrying a gradeable series (58.18% bot traffic against a 2024-01 baseline of 32%; 60%+ of deploys agentic against about 3% in 2026-01; up to 83% of docs pageviews from agents). Today the same account contributes a conditional sentence with nothing in it to check.</p>
+<p class="summary-zh zh">一条，完全没有证据：所有说得通的科幻都会在我们这一代实现，正在读这段话的人是史上最幸运的人之一 &#8212;&#8212; 后面挂了个条件「如果我们打得对」。值得和昨天对照着读：10-11 他是 feed 里唯一带可评级序列的信源（58.18% bot 流量，对 2024-01 的 32%；60%+ 部署是 agentic，对 2026-01 的约 3%；文档站最多 83% 的浏览量来自 agent）。今天同一个账号给的是一句带条件的话，里面没有任何可核对的东西。</p>
+<div class="urls">
+<a href="https://x.com/rauchg/status/2109038632518782989">https://x.com/rauchg/status/2109038632518782989</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aaron Levie</span>
+<span class="builder-role">CEO @box</span>
+</div>
+<p class="summary-en">Two posts, and together they are the demand-side half of today&rsquo;s security theme. The first is a recommendation of someone else&rsquo;s post on long-term approaches to managing intelligence inside an enterprise: as agents take on vastly more task execution than humans, securing, governing, controlling and auditing that work becomes paramount; agents will operate against the most valuable data, their decisions get harder to reverse engineer, liability and accountability regimes do not exist yet, and the blast radius of a malicious agent needs containing. The sharpest line in it is the passage he is quoting, not his own: treat frontier closed and open-weight models like insider risks, not because they are necessarily malicious but because any sufficiently capable actor with access to important systems can make mistakes or be compromised. He closes with &ldquo;AI will need to have its zero trust era.&rdquo; The second post is his own and is about scale: agent swarms parallelized against a unified goal, most useful where the volume of work is large or the search space is not known upfront, coordinating in ways humans cannot because people run into limits on communication, shared status, conflict resolution and shared context. Keep the list, drop the magnitude &mdash; the closing &ldquo;1,000X more compute&rdquo; is asserted, not derived.</p>
+<p class="summary-zh zh">两条，合起来是今天安全主题的需求侧那一半。第一条是推荐别人的一篇关于企业内长期管理智能的文章：当 agent 承担的任务执行量远超人类，保护、治理、控制与审计这些工作就变成首要问题；agent 会接触最有价值的数据，它的决策越来越难反向还原，责任与问责机制还不存在，恶意 agent 的爆炸半径需要被限制住。其中最锋利的一句是他引用的段落，不是他自己写的：把前沿闭源模型和开源权重模型当作内部人风险来处理，不是因为它们一定恶意，而是任何一个有权限、能力足够的行动者都会犯错或被攻破。他的收尾是「AI 也需要自己的 zero trust 时代」。第二条是他自己的，讲的是规模：agent swarm 围绕统一目标并行，在工作量很大或搜索空间事先未知时最有用，其协作方式是人类做不到的，因为人会在沟通、共享状态、冲突处理与共享上下文上撞到上限。清单留下，量级丢掉 &#8212;&#8212; 结尾那句「需要 1,000X 更多算力」是断言，不是推导。</p>
+<div class="urls">
+<a href="https://x.com/levie/status/2109079686286565378">https://x.com/levie/status/2109079686286565378</a>
+<a href="https://x.com/levie/status/2108952226714865966">https://x.com/levie/status/2108952226714865966</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Garry Tan</span>
+<span class="builder-role">President &amp; CEO @ycombinator</span>
+</div>
+<p class="summary-en">Three posts sent in the same minute, so one thread, and it is the most concrete thing in today&rsquo;s feed. The workflow: one thread that coordinates and runs the merge PR queue, makes sure CI works, and lets only green runs with full CI into master; &ldquo;/autoplan&rdquo; plus asking the agent to ELI5 the plan it came up with, then approving plans himself to keep it on paths he thinks will work, intervening only rarely. For retrieval and latency work he sets up evals around retrieval, latency and cost per compute, in a repo with 40+ categories that can each be auto-researched and auto-improved. All of it is self-reported and n=1: no failure rate on the merge queue, no reliability measure behind &ldquo;only rarely do I have to intervene,&rdquo; and 40+ counts categories rather than measuring anything. Two links in the thread are shortened and the repositories are not named in the feed.</p>
+<p class="summary-zh zh">三条在同一分钟发出，所以是一个 thread，也是今天 feed 里最具体的内容。工作流是：一个线程负责协调并跑 merge PR 队列、确认 CI 通过、只让 full CI 全绿的运行进 master；用 &ldquo;/autoplan&rdquo; 并要求 agent 把它给出的计划「用五岁小孩能懂的方式」讲一遍，再由他自己批准计划以确保方向靠谱，只是很少需要介入。在检索与延迟类任务上，他围绕检索、延迟、单位算力成本设定 eval，仓库里有 40 多个类别，每个都可以被自动研究和自动改进。这些全部是自述、n=1：merge 队列没有附失败率，「只是很少需要介入」背后没有可靠性度量，40+ 数的是类别而不是一次测量。thread 里有两个短链，仓库名在 feed 里没有出现。</p>
+<div class="urls">
+<a href="https://x.com/garrytan/status/2108954741065879945">https://x.com/garrytan/status/2108954741065879945</a>
+<a href="https://x.com/garrytan/status/2108954740013043789">https://x.com/garrytan/status/2108954740013043789</a>
+<a href="https://x.com/garrytan/status/2108954738540863498">https://x.com/garrytan/status/2108954738540863498</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Zara Zhang</span>
+<span class="builder-role">Builder</span>
+</div>
+<p class="summary-en">One post, a slogan: &ldquo;Code is the new medium for creative self-expression.&rdquo; No claim attached, no product named, nothing to grade. Rendered so the count stays checkable.</p>
+<p class="summary-zh zh">一条，一句口号：「代码是创意自我表达的新媒介」。没有附带主张，没有点名产品，没有可评级的内容。渲染出来是为了让计数可核对。</p>
+<div class="urls">
+<a href="https://x.com/zarazhangrui/status/2109087739287384387">https://x.com/zarazhangrui/status/2109087739287384387</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nikunj Kothari</span>
+<span class="builder-role">partner @fpvventures</span>
+</div>
+<p class="summary-en">Two posts, neither about AI. The long one is about the pro-rata dispute running through venture right now: you cannot ask a fund to show conviction and double down when the chips are down while also asking it to skip contracted pro rata because that is convenient for you; every investor should earn the right to the cap table at every stage, but the industry runs on contracts and handshakes, and breaking them for short-term gain erodes trust that is already brittle. His advice to founders is to choose partners and contracts well and to get an independent lawyer who will spell it out. The short one &mdash; &ldquo;Let&rsquo;s go - only took 23 months&rdquo; &mdash; carries the only number in his two posts and does not say what took 23 months. Both are left in so the count matches the feed; neither is evidence about AI.</p>
+<p class="summary-zh zh">两条，都与 AI 无关。长的那条讲的是眼下创投圈里的 pro rata 争议：你不能一边要求基金拿出信念、在低谷时加倍下注，一边又因为对自己方便就要求它放弃合同里约定的 pro rata；每一轮投资人都该重新挣得进入 cap table 的资格，但这个行业靠的是合同和握手，为了短期利益打破它们会侵蚀本就脆弱的信任。他给创始人的建议是：选合伙人也选合同，并找一个会把这些讲清楚的独立律师。短的那条 &#8212;&#8212;「Let&rsquo;s go - only took 23 months」&#8212;&#8212; 带着他两条里唯一的数字，但没说这 23 个月花在什么上。两条都保留，让计数与 feed 一致；两条都不是关于 AI 的证据。</p>
+<div class="urls">
+<a href="https://x.com/nikunj/status/2109060688446677004">https://x.com/nikunj/status/2109060688446677004</a>
+<a href="https://x.com/nikunj/status/2109038632975876395">https://x.com/nikunj/status/2109038632975876395</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Steinberger</span>
+<span class="builder-role">Polyagentmorous ClawFather</span>
+</div>
+<p class="summary-en">Two posts, both thin. &ldquo;JavaScript is not a serious language&rdquo; with an upside-down face, then &ldquo;not as clear-cut, but also yes&rdquo; in reply. Neither names a product, a benchmark or a decision, so there is nothing to grade. Standing context: his OpenClaw Android review has now passed another window without an update, and neither post today touches it.</p>
+<p class="summary-zh zh">两条，都很薄。一句「JavaScript 不是一门严肃的语言」配一个倒置笑脸，然后是一条回复「没那么黑白分明，但也算对」。两条都没有点名产品、基准或决策，没有可评级的内容。补一句长期上下文：他的 OpenClaw Android 审核又过了一个窗口没有更新，今天这两条都没有碰到它。</p>
+<div class="urls">
+<a href="https://x.com/steipete/status/2109022454224150707">https://x.com/steipete/status/2109022454224150707</a>
+<a href="https://x.com/steipete/status/2109008513855087082">https://x.com/steipete/status/2109008513855087082</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Dan Shipper</span>
+<span class="builder-role">CEO @every</span>
+</div>
+<p class="summary-en">Two posts. One is a pointer: &ldquo;incredibly interesting research exploration&rdquo; with a link, so the content is whatever sits behind it and the feed does not carry it. The other is an agreement &mdash; &ldquo;yup&rdquo; &mdash; plus a claim about internal signals: if your company Slack is not a constant source of wonder and inspiration right now, something is wrong. No measure of what such a Slack should look like, no threshold, and nothing that separates the two ways of being wrong. Rendered so the count stays checkable.</p>
+<p class="summary-zh zh">两条。一条是指针：「非常有意思的研究探索」加一个链接，内容在链接后面，feed 里没有带上。另一条是附和 &#8212;&#8212;「yup」&#8212;&#8212; 加一句关于内部信号的判断：如果你公司的 Slack 现在不是一个持续产出惊叹和灵感的地方，那就是哪里出了问题。没有给出这样的 Slack 应该长什么样的度量，没有阈值，也没有区分两种出错方式的东西。渲染出来是为了让计数可核对。</p>
+<div class="urls">
+<a href="https://x.com/danshipper/status/2108941466785439796">https://x.com/danshipper/status/2108941466785439796</a>
+<a href="https://x.com/danshipper/status/2108893466998571442">https://x.com/danshipper/status/2108893466998571442</a>
+</div>
+</article>
+</section>
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128161;</span>
+<h2 class="section-title">The Takeaway</h2>
+<span class="section-meta">2026-10-12 &#183; No Podcast Today</span>
+</div>
+<div class="takeaway">
+<div class="takeaway-label">The Takeaway</div>
+<p>Day 6 of the 28-day clock, and it changes the promise rather than reporting on it. Two posts three hours apart: &ldquo;The day we reach perfection it will be resets from there onwards,&rdquo; then &ldquo;Put the reset in the bag. All propagated.&rdquo; The reset itself is not news, that was reported on 10-09; what is new is the tense. It moves from &ldquo;landed across all accounts&rdquo; to fully propagated, and from a 28-day exercise to something he now describes as running indefinitely. Six days have produced six shapes: a status statement, a reset, a release, an improvement, silence, and now closure plus permanence.</p>
+<p>The poll is the first direct question to Pro users since 09-30, and it is not evidence that the Pro $200 plan is reopening. The text stops at &ldquo;Pro users, would you rather have&rdquo;; the options are not in the feed, nothing names $200 or a reopening, and no connection to the reset is stated. What moved is that a thread silent for nine windows was addressed at all. What it was addressed about cannot be read from the feed, so the item stays open with a new check attached: whether the poll resolves into a plan change.</p>
+<p>Trust is today&rsquo;s theme and it arrived from directions that do not cite one another. Madhu Guru at Meta, on the supply side, dates a phase transition: capability to trust to autonomy, with the trust phase made of identity, permissions and observability, arriving at &ldquo;RSI pace,&rdquo; which he does not define. Aaron Levie at Box, on the demand side, specifies what has to be built: govern, control, audit, contain the blast radius, assign liability, and treat frontier models like insider risk. Same direction, different questions, and their interests point opposite ways, so by the rule from 10-11 they sit side by side rather than confirming each other. The sharpest sentence in Levie&rsquo;s post is the passage he is quoting, not his own.</p>
+<p>The third apparent source is not one. The feed&rsquo;s only podcast today is a return of the 10-03 MAD Podcast episode with Eric Ho of Goodfire, shipped under a new title with the same 2026-10-01 date. So the interpretability claim &mdash; that you can catch a model in the act of cheating before it acts &mdash; is counted as already covered, not as a third independent voice. Worth noting as a mechanic: the feed renames episodes, so deduplicating on title alone would have counted the same conversation twice and inflated the apparent agreement around today&rsquo;s theme.</p>
+<p>Today&rsquo;s only working control mechanism came from outside the security conversation. Garry Tan&rsquo;s thread &mdash; one coordinator thread running the merge PR queue, master gated on full green CI, an ELI5 pass over the plan before a human approves it &mdash; is the single item in the feed where the trust problem is handled by a mechanism instead of being called for. Guru and Levie describe what will be needed; Tan describes a gate that already exists. His evidence grade is the same as everyone else&rsquo;s, self-reported and n=1 with no failure rate, which is worth stating plainly: being concrete is not the same as being measured.</p>
+<p>Evals appear for the fourth time, and for the first time with a shape rather than a slogan. Tan sets them around retrieval, latency and cost per compute, in a repo with 40+ categories that can each be auto-researched and auto-improved. Compare the earlier forms: on 10-07 Guru called evals your product specification; on 10-08 Cherny wrote how-to-verify into the prompt and the podcast argued against publishing your eval because a public eval becomes training data for everyone. Four appearances, no reliability number yet, and 40+ counts categories rather than measuring anything.</p>
+<p>Magnitude versus list hits the same person for the second day running. Levie&rsquo;s swarm post is worth keeping for the list &mdash; parallelize against a unified goal, most valuable where the search space is not known upfront, humans bottlenecked on communication, shared status, conflict resolution and shared context &mdash; while the closing &ldquo;1,000X more compute&rdquo; has no derivation behind it. On 10-11 the same rule was applied to his 1,000x capability claim. Two magnitude claims in two days from one account, neither with a stated basis, is itself the finding.</p>
+<p>Roughly half of today&rsquo;s 21 tweets carry no gradeable AI content, and they are named here rather than dropped: Peter Yang&rsquo;s &ldquo;Something went wrong alright&rdquo;; Steinberger&rsquo;s JavaScript jab and its reply; Zara Zhang&rsquo;s slogan; Shipper&rsquo;s link pointer and his Slack claim; Nan Yu&rsquo;s &ldquo;Ran outta gas&rdquo; and &ldquo;Everything seems to be going as planned&rdquo;; Nikunj&rsquo;s &ldquo;only took 23 months&rdquo; and his pro-rata thread; Rauch&rsquo;s conditional optimism. They stay in the count so it matches the feed. Note that Garry Tan&rsquo;s three posts are one thread sent in the same minute, so they are one data point, not three.</p>
+<p>Two of the thin posts carry something anyway, and neither can be checked. Nan Yu&rsquo;s 1:1 PM-to-engineer ratio is the day&rsquo;s only organizational claim and rests on agreeing with someone else&rsquo;s feeling. Nikunj&rsquo;s 23 months is a number with no object attached. The cleanest things to check tomorrow are whether the Pro poll resolves into anything, whether the tally for the 28-day clock is ever published, and whether the four things that shipped before the reset get enumerated &mdash; six days in, they have not been.</p>
+</div>
+<div class="takeaway zh">
+<div class="takeaway-label">核心结论</div>
+<p>28 天时钟第 6 天，今天改变的是承诺本身，而不是对它的汇报。相隔三小时的两条：「等产品达到完美那天，从那以后就是 reset」，然后是「把 reset 收进袋子里。全部已传播」。reset 本身不是新闻，10-09 已经报告过了；新的是时态。它从「landed across all accounts」变成全部传播完成，并从一次 28 天的练习变成他现在描述为一种无限期持续的状态。六天产生了六种形态：状态表述、reset、发布、改进、沉默，以及今天的收尾加永久化。</p>
+<p>那个投票是自 09-30 以来第一次直接向 Pro 用户提问，但它不是 Pro $200 重开的证据。正文停在「Pro users, would you rather have」；选项不在 feed 里，没有提到 $200 或重开，也没有写明与 reset 的关系。真正有变化的是：沉默了九个窗口的一条线终于被正面提到了。提到的是什么在 feed 里读不出来，所以这个条目仍然开着，只是多了一个核对项：这次投票会不会落地成一次套餐调整。</p>
+<p>信任是今天的主题，而且它来自几个互不引用的方向。Meta 的 Madhu Guru 在供给侧给一个阶段转换定时间：capability 到 trust 到 autonomy，trust 这一阶段由身份、权限、可观测性构成，会以「RSI pace」到来，而他没定义这个词。Box 的 Aaron Levie 在需求侧指定要建什么：治理、控制、审计、限制爆炸半径、划分责任，并把前沿模型当作内部人风险处理。方向相同、问题不同，利益方向相反，所以按 10-11 那条规则，两者并列而不是互相印证。另外，Levie 那条里最锋利的一句是他引用的段落，不是他自己写的。</p>
+<p>看起来是第三个信源的那个并不算。feed 今天唯一的播客是 10-03 那期 MAD Podcast &#215; Eric Ho（Goodfire）的再次出现，换了标题、日期仍是 2026-10-01。所以「可以在模型行动之前抓到它作弊」这个可解释性主张按已收录计，不是第三个独立声音。这个机制值得记一笔：feed 会给同一期节目改名，只按标题去重会把同一段对话算成两次，并把今天这个主题看起来的一致性人为抬高。</p>
+<p>今天唯一一个已经在运转的控制手段，来自安全话题之外。Garry Tan 那条 thread &#8212;&#8212; 一个协调线程跑 merge PR 队列、master 由 full CI 全绿把关、计划先让 agent 讲成五岁小孩能懂的版本再由人批准 &#8212;&#8212; 是 feed 里唯一一处用机制而不是呼吁来处理信任问题的内容。Guru 和 Levie 讲的是将来需要什么，Tan 讲的是一道已经存在的闸门。他的证据等级和所有人一样：自述、n=1、没有失败率。这一点值得直说：具体不等于被测量过。</p>
+<p>evals 这条线第四次出现，也是第一次带出形状而不只是口号。Tan 把它设定在检索、延迟、单位算力成本上，仓库里有 40 多个类别，每个都可以被自动研究和自动改进。对比前面几次的形态：10-07 Guru 说 eval 就是你的产品说明书；10-08 Cherny 把「怎么验证」写进 prompt，播客则主张不要公开你的 eval，因为公开的 eval 会变成所有人的训练数据。四次出现，至今没有一个可靠性数字，40+ 数的是类别而不是一次测量。</p>
+<p>「留清单、弃量级」连续第二天落在同一个人身上。Levie 那条 swarm 帖值得保留的是清单 &#8212;&#8212; 围绕统一目标并行、在搜索空间事先未知时最有用、人类卡在沟通、共享状态、冲突处理与共享上下文上 &#8212;&#8212; 而结尾那句「需要 1,000X 更多算力」背后没有任何推导。10-11 同一条规则已经用在他的 1,000x 能力主张上。同一个账号两天里两个量级主张，都没有给出依据，这件事本身就是结论。</p>
+<p>今天 21 条里大约一半没有可评级的 AI 内容，这里逐条点名而不是删掉：Peter Yang 的「Something went wrong alright」；Steinberger 那句 JavaScript 玩笑和它的回复；Zara Zhang 的口号；Shipper 的链接指针和 Slack 那条；Nan Yu 的「没油了」和「一切似乎都在按计划进行」；Nikunj 的「only took 23 months」和他的 pro rata 长帖；Rauch 带条件的乐观。它们留在计数里，让数字与 feed 一致。注意 Garry Tan 那三条是同一分钟发出的一个 thread，是一个数据点，不是三个。</p>
+<p>薄内容里有两条仍然带着一点东西，只是两条都无法核对。Nan Yu 的 PM 与工程师 1:1 是今天唯一的组织层面主张，依据是附和别人的感觉。Nikunj 的 23 个月是一个没有宾语的数字。明天最干净的核对项是：那个 Pro 投票会不会落地成任何东西、28 天时钟的计数到底会不会公布、以及 reset 之前发出的那四件东西会不会被列出来 &#8212;&#8212; 六天过去了，它们一次都没被列出来。</p>
+</div>
+</section>
+<!-- ============== ALREADY COVERED ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128257;</span>
+<h2 class="section-title">已收录 / Already Covered</h2>
+<span class="section-meta">1 Item &#183; Matched</span>
+</div>
+<div class="dedup">
+<p><strong>Podcast</strong> &#8212; The MAD Podcast with Matt Turck: AI Models Are Now Hiding Their Cheating | Eric Ho (Goodfire)。已收录于 <a href="https://clean-online.github.io/ai-digest/2026/10/03/AI_Builders_Digest_2026-10-03.html">2026-10-03</a>。 <a href="https://www.youtube.com/@DataDrivenNYC/videos">https://www.youtube.com/@DataDrivenNYC/videos</a></p>
+<p style="margin-top:12px">&#8226; 21 tweet IDs were checked against every file under <code>2026/</code>: zero hits.</p>
+<p style="margin-top:12px" class="zh">&#8226; 21 个推文 ID 对 <code>2026/</code> 下所有文件做了检查：零命中。</p>
+<p style="margin-top:12px">&#8226; The podcast is judged to be the same episode covered on 10-03 rather than a new one: same host, same guest, same 2026-10-01 publication date, and the transcript opens the paper discussion with the &ldquo;hugging face hack&rdquo; and the &ldquo;amoral students with an absent teacher&rdquo; framing that the 10-03 issue recorded as a chapter title at 01:06. The feed shipped it under a different title (&ldquo;Why AI Agents Cheat&rdquo; on 10-03), so a title-only check would have counted it as new.</p>
+<p style="margin-top:12px" class="zh">&#8226; 这期播客判定为 10-03 已收录的同一期，而不是新的一期：同一主持人、同一嘉宾、同一发布日期 2026-10-01，且文稿在讨论论文时以「hugging face hack」和「没有老师、没有道德的学生」开篇，这正是 10-03 那期记录为 01:06 章节标题的那句。feed 这次换了个标题（10-03 是「Why AI Agents Cheat」），所以只按标题判重会把它当成新的。</p>
+<p style="margin-top:12px">&#8226; The two zeros have different causes and are stated separately: an empty blogs array is not the same thing as a podcast that was fetched and then matched. On 10-11 it ran the other way round &mdash; a non-empty blogs array whose three entries all matched, and a podcast that counted.</p>
+<p style="margin-top:12px" class="zh">&#8226; 两个 0 成因不同，分开写：数组为空，和「抓到了但被判重」不是一回事。10-11 那期正好相反 &#8212;&#8212; blogs 数组非空但三条全部命中，播客则计入。</p>
+<p style="margin-top:12px">&#8226; The Goodfire &times; Hugging Face item did not move. It exists in this episode and nowhere else: Eric Ho says around the 40-minute mark that &ldquo;we actually just announced a partnership with Hugging Face.&rdquo; Ten days later there is still no written form, and a re-run of the same audio is not one.</p>
+<p style="margin-top:12px" class="zh">&#8226; Goodfire &#215; Hugging Face 那个条目没有移动。它只存在于这期节目里：Eric Ho 在大约 40 分钟处说「我们刚刚宣布了与 Hugging Face 的合作」。十天过去仍然没有书面形式，而把同一段音频再放一遍也不是书面形式。</p>
+<p style="margin-top:12px">&#8226; Nothing today touches: the Pro $200 reopening (now addressed by a poll whose subject cannot be read from the feed), the Gemini 4 vibe check, external reproduction of Sonnet 5.5, the OpenClaw Android review, the unanswered question about 10x coding agents, or the Beam technical report. Standing dates: Founder House 10-14, half-rate usage ends 10-15, Opal shutdown 2026-11-17.</p>
+<p style="margin-top:12px" class="zh">&#8226; 今天没有任何一条碰到：Pro $200 重开（今天第一次被一个投票正面提到，但投票问的是什么在 feed 里读不出来）、Gemini 4 vibe check、Sonnet 5.5 的外部复现、OpenClaw Android 审核、那个没人回答的 10x 编码 agent 提问、Beam 技术报告。已定日期：Founder House 10-14、半额用量 10-15 截止、Opal 2026-11-17 关停。</p>
+</div>
+</section>
+<footer class="footer">
+<div class="next-issue">&#128236; 下一期：明天 10:00（北京时间）</div>
+<div class="signature">by chloevchen</div>
+</footer>
+</body>
+</html>
+<!-- by chloevchen -->

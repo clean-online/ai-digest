@@ -629,3 +629,46 @@
 - 沿用：三项证据分级、一 builder 一卡、推文 ID 与 feed `diff` 校验（**`sort -u`**）、内容级去重（blog slug / podcast 标题关键词）、`gh run list --limit 1` 不带 --workflow、curl 用 GET 不用 -I、`/tmp/dg/` 下 raw.json + dump.txt + ids.txt + css.txt + cMMDD.py + bMMDD.py（新文件名避免 Write 需先 Read）。
 - **本期新增沿用（已写入项目经验库）**：①分支型承诺的核对项要写成 A/B/第三条三态，并把「兑现」与「量化」拆开；②同一人同一窗口两种媒介共用例子时按「只在一处出现的东西」拆开，不当两次印证，且同一人重复自己的旧预测不增加证据；③证据为零时改用可证伪性评价（给了机制的版本比只给结论的版本进步，即使证据量相同）；④note-line 的「与上一期关系」必须独立判定（相同/镜像/相反/更窄），不能沿用上一期写过的词；⑤n=3 且类型不同、无互相引用仍不成趋势，可核对的只有带已发布产物的那一条，并要把它自己写明的限制一起记上。
 - 关注：**Sottiaux Day 4** —— codex cloud 是否属于 reset 前那四件东西、票数是否公布、「悄悄」是否成模式；**打电话能力**（第三次出现，Grok Bot）；**Pro $200 重开**（第九窗口未提）；**Gemini 4 vibe check**（第八期缺席）；**Sonnet 5.5 外部复现**（仍无，今日 Haiku 5.5 对齐结果为第一方）；**Steinberger Android 审核**；**10x 编码 agent 提问**；**Goodfire × HF**（仍只有音频）；**Amjad 反编译无例子**；**Thariq 离线机器无解法**；新增未验证：**NVIDIA OpenShell**（首现，仅「早期采用」）、**Google Labs Playground**（实验性、仅美国）、**Sam Altman 自定义 UI**（无范围说明）；已定日期：半额用量 10-15 截止、Founder House 10-14、Opal 2026-11-17 关停。
+
+### 2026-10-10 (周六) — 成功
+- **内容获取**：`prepare-digest.js` 一次跑通，feed 快照 2026-10-09T06:47:11Z（太平洋 10-08 23:47，较上期 2026-10-08T06:47:17Z 前进一天，无丢档）；32 条推文全部落在太平洋 10-08 08:24–22:44。产出 15 builders / 32 tweets / 1 podcast / 0 blog（bilingual）。
+- **去重**：32 个推文 ID 零命中；播客「Amin Vahdat」/「Vahdat」/「AI Infrastructure」/「Physics」零命中（"Frontier AI" 命中 10-04，但那是 Walter Goodwin 那期，且通用词不作判据）；blogs 数组为空 → 唯一一个 0，成因与 10-09、10-08 相同（连续第三天）。
+- **主线**：Sottiaux 28 天承诺 Day 4 **第一次落在「改进」这一支**（四天形态：状态表述 / reset / 发布 / 改进），全是形容词、票数连续第二天缺席，并把一次发布（GPT-6.1 Sol ultrafast）并进改进日。另：Guru 的「栈每一层为 agent 重做」（零数字）与 Turck 转述的 Pavlo 章节数字（80% 数据库由 agent 创建，Neon 二手 + 标题带问号）互不引用；**feed 播客槽位是 Vahdat、Turck 当天推的是 Pavlo，两期错位**；Grok bot 邮件被 Peter Yang 报告失效（能力线第四次、正负翻转）；Shipper 的 Checks 是评估线第一个有名字的产品；Anthropic 暂停 Startups 权益（数十万申请者，追溯撤回）。
+- **结构**：X 15 卡 → Podcast（EN/ZH 各 6 段 + playlist URL）→ Takeaway（EN 9 段 + CARRY + 独立 zh 块 9 段）→ Already Covered（0 项 + 3 条说明）→ footer。size 47628 字符 / 58574 字节。CSS 沿用 10-09 基线。
+- **部署**：index.html `ISSUES` 顶部追加 `2026-10-10`（meta: 15 Builders · 32 Tweets · 1 Podcast · 0 Blog）→ copy 到 `2026/10/10/` → commit `ecd2930` → push（8e55fa7..ecd2930）。
+- **验证**：`gh run list --limit 1` 第 3 次轮询 completed/success（run 38016219820，约 24s）→ GET 子路径**首查 HTTP 200**，58574 字节与本地 `diff` IDENTICAL；线上 15 卡、32/32 推文 ID 与 feed 一致、播客 URL 2 处、2 处 by chloevchen；根 index 200 且含 `2026-10-10`。
+- **生成脚本**：`/tmp/dg/c1010.py`（文案）+ `/tmp/dg/b1010.py`（渲染 + 断言，新增中英段落数与 takeaway 段数一致性断言）。
+
+## 关键经验（踩坑/打法）
+- **🔴 校验正则漏数字（本期唯一返工）**：`grep -o 'https://x\.com/[a-z_]*/status/[0-9]*'` 匹配不到含数字的 handle（`trq212`），diff 报 29 vs 32 的假失败。校验用正则字符集一律 `[A-Za-z0-9_]+`；校验失败先怀疑校验脚本。已写入全局经验库。
+- **feed 播客槽位与 X 侧当天推的可能不是同一期**：本期 Vahdat（10-06）vs Turck 推的 Pavlo。要在正文点明错位，否则数字会被挂错对象。已写入项目经验库。
+- **分支型承诺第四形态**：Day 4 落在改进支（承诺写下来的那一支，花了四天），但仍无数字；且「发布与改进同条」不等于检验了 Day 2 的「改进不下架」承诺 —— 检验点是 reset 前那四件东西是否还在。已写入项目经验库。
+- **方向相反但不同问题 = 并列，不判胜负**（Garry Tan vs Nikunj）；且其中一方要打折（他设定门槛 + 自报频率不是样本）。已写入项目经验库。
+- **数字同时是结果与理由时按需求声明读**（Anthropic 数十万申请者）。已写入项目经验库。
+- **能力线正负翻转**：愿望与失效报告是两类证据不合并；更简单的能力被报告坏了、更难的能力还在被许愿，这个顺序止于「均未交付」。已写入项目经验库。
+- **部署验证顺序**（沿用且本期有效）：`gh run list --limit 1` 不带 --workflow → GET 判 200 + `%{size_download}` 对齐本地 `wc -c`。本期首查即 200。
+
+## 下次运行
+- 预计 2026-10-11 由 cron 触发；若该日无新内容（stats 全 0）则按 skill 规则跳过生成。
+- 沿用：三项证据分级、一 builder 一卡、推文 ID 与 feed `diff` 校验（**正则用 `[A-Za-z0-9_]+`**）、内容级去重（blog slug / podcast 嘉宾全名，不用公司名/通用词）、`gh run list --limit 1` 不带 --workflow、curl 用 GET 不用 -I、`/tmp/dg/` 下 raw.json + dump.txt + ids.txt + css.txt + cMMDD.py + bMMDD.py。
+- 关注：**Sottiaux Day 5**（落在改进还是 reset、票数是否公布、reset 前那四件东西是否被列举）；**.claw 是否被解释**；**Grok bot 邮件**有无回应；**Checks** 是否给出数字或停在招聘帖；**Vahdat 这一集**（日期 10-06 已记录在案）是否在后续窗口再次出现；六项未移动：**Pro $200 重开**、**Gemini 4 vibe check**、**Sonnet 5.5 外部复现**、**Steinberger Android 审核**、**10x 编码 agent 提问**、**Goodfire × HF 仍只有音频**；已定日期：Founder House 10-14、半额用量 10-15 截止、Opal 2026-11-17 关停。
+
+### 2026-10-11 (周日) — 成功
+- **内容获取**：`prepare-digest.js` 一次跑通，feed 快照 2026-10-10T06:42:38Z（太平洋 10-09 23:42，较上期 2026-10-09T06:47:11Z 前进一天，无丢档）；27 条推文全部落在太平洋 10-09 07:12–23:12。产出 15 builders / 27 tweets / 1 podcast / 0 blog（bilingual）。
+- **去重**：27 个推文 ID 零命中。blog 数组**非空**（3 篇 Anthropic Engineering），但三个完整 URL 全部命中已收录 —— how-we-contain-claude 首刊 2026-06-05、april-23-postmortem 2026-05-11、managed-agents 2026-05-12 → blog 记 0，成因判定为与前三期「**相反**」（前三期是空数组）。播客（No Priors × Reflection AI 的 Misha Laskin，讲 Beam）四个关键词（Misha Laskin / Laskin / Beam / Reflection）零命中 → 计入；"No Priors" 命中 26 处但是频道名，不作判据。播客日期 2026-10-09，**落在推文窗口内**（与 10-10 那次早三天的错位相反）。
+- **主线**：① 28 天时钟 Day 5 **第一次完全未被提及** = 第五种形态（前四：状态表述 / reset / 发布 / 改进），并显式区分它与 Day 1（Day 1 至少在谈承诺）；第 2 天派生的核对项（reset 前那四件东西是否被列举）五天都没被执行。② Rauch 是 27 条里唯一可评级的一组数字：58.18% bot 流量（2024-01 为 32%）、60%+ 部署为 agentic（2026-01 约 3%）、文档站最多 83% pageview 来自 agent；带两个有日期的基线，是「网络为 agent 而建」第一次带时间序列出现。③ Guru（开放权重是价格下降的顺风不是起因，三驱动：蒸馏/基建效率/竞争）与播客（开放/封闭份额已翻转为 70/30）**问题不同，并列不判胜负**，唯一相接处是「蒸馏」但含义不同。④ Levie 的 1,000x 按「留清单弃量级」处理（与 10-05 处理 "huge space" 同一条规则）。⑤ Thariq 一个提示词从 Agent SDK 迁到 Claude Managed Agents，n=1、自述、无可靠性度量；显式与已收录的 Anthropic Managed Agents 博文分开（一个是用户迁移、一个是产品发布）。⑥ Grok bot 线：10-10 失效报告 → 今天配置建议（默认功能在用），中间无修复说明，两类证据不合并。⑦ 播客内部对效率倍数给了 30x 与 4-5x 两个值，指同一量，**并排记不调和**，同时把不受影响的第一方工程数字单列。
+- **结构**：X 15 卡 → Podcast（EN/ZH 各 7 段 + 频道页 URL）→ Takeaway（EN 9 段 + 独立 zh 块 9 段）→ Already Covered（3 项已收录 blog + 5 条说明）→ footer。size 47523 字符 / 58946 字节。CSS 沿用 10-10 基线。
+- **部署**：index.html `ISSUES` 顶部追加 `2026-10-11`（meta: 15 Builders · 27 Tweets · 1 Podcast · 0 Blog）→ copy 到 `2026/10/11/` → commit `d7a1046` → push（ecd2930..d7a1046）；随后修一处措辞（listed below → above）重生成并重推，最终 commit `2ebc72e`（d7a1046..2ebc72e）。
+- **验证**：`gh run list --limit 1` **首轮**即 completed/success（run 38104339396；修词后 run 38104476097）→ GET 子路径首查 HTTP 200，58946 字节与本地 `diff` IDENTICAL；线上 15 卡、27/27 推文 ID 与 feed 一致、2 处 by chloevchen；根 index 200 且含 `2026-10-11`。四项校验首跑全绿。
+- **生成脚本**：`/tmp/dg/c1011.py`（文案）+ `/tmp/dg/b1011.py`（渲染 + 断言）。新增断言：中英段落数一致、实体字符（“”’—…×）全转、URL 计数先去重（HTML 里每条 URL 出现两次，href + 文本）。
+
+## 关键经验（踩坑/打法）
+- **渲染函数要分两个**：含 `<code>` 的字段（note-line / dedup）用 `keep()`（只转实体），纯文本用 `esc()`（全转义）。本期因 note-line 未转义导致断言失败两次。已写入全局经验库。
+- **URL 计数先 `sort -u`**：`<a href="U">U</a>` 会让 grep 得到 2N（54 而非 27）。已写入全局经验库。
+- **0 的成因第四态**：数组非空但全部命中已收录 → 与「空数组」方向相反，note-line 写「inverse」而不是沿用「相同/镜像」。slug 命中还要验证**完整 URL**（managed-agents 这个 slug 的首刊文件里是另一篇）。已写入项目经验库。
+- **同一信源内部自相矛盾**：两个数指同一量时并排记、不折中，并把不受影响的其他第一方数字单列，避免一起打折。已写入项目经验库。
+
+## 下次运行
+- 预计 2026-10-12 由 cron 触发；若该日无新内容（stats 全 0）则按 skill 规则跳过生成。
+- 沿用：三项证据分级、一 builder 一卡、推文 ID 与 feed `diff` 校验（正则 `[A-Za-z0-9_]+`，**计数先 sort -u**）、内容级去重（blog 用完整 URL / podcast 用嘉宾全名，不用公司名/通用词）、`gh run list --limit 1` 不带 --workflow、curl 用 GET 不用 -I、`/tmp/dg/` 下 raw.json + dump.txt + ids.txt + css.txt + cMMDD.py + bMMDD.py（新文件名避免 Write 需先 Read）；渲染函数 `esc()` / `keep()` 分离。
+- 关注：**Sottiaux Day 6**（承诺是否再被提起、reset 前那四件东西是否会被列举、那四件东西到底是什么）；**Beam 技术报告**是否发布（那是让 RL 规模主张可核对的东西）；**Rauch 流量序列**有无第二家网络读数；**Grok bot 邮件**是否说明已修复；**Amjad 的提问**有无回答；七项未移动：**Pro $200 重开**、**Gemini 4 vibe check**、**Sonnet 5.5 外部复现**、**OpenClaw Android 审核**、**10x 编码 agent 提问**、**Goodfire × HF 仍只有音频**、**Vahdat 那期（10-06）是否再现**；已定日期：Founder House 10-14、半额用量 10-15 截止、Opal 2026-11-17 关停。
