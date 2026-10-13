@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Builders Digest &middot; 2026-10-13</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+
+
+
+
+
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 28px 30px; margin-bottom: 24px; }
+  .podcast-source { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
+  .podcast-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; margin-bottom: 18px; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; }
+
+
+
+
+
+</style>
+</head>
+<body>
+<header class="topbar">
+<div class="topbar-inner">
+<a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+<span>双语 &#183; Bilingual</span>
+</div>
+</header>
+<section class="header">
+<div class="eyebrow">Daily Digest &#183; 2026-10-13</div>
+<h1>AI Builders Digest</h1>
+</section>
+<div class="stats">
+<div class="stat"><div class="stat-num">13</div><div class="stat-label">Builders</div></div>
+<div class="stat"><div class="stat-num">20</div><div class="stat-label">Tweets</div></div>
+<div class="stat"><div class="stat-num">0</div><div class="stat-label">Podcast</div></div>
+<div class="stat"><div class="stat-num">0</div><div class="stat-label">Blog</div></div>
+</div>
+<p class="note-line">Feed snapshot 2026-10-12T07:04Z (Pacific 10-12 00:04), one day and twenty minutes past the 10-12 snapshot, so no gap in coverage; all 20 tweets fall inside the Pacific 10-11 window (07:58 to 23:55). The two zeros have two different causes and are not merged: the blogs array is empty, and the single podcast in the feed is a return of the No Priors episode with Walter Goodwin of Fractile that the 10-04 issue already covered &mdash; same host, same guest, same 2026-10-02 publication date &mdash; so it counts as already covered rather than as something the feed failed to fetch.</p>
+<p class="note-line zh">feed 快照 2026-10-12T07:04Z（太平洋 10-12 00:04），比 10-12 那期前进一天零二十分钟，没有丢档；20 条推文全部落在太平洋 10-11 这个窗口内（07:58 到 23:55）。两个 0 的成因不同，不合并说明：blogs 数组为空；feed 里唯一的那一期播客是 10-04 那期已收录的 No Priors &#215; Walter Goodwin（Fractile）那期的再次出现 &mdash;&mdash; 同一主持人、同一嘉宾、同一发布日期 2026-10-02 &mdash;&mdash; 所以按已收录计，而不是按「feed 没抓到」计。</p>
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128036;</span>
+<h2 class="section-title">X / Twitter</h2>
+<span class="section-meta">13 Builders &#183; 20 Tweets</span>
+</div>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thibault Sottiaux</span>
+<span class="builder-role">Codex &amp; ChatGPT &middot; OpenAI</span>
+</div>
+<p class="summary-en">Three posts, and Day 7 is the first day of the clock that arrives with a number attached. At 16:45 Pacific he posts the daily entry: default context length for GPT-6.1 Sol through Codex and Work goes from 272k to 500k, which he writes as about an 80% increase, with 1M as the ceiling a user can still override to. The reason given is compactions: 500k should make them occur less often, and should help tasks that need to hold a lot of context and nuance over time. He says it was carefully tested and is the new sweet spot for most of their users, and the testing itself is not described anywhere &mdash; no compaction rate before or after, no task set, no sample. Two minutes later he adds that long-context fees are not being charged for GPT-6.1 Sol when the usage is drawn from the subscription; that is a pricing statement with no number in it.</p>
+<p class="summary-zh zh">三条，Day 7 是这个时钟开始以来第一次带着数字来的一天。太平洋时间 16:45 他发了当日那条：GPT-6.1 Sol 在 Codex 与 Work 中的默认上下文长度从 272k 提到 500k，他写的是约 80% 的提升，上限 1M 仍可由用户自行覆盖。给的理由是压缩（compaction）：500k 应该能减少它发生的次数，也有利于那些需要在较长时间里保留大量上下文与细微差别的任务。他说这次改动经过仔细测试、是大多数用户新的甜点值，但测试本身没有在任何地方被描述 &mdash;&mdash; 没有压缩率的前后对比，没有任务集，没有样本。两分钟后他补充：从订阅额度扣用时，GPT-6.1 Sol 不收长上下文费用；这是一条定价声明，里面没有数字。</p>
+<div class="urls">
+<a href="https://x.com/thsottiaux/status/2109430343346581527">https://x.com/thsottiaux/status/2109430343346581527</a>
+<a href="https://x.com/thsottiaux/status/2109430894604026039">https://x.com/thsottiaux/status/2109430894604026039</a>
+<a href="https://x.com/thsottiaux/status/2109439315570999598">https://x.com/thsottiaux/status/2109439315570999598</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Andrej Karpathy</span>
+<span class="builder-role">AI Researcher</span>
+</div>
+<p class="summary-en">One post, and everything else today either quotes it or sits in its shadow. He dusts off an April tweet and restates it as a funnel: roughly 6B people, about 75% of the population, have barely come into contact with LLMs; around 1&ndash;2B, about 20%, are casual and infrequent free-tier users who see a derpy chatbot and treat it as a slightly better search or a writing aid; somewhere around 20M, which he puts at 0.2%, see first-hand that projects that used to take weeks or months can now be finished by agents from a prompt; and about 5,000 people, 0.00006%, have access to frontier-grade systems internally, where the public preview already looks like swarms of thousands of agents collaborating over weeks on software mega-projects, minting zero days, running cyber offence and defence at machine speed, and advancing frontier mathematics. At that top tier he names two specific artifacts: people are still doing the archaeology of the OpenAI-HF incident from months ago, and mathematicians may be poring over 722 manuscripts on frontier mathematics for a while. He gives three drivers: impact scales with ambition, problem size and horizon; capability is jagged because it emerges from reinforcement learning on verifiable rewards over an environment mixture curated by revenue potential, which is why it peaks where work is digital, verifiable and economically valuable; and access, split into free, paid and internal. Every number is his own, he calls the whole thing napkin math, and no method or source stands behind any of them. The line the rest of the day leans on is his closing one: at the top of the funnel, human review and comprehension are starting to fall behind.</p>
+<p class="summary-zh zh">一条，今天其他内容不是在引用它，就是在它的影子底下。他把四月那条推文翻出来重述成一个漏斗：约 60 亿人，约占总人口 75%，几乎没有接触过 LLM；约 10&ndash;20 亿，约 20%，是偶尔用用的免费档用户，看到的是一个笨拙的聊天机器人，把它当成好一点的搜索或者写作辅助；大约 2,000 万人，他算作 0.2%，亲眼见到过去要几周几个月的项目现在靠一句提示词就能被 agent 做完；最上面约 5,000 人，0.00006%，能用到内部的前沿系统，而外界已经看到的那点预览，是数千个 agent 在软件巨型项目上协作数周、批量挖出零日漏洞、以机器速度跑攻防、推进前沿数学。在这一层他点了两件具体的东西：几个月前 OpenAI-HF 那次事件，人们还在做「考古」；以及数学家可能还要在 722 篇前沿数学手稿上啃一阵子。他给了三个成因：影响随野心、问题规模和时间跨度放大；能力是锯齿状的，因为它来自在可验证奖励上的强化学习，而环境混合是按收入潜力挑选的，所以能力峰值出现在数字化、可验证、有经济价值的工作上；第三是访问层级，分免费、付费、内部。所有数字都是他自己的，他把整件事称为「napkin math（餐巾纸上的估算）」，没有任何一个数字背后有方法或来源。今天其余内容都压在他结尾那句上：在漏斗顶端，人的审阅与理解已经开始跟不上了。</p>
+<div class="urls">
+<a href="https://x.com/karpathy/status/2109361546505966046">https://x.com/karpathy/status/2109361546505966046</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aaron Levie</span>
+<span class="builder-role">Box CEO</span>
+</div>
+<p class="summary-en">One post, and it is a quote of the funnel above, so it counts as amplification rather than as a second source. What he adds is the part Karpathy does not cover: the change management. Companies have to upgrade their own workflows, data has to be integrated and migrated onto modern platforms, and compliance, governance and security frameworks have to be worked through before most areas of work beyond software and AI research can benefit from agent swarms. His positive claim is that this is exactly where the applied layer in the enterprise will shine, because the domain specificity of the work is the moat. He restates the shape of the funnel in his own words: the vast majority are using AI as a chatbot approximating next-generation search, and less than a fraction of a fraction use it as swarms. No numbers of his own, and no company examples.</p>
+<p class="summary-zh zh">一条，是对上面那个漏斗的引用，所以按「放大」计，不算第二个信源。他补的是 Karpathy 没写的那部分：变更管理。公司得先升级自己的工作流，数据要整合迁移到现代平台上，合规、治理和安全框架要过一遍，软件与 AI 研究之外的大多数工作才可能从 agent 集群中受益。他的正面判断是：这恰恰是企业里应用层最能发光的地方，因为这类工作的领域专属性本身就是壁垒。他也用自己的话重述了漏斗的形状：绝大多数人把 AI 当成一个近似下一代搜索的聊天机器人在用，而把它当集群用的，不到「几分之一里的几分之一」。全程没有他自己的数字，也没有公司案例。</p>
+<div class="urls">
+<a href="https://x.com/levie/status/2109467575025578330">https://x.com/levie/status/2109467575025578330</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Garry Tan</span>
+<span class="builder-role">Y Combinator CEO</span>
+</div>
+<p class="summary-en">Three posts. Two of them are about the funnel, and the one with content in it is the shorter one: &ldquo;Replacing LLM calls with deterministic code is a no brainer and also results in better code that better matches what users want.&rdquo; That is a migration rule with no measurement attached, and nothing in it says which calls, what share of them, or what &ldquo;better matches&rdquo; was measured against. The second is &ldquo;Be part of the 5000 today,&rdquo; aimed at the top of the funnel, carrying a prediction that the price will come down and more people will see it, and the phrase &ldquo;greatest alpha fountain in the history of man&rdquo; &mdash; an investment claim rather than a technical one. The third is not about AI: a post on the San Francisco public bank proposal and Jackie Fielder. On the funnel he is agreeing with Karpathy, so today's apparent agreement about how capability is distributed is one post plus two reactions, not three independent readings.</p>
+<p class="summary-zh zh">三条。两条和漏斗有关，其中有内容的是更短的那条：&ldquo;把 LLM 调用换成确定性代码，这没什么好想的，而且代码会更好，也更贴近用户真正想要的。&rdquo;这是一条迁移原则，没有任何测量，也没有说换的是哪些调用、占多大比例，&ldquo;更贴近&rdquo;又是拿什么量的。第二条是&ldquo;今天就成为那 5000 人之一&rdquo;，对着漏斗顶端说的，里面夹了一个预测：价格会降下来，更多人会看到它，以及&ldquo;人类历史上最大的 alpha 泉眼&rdquo;这句话 &mdash;&mdash; 这是投资判断，不是技术判断。第三条与 AI 无关，是关于旧金山公共银行提案和 Jackie Fielder 的一条。在漏斗这件事上他是附和 Karpathy，所以今天看上去关于能力分布的「一致看法」是一条推文加两条反应，不是三个独立信源。</p>
+<div class="urls">
+<a href="https://x.com/garrytan/status/2109410082769482174">https://x.com/garrytan/status/2109410082769482174</a>
+<a href="https://x.com/garrytan/status/2109418482953814026">https://x.com/garrytan/status/2109418482953814026</a>
+<a href="https://x.com/garrytan/status/2109417956929327510">https://x.com/garrytan/status/2109417956929327510</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thariq</span>
+<span class="builder-role">Claude Code &middot; Anthropic</span>
+</div>
+<p class="summary-en">One post, and it is the clearest statement of principle in the feed. Agreeing with Terrence Tao: they should not settle for a superintelligence that is opaque. His own addition is that a key signal of intelligence is communication, and that products and models should be built to develop understanding with humans rather than to disintermediate them. There is no mechanism, no artifact and nothing to check, so it is recorded as a position. It sits alongside today's other two posts about trusting output without citing either of them.</p>
+<p class="summary-zh zh">一条，也是 feed 里最清楚的一条原则声明。他在回应 Terrence Tao 时说：不应该接受一个不透明的超级智能。他自己补的是：智能的一个关键信号是沟通，应该去做那些帮人建立理解的产品和模型，而不是把人从回路里挤出去。没有机制，没有产物，也没有可核对的东西，所以按立场记录。它和今天另外两条谈「如何信任输出」的推文并列，但没有引用其中任何一条。</p>
+<div class="urls">
+<a href="https://x.com/trq212/status/2109329495341867391">https://x.com/trq212/status/2109329495341867391</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Yang</span>
+<span class="builder-role">Practical AI Tutorials</span>
+</div>
+<p class="summary-en">Three posts. The one with content quotes Micky (Rasmic), introduced as having taught 100K+ people to build with AI, saying &ldquo;I'm not at a point where I trust the agent, especially with stuff that people are using.&rdquo; The workflow he describes is evidence-driven testing before and after, plus something called greploop, with the agent presenting evidence for why the work is good and manual review kept as the final step. That is a named process with no reliability number behind it, and the 100K+ figure describes the guest's reach, not a measurement of the workflow. The other two are thin: a joke about YouTube comments, and a post about building a ModRetro game with his daughter using Codex, which is an n=1 hobby report with nothing to grade.</p>
+<p class="summary-zh zh">三条。有内容的是一条引用：Micky（Rasmic，被介绍为教过 10 万人以上用 AI 做东西）说&ldquo;我还没到信任 agent 的地步，尤其是那些已经有用户在用的东西&rdquo;。他描述的流程是前后都做证据驱动测试，加上一个叫 greploop 的东西，由 agent 自己提交证据说明这次改动为什么是好的，人工审阅保留为最后一步。这是一个有名字的流程，背后没有任何可靠性数字；那个「10 万以上」说的是嘉宾的受众规模，不是对这个流程的测量。另外两条很薄：一条是拿 YouTube 评论区开玩笑，一条是说他用 Codex 和女儿一起做了一个 ModRetro 掌机游戏，属于 n=1 的业余项目，没有可评级的内容。</p>
+<div class="urls">
+<a href="https://x.com/petergyang/status/2109433961223180517">https://x.com/petergyang/status/2109433961223180517</a>
+<a href="https://x.com/petergyang/status/2109434554729824397">https://x.com/petergyang/status/2109434554729824397</a>
+<a href="https://x.com/petergyang/status/2109435203269878242">https://x.com/petergyang/status/2109435203269878242</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Matt Turck</span>
+<span class="builder-role">VC &middot; FirstMark Capital &middot; Host, MAD Podcast</span>
+</div>
+<p class="summary-en">Two posts. The one with content is a historical analogy: punch card operators, then Lotus Notes admins, then Flash developers and Dreamweaver webmasters, then DevOps and Tableau analysts, and now agent managers and harness engineers. The claim is in the last five words, &ldquo;It will work out just fine,&rdquo; and it is unsupported: no displacement figures, no retraining data, and no acknowledgement that any of those earlier transitions had people who did not land on their feet. The second post is personal and not about AI; it is listed only so the count stays checkable, and nothing in it is interpreted here.</p>
+<p class="summary-zh zh">两条。有内容的是一段历史类比：打孔卡操作员，然后是 Lotus Notes 管理员，然后是 Flash 开发者和 Dreamweaver 站长，然后是 DevOps 和 Tableau 分析师，现在轮到 agent 管理者和 harness 工程师。主张在最后五个字里：&ldquo;最后都会没事的&rdquo;，而它没有支撑 &mdash;&mdash; 没有岗位替代数字，没有再培训数据，也没有提到前面那几轮转换里确实有人没落好地。第二条是私人事务、与 AI 无关，列在这里只是为了让计数可核对，本刊不对它作任何解读。</p>
+<div class="urls">
+<a href="https://x.com/mattturck/status/2109345191010472332">https://x.com/mattturck/status/2109345191010472332</a>
+<a href="https://x.com/mattturck/status/2109410677526065460">https://x.com/mattturck/status/2109410677526065460</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nan Yu</span>
+<span class="builder-role">Product &middot; Codex at OpenAI</span>
+</div>
+<p class="summary-en">One post: &ldquo;Who's gonna tell him,&rdquo; quoting something outside the feed. The object is not named in anything available here, so there is nothing to grade. Rendered so the count stays checkable.</p>
+<p class="summary-zh zh">一条：&ldquo;谁来告诉他&rdquo;，转推 feed 之外的某条内容。对象在可读到的内容里没有被点名，所以没有可评级的东西。列出来是为了让计数可核对。</p>
+<div class="urls">
+<a href="https://x.com/thenanyu/status/2109538550421262552">https://x.com/thenanyu/status/2109538550421262552</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Guillermo Rauch</span>
+<span class="builder-role">Vercel CEO</span>
+</div>
+<p class="summary-en">One post: &ldquo;So cool. The future of learning,&rdquo; quoting something outside the feed. An endorsement whose object the feed does not carry, so it is graded as no gradeable content.</p>
+<p class="summary-zh zh">一条：&ldquo;太酷了。学习的未来&rdquo;，转推 feed 之外的某条内容。是一条推荐，但对象不在 feed 里，所以按「没有可评级内容」计。</p>
+<div class="urls">
+<a href="https://x.com/rauchg/status/2109297685392175488">https://x.com/rauchg/status/2109297685392175488</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Swyx</span>
+<span class="builder-role">Latent Space Host</span>
+</div>
+<p class="summary-en">One post, re-upping his talk tips thread ahead of the AI Engineer NYC speaker dinner. Conference logistics, no AI content to grade.</p>
+<p class="summary-zh zh">一条，把他的演讲技巧串重新发了一遍，因为 AI Engineer NYC 的讲者晚宴就在第二天。属于会议事务，没有可评级的 AI 内容。</p>
+<div class="urls">
+<a href="https://x.com/swyx/status/2109365419937239158">https://x.com/swyx/status/2109365419937239158</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Dan Shipper</span>
+<span class="builder-role">Every CEO</span>
+</div>
+<p class="summary-en">One post: he built a feed that automatically tracks the books he is reading, going back to 2012, and floats the idea of one for everybody. A product idea with no AI claim in it and nothing to check.</p>
+<p class="summary-zh zh">一条：他做了一个自动追踪自己在读哪些书的 feed，往前一直追到 2012 年，并提议也许可以给每个人做一个。是一个产品想法，里面没有 AI 主张，也没有可核对的东西。</p>
+<div class="urls">
+<a href="https://x.com/danshipper/status/2109331798282915907">https://x.com/danshipper/status/2109331798282915907</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Zara Zhang</span>
+<span class="builder-role">Builder</span>
+</div>
+<p class="summary-en">One post: &ldquo;The only place where I use Gemini these days is in Chrome.&rdquo; A personal usage statement, n=1, no reason given and no comparison offered. It is also the only thing in the feed today that says anything at all about where a specific model is actually being used.</p>
+<p class="summary-zh zh">一条：&ldquo;我现在唯一用 Gemini 的地方是 Chrome 里。&rdquo;一条个人使用陈述，n=1，没有给理由，也没有做对比。它同时也是今天 feed 里唯一一处说到某个具体模型实际在哪儿被用到。</p>
+<div class="urls">
+<a href="https://x.com/zarazhangrui/status/2109483079106740500">https://x.com/zarazhangrui/status/2109483079106740500</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nikunj Kothari</span>
+<span class="builder-role">FPV Ventures Partner</span>
+</div>
+<p class="summary-en">One post, two emoji and nothing else. No text, no link, no AI content. Rendered so the count stays checkable.</p>
+<p class="summary-zh zh">一条，两个 emoji，没有别的内容。没有文字、没有链接、没有 AI 内容。列出来是为了让计数可核对。</p>
+<div class="urls">
+<a href="https://x.com/nikunj/status/2109428362171305984">https://x.com/nikunj/status/2109428362171305984</a>
+</div>
+</article>
+</section>
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128161;</span>
+<h2 class="section-title">The Takeaway</h2>
+<span class="section-meta">2026-10-13 &#183; No Podcast Today</span>
+</div>
+<div class="takeaway">
+<div class="takeaway-label">The Takeaway</div>
+<p>Day 7 of the 28-day clock, and it is the first day that ships a number. Default context for GPT-6.1 Sol through Codex and Work moves from 272k to 500k, written as about an 80% increase, with 1M left as the override ceiling. The improvement branch was hit on Day 4 with adjectives alone; today it is hit with a before and an after. What did not arrive with it is the part that would make it checkable: no compaction rate before or after, no task set, no sample, and no description of the &ldquo;carefully tested&rdquo; beyond the phrase. One small arithmetic note, since the number is the point: 500k against 272k is a factor of 1.84, so the true increase is nearer 84% than the 80 he writes. A rounding, not an error, and it does not change the conclusion &mdash; this is the most concrete output the clock has produced in seven days.</p>
+<p>The Pro line moved twice on 10-12 and still has no count on it. Yesterday's poll stopped at &ldquo;Pro users, would you rather have,&rdquo; and the issue recorded that its subject could not be read from the feed. Today the subject is readable: 2X usage across Pro 100, 200 and 500, at the cost of bringing back 5-hour limits, in order to smooth the demand curve. That names the $200 tier in a concrete trade-off, which none of the nine silent windows ever did. What is still missing is the vote itself: he reports that the result confused him and that he expected it to sway much more towards 2X, so the only direction available is &ldquo;less than he expected,&rdquo; with no scale to place it on and no stated next step. Yesterday's check now has a sharper form: whether 5-hour limits actually come back.</p>
+<p>The funnel is today's centre of gravity, and it is one source rather than three. Karpathy's four-tier distribution &mdash; 6B untouched, 1&ndash;2B casual, 20M professional, 5,000 internal &mdash; is napkin math with no method behind any tier, and both Levie and Garry Tan are quoting it. So the apparent consensus about how capability is distributed is one post and two reactions. What the two reactions add is real but different in kind: Levie adds the change management that has to happen before swarms reach anyone outside software, and Tan adds an investment claim about the price coming down. The number to keep is 5,000, together with Karpathy's own observation that at that tier human review is already falling behind.</p>
+<p>Falling behind is the theme the rest of the feed is answering, and it answers three different objects. Thariq is talking about the model: do not settle for an opaque superintelligence, because communication is itself a signal of intelligence. Micky, via Peter Yang, is talking about acceptance: evidence-driven testing before and after, greploop, the agent presenting its own evidence, manual review as the last step. Garry Tan is talking about the code: replace LLM calls with deterministic code. Same neighbourhood, three objects, no citations between them, so by the 10-11 rule they sit side by side rather than confirming one another. None of the three carries a number.</p>
+<p>Decompilation shows up for the fourth day running and still has no instance attached to it. Today Karpathy lists &ldquo;decompiling apps from binaries&rdquo; among the things the 20M tier now watches happen first-hand. On 10-08 Amjad made the claim, on 10-09 Peter Yang supplied the economic consequence, and neither produced a case. A capability appearing inside a list of capabilities is not an example of it being done, and four appearances without one is the finding.</p>
+<p>Turck's &ldquo;It will work out just fine&rdquo; is the day's weakest claim per word. The historical chain it rests on is accurate as a chain &mdash; punch cards, Lotus Notes, Flash, DevOps &mdash; and the analogy is doing all the work that data is not. It is worth putting next to Levie, who is describing the same transition from the other end and whose version includes the parts that have to be rebuilt first. Both are unfunded by numbers; only one of them says what has to happen.</p>
+<p>Roughly half of today's 20 tweets carry no gradeable AI content, and they are named rather than dropped: Swyx re-upping a talk-tips thread for a conference dinner; Rauch's four-word endorsement of something outside the feed; Nan Yu's &ldquo;Who's gonna tell him&rdquo;; Nikunj's two emoji; Shipper's book-tracking feed; and Peter Yang's YouTube-comments joke and his ModRetro game with his daughter. Nan Yu, Swyx and Peter Yang each have one post with content, so none of them is a blank day &mdash; the thin posts are in addition, not instead.</p>
+<p>Nothing today touches: the Gemini 4 vibe check (tenth consecutive window with nothing), external reproduction of Sonnet 5.5, the OpenClaw Android review, the unanswered question about 10x coding agents, the Beam technical report, the Rauch traffic series having a second network, the Grok bot email, or the 10-06 Vahdat episode reappearing. The Goodfire &times; Hugging Face item does not move &mdash; today's podcast is a different show. GPT-6.1 Sol is named again today with a 500k default and a 1M cap, and the open question from 10-10 still stands: whether &ldquo;GPT-6.1 Sol ultrafast&rdquo; and the DevDay names are the same product is nowhere stated. Standing dates: Founder House 10-14, half-rate usage ends 10-15, Opal shutdown 2026-11-17.</p>
+<div class="takeaway-label" style="margin-top:22px">核心结论</div>
+<p class="zh">28 天时钟走到 Day 7，这是它第一次带着数字出现。GPT-6.1 Sol 在 Codex 与 Work 中的默认上下文从 272k 提到 500k，写作约 80% 提升，1M 仍作为用户可覆盖的上限。改进这一支在 Day 4 被命中过，但那次只有形容词；今天这次有前有后。没跟着一起来的是让它可被核对的那部分：没有压缩率的前后对比，没有任务集，没有样本，&ldquo;仔细测试过&rdquo;也只是一句话。补一个小算术，因为数字正是重点：500k 相对 272k 是 1.84 倍，实际更接近 +84% 而不是他写的 80%。这是舍入，不是错误，也不改变结论 &mdash;&mdash; 它仍然是这个时钟七天里最具体的一次产出。</p>
+<p class="zh">Pro 这条线在 10-12 动了两次，但票数仍然没有。昨天那个投票停在&ldquo;Pro users, would you rather have&rdquo;，当时记录的是「投票问的是什么在 feed 里读不出来」。今天对象读出来了：Pro 100/200/500 三档都给 2X 额度，代价是恢复 5 小时限制，目的是拉平需求曲线。这把 $200 这一档放进了一个具体的取舍里，而此前沉默的九个窗口一次都没有这样点过名。仍然缺的是票数本身：他只说自己被结果搞糊涂了、本以为会更大幅度偏向 2X，所以能确定的方向只有「比他预期的低」，没有刻度可放，他也没有说下一步。昨天那个核对项现在有了更具体的形式：5 小时限制到底会不会回来。</p>
+<p class="zh">漏斗是今天的重心，而它是一个信源，不是三个。Karpathy 那四层分布 &mdash;&mdash; 60 亿没接触过、10&ndash;20 亿轻度使用、2,000 万专业使用、5,000 人有内部访问 &mdash;&mdash; 是餐巾纸估算，每一层背后都没有方法；Levie 和 Garry Tan 都是在引用它。所以那个关于能力如何分布的「一致看法」，是一条推文加两条反应。两条反应补的东西是真的，但性质不同：Levie 补的是集群要走到软件之外的人手里之前必须先做完的变更管理，Tan 补的是关于价格会降下来的投资判断。值得记住的数字是 5,000，以及 Karpathy 自己那句 &mdash;&mdash; 在这一层，人的审阅已经开始跟不上。</p>
+<p class="zh">「跟不上」正是今天其余内容在回答的主题，而它们回答的是三个不同的对象。Thariq 谈的是模型：不要接受一个不透明的超级智能，因为沟通本身就是智能的信号。Micky（经 Peter Yang 转述）谈的是验收：前后都做证据驱动测试、greploop、由 agent 自己提交证据、人工审阅作为最后一步。Garry Tan 谈的是代码：把 LLM 调用换成确定性代码。同一片区域，三个对象，彼此没有引用，所以按 10-11 那条规则并列，不算互相印证。三个都没有数字。</p>
+<p class="zh">反编译这条线连续第四天出现，仍然没有挂上任何一个实例。今天 Karpathy 把&ldquo;从二进制反编译应用&rdquo;列进了 2,000 万那一层亲眼见到的事情里。10-08 Amjad 给出主张，10-09 Peter Yang 补上经济后果，两人都没有给出案例。一项能力出现在能力清单里，不等于它发生过一次；出现了四次而一个例子都没有，这本身就是结论。</p>
+<p class="zh">Turck 那句&ldquo;最后都会没事的&rdquo;是今天每字含金量最低的主张。它依托的历史链条本身是准的 &mdash;&mdash; 打孔卡、Lotus Notes、Flash、DevOps &mdash;&mdash; 但把所有活都干了的正是这个类比，而不是数据。值得把它和 Levie 放在一块看：后者描述的是同一次转换的另一端，而他那一版里包含了必须先重建的东西。两个都没有数字支撑，但只有一个说了要做什么。</p>
+<p class="zh">今天 20 条推文里大约一半没有可评级的 AI 内容，这里点名列出而不是悄悄删掉：Swyx 为会议晚宴重发演讲技巧串；Rauch 对 feed 外某条内容的四个字推荐；Nan Yu 的&ldquo;谁来告诉他&rdquo;；Nikunj 的两个 emoji；Shipper 的读书追踪 feed；以及 Peter Yang 那条 YouTube 评论区的玩笑和跟女儿做 ModRetro 游戏那条。Nan Yu、Swyx、Peter Yang 各自都还有一条有内容的推文，所以他们都不是空白一天 &mdash;&mdash; 这些薄内容是加在后面的，不是替代。</p>
+<p class="zh">今天没有任何一条碰到：Gemini 4 vibe check（连续第十个窗口没有东西）、Sonnet 5.5 的外部复现、OpenClaw 的 Android 审核、那个没人回答的 10x 编码 agent 提问、Beam 技术报告、Rauch 那条流量序列有没有第二家网络、Grok bot 那封邮件、以及 10-06 那期 Vahdat 是否再现。Goodfire &times; Hugging Face 那条没有移动 &mdash;&mdash; 今天的播客是另一个节目。GPT-6.1 Sol 今天又被点名一次，默认 500k、上限 1M，10-10 留下的那个问题仍然站着：&ldquo;GPT-6.1 Sol ultrafast&rdquo;和 DevDay 那两个名字是不是同一产物，没有任何地方说明。已定日期：Founder House 10-14、半额用量 10-15 截止、Opal 2026-11-17 关停。</p>
+</div>
+</section>
+<!-- ============== ALREADY COVERED ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128257;</span>
+<h2 class="section-title">已收录 / Already Covered</h2>
+<span class="section-meta">1 Item &#183; Matched</span>
+</div>
+<div class="already">
+<p>No Priors &middot; &ldquo;Frontier Chips for Frontier AI Labs, with Walter Goodwin, Founder/CEO of Fractile&rdquo; &middot; published 2026-10-02. Already covered in the 10-04 issue. Judged the same episode by four things, not by the title: the same host (No Priors, with Sarith asking the questions), the same guest, the same 2026-10-02 publication date, and the same transcript anchor &mdash; Goodwin opens with &ldquo;we build very, very fast inference chips&rdquo; and dates the company to the summer of 2022. One thing today's feed has that the 10-04 issue did not: the specific episode URL, <a href="https://www.youtube.com/watch?v=OpeCP4wCxkA">https://www.youtube.com/watch?v=OpeCP4wCxkA</a>. The 10-04 issue linked the No Priors channel page, because that was the link the feed supplied then. Recorded here so the episode link is not lost with the deduplication.</p>
+<p class="zh">No Priors &middot; &ldquo;Frontier Chips for Frontier AI Labs, with Walter Goodwin, Founder/CEO of Fractile&rdquo; &middot; 发布日期 2026-10-02。已在 10-04 那期收录。判为同一期靠的是四件事，不是标题：同一主持人（No Priors，提问者是 Sarith）、同一嘉宾、同一发布日期 2026-10-02，以及同一处文稿锚点 &mdash;&mdash; Goodwin 开头说&ldquo;我们做非常非常快的推理芯片&rdquo;，并把公司成立时间定在 2022 年夏天。今天这期 feed 有一件 10-04 那期没有的东西：这一期的具体视频链接 <a href="https://www.youtube.com/watch?v=OpeCP4wCxkA">https://www.youtube.com/watch?v=OpeCP4wCxkA</a>。10-04 那期链的是 No Priors 频道页，因为当时 feed 给的就只有那个。写在这里，是为了让这条链接不要跟着判重一起丢掉。</p>
+<p style="margin-top:12px">&#8226; 20 tweet IDs were checked against every file under <code>2026/</code>: zero hits.</p>
+<p style="margin-top:12px" class="zh">&#8226; 20 个推文 ID 对 <code>2026/</code> 下所有文件做了检查：零命中。</p>
+<p style="margin-top:12px">&#8226; The blogs array in the feed is empty, so the blog count is 0. The podcast array carries one episode and it matched an existing issue, so the podcast count is 0 too. The two zeros have different causes and are not merged: an empty array is not the same thing as something that was fetched and then matched. This is the same structure as the 10-12 issue; on 10-11 the match fell in the blogs slot instead and the podcast counted.</p>
+<p style="margin-top:12px" class="zh">&#8226; feed 的 blogs 数组为空，所以 blog 计 0；podcasts 数组有一期但命中了已收录，所以 podcast 也计 0。两个 0 成因不同，不合并：数组为空，和「抓到了但被判重」不是一回事。这个结构与 10-12 那期一致；10-11 那期的命中落在 blogs 槽位上，播客则是计入的。</p>
+<p style="margin-top:12px">&#8226; The podcast is judged the same episode covered on 10-04, not a new one. Because the feed renames episodes (it did this on 10-12 as well), a title-only check would have counted this as new and added a second apparent voice to a day whose theme is about nobody being able to keep up.</p>
+<p style="margin-top:12px" class="zh">&#8226; 这期播客判定为 10-04 已收录的同一期，不是新的一期。feed 会给同一期节目换标题（10-12 那次就换过），所以只按标题判重会把它当成新的，从而在「谁都跟不上」这个主题的当天多出一个看似独立的声音。</p>
+<p style="margin-top:12px">&#8226; The Pro poll item is a correction to the 10-12 issue, not a new item. 10-12 recorded that the poll's subject could not be read; today it can. The vote count is still unpublished, so the correction is to the subject line and not to the evidence.</p>
+<p style="margin-top:12px" class="zh">&#8226; Pro 投票这条是对 10-12 那期的一处更正，不是新条目。10-12 记录的是「投票问的是什么读不出来」，今天读得出来了。票数仍然没有公布，所以这次更正的是对象，不是证据。</p>
+</div>
+</section>
+<footer class="footer">
+<div class="next-issue">&#128236; 下一期：明天 10:00（北京时间）</div>
+<div class="signature">by chloevchen</div>
+</footer>
+</body>
+</html>
+<!-- by chloevchen -->
