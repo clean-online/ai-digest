@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Builders Digest &#183; 2026-10-14</title>
+<style>
+
+
+
+
+
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 28px 30px; margin-bottom: 24px; }
+  .podcast-source { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
+  .podcast-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; margin-bottom: 18px; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; }
+
+
+
+
+
+</style>
+</head>
+<body>
+<header class="topbar">
+<div class="topbar-inner">
+<a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+<span>&#21452;&#35821; &#183; Bilingual</span>
+</div>
+</header>
+<section class="header">
+<div class="eyebrow">Daily Digest &#183; 2026-10-14</div>
+<h1>AI Builders Digest</h1>
+</section>
+<div class="stats">
+<div class="stat"><div class="stat-num">15</div><div class="stat-label">Builders</div></div>
+<div class="stat"><div class="stat-num">31</div><div class="stat-label">Tweets</div></div>
+<div class="stat"><div class="stat-num">0</div><div class="stat-label">Podcast</div></div>
+<div class="stat"><div class="stat-num">0</div><div class="stat-label">Blog</div></div>
+</div>
+<p class="note-line">Feed snapshot 2026-10-13T06:50Z (Pacific 10-12 23:50), twenty-three hours and forty-six minutes past the 10-13 snapshot, so no gap in coverage; all 31 tweets fall inside the Pacific 10-12 window (01:55 to 23:21). The two zeros have two different causes and are not merged: the blogs array in the feed is empty, and the one podcast the feed carries is a repeat of the AI &amp; I episode &ldquo;How Sam Altman Uses Dots to Take Back His Time&rdquo; that the 10-02 issue already covered &mdash; same title, same 2026-09-30 publication timestamp, same playlist link &mdash; so it counts as already covered rather than as something the feed failed to fetch.</p>
+<p class="note-line zh">feed 快照 2026-10-13T06:50Z（太平洋 10-12 23:50），比 10-13 那期前进 23 小时 46 分，没有丢档；31 条推文全部落在太平洋 10-12 这个窗口内（01:55 到 23:21）。两个 0 的成因不同，不合并说明：feed 的 blogs 数组为空；feed 里唯一的那一期播客是 10-02 那期已收录的 AI &amp; I《How Sam Altman Uses Dots to Take Back His Time》的再次出现 &mdash;&mdash; 同一标题、同一发布日期 2026-09-30、同一频道链接 &mdash;&mdash; 所以按已收录计，而不是按「feed 没抓到」计。</p>
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128036;</span>
+<h2 class="section-title">X / Twitter</h2>
+<span class="section-meta">15 Builders &#183; 31 Tweets</span>
+</div>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thibault Sottiaux</span>
+<span class="builder-role">Codex &amp; ChatGPT &middot; OpenAI</span>
+</div>
+<p class="summary-en">Three posts inside seventy-five minutes, and Day 8 of the clock is the first since Day 5 to arrive with no number in it. At 22:06 Pacific he asks &ldquo;What would you like with your side of reset?&rdquo; and answers it himself in the same breath: &ldquo;It's done.&rdquo; That is the third time the reset has been reported complete &mdash; 10-09 had it landed across all accounts, 10-12 had it all propagated &mdash; and it is now framed as a side dish rather than as the meal. Four seconds later, tagging a colleague: &ldquo;Mashed poteto on the house,&rdquo; which keeps the restaurant joke running and carries nothing else. The post with content in it comes at 23:21: &ldquo;Good plans are simple. I have one that should result in significantly more usage for everyone. Hope to get it done soon.&rdquo; That is a usage goal stated as his own aim rather than as a poll option, and it lands one day after the Pro poll that offered 2X usage at the cost of bringing back 5-hour limits. What is not there is what would make it checkable: no number, no date, no product, and &ldquo;hope to get it done soon&rdquo; says it is not shipped. Neither the 5-hour limits nor the vote count is mentioned today, and the four things the reset was meant to clear have still never been listed in eight days.</p>
+<p class="summary-zh zh">三条，前后 75 分钟，Day 8 是这个时钟自 Day 5 以来第一次不带数字的一天。太平洋时间 22:06 他问&ldquo;你的 reset 配菜想要点什么&rdquo;，并在同一句里自己答了：&ldquo;好了。&rdquo;这是 reset 第三次被报告完成 &mdash;&mdash; 10-09 那次是已经在所有账号上落地，10-12 那次是已全部传播 &mdash;&mdash; 而这次它被摆到了配菜的位置上，不再是主菜。四秒后他@了一位同事：&ldquo;土豆泥免费送。&rdquo;延续的是同一个餐厅玩笑，没有别的内容。23:21 那条才是带内容的：&ldquo;好的计划都很简单。我有一个，应该能让所有人的用量显著增加。希望能尽快搞定。&rdquo;这是一个以他自己的目标说出来的用量诉求，而不是一个投票选项；它出现在那个 Pro 投票的第二天 &mdash;&mdash; 那个投票提供的是 2X 用量、代价是恢复 5 小时限制。没有跟着来的是让它可被核对的东西：没有数字、没有日期、没有产品，而&ldquo;希望能尽快搞定&rdquo;本身就说明它还没上线。5 小时限制今天没提，票数也没提，而 reset 本该清掉的那四件东西，八天里一次都没有被列举过。</p>
+<div class="urls">
+<a href="https://x.com/thsottiaux/status/2109873287853707513">https://x.com/thsottiaux/status/2109873287853707513</a>
+<a href="https://x.com/thsottiaux/status/2109873307722121591">https://x.com/thsottiaux/status/2109873307722121591</a>
+<a href="https://x.com/thsottiaux/status/2109892247580000595">https://x.com/thsottiaux/status/2109892247580000595</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Guillermo Rauch</span>
+<span class="builder-role">Vercel CEO</span>
+</div>
+<p class="summary-en">Three posts, and two of them are the most concrete objects in today's feed. At 11:54 Pacific he posts a model id: &ldquo;Muse Wonder on Vercel AI Gateway / Try with fx --model meta/muse-wonder-1.0.&rdquo; This is the first time in this feed that Muse has had a form you can actually call. The 10-07 issue recorded it as a name the feed could not define; on 10-08 Peter Yang asked it to hold a phone line. Today it has a vendor prefix, a version number and a gateway. Whether it is the same thing Peter Yang was asking for is nowhere stated, and nothing here claims it can place a call. An hour later he ships a position and a product in one breath: coding CLIs keep getting more complicated with daemons, three layers of TUIs and client-server architectures, while &ldquo;the whole point of a CLI is to deliver intelligence with zero friction, and be unix-like.&rdquo; What he offers instead is fx: 6mb, starts in milliseconds, model-agnostic, and &ldquo;tastefully minimal&rdquo; with MCP, Skills, Subagents and ACP built in. Both numbers describe the binary rather than the output, and nothing is compared against anything. The third post is four words and a laugh.</p>
+<p class="summary-zh zh">三条，其中两条是今天 feed 里最具体的东西。太平洋时间 11:54 他发了一个模型 id：&ldquo;Muse Wonder 上了 Vercel AI Gateway / 用 fx --model meta/muse-wonder-1.0 试试。&rdquo;这是这份 digest 里 Muse 第一次有了可以被真正调用的形式 &mdash;&mdash; 10-07 那期把它记成 feed 里无法确定含义的一个名字，10-08 那天 Peter Yang 让它去占住一条电话线；今天它有厂商前缀、有版本号、有网关。它是不是 Peter Yang 当时问的那个东西，任何地方都没有说明，这里也没有任何一处声称它能打电话。一小时后他把一个立场和一个产物一起发了出来：编码用的 CLI 越来越复杂 &mdash;&mdash; 守护进程、三层 TUI、客户端-服务端架构 &mdash;&mdash; 而&ldquo;CLI 的全部意义在于零摩擦地把智能送到手边，并且要像 unix 那样&rdquo;。他给出的替代物是 fx：6mb，毫秒级启动，不绑定模型，&ldquo;克制地极简&rdquo;，内置 MCP、Skills、Subagents 和 ACP。两个数字描述的都是这个二进制本身，不是它的产出，也没有和任何东西做对比。第三条是四个字加一个笑。</p>
+<div class="urls">
+<a href="https://x.com/rauchg/status/2109719267344261375">https://x.com/rauchg/status/2109719267344261375</a>
+<a href="https://x.com/rauchg/status/2109734766107099312">https://x.com/rauchg/status/2109734766107099312</a>
+<a href="https://x.com/rauchg/status/2109771347064922255">https://x.com/rauchg/status/2109771347064922255</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aaron Levie</span>
+<span class="builder-role">Box CEO</span>
+</div>
+<p class="summary-en">Three posts, and for the second day running he attaches no multiple to anything. The largest is a swarm thesis: agent swarms will be a core part of many enterprise workflows, because being able to throw compute at problems that parallelise well &ldquo;will be too useful to not take advantage of.&rdquo; Cyber is named as the biggest beneficiary, and it gets a reason rather than a number: a wide search space of risk vectors, the need to chain scenarios together before an exploit lands, and the fact that agents do not get tired or bored working through permutations. He closes by calling it one of the largest token uses in large enterprises. No customer, no benchmark, no volume figure. Two days earlier he put 1,000x on two separate claims; nothing today carries a multiple. The second post is the day's most architectural sentence: some research is &ldquo;ultimately must be the eventual architecture of agents,&rdquo; because &ldquo;in the limit, AI will obviously be better at determining its own harness once it sees the task at hand, than us being able to do this in advance.&rdquo; Put that beside Rauch, who on the same afternoon ships a CLI with the harness chosen by hand. Same day, opposite bets on who writes the harness, and neither cites the other. The third post is Meta entering the frontier, which he expects to accelerate advances and lower the cost of tokens at the top of the range &mdash; a direction with no number, and today's only other Meta item is Rauch's meta/muse-wonder-1.0.</p>
+<p class="summary-zh zh">三条，连续第二天没有给任何东西挂上倍数。最大的一条是集群论：agent 集群会成为很多企业工作流的核心部分，因为能把算力砸在可以大规模并行的问题上&ldquo;太有用、不可能不用&rdquo;。他把安全（cyber）点成最大受益者，给的是理由不是数字：风险向量的搜索空间很宽，要达成一次利用往往得把多个场景串起来，而 agent 在穷举排列组合时不会累也不会烦。结尾他判断这会成为大企业里最大的 token 用途之一。没有客户，没有评测，没有量级数字。两天前他给两个不同主张都挂了 1,000x；今天一个倍数都没有。第二条是今天最有架构感的一句：某项研究&ldquo;最终必然是 agent 的最终架构&rdquo;，因为&ldquo;在极限情况下，AI 看到任务之后再决定自己的 harness，显然会比我们提前替它决定得更好&rdquo;。把这句和 Rauch 放在一块看 &mdash;&mdash; 同一个下午，后者发布的正是一个 harness 由人手工选定的 CLI。同一天，对「谁来写 harness」下了相反的注，两边都没有引用对方。第三条是 Meta 全面进入前沿，他预计这会加速进步并压低最高档能力的 token 成本 &mdash;&mdash; 一个没有数字的方向判断；今天关于 Meta 的另一条只有 Rauch 那个 meta/muse-wonder-1.0。</p>
+<div class="urls">
+<a href="https://x.com/levie/status/2109682812811137061">https://x.com/levie/status/2109682812811137061</a>
+<a href="https://x.com/levie/status/2109788979952558255">https://x.com/levie/status/2109788979952558255</a>
+<a href="https://x.com/levie/status/2109711062757216738">https://x.com/levie/status/2109711062757216738</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Dan Shipper</span>
+<span class="builder-role">Every CEO</span>
+</div>
+<p class="summary-en">Three posts, all about the same model, and together they are the only first-person quality report in the feed. At 15:41 Pacific: &ldquo;and it's back up! still bad&rdquo; &mdash; an outage and a verdict in seven words. Six minutes later he posts the video he made with Muse Wonder to explain personal benchmarks, and his own assessment of the output is &ldquo;this is ummm pretty rough.&rdquo; He adds an observation nobody asked for and everybody will now check: every video it has produced so far is narrated in an Australian accent, and he leaves the interpretation to the reader. At 17:17 he supplies the detail that makes the report usable at all: this was Muse Wonder Standard, because &ldquo;Wonder Full is, inexplicably, not available on the API,&rdquo; though he expects a run shortly. So the tier being judged is the lower one, the gap between the two tiers is his word rather than a published spec, and the quality verdict survived the outage on both sides of it.</p>
+<p class="summary-zh zh">三条，都关于同一个模型，合起来是今天 feed 里唯一一份第一人称质量报告。太平洋时间 15:41：&ldquo;又活了！还是很烂&rdquo; &mdash;&mdash; 七个字里同时给了一次故障和一个判定。六分钟后他发了用 Muse Wonder 做的那个解释个人 benchmark 的视频，而他对成片自己的评价是&ldquo;这个嘛&hellip;&hellip;挺粗糙的&rdquo;。他补了一个没人问但接下来所有人都会去核对的观察：它目前生成的所有视频，旁白都是澳大利亚口音，解读他留给读者。17:17 他补上了让这份报告能被使用的那个细节：这次用的是 Muse Wonder Standard，因为&ldquo;Wonder Full 莫名其妙地没有开放 API&rdquo;，不过他预计很快会跑一轮。也就是说，被评判的是较低那一档，两档之间的差别是他的说法而不是公开规格，而那个质量判定在故障前后都成立。</p>
+<div class="urls">
+<a href="https://x.com/danshipper/status/2109776532503732624">https://x.com/danshipper/status/2109776532503732624</a>
+<a href="https://x.com/danshipper/status/2109778026091209087">https://x.com/danshipper/status/2109778026091209087</a>
+<a href="https://x.com/danshipper/status/2109800647575146906">https://x.com/danshipper/status/2109800647575146906</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Yang</span>
+<span class="builder-role">AI Writer &amp; Interviewer</span>
+</div>
+<p class="summary-en">Three posts, two of them about StarCraft and neither of them about AI, listed so the count stays checkable. The one that matters is a clip explaining why Grok bot is his favourite agent right now: it is built on personas instead of chat threads, so it feels less like a conversation and more like hiring employees, and each persona owns a specific job &mdash; customer support, YouTube research and prep, family errands, and keeping workouts on track. The accompanying video lists three features: free X access, its own email, and Opus. That email line reads differently against 10-10, when he reported that Grok bot's email feature did not reply when he tagged it. Today it is back as a feature he is promoting, and nothing in this window says it was fixed. His persona framing also runs against the 10-09 Every episode, whose guest explained why his company traded personal agents for one company agent; neither cites the other, so it is a live disagreement rather than a correction &mdash; and the CEO of Every is in this same feed today, posting about a model.</p>
+<p class="summary-zh zh">三条，两条讲星际争霸，都不是 AI 内容，列出以便条数可对。真正有内容的那条是一段讲他为什么现在最喜欢 Grok bot 的短片：它建立在人格（persona）而不是对话线程之上，所以感觉不像在聊天，更像在雇人 &mdash;&mdash; 每个人格负责一件具体的事：客服、YouTube 调研与准备、家里跑腿、以及盯住训练计划。配套视频里列了三个功能：免费的 X 访问、它自己的邮箱、以及 Opus。那个邮箱要对着 10-10 那期读 &mdash;&mdash; 那天他报告说 Grok bot 的邮件功能在他@了之后没有回复。今天它作为被推广的功能又出现了，而这个窗口里没有任何一处说它被修好了。他这套人格框架同时也和 10-09 那期 Every 节目相左：那位嘉宾解释了他们公司为什么用「一个公司 agent」换掉了「一堆个人 agent」。两边都没有引用对方，所以这是一次活着的分歧，不是一次更正 &mdash;&mdash; 而 Every 的 CEO 今天就在这同一份 feed 里，发的是关于一个模型的内容。</p>
+<div class="urls">
+<a href="https://x.com/petergyang/status/2109803399332213090">https://x.com/petergyang/status/2109803399332213090</a>
+<a href="https://x.com/petergyang/status/2109820627561676970">https://x.com/petergyang/status/2109820627561676970</a>
+<a href="https://x.com/petergyang/status/2109822610637017218">https://x.com/petergyang/status/2109822610637017218</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aditya Agarwal</span>
+<span class="builder-role">General Partner &middot; SPC</span>
+</div>
+<p class="summary-en">One post, and it is the sharpest cut of the gap that yesterday's funnel was circling. There is a big delta between how frontier lab employees use AI and how even the top one per cent of AI organisations use it, and he closes off the obvious explanation in the same sentence: this is on public capabilities. So the gap is not access to a better model, it is what people do with the same one. He expects the delta to persist for a while, and he thinks there is a company in it, which he calls a horizontal accelerant. Nothing measures the delta and the company has no shape yet. Set beside Karpathy's funnel from yesterday &mdash; 5,000 people with internal access, around 20M watching agents finish work that used to take weeks &mdash; this is the same observation sliced narrower, with the difference that Aditya holds the model constant. He does not cite it, and Karpathy's numbers were napkin math with no method behind any tier, so this is one observation in two cuts rather than two sources agreeing.</p>
+<p class="summary-zh zh">一条，是昨天那个漏斗一直在绕的差距最锋利的一种切法。前沿实验室员工用 AI 的方式，和即便是最顶尖那 1% 的 AI 组织用 AI 的方式之间，存在很大的差距；而他在同一句里把最现成的解释堵上了：这是在公开能力上的差距。所以差距不来自能不能用到更好的模型，而来自同一批模型被怎么用。他预计这个差距还会存在一阵子，并认为里面有一家公司的机会，他称之为一个横向加速器。差距没有被量化，那家公司也还没有形状。把它和昨天 Karpathy 的漏斗放在一起 &mdash;&mdash; 5,000 人有内部访问，约 2,000 万人看到 agent 做完过去要几周的工作 &mdash;&mdash; 这是同一个观察切得更窄，差别在于 Aditya 把模型这个变量固定住了。他没有引用 Karpathy，而 Karpathy 那些数字是没有任何方法支撑的餐巾纸估算，所以这是同一个观察的两种切法，不是两个信源互相印证。</p>
+<div class="urls">
+<a href="https://x.com/adityaag/status/2109748501982872003">https://x.com/adityaag/status/2109748501982872003</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Steinberger</span>
+<span class="builder-role">OpenClaw &middot; OpenAI</span>
+</div>
+<p class="summary-en">Two posts. The one with content puts two model names on a scale: 6.1 Sol ultrafast is much better than 6 Astra, at roughly the same cost, and what separates them is &ldquo;a whole different game with 250 tpm.&rdquo; He does not expand tpm, does not say what he was running, and offers no benchmark, so this is a preference with one number attached rather than a measurement. It also grows the naming question instead of settling it: the 10-10 issue asked whether GPT-6.1 Sol ultrafast and the two DevDay names are the same product, and today's contribution is a third name, 6 Astra, with still nothing anywhere that states how they relate. His other post is a position restated a year on &mdash; &ldquo;said that last year, saying it again: vibes coding is a slur.&rdquo; Set that next to Zara Zhang, who three and a half hours earlier described a game a friend vibe coded and called code the new medium for storytelling. Same window, opposite valuations of the same word, no citations in either direction.</p>
+<p class="summary-zh zh">两条。有内容的那条把两个模型名放上了天平：6.1 Sol ultrafast 远好于 6 Astra，成本大致相同，把两者拉开的是&ldquo;250 tpm 下完全是另一回事&rdquo;。他没有展开 tpm 是什么、没说跑的是什么任务、也没有给任何基准，所以这是一条带了一个数字的偏好，不是一次测量。它也把命名问题变大了而不是解决了：10-10 那期问的是「GPT-6.1 Sol ultrafast」和 DevDay 那两个名字是不是同一产物，而今天贡献的是第三个名字 6 Astra，仍然没有任何地方说明它们之间的关系。另一条是一个隔了一年重述的立场 &mdash;&mdash; &ldquo;去年说过，再说一遍：vibes coding 是个贬称。&rdquo;把它和 Zara Zhang 放在一块看：三个半小时前，后者讲了一个朋友用 vibe coding 做出来的游戏，并把代码称为讲故事的新媒介。同一个窗口，同一个词的两种相反评价，两边都没有引用对方。</p>
+<div class="urls">
+<a href="https://x.com/steipete/status/2109730774593487009">https://x.com/steipete/status/2109730774593487009</a>
+<a href="https://x.com/steipete/status/2109724776168300631">https://x.com/steipete/status/2109724776168300631</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Zara Zhang</span>
+<span class="builder-role">Builder</span>
+</div>
+<p class="summary-en">One post, and it is the clearest statement in the feed about what the model did not supply. A friend grew up in a modest home full of cockroaches, and her mother turned killing them into a game. When the friend told that story, another friend vibe coded a game out of it &mdash; you catch cockroaches in a room and compete against Mum &mdash; and she cried while playing it. The reading she attaches is explicit: the game is not technically sophisticated and any model can build something like it quickly now, and what gives it a soul is the human story, experience and emotion behind it. &ldquo;Code is the new medium for storytelling.&rdquo; It is n=1, there is no link to the game anywhere in the feed, and nothing in it is measurable. It is still the only thing today that names the part the model did not contribute, which is a different argument from saying the output was good.</p>
+<p class="summary-zh zh">一条，是今天 feed 里关于「模型没有提供什么」最清楚的表述。一位朋友在满是蟑螂的简朴房子里长大，她妈妈把打蟑螂变成了一个游戏。当这位朋友把这件事讲给别人听时，那个人用 vibe coding 把它做成了一个游戏 &mdash;&mdash; 你在房间里抓蟑螂，和妈妈比谁快 &mdash;&mdash; 她玩的时候哭了。她给出的解读很明确：这个游戏技术上并不复杂，现在任何模型都能很快做出来；给它灵魂的是背后那件人的故事、经历和情感。&ldquo;代码是讲故事的新媒介。&rdquo;这是 n=1，feed 里没有任何地方给出这个游戏的链接，也没有任何东西可测量。但它仍然是今天唯一一处点明了模型没有贡献的那部分 &mdash;&mdash; 这和说「产出很好」是不同的论证。</p>
+<div class="urls">
+<a href="https://x.com/zarazhangrui/status/2109673430245421415">https://x.com/zarazhangrui/status/2109673430245421415</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Ryo Lu</span>
+<span class="builder-role">Designer &middot; Cursor, Notion, Stripe</span>
+</div>
+<p class="summary-en">Two posts, both shipping: Dictionary and Fitness are new on ryOS. Dictionary covers new words, pronunciation and kanji; Fitness plans workouts and tracks body and food with AI. Both sync to a ryOS account, and he credits bot and Cursor for the build. ryOS has shown up twice before this month, on 10-03 and 10-07. There is nothing here to grade: no numbers, no users, and the AI claim in Fitness is a single phrase. It is listed as a shipped artifact rather than as an argument, and the only reason to notice it is that a second person in this same window also has a fitness agent &mdash; Peter Yang's Grok bot persona list includes one that keeps workouts on track. Two data points, no shared source, so it is a coincidence and not a trend.</p>
+<p class="summary-zh zh">两条，都是上线：ryOS 新增了 Dictionary 与 Fitness。Dictionary 管生词、发音和汉字；Fitness 做训练计划、用 AI 记录身体与饮食。两者都同步到 ryOS 账号，他把构建归给了 bot 和 Cursor。ryOS 本月已经出现过两次（10-03 和 10-07）。这里没有可评级的内容：没有数字、没有用户数，Fitness 里的 AI 主张只是一句话。它作为已上线产物列出，而不是作为一个论点；唯一值得注意的原因是同一个窗口里还有第二个人也做了一个健身 agent &mdash;&mdash; Peter Yang 那份 Grok bot 人格清单里就有一个负责盯训练计划。两个数据点，没有共同来源，所以是巧合，不是趋势。</p>
+<div class="urls">
+<a href="https://x.com/ryolu_/status/2109568690358555064">https://x.com/ryolu_/status/2109568690358555064</a>
+<a href="https://x.com/ryolu_/status/2109569515910836433">https://x.com/ryolu_/status/2109569515910836433</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thariq</span>
+<span class="builder-role">Claude Code &middot; Anthropic</span>
+</div>
+<p class="summary-en">One post: &ldquo;evergreen,&rdquo; quoting something from outside the feed. The object is not carried here, so there is nothing to grade. Rendered so the count stays checkable.</p>
+<p class="summary-zh zh">一条：&ldquo;evergreen&rdquo;（常青），引用的是 feed 之外的内容。对象没有带进来，所以没有可评级的东西。列出以便条数可对。</p>
+<div class="urls">
+<a href="https://x.com/trq212/status/2109717295631372628">https://x.com/trq212/status/2109717295631372628</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Josh Woodward</span>
+<span class="builder-role">VP &middot; Google Labs &amp; Gemini</span>
+</div>
+<p class="summary-en">One post, and it is a pointer rather than a claim: the first sixty minutes of his conversation with Lenny is out. What he writes is about the interviewer &mdash; kind, prepared, deeply curious, someone who did the homework and took the conversation to places he had never talked about in public. No AI content, no product, nothing to grade. It is the only item in today's feed from anyone at Google Labs, and the Gemini 4 vibe check goes an eleventh window without a mention.</p>
+<p class="summary-zh zh">一条，是一个指路而不是一个主张：他和 Lenny 那场对话的前六十分钟已经放出。他写的是关于采访者的 &mdash;&mdash; 人好、准备充分、好奇心很强，做了功课，把对话带到了他从没在公开场合谈过的地方。没有 AI 内容，没有产品，没有可评级的东西。这是今天 feed 里唯一一条来自 Google Labs 的人的内容，而 Gemini 4 的 vibe check 已经连续第十一个窗口没有任何提及。</p>
+<div class="urls">
+<a href="https://x.com/joshwoodward/status/2109646793713786970">https://x.com/joshwoodward/status/2109646793713786970</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nan Yu</span>
+<span class="builder-role">Product, Codex &middot; OpenAI</span>
+</div>
+<p class="summary-en">One post: &ldquo;One. Of. Us.,&rdquo; quoting something the feed does not carry. Nothing to grade; rendered so the count stays checkable.</p>
+<p class="summary-zh zh">一条：&ldquo;One. Of. Us.&rdquo;（自己人），引用的是 feed 没有带来的内容。没有可评级的东西，列出以便条数可对。</p>
+<div class="urls">
+<a href="https://x.com/thenanyu/status/2109795153250804076">https://x.com/thenanyu/status/2109795153250804076</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Swyx</span>
+<span class="builder-role">AI Engineer &middot; Latent Space</span>
+</div>
+<p class="summary-en">Three posts, all conference logistics from AI Engineer New York: a packed room for the Arize workshop, the workshop writeup going live, and a line about bringing out the best in AI in each city. There is an artifact behind the second one, but nothing here is an AI claim and nothing here is gradeable.</p>
+<p class="summary-zh zh">三条，都是 AI Engineer 纽约场的会务：Arize 那场 workshop 满座、workshop 的纪要上线、以及一句关于在每个城市把 AI 最好的一面带出来的话。第二条背后有一个实际产物，但这里没有一条是 AI 主张，也没有可评级的内容。</p>
+<div class="urls">
+<a href="https://x.com/swyx/status/2109772705532715166">https://x.com/swyx/status/2109772705532715166</a>
+<a href="https://x.com/swyx/status/2109797444204572880">https://x.com/swyx/status/2109797444204572880</a>
+<a href="https://x.com/swyx/status/2109837651893485844">https://x.com/swyx/status/2109837651893485844</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Garry Tan</span>
+<span class="builder-role">President &amp; CEO &middot; Y Combinator</span>
+</div>
+<p class="summary-en">Three posts and none of them is about AI: &ldquo;Nobody is coming to save you / You don't need saving,&rdquo; a note that pro rata rights matter and are powerful for investors, and &ldquo;We need repairmen.&rdquo; Worth recording for the contrast with yesterday, when he was one of the two people amplifying Karpathy's funnel and added the rule about replacing LLM calls with deterministic code. Today the amplifier is silent on the subject altogether, so the funnel that looked like a consensus on 10-13 has no one carrying it on 10-14.</p>
+<p class="summary-zh zh">三条，没有一条是关于 AI 的：&ldquo;没人会来救你 / 你也不需要被救&rdquo;、一句关于按比例跟投权对投资人重要且有力的说明、以及&ldquo;我们需要修东西的人&rdquo;。值得记下来是因为和昨天的对照 &mdash;&mdash; 昨天他是放大 Karpathy 那个漏斗的两个人之一，并补上了「把 LLM 调用换成确定性代码」那条规则。今天这个放大器对这件事完全沉默，所以 10-13 看起来像共识的那个漏斗，在 10-14 没有人在接着讲。</p>
+<div class="urls">
+<a href="https://x.com/garrytan/status/2109749184639488265">https://x.com/garrytan/status/2109749184639488265</a>
+<a href="https://x.com/garrytan/status/2109847735449047295">https://x.com/garrytan/status/2109847735449047295</a>
+<a href="https://x.com/garrytan/status/2109852144350470293">https://x.com/garrytan/status/2109852144350470293</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nikunj Kothari</span>
+<span class="builder-role">Partner &middot; FPV Ventures</span>
+</div>
+<p class="summary-en">One post, not about AI: an observation that every Surya he knows is unusually capable, plus an open invitation to a small builder happy hour in New York on Thursday. No AI content; listed so the count stays checkable.</p>
+<p class="summary-zh zh">一条，与 AI 无关：他认识的每个叫 Surya 的人都格外厉害，加上一个周四晚在纽约办的小型 builder happy hour 的公开邀请。没有 AI 内容，列出以便条数可对。</p>
+<div class="urls">
+<a href="https://x.com/nikunj/status/2109763529276559566">https://x.com/nikunj/status/2109763529276559566</a>
+</div>
+</article>
+</section>
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128161;</span>
+<h2 class="section-title">The Takeaway</h2>
+<span class="section-meta">2026-10-14 &#183; No Podcast Today</span>
+</div>
+<div class="takeaway">
+<div class="takeaway-label">The Takeaway</div>
+<p>Day 8 of the clock, and the number is gone again. Day 7 shipped a before and an after &mdash; 272k to 500k of default context &mdash; and today returns to adjectives. What is new is not an output but a plan: something &ldquo;that should result in significantly more usage for everyone,&rdquo; which he hopes to get done soon. That lands one day after the Pro poll offered 2X usage at the cost of 5-hour limits, so the direction is continuous with it, and the two things the poll left open are still open today: the 5-hour limits are not mentioned, and no vote count has been published in any window. The reset is finished for the third time and has been demoted to a side dish. The four things it was supposed to clear have still never been listed in eight days, which means the one checkable promise inside the 28-day exercise remains uncheckable.</p>
+<p>The largest movement today is that a name this feed could not define now has something to call. Muse went from an undefined word on 10-07, to a capability Peter Yang wished for on 10-08, to <code>meta/muse-wonder-1.0</code> on Vercel AI Gateway today, posted by Rauch with a copy-pasteable flag. Whether it is the same Muse is nowhere stated, and nothing today claims it can hold a phone line, so the 09-21 request is still unanswered. What is new and checkable is the quality: Dan Shipper made a video with it and called the result &ldquo;pretty rough,&rdquo; then &ldquo;still bad&rdquo; after an outage, and flagged that every video it makes is narrated in an Australian accent. He also pinned the tier &mdash; Standard, because Wonder Full is not on the API &mdash; which is the kind of detail that usually goes missing from a vibe report. A model becoming callable is progress; the first first-person report on it being negative is the part that survives.</p>
+<p>Two people bet opposite ways on who writes the harness, in the same afternoon, without citing each other. Levie: in the limit, AI will obviously be better at determining its own harness once it sees the task than we can be in advance. Rauch: here is a 6mb CLI that starts in milliseconds with MCP, Skills, Subagents and ACP built in, because the point of a CLI is zero friction and being unix-like. These are not quite the same question &mdash; Levie is talking about runtime selection, Rauch about the shape of the tool &mdash; but neither mentions the other and neither gives a number, so by the 10-11 rule they sit side by side. Rauch's contribution is the only one of the two you can install today.</p>
+<p>Personal agents versus one company agent is now an open disagreement inside one feed. On 10-09 the Every episode's guest explained why his company traded personal agents for a single company agent. Today Peter Yang says the opposite is what makes Grok bot his favourite agent: personas instead of threads, each owning a job, which he describes as hiring employees. Every's CEO is in this same window posting about a model rather than about that argument. Nobody cites anybody, so nothing here is a correction &mdash; it is two positions that cannot both be right about what enterprises will adopt, and the feed does not adjudicate.</p>
+<p>The Grok bot email line has now produced three kinds of evidence and no resolution. 10-09 had a guest wishing he could FaceTime his bot; 10-10 had Peter Yang reporting the email feature did not reply when he tagged it; 10-11 had configuration advice; today the email is listed as a feature he is promoting, alongside free X access and Opus. Nothing in the window says it was fixed. A wish, a failure report and a feature list are three different things and should not be merged &mdash; but the sequence is worth holding: the simpler capability was reported broken, and it now reappears inside marketing copy rather than inside a changelog.</p>
+<p>Aditya Agarwal's delta and Karpathy's funnel are the same observation cut two ways, and his cut is the more useful one because it holds the model constant. Karpathy's four tiers are separated by access: 5,000 people have internal systems and 20M watch agents finish week-long projects. Aditya's gap is between frontier lab employees and the top one per cent of AI orgs <em>on public capabilities</em>, which removes access as the explanation and leaves usage. Both are unfunded &mdash; Karpathy called his napkin math, Aditya offers no measurement of the delta &mdash; and neither cites the other, so this is one observation in two cuts rather than two sources converging.</p>
+<p>Vibe coding was defended and denounced within four hours of each other, and the two are not actually arguing about the same thing. Zara Zhang's cockroach game is the day's only account of what a model does not supply: the game is technically trivial and any model could build it, and what made her friend cry was the story behind it. Steinberger, three and a half hours later, restates that &ldquo;vibes coding is a slur.&rdquo; Read together they are compatible &mdash; one is saying the output is easy and the soul is not, the other is objecting to the word &mdash; and neither cites the other. What neither does is measure anything, and the one artifact in the exchange has no link in the feed.</p>
+<p>About thirteen of today's 31 tweets carry no gradeable AI content, and they are named rather than dropped: Swyx's three AI Engineer New York logistics posts, Josh Woodward's Lenny interview pointer, Nan Yu's three-word quote-tweet, Thariq's &ldquo;evergreen,&rdquo; Garry Tan's three non-AI posts, Nikunj's happy hour, Rauch's four-word laugh, and Peter Yang's two StarCraft posts. Two notes on that list. Garry Tan is the more interesting absence than Swyx: yesterday he was one of the two people amplifying the funnel, and today he has nothing at all on AI, so the apparent consensus of 10-13 has no carrier on 10-14. And Peter Yang, Nan Yu and Rauch each still have one post with content, so for them the thin posts are additional rather than instead.</p>
+<p>Nothing today touches: the Gemini 4 vibe check (eleventh consecutive window with nothing), external reproduction of the Sonnet 5.5 design eval, the OpenClaw Android review, the unanswered question about 10x coding agents, the Beam technical report, a second network for Rauch's traffic series, the Grok bot email being confirmed fixed, Amjad's decompilation claim getting an instance, Thariq's offline-machine failure mode, or the 10-06 Vahdat episode resurfacing. Goodfire and Hugging Face remains audio-only. The naming question grew rather than shrank: 6 Astra joins GPT-6.1 Sol ultrafast and the two DevDay names, with nothing anywhere stating how they relate. Standing dates: Founder House 10-14 (today), half-rate usage ends 10-15 (tomorrow), Opal shuts down 2026-11-17.</p>
+<div class="takeaway-label" style="margin-top:22px">&#26680;&#24515;&#32467;&#35770;</div>
+<p class="zh">28 天时钟走到 Day 8，数字又不见了。Day 7 交出了一前一后 &mdash;&mdash; 默认上下文 272k 到 500k &mdash;&mdash; 今天回到了形容词。新的东西不是产出而是一个计划：某个&ldquo;应该能让所有人的用量显著增加&rdquo;的东西，他希望能尽快搞定。它出现在那个 Pro 投票的第二天 &mdash;&mdash; 那个投票提供的是 2X 用量、代价是恢复 5 小时限制 &mdash;&mdash; 所以方向上是连续的；而投票留下的两个缺口今天仍然开着：5 小时限制没提，票数在任何窗口里都没有公布过。reset 第三次被报告完成，并被降格成了配菜。它本该清掉的那四件东西，八天里一次都没有被列举过，这意味着这整个 28 天练习里唯一可被核对的那句承诺，至今仍然无法核对。</p>
+<p class="zh">今天最大的移动是：一个这份 digest 曾经无法定义的名字，现在有了可以调用的东西。Muse 从 10-07 那个含义不明的词，到 10-08 Peter Yang 对它许下的一个能力愿望，再到今天的 <code>meta/muse-wonder-1.0</code> &mdash;&mdash; 由 Rauch 发出，还带了一句可直接复制的命令。它是不是同一个 Muse，没有任何地方说明；今天也没有任何一处声称它能占住一条电话线，所以 09-21 那个请求仍然没有被回答。真正新并且可被核对的是质量：Dan Shipper 用它做了个视频，评价是&ldquo;挺粗糙的&rdquo;，故障恢复后又补了一句&ldquo;还是很烂&rdquo;，还指出它目前生成的所有视频旁白都是澳大利亚口音。他还把档位钉住了 &mdash;&mdash; 用的是 Standard，因为 Wonder Full 没有开放 API &mdash;&mdash; 这恰恰是氛围评测里通常会被漏掉的那种细节。一个模型变得可被调用是进展；关于它的第一份第一人称报告是负面的，这件事更留得住。</p>
+<p class="zh">两个人在同一个下午对「谁来写 harness」下了相反的注，而且都没有引用对方。Levie：在极限情况下，AI 看到任务之后再决定自己的 harness，显然会比我们提前替它决定得更好。Rauch：这里有一个 6mb 的 CLI，毫秒级启动，内置 MCP、Skills、Subagents 和 ACP，因为 CLI 的意义就是零摩擦、像 unix。这两者严格说不是同一个问题 &mdash;&mdash; Levie 谈的是运行时选择，Rauch 谈的是工具的形状 &mdash;&mdash; 但两人都没有提到对方，也都没有给数字，所以按 10-11 那条规则并列。两者之中只有 Rauch 那个是今天就可以装上的。</p>
+<p class="zh">「一堆个人 agent」还是「一个公司 agent」，现在已经成了同一份 feed 里的一次公开分歧。10-09 那期 Every 节目的嘉宾解释了他们为什么用「一个公司 agent」换掉了「一堆个人 agent」。今天 Peter Yang 说的正好相反，而这正是 Grok bot 成为他目前最喜欢 agent 的原因：人格而不是线程，每个人格负责一件工作，他的说法是&ldquo;像雇人&rdquo;。而 Every 的 CEO 就在同一个窗口里发的是关于一个模型的内容，不是在谈这场争论。谁都没有引用谁，所以这里没有一处是更正 &mdash;&mdash; 这是两个关于企业最终会采用什么无法同时成立的判断，而 feed 不做裁判。</p>
+<p class="zh">Grok bot 那条邮件线到现在已经产出了三种证据，仍然没有结论。10-09 是嘉宾许愿说总有一天会把 bot FaceTime 进训练；10-10 是 Peter Yang 报告邮件功能在他@了之后没有回复；10-11 是配置建议；今天邮件作为被推广的功能出现了，和免费的 X 访问、Opus 并列。这个窗口里没有任何地方说它被修好了。愿望、失效报告、功能清单是三件不同的事，不该合并 &mdash;&mdash; 但值得把这个顺序留住：更简单的那个能力被报告为坏了，而它再次出现是在推广文案里，不是在更新日志里。</p>
+<p class="zh">Aditya Agarwal 那个差距和 Karpathy 的漏斗是同一个观察的两种切法，而他那一刀更有用，因为他把模型固定住了。Karpathy 的四层是按访问权分开的：5,000 人有内部系统，2,000 万人看到 agent 做完原本要几周的项目。Aditya 的差距是前沿实验室员工与最顶尖那 1% 的 AI 组织<em>在公开能力上</em>的差距 &mdash;&mdash; 这一刀把访问权这个解释拿掉了，剩下的是用法。两者都没有依据 &mdash;&mdash; Karpathy 自称是餐巾纸估算，Aditya 也没有量化那个差距 &mdash;&mdash; 而且两人都没有引用对方，所以这是同一个观察的两种切法，不是两个信源在收敛。</p>
+<p class="zh">vibe coding 在四个小时内被辩护了一次、被贬了一次，而这两者其实不是在争同一件事。Zara Zhang 那个蟑螂游戏是今天唯一一份关于「模型没有提供什么」的描述：游戏技术上很 trivial，任何模型都能做出来，而让她的朋友哭出来的是背后的故事。三个半小时后 Steinberger 重述&ldquo;vibes coding 是个贬称&rdquo;。放在一起读它们其实是相容的 &mdash;&mdash; 一个在说产出很容易、灵魂不容易，另一个反对的是这个词 &mdash;&mdash; 而且两边都没有引用对方。两边共同的问题是都没有测量任何东西，而这场交锋里唯一的那个产物，feed 里没有给链接。</p>
+<p class="zh">今天 31 条推文里大约 13 条没有可评级的 AI 内容，这里点名列出而不是悄悄删掉：Swyx 那三条 AI Engineer 纽约场的会务、Josh Woodward 那条 Lenny 访谈指路、Nan Yu 那句三个字的引用、Thariq 的&ldquo;evergreen&rdquo;、Garry Tan 那三条非 AI 内容、Nikunj 的 happy hour、Rauch 那四个字的笑、以及 Peter Yang 那两条星际争霸。这份清单上有两点值得说。Garry Tan 的缺席比 Swyx 更有意思：昨天他是放大那个漏斗的两个人之一，而今天他在 AI 上一句话都没有，所以 10-13 看起来像共识的那个东西，在 10-14 没有人在接着讲。另外，Peter Yang、Nan Yu 和 Rauch 各自都还有一条有内容的推文，所以对他们来说这些薄内容是加在后面的，不是替代。</p>
+<p class="zh">今天没有任何一条碰到：Gemini 4 vibe check（连续第十一个窗口没有东西）、Sonnet 5.5 设计评测的外部复现、OpenClaw 的 Android 审核、那个没人回答的 10x 编码 agent 提问、Beam 技术报告、Rauch 那条流量序列有没有第二家网络、Grok bot 邮件是否被确认修好、Amjad 的反编译主张有没有出现第一个实例、Thariq 那个离线机器失效模式、以及 10-06 那期 Vahdat 是否再现。Goodfire 与 Hugging Face 仍然只有音频形式。命名问题是变大而不是变小了：6 Astra 加入进来，和 GPT-6.1 Sol ultrafast、以及 DevDay 那两个名字并列，仍然没有任何地方说明它们之间的关系。已定日期：Founder House 10-14（今天）、半额用量 10-15 截止（明天）、Opal 2026-11-17 关停。</p>
+</div>
+</section>
+<!-- ============== ALREADY COVERED ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128257;</span>
+<h2 class="section-title">&#24050;&#25910;&#24405; / Already Covered</h2>
+<span class="section-meta">1 Item &#183; Matched</span>
+</div>
+<div class="already">
+<p>AI &amp; I by Every &middot; &ldquo;How Sam Altman Uses Dots to Take Back His Time&rdquo; &middot; published 2026-09-30. Already covered in the 10-02 issue. Judged the same episode on three things: the identical title, the identical publication timestamp 2026-09-30T20:05:56Z, and the identical link <a href="https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL">https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL</a>. Unlike the 10-13 match, today's feed brings nothing the 10-02 issue did not already have, so there is no link to backfill &mdash; the episode still has no specific video URL in either issue. This is the third consecutive window in which the podcast slot is a repeat: 10-12 was a renamed episode from 10-03, 10-13 was a repeat of 10-04, and today is a repeat of 10-02.</p>
+<p class="zh">AI &amp; I by Every &middot;《How Sam Altman Uses Dots to Take Back His Time》&middot; 发布日期 2026-09-30。已在 10-02 那期收录。判为同一期靠的是三件事：标题完全一致、发布时间戳完全一致（2026-09-30T20:05:56Z）、链接完全一致 <a href="https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL">https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL</a>。与 10-13 那次判重不同，今天这期 feed 没有带来 10-02 那期没有的东西，所以没有需要补记的链接 &mdash;&mdash; 这一期在两期里都仍然只有频道链接、没有具体视频地址。这是连续第三个窗口播客槽位是重复：10-12 是 10-03 那期换了标题，10-13 是 10-04 那期的重复，今天是 10-02 那期的重复。</p>
+<p>&#8226; 31 tweet IDs were checked against every file under <code>2026/</code>: zero hits.</p>
+<p class="zh">&#8226; 31 个推文 ID 对 <code>2026/</code> 下所有文件做了检查：零命中。</p>
+<p>&#8226; The two zeros have different causes and are not merged. The blogs array in the feed is empty, so the blog count is 0. The podcast array carries one episode and it matched an existing issue, so the podcast count is 0 too. An empty array is not the same thing as something that was fetched and then matched. This is the same slot structure as the 10-13 issue, though the matched episode is a different one.</p>
+<p class="zh">&#8226; 两个 0 成因不同，不合并。feed 的 blogs 数组为空，所以 blog 计 0；podcasts 数组有一期但命中了已收录，所以 podcast 计 0。数组为空，和「抓到了但被判重」不是一回事。槽位结构与 10-13 那期一致，但命中的是不同的一期。</p>
+<p>&#8226; The podcast is judged the same episode covered on 10-02, not a new one. Because the feed re-serves old episodes and renames them mid-flight (it did both on 10-12 and 10-13), a title-only check has now failed three times in four windows.</p>
+<p class="zh">&#8226; 这期播客判定为 10-02 已收录的同一期，不是新的一期。feed 会重复投放旧节目，也会中途给它们换标题（10-12 和 10-13 两次都换过），所以只按标题判重的做法在四个窗口里已经失效三次。</p>
+<p>&#8226; The Muse item is a change of state for a name, not a claim that a capability was delivered. The model id <code>meta/muse-wonder-1.0</code> and the label &ldquo;Muse Wonder&rdquo; are both in Rauch's post; that the same Muse is the one Peter Yang asked to hold a phone line on 09-21 is not stated anywhere in the feed and is recorded here as an open link, not as a fact.</p>
+<p class="zh">&#8226; Muse 这条是一个名字的状态变化，不是一个能力已交付的主张。模型 id <code>meta/muse-wonder-1.0</code> 和&ldquo;Muse Wonder&rdquo;这个叫法都出自 Rauch 那条推文；至于它是不是 09-21 Peter Yang 要求占住电话线的那个 Muse，feed 里没有任何地方说明 &mdash;&mdash; 这里记为一条待验证的关联，不是事实。</p>
+</div>
+</section>
+<footer class="footer">
+<div class="next-issue">&#128236; &#19979;&#19968;&#26399;&#65306;&#26126;&#22825; 10:00&#65288;&#21271;&#20140;&#26102;&#38388;&#65289;</div>
+<div class="signature">by chloevchen</div>
+</footer>
+</body>
+</html>
+<!-- by chloevchen -->
