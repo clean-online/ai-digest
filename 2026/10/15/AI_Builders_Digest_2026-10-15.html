@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Builders Digest &#183; 2026-10-15</title>
+<style>
+
+
+
+
+
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 28px 30px; margin-bottom: 24px; }
+  .podcast-source { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
+  .podcast-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; margin-bottom: 18px; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; }
+</style>
+</head>
+<body>
+<header class="topbar">
+<div class="topbar-inner">
+<a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+<span>&#21452;&#35821; &#183; Bilingual</span>
+</div>
+</header>
+<section class="header">
+<div class="eyebrow">Daily Digest &#183; 2026-10-15</div>
+<h1>AI Builders Digest</h1>
+</section>
+<div class="stats">
+<div class="stat"><div class="stat-num">13</div><div class="stat-label">Builders</div></div>
+<div class="stat"><div class="stat-num">28</div><div class="stat-label">Tweets</div></div>
+<div class="stat"><div class="stat-num">1</div><div class="stat-label">Podcast</div></div>
+<div class="stat"><div class="stat-num">1</div><div class="stat-label">Blog</div></div>
+</div>
+<p class="note-line">Feed snapshot 2026-10-14T06:42Z (Pacific 10-13 23:42), twenty-three hours and fifty-two minutes past the 10-14 snapshot, so no gap in coverage; all 28 tweets fall inside the Pacific 10-13 window (08:49 to 23:21). Every count is non-zero today, and none of them needed a dedup ruling: the 28 tweet IDs, the podcast and the blog URL all return zero hits across every file under <code>2026/</code>. The blog is the one worth flagging, because the slot has been 0 in every issue since 2026-09-18 and today is the first non-zero count in that run; the entry carries no publication date in the feed, so it is not dated here. One of the 28 tweets is not rendered as a card and is accounted for in the notes at the bottom.</p>
+<p class="note-line zh">feed 快照 2026-10-14T06:42Z（太平洋 10-13 23:42），比 10-14 那期前进 23 小时 52 分，没有丢档；28 条推文全部落在太平洋 10-13 这个窗口内（08:49 到 23:21）。今天四个计数都不为零，而且没有一个需要判重：28 个推文 ID、这期播客、这条博客 URL 在 <code>2026/</code> 下的所有文件里都是零命中。值得单说的是博客这一项 &mdash;&mdash; 从 2026-09-18 之后每一期它都是 0，今天是这段区间里第一次非零；feed 没有给这条博客的发布日期，所以这里也不标日期。28 条推文里有一条没有做成卡片，在文末说明里交代了。</p>
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128036;</span>
+<h2 class="section-title">X / Twitter</h2>
+<span class="section-meta">13 Builders &#183; 28 Tweets</span>
+</div>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Dan Shipper</span>
+<span class="builder-role">Every CEO</span>
+</div>
+<p class="summary-en">Three posts, and they hold the sharpest split in the feed: the headline and the number point in opposite directions. At 09:06 Pacific he posts &ldquo;VIBE CHECK: GEMINI 4&mdash;GOOGLE IS BACK.&rdquo; That is the item this series has carried as unmoved in thirteen consecutive issues from 10-02 to 10-14, and it finally arrives as a title. Nine minutes later, &ldquo;case in point:&rdquo; with a link and nothing else. Then at 10:12 he posts the measurement: Gemini 4 Argon &ldquo;really struggles on our senior engineer benchmark task,&rdquo; coming in at 21%, which he says is far below Sol 6 and even Muse. So the enthusiasm and the number come from the same account inside one hour. What is quantified is only the 21; Sol 6 and Muse are named without scores, so &ldquo;far below&rdquo; is his comparison and cannot be checked from what is here. What is also missing is the benchmark itself: no task description, no sample size, no pass criteria. It is a third-party reading of the same model three other builders in this window are praising, and it is the only negative one.</p>
+<p class="summary-zh zh">三条，它们构成了今天 feed 里最锋利的一处分裂：标题和数字指向相反的方向。太平洋时间 09:06 他发的是&ldquo;VIBE CHECK: GEMINI 4&mdash;&mdash;GOOGLE IS BACK&rdquo;。这正是本系列从 10-02 到 10-14 连续十三期记为「未移动」的那一项，今天终于以标题的形式出现了。九分钟后：&ldquo;case in point&rdquo;，附一个链接，别无其他。然后在 10:12 他发了那个测量：Gemini 4 Argon 在他们的资深工程师基准任务上&ldquo;确实很吃力&rdquo;，得分 21%，他说这远低于 Sol 6，甚至低于 Muse。也就是说，热情和数字出自同一个账号，相隔不到一小时。被量化的只有那个 21；Sol 6 和 Muse 只被点名、没有给分，所以「远低于」是他的比较，无法从这里的东西核对。同样缺失的还有这个基准本身：没有任务描述、没有样本量、没有通过标准。这是同一窗口里另外三位 builder 正在称赞的那个模型的第一份第三方读数，而且是唯一一份负面的。</p>
+<div class="urls">
+<a href="https://x.com/danshipper/status/2110039417650024592">https://x.com/danshipper/status/2110039417650024592</a>
+<a href="https://x.com/danshipper/status/2110041871594516951">https://x.com/danshipper/status/2110041871594516951</a>
+<a href="https://x.com/danshipper/status/2110056016872427944">https://x.com/danshipper/status/2110056016872427944</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aaron Levie</span>
+<span class="builder-role">Box CEO</span>
+</div>
+<p class="summary-en">Two posts, and the first is the most detailed evaluation of Gemini 4 Argon in the feed. Box has been testing it for a week on what he calls the Box AI Complex Work eval, and it is &ldquo;a huge upgrade over Gemini 3.1 Pro, jumping by 14 percentage points across all our tests.&rdquo; He then breaks that 14 into five industries: financial services +18, healthcare +25, technology +37, energy +16, consumer products +33, and each carries the concrete failure it fixed &mdash; Gemini 3.1 Pro folding a year-by-year interest schedule into a single figure, missing a data-centre meter log that stops in November, reporting retention above 100%, and defaulting to the larger expansion and the later timeline. He closes with availability: Gemini 4 Argon arrives in Box AI Studio shortly. The limits travel with every first-party eval: the vendor's own test on the vendor's own product, deltas rather than absolute scores, and no second party running it. It is also measuring something different from Every's 21%. The second post returns to the cyber thesis, now with a number on the risk side: the attack surface &ldquo;increases 100 fold&rdquo; because agents can work through any crack. The rule this series has applied to his multiples before holds again &mdash; the list is kept, the magnitude is dropped. The argument that agents widen the space an attacker can search is usable; the 100x is not derived from anything.</p>
+<p class="summary-zh zh">两条，第一条是今天 feed 里对 Gemini 4 Argon 最详细的评测。Box 用他们称为 Box AI Complex Work 的评测集测了一周，结论是&ldquo;相比 Gemini 3.1 Pro 是一次巨大的升级，在我们所有测试上提升了 14 个百分点&rdquo;。他接着把这 14 拆到五个行业：金融服务 +18、医疗 +25、科技 +37、能源 +16、消费品 +33，每一条都配了它修掉的那个具体错误 &mdash;&mdash; Gemini 3.1 Pro 把逐年的利息表折叠成一个数字、漏掉数据中心电表日志在 11 月就停了、把留存率报成超过 100%、以及默认选择更大的扩建和更晚的时间线。结尾给的是可得性：Gemini 4 Argon 即将上线 Box AI Studio。局限和每一份第一方评测自带的一样：厂商在自己的产品上跑自己的测试，公布的是增量不是绝对分，也没有第二方在跑。它测的东西和 Every 那个 21% 也不是同一个。第二条回到那个安全（cyber）论点，这次给风险侧挂了一个数字：agent 能钻过任何裂缝，所以攻击面&ldquo;增加 100 倍&rdquo;。本系列此前处理他的倍数时用过的那条规则在这里再次成立 &mdash;&mdash; 清单留下，量级去掉。agent 扩大了攻击者可搜索的空间，这个论证是可用的；100 倍不是从任何东西推出来的。</p>
+<div class="urls">
+<a href="https://x.com/levie/status/2110046686198550539">https://x.com/levie/status/2110046686198550539</a>
+<a href="https://x.com/levie/status/2110227571090788526">https://x.com/levie/status/2110227571090788526</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Josh Woodward</span>
+<span class="builder-role">VP &middot; Google, Google Labs, Gemini app, AI Studio</span>
+</div>
+<p class="summary-en">Three posts, all demonstrations, none of them a measurement. At 10:10 Pacific: &ldquo;The latest Gemini model made this.&rdquo; At 12:26, a furniture leg 96 millimetres wide, where he says the hardest part of manufacturing it was deciding how many stacked spheres to give it. At 18:24, a custom synthesizer built from a 24-word prompt that turns galloping horses, rippling water and your own hands into music. What he is posting is the output surface of Gemini 4 Argon, and the 96 millimetres is the only number in any of them &mdash; a dimension of the object, not a measurement of the model. None of this is comparable to Box's 14 points or Every's 21%, and it should not be read as a rival reading of either. One is a vendor showing what the model makes; the other two are people scoring what it does.</p>
+<p class="summary-zh zh">三条，全是演示，没有一条是测量。太平洋时间 10:10：&ldquo;最新的 Gemini 模型做了这个。&rdquo;12:26 是一条 96 毫米宽的家具腿，他说制造中最难的部分是决定给它叠几个球。18:24 是一台由 24 词提示词做出来的定制合成器，把奔跑的马、起伏的水和你自己的手变成音乐。他发的是 Gemini 4 Argon 的产出面，而 96 毫米是三条里唯一的数字 &mdash;&mdash; 那是物件的尺寸，不是对模型的测量。这里没有任何东西可以和 Box 的 14 个百分点或 Every 的 21% 对比，也不该被读成与其中任何一个相竞争的读数。一个是厂商在展示模型做出了什么；另外两个是在给模型做的事打分。</p>
+<div class="urls">
+<a href="https://x.com/joshwoodward/status/2110055636109312264">https://x.com/joshwoodward/status/2110055636109312264</a>
+<a href="https://x.com/joshwoodward/status/2110089824573272547">https://x.com/joshwoodward/status/2110089824573272547</a>
+<a href="https://x.com/joshwoodward/status/2110179883045560674">https://x.com/joshwoodward/status/2110179883045560674</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Guillermo Rauch</span>
+<span class="builder-role">Vercel CEO</span>
+</div>
+<p class="summary-en">One post, and it does three separate things. He congratulates the Gemini team &mdash; &ldquo;Never bet against Google, the company that brought us Transformers and has overwhelming data, engineering talent, and compute.&rdquo; He states where the market is: &ldquo;Everyone has, rightfully, pivoted back to coding. Coding agents are the killer app of AI. We're firmly at an elysium for developers and builders.&rdquo; Then he converts the day's news into a pitch: getting Muse Wonder and Gemini Argon back-to-back &ldquo;is a reminder why you as an individual, and your company, should stay model agnostic and gateway-maxxx / fx-maxxx.&rdquo; Two things travel with that. First, this is the second day running he has tied Muse to his own products: on 10-14 he published the callable id meta/muse-wonder-1.0 on the Vercel AI Gateway, and today the same sequence of releases is the argument for using a gateway. He has an interest in the conclusion, and nothing here measures anything that would test it. Second, his market claim is a claim about attention rather than about scores, which is why it survives both Box's praise and Every's 21% &mdash; all three are now pointed at the same thing.</p>
+<p class="summary-zh zh">一条，做了三件不同的事。他祝贺 Gemini 团队 &mdash;&mdash; &ldquo;永远不要赌 Google 输，这家公司给了我们 Transformer，并且拥有压倒性的数据、工程人才和算力。&rdquo;他给出一个市场判断：&ldquo;所有人都（理所当然地）转回了编码。编码 agent 是 AI 的杀手级应用。我们确实处在开发者和建设者的极乐之地。&rdquo;然后他把今天的新闻转成了自家产品的论据：Muse Wonder 和 Gemini Argon 接连出现&ldquo;提醒了你和你的公司为什么应该保持模型无关，并且把网关 / fx 拉满&rdquo;。有两点要一起带走。第一，这是他连续第二天把 Muse 挂到自己的产品上：10-14 那天他公布了 Vercel AI Gateway 上可调用的 id meta/muse-wonder-1.0，今天同一串发布成了使用网关的理由。他在这个结论上有利益，而这里没有任何东西能被拿来检验它。第二，他关于市场的判断是关于注意力的判断，不是关于分数的判断 &mdash;&mdash; 这正是它能同时承受 Box 的称赞和 Every 的 21% 的原因：三方现在都指向同一个东西。</p>
+<div class="urls">
+<a href="https://x.com/rauchg/status/2110044152482365747">https://x.com/rauchg/status/2110044152482365747</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thibault Sottiaux</span>
+<span class="builder-role">Codex &amp; ChatGPT &middot; OpenAI</span>
+</div>
+<p class="summary-en">One post, and Day 9 of the clock is the first day since Day 7 to carry a number. &ldquo;We've rolled out optimizations to how we store state on disk for the chatgpt &amp; codex desktop app that should reduce the amount stored on disk by 60%. Small ship but we've heard enough feedback about power users running out of disk space.&rdquo; Two things separate this from Day 8. Day 8 was a plan &mdash; a simple one that should result in significantly more usage for everyone, to be done &ldquo;soon&rdquo; &mdash; and Day 9 is a ship, so the sequence now reads plan, then ship. But what shipped is disk, not usage: nothing today makes more usage available, and neither the 5-hour limits from the Pro poll nor any vote count is mentioned. The number is also narrower than it looks. Sixty percent is a reduction in what a desktop app keeps locally, not a capacity or a rate limit, and it is phrased in the future tense &mdash; &ldquo;should reduce&rdquo; &mdash; so the measurement is not attached. Nine days in, the four things the reset was meant to clear have still never been listed.</p>
+<p class="summary-zh zh">一条，Day 9 是这个时钟自 Day 7 以来第一次带数字的一天。&ldquo;我们上线了一项优化，改变了 chatgpt 和 codex 桌面应用在磁盘上保存状态的方式，应该能把磁盘占用减少 60%。改动不大，但关于重度用户磁盘空间不够的反馈我们已经听得够多了。&rdquo;有两件事把它和 Day 8 区分开。Day 8 是一个计划 &mdash;&mdash; 一个简单的、应该能让所有人用量显著增加的计划，&ldquo;希望能尽快搞定&rdquo; &mdash;&mdash; 而 Day 9 是一次上线，所以现在的顺序读起来是计划之后跟着上线。但上线的是磁盘，不是用量：今天没有任何东西让用量变多，Pro 投票里那 5 小时限制没有提，票数也没有提。这个数字本身也比看上去要窄。60% 是桌面应用本地存储的减少，不是容量也不是速率限制，而且他用的是将来时 &mdash;&mdash; &ldquo;应该能减少&rdquo; &mdash;&mdash; 所以测量并没有附在上面。九天过去，reset 本该清掉的那四件东西仍然一次都没有被列举。</p>
+<div class="urls">
+<a href="https://x.com/thsottiaux/status/2110151780478927344">https://x.com/thsottiaux/status/2110151780478927344</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Swyx</span>
+<span class="builder-role">Latent Space &middot; AI Engineer</span>
+</div>
+<p class="summary-en">Three posts, and the middle one is the best-designed public test in the window. &ldquo;How to Kill Your SaaS&rdquo;: they took a real $43,000-a-year SaaS they actually use and ran a global hackathon to clone it in a weekend, with both AI and real human evals, using any models and any harness. The counts are all given &mdash; 72 submissions, a lot of manual evals, roughly 100 billion tokens later, and a $10,000 Kill My SaaS contest with qualitative interviews and named winners. This is the only item today where the method is described well enough to argue with: a known target, a fixed time box, human evaluators alongside model ones, and a cost figure for the token spend. What is not in the post is the result. Whether the clones actually replaced the $43,000 product is what the episode claims to reveal, and the tweet does not say. It also lands in a window where two other people are arguing about whether models can do senior engineering work, which is the same question asked at the level of a whole product rather than a single task. The other two posts are a go-live notice and a note about speaker operations.</p>
+<p class="summary-zh zh">三条，中间那条是今天窗口里设计得最好的一次公开测试。&ldquo;How to Kill Your SaaS&rdquo;：他们拿了一个自己真的在用、年费 43,000 美元的 SaaS，发起一场全球黑客松，要在一个周末里克隆它，评测同时用 AI 和真人，模型和 harness 不限。数字都给了 &mdash;&mdash; 72 份提交，大量人工评测，大约 1,000 亿 token，还有一个 10,000 美元的 Kill My SaaS 比赛，附定性访谈和获奖名单。这是今天唯一一个方法被描述到足以让人反驳的条目：一个已知的目标、一个固定的时间盒、人工评测与模型评测并行、以及一个 token 花费的成本数字。这条推里没有的是结果。那些克隆品到底有没有替代那个 43,000 美元的产品，是那期节目声称要揭示的东西，而推文没有说。它还落在这样一个窗口里：另外两个人正在争论模型能不能做资深工程师的工作 &mdash;&mdash; 那是同一个问题，只是问在了整个产品的层面上，而不是单个任务的层面上。另外两条是一条开播通知和一条关于讲者事务的短推。</p>
+<div class="urls">
+<a href="https://x.com/swyx/status/2109994742998303191">https://x.com/swyx/status/2109994742998303191</a>
+<a href="https://x.com/swyx/status/2110065576764686421">https://x.com/swyx/status/2110065576764686421</a>
+<a href="https://x.com/swyx/status/2110194074573586607">https://x.com/swyx/status/2110194074573586607</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Amjad Masad</span>
+<span class="builder-role">Replit CEO</span>
+</div>
+<p class="summary-en">Three posts, and one of them is the clearest statement about tempo in the feed. &ldquo;You can pause frontier research today, and it would take AI another 10 years to diffuse into the economy. We're working with solutions partners to accelerate that.&rdquo; The shape of the claim is useful &mdash; it separates making capability from spreading it and says the second is now the slower of the two &mdash; but the number carries nothing: no definition of diffuse, no baseline, no comparison, no account of what the solutions partners do. It is also not a rebuttal to anything here, because nobody in this window argued the opposite. What it does sit next to is the podcast in the same feed, where David Silver shortens his own superintelligence timeline to three years partly because coding agents accelerate research. Those are two different clocks, one for arriving at capability and one for spreading it, and putting them side by side is more honest than scoring them against each other. The other two posts are a joke about adding puppies to his sites and a three-word post reading MXC.exe.</p>
+<p class="summary-zh zh">三条，其中一条是今天关于节奏最清楚的表述。&ldquo;你今天就可以暂停前沿研究，而 AI 要再花 10 年才能扩散到经济里去。我们正在和解决方案伙伴一起加速这件事。&rdquo;这个主张的形状是有用的 &mdash;&mdash; 它把「造出能力」和「把能力铺开」分开，并且说后者现在是两者中较慢的那个 &mdash;&mdash; 但那个数字什么都没有带：没有定义什么叫扩散，没有基线，没有对比，也没有说明那些解决方案伙伴具体做什么。它也不是在反驳本窗口里的任何东西，因为这里没有人提出相反的主张。真正该把它放在一起看的是同一个 feed 里的那期播客：David Silver 把自己的超级智能时间线缩短到三年，部分理由正是编码 agent 加速了研究。这是两个不同的时钟，一个走的是抵达能力，一个走的是铺开能力；把它们并排放在一起，比拿它们互相判分更诚实。另外两条：一条是给自家站点加小狗图片的玩笑，一条是三个词 MXC.exe。</p>
+<div class="urls">
+<a href="https://x.com/amasad/status/2110128937049452575">https://x.com/amasad/status/2110128937049452575</a>
+<a href="https://x.com/amasad/status/2110112408463376730">https://x.com/amasad/status/2110112408463376730</a>
+<a href="https://x.com/amasad/status/2110049740285165779">https://x.com/amasad/status/2110049740285165779</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Garry Tan</span>
+<span class="builder-role">Y Combinator CEO</span>
+</div>
+<p class="summary-en">Two posts arrived and one is rendered here. The one that is: &ldquo;Giving your harnesses access to a real browser with your real credentials is a real unlock - highly recommend @AsideAI.&rdquo; That is a recommendation with a mechanism and no number, and it is the second day in this series that the question of what an agent is allowed to touch has come up from this side of the feed. The second post, at 14:09 Pacific, is about a local election in San Francisco, carries no AI content, and is left out; it is accounted for in the notes at the bottom so that both the tweet count and the reason it is missing are on the record.</p>
+<p class="summary-zh zh">来了两条，这里呈现其中一条。呈现的这条：&ldquo;让你的 harness 用你的真实凭据访问一个真实浏览器，是一次真正的解锁 &mdash;&mdash; 强烈推荐 @AsideAI。&rdquo;这是一条有机制、没有数字的推荐，也是本系列里连续第二天从这个 feed 的这一侧提出「agent 被允许碰什么」这个问题。第二条在太平洋时间 14:09，内容是旧金山一场地方选举，没有 AI 相关信息，因此没有收进这期；它记在文末的说明里，这样推文计数和它缺席的原因都有据可查。</p>
+<div class="urls">
+<a href="https://x.com/garrytan/status/2110053836945756234">https://x.com/garrytan/status/2110053836945756234</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nikunj Kothari</span>
+<span class="builder-role">Partner &middot; FPV Ventures</span>
+</div>
+<p class="summary-en">Two posts. The one with content is praise for a conversation with Jake of Railway: &ldquo;All my priors get shattered when I chat with @JustJake every month,&rdquo; over a list of scaling, selling, hiring and building, and a description of Railway as &ldquo;an n of 1 company&rdquo; because Jake runs it his way. The word worth keeping is the one he chose himself. N of 1 is an accurate description of the evidence he is offering, and it is also the reason none of it generalises. The other post is a pun about pro rata.</p>
+<p class="summary-zh zh">两条。有内容的那条是在推荐一期与 Railway 的 Jake 的对话：&ldquo;每个月和 @JustJake 聊一次，我所有的先验都会被打破&rdquo;，他列了规模化、销售、招聘和构建四项，并把 Railway 描述成一家&ldquo;n = 1 的公司&rdquo;，因为 Jake 按他自己的方式在经营。值得留下的正是他自己选的那个词。n = 1 是对他所提供的证据的准确描述，也正是它无法推广的原因。另一条是关于 pro rata 的谐音梗。</p>
+<div class="urls">
+<a href="https://x.com/nikunj/status/2110137649168281871">https://x.com/nikunj/status/2110137649168281871</a>
+<a href="https://x.com/nikunj/status/2110151986360553599">https://x.com/nikunj/status/2110151986360553599</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Yang</span>
+<span class="builder-role">Practical AI tutorials and interviews</span>
+</div>
+<p class="summary-en">Three posts and no AI content in any of them: a USB recording device &ldquo;concealed&rdquo; in toilet paper on a conference-room TV, a comment that Poteto cracks him up, and a line about randomly spending five figures on yard work in the Bay Area. He is the person who asked Muse to hold a phone line on 10-08, and today he says nothing about it.</p>
+<p class="summary-zh zh">三条，没有一条与 AI 相关：会议室电视上一个&ldquo;藏&rdquo;在厕纸里的 USB 录音设备、一句说 Poteto 太会逗他的评论、以及一句在湾区随随便便就在院子里花掉五位数的话。他是 10-08 那天让 Muse 去占住一条电话线的人，而今天对此只字未提。</p>
+<div class="urls">
+<a href="https://x.com/petergyang/status/2110120062908862517">https://x.com/petergyang/status/2110120062908862517</a>
+<a href="https://x.com/petergyang/status/2110194356166795474">https://x.com/petergyang/status/2110194356166795474</a>
+<a href="https://x.com/petergyang/status/2110197699790430711">https://x.com/petergyang/status/2110197699790430711</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nan Yu</span>
+<span class="builder-role">Product, Codex &middot; OpenAI</span>
+</div>
+<p class="summary-en">Two posts a minute apart, both carrying images and almost no text: &ldquo;Told y'all&rdquo; and a repost of the same media. There is nothing here to grade.</p>
+<p class="summary-zh zh">两条，相隔一分钟，都是带图的、几乎没有文字：&ldquo;Told y'all&rdquo;，以及同一段媒体的转发。这里没有可以评级的内容。</p>
+<div class="urls">
+<a href="https://x.com/thenanyu/status/2110130931902353553">https://x.com/thenanyu/status/2110130931902353553</a>
+<a href="https://x.com/thenanyu/status/2110131244956828008">https://x.com/thenanyu/status/2110131244956828008</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Zara Zhang</span>
+<span class="builder-role">Builder</span>
+</div>
+<p class="summary-en">Two posts: a question &mdash; asking for a friend, who is the most cracked brand designer you know &mdash; and &ldquo;Haha great video &amp; product!&rdquo; Nothing in either is gradeable.</p>
+<p class="summary-zh zh">两条：一个提问 &mdash;&mdash; 替朋友问，你认识最厉害的品牌设计师是谁 &mdash;&mdash; 以及一句&ldquo;哈哈视频和产品都很棒！&rdquo;两条里都没有可以评级的内容。</p>
+<div class="urls">
+<a href="https://x.com/zarazhangrui/status/2110052024637415720">https://x.com/zarazhangrui/status/2110052024637415720</a>
+<a href="https://x.com/zarazhangrui/status/2110254654412218553">https://x.com/zarazhangrui/status/2110254654412218553</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thariq</span>
+<span class="builder-role">Claude Code &middot; Anthropic</span>
+</div>
+<p class="summary-en">One post: &ldquo;excited to be back home.&rdquo; Nothing to grade.</p>
+<p class="summary-zh zh">一条：&ldquo;excited to be back home.&rdquo;（回家了，挺高兴。）没有可以评级的内容。</p>
+<div class="urls">
+<a href="https://x.com/trq212/status/2110035114432532654">https://x.com/trq212/status/2110035114432532654</a>
+</div>
+</article>
+</section>
+<!-- ============== PODCAST ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#127911;</span>
+<h2 class="section-title">Podcast</h2>
+<span class="section-meta">1 Episode</span>
+</div>
+<div class="podcast">
+<div class="podcast-source">Training Data</div>
+<div class="podcast-title">David Silver and Lasse Espeholt of Ineffable Intelligence: A Superlearner for the Age of Experience</div>
+<p class="summary-en">David Silver, who led AlphaGo, and Lasse Espeholt, who did the first work on scaling reinforcement learning, are two of the co-founders of Ineffable Intelligence, and this is the first time either has appeared in this feed. Silver gives his reason for leaving DeepMind as a bet rather than a grievance: the path to superintelligence he believes in does not pass through LLM-based products as an intermediate step, and he did not want to be &ldquo;the 100,001st person&rdquo; on the approach that tens or hundreds of thousands of researchers are already pursuing. The stated mission is a super learner and first contact with superintelligence.</p>
+<p class="summary-en">The definition is given on two axes and it is the most precise thing in the episode. Depth: something that starts from knowing nothing at all and reaches discoveries beyond what humans know. Breadth: something you can drop into any stream of experience &mdash; simulated, digital or physical &mdash; and it keeps learning. He is explicit that today's LLMs are not this, on two grounds: the breakthroughs still require a great deal of human in the loop, and it is not at all clear that language-based approaches are the right vehicle for knowledge that comes from physical experience.</p>
+<p class="summary-en">The bet is stated as a deliberate sacrifice. Ineffable is giving up human data &mdash; the internet of knowledge everyone else builds on &mdash; because he argues you cannot reach autonomous discovery while relying on it, and he describes the LLM labs as building semi-autonomous learning algorithms with thousands of people inside the loop. The precedent he cites is his own: going from AlphaGo to AlphaZero took a few hours to beat two years of human-in-the-loop work, four hours in chess. He also says the position is pragmatic rather than religious: weak, environment-agnostic priors are fine, trillion-item priors are what they are avoiding.</p>
+<p class="summary-en">Instead of hand-crafted task sets they build what they call crucibles: environments with enough emergent complexity that discovery becomes possible, whether from physics engines running millions of interacting objects or from millions of interacting agents. The design principle is explicitly not to write a reward that encodes what they mean by science or mathematics; it is to give a simple objective inside a complex environment and let complexity emerge, the way evolution optimises fitness and gets life. His own illustration is the cleanest: Go is a 19 by 19 grid, and as a single-agent game it would be the most boring game imaginable, but adding one opponent produces an endless learning curve.</p>
+<p class="summary-en">Two numbers appear, and one gap. Silver says they could probably run experiments using 100,000 times more compute than OpenAI's hide-and-seek work, and calls compute a huge driver but not the only one. The gap is that the cluster is never sized &mdash; Espeholt says only that they have secured a very large cluster, and no figure for it or for funding appears anywhere in the transcript. The one headcount given is 20 people hired, kept small deliberately to hold compute per person high.</p>
+<p class="summary-en">On simulation he makes the strongest version of the argument that is available: if superintelligence can be built in simulation it will happen ten or a hundred times faster and it is the safest place to build it, because simulation parallelises infinitely and is perfectly reproducible. His case that it is possible is structural &mdash; a Turing-complete simulation can express everything meant by computation, a representation of money can express economics, a channel between agents can express language &mdash; and he concedes the ceiling: quantum computation is his own example of something not expressible, and he agrees with Rich Sutton that you should not expect what is learned in simulation to transfer to the real world.</p>
+<p class="summary-en">Asked for dates, he says they will have extremely strong evidence they are on the right track within a year, and that true superintelligence &mdash; his definition being something that discovers things far beyond human reach across science, mathematics, technology and languages &mdash; will take three years, accelerated from the three to five he originally held, because of what coding agents can do. On monitoring he says the language-based approach everyone relies on is reaching its limits: monitors face a million words of reasoning, or active subterfuge where a system thinks one way and acts another, so he proposes shadow actions &mdash; let the agent act where you can inspect it, without letting the action land. Their commitment is to gate anything in the real world on evidence from this science of superintelligence. None of it is a measurement; all of it is a forecast or a design principle.</p>
+<p class="summary-zh zh">David Silver 主导过 AlphaGo，Lasse Espeholt 做过最早把强化学习规模化起来的工作，两人都是 Ineffable Intelligence 的联合创始人，这也是他们第一次出现在这个 feed 里。Silver 给出的离开 DeepMind 的理由是一个赌注，不是怨气：他相信的通向超级智能的路径并不以基于 LLM 的产品作为中间站，而他不想成为已经有数万乃至数十万研究者在走的这条路上的&ldquo;第 100,001 个人&rdquo;。公司对外说的使命是做出一个 super learner，并与超级智能完成第一次接触。</p>
+<p class="summary-zh zh">这个定义是沿着两个轴给出的，也是这一集里最精确的东西。深度：从一无所知开始，一直走到超出人类已知范围的发现。广度：可以把它丢进任何经验流 &mdash;&mdash; 模拟的、数字的、物理的 &mdash;&mdash; 它都能继续学。他明确说今天的 LLM 不是这个东西，理由有两条：那些突破仍然需要大量人在环里，而且基于语言的方法到底是不是承载来自物理经验的知识的正确载体，完全不清楚。</p>
+<p class="summary-zh zh">这个赌注被表述成一次主动的牺牲。Ineffable 放弃了人类数据 &mdash;&mdash; 也就是其他所有人都在其上构建的那个知识互联网 &mdash;&mdash; 因为他的论证是：只要还依赖它，就到不了自主发现；他把那些 LLM 实验室描述成正在构建半自主的学习算法，环里有成千上万的人。他引用的先例是他自己的：从 AlphaGo 到 AlphaZero，用了几个小时就超过了人在环里做了两年的成果，国际象棋是四个小时。他还说这个立场是务实的而不是原教旨的：弱的、与环境无关的先验可以接受，他们要避开的是万亿条那种级别的先验。</p>
+<p class="summary-zh zh">他们不做手工拼出来的任务集，而是构建所谓 crucibles（熔炉）：具有足够涌现复杂度的环境，让发现这件事成为可能 &mdash;&mdash; 复杂性可以来自跑着数百万个交互对象的物理引擎，也可以来自数百万个互相交互的 agent。设计原则明确不是去写一个把&ldquo;科学&rdquo;或&ldquo;数学&rdquo;编码进去的奖励函数，而是在一个复杂环境里给一个简单的目标，让复杂性自己涌现出来，就像进化只优化适应度却得到了整个生命。他自己的例子最干净：围棋是一个 19 乘 19 的网格，作为单人游戏它会是你所能想象的最无聊的游戏，但只要加进一个对手，就出现了没有尽头的学习曲线。</p>
+<p class="summary-zh zh">这一集里有两个数字，还有一处空缺。Silver 说他们大概能跑比 OpenAI 当年 hide-and-seek 那类工作多用 100,000 倍算力的实验，并称算力是巨大的驱动因素，但不是唯一的。空缺在于集群的规模始终没有给出 &mdash;&mdash; Espeholt 只说他们拿到了一个很大的集群，整个文稿里没有任何关于它、或者关于融资的数字。唯一给出的人数是 20 人，刻意保持小规模，为的是让人均算力维持在高位。</p>
+<p class="summary-zh zh">关于模拟，他给出了这个论证最强的版本：如果超级智能可以在模拟中被造出来，那它会快十倍到一百倍，而且模拟是最安全的建造场所 &mdash;&mdash; 因为模拟可以无限并行，并且完全可复现。他论证&ldquo;这是可能的&rdquo;时用的是结构性理由 &mdash;&mdash; 一个图灵完备的模拟可以表达计算的全部含义，一种货币的表示可以表达经济学，agent 之间的一条通道可以表达语言 &mdash;&mdash; 而他也承认天花板：量子计算就是他自己举的、无法在模拟中表达的例子；并且他同意 Rich Sutton 的说法 &mdash;&mdash; 不该指望在模拟里学到的东西能迁移到真实世界。</p>
+<p class="summary-zh zh">被问到时间点，他说一年之内会拿到他们走在正确道路上的极强证据；而真正的超级智能 &mdash;&mdash; 他的定义是能在科学、数学、技术、语言等所有方面发现远超人类所及之物的东西 &mdash;&mdash; 需要三年，比他原先的三到五年缩短了，理由是编码 agent 能做的事。关于监控，他说所有人都依赖的那种基于语言的方法正在触到边界：监控者面对的是上百万字的推理，或者是系统想一套做一套的主动欺瞒，因此他提出 shadow actions（影子动作）&mdash;&mdash; 让 agent 在你能检查的地方把动作做出来，但不让这个动作真正落地。他们的承诺是：真实世界里的任何动作，都要以这门超级智能科学给出的证据为闸门。这些全都不是测量，全是预测或设计原则。</p>
+<div class="urls"><a href="https://www.youtube.com/playlist?list=PLOhHNjZItNnMm5tdW61JpnyxeYH5NDDx8">https://www.youtube.com/playlist?list=PLOhHNjZItNnMm5tdW61JpnyxeYH5NDDx8</a></div>
+</div>
+</section>
+<!-- ============== BLOG ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128240;</span>
+<h2 class="section-title">Engineering Blog</h2>
+<span class="section-meta">1 Post</span>
+</div>
+<div class="podcast">
+<div class="podcast-source">Anthropic Engineering</div>
+<div class="podcast-title">Redesigning source control at Anthropic</div>
+<p class="summary-en">The blog slot is non-zero for the first time since 2026-09-18, and this entry needed no dedup ruling: the URL returns zero hits across every file under &lt;code&gt;2026/&lt;/code&gt;. The feed carries no publication date for it and no byline, so neither is asserted here. What it does carry is the densest set of engineering numbers in today's feed.</p>
+<p class="summary-en">The premise is that coding is no longer the bottleneck at Anthropic; the developer infrastructure built for human scale is. The series is the core of it: in May 2026 they averaged around 2,500 code changes merged per day, and as of September they merged over 30,000 per day. They built Scion, an in-house version control system, and migrated the monorepo off git in five months, shipping a code review surface called Antique, code search, and a source control IAM system inside the same period.</p>
+<p class="summary-en">The git numbers explain why. Main-branch history alone is almost 100 GB and a compressed working copy is over 25 GB; they perform on the order of 25 million code checkouts per day for CI, before counting developer environments, agent sandboxes and research jobs, which fetched naively would be over 600 PB of git traffic per day. At peak they ran several hundred internal git mirrors. Scion inverts two of git's assumptions: clients are always online, because nearly all clients are agents and jobs, and the server rather than the client answers history and blame, so the client keeps only a bounded local cache. Google's Piper and Meta's Sapling are cited as prior art.</p>
+<p class="summary-en">The result is given as two ratios: Scion's infrastructure footprint is now 200x smaller than the previous git mirroring setup in CPU and memory, achieved while the volume of code merged per day grew 10x. Both are first-party, both are internal, and neither has an external reproduction &mdash; which is also why this post belongs in the same issue as Box's eval deltas and Sottiaux's disk reduction.</p>
+<p class="summary-zh zh">博客这一格自 2026-09-18 以来第一次非零，而且这条不需要判重：这个 URL 在 &lt;code&gt;2026/&lt;/code&gt; 下的所有文件里零命中。feed 没有给出它的发布日期，也没有作者，所以这里两样都不标。它给出的是今天 feed 里密度最高的一组工程数字。</p>
+<p class="summary-zh zh">前提是：在 Anthropic，编码已经不是瓶颈了，为人的规模建造出来的开发基础设施才是。核心是那组序列：2026 年 5 月他们平均每天合入约 2,500 次代码变更，到 9 月每天合入超过 30,000 次。他们造了 Scion，一套自研的版本控制系统，用五个月把整个 monorepo 从 git 迁了过去；同一时期还上线了一个叫 Antique 的代码评审界面、代码搜索、以及一套源码控制 IAM。</p>
+<p class="summary-zh zh">git 的那些数字解释了为什么。主干分支的历史本身就接近 100 GB，压缩后的工作副本超过 25 GB；他们每天为 CI 执行大约 2,500 万次代码 checkout，这还没算开发者环境、agent 沙箱和研究任务 &mdash;&mdash; 如果按朴素方式拉取，那会是每天超过 600 PB 的 git 流量。峰值时他们运维着数百个内部 git 镜像。Scion 反转了 git 的两个假设：客户端永远在线（因为几乎所有客户端都是 agent 和任务），以及由服务端而不是客户端来回答历史和 blame，客户端只保留一个有界的本地缓存。Google 的 Piper 和 Meta 的 Sapling 被引为先例。</p>
+<p class="summary-zh zh">结果以两个比值给出：Scion 的基础设施占用在 CPU 和内存上比之前的 git 镜像方案小 200 倍，而这还是在每天合入代码量增长 10 倍的同时做到的。两个数字都是第一方的、内部的，也都没有外部复现 &mdash;&mdash; 这也正是这篇该和 Box 的评测增量、Sottiaux 的磁盘削减放在同一期里的原因。</p>
+<div class="urls"><a href="https://www.anthropic.com/engineering/redesigning-source-control">https://www.anthropic.com/engineering/redesigning-source-control</a></div>
+</div>
+</section>
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128161;</span>
+<h2 class="section-title">The Takeaway</h2>
+<span class="section-meta">2026-10-15</span>
+</div>
+<div class="takeaway">
+<div class="takeaway-label">The Takeaway</div>
+<p>Gemini 4 Argon is the one real contest in today's feed, and the three readings cannot be reconciled because they are not measuring the same thing. Box reports a 14-point jump on its own complex-work eval with five per-industry deltas. Every reports 21% on a senior-engineer benchmark task and says that is below Sol 6 and even Muse. Google posts three demonstrations with no score at all. One product evaluation, one benchmark, one showreel. The rule this series has used before applies again: parallel readings are written down side by side and not scored against each other.</p>
+<p>What makes it worth watching anyway is that the two quantified readings disagree in sign while describing the same model in the same week. Box calls it a huge upgrade, firmly at the frontier. Every says it really struggles. Neither cites the other, and neither publishes the thing that would settle it, which is the tasks. Box at least supplies five concrete before-and-after failures, which is a level of specificity this feed rarely gets out of a vendor evaluation; Every supplies one number and two model names without scores.</p>
+<p>The item carried as unmoved through thirteen consecutive issues finally moves, and it moves in two directions at once. The Gemini 4 vibe check arrives as a title &mdash; GOOGLE IS BACK &mdash; and one hour later the same account posts 21%. Enthusiasm and measurement coming from the same person inside an hour is the most useful thing in the window, because it shows exactly what a vibe check is worth next to a benchmark.</p>
+<p>Rauch's model-agnostic pitch should be read as a vendor position. He is the person who published the callable Muse id on his own gateway yesterday, and today he uses the back-to-back arrival of Muse Wonder and Gemini Argon as the argument for staying model agnostic and gateway-maxed. He has an interest in the conclusion and offers nothing that would test it. His market claim &mdash; everyone has pivoted back to coding &mdash; is consistent with both the praise and the criticism, which is what makes a claim about attention easier to sustain than a claim about scores.</p>
+<p>Day 9 is the first day since Day 7 with a number, and it changes the shape of the sequence without resolving it. Day 8 was a plan for significantly more usage. Day 9 is a ship, but what shipped is a 60% reduction in local disk state, phrased in the future tense. So the plan has not been executed, something adjacent to it has, and the two things a reader would want to check &mdash; the 5-hour limits and the vote count &mdash; are still absent nine days in.</p>
+<p>The podcast and Amjad's post are two clocks, not two sides of one argument. Silver shortens his superintelligence timeline to three years from three to five and says strong evidence arrives within a year. Amjad says pausing frontier research today would still leave ten years of diffusion. One clocks arrival, the other clocks spread, and read together they say the gap between the two is the whole problem. Neither number is derived: Silver's has no measurement behind it, Amjad's has no definition of diffuse.</p>
+<p>Swyx's Kill Your SaaS is the best-designed test in the window and also the only one whose result is not in the window. A real $43,000-a-year product, a weekend, 72 submissions, roughly 100B tokens, human evaluators alongside model ones, a $10,000 prize &mdash; that is a method you can argue with. Whether the clones replaced the product is what the episode claims to reveal and the post does not say.</p>
+<p>Today is unusually dense with first-party numbers, and not one of them has a second party. Box's 14 points, Every's 21%, Anthropic's 2,500 to 30,000 merges and its 200x smaller footprint, Sottiaux's 60%, Swyx's 100B tokens. Every single one comes from the organisation that benefits from it, and none is reproduced externally inside this window. That is not a reason to discard them &mdash; several are the most specific things available &mdash; but it is the reason they are recorded here as reports rather than findings.</p>
+<p>Thin content: roughly ten of the 28 posts carry nothing gradeable under the standard used here, which counts a post as ungraded when it names no object, carries no number, or has no AI content. Peter Yang's three, Nan Yu's two images, Thariq's one line, Zara Zhang's two, and two of Swyx's three. Nikunj's Railway post is the one worth lifting out of that group, because he labels it himself: n of 1. Carrying forward: Day 10 and whether usage, the 5-hour limits or the vote count appear; whether the four things before the reset are ever enumerated; whether a second party reproduces either Gemini 4 Argon reading; whether Muse Wonder Full reaches the API; whether Scion or Antique gets an outside account; whether anyone puts a number on Ineffable's cluster. Still unmoved after today: external reproduction of the Sonnet 5.5 numbers, the OpenClaw Android review, the unanswered 10x coding-agent question, Goodfire x Hugging Face in written form, Rauch's traffic series without a second network, and the naming question around 6 Astra, GPT-6.1 Sol ultrafast and DevDay &mdash; which grew today, because Sol 6 now appears as a benchmark competitor with nobody saying what it is.</p>
+</div>
+<div class="takeaway zh">
+<div class="takeaway-label">&#26680;&#24515;&#32467;&#35770;</div>
+<p>Gemini 4 Argon 是今天 feed 里唯一一场真正的对垒，而三个读数无法调和，因为它们测的不是同一个东西。Box 报告的是自家复杂工作评测集上 14 个百分点的提升，并拆出了五个行业的增量。Every 报告的是资深工程师基准任务上的 21%，并说这低于 Sol 6、甚至低于 Muse。Google 发的是三条演示，一个分数都没有。一份产品评测、一个基准、一支展示片。本系列此前用过的那条规则再次适用：并列的读数并排写下，不互相判分。</p>
+<p>它之所以仍然值得盯，是因为两个被量化的读数在描述同一个模型、同一个星期时，符号是相反的。Box 说这是一次巨大的升级，稳稳站在前沿。Every 说它确实很吃力。两边都没有引用对方，也都没有公布能定案的那个东西 &mdash;&mdash; 也就是那些任务本身。Box 至少给出了五个具体的、改前改后的失败案例，这是这个 feed 很少能从一份厂商评测里拿到的具体程度；Every 给出的是一个数字加两个没有分数的模型名。</p>
+<p>连续十三期被记为「未移动」的那一项终于动了，而且同时朝两个方向动。Gemini 4 的 vibe check 以标题的形式到了 &mdash;&mdash; GOOGLE IS BACK &mdash;&mdash; 一小时后同一个账号发出了 21%。热情与测量出自同一个人、相隔不到一小时，这是今天窗口里最有用的一件事，因为它正好说明了把一个 vibe check 放在一个基准旁边时，它值多少。</p>
+<p>Rauch 那个「保持模型无关」的说法应该被当作厂商立场来读。他就是昨天在自己网关上公布了 Muse 可调用 id 的那个人，而今天他把 Muse Wonder 与 Gemini Argon 接连出现这件事当成了保持模型无关、把网关拉满的理由。他在这个结论上有利益，也没有提供任何能检验它的东西。他那个市场判断 &mdash;&mdash; 所有人都转回了编码 &mdash;&mdash; 和称赞与批评两边都能相容，这正是「关于注意力的主张」比「关于分数的主张」更容易站住的原因。</p>
+<p>Day 9 是自 Day 7 以来第一次带数字的一天，它改变了这个序列的形状，但没有解决它。Day 8 是一个关于显著增加用量的计划。Day 9 是一次上线，但上线的是本地磁盘状态减少 60%，而且用的是将来时。也就是说，那个计划没有被执行，被执行的是它旁边的一件事；而读者会想去核对的那两样 &mdash;&mdash; 5 小时限制和票数 &mdash;&mdash; 在第九天仍然缺席。</p>
+<p>那期播客和 Amjad 那条推是两个时钟，不是同一个争论的两边。Silver 把超级智能的时间线从三到五年缩短到三年，并说一年内会拿到强证据。Amjad 说今天暂停前沿研究，扩散仍然要十年。一个计的是抵达，一个计的是铺开；放在一起读，它们说的是两者之间的那段差距才是整个问题所在。两个数字都没有推导：Silver 的那个背后没有测量，Amjad 的那个没有定义什么叫扩散。</p>
+<p>Swyx 的 Kill Your SaaS 是窗口里设计得最好的测试，也是唯一一个结果不在窗口里的。一个真实的年费 43,000 美元的产品、一个周末、72 份提交、约 1,000 亿 token、真人与模型评测并行、10,000 美元奖金 &mdash;&mdash; 这是一套你可以反驳的方法。那些克隆品有没有替代掉那个产品，是那期节目声称要揭示、而推文没有说的东西。</p>
+<p>今天第一方数字异常密集，而没有一个拥有第二方。Box 的 14 个百分点、Every 的 21%、Anthropic 的 2,500 到 30,000 次合入与 200 倍更小的占用、Sottiaux 的 60%、Swyx 的 1,000 亿 token。每一个都出自会从中受益的那家机构，在这个窗口里没有任何一个被外部复现。这不是丢弃它们的理由 &mdash;&mdash; 其中几个是现有最具体的东西 &mdash;&mdash; 但这是它们在这里被记成「报告」而不是「发现」的理由。</p>
+<p>薄内容：28 条里大约十条没有任何可评级的东西，这里用的标准是 &mdash;&mdash; 未点名对象、无数字、或根本没有 AI 内容，满足其一即计入。Peter Yang 的三条、Nan Yu 的两张图、Thariq 的一句话、Zara Zhang 的两条、以及 Swyx 三条里的两条。Nikunj 那条 Railway 的推是这一堆里值得拎出来的一个，因为他自己给它贴了标签：n = 1。带进下一期：Day 10，以及用量、5 小时限制、票数会不会出现；reset 之前那四件东西是否会被列举；Gemini 4 Argon 的两个读数会不会有第二方复现；Muse Wonder Full 会不会上 API；Scion 或 Antique 会不会有外部的说法；有没有人给 Ineffable 的集群一个数字。今天之后仍未移动的：Sonnet 5.5 数字的外部复现、OpenClaw 的 Android 审核、那个没人回答的 10x 编码 agent 提问、仍然只有音频形式的 Goodfire x Hugging Face、Rauch 那条还没有第二家网络的流量序列，以及围绕 6 Astra、GPT-6.1 Sol ultrafast 和 DevDay 的命名问题 &mdash;&mdash; 这个问题今天变大了，因为 Sol 6 现在作为一个基准里的对手出现了，却没有人说它是什么。</p>
+</div>
+</section>
+<!-- ============== NOTES ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128221;</span>
+<h2 class="section-title">&#35760;&#24405; / Notes &amp; Dedup</h2>
+<span class="section-meta">All Zero Hits</span>
+</div>
+<div class="dedup">
+<p style="margin-top:12px"><strong>Not rendered</strong> &mdash; One of Garry Tan's two posts, at 14:09 Pacific, concerns a local election in San Francisco and carries no AI content. It is counted in the 28 tweets at the top because the feed carried it, and it is not given a card because it is outside what this digest covers. Twenty-seven of the 28 tweets are rendered.</p>
+<p style="margin-top:12px"><strong>Not rendered</strong> &mdash; 加里&middot;谭两条推里的一条（太平洋时间 14:09）涉及旧金山一场地方选举，内容与 AI 无关。它计入了顶部的 28 条，因为 feed 里有它；它没有做成卡片，因为它在这份 digest 的覆盖之外。28 条里有 27 条做了卡片。</p>
+<p style="margin-top:12px">&#8226; <strong>Tweet check</strong>: all 28 tweet IDs in this window were matched against every file under <code>2026/</code> and returned zero hits, so no tweet here repeats a previously published issue.</p>
+<p style="margin-top:12px">&#8226; <strong>Podcast check</strong>: &ldquo;Ineffable&rdquo;, &ldquo;David Silver&rdquo;, &ldquo;Lasse Espeholt&rdquo; and &ldquo;Superlearner&rdquo; all return zero hits under <code>2026/</code>, so this episode is counted rather than deduped. Its publishedAt is 2026-10-13T09:00Z, which is Pacific 10-13 02:00 &mdash; the same Pacific day as the tweets, though earlier in it than the 08:49 start.</p>
+<p style="margin-top:12px">&#8226; <strong>Blog check</strong>: <code>redesigning-source-control</code> returns zero hits under <code>2026/</code>, so it is counted. The slot has been 0 in every issue published since 2026-09-18, which was the last one with a non-zero count.</p>
+<p style="margin-top:12px">&#8226; <strong>Dating</strong>: the blog entry has <code>publishedAt: null</code> and an empty author field in the feed, so no date and no byline are asserted for it anywhere in this issue.</p>
+</div>
+</section>
+<footer class="footer">
+<div class="next-issue">&#128236; &#19979;&#19968;&#26399;&#65306;&#26126;&#22825; 10:00&#65288;&#21271;&#20140;&#26102;&#38388;&#65289;</div>
+<div class="signature">by chloevchen</div>
+</footer>
+
+<!-- by chloevchen -->
+</body>
+</html>
