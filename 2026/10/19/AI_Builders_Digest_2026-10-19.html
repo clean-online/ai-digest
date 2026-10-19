@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Builders Digest &#183; 2026-10-19</title>
+<style>
+
+
+
+
+
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 28px 30px; margin-bottom: 24px; }
+  .podcast-source { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
+  .podcast-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; margin-bottom: 18px; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; }
+
+
+</style>
+</head>
+<body>
+<header class="topbar">
+<div class="topbar-inner">
+<a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+<span>&#21452;&#35821; &#183; Bilingual</span>
+</div>
+</header>
+<section class="header">
+<div class="eyebrow">Daily Digest &#183; 2026-10-19</div>
+<h1>AI Builders Digest</h1>
+</section>
+<div class="stats">
+<div class="stat"><div class="stat-num">8</div><div class="stat-label">Builders</div></div>
+<div class="stat"><div class="stat-num">15</div><div class="stat-label">Tweets</div></div>
+<div class="stat"><div class="stat-num">1</div><div class="stat-label">Podcast</div></div>
+<div class="stat"><div class="stat-num">0</div><div class="stat-label">Blog</div></div>
+</div>
+<p class="note-line">Feed snapshot 2026-10-18T06:38Z (Pacific 10-17 23:38). The 15 tweets run from Pacific 10-16 23:57 to 10-17 20:38, so this is a single Pacific day with three posts straddling midnight at the front. The gap matters: no issue was produced on 10-17 or 10-18, so feed content from Pacific 10-15 and 10-16 was never captured anywhere and has since rolled out of the feed. The podcast episode is counted rather than deduped, and it is old relative to the posts, published 2026-10-08; &ldquo;Andy Pavlo&rdquo; appears once before, in the 10-10 issue, as Turck&rsquo;s announcement tweet rather than as a podcast summary. The blog slot is 0 because the array is empty. One of the 15 tweets is not rendered and is accounted for in the notes at the bottom.</p>
+<p class="note-line zh">feed 快照 2026-10-18T06:38Z（太平洋 10-17 23:38）。15 条推文从太平洋 10-16 23:57 排到 10-17 20:38，所以这是单独一个太平洋日，只有开头三条跨过午夜。缺口要说明：10-17 与 10-18 两天没有生成任何一期，因此太平洋 10-15 与 10-16 的 feed 内容从未被任何一期收录，并且已经滚出 feed。这期播客计入而不是判重，而且它相对于这批推文是旧的，发布于 2026-10-08；&ldquo;Andy Pavlo&rdquo;此前出现过一次，在 10-10 那期，当时是 Turck 的发布推文而不是播客摘要。博客这一格是 0，因为数组是空的。15 条推文里有 1 条没有做成卡片，在文末说明里交代。</p>
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128036;</span>
+<h2 class="section-title">X / Twitter</h2>
+<span class="section-meta">8 Builders &#183; 15 Tweets</span>
+</div>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thibault Sottiaux</span>
+<span class="builder-role">OpenAI Codex 与 ChatGPT</span>
+</div>
+<p class="summary-en">Three posts, and they are the most consequential thing in this feed. At 09:21 Pacific: &ldquo;Landing sometime today by EOD PST&rdquo;. At 09:31 he describes what his agents did: his work dot, which he calls Burger, coordinated with his personal dot, which he calls Dorito, over email, at the personal dot&rsquo;s request, to get documents; the personal dot then coordinated with his CPA to file tax documents. &ldquo;Took 20 minutes. We&rsquo;re still so early.&rdquo; At 14:12: &ldquo;Done&rdquo;.</p>
+<p class="summary-en">The claim being made is not that an agent finished a task. It is that two agents he owns coordinated with each other over email, and that one of them then coordinated with a third party outside his control, his accountant, without him routing each step. That is a different kind of claim from anything else in this window, and it is why those two posts are the two most-liked in the feed, at 4,351 and 6,188 likes.</p>
+<p class="summary-en">What keeps it a report rather than a finding: it is one person&rsquo;s account of one instance, from the person whose product it is, with no logs, no transcript of the email exchange, no statement of what the CPA side actually received or verified, and no version numbers. &ldquo;Done&rdquo; at 14:12 names nothing at all, so this issue does not state what landed.</p>
+<p class="summary-zh zh">三条推文，也是这个 feed 里最有分量的东西。太平洋时间 09:21：&ldquo;今天某个时候落地，太平洋时间下班前&rdquo;。09:31 他描述了他的 agent 做了什么：他工作用的那个 dot（他叫它 Burger）和他私人的那个 dot（他叫它 Dorito）通过邮件协调，起因是私人 dot 提出要拿文件；随后私人 dot 又去和他的注册会计师协调，把报税材料提交上去。&ldquo;花了 20 分钟。我们还太早了。&rdquo;14:12：&ldquo;搞定&rdquo;。</p>
+<p class="summary-zh zh">这里被说出来的并不是&ldquo;一个 agent 完成了一项任务&rdquo;。而是：他自己拥有的两个 agent 通过邮件互相协调，其中一个接着又去和一个不在他控制范围内的第三方（他的会计师）协调，而他没有为每一步做转接。这和这个窗口里其他任何东西都不是同一类主张，也正是这两条成为 feed 里赞数最高的两条的原因，4,351 和 6,188。</p>
+<p class="summary-zh zh">让它停留在&ldquo;报告&rdquo;而不是&ldquo;发现&rdquo;的是：这是一个人对一次实例的描述，出自做这个产品的人本人，没有日志，没有邮件往来的记录，没有说明会计师那一侧实际收到或核实了什么，也没有版本号。14:12 那条&ldquo;搞定&rdquo;没有任何宾语，所以这一期不替它说明落地的是什么。</p>
+<div class="urls">
+<a href="https://x.com/thsottiaux/status/2111492738025959922">https://x.com/thsottiaux/status/2111492738025959922</a>
+<a href="https://x.com/thsottiaux/status/2111495392559067199">https://x.com/thsottiaux/status/2111495392559067199</a>
+<a href="https://x.com/thsottiaux/status/2111566005684289735">https://x.com/thsottiaux/status/2111566005684289735</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aaron Levie</span>
+<span class="builder-role">Box CEO</span>
+</div>
+<p class="summary-en">One post at 11:30 Pacific, 806 likes and 92 reposts, and it is the closest thing to a thesis in this window. His target is a specific argument rather than a company: the misread, as he frames it, was assuming the world only needed a certain amount of software and that automating the field would reduce the need for labor. He says the opposite is happening, because agents can use tools, operate computers, write software on the fly and process data the way humans do but far faster, which means software can now be thrown at problems that could never reasonably have been digitized before.</p>
+<p class="summary-en">His three examples are a bank adding new forms of trading, life sciences where more research and lab work becomes engineering-centric, and manufacturing automating more of the supply chain. The closing line is the one that will be quoted: &ldquo;Yes we&rsquo;re not going to be coding manually in the future. But almost everything will be code, which means those that understand it are in a fantastic position.&rdquo;</p>
+<p class="summary-en">Nothing here is measured. There is no count, no before-and-after, no named customer, and the three industry examples are asserted rather than sourced. Where it comes from also matters for how it should be read: Levie runs Box, a company that sells on exactly this account of what AI does to content and work. That is not a reason to dismiss the argument, and it is the reason to read it as a position rather than as evidence.</p>
+<p class="summary-zh zh">一条推文，太平洋时间 11:30，806 赞、92 次转发，是这个窗口里最接近&ldquo;提出一个论点&rdquo;的东西。他的靶子是一个具体的说法，而不是某家公司：在他看来，被误读的地方在于假设世界只需要一定数量的软件、而把这个领域自动化会减少对劳动力的需求。他说事情正好相反，因为 agent 能使用工具、操作电脑、随时写软件、以人类的方式但快得多地处理数据，这意味着现在可以把软件投向那些此前根本无法被合理数字化的工作。</p>
+<p class="summary-zh zh">他给的三个例子是：银行开发新的交易形式；生命科学里越来越多的研究和实验工作变成以工程为中心；制造业把供应链的更多环节自动化。会被转引的是结尾那句：&ldquo;是的，未来我们不会手工写代码了。但几乎所有东西都会是代码，这意味着懂代码的人处在一个极好的位置上。&rdquo;</p>
+<p class="summary-zh zh">这里没有任何东西被测量过。没有计数，没有前后对比，没有点名客户，三个行业例子都是直接断言而不是引用来源。它出自哪里也影响该怎么读它：Levie 经营 Box，一家正是靠&ldquo;AI 会怎样改变内容与工作&rdquo;这套说法来卖产品的公司。这不是否定这个论点的理由，而是该把它当作一个立场来读、而不是当作证据的理由。</p>
+<div class="urls">
+<a href="https://x.com/levie/status/2111525362446520466">https://x.com/levie/status/2111525362446520466</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Amjad Masad</span>
+<span class="builder-role">Replit CEO</span>
+</div>
+<p class="summary-en">One post, at 09:29 Pacific, and it is a correction of something said somewhere else. &ldquo;To clarify: Replit remains model agnostic. Our users can choose Anthropic models as well as many other supported models.&rdquo; He then restates what he says he meant at TC Disrupt: OpenAI is now Replit&rsquo;s preferred partner powering Agent, on the basis of &ldquo;performance, cost, and strength of our partnership&rdquo;. He closes on the general position, giving users model choice while optimizing the default experience &ldquo;for the best performance at the best price&rdquo;.</p>
+<p class="summary-en">What is in this feed is only the correction. The TC Disrupt remark it corrects is not in it, so this issue records the clarification and not the thing clarified. None of the three criteria comes with a number or a comparison, and &ldquo;preferred partner&rdquo; is his word for the relationship, with no terms stated. 415 likes and 128 replies.</p>
+<p class="summary-zh zh">一条推文，太平洋时间 09:29，是对在别处说过的话的更正。&ldquo;澄清一下：Replit 仍然是不绑定模型的。我们的用户可以选择 Anthropic 的模型，以及许多其他受支持的模型。&rdquo;接着他重述了他在 TC Disrupt 上想表达的意思：OpenAI 现在是驱动 Replit Agent 的首选合作伙伴，依据是&ldquo;性能、成本，以及我们合作关系的强度&rdquo;。最后他落到一般立场上：给用户模型选择权，同时把默认体验优化到&ldquo;以最好的价格拿到最好的性能&rdquo;。</p>
+<p class="summary-zh zh">这个 feed 里有的只是这份更正。它所更正的那句 TC Disrupt 发言不在 feed 里，所以这一期记录的是澄清本身，而不是被澄清的那件事。三条依据没有任何一条带数字或对比，&ldquo;首选合作伙伴&rdquo;是他对这段关系的说法，没有给出任何条款。415 赞、128 条回复。</p>
+<div class="urls">
+<a href="https://x.com/amasad/status/2111494912562888939">https://x.com/amasad/status/2111494912562888939</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Yang</span>
+<span class="builder-role">AI 教程与访谈作者</span>
+</div>
+<p class="summary-en">Three posts spanning 09:36 to 20:38 Pacific, and they do not share a subject. The first carries a product comparison: he credits amorriscode and team, says &ldquo;the Claude Code app is much faster now and arguably simpler to use than ChatGPT&rdquo;, and lists what he still finds missing, better browser and computer use, remote control for all threads, and live voice. No version, no measurement, and &ldquo;much faster&rdquo; is his own impression.</p>
+<p class="summary-en">The second is the practical one. He says he has 45 apps and agents connected to his Google account, and gives the four-step prompt he uses to audit them: review every app across all connection categories and ask which ones he still uses rather than guessing; open each app&rsquo;s details and separate a basic Google sign-in from permissions to Gmail, Drive, Calendar or other data; suggest keep, disconnect or ask, explain the reasoning and what might stop working, and flag broad permissions, unfamiliar providers and duplicates; show recommendations before changing anything, disconnect only what he explicitly approves, then verify. The number here is 45, and it is his own account.</p>
+<p class="summary-en">The third, at 20:38, is &ldquo;Tim is so right&rdquo;, a wish that whoever builds StarCraft 3 embraces AI so it ships before 2030, plus a link to a post that is not in this feed. StarCraft appeared in the 10-16 issue as the game an outside article used to benchmark Astra; nothing here points at that, so this issue does not connect the two.</p>
+<p class="summary-zh zh">三条推文，从太平洋时间 09:36 排到 20:38，彼此之间没有共同主题。第一条是一个产品对比：他把功劳给了 amorriscode 和团队，说&ldquo;Claude Code 这个 app 现在快多了，而且可以说比 ChatGPT 更好用&rdquo;，并列出了他觉得还缺的东西：更好的浏览器与电脑使用、对所有线程的远程控制、以及实时语音。没有版本号，没有测量，&ldquo;快多了&rdquo;是他自己的感受。</p>
+<p class="summary-zh zh">第二条是最实用的那条。他说自己的 Google 账号上连了 45 个 app 和 agent，并给出了他用来做审计的四步提示词：复查所有连接类别下的每一个 app，并问他还用哪些，而不是靠猜；打开每个 app 的详情，把&ldquo;只用 Google 登录&rdquo;和&ldquo;能读取 Gmail、Drive、Calendar 或其他数据&rdquo;的权限区分开；给出保留、断开或待定的建议，说明理由以及断开后什么会失效，并标记权限过宽、来源陌生和重复的条目；改动之前先把建议展示出来，只断开他明确同意的，然后验证。这里的数字是 45，来自他自己的账号。</p>
+<p class="summary-zh zh">第三条在 20:38：&ldquo;Tim 说得太对了&rdquo;，希望做 StarCraft 3 的人拥抱 AI、能在 2030 年前把游戏发出来，另附一条不在这个 feed 里的推文链接。StarCraft 这个说法在 10-16 那期出现过，是外部文章用来给 Astra 做基准的那个游戏；这条里没有任何东西指向它，所以这一期不替它们建立联系。</p>
+<div class="urls">
+<a href="https://x.com/petergyang/status/2111496600522805624">https://x.com/petergyang/status/2111496600522805624</a>
+<a href="https://x.com/petergyang/status/2111508293818671449">https://x.com/petergyang/status/2111508293818671449</a>
+<a href="https://x.com/petergyang/status/2111663267995361287">https://x.com/petergyang/status/2111663267995361287</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Swyx</span>
+<span class="builder-role">Latent Space / AI Engineer 主持人</span>
+</div>
+<p class="summary-en">Three replies to dexhorthy between 23:57 and 00:07 Pacific, straddling midnight, and together they are the only first-party audience numbers in this window. He says the channel serves more than 1m unique viewers a month &ldquo;pretty much nonstop since May (after AIE EU)&rdquo;, that 58% of monthly viewers are still new to them, and that 68% of viewers are not subscribed. He adds the shape of the day: most viewers arrive between 7am and 11am Pacific, and &ldquo;nobody watches after 5pm&rdquo;.</p>
+<p class="summary-en">The third post reads a chart he likes: roughly two years with no growth, then a slow climb he attributes to being recommended through browsing, and he states plainly that &ldquo;our CTR sucks&rdquo;. The second post is a goal rather than a finding, that he wants to collaborate with every channel the chart lists.</p>
+<p class="summary-en">What is missing: the numbers are his own analytics, with no time range stated for the 58% and 68%, no definition of &ldquo;unique viewers&rdquo;, and no before-and-after for the flat two years. The browsing attribution is his reading of a chart, not a measurement from a platform. All three are replies, so the conversation they answer is not in this feed.</p>
+<p class="summary-zh zh">三条给 dexhorthy 的回复，发在太平洋时间 23:57 到 00:07 之间、跨过午夜，合起来是这个窗口里唯一一组第一方受众数字。他说频道每月服务超过 100 万独立观众，&ldquo;从五月（AIE EU 之后）起几乎没有断过&rdquo;；每月观众里 58% 仍是新面孔；68% 的观众没有订阅。他还给出了当天的时间形状：观众集中在太平洋时间早上 7 点到 11 点，&ldquo;下午 5 点之后没人看&rdquo;。</p>
+<p class="summary-zh zh">第三条是他在读一张自己喜欢的图：大约两年没有增长，然后开始缓慢爬升，他把这段爬升归因于&ldquo;通过浏览被推荐&rdquo;，并且直接说&ldquo;我们的点击率很差&rdquo;。第二条是一个目标而不是一个结论，说他想和图上列出的每一个频道都合作一遍。</p>
+<p class="summary-zh zh">缺什么：这些数字来自他自己的统计，58% 和 68% 没有给时间范围，&ldquo;独立观众&rdquo;没有定义，两年平段也没有前后对比。把增长归因于浏览推荐是他对一张图的读法，不是平台给出的测量。三条都是回复，所以它们回应的那段对话不在这个 feed 里。</p>
+<div class="urls">
+<a href="https://x.com/swyx/status/2111350966419411070">https://x.com/swyx/status/2111350966419411070</a>
+<a href="https://x.com/swyx/status/2111351354409300230">https://x.com/swyx/status/2111351354409300230</a>
+<a href="https://x.com/swyx/status/2111353401363902573">https://x.com/swyx/status/2111353401363902573</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nan Yu</span>
+<span class="builder-role">OpenAI Codex 产品（前 Linear 产品负责人）</span>
+</div>
+<p class="summary-en">One post at 16:16 Pacific, short enough to quote whole. He says he had the same conversation reminiscing at a team offsite the other day: &ldquo;What did we pay attention to before AI?&rdquo; The answer is a laughing emoji and &ldquo;Front end JavaScript frameworks&rdquo;. That is the entire post.</p>
+<p class="summary-en">It carries no claim and no number, and it is recorded here for two reasons. It is a dated first-person observation of how fast the subject everyone works on changed, and the person making it builds Codex at OpenAI, so the nostalgia comes from inside the thing that caused it.</p>
+<p class="summary-zh zh">一条推文，太平洋时间 16:16，短到可以整条引用。他说前几天在线下团队聚会上他有过同样的怀旧对话：&ldquo;在 AI 之前我们关注什么来着？&rdquo;答案是一个笑哭的表情和&ldquo;前端 JavaScript 框架&rdquo;。整条推文就是这样。</p>
+<p class="summary-zh zh">它不含任何主张，也没有数字，这里记录它是出于两个理由。它是一个有日期的第一人称观察，说明每个人都在做的那个题目换得有多快；而说出这句话的人正在 OpenAI 做 Codex，所以这份怀旧来自造成它的那个东西的内部。</p>
+<div class="urls">
+<a href="https://x.com/thenanyu/status/2111597172840083574">https://x.com/thenanyu/status/2111597172840083574</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Guillermo Rauch</span>
+<span class="builder-role">Vercel CEO</span>
+</div>
+<p class="summary-en">One post at 19:20 Pacific, and the only sentence in it is a quotation he is endorsing: &ldquo;What matters is the end product, whether it&rsquo;s a game or an engine&rdquo;. He adds &ldquo;Well said!&rdquo; and a link to the post he is amplifying, which is not in this feed. Nothing else is stated, no product, no company, no context beyond the link. 381 likes.</p>
+<p class="summary-en">It is worth recording because of who is saying it and when. Rauch is the person who, in the 10-16 issue, published that agent containment would be one of the most important priorities for any AI infra company; two days later the one thing he chooses to amplify is a statement that the end product is what matters, not whether it is a game or an engine. This issue does not read the two as connected, because neither references the other.</p>
+<p class="summary-zh zh">一条推文，太平洋时间 19:20，里面唯一的一句话是他在转述并认同的一句引文：&ldquo;重要的是最终产品，无论它是游戏还是引擎&rdquo;。他加了&ldquo;说得好！&rdquo;，并附上他所转发的那条推文的链接，而那条不在这个 feed 里。除此之外没有别的内容，没有点名产品，没有点名公司，链接之外也没有任何其他语境。381 个赞。</p>
+<p class="summary-zh zh">值得记录是因为说这句话的人和时间点。Rauch 就是在 10-16 那一期里公开说过&ldquo;agent 的围栏会成为任何一家 AI 基础设施公司最重要的优先级之一&rdquo;的那个人；两天之后，他选择放大的唯一一句话是&ldquo;重要的是最终产品，而不在于它是游戏还是引擎&rdquo;。这一期不把这两条读成有关联，因为它们都没有引用对方。</p>
+<div class="urls">
+<a href="https://x.com/rauchg/status/2111643672274165938">https://x.com/rauchg/status/2111643672274165938</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nikunj Kothari</span>
+<span class="builder-role">FPV Ventures 合伙人（种子 / A 轮）</span>
+</div>
+<p class="summary-en">One of his two posts is rendered, at 13:42 Pacific: &ldquo;introducing the modern venture capital stack (2026)&rdquo;, followed by seven round names in order, pre-pre-seed, pre-seed, post-pre-seed, mid-seed, pre-post-seed, post-seed, and &ldquo;post-post-seed(?)&rdquo;. The question mark is his.</p>
+<p class="summary-en">It is a joke about round naming, and what makes it worth recording is who is making it: he invests at seed and Series A, so he is inside the stage being joked about. No numbers, no companies named, and no claim that any of these exist as formal rounds.</p>
+<p class="summary-zh zh">他的两条推文里有一条做进卡片，太平洋时间 13:42：&ldquo;介绍一下 2026 年的现代风险投资结构&rdquo;，后面按顺序列了七个轮次名称，pre-pre-seed、pre-seed、post-pre-seed、mid-seed、pre-post-seed、post-seed，以及带问号的 &ldquo;post-post-seed(?)&rdquo;。那个问号是他自己加的。</p>
+<p class="summary-zh zh">这是在拿轮次命名开玩笑，而它值得记录的地方在于开玩笑的人是谁：他做的是种子轮和 A 轮投资，所以他就在被调侃的那个阶段里。没有数字，没有点名任何公司，也没有声称这些真的以正式轮次的形式存在。</p>
+<div class="urls">
+<a href="https://x.com/nikunj/status/2111558586421920134">https://x.com/nikunj/status/2111558586421920134</a>
+</div>
+</article>
+</section>
+<!-- ============== PODCAST ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#127911;</span>
+<h2 class="section-title">Podcast</h2>
+<span class="section-meta">1 Episode</span>
+</div>
+<div class="podcast">
+<div class="podcast-source">The MAD Podcast with Matt Turck</div>
+<div class="podcast-title">What Happens When Billions of AI Agents Hit Your Database? (Andy Pavlo)</div>
+<p class="summary-en">Andy Pavlo taught a generation of engineers about databases at Carnegie Mellon and put the whole curriculum online for free; roughly two months before this recording he left to found ClickHouse Labs inside ClickHouse. He gives two reasons for leaving academia, and the second one is the one that lands: US research funding &ldquo;is not what it used to be&rdquo;, and there is a real question now about what a PhD student is for when an agent can do a lot of the work. His answer to the title question is that nobody knows yet, and he keeps saying so: &ldquo;I gotta be honest, I don&rsquo;t know the answer.&rdquo; What he does open with is a failure rate: &ldquo;Every month, there&rsquo;s a story where someone lost their production database because the agent deleted something.&rdquo;</p>
+<p class="summary-en">On the number that has been circulating, he corrects the object. The host cites the Neon figure of agents going from 30% to 80%; Pavlo says the metric was about branches, meaning copy-on-write snapshots of a real database that a human or an agent can change without touching production, and that this is mostly development and testing activity, PR runs and GitHub Actions, rather than agents creating databases from scratch. For context inside this series: the 10-10 issue recorded Turck&rsquo;s version of that 80%, noting the chapter heading itself ended in a question mark, and here the guest narrows what it counts. On vector search he is blunt: the databases existed since about 2016, RAG gave them their moment, and &ldquo;at the end of the day, it&rsquo;s just an index&rdquo;, which every vendor shipped within a year.</p>
+<p class="summary-en">His prescription is unglamorous and specific. Think of agents as toddlers and put up guardrails, because babysitting them with approve-approve-approve does not scale to hundreds at once. Use branching so changes land on a snapshot and not on production. Set permissions so they cannot drop tables, and also so they cannot read what they should not read. Do not hand the agent the one password the whole company reuses. None of this is new, in his telling, and that is the complaint: &ldquo;for years, we&rsquo;ve had the capabilities to make sure people don&rsquo;t do things they shouldn&rsquo;t be doing&rdquo;, and people are learning the hard way because everyone wants to reinvent the wheel. Asked whether agents behave differently from humans at the API level, he says he has seen nothing to suggest it, apart from running around the clock.</p>
+<p class="summary-en">On volume he gives a range and attaches his own uncertainty to it: potentially a 10 to 100x increase in queries hitting databases, and &ldquo;I don&rsquo;t think we&rsquo;re at that level yet&rdquo;, though he says he is hearing it from friends in industry and seeing it at ClickHouse. His reasoning is a four-era story: mainframes in the seventies and eighties when only people at work touched a database, the web in the nineties and two-thousands, mobile after that, and now every person potentially having hundreds of agents running all night. The part he flags as the real unknown is sophistication rather than volume, whether agent SQL is shallower than a BI tool doing complex joins across tables, and he says twice that he does not know yet. Agents generating their own telemetry is a separate storage problem on top.</p>
+<p class="summary-en">The sharpest thing in the episode is about defaults. Agents almost always recommend Postgres, he says, unless you say you are running embedded, which gets you DuckDB or SQLite, or that you only care about key-value, which gets you RocksDB. Two database companies he declines to name asked him how to get their database recommended first over Postgres; he told them that is not research, to go talk to the people building the models, and calls it &ldquo;basically like SEO&rdquo;. He also has the problem from the other side: when he asks about databases, models cite him back to himself, and once he excludes his own name and Carnegie Mellon they cite another university course that is using his slides.</p>
+<p class="summary-en">On text-to-SQL he is skeptical of academic benchmarks like Spider because the models are trained on them. The numbers he gives are second-hand and he says so: someone at a very large bank told him yesterday that an off-the-shelf implementation was about 60% accurate, and that after building a richer semantic layer over multiple years and millions of dollars they reached about 99.5%. His reading is that it is therefore viable if you invest, and that a random person downloading a tool today will not get that. On MCP he is pragmatic rather than excited: he has no problem with it, it is basically a REST interface rather than a magic bullet, it is inefficient because it sends human-readable text over the network where binary protocols would do better, and it is good enough and everyone uses it. Guardrails are the same whether the request arrives as SQL or over MCP.</p>
+<p class="summary-en">On whether agents can build databases: a year ago they could not finish his CMU course project; after &ldquo;Opus 4&rdquo; they could do all the assignments with very little prompting, helped by the fact that the projects are open source. He repeats the old adage that you build the first 90% in three years and the remaining 10% takes the next seven, and says you can vibe code an entire database system with enough tokens and guidance. On his dbdb.io project, which pulls every open source database&rsquo;s latest commits nightly and checks whether they are co-signed by Claude or Codex, he puts the figure at over 60%, with the caveat he supplies himself that people can turn that off. On self-driving: LLMs get you 80 to 85% of the way in about fifteen minutes where his old models took hours to train, and what surprised him was how many companies ran out-of-the-box cloud configs believing the cloud was tuning it for them (&ldquo;no, they&rsquo;re not&rdquo;). Index-picking and knob-tuning &ldquo;ships out&rdquo;; data modeling still needs someone.</p>
+<p class="summary-en">The closing positions are the ones worth keeping. He assumed ClickHouse was vaporware in 2016 because it looked too good to be true, and now calls its architecture not novel by 2026 standards, with the lineage running through Snowflake and VectorWise. On convergence, Databricks buying Neon and Snowflake buying Crunchy, his conjecture, which he labels biased and says he cannot prove, is that analytics-first and then adding OLTP is the better order; the blocker on one unified system has always been organizational, because each team wants the best system for its own workload. Vector databases are not going away, and he names Turbo Puffer as the one he knows is doing very well. Graph databases are, in his words, a horrible idea, and he has a standing Hacker News bet that would make him wear an &ldquo;I love graph databases&rdquo; shirt if the graph market passes relational by 2030, which he says is not happening with four years to go. On GPU databases, Nvidia has absorbed several struggling ones, Microsoft offers GPU-accelerated analytics, and another major data company he cannot name looked at the economics and decided against it, with his own interest note attached: &ldquo;NVIDIA is obviously pushing this because it&rsquo;ll sell more GPUs.&rdquo;</p>
+<p class="summary-en">His frame on whether the database market has gone stagnant is the line that generalises best. There was an explosion in the seventies and eighties, consolidation around Oracle, IBM and Teradata in the nineties, another explosion in the two-thousands and twenty-tens, and &ldquo;relative to AI, then everything looks stagnant&rdquo;. Foundations do not get thrown away: &ldquo;in the same way... you wouldn&rsquo;t come up with a new notion of arithmetic or mathematics to replace one plus one equals two.&rdquo; SQL may end up like assembly, something nobody writes by hand any more, because text-to-SQL works well enough. The version he finds genuinely open is hyper-specialization, vibe coding a bespoke data system per application, and whether that can be sustained.</p>
+<p class="summary-zh zh">Andy Pavlo 在卡内基梅隆教了一代工程师数据库，并把整套课程免费放到了网上；在这期录制的大约两个月前，他离开学校，在 ClickHouse 内部创办了 ClickHouse Labs。他给了两个离开学术界的理由，第二个才是真正有分量的那个：美国的研究经费&ldquo;已经不是过去那个样子了&rdquo;，而当 agent 能干掉很多工作时，&ldquo;博士生到底是来做什么的&rdquo;成了一个真问题。他对标题里那个问题的回答是：现在没人知道，而且他反复这么说：&ldquo;老实说，我不知道答案。&rdquo;他开口给出的是一个故障率：&ldquo;每个月都有一则新闻，说某人丢了生产库，因为 agent 删了不该删的东西。&rdquo;</p>
+<p class="summary-zh zh">关于那个一直在流传的数字，他纠正的是对象。主持人引用的是 Neon 那个从 30% 到 80% 的说法；Pavlo 说那个指标讲的是 branch，也就是对一个真实数据库做写时复制的快照，人或 agent 可以在上面改动而不碰到生产库，而这件事主要发生在开发和测试环节（跑 PR、跑 GitHub Actions），不是 agent 从零开始建库。本系列内部的对照是：10-10 那期记录过 Turck 转述的 80%，并注明那章标题本身以问号结尾；而这里，嘉宾把它计的东西收窄了。至于向量检索，他说得很直接：那些数据库大约 2016 年就在了，RAG 给了它们出场时机，而&ldquo;说到底它只是一个索引&rdquo;，一年之内每家厂商都做出来了。</p>
+<p class="summary-zh zh">他开的方子不花哨，而且很具体。把 agent 当成幼儿，装上围栏，因为坐在旁边一路点&ldquo;同意、同意、同意&rdquo;在几百个 agent 同时干活时是扩不了规模的。用 branch，让改动落在快照上而不是生产库上。设权限，让它们既不能删表，也不能读不该读的东西。不要把全公司共用的那个密码交给 agent。在他看来这些都不新，而这正是他的抱怨所在：&ldquo;多年来我们一直有能力阻止人们做不该做的事&rdquo;，而大家非要重造轮子，于是只能吃一堑长一智。被问到 agent 在 API 层面的行为是否与人类不同，他说除了二十四小时不停之外，没有见过任何证据。</p>
+<p class="summary-zh zh">关于量，他给了一个区间，并把自己的不确定挂在了上面：打到数据库上的查询量可能有 10 到 100 倍的增长，而&ldquo;我觉得我们还没到那个量级&rdquo;，不过他说行业里的朋友在反馈这件事，他在 ClickHouse 也看到了。他的推理是一条四个时代的线：七八十年代的大型机，只有上班的人会碰数据库；九十年代到两千年代的互联网；再之后是手机；现在是每个人可能都有几百个 agent 通宵在跑。他真正标记为未知的不是量，而是复杂程度：agent 写出来的 SQL 会不会比一个做多表复杂 join 的 BI 工具更浅，这一点他连说两次&ldquo;我还不知道&rdquo;。另外 agent 自己产生的遥测数据是叠在上面的另一个存储问题。</p>
+<p class="summary-zh zh">这期里最锋利的东西是关于默认选项。他说 agent 几乎总是推荐 Postgres，除非你说要跑在嵌入式设备上（那就给你 DuckDB 或 SQLite），或者只关心键值（那就给你 RocksDB）。有两家数据库公司问他怎么让自己的数据库排在 Postgres 前面被推荐，他拒绝点名，说这不是研究，让他们去找做模型的人，并把它称为&ldquo;基本上就是 SEO&rdquo;。他也有反过来的那个麻烦：当他问数据库的问题时，模型会把他自己引回给他自己，而等他把自己的名字和卡内基梅隆都排除掉，模型就去引用另一所大学的课程，而那门课用的还是他的课件。</p>
+<p class="summary-zh zh">关于 text-to-SQL，他对 Spider 这类学术基准持怀疑态度，因为模型是在它们上面训练出来的。他给的数字是二手的，而他自己也说明了：一家非常大的银行的某个人昨天告诉他，直接拿现成方案落地大约是 60% 的准确率，而在花了几年的时间、数百万美元去做一个更丰富的语义层之后，他们做到了大约 99.5%。他的读法是：只要肯投入，这条路是可行的；而今天随便一个人下载一个工具，拿不到这个水平。关于 MCP，他是务实而不是兴奋：他没意见，它基本上就是一个 REST 接口，不是什么万能药，效率也不高，因为它在网络上发的是人类可读的文本，而二进制协议本来可以做得更好；但它够用了，而且大家都在用。无论请求是以 SQL 进来还是走 MCP 进来，围栏是同一套。</p>
+<p class="summary-zh zh">关于 agent 能不能造数据库：一年前它们做不完他在 CMU 的课程项目；&ldquo;Opus 4&rdquo; 之后，它们几乎不需要什么提示就能做完所有作业，而这些项目是开源的，训练数据充足。他复述了那句老话：前 90% 你用三年做出来，剩下 10% 再花七年；他说只要有足够的 token 和引导，你确实可以 vibe 出一整套数据库系统。他的 dbdb.io 项目每天夜里把所有开源数据库的最新 commit 拉下来，检查是否由 Claude 或 Codex 共同署名，他给出的比例是超过 60%，而他自己补上了前提：有人会把这个功能关掉。关于自驾驶：LLM 大约十五分钟就能把你带到 80% 到 85%，而他以前的模型要训练好几个小时；真正让他意外的是，有多少家公司拿着云上开箱即用的配置在跑，还以为云厂商在替他们调优（&ldquo;不，他们没有&rdquo;）。挑索引、调参数这件事&ldquo;会退出历史舞台&rdquo;；数据建模仍然需要有人来做。</p>
+<p class="summary-zh zh">结尾那几个立场最值得留下。他说自己在 2016 年以为 ClickHouse 只是个画出来的假产品（他用的词是 vaporware），因为它好得不太真实，而现在他认为它的架构&ldquo;以 2026 年的标准来看并不新鲜&rdquo;，谱系经由 Snowflake 和 VectorWise。关于融合（Databricks 收购 Neon、Snowflake 收购 Crunchy），他的猜测是先做分析、再加 OLTP 是更好的顺序，而这个猜测他自己标注了立场偏差，也说无法证明；统一系统一直卡住的原因从来是组织层面的，因为每一方都想为自己的负载拿到最好的那个系统。向量数据库不会消失，他点名 Turbo Puffer 是他知道的做得非常好的一家。图数据库，用他的话说，是个糟糕的主意，他在 Hacker News 上还有一个悬着的赌注：如果到 2030 年图数据库市场规模超过关系型数据库，他就穿上印着&ldquo;我爱图数据库&rdquo;的衬衫；他说还剩四年，这件事不会发生。关于 GPU 数据库：NVIDIA 已经收掉了好几家苦苦支撑的公司，微软提供 GPU 加速的分析服务，而另一家他不能点名的大数据公司算过这笔经济账之后决定不做，他自己还附上了利益说明：&ldquo;NVIDIA 推这个显然是因为能多卖 GPU。&rdquo;</p>
+<p class="summary-zh zh">他对&ldquo;数据库市场是不是停滞了&rdquo;给出的框架，是这里面最能推广的一句。七八十年代有一次爆发，九十年代围绕 Oracle、IBM、Teradata 完成整合，两千年代和二零一零年代又爆发一次，而&ldquo;跟 AI 比起来，那一切都显得停滞&rdquo;。地基是不会被扔掉的：&ldquo;同样地，你不会为了取代一加一等于二，去发明一套新的算术或数学。&rdquo;SQL 也许会变成汇编那样的东西，没人再手写它，因为 text-to-SQL 已经足够好用。他真正认为还开着的那条路是极度专用化，为每个应用 vibe 出一套定制的数据系统，以及这件事能不能长期维持。</p>
+<div class="urls"><a href="https://www.youtube.com/@DataDrivenNYC/videos">https://www.youtube.com/@DataDrivenNYC/videos</a></div>
+</div>
+</section>
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128161;</span>
+<h2 class="section-title">The Takeaway</h2>
+<span class="section-meta">2026-10-19</span>
+</div>
+<div class="takeaway">
+<div class="takeaway-label">The Takeaway</div>
+<p>The through-line is agents reaching outside their owner, and the same issue carries both the reach and the guardrail. Thibault Sottiaux describes two agents he owns coordinating with each other over email and then one of them coordinating with his CPA, end to end in 20 minutes. Andy Pavlo, in the same window, opens his episode with &ldquo;every month, there&rsquo;s a story where someone lost their production database because the agent deleted something&rdquo;, and the fix he offers is not a model improvement: branching, permissions, and not handing the agent the password the whole company reuses. These are not two sides of an argument. One is a capability claim and the other is an operations claim, about different failure surfaces.</p>
+<p>Grade the Sottiaux claim at exactly what it is. What it adds, relative to everything else in this run, is the third party: the coordination did not stop at his own two agents, it reached an accountant outside his control, and he says he did not route each step. What keeps it a report is everything else: one person, one instance, the person who builds the product, no logs, no version, no statement of what the CPA side received or verified, and &ldquo;Done&rdquo; at 14:12 with no object. It is also the most popular thing in the window, at 6,188 likes, roughly seven times the next highest number among builder posts.</p>
+<p>Three defaults were set today, in three places that do not reference each other. Replit names OpenAI its preferred partner for Agent while saying it stays model agnostic. Peter Yang puts the Claude Code app ahead of ChatGPT on speed and simplicity and lists what is still missing. Pavlo says agents almost always recommend Postgres, and that two unnamed database companies asked him how to be recommended first, which he calls &ldquo;basically like SEO&rdquo; and redirected to the model builders. None of the three cites another, none carries a number, and each is a statement by someone with a position in it.</p>
+<p>Two people building the thing took opposite epistemic postures inside one window. Sottiaux, on the same day he describes the coordination: &ldquo;We&rsquo;re still so early.&rdquo; Pavlo, on whether billions of agents change databases: &ldquo;I gotta be honest, I don&rsquo;t know the answer&rdquo;, then on query sophistication &ldquo;I don&rsquo;t know yet&rdquo;, then on what he is trying to research &ldquo;I just haven&rsquo;t seen it yet&rdquo;. Reading them together is more useful than picking one, because the second is the person whose job is to measure it.</p>
+<p>Today&rsquo;s numbers are almost all first-party, and the weakest link is named as second-hand by the person reporting it. Swyx&rsquo;s 1m viewers, 58% new and 68% unsubscribed are his own analytics, with no time range and no definition. Peter Yang&rsquo;s 45 connected apps is his own account. Sottiaux&rsquo;s 20 minutes is his own product. Pavlo&rsquo;s over 60% agent co-signed commits comes from his own nightly GitHub pull, with the caveat he supplies himself that people can turn it off, and his 80 to 85% tuning figure is his own research. The 60% to 99.5% text-to-SQL story is the weakest in the issue: an unnamed very large bank, relayed as something he was told yesterday, over multiple years and millions of dollars. Following the rule this series uses on dense first-party days, they are recorded as reports rather than findings, and the reason is unchanged: not one has a second party inside this window.</p>
+<p>Coverage gap, stated plainly, because it changes how the carried-forward list should be read. This issue&rsquo;s feed snapshot is 2026-10-18T06:38Z, Pacific 10-17 23:38, and the 15 tweets run from Pacific 10-16 23:57 to 10-17 20:38. The previous issue, dated 10-16, used a snapshot of 2026-10-15T06:42Z. No issue was produced on 10-17 or 10-18, so feed content from Pacific 10-15 and 10-16 was never captured anywhere and has since rolled out of the feed. Everything below is therefore checked against this window only, and some carried items may have moved without being recorded here.</p>
+<p>Carried forward, all unchanged in this window: no technical write-up or second provider on the Vercel sandbox escape from 10-16; no Day 11, no usage figure, no 5-hour limits and no vote count, since Sottiaux&rsquo;s posts here are about a landing rather than about that clock; no score for Sol 6; no Muse Wonder Full on the API; no number on Ghost Pepper&rsquo;s maintenance; no external reproduction of the Sonnet 5.5 numbers; no OpenClaw Android review; no answer to the 10x coding-agent question; no written form of Goodfire x Hugging Face; no second network in Rauch&rsquo;s traffic series. The naming question did not move. The StarCraft thread got a mention from Peter Yang that this issue does not connect to the 10-16 benchmark story.</p>
+<p>Thin content: 8 of the 14 rendered posts carry nothing gradeable under the standard used here, counting a post as ungraded when it carries no number and names nothing a reader could check. They are Swyx&rsquo;s second and third posts, Nikunj&rsquo;s round names, Sottiaux&rsquo;s &ldquo;Landing sometime today&rdquo; and &ldquo;Done&rdquo;, Nan Yu&rsquo;s front-end frameworks joke, Rauch&rsquo;s endorsement, and Peter Yang&rsquo;s StarCraft 3 wish.</p>
+</div>
+<div class="takeaway zh">
+<div class="takeaway-label">&#26680;&#24515;&#32467;&#35770;</div>
+<p>今天的贯穿线是 agent 正在把手伸到它的主人之外，而同一期里同时装着这个伸手动作和那道围栏。Thibault Sottiaux 描述了他自己拥有的两个 agent 通过邮件互相协调，其中一个接着去和他的注册会计师协调，端到端 20 分钟。Andy Pavlo 在同一个窗口里，用&ldquo;每个月都有一则新闻，说某人丢了生产库，因为 agent 删了不该删的东西&rdquo;开场，而他给的补救不是模型层面的改进：branch、权限，以及不要把全公司共用的那个密码交给 agent。这不是一个争论的两面。一个是能力主张，一个是运维主张，针对的是不同的失效面。</p>
+<p>Sottiaux 那条主张，要按它本来的分量来评级。相比于本系列此前所有东西，它多出来的那一点是第三方：协调没有停在他自己的两个 agent 之间，而是触到了一个不在他控制范围内的会计师，而且他说他没有为每一步做转接。让它停留在&ldquo;报告&rdquo;的是其余所有东西：一个人、一次实例、做这个产品的人本人、没有日志、没有版本、没有说明会计师那一侧收到或核实了什么，以及 14:12 那条没有宾语的&ldquo;搞定&rdquo;。它同时也是窗口里最受欢迎的一条，6,188 赞，大约是 builder 推文里第二高的七倍。</p>
+<p>今天有三个默认选项被定下来，发生在三个互不引用的地方。Replit 一边说自己仍然不绑定模型，一边把 OpenAI 点名为驱动 Agent 的首选合作伙伴。Peter Yang 把 Claude Code 这个 app 在速度和易用上排到了 ChatGPT 前面，并列出了还缺什么。Pavlo 说 agent 几乎总是推荐 Postgres，还说有两家他不愿点名的数据库公司问他怎么才能被优先推荐，他称之为&ldquo;基本上就是 SEO&rdquo;，并把这件事推回给了做模型的人。三条互不引用，没有一条带数字，而每一条都是由在其中有立场的人说出来的。</p>
+<p>两个正在做这件事的人，在同一个窗口里摆出了相反的认知姿态。Sottiaux 在描述那次协调的同一天说：&ldquo;我们还太早了。&rdquo;Pavlo 在被问到数十亿 agent 会不会改变数据库时说&ldquo;老实说，我不知道答案&rdquo;，在谈到查询复杂程度时说&ldquo;我还不知道&rdquo;，在谈到他正在研究的东西时说&ldquo;我只是还没看到&rdquo;。把两句放在一起读比挑一句更有用，因为后面这位的工作正是去测量它。</p>
+<p>今天的数字几乎全是第一方的，而最弱的那一环被报告它的人自己标成了二手。Swyx 的 100 万观众、58% 新面孔、68% 未订阅，来自他自己的统计，没有时间范围、没有定义。Peter Yang 的 45 个已连接应用来自他自己的账号。Sottiaux 的 20 分钟来自他自己的产品。Pavlo 那个超过 60% 的 agent 共同署名比例，来自他自己的每夜 GitHub 拉取，前提也是他自己补的（有人会关掉这个功能）；他那个 80% 到 85% 的调优数字来自他自己的研究。60% 到 99.5% 这段 text-to-SQL 的故事是这一期里最弱的：一家未点名的&ldquo;非常大的银行&rdquo;，以&ldquo;昨天有人告诉我&rdquo;的方式转述，跨了数年、花了数百万美元。按本系列在第一方数字密集的日子里用的规则，它们都记为&ldquo;报告&rdquo;而不是&ldquo;发现&rdquo;，理由没有变：在这个窗口里没有任何一个拥有第二方。</p>
+<p>覆盖缺口，直接说明，因为它会改变下面那份结转清单该怎么读。这一期的 feed 快照是 2026-10-18T06:38Z，即太平洋时间 10-17 23:38，15 条推文从太平洋时间 10-16 23:57 排到 10-17 20:38。上一期（10-16）用的快照是 2026-10-15T06:42Z。10-17 与 10-18 两天没有生成任何一期，因此太平洋时间 10-15 和 10-16 的 feed 内容从未被任何一期收录，并且已经滚出了 feed。所以下面每一条都只是拿这个窗口核对过，其中有些可能已经发生了移动，却没有在这里留下记录。</p>
+<p>结转项，在这个窗口里全部没有移动：10-16 那次 Vercel 沙箱逃逸仍然没有技术说明、也没有第二家供应商确认；仍然没有 Day 11、没有用量数字、没有 5 小时限制、没有票数，因为 Sottiaux 这几条讲的是一次落地，而不是那个时钟；Sol 6 仍然没有分数；Muse Wonder Full 仍然没上 API；Ghost Pepper 的维护成本仍然没有人算账；Sonnet 5.5 的数字仍然没有外部复现；OpenClaw 的 Android 审核仍然没有进展；那个 10x 编码 agent 的提问仍然没人回答；Goodfire 与 Hugging Face 那次仍然没有书面形式；Rauch 那条流量序列仍然没有第二家网络。命名问题没有移动。StarCraft 那条线被 Peter Yang 提了一句，而这一期不把它和 10-16 那个基准故事连起来。</p>
+<p>薄内容：14 条做进卡片的推文里有 8 条没有任何可评级的东西，这里用的标准是 &mdash;&mdash; 没有数字，且没有点名任何读者可以去核对的东西，满足即计入。它们是 Swyx 的第二条和第三条、Nikunj 的轮次名称、Sottiaux 的&ldquo;今天某个时候落地&rdquo;和&ldquo;搞定&rdquo;、Nan Yu 那个前端框架的玩笑、Rauch 的转发认同，以及 Peter Yang 那个 StarCraft 3 的愿望。</p>
+</div>
+</section>
+<!-- ============== NOTES ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128221;</span>
+<h2 class="section-title">&#35760;&#24405; / Notes &amp; Dedup</h2>
+<span class="section-meta">All Zero Hits</span>
+</div>
+<div class="dedup">
+<p style="margin-top:12px"><strong>Not rendered</strong> &mdash; One of Nikunj Kothari&rsquo;s two posts, at 04:13 Pacific, is &ldquo;nyc ily&rdquo; with a photo and carries no AI content. It is counted in the 15 tweets because the feed carried it, and it is not given a card. Following the convention this series has used since 10-15 for excluded posts, no URL is given. His other post is rendered above, so unlike the 10-16 case he is not absent from the card section: 8 builders counted, 8 rendered, 14 of 15 tweets rendered.</p>
+<p style="margin-top:12px">&#8226; <strong>Tweet check</strong>: all 15 tweet IDs in this window were matched against every file under <code>2026/</code> and returned zero hits, so no tweet here repeats a previously published issue.</p>
+<p style="margin-top:12px">&#8226; <strong>Podcast check</strong>: &ldquo;Billions of AI Agents&rdquo; and the episode title return zero hits under <code>2026/</code>. &ldquo;Andy Pavlo&rdquo; returns one hit, in the 2026-10-10 issue, where the item was Matt Turck&rsquo;s post about publishing this conversation, rendered as a tweet and not as a podcast summary; the episode has never occupied the Podcast slot, so it is counted here. Its publishedAt is 2026-10-08T11:30Z, Pacific 10-08 04:30, nine days before the tweet window, so the episode is old relative to the posts around it. The feed supplies a channel URL rather than a link to the specific video, so the channel is what is linked.</p>
+<p style="margin-top:12px">&#8226; <strong>Blog check</strong>: the blogs array is empty, so the count is 0 and there is no entry to rule on.</p>
+<p style="margin-top:12px">&#8226; <strong>Not resolved</strong>: what landed at 14:12 Pacific (&ldquo;Done&rdquo; names no object); what the TC Disrupt remark was that Amjad Masad is clarifying; whether Peter Yang&rsquo;s StarCraft 3 post relates to the benchmark story in the 10-16 issue; which two database companies asked Pavlo about being recommended first, which bank the text-to-SQL numbers come from, and which major data company decided against GPU economics, all three of which he declines to name.</p>
+<p style="margin-top:12px">&#8226; <strong>Coverage</strong>: no issue was produced on 2026-10-17 or 2026-10-18, so feed content from Pacific 10-15 and 10-16 was not captured and has rolled out of the feed. This is stated in the takeaway as well, because it affects every carried-forward item.</p>
+<p style="margin-top:12px"><strong>未渲染</strong> &mdash; Nikunj Kothari 两条推文中的一条，太平洋时间 04:13，是&ldquo;nyc ily&rdquo;加一张照片，与 AI 无关。它计入了顶部的 15 条，因为 feed 里有它；它没有做成卡片。按照本系列自 10-15 起对被排除内容的一贯处理，不给 URL。他的另一条已在上方渲染，因此不像 10-16 那样整位缺席：计入 8 位、渲染 8 位，15 条推文里渲染 14 条。</p>
+<p style="margin-top:12px">&#8226; <strong>推文核对</strong>：这个窗口里 15 个推文 ID 全部拿去和 <code>2026/</code> 下的每一个文件比对，全部零命中，所以这里没有一条推文是重复此前某一期的。</p>
+<p style="margin-top:12px">&#8226; <strong>播客核对</strong>：&ldquo;Billions of AI Agents&rdquo; 和这期标题在 <code>2026/</code> 下零命中。&ldquo;Andy Pavlo&rdquo; 命中一处，在 2026-10-10 那期，当时那条是 Matt Turck 关于发布这期对话的推文，以推文而不是播客摘要的形式渲染过；这期节目从未占据过 Podcast 格，所以这里计入。它的 publishedAt 是 2026-10-08T11:30Z，即太平洋时间 10-08 04:30，比这批推文所在的窗口早九天，所以这期节目相对于它周围的推文是旧的。feed 给的是频道地址而不是具体视频链接，所以这里链的就是频道。</p>
+<p style="margin-top:12px">&#8226; <strong>博客核对</strong>：blogs 数组为空，计数为 0，没有需要判定的条目。</p>
+<p style="margin-top:12px">&#8226; <strong>未闭环</strong>：太平洋时间 14:12 落地的到底是什么（&ldquo;搞定&rdquo;没有宾语）；Amjad Masad 所更正的那句 TC Disrupt 发言到底是什么；Peter Yang 那条 StarCraft 3 是否与 10-16 那期的基准故事有关；问 Pavlo 如何被优先推荐的那两家数据库公司、text-to-SQL 数字出自哪家银行、以及那家算完 GPU 经济账决定不做的大数据公司 &mdash;&mdash; 这三处他都拒绝点名。</p>
+<p style="margin-top:12px">&#8226; <strong>覆盖</strong>：2026-10-17 与 2026-10-18 两天没有生成任何一期，因此太平洋时间 10-15 与 10-16 的 feed 内容没有被收录，并已滚出 feed。这一点在核心结论里也写了一次，因为它会影响每一条结转项。</p>
+</div>
+</section>
+<footer class="footer">
+<div class="next-issue">&#128236; &#19979;&#19968;&#26399;&#65306;&#26126;&#22825; 10:00&#65288;&#21271;&#20140;&#26102;&#38388;&#65289;</div>
+<div class="signature">by chloevchen</div>
+</footer>
+
+<!-- by chloevchen -->
+</body>
+</html>
