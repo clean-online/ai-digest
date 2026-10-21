@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Builders Digest &#183; 2026-10-21</title>
+<style>
+
+
+
+
+
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 28px 30px; margin-bottom: 24px; }
+  .podcast-source { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
+  .podcast-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; margin-bottom: 18px; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; }
+
+
+</style>
+</head>
+<body>
+<header class="topbar">
+<div class="topbar-inner">
+<a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+<span>&#21452;&#35821; &#183; Bilingual</span>
+</div>
+</header>
+<section class="header">
+<div class="eyebrow">Daily Digest &#183; 2026-10-21</div>
+<h1>AI Builders Digest</h1>
+</section>
+<div class="stats">
+<div class="stat"><div class="stat-num">11</div><div class="stat-label">Builders</div></div>
+<div class="stat"><div class="stat-num">21</div><div class="stat-label">Tweets</div></div>
+<div class="stat"><div class="stat-num">0</div><div class="stat-label">Podcast</div></div>
+<div class="stat"><div class="stat-num">0</div><div class="stat-label">Blog</div></div>
+</div>
+<p class="note-line">Feed snapshot 2026-10-20T06:41Z (Pacific 10-19 23:41). All 21 tweets fall inside Pacific 10-19, from 07:01 to 23:33, so this is one Pacific day with nothing straddling midnight. The previous issue, dated 10-20, used a snapshot of 2026-10-19T06:54Z and ended at Pacific 10-18 23:49, so the stretch between the two windows is not covered by this feed; whether anything happened in it cannot be determined from what was returned. This window also stops 27 minutes before Pacific midnight, so the Pacific day is not complete. The two zeros have different causes this time: the blog slot is an empty array, the podcast slot is a dedup against the 2026-10-09 issue. Eight of the 21 tweets are not rendered: 11 builders counted and 10 rendered, 21 tweets counted and 13 rendered.</p>
+<p class="note-line zh">feed 快照 2026-10-20T06:41Z（太平洋 10-19 23:41）。21 条推文全部落在太平洋 10-19 之内，从 07:01 排到 23:33，所以这是一个完整的太平洋日，没有任何一条跨过午夜。上一期（10-20）用的快照是 2026-10-19T06:54Z，它的推文结束在太平洋 10-18 23:49，因此两个窗口之间的那一段这个 feed 没有覆盖；那段时间里有没有发生过什么，无法从返回的内容里判断。另外这个窗口在太平洋午夜前 27 分钟就停了，所以这一天并不完整。两个 0 这次来自不同的原因：blog 那一格是空数组，播客那一格是与 2026-10-09 那期判重。21 条推文里有 8 条没有做成卡片：计入 11 位 builder、渲染 10 位，计入 21 条推文、渲染 13 条。</p>
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128036;</span>
+<h2 class="section-title">X / Twitter</h2>
+<span class="section-meta">11 Builders &#183; 21 Tweets</span>
+</div>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thibault Sottiaux</span>
+<span class="builder-role">OpenAI Codex 与 ChatGPT</span>
+</div>
+<p class="summary-en">Two posts carry the Day 15 label and both are in this window. At 12:45 Pacific: &ldquo;Day 15/ We&rsquo;re cooked&rdquo;, quoting a post that is not in this feed. At 23:33 Pacific: &ldquo;Day 15/ Nevermind, we&rsquo;re still cooking... and reset. Enjoy.&rdquo;, quoting the first one. The second is the second reset in this clock: the 2026-10-16 issue recorded Day 10 ending in a reset and carried Day 11 forward as the thing to watch. Day 11 through Day 14 never appeared in any issue here; whether they were ever posted cannot be determined from what this feed returns.</p>
+<p class="summary-en">What can be measured is attention rather than output. &ldquo;We&rsquo;re cooked&rdquo; carries 4,635 likes, 147 reposts and 2,744 replies, the highest reply count in the window and the second-highest like count. The reset post, almost eleven hours later, carries 1,460 likes, 108 reposts and 627 replies. Neither names an object: nothing in the feed says what was cooked, what the reset cleared, or what came after it.</p>
+<p class="summary-en">Every open item on this clock is still open. Usage has never been reported as increased anywhere in this series, the five-hour limits from the Pro poll have not reappeared in any post, no vote count has been published, and the four things a reset was meant to clear have still never been enumerated. That was already true at Day 10 and it is true at Day 15. The snapshot behind this issue is timestamped eight minutes after the reset post, so this window closes before any landing post could appear; whether one did cannot be determined here.</p>
+<p class="summary-en">One thing to keep separate: these two posts are not a report and a correction of it. The first reads as a stop, the second reverses it in the same breath and announces a reset, and neither names what any of it is about. The pattern around this clock has been stable for days: at Day 10, in the 10-16 issue, a post paraphrasing a nineteenth-century joke drew 9,238 likes, roughly three and a half times the next highest number in that window. Today the two Day 15 posts are the second and fourth most-liked posts in the window.</p>
+<p class="summary-zh zh">两条推文都带着 Day 15 这个标签，而且都在这个窗口里。太平洋时间 12:45：&ldquo;Day 15/ We&rsquo;re cooked&rdquo;，引用的是一条不在这个 feed 里的推文。太平洋时间 23:33：&ldquo;Day 15/ Nevermind, we&rsquo;re still cooking... and reset. Enjoy.&rdquo;，引用的是前一条。第二条是这个时钟里的第二次 reset：2026-10-16 那期记录到 Day 10 以一次 reset 收尾，并把 Day 11 列为接下来要看的东西。Day 11 到 Day 14 在本系列任何一期里都没有出现过；它们到底有没有被发出来，无法从这个 feed 返回的内容判断。</p>
+<p class="summary-zh zh">能被量化的是注意力，不是产出。&ldquo;We&rsquo;re cooked&rdquo;有 4,635 赞、147 次转发、2,744 条回复，回复数是这个窗口里最高的，赞数排第二。将近十一个小时之后的 reset 那条有 1,460 赞、108 次转发、627 条回复。两条都没有点名任何对象：feed 里没有说 cooked 的是什么、reset 清掉了什么、之后又来了什么。</p>
+<p class="summary-zh zh">这个时钟上挂着的待办一项都没有动。整个系列里用量从未被报告为增加了，Pro 投票里那 5 小时限制没有在任何一条里重现，票数从未公布，一次 reset 本该清掉的那四件东西仍然一次都没有被列举。这在 Day 10 时就成立，到 Day 15 仍然成立。生成这一期的那个快照，时间戳落在 reset 那条之后 8 分钟，所以这个窗口在任何落地推文出现之前就闭合了；之后有没有出现过，无法在这里判断。</p>
+<p class="summary-zh zh">有一件事要分开看：这两条不是一份报告加一份更正。第一条读起来像一次停下，第二条紧接着把它反过来，同时宣布 reset，两条都没有点名说的到底是什么。这个时钟周围的规律已经稳定了好几天：Day 10 那次，在 10-16 那期，一条改写十九世纪玩笑的推文拿到 9,238 赞，大约是那个窗口里第二高的三倍半。今天这两条 Day 15 的赞数排在窗口第二和第四。</p>
+<div class="urls">
+<a href="https://x.com/thsottiaux/status/2112268918681485431">https://x.com/thsottiaux/status/2112268918681485431</a>
+<a href="https://x.com/thsottiaux/status/2112432076767289678">https://x.com/thsottiaux/status/2112432076767289678</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thariq</span>
+<span class="builder-role">Anthropic Claude Code</span>
+</div>
+<p class="summary-en">One post, at 09:27 Pacific, and it is the most-liked post in the window: 5,458 likes, 285 reposts and 476 replies, the highest on both likes and reposts. It is advice rather than a release: &ldquo;I think most people multi-tasking with agents could benefit from slowing down&rdquo;, then &ldquo;most of the stuff you&rsquo;re doing wont really matter- what&rsquo;s your P0? what would it look like if you gave it your full attention?&rdquo;</p>
+<p class="summary-en">There is no product, no number, no demo and no example attached, so nothing in it can be checked; what it offers is a claim about how attention should be allocated. It points against the run-more-agents-at-once direction that has run through this feed: fewer threads, one priority, full attention. It is also the second day running that he posts about how people work with agents rather than about something Anthropic shipped; on 10-20 it was the game he was making with them, where he said making it was as much fun as playing it.</p>
+<p class="summary-zh zh">一条推文，太平洋时间 09:27，是这个窗口里赞数最高的：5,458 赞、285 次转发、476 条回复，赞数和转发数都是第一。它是建议，不是发布：&ldquo;我觉得大多数一边并行处理一边用 agent 的人，慢下来会更好&rdquo;，接着是&ldquo;你正在做的绝大多数事情其实并不那么要紧 —— 你的 P0 是什么？如果你把全部注意力给它，会是什么样子？&rdquo;</p>
+<p class="summary-zh zh">没有产品、没有数字、没有演示、也没有例子，所以里面没有任何东西可以核对；它提供的是一句关于怎么分配注意力的主张。它指的方向和这份 feed 里一直跑的那股「多开几个 agent 一起跑」相反：少开几条线，只留一个优先级，把注意力给满。这也是他连续第二天讲人该怎么和 agent 一起工作，而不是讲 Anthropic 发了什么东西；10-20 那条讲的是他自己拿 agent 做的那个游戏，他说做它和玩它一样好玩。</p>
+<div class="urls">
+<a href="https://x.com/trq212/status/2112219173288120531">https://x.com/trq212/status/2112219173288120531</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Guillermo Rauch</span>
+<span class="builder-role">Vercel CEO</span>
+</div>
+<p class="summary-en">Two of three posts are rendered, and one of them is the most concrete item in the window. At 11:18 Pacific: &ldquo;We open sourced a *really fast* HTML artifact builder. It&rsquo;s powered by libfx, making the agent durable.&rdquo; The reason given is operational: &ldquo;Building the low-level plumbing for v0 to survive server crashes, flaky LLMs, function limits was a huge pain. Now it&rsquo;s easy, free, and OSS.&rdquo; It closes on a demo: &ldquo;I built this floating container in a few minutes… it&rsquo;s delightful, and it&rsquo;s just HTML!&rdquo; 1,662 likes, 102 reposts, 149 replies.</p>
+<p class="summary-en">libfx is not new to this series. On 2026-10-06 Rauch named it as where the next release would land, for session storage and retrieval plus cloud durability, with no figure attached to either. Fifteen days later a component built on libfx ships as open source, with durability as its stated job. The session-storage half is not mentioned here. What is still missing is the figure: no speed number, no uptime number, no comparison against whatever this replaces. &ldquo;Really fast&rdquo; and a few minutes to build a floating container are the only measurements offered, and both are his own.</p>
+<p class="summary-en">At 11:57 Pacific, thirty-nine minutes later: &ldquo;1,000 tokens per second btw&rdquo;, 255 likes, 11 reposts, 55 replies. It is a quote post and the post it answers is not in this feed, so the number has no subject here: no model, no product and no harness is named, and this issue does not attach it to the artifact builder or to anything else. The third post, at 07:47, is &ldquo;More free AI&rdquo; over a link, 285 likes and 59 replies; it names nothing and is not rendered.</p>
+<p class="summary-zh zh">三条里两条做成卡片，其中一条是这个窗口里最具体的一件事。太平洋时间 11:18：&ldquo;我们开源了一个*非常快*的 HTML artifact 构建器。它由 libfx 驱动，让 agent 具备持久性。&rdquo;给出的理由是运维层面的：&ldquo;为了让 v0 能扛住服务器崩溃、LLM 抽风、函数限制，去搭那些底层管道非常痛苦。现在它简单了、免费了、也开源了。&rdquo;结尾是一个演示：&ldquo;我用几分钟做了这个漂浮的容器……它很讨人喜欢，而且它就只是 HTML！&rdquo;1,662 赞、102 次转发、149 条回复。</p>
+<p class="summary-zh zh">libfx 在本系列里不是第一次出现。2026-10-06 那期，Rauch 把它点名为下一个版本要落的地方，讲的是会话存储与检索，加上云端持久化，两样都没有给数字。十五天之后，一个建在 libfx 上的组件以开源形式发了出来，它声明的用途正是持久性。会话存储那一半在这里没有被提到。仍然缺的是数字：没有速度、没有可用性、也没有和它替代掉的东西之间的对比。&ldquo;非常快&rdquo;和「几分钟做出一个漂浮容器」是仅有的两个测量，而且都是他自己给的。</p>
+<p class="summary-zh zh">太平洋时间 11:57，晚了 39 分钟：&ldquo;顺便说，每秒 1,000 个 token&rdquo;，255 赞、11 次转发、55 条回复。这是一条引用推文，它回应的那条不在这个 feed 里，所以这个数字在这里没有主语：没有点名模型、没有点名产品、也没有点名 harness，这一期不把它挂到那个 artifact 构建器或任何别的东西上。第三条在 07:47，是&ldquo;更多免费的 AI&rdquo;加一个链接，285 赞、59 条回复，没有点名任何东西，不做卡片。</p>
+<div class="urls">
+<a href="https://x.com/rauchg/status/2112247046082363821">https://x.com/rauchg/status/2112247046082363821</a>
+<a href="https://x.com/rauchg/status/2112256718281551955">https://x.com/rauchg/status/2112256718281551955</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nikunj Kothari</span>
+<span class="builder-role">FPV Ventures 合伙人</span>
+</div>
+<p class="summary-en">Three posts, two rendered. The substantive one is at 09:28 Pacific, 46 likes, 6 reposts, 7 replies, and it is the only first-hand account in this window of the product three separate builders reacted to. He opens with the provenance: &ldquo;A few weeks ago, I was ranting about multiplayer AI experiences and that&rsquo;s when ekuyda shared an early preview of Wabi 2.0.&rdquo; He was an early user of Wabi 1.0, and while the design was &ldquo;gorgeous&rdquo; it &ldquo;frankly never stuck&rdquo; with him; with this edition he was &ldquo;immediately hooked&rdquo;.</p>
+<p class="summary-en">What can be reported is the structure he describes. He sorts today&rsquo;s personal agents into two types: &ldquo;Singleplayer iMessage or Muse types&rdquo;, useful but hard to compartmentalize when many things are going on, and build-your-own multi-chat Hermes agents, which can share context but &ldquo;live forever&rdquo;. Wabi&rsquo;s model is an orchestrator above topic-specific episodic chats, each for a single purpose, shareable &mdash; he shares the school one with his wife &mdash; generated proactively, and not required to stay. Two examples: a New York trip chat generated from a flight it saw, then archived once the trip was done; the same for his 2025 taxes.</p>
+<p class="summary-en">His critique is the only one anyone offers: it is &ldquo;TOO proactive&rdquo;, the apps &ldquo;can be better&rdquo;, and both need dialling in. He also states his position up front: &ldquo;this is neither paid, nor an investor, just a fan&rdquo;. What that settles and what it does not: it removes a financial interest, but what is left is one person describing an early preview he was shown, with a trip and a tax season as the evidence and no number anywhere in it.</p>
+<p class="summary-en">The second rendered post, at 19:20 Pacific, 36 likes, is an invitation to pitch him: &ldquo;Waiting for someone to sell me a peptide factory built in a data center which is also a robotics neolab that is somehow collecting first party uniquely differentiated data&rdquo;, plus &ldquo;use the words tape out, memory/CPU shortage too&rdquo;, and &ldquo;Make it 50/500 on a memo&rdquo;. It is satire of the vocabulary founders bring to seed meetings, and it is the only place in this window where an investor describes what is being pitched at him rather than what he backed. The third post, at 22:57, is about a documentary on Apple TV+ and carries no AI content; it is not rendered.</p>
+<p class="summary-zh zh">三条里两条做成卡片。有实质内容的那条在太平洋时间 09:28，46 赞、6 次转发、7 条回复，它是这个窗口里唯一一份关于那个三个人都在转的产品的第一手说明。他先交代了来源：&ldquo;几周前我正在吐槽多人 AI 体验，就在这时 ekuyda 给我看了一个 Wabi 2.0 的早期预览。&rdquo;他是 Wabi 1.0 的早期用户，虽然设计&ldquo;非常漂亮&rdquo;，但它&ldquo;说实话从来没有黏住我&rdquo;；拿到这一版，他&ldquo;立刻就上瘾了&rdquo;。</p>
+<p class="summary-zh zh">可以被写下来的是他描述的那套结构。他把今天市面上的个人 agent 分成两类：一类是&ldquo;iMessage 或 Muse 那种单人模式&rdquo;，有用，但事情一多就很难分区；另一类是你自己搭的多会话 Hermes agent，能共享上下文，但&ldquo;它们永远活着&rdquo;。Wabi 的模式是一个总控 agent 之下挂着围绕单一主题的、一次性的会话，可以分享 —— 他把学校那个分享给了他太太 —— 主动生成，而且不必长期存在。两个例子：一次纽约行程的会话，是它看到航班之后生成的，行程一结束就被归档；他 2025 年的报税也是同样的过程。</p>
+<p class="summary-zh zh">他的批评是今天唯一有人给出的批评：它&ldquo;太主动了&rdquo;，那些 app&ldquo;可以做得更好&rdquo;，两样都需要调。他也把立场摆在前面给读者看：&ldquo;这既不是付费的，也不是投资，就是一个粉丝&rdquo;。这句话解决了什么、没解决什么要说清楚：它排除了经济上的利益，但剩下的仍然只是一个人在描述别人给他看的早期预览，证据只有一次行程和一个报税季，通篇没有一个数字。</p>
+<p class="summary-zh zh">第二条做成卡片的在太平洋时间 19:20，36 赞，是一个「快来向我兜售」式的请求：&ldquo;等着有人来向我兜售一个建在数据中心里的多肽工厂，它同时还是一个机器人实验室，而且不知怎么就在采集独家的第一方差异化数据&rdquo;，外加&ldquo;顺便把 tape out、内存/CPU 短缺这几个词也用上&rdquo;，以及&ldquo;写成一份 50/500 的备忘录&rdquo;。这是拿创始人带进种子轮会议的词汇开玩笑，也是这个窗口里唯一一处投资人描述别人在向他兜售什么、而不是他投了什么。第三条在 22:57，讲的是 Apple TV+ 上的一部纪录片，没有 AI 内容，不做卡片。</p>
+<div class="urls">
+<a href="https://x.com/nikunj/status/2112219327881761008">https://x.com/nikunj/status/2112219327881761008</a>
+<a href="https://x.com/nikunj/status/2112368222809034980">https://x.com/nikunj/status/2112368222809034980</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Garry Tan</span>
+<span class="builder-role">Y Combinator CEO</span>
+</div>
+<p class="summary-en">One post, at 13:22 Pacific: &ldquo;Multiplayer agents as group chat seems quite inevitable and Wabi&rsquo;s built it&rdquo;, 243 likes, 16 reposts, 74 replies. He is the second of three builders to quote the same launch post, and that launch post is not itself in this feed.</p>
+<p class="summary-en">Worth keeping apart from Nikunj&rsquo;s account, because the two do not describe the same feature. Garry Tan&rsquo;s framing is about who is in the room: agents and people in one group chat. Nikunj&rsquo;s is about lifecycle: an orchestrator above topic-specific chats that are created for one job and archived when it ends. Both quote the same post about the same product, and only one of them says what it does. The line also repeats a shape this series has flagged before: &ldquo;inevitable&rdquo; is a prediction with no date and no condition attached to it, and this is his only post in the window.</p>
+<p class="summary-zh zh">一条推文，太平洋时间 13:22：&ldquo;把多人 agent 做成群聊，看起来相当不可避免，而 Wabi 已经把它做出来了&rdquo;，243 赞、16 次转发、74 条回复。他是三个引用同一条发布推文的 builder 里的第二个，而那条发布推文本身不在这个 feed 里。</p>
+<p class="summary-zh zh">有一点要和 Nikunj 那份分开看，因为两者讲的不是同一个功能。Garry Tan 的说法是关于谁在房间里：agent 和人同处一个群聊。Nikunj 的说法是关于生命周期：一个总控之下挂着为一件事情生成、事情结束就归档的主题会话。两人引用的是同一条推文、说的是同一个产品，但只有其中一个说了它到底做什么。这句话还重复了本系列此前标过的一个形状：&ldquo;不可避免&rdquo;是一个既没有日期也没有条件的预测，而这是他在这个窗口里的唯一一条推文。</p>
+<div class="urls">
+<a href="https://x.com/garrytan/status/2112278352514162834">https://x.com/garrytan/status/2112278352514162834</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Yang</span>
+<span class="builder-role">AI 教程与访谈作者</span>
+</div>
+<p class="summary-en">One of three posts rendered. At 14:18 Pacific: &ldquo;This is super cool I love how visual it is. Can&rsquo;t wait to try this ekuyda!&rdquo;, 23 likes, 1 repost, 6 replies, quoting the same Wabi post as the other two. It is an intention rather than a report: he says he has not used it yet, so it adds no evidence about the product beyond the fact that a third builder reached for it.</p>
+<p class="summary-en">The other two are not rendered. At 13:33 he comments on an account of why many Netflix original films and shows are &ldquo;slop&rdquo;, adding that he still loves a few of them, especially some of the Korean ones, 23 likes. At 21:18: &ldquo;This doesn&rsquo;t mean it&rsquo;s a good movie btw. I found it completely ridiculous&rdquo;, 3 likes. Neither carries AI content, and in both cases the post being answered is not in this feed, so the subject of neither can be named here.</p>
+<p class="summary-zh zh">三条里一条做成卡片。太平洋时间 14:18：&ldquo;这个太酷了，我喜欢它这么视觉化。等不及要试试了，ekuyda！&rdquo;，23 赞、1 次转发、6 条回复，引用的是和另外两位同一条 Wabi 推文。这是一个想要去试的意愿，不是一份报告：他说他还没用过，所以除了「又有第三个 builder 伸手去够它」这个事实之外，它没有为这个产品提供任何证据。</p>
+<p class="summary-zh zh">另外两条不做卡片。13:33 他在评论一个讲为什么很多 Netflix 原创电影和剧集是&ldquo;slop&rdquo;的说法，并补了一句自己还是喜欢其中几部，尤其是几部韩国的，23 赞。21:18：&ldquo;顺便说，这不代表它是部好电影。我觉得它完全荒谬&rdquo;，3 赞。两条都没有 AI 内容，而且他回应的那条推文都不在这个 feed 里，所以这两条的主语在这里都无法点名。</p>
+<div class="urls">
+<a href="https://x.com/petergyang/status/2112292347505688990">https://x.com/petergyang/status/2112292347505688990</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aaron Levie</span>
+<span class="builder-role">Box CEO</span>
+</div>
+<p class="summary-en">One post at 21:44 Pacific, 83 likes, 7 reposts, 46 replies, answering a post that is not in this feed. He takes on the bitter-lesson reading of the applied layer: as models get better, the question is how that intelligence gets diffused into an enterprise, and his answer is that the ability to differentiate domain by domain goes &ldquo;up instead of down&rdquo;.</p>
+<p class="summary-en">The argument runs on a comparison of two eras. When models were limited, he says, all you could be was a &ldquo;wrapper&rdquo;, delivering tokens back to the user behind a custom prompt or some limited RAG. In a world of agents using tools, tasks that run &ldquo;for hours or days&rdquo;, workflows that kick off agents, agent swarms coordinated against a goal, domain-specific data sources, model routing that needs domain-specific decisions, and implementation requiring &ldquo;real change management of the workflow instead of just type into this chat box&rdquo;, specialization has more room rather than less. He names security, life sciences, healthcare, finance and manufacturing as where autonomous systems for job functions will appear.</p>
+<p class="summary-en">Two things to hold it to. It carries no number, no customer, no measurement and no counterexample, so it is an argument from structure and should be read as one. He also supplies his own boundary: &ldquo;the closer you are to the labs core use-cases the tougher this play gets&rdquo;. The swarm wording is the third appearance in four issues: on 10-16 Rauch used it on the threat side, on 10-20 Levie used it as the unit of value, and today it is the thing that has to be coordinated against a goal. Three appearances, two of them from the same author, and no shared definition anywhere.</p>
+<p class="summary-zh zh">一条推文，太平洋时间 21:44，83 赞、7 次转发、46 条回复，回应的是一条不在这个 feed 里的推文。他接的是应用层上那种 bitter lesson 式的读法：模型越来越强之后，问题变成怎么把这些智能扩散进一家企业，而他的答案是按领域做差异化的能力&ldquo;不降反升&rdquo;。</p>
+<p class="summary-zh zh">论证靠的是两个时代的对比。他说，模型还很有限的时候，你唯一能做的就是当一个&ldquo;wrapper&rdquo;，用一套自定义 prompt 或者一点有限的 RAG 把 token 递回给用户。而在今天这个世界里，agent 在用工具，任务一跑就是&ldquo;几小时或几天&rdquo;，工作流会去触发 agent，多个 agent 组成的集群要对着一个目标被协调，数据源是领域专属的，模型路由也得按领域来做决策，落地时需要的不是&ldquo;往这个聊天框里打字&rdquo;而是对工作流做真正的变更管理 —— 在这种情况下，做专的空间是变大而不是变小。他点名安全、生命科学、医疗、金融和制造，说我们会看到面向这些岗位职能的自主系统出现。</p>
+<p class="summary-zh zh">读它的时候有两点要记住。它没有数字、没有客户、没有测量、也没有反例，所以它是一个结构性的论证，应该被当成结构性论证来读。而且他自己给了边界：&ldquo;越靠近实验室的核心用例，这套打法越难成立&rdquo;。swarm 这个词是本系列四期里的第三次出现：10-16 Rauch 拿它讲威胁那一面，10-20 Levie 拿它当价值的单位，今天它是那个要对着一个目标被协调的东西。三次出现，其中两次出自同一位作者，而且没有一次给出过定义。</p>
+<div class="urls">
+<a href="https://x.com/levie/status/2112404676436222170">https://x.com/levie/status/2112404676436222170</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Swyx</span>
+<span class="builder-role">smol_ai 与 Latent Space 主理人</span>
+</div>
+<p class="summary-en">One post at 07:01 Pacific, the earliest in the window, 58 likes, 1 repost and 54 replies, so replies run almost level with likes, which nothing else in this window does. It is written as a stylized dialogue in the voice of a Krishna-and-Arjuna exchange, and its subject is the wish, repeated on X, for &ldquo;an end to chat&rdquo;. The lines that carry the point: &ldquo;each believes he is the first to wish for an end to chat&rdquo;; &ldquo;They desire to leave X as they return in ever greater numbers. They will announce it many times&rdquo;; and the close, &ldquo;the chief desire of the people of X is not the truth, but the new.&rdquo;</p>
+<p class="summary-en">What can be read from it: the object is not a product or a release but a recurring announcement, and the claim is that the announcements repeat while the people making them do not leave. What cannot: the post he quotes is not in this feed, so there is no way to tell what prompted it, and no way to tell what &ldquo;chat&rdquo; is being wished away, whether chat as an interface or chat on the platform he is writing about. This issue stops at the text he wrote.</p>
+<p class="summary-zh zh">一条推文，太平洋时间 07:01，是这个窗口里最早的一条，58 赞、1 次转发、54 条回复，回复数几乎和赞数持平，这个窗口里别的推文都不是这样。它是用一场 Krishna 与 Arjuna 式的对话写成的，主题是在 X 上一次次被重复的那个愿望：&ldquo;让 chat 结束吧&rdquo;。承担观点的几句是：&ldquo;每一个人都相信自己第一个想要 chat 结束&rdquo;；&ldquo;他们想要离开 X，正如他们以越来越大的数量回来。他们会宣告这件事很多次&rdquo;；以及结尾那句&ldquo;X 上的人最主要的渴望不是真相，而是新的东西&rdquo;。</p>
+<p class="summary-zh zh">能读出来的东西：对象不是某个产品或某次发布，而是一种反复出现的宣告，他的主张是这些宣告会不断重复，而宣告的人并没有离开。读不出来的东西：他引用的那条推文不在这个 feed 里，所以没有办法知道是什么触发了它，也没有办法知道那个被希望消失的 chat 指的是什么 —— 是一种交互界面，还是他所写的这个平台上的聊天。这一期就停在他自己写下的文字上。</p>
+<div class="urls">
+<a href="https://x.com/swyx/status/2112182228977348963">https://x.com/swyx/status/2112182228977348963</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Dan Shipper</span>
+<span class="builder-role">Every CEO</span>
+</div>
+<p class="summary-en">One of three posts rendered. At 10:13 Pacific: &ldquo;so proud of Quinten + Ajay and team! they&rsquo;ve been pushing the boundaries of creativity and storytelling with AI for years now&mdash;and one of the breakout examples of it working in consumer&rdquo;, then &ldquo;psyched to be a tiny investor :)&rdquo;, 60 likes, 3 reposts, 9 replies.</p>
+<p class="summary-en">Graded honestly, this is the weakest item rendered today. The product is never named, the post he quotes is not in this feed, there is no number and no user evidence, and he discloses a stake, so it is promotion with the interest stated. It is rendered for one reason: it is the only place in this window where someone with money in a company says which consumer AI bet he thinks has broken out. The other two are not rendered. At 12:58, &ldquo;a story in 3 parts&rdquo; over a link, 59 likes and 11 replies. At 15:22, &ldquo;the ideographic &gt; the nomothetic&rdquo;, 6 likes. Neither names what it is about.</p>
+<p class="summary-zh zh">三条里一条做成卡片。太平洋时间 10:13：&ldquo;为 Quinten、Ajay 和团队感到骄傲！他们多年来一直在推 AI 创意与叙事的边界 —— 而且是它在消费端跑通了的一个破圈例子&rdquo;，接着是&ldquo;很高兴能当一个很小的投资人 :)&rdquo;，60 赞、3 次转发、9 条回复。</p>
+<p class="summary-zh zh">按这里的标准老实评级，这是今天做成卡片的东西里最弱的一条。产品自始至终没有被点名，他引用的那条推文不在这个 feed 里，没有数字也没有用户证据，而且他披露了自己有股份，所以这是一条把利益摆在明面上的推广。把它做成卡片只有一个理由：这是这个窗口里唯一一处，一个在这家公司里投了钱的人说出他认为哪个消费级 AI 押注已经跑出来了。另外两条不做卡片：12:58 那条是&ldquo;一个分三部分的 story&rdquo;加一个链接，59 赞、11 条回复；15:22 那条是&ldquo;讲个殊的（ideographic）胜过讲通则的（nomothetic）&rdquo;，6 赞。两条都没有说自己在讲什么。</p>
+<div class="urls">
+<a href="https://x.com/danshipper/status/2112230653924192274">https://x.com/danshipper/status/2112230653924192274</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aditya Agarwal</span>
+<span class="builder-role">SPC 普通合伙人</span>
+</div>
+<p class="summary-en">One of two posts rendered. At 13:14 Pacific: &ldquo;Early PalantirTech. Cofounder of anduriltech. GP at foundersfund. Last time traestephens was at spc was back in 2022. The world looks a little different now. Wednesday. RSVP below.&rdquo;, 49 likes, 6 reposts, 5 replies.</p>
+<p class="summary-en">It is a scheduling announcement rather than a claim, and the text itself carries no AI content; it is rendered because it is dated and checkable. Three affiliations are given for Trae Stephens, the last visit is placed in 2022, and the talk is set for &ldquo;Wednesday&rdquo;, which reads as 2026-10-21 given that the snapshot behind this issue is Pacific Monday 10-19. The second post, at the same minute, is a bare link with no text at all, 4 likes, and is not rendered.</p>
+<p class="summary-zh zh">两条里一条做成卡片。太平洋时间 13:14：&ldquo;早期的 Palantir。Anduril 的联合创始人。Founders Fund 的 GP。traestephens 上一次来 spc 还是 2022 年。现在这个世界看起来有点不一样了。周三。报名链接在下面。&rdquo;，49 赞、6 次转发、5 条回复。</p>
+<p class="summary-zh zh">这是一条排期通告，不是一个主张，文字本身也没有 AI 内容；做成卡片是因为它带日期、可以核对。里面给了 Trae Stephens 三个身份，把上一次到访放在 2022 年，并把这场活动定在&ldquo;周三&rdquo; —— 生成这一期的快照是太平洋时间周一 10-19，所以那读起来是 2026-10-21。第二条在同一分钟，是一条完全没有正文的纯链接，4 赞，不做卡片。</p>
+<div class="urls">
+<a href="https://x.com/adityaag/status/2112276231731466420">https://x.com/adityaag/status/2112276231731466420</a>
+</div>
+</article>
+</section>
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128161;</span>
+<h2 class="section-title">The Takeaway</h2>
+<span class="section-meta">2026-10-21</span>
+</div>
+<div class="takeaway">
+<div class="takeaway-label">The Takeaway</div>
+<p>Wabi 2.0 is the one object three builders reached for independently. Nikunj, Garry Tan and Peter Yang all quote the same launch post, and all three are reacting to a preview rather than to something shipping: Nikunj says ekuyda showed him an early preview weeks ago, Peter Yang says he cannot wait to try it, and Garry Tan says it is built. The launch post itself is not in this feed, so there is no first-party description of the product here and no URL for it.</p>
+<p>The three framings do not describe the same feature, and the difference is worth keeping. Garry Tan’s multiplayer agents as group chat is about who is in the room. Nikunj’s orchestrator above topic-specific episodic chats is about lifecycle: created for one job, shareable, archived when the job ends. Peter Yang’s is about how it looks. Only Nikunj’s can be checked against anything at all, and even his rests on two examples, one trip and one tax season, from a preview he was shown.</p>
+<p>Sottiaux’s clock turns again and still names nothing. Day 15 carries two posts, a stop at 12:45 and a reversal plus reset at 23:33, and the second is the second reset in this series after Day 10 in the 2026-10-16 issue. Day 11 through Day 14 never appeared in any issue here. Usage has still never been reported as increased, the five-hour limits have not reappeared, no vote count has been published, and the four things a reset was meant to clear have still never been enumerated. The snapshot closes eight minutes after the reset post, so anything that may have landed afterwards is outside this window.</p>
+<p>Attention and information separate again. The most-liked post in the window is advice with no product and no number attached: Thariq at 5,458 likes and 285 reposts, the highest on both counts. The most-replied post is Sottiaux’s We’re cooked at 2,744 replies, about 5.8 times the next highest, 476. The one item that names a component, states a failure mode and actually ships, Rauch’s libfx-powered artifact builder, sits third at 1,662 likes and 102 reposts.</p>
+<p>Two arguments today point against doing more at once, and they are about different things. Thariq’s is about attention: pick one priority, give it everything, most of what you are running will not matter. Levie’s is about market structure: as models improve the room for domain-specific specialization grows, because the work moves from prompt-and-RAG tokens to tools, long tasks, swarms, domain routing and change management. Neither carries a measurement, Thariq offers no evidence at all, and Levie’s only concession is his own boundary, that the closer to the labs’ core use cases the harder this gets.</p>
+<p>libfx is the one thread that closes today. On 2026-10-06 Rauch named it as where the next release would land, for session storage and retrieval plus cloud durability, with no figure on either. Fifteen days later a component built on libfx ships as open source with durability as its stated job. What does not close is the measurement: no figure then, no figure now. The day’s only number, 1,000 tokens per second, sits in a quote post whose target is not in this feed, so it has no subject.</p>
+<p>The two zeros have two different causes, which is the reverse of yesterday, when both were dedup. The blog slot is zero because the array came back empty, so there was no slug to match. The podcast slot is zero by dedup: the feed carried AI &amp; I by Every, Why Every Traded Personal Agents for One Company Agent, published 2026-10-07, which was already the podcast of the 2026-10-09 issue. Thirteen days on, the feed is still serving the same episode, so a zero there means the source did not rotate, not that nothing was published.</p>
+<p>Coverage, for anyone reading these as a continuous record. This snapshot is 2026-10-20T06:41Z, Pacific 10-19 23:41, and the 21 posts run from Pacific 07:01 to 23:33. The previous issue, dated 10-20, used a snapshot of 2026-10-19T06:54Z and its posts ended at Pacific 10-18 23:49. Between 10-18 23:49 and 10-19 07:01 this feed carried nothing, and whether anything happened there cannot be determined from what was returned. This window also stops 27 minutes before Pacific midnight, so the Pacific day itself is not complete.</p>
+<p>Carried forward, unchanged here: no technical write-up or second provider on the Vercel sandbox escape from 10-16; no name, actor, date or scale for the attack Sottiaux described on 10-20, and nothing on what Daybreak Blue grants or who qualifies; no score for Sol 6; no Muse Wonder Full on the API; no cost put on Ghost Pepper maintenance; no external reproduction of the Sonnet 5.5 numbers; no OpenClaw Android review; no answer to the 10x coding-agent question; no written form of Goodfire x Hugging Face; no second network in Rauch’s traffic series; no mechanics chosen for Thariq’s game and no word on whether it ships; and the naming question, which gained one more object today because Muse appears in Nikunj’s post as a type of personal agent with nothing in the feed saying what it is. Newly open: what the Day 15 reset cleared and whether anything landed after it; whether Wabi 2.0 ships beyond the preview three builders were shown; whether its two descriptions are one feature or two; what Rauch’s 1,000 tokens per second belongs to; what Dan Shipper’s three-part story and his ideographic line refer to; what Quinten and Ajay built; and which documentary Zara Zhang was writing about. Date still ahead: Opal shuts down 2026-11-17.</p>
+</div>
+<div class="takeaway zh">
+<div class="takeaway-label">&#26680;&#24515;&#32467;&#35770;</div>
+<p>Wabi 2.0 是今天唯一一个被三位 builder 各自伸手去够的对象。Nikunj、Garry Tan 和 Peter Yang 引用的是同一条发布推文，而三个人回应的都是一个预览版，不是已经上线的东西：Nikunj 说 ekuyda 几周前给他看了早期预览，Peter Yang 说他等不及要试，Garry Tan 说它已经做出来了。那条发布推文本身不在这个 feed 里，所以这里没有关于这个产品的第一方描述，也没有它的链接。</p>
+<p>三种说法讲的不是同一个功能，这个差别值得留着。Garry Tan 的「多人 agent 做成群聊」是关于谁在房间里。Nikunj 的「总控之下挂着一次性主题会话」是关于生命周期：为一件事情生成、可以分享、事情结束就归档。Peter Yang 说的是它长得怎么样。三者里只有 Nikunj 那份有任何可以核对的东西，而即便是它，证据也只有一次行程和一个报税季两个例子，而且来自别人给他看的一个预览。</p>
+<p>Sottiaux 那个时钟又转了一格，仍然什么都没点名。Day 15 下面挂着两条：12:45 的一次停下，和 23:33 的一次反转加 reset。后者是本系列里第二次 reset，上一次是 2026-10-16 那期的 Day 10。Day 11 到 Day 14 在本系列任何一期里都没有出现过。用量仍然从未被报告为增加了，5 小时限制没有重现，票数从未公布，一次 reset 本该清掉的那四件东西仍然一次都没有被列举。快照在 reset 那条之后 8 分钟就闭合了，所以之后可能落地的任何东西都不在这个窗口里。</p>
+<p>注意力和信息又一次分开。窗口里赞数最高的一条是没有产品也没有数字的建议：Thariq 那条 5,458 赞、285 次转发，两项都是第一。回复数最高的是 Sottiaux 的 We’re cooked，2,744 条，大约是第二高（476 条）的 5.8 倍。唯一一个点名了组件、说明了失效模式、并且真的发了东西的，是 Rauch 那个由 libfx 驱动的 artifact 构建器，它以 1,662 赞、102 次转发排在第三。</p>
+<p>今天有两个论证都指向「不要同时做更多」，而它们讲的是不同的事。Thariq 讲的是注意力：只挑一个优先级，把注意力全给它，你手上跑着的绝大部分事情并不那么要紧。Levie 讲的是市场结构：模型越强，按领域做专的空间反而越大，因为活儿从 prompt 加 RAG 递 token，变成了工具、长任务、多 agent 集群、按领域路由和变更管理。两者都没有给出测量，Thariq 一条证据都没有，Levie 唯一的让步是他自己划的边界，也就是越靠近实验室的核心用例越难成立。</p>
+<p>libfx 是今天唯一一条接上的线。2026-10-06 那期，Rauch 把它点名为下一个版本要落的地方，讲的是会话存储与检索，加上云端持久化，两样都没有给数字。十五天之后，一个建在 libfx 上的组件以开源形式发了出来，声明的用途正是持久性。没有接上的仍然是测量：那时候没有数字，现在还是没有。今天唯一的一个数字「每秒 1,000 个 token」躺在一条引用推文里，它指向的那条不在这个 feed 中，所以这个数字没有主语。</p>
+<p>两个 0 有两个不同的原因，正好和昨天相反 —— 昨天两个都是判重。blog 那一格的 0 来自数组返回为空，所以没有 slug 可以匹配。播客那一格的 0 来自判重：feed 里装的是 AI &amp; I by Every 的《Why Every Traded Personal Agents for One Company Agent》，发布于 2026-10-07，它已经是 2026-10-09 那期的播客。十三天过去，feed 还在推送同一期节目，所以那一格的 0 意思是信源没有轮换，而不是这一类没有新内容。</p>
+<p>覆盖情况，写给把这一系列当成连续记录来读的人。这一期的快照是 2026-10-20T06:41Z，即太平洋时间 10-19 23:41，21 条推文从太平洋时间 07:01 排到 23:33。上一期（10-20）用的快照是 2026-10-19T06:54Z，它的推文结束在太平洋 10-18 23:49。太平洋 10-18 23:49 到 10-19 07:01 之间，这个 feed 什么都没有给；那段时间里有没有发生过什么，无法从返回的内容里判断。另外这个窗口在太平洋午夜前 27 分钟就停了，所以这一天本身并不完整。</p>
+<p>结转项，在这个窗口里全部没有移动：10-16 那次 Vercel 沙箱逃逸仍然没有技术说明、也没有第二家供应商确认；Sottiaux 在 10-20 描述的那次攻击仍然没有名字、没有实施者、没有日期、没有规模，Daybreak Blue 给什么、谁能申请也仍然没有说法；Sol 6 仍然没有分数；Muse Wonder Full 仍然没上 API；Ghost Pepper 的维护成本仍然没有人算账；Sonnet 5.5 的数字仍然没有外部复现；OpenClaw 的 Android 审核仍然没有进展；那个 10x 编码 agent 的提问仍然没人回答；Goodfire 与 Hugging Face 那次仍然没有书面形式；Rauch 那条流量序列仍然没有第二家网络；Thariq 那个游戏仍然没有选定机制、也没有说会不会做出来。命名问题今天又多了一个对象：Muse 在 Nikunj 那条里作为一种个人 agent 的类型出现，而 feed 里没有任何地方说它是什么。本期新开：Day 15 这次 reset 清掉了什么、之后有没有东西落地；Wabi 2.0 会不会走出那三个人看到的预览；对它的两种描述究竟是同一个功能还是两个；Rauch 那个每秒 1,000 token 属于什么；Dan Shipper 那个三部分的 story 和那句讲个殊与通则的话指的是什么；Quinten 和 Ajay 做的到底是什么；以及 Zara Zhang 写的那部纪录片是哪一部。仍未到来的日期：Opal 于 2026-11-17 关停。</p>
+</div>
+</section>
+<!-- ============== NOTES ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128221;</span>
+<h2 class="section-title">&#35760;&#24405; / Notes &amp; Dedup</h2>
+<span class="section-meta">21 Zero &#183; 1 Dedup &#183; 1 Empty</span>
+</div>
+<div class="dedup">
+<p style="margin-top:12px"><strong>Tweet check</strong> &mdash; All 21 tweet IDs in this window were matched against every file under <code>2026/</code> and returned zero hits, so nothing here repeats a post from an earlier issue.</p>
+<p style="margin-top:12px"><strong>Podcast check</strong> &mdash; The slot is 0 by dedup, not by emptiness. The array carried one episode, AI &amp; I by Every, &ldquo;Why Every Traded Personal Agents for One Company Agent&rdquo;, publishedAt 2026-10-07T17:11:13Z. Both title phrases, &ldquo;Why Every Traded Personal Agents&rdquo; and &ldquo;Company Agent&rdquo;, return hits under <code>2026/</code>, all of them in the 2026-10-09 issue, where this episode occupied the Podcast slot in full. The feed is still serving an episode thirteen days older than the posts around it, so the zero means the source did not rotate.</p>
+<p style="margin-top:12px"><strong>Blog check</strong> &mdash; The slot is 0 by emptiness, not by dedup: the blogs array came back empty, so there was no slug to match and nothing was deferred. Yesterday both zeros were dedup, and in the 10-19 issue the blog zero was already an empty array while the podcast was counted, so the two slots have now failed in all three combinations across three issues.</p>
+<p style="margin-top:12px"><strong>Not rendered</strong> &mdash; Eight of the 21 posts are counted but not rendered, and one builder is absent from the card section entirely. Zara Zhang’s only post, at 21:22 Pacific, 16 likes, recommends seeing a documentary in a theater and remarks on how much and when people laughed while watching it; it carries no AI content and the post it quotes is not in this feed, so she is counted with no card, making 11 builders counted and 10 rendered, 21 posts counted and 13 rendered. The other seven: Peter Yang’s two film-and-television comments at 13:33 (23 likes) and 21:18 (3 likes); Rauch’s &ldquo;More free AI&rdquo; at 07:47 (285 likes, 59 replies), which names nothing; Nikunj’s post at 22:57 about a documentary on Apple TV+ (12 likes); Dan Shipper’s &ldquo;a story in 3 parts&rdquo; at 12:58 (59 likes, 11 replies) and &ldquo;the ideographic &gt; the nomothetic&rdquo; at 15:22 (6 likes); and Aditya Agarwal’s bare link at 13:14 (4 likes). Following this series since 10-15, excluded posts are given no URL.</p>
+<p style="margin-top:12px"><strong>Coverage</strong> &mdash; This issue’s snapshot is 2026-10-20T06:41Z, Pacific 10-19 23:41, and all 21 posts sit inside Pacific 10-19, from 07:01 to 23:33. The previous issue, dated 10-20, used a snapshot of 2026-10-19T06:54Z and its posts ended at Pacific 10-18 23:49. The two windows do not meet; between Pacific 10-18 23:49 and 10-19 07:01 this feed carried nothing, and whether anything happened there cannot be determined from what was returned. The window also ends 27 minutes before Pacific midnight.</p>
+<p style="margin-top:12px"><strong>Not resolved</strong> &mdash; What &ldquo;we’re cooked&rdquo; referred to, and what the Day 15 reset cleared or landed; what Wabi 2.0 is beyond the preview three builders were shown, and whether the group-chat and orchestrator descriptions are one feature; what the 1,000 tokens per second belongs to; what Quinten and Ajay built and whether Dan Shipper named it anywhere; what Dan Shipper’s three-part story and his ideographic line are about; which documentary Zara Zhang was writing about; what prompted Swyx’s dialogue and what &ldquo;chat&rdquo; means in it; what &ldquo;50/500 on a memo&rdquo; refers to in Nikunj’s post; and what Peter Yang’s two film comments were answering.</p>
+<p style="margin-top:12px"><strong>推文核对</strong> &mdash; 这个窗口里 21 个推文 ID 全部拿去和 <code>2026/</code> 下的每一个文件比对，全部零命中，所以这里没有一条推文是重复此前某一期的。</p>
+<p style="margin-top:12px"><strong>播客核对</strong> &mdash; 这一格是 0，原因是判重，不是因为数组为空。数组里装了一期节目，AI &amp; I by Every 的《Why Every Traded Personal Agents for One Company Agent》，publishedAt 为 2026-10-07T17:11:13Z。标题里的两个短语&ldquo;Why Every Traded Personal Agents&rdquo;和&ldquo;Company Agent&rdquo;在 <code>2026/</code> 下都有命中，全部落在 2026-10-09 那期，而这期节目当时已经完整占据了那一期的 Podcast 格。feed 仍在推送一期比周围推文早十三天的节目，所以这个 0 的意思是信源没有轮换。</p>
+<p style="margin-top:12px"><strong>博客核对</strong> &mdash; 这一格是 0，原因是数组为空，不是判重：blogs 数组返回为空，所以没有 slug 可匹配，也不存在被推迟的条目。昨天两个 0 都是判重，10-19 那期则是 blog 为空数组、播客被计入，所以连续三期里这两格已经把三种组合都出现过一遍了。</p>
+<p style="margin-top:12px"><strong>未渲染</strong> &mdash; 21 条推文里有 8 条计入但没有做成卡片，其中一位 builder 在卡片区完全缺席。Zara Zhang 唯一的推文在太平洋时间 21:22，16 赞，内容是推荐去影院看一部纪录片，并说起观众在看的过程中笑了多少次、什么时候笑；它没有 AI 内容，引用的那条也不在这个 feed 里，所以她被计入但没有卡片 —— 计入 11 位 builder、渲染 10 位，计入 21 条推文、渲染 13 条。另外七条是：Peter Yang 在 13:33（23 赞）和 21:18（3 赞）两条关于影视的评论；Rauch 在 07:47 的&ldquo;更多免费的 AI&rdquo;（285 赞、59 条回复），没有点名任何东西；Nikunj 在 22:57 那条讲 Apple TV+ 上一部纪录片的（12 赞）；Dan Shipper 在 12:58 的&ldquo;一个分三部分的 story&rdquo;（59 赞、11 条回复）和 15:22 的&ldquo;讲个殊的胜过讲通则的&rdquo;（6 赞）；以及 Aditya Agarwal 在 13:14 那条纯链接（4 赞）。按照本系列自 10-15 起对被排除内容的一贯处理，不给 URL。</p>
+<p style="margin-top:12px"><strong>覆盖</strong> &mdash; 这一期的快照是 2026-10-20T06:41Z，即太平洋时间 10-19 23:41，21 条推文全部落在太平洋 10-19 之内，从 07:01 排到 23:33。上一期（10-20）用的快照是 2026-10-19T06:54Z，它的推文结束在太平洋时间 10-18 23:49。两个窗口没有接上：太平洋时间 10-18 23:49 到 10-19 07:01 之间，这个 feed 什么都没有给；那段时间里有没有发生过什么，无法从返回的内容里判断。这个窗口还在太平洋午夜前 27 分钟就结束了。</p>
+<p style="margin-top:12px"><strong>未闭环</strong> &mdash; &ldquo;we’re cooked&rdquo;指的是什么，Day 15 这次 reset 清掉了什么、又落地了什么；Wabi 2.0 在那三个人看到的预览之外到底是什么，群聊和总控这两种描述是不是同一个功能；每秒 1,000 个 token 属于什么；Quinten 和 Ajay 做的到底是什么、Dan Shipper 有没有在别处点名它；Dan Shipper 那个三部分的 story 和那句讲个殊与通则的话指的是什么；Zara Zhang 写的那部纪录片是哪一部；是什么触发了 Swyx 那段对话、里面的 chat 指的是什么；Nikunj 那条里的&ldquo;写成一份 50/500 的备忘录&rdquo;指什么；以及 Peter Yang 那两条影视评论各自在回应什么。</p>
+</div>
+</section>
+<footer class="footer">
+<div class="next-issue">&#128236; &#19979;&#19968;&#26399;&#65306;&#26126;&#22825; 10:00&#65288;&#21271;&#20140;&#26102;&#38388;&#65289;</div>
+<div class="signature">by chloevchen</div>
+</footer>
+
+<!-- by chloevchen -->
+</body>
+</html>
