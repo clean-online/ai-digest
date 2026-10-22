@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Builders Digest &#183; 2026-10-22</title>
+<style>
+
+
+
+
+
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 28px 30px; margin-bottom: 24px; }
+  .podcast-source { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
+  .podcast-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; margin-bottom: 18px; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; }
+
+
+</style>
+</head>
+<body>
+<header class="topbar">
+<div class="topbar-inner">
+<a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+<span>&#21452;&#35821; &#183; Bilingual</span>
+</div>
+</header>
+<section class="header">
+<div class="eyebrow">Daily Digest &#183; 2026-10-22</div>
+<h1>AI Builders Digest</h1>
+</section>
+<div class="stats">
+<div class="stat"><div class="stat-num">15</div><div class="stat-label">Builders</div></div>
+<div class="stat"><div class="stat-num">31</div><div class="stat-label">Tweets</div></div>
+<div class="stat"><div class="stat-num">0</div><div class="stat-label">Podcast</div></div>
+<div class="stat"><div class="stat-num">0</div><div class="stat-label">Blog</div></div>
+</div>
+<p class="note-line">Feed snapshot 2026-10-21T06:42Z (Pacific 10-20 23:42). All 31 tweets fall inside Pacific 10-20, from 06:04 to 22:06, one Pacific day with nothing straddling midnight, although it closes one hour and thirty-six minutes before the snapshot. The previous issue, dated 10-21, used a snapshot of 2026-10-20T06:41Z and ended at Pacific 10-19 23:33, so about six and a half hours between the two windows are not covered by this feed; whether anything happened in them cannot be determined from what was returned. Both zeros are emptiness this time: the podcasts and blogs arrays came back empty, so there was nothing to dedup against. Nine of the 31 tweets are not rendered: 15 builders counted and 14 rendered, 31 tweets counted and 22 rendered.</p>
+<p class="note-line zh">feed 快照 2026-10-21T06:42Z（太平洋 10-20 23:42）。31 条推文全部落在太平洋 10-20 之内，从 06:04 排到 22:06，是一个完整的太平洋日，没有任何一条跨过午夜，不过它在快照之前一小时三十六分钟就收口了。上一期（10-21）用的快照是 2026-10-20T06:41Z，推文结束在太平洋 10-19 23:33，因此两个窗口之间大约六个半小时这个 feed 没有覆盖；那段时间里有没有发生过什么，无法从返回的内容里判断。两个 0 这次都是空数组：podcasts 和 blogs 数组返回都为空，所以没有东西需要判重。31 条推文里有 9 条没有做成卡片：计入 15 位 builder、渲染 14 位，计入 31 条推文、渲染 22 条。</p>
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128036;</span>
+<h2 class="section-title">X / Twitter</h2>
+<span class="section-meta">15 Builders &#183; 31 Tweets</span>
+</div>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thibault Sottiaux</span>
+<span class="builder-role">OpenAI Codex 与 ChatGPT</span>
+</div>
+<p class="summary-en">Day 16 arrives with the first concrete change this clock has carried in a while. At 18:10 Pacific: “Day 16/ You can now cache for 12h in the API and for logged in users across Codex &amp; Work we keep cache forever and you don’t have any penalty for coming back to an old conversation or resuming after a few hours and are now guaranteed to hit the cache.” 10,518 likes, 510 reposts, 1,698 replies.</p>
+<p class="summary-en">What is new is the shape. Day 9, in the 2026-10-15 issue, carried a figure but in the future tense and about disk. Day 10, in the 10-16 issue, ended in a reset and named nothing. Day 15, in the 10-21 issue, was a stop and then a reversal with a reset, again naming nothing. Day 16 gives a duration, 12 hours on the API side and effectively indefinite for signed-in users, and it states the behaviour being replaced, which is the penalty for returning to an old conversation.</p>
+<p class="summary-en">It is still one line from the person who owns the product. No changelog is named, no documentation link appears in the text, no version is given, and no second party confirms it. Graded as a report from the owner of the system, not as a finding.</p>
+<p class="summary-en">The second post, at 10:10 Pacific, is an incident report and carries the largest number of any kind in this window. “We’ve identified approximately 40,000 accounts that had an inconsistency on which usage limits where the actual usage that was applied did not correspond to their actual selected plan.” Those users are being contacted individually, the issue is corrected, and credits will be added. 10,601 likes, 325 reposts and 2,501 replies, the highest reply count in the window and the highest like count.</p>
+<p class="summary-en">It closes on “Sorry we got this wrong.” What is not in it: no plan names, no amount for the credits, no start or end date beyond “over the weekend”, no figure for how much usage was misapplied, and nothing on how the inconsistency was found. Two things are worth separating about the pair. The incident and the cache change are different kinds of post, a correction and a release, and they are the two most-replied and most-liked items of the day by a wide margin, which is unusual here: attention in this series has repeatedly gone to posts that name nothing.</p>
+<p class="summary-zh zh">Day 16 带来了这个时钟一段时间以来第一个具体的变更。太平洋时间 18:10：“Day 16/ 你现在可以在 API 里缓存 12 小时；对于 Codex 与 Work 里已登录的用户，我们永久保留缓存，你回到一段旧对话、或者隔几小时之后接着跑，都不会有任何惩罚，而且现在保证命中缓存。”10,518 赞、510 次转发、1,698 条回复。</p>
+<p class="summary-zh zh">新的是它的形状。Day 9（2026-10-15 那期）带过一个数字，但那是将来时，而且讲的是磁盘。Day 10（10-16 那期）以一次 reset 收尾，什么都没点名。Day 15（10-21 那期）是一次停下，接着是一次反转加 reset，同样什么都没点名。Day 16 给了一个时长：API 这一侧 12 小时，已登录用户实际上无限期，而且它说清了自己替代掉的是什么行为，也就是回到旧会话时要付的代价。</p>
+<p class="summary-zh zh">它仍然只是产品负责人写的一行字。没有点名更新日志，正文里没有文档链接，没有版本号，也没有第二方确认。按本系列的口径，这是一份来自系统所有者的报告，不是一项发现。</p>
+<p class="summary-zh zh">第二条在太平洋时间 10:10，是一份事故报告，带着这个窗口里最大的一个数字：“我们查出大约 40,000 个账户存在一处不一致 —— 实际生效的用量限额，与它们真正选定的套餐并不对应。”这些用户会被逐个联系，问题已经修正，并且会给账户补额度。10,601 赞、325 次转发、2,501 条回复，回复数是窗口最高，赞数也是最高。</p>
+<p class="summary-zh zh">结尾是“抱歉，这次是我们做错了。”里面没有的是：没有套餐名、没有补多少额度、除了“这个周末”之外没有起止时间、没有误算掉了多少用量、也没有说这个不一致是怎么被发现的。这两条有两件事要分开看。事故和缓存变更是两种不同性质的帖子，一份更正和一次发布；而它们是这一天回复数和赞数最高的两条，而且领先幅度很大 —— 这在本系列里不常见，因为注意力此前反复流向那些什么都没点名的帖子。</p>
+<div class="urls">
+<a href="https://x.com/thsottiaux/status/2112712984644784534">https://x.com/thsottiaux/status/2112712984644784534</a>
+<a href="https://x.com/thsottiaux/status/2112592264686149749">https://x.com/thsottiaux/status/2112592264686149749</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Guillermo Rauch</span>
+<span class="builder-role">Vercel CEO</span>
+</div>
+<p class="summary-en">Two posts, and the second one is the most structural claim in the window. At 14:33 Pacific: “Much like we did with aisdk, we’re bringing a truly open-source, runtime-agnostic solution to harness durability. We’re extending the durability infra that powers eve and Workflows to all harnesses, like Pi and OpenCode. Local, Vercel, or DIY.” 435 likes, 24 reposts, 87 replies.</p>
+<p class="summary-en">The part that goes past a release note is what he says about the two most used coding agents: “even Claude Code and Codex can be made durable (and observable!) this way. The catch: they’re not (currently) designed for embedding, which makes them less efficient, less portable, and brings an extra sandbox requirement compared to Pi or Fx.” That is an architecture argument about why two products do not fit the pattern, and it comes from someone whose company sells the alternative.</p>
+<p class="summary-en">No numbers, no repository named in the post, no benchmark, and no availability beyond the present tense of “we’re bringing”. It lands one day after the 10-21 issue, where an artifact builder built on libfx shipped open source with durability as its stated job, and two days after the 10-20 issue, where the most popular post from this same account was a joke about country domains at 6,334 likes. Durability is now the third Vercel theme in three issues.</p>
+<p class="summary-en">At 13:12 Pacific, one hour and twenty-one minutes earlier: “AI will be able to compute the perfect delta of what you understand and don’t, helping you progressively learn any idea and unravel any mystery. If you so desire, you’ll reach the maximum of your capability and intelligence. The ultimate education. For free.” 2,466 likes, 201 reposts, 184 replies, the second-highest like count in the window. No product, no date, no measurement; it is a position, and this series has graded those as positions since 10-15.</p>
+<p class="summary-zh zh">两条推文，其中第二条是这个窗口里结构性最强的一个主张。太平洋时间 14:33：“就像我们做 aisdk 那样，我们正在给 harness 的持久性带来一个真正开源、不绑定运行时的方案。我们把支撑 eve 和 Workflows 的那套持久化基础设施，扩展给所有 harness，比如 Pi 和 OpenCode。本地、Vercel、或者自己搭，都行。”435 赞、24 次转发、87 条回复。</p>
+<p class="summary-zh zh">超出一条发布说明的，是他对两个用得最多的编码 agent 说的那句：“连 Claude Code 和 Codex 都能用这个办法变得可持久化（还可观测！）。代价是：它们（目前）不是为被嵌入而设计的，所以相比 Pi 或 Fx，它们效率更低、可移植性更差，还额外多出一个沙箱要求。”这是一个关于两个产品为什么不合这套模式的架构论证，而说这话的人，他们公司卖的正是另一条路。</p>
+<p class="summary-zh zh">没有数字，正文里没有点名代码仓库，没有基准测试，除了“我们正在带来”这个现在时之外也没有上线时间。它落在 10-21 那期之后一天 —— 那期里一个建在 libfx 上的 artifact 构建器以开源形式发布，声明的用途正是持久性；也落在 10-20 那期之后两天 —— 那期里这个账号最受欢迎的一条是关于国家域名的玩笑，6,334 赞。持久性现在是连续三期里 Vercel 的第三个主题。</p>
+<p class="summary-zh zh">太平洋时间 13:12，早了一小时二十一分钟：“AI 将能够精确算出你懂什么、不懂什么之间的那个差值，帮你循序渐进地学会任何一个概念、解开任何一个谜。只要你愿意，你会抵达自己能力和智力的上限。终极的教育。而且免费。”2,466 赞、201 次转发、184 条回复，赞数是窗口第二高。没有产品、没有日期、没有测量；这是一个立场，而本系列从 10-15 起就把这类内容按立场来评级。</p>
+<div class="urls">
+<a href="https://x.com/rauchg/status/2112658577110520122">https://x.com/rauchg/status/2112658577110520122</a>
+<a href="https://x.com/rauchg/status/2112638107749355867">https://x.com/rauchg/status/2112638107749355867</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Steinberger</span>
+<span class="builder-role">OpenClaw 创始人</span>
+</div>
+<p class="summary-en">At 11:03 Pacific, the most specific workflow report in the window: “Astra did the planning, Sol 6.1 did the coding. I found that the workflow of prompting Astra to run codex cli in worktrees works FAR better than relying on subagents. A second agent oversaw the work to keep Astra on track. Kinda like /goal, but instead of the same agent reviewing a text file, a second agent that challenges. Wrote an OC-plugin for this ‘smart goal’ feature.” 161 likes, 10 reposts, 13 replies.</p>
+<p class="summary-en">Two things in it are new here. “Sol 6.1” as a string last appeared in the 2026-10-01 issue, where someone at a launch venue was collecting questions on Dots, Sol 6.1, CUA and the Decisions API; today it is named as the thing that did the coding, which is the first time in this feed that a versioned Sol name is attached to work actually done. It still carries no score, no release note and no benchmark.</p>
+<p class="summary-en">The second is the design: an overseeing agent that challenges instead of a self-review loop, written as an OpenClaw plugin. It is n=1, the task is not named, there is no before-and-after measurement and no code, so nothing in it can be reproduced from this feed. “Works FAR better” is his own comparative, against his own earlier setup. It also points against the subagent direction that Aditya Agarwal framed historically in the same window, though neither post references the other.</p>
+<p class="summary-en">At 19:39 Pacific: “See you at Cloudflare Connect tomorrow! Will be chatting with dok2001 about agents”, 224 likes, 7 reposts, 17 replies. The text itself carries no AI content; it is rendered because it is dated and can be checked, with the snapshot at Pacific 10-20 23:42 placing the event on 2026-10-21. The third post, at 11:09, is “It would be 9x faster, but we were already on the 7.1-dev version of the ts compiler”, 50 likes; it names no subject and the post it answers is not in this feed, so it is not rendered.</p>
+<p class="summary-zh zh">太平洋时间 11:03，这个窗口里最具体的一份工作流报告：“Astra 做规划，Sol 6.1 写代码。我发现让 Astra 去驱动 codex cli 在 worktree 里跑的这个流程，比依赖 subagent 好得多。另有一个 agent 在旁监督，保证 Astra 不跑偏。有点像 /goal，只不过不是同一个 agent 去审一份文本文件，而是换一个会提出质疑的 agent。我为这个‘smart goal’功能写了个 OC 插件。”161 赞、10 次转发、13 条回复。</p>
+<p class="summary-zh zh">里面有两样东西在这里是新的。“Sol 6.1”这个字符串上一次出现是 2026-10-01 那期，当时有人在发布会现场收集关于 Dots、Sol 6.1、CUA 和 Decisions API 的问题；今天它被点名为那个真正写了代码的东西，这是本 feed 里第一次有一个带版本号的 Sol 名字挂到了实际完成的活儿上。它仍然没有分数、没有发布说明、没有基准。</p>
+<p class="summary-zh zh">第二样是那个设计：一个负责监督、会提出质疑的 agent，取代自我复查的循环，做成了 OpenClaw 的插件。样本是 1，任务没有被点名，没有前后对比的测量，也没有代码，所以里面没有任何东西可以从这个 feed 里复现。“好得多”是他自己的比较，比的是他自己更早的那一套。它指向的方向也和 Aditya Agarwal 在同一个窗口里给的那段历史类比相反，不过两条推文谁也没有提到谁。</p>
+<p class="summary-zh zh">太平洋时间 19:39：“明天 Cloudflare Connect 见！会和 dok2001 聊聊 agent。”224 赞、7 次转发、17 条回复。文字本身没有 AI 内容；做成卡片是因为它带日期、可以核对 —— 这一期的快照在太平洋时间 10-20 23:42，所以那场活动落在 2026-10-21。第三条在 11:09，是“本来能快 9 倍，不过我们已经用上了 ts 编译器的 7.1-dev 版本”，50 赞；它没有点名任何对象，它回应的那条也不在这个 feed 里，所以不做卡片。</p>
+<div class="urls">
+<a href="https://x.com/steipete/status/2112605703219347503">https://x.com/steipete/status/2112605703219347503</a>
+<a href="https://x.com/steipete/status/2112735411688857770">https://x.com/steipete/status/2112735411688857770</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Sam Altman</span>
+<span class="builder-role">OpenAI CEO</span>
+</div>
+<p class="summary-en">One post, 4,673 likes, 156 reposts and 371 replies, the second-highest reply count in the window. It is a quote post and the post it answers is not in this feed: “I am very grateful Aleksander accepted our request to come take this on; the safety and security challenges in front of us as we confront superintelligence are immense, and he has an excellent set of skills to work on this.”</p>
+<p class="summary-en">What can be said about it is narrow. The feed gives a first name only, no surname, no title, no start date and no reporting line, so this issue attaches none of them. “Take this on” has no object here either: no team, no programme, no mandate, no scope. The one thing the post does state is the framing, safety and security in the approach to superintelligence.</p>
+<p class="summary-en">Graded as an announcement rather than a finding. The request, the acceptance and the assessment of skills all come from the same person, and the post that would have said what the job is not in this window, so the size of the role cannot be measured from here.</p>
+<p class="summary-zh zh">一条推文，4,673 赞、156 次转发、371 条回复，回复数是窗口第二高。这是一条引用推文，它回应的那条不在这个 feed 里：“非常感激 Aleksander 接受了我们的请求，来接下这件事；在我们面对超级智能的过程中，摆在前面的安全与安保挑战是巨大的，而他有一套非常适合做这件事的能力。”</p>
+<p class="summary-zh zh">关于它能说的事很窄。feed 只给了一个名字，没有姓氏、没有头衔、没有到岗日期、也没有汇报关系，所以这一期一样都不补。“接下这件事”在这里同样没有宾语：没有团队、没有项目、没有授权范围、没有边界。这条推文唯一明确说出来的，是它的框架 —— 通往超级智能这段路上的安全与安保。</p>
+<p class="summary-zh zh">按通告评级，不按发现评级。请求、接受、以及能力评价都出自同一个人，而本该说明这份工作到底是什么的那条推文不在这个窗口里，所以这个角色的分量无法从这里衡量。</p>
+<div class="urls">
+<a href="https://x.com/sama/status/2112652656602923366">https://x.com/sama/status/2112652656602923366</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aaron Levie</span>
+<span class="builder-role">Box CEO</span>
+</div>
+<p class="summary-en">One post, at 21:55 Pacific, 89 likes, 6 reposts, 34 replies, and it is the longest argument in the window: “we clearly have an emerging form factor for what AI might look like for the foreseeable future as autonomous systems dedicated to specific tasks or domains.” Where he places it: “This is a huge leap past the LLM wrapper days because the new expectation is that you can finally farm out more sophisticated work to the agent to tackle for you.”</p>
+<p class="summary-en">He gives it three layers. Tool and computer use mean you can hand the agent granular access to external systems, “and where there isn’t existing software, the agent just builds it itself”. Model capability is improving “in just about every vertical domain”, legal judgment, bio research, code security, supply chain, with the boundary that “in many of these spaces then models still have worse intuition than people, but that will only get better”. Third, the harness layer, sandboxes, file systems and data pipelines, allows longer-running agents; “Few of these components worked well for AI even a year ago”.</p>
+<p class="summary-en">It closes on a market claim with no number attached: “You can almost imagine one or more of these systems for every role in the economy.” Every part of it is first-party, from the CEO of a company that sells into enterprise workflows, and not one of the three layers carries a measurement. What it adds to the day is vocabulary: the same shift that Aditya Agarwal called a historical rhyme and Peter Steinberger described as a setup he runs is described here as a form factor with three layers.</p>
+<p class="summary-zh zh">一条推文，太平洋时间 21:55，89 赞、6 次转发、34 条回复，是这个窗口里最长的一段论证：“在可见的未来里，AI 会长成什么样，我们现在显然已经有了一种成型的形式 —— 就是那些专门负责特定任务或特定领域的自治系统。”他把它放在什么位置上：“这比起套壳 LLM 的那段日子是一次巨大的跃迁，因为新的预期是，你终于可以把更精细复杂的工作整个外包给 agent 去处理。”</p>
+<p class="summary-zh zh">他给了它三层。工具使用和计算机使用，意味着你可以把外部系统的细粒度访问权限交给 agent，“而在那些还没有现成软件的地方，agent 就自己把它建出来”。模型能力在“几乎每一个垂直领域”都在变强 —— 法律判断、生物研究、代码安全、供应链，边界是“在这些领域里，模型在很多地方的直觉仍然不如人，不过那只会越来越好”。第三层是 harness 层，沙箱、文件系统、数据管道，让 agent 能跑得更久；“哪怕一年前，这些组件里也很少有哪个能在 AI 场景下跑好”。</p>
+<p class="summary-zh zh">结尾是一个没有数字的市场判断：“你几乎可以想象，经济里的每一个岗位都会有一个或更多这样的系统。”它的每一部分都是第一方说法，出自一家把产品卖进企业工作流的公司 CEO，而三层里没有任何一层带测量。它给今天带来的是一套说法：Aditya Agarwal 称之为历史的韵脚、Peter Steinberger 描述成自己正在跑的一套配置，而在这里，它被描述成一种三层的形式。</p>
+<div class="urls">
+<a href="https://x.com/levie/status/2112769686798832013">https://x.com/levie/status/2112769686798832013</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aditya Agarwal</span>
+<span class="builder-role">SPC 普通合伙人</span>
+</div>
+<p class="summary-en">One post, at 09:19 Pacific, 433 likes, 23 reposts, 36 replies, and it is the most quotable line of the day: “Call me an old hat computer scientist but the parallels between Inference time scaling → Subagents → Agent Swarms looks an awful lot like CPU Threads → Multi-core CPUs → Multi-Node Distributed Systems / History rhymes well.”</p>
+<p class="summary-en">It is an analogy, not a measurement. No citation, no date range, no statement of which stage the industry is in now, and no claim about what follows from the mapping. What it does is name the sequence, test-time scaling to subagents to swarms, which is the same direction three other builders describe differently in this window: Steinberger ran one planner and one coder by hand and reported it beat subagents, Levie put swarms inside a three-layer form factor, and Rauch shipped infrastructure aimed at making harnesses durable. Four framings, one direction, no shared measurement, and no post refers to another.</p>
+<p class="summary-zh zh">一条推文，太平洋时间 09:19，433 赞、23 次转发、36 条回复，也是今天最容易被引用的一句话：“就算叫我老派计算机科学家我也要说，推理时扩展 → subagent → agent 集群 这条线，和 CPU 线程 → 多核 CPU → 多节点分布式系统 这条线像得吓人。历史押韵押得很好。”</p>
+<p class="summary-zh zh">这是一个类比，不是一次测量。没有引用、没有时间跨度、没有说行业现在处在哪一阶、也没有说这套映射会推出什么。它做到的是给这个序列命了名：从推理时扩展，到 subagent，再到集群。而同一个窗口里另有三位 builder 用别的方式描述着同一个方向：Steinberger 手动跑一个规划者加一个编码者，说它比 subagent 更好；Levie 把集群放进一个三层的形式里；Rauch 发布了旨在让 harness 具备持久性的基础设施。四种说法、一个方向、没有共同的测量，而且谁的推文也没有提到谁。</p>
+<div class="urls">
+<a href="https://x.com/adityaag/status/2112579526379401408">https://x.com/adityaag/status/2112579526379401408</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Josh Woodward</span>
+<span class="builder-role">Google 副总裁（Google Labs / Gemini App）</span>
+</div>
+<p class="summary-en">Three posts, two rendered. At 15:46 Pacific: “We just crossed a big milestone for our GeminiApp Trusted Tester community yesterday. TLDR: Lots of people want to try early stuff on Web, Android, and iOS! If you’ve signed up before, you’re fully in. If you want to sign up…” 500 likes, 23 reposts, 44 replies.</p>
+<p class="summary-en">At 15:55, nine minutes later, he quotes a line attributed to Sundar Pichai, printed in the post as “Sundar”: “We are so committed to being at the frontier. It’s in our DNA. We won’t do it any other way”, followed by “Come build with us!” 426 likes, 23 reposts, 21 replies.</p>
+<p class="summary-en">Neither carries a number. “A big milestone” is not quantified, the size of the Trusted Tester community is not given, and no product, version or date is named in either post. They sit in one card because of what they are together: an early-access milestone and a frontier commitment inside nine minutes, from the VP whose remit covers Labs and the Gemini app. The third post, also at 15:46, is “Sign up here:” over a link, 48 likes and 7 replies; it carries no content of its own and is not rendered.</p>
+<p class="summary-zh zh">三条推文，两条做成卡片。太平洋时间 15:46：“昨天我们刚为 Gemini App 的 Trusted Tester 社群跨过了一个大里程碑。长话短说：很多人想在 Web、Android 和 iOS 上第一时间试新东西！如果你之前就报名过，你现在已经完全在里头了。想报名的话…”500 赞、23 次转发、44 条回复。</p>
+<p class="summary-zh zh">九分钟之后的 15:55，他引了一句出自 Sundar Pichai 的话，推文里印作“Sundar”：“我们对站在最前沿这件事有多投入。这写在我们的 DNA 里。我们不会用别的方式去做。”后面跟着一句“来和我们一起做吧！”426 赞、23 次转发、21 条回复。</p>
+<p class="summary-zh zh">两条都没有数字。“一个大里程碑”没有被量化，Trusted Tester 社群的规模没有给，两条里也都没有点名产品、版本或日期。把它们放在同一张卡片里，是因为它们放在一起是什么：一个早期体验的里程碑，加一句关于前沿的承诺，前后相隔九分钟，出自负责 Labs 和 Gemini App 的那位副总裁。第三条同样在 15:46，是“在这里报名：”加一个链接，48 赞、7 条回复；它自身没有任何内容，不做卡片。</p>
+<div class="urls">
+<a href="https://x.com/joshwoodward/status/2112676777290248675">https://x.com/joshwoodward/status/2112676777290248675</a>
+<a href="https://x.com/joshwoodward/status/2112679011839344651">https://x.com/joshwoodward/status/2112679011839344651</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Swyx</span>
+<span class="builder-role">smol_ai 与 Latent Space 主理人</span>
+</div>
+<p class="summary-en">Two of three rendered, and both are failure reports on named tools. At 22:06 Pacific: “opus is great for writing... when you dont happen to have any random no-no words in your prompt. jfc, CompleteSkeptic is right, give me prod, not god. i cant build an ai media org with this in the critical path.” 36 likes, 3 reposts, 36 replies.</p>
+<p class="summary-en">He names a model, Opus, a failure mode, refusals triggered by words in the prompt, and a consequence for his own work, and none of the three is measurable: no prompt, no refused word, no error message, no product. The post he quotes is not in this feed.</p>
+<p class="summary-en">At 21:33 Pacific: “i tried to make codex make animated explainer videos but ngmi”, 4 likes, 0 reposts, 4 replies. A second first-party failure report, on a different tool, with no output attached. Graded as user reports. They earn one card together because they are the only two posts today where someone says a named model or tool failed at a named task; every other negative claim in this window is about architecture or market structure. The third post, at 14:48, is a bare link with no text, 14 likes, and is not rendered.</p>
+<p class="summary-zh zh">三条里两条做成卡片，两条都是针对具体工具的失败报告。太平洋时间 22:06：“opus 写东西很棒……前提是你的 prompt 里刚好没有那些随机的禁忌词。天哪，CompleteSkeptic 说得对，给我能上生产的，别给我当神的。我没法把一个 AI 媒体机构的命脉放在这上面。”36 赞、3 次转发、36 条回复。</p>
+<p class="summary-zh zh">他点名了一个模型（Opus）、一种失效模式（prompt 里某些词触发拒绝）、以及一个对他自己工作的后果，而这三样没有一样可以量化：没有 prompt、没有被拒绝的词、没有报错、没有产品。他引用的那条也不在这个 feed 里。</p>
+<p class="summary-zh zh">太平洋时间 21:33：“我试过让 codex 做动画讲解视频，但没戏。”4 赞、0 次转发、4 条回复。这是第二份第一方失败报告，换了一个工具，没有附上任何产出。按用户报告评级。它们配得上一张卡片，是因为它们是今天仅有的两条有人说出一个有名字的模型或工具在一件有名字的任务上失败了；这个窗口里其他所有负向说法，讲的都是架构或者市场结构。第三条在 14:48，是一条没有正文的纯链接，14 赞，不做卡片。</p>
+<div class="urls">
+<a href="https://x.com/swyx/status/2112772374823407870">https://x.com/swyx/status/2112772374823407870</a>
+<a href="https://x.com/swyx/status/2112764130197451209">https://x.com/swyx/status/2112764130197451209</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Yang</span>
+<span class="builder-role">AI 教程与访谈作者</span>
+</div>
+<p class="summary-en">One of three rendered. At 11:12 Pacific: “I predict Fable 5.5 will come anywhere from 5 seconds from now to a few weeks from now. And it’ll be breathtaking. You heard it here first folks.” 62 likes, 2 reposts, 12 replies.</p>
+<p class="summary-en">Fable has appeared as a model name in this series before, across the September issues; this is the first time a version number is attached to it here. The prediction undercuts itself inside the same sentence, since a window that runs from five seconds to a few weeks cannot be falsified by waiting, and there is no source, no lever and no evidence behind it.</p>
+<p class="summary-en">It is also the second prediction to appear in three issues. In the 10-21 issue Garry Tan put roughly October 2027 on a different product, one of the few claims in this feed that can be checked against a date. The other two posts, both at 16:11, are a paid partnership with Mercury for its payroll product and the disclosure that follows it, 25 likes and 1 like; promotion with the interest stated, and following this series since 10-15 they are counted, not rendered, and given no URL.</p>
+<p class="summary-zh zh">三条里一条做成卡片。太平洋时间 11:12：“我预测 Fable 5.5 会在从现在起 5 秒到几周之间任何时候到来。而且它会让人屏住呼吸。各位，你们是最先从这里听到的。”62 赞、2 次转发、12 条回复。</p>
+<p class="summary-zh zh">Fable 作为模型名在本系列此前出现过，分布在九月那几期里；这是这里第一次给它挂上版本号。这个预测在同一句里就把自己削弱了 —— 一段从 5 秒跨到几周的窗口，是没法靠等着来证伪的；而且它背后没有信源、没有依据、也没有证据。</p>
+<p class="summary-zh zh">这也是三期里出现的第二个预测。10-21 那期，Garry Tan 给另一个产品放了一个大约 2027 年 10 月的日期，那是本 feed 里少数可以拿日期去核对的说法之一。另外两条都在 16:11，是与 Mercury 就其薪酬产品的付费合作，以及随之而来的披露，25 赞和 1 赞；这是把利益摆在明面上的推广，按本系列自 10-15 起的惯例，计入但不做卡片，也不给链接。</p>
+<div class="urls">
+<a href="https://x.com/petergyang/status/2112607957586452724">https://x.com/petergyang/status/2112607957586452724</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Garry Tan</span>
+<span class="builder-role">Y Combinator CEO</span>
+</div>
+<p class="summary-en">Two of three rendered. At 17:11 Pacific: “GStack is now Capy aware and works great with their software factory feature Captains”, 69 likes, 6 reposts, 12 replies. Both products have history in this feed: GStack is his own and has been mentioned since June, and Capy appeared in the 2026-10-04 issue, described there as a 24/7 standup for your agents. “Captains” is new here, with no earlier mention in any issue, and nothing in the post says what a captain does.</p>
+<p class="summary-en">At 11:28 Pacific: “Greatest unlock for any startup founder or anyone who has to get in touch with the right people”, over a link, 693 likes, 41 reposts, 43 replies, the most-liked of his three posts. It names nothing at all, no tool, no company and no mechanism.</p>
+<p class="summary-en">The third post, at 07:37, is about a California asset seizure tax and carries no AI content. Following this series since 10-15, it is counted but not rendered and given no URL.</p>
+<p class="summary-zh zh">三条里两条做成卡片。太平洋时间 17:11：“GStack 现在支持 Capy 了，配合他们的软件工厂功能 Captains 用起来很好。”69 赞、6 次转发、12 条回复。两个产品在这个 feed 里都有前史：GStack 是他自己的，从六月起就被提到过；Capy 出现在 2026-10-04 那期，当时的描述是「给你的 agent 开的 24 小时站会」。“Captains”在这里是新的，此前任何一期都没有提过，而且这条推文没有说 captain 是干什么的。</p>
+<p class="summary-zh zh">太平洋时间 11:28：“对任何一位创业创始人、或者任何必须找到对的人的人来说，这是最大的一道解锁。”配一个链接，693 赞、41 次转发、43 条回复。它什么都没点名 —— 没有工具、没有公司、没有机制，而它是这个窗口里转发数最高的、没有点名任何产品的一条。</p>
+<p class="summary-zh zh">第三条在 07:37，讲的是加州一项资产没收税，没有 AI 内容。按本系列自 10-15 起的惯例，计入但不做卡片，也不给链接。</p>
+<div class="urls">
+<a href="https://x.com/garrytan/status/2112698243553579485">https://x.com/garrytan/status/2112698243553579485</a>
+<a href="https://x.com/garrytan/status/2112611824432742493">https://x.com/garrytan/status/2112611824432742493</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Matt Turck</span>
+<span class="builder-role">FirstMark Capital 投资人</span>
+</div>
+<p class="summary-en">Three posts, all rendered, and all of them are portfolio news from someone with money in the companies. At 17:03 Pacific: “Fun day for the FirstMarkCap family”, listing a Series B at Daytona, a Series A at Baba, “Big launch of GradiumAI’s new SOTA open source on-device voice AI model”, and Synthesia and Rillet “officially taking over the NYC subway”. 35 likes, 6 reposts, 5 replies.</p>
+<p class="summary-en">At 12:14: “Big news in open source voice AI: a suite of tiny text-to-speech, on-device SOTA models”, 28 likes. At 08:44: “Thrilled to double down at daytonaio… We’re grateful that they let us lead the Series B, after leading the Series A earlier this year”, 58 likes.</p>
+<p class="summary-en">Gradium is the one with a prior appearance here. The 2026-09-10 issue carried Gradium AI letting you build and customize any voice you would like, live as of that post; six weeks later the claim is open source, on device and state of the art. No number attaches to any of the three posts: no round size, no valuation, no model size, no benchmark, no comparison for SOTA, and no licence named. All three are graded as reports from an investor in the companies.</p>
+<p class="summary-zh zh">三条推文全部做成卡片，三条讲的都是被投公司的消息，而说这话的人在这些公司里有投资。太平洋时间 17:03：“FirstMark 大家庭开心的一天”，列了 Daytona 的 B 轮、Baba 的 A 轮、“GradiumAI 新的 SOTA 开源端上语音模型的大发布”，以及 Synthesia 和 Rillet “正式接管了纽约地铁”。35 赞、6 次转发、5 条回复。</p>
+<p class="summary-zh zh">12:14：“开源语音 AI 的大新闻：一整套极小的端上文本转语音 SOTA 模型。”28 赞。08:44：“很高兴能在 Daytona 上加倍下注……感谢他们让我们领投了 B 轮，而今年早些时候的 A 轮也是我们在领投。”58 赞。</p>
+<p class="summary-zh zh">Gradium 是这里唯一有前史的一个。2026-09-10 那期记过 Gradium AI 让你可以构建和定制任何你想要的声音，发布当日已上线；六周之后，说法变成了开源、端上、业界最佳。三条推文没有任何一条带数字：没有轮次金额、没有估值、没有模型规模、没有基准、没有支撑 SOTA 这个说法的对比对象，也没有点名许可证。三条都按「来自一位公司投资人的报告」评级。</p>
+<div class="urls">
+<a href="https://x.com/mattturck/status/2112696155519775041">https://x.com/mattturck/status/2112696155519775041</a>
+<a href="https://x.com/mattturck/status/2112623582098428015">https://x.com/mattturck/status/2112623582098428015</a>
+<a href="https://x.com/mattturck/status/2112570721499042246">https://x.com/mattturck/status/2112570721499042246</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Google Labs</span>
+<span class="builder-role">Google Labs 官方账号</span>
+</div>
+<p class="summary-en">One post, at 11:05 Pacific, 65 likes, 13 reposts, 4 replies. It opens a three-part series called Dreambeans Roulette, with two named employees, a product manager and a VP of Product, plus the VP’s dog: open Dreambeans, select a story, go out and do it.</p>
+<p class="summary-en">It closes on availability: “Dreambeans is available in the US, for users 18+. More regions coming soon.” This is the only post in the window from a lab account that is neither a model claim nor a research result, and the only one that states a geographic and an age limit. No user figure, no numbers, and no product description beyond the three steps, so it is graded as announcement material.</p>
+<p class="summary-zh zh">一条推文，太平洋时间 11:05，65 赞、13 次转发、4 条回复。它开了一个叫 Dreambeans Roulette 的三集系列，出镜的是两位具名的员工 —— 一位产品经理和一位产品副总裁 —— 以及副总裁那只狗：打开 Dreambeans，选一个故事，然后出门去把它做了。</p>
+<p class="summary-zh zh">结尾是可用范围：“Dreambeans 目前在美国提供，面向 18 岁以上用户。更多地区即将开放。”这是这个窗口里唯一一条既不是模型主张、也不是研究成果的实验室账号内容，也是唯一一条写明了地域和年龄限制的。没有用户数、没有任何数字，除了那三步之外也没有产品描述，所以按公告类内容评级。</p>
+<div class="urls">
+<a href="https://x.com/GoogleLabs/status/2112606263163203970">https://x.com/GoogleLabs/status/2112606263163203970</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Zara Zhang</span>
+<span class="builder-role">独立开发者</span>
+</div>
+<p class="summary-en">One post, at 06:04 Pacific, the earliest in the window, 159 likes, 7 reposts, 33 replies: “If you’re a product builder in the earliest stages, the biggest advantage of having your own audience isn’t even the distribution. It’s being able to - Test different ideas/angles and see what resonate with people - Find your first 100 early adopters / Signals &gt; distribution”</p>
+<p class="summary-en">It is a claim about early-stage building with no example, no number and no case named, and it reverses the usual order in one move: distribution is second, signal is first. It is also the only post today about how to find users, in a window otherwise made of models, agents, infrastructure and money.</p>
+<p class="summary-zh zh">一条推文，太平洋时间 06:04，是窗口里最早的一条，159 赞、7 次转发、33 条回复：“如果你是一个处在最早期阶段的产品 builder，拥有自己的受众最大的好处甚至还不是分发。而是你能够 —— 测试不同的想法和切入角度，看哪些能在人身上引起共鸣 —— 找到你最初的那 100 个早期用户。信号 &gt; 分发。”</p>
+<p class="summary-zh zh">这是一个关于最早期做产品的主张，没有例子、没有数字、也没有点名任何案例，而它用一个动作把通常的顺序倒了过来：分发排第二，信号排第一。它也是今天唯一一条讲怎么找用户的推文 —— 这个窗口里其余的内容全都是模型、agent、基础设施和钱。</p>
+<div class="urls">
+<a href="https://x.com/zarazhangrui/status/2112530473994072225">https://x.com/zarazhangrui/status/2112530473994072225</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Dan Shipper</span>
+<span class="builder-role">Every CEO</span>
+</div>
+<p class="summary-en">One of three rendered. At 07:24 Pacific: “right it needs to ask for approval but the approval policy is never so it can’t ask for approval! and it doesn’t know how I can change the approval policy / makes sense!” 10 likes, 0 reposts, 2 replies.</p>
+<p class="summary-en">It is a deadlock report, and it is the shortest route to a real failure mode in this window: the agent is required to ask for permission, the policy forbids asking, and the agent does not know where the policy is set. It names no product, no version and no file, and the post it answers is not in this feed, so nothing here can be reproduced. It sits at the opposite end of the day from Rauch’s durability release, which is about the same layer; neither post references the other.</p>
+<p class="summary-en">The other two are not rendered. At 08:07, a book review of Will and Attention by Meghan O’Gieblyn, 41 likes; it is the longest post in the window and it contains no AI content, so it is outside the scope of this digest. At 12:29, a post about a pasta lunch, 26 likes.</p>
+<p class="summary-zh zh">三条里一条做成卡片。太平洋时间 07:24：“对，它需要请求批准，可是批准策略设的是从不，所以它根本没法请求批准！而且它也不知道我该怎么去改这个批准策略。真是合理呢！”10 赞、0 次转发、2 条回复。</p>
+<p class="summary-zh zh">这是一份死锁报告，也是这个窗口里通往一个真实失效模式最短的一条路径：agent 被要求先请示，策略却禁止它请示，而它又不知道这个策略在哪里改。它没有点名产品、版本和文件，它回应的那条也不在这个 feed 里，所以这里没有任何东西可以复现。它落在这一天的另一端，和 Rauch 那条关于持久性的发布隔着整个白天，而后者讲的是同一层；两条谁也没有提到谁。</p>
+<p class="summary-zh zh">另外两条不做卡片。08:07 那是对 Meghan O’Gieblyn 的《Will and Attention》的一篇书评，41 赞；它是这个窗口里最长的一条，里面没有任何 AI 内容，所以不在这个日报的范围之内。12:29 那条讲的是午餐吃意面，26 赞。</p>
+<div class="urls">
+<a href="https://x.com/danshipper/status/2112550542837002419">https://x.com/danshipper/status/2112550542837002419</a>
+</div>
+</article>
+</section>
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128161;</span>
+<h2 class="section-title">The Takeaway</h2>
+<span class="section-meta">2026-10-22</span>
+</div>
+<div class="takeaway">
+<div class="takeaway-label">The Takeaway</div>
+<p>The clock lands something today. Day 16 is the first entry in this series that names a change and puts a number on it: 12 hours of caching on the API side, effectively indefinite caching for signed-in users across Codex and Work, and no penalty for resuming an old conversation. Day 9 carried a figure but in the future tense, Day 10 ended in a reset and named nothing, Day 15 was a stop and then a reversal. It is still one line from the product owner, with no changelog named and no second party, so it stays a report, but the shape of the clock has changed.</p>
+<p>The other Sottiaux post is the incident, and it is the bigger of the two by attention: approximately 40,000 accounts had usage limits applied that did not match the plan they had selected, over a weekend when there were reports of usage draining faster than anticipated. Users are being contacted individually, the issue is corrected, credits will be added, and the post ends on an apology. No plan names, no amount for the credits, no duration, no figure for misapplied usage. This is the first time the usage question carried in this series since 10-15 gets a number, and it is a count of accounts hit by a fault, not a count of limits raised.</p>
+<p>Durability is now the thread running through three issues. On 10-21 Vercel shipped an open-source artifact builder made durable by libfx. On 10-20 the most popular post from the same account was a joke about country domains. Today Rauch extends the durability infrastructure behind eve and Workflows to any harness, open source and runtime agnostic, and adds an architectural reason why the two most used coding agents do not fit: Claude Code and Codex are not designed for embedding, which makes them less efficient, less portable and adds a sandbox requirement. No numbers, no repository in the post, no date.</p>
+<p>Four builders describe the same direction today and not one of them measures it. Aditya Agarwal maps inference-time scaling, subagents and swarms onto threads, multicore and distributed systems. Levie calls domain-specific autonomous systems the emerging form factor and gives it three layers. Steinberger reports that one planner plus one coder in worktrees beat subagents for him, with a second agent challenging the first. Rauch ships infrastructure for harnesses. Four framings, one direction, no shared measurement, and no post in this window refers to another.</p>
+<p>The only two posts today where a named thing failed at a named task are both from Swyx. Opus is good for writing until the prompt contains a word it refuses, and he cannot put it in the critical path of an AI media organisation. Codex could not make animated explainer videos. No prompt, no refused word, no output, no reproduction. Everything else negative in this window is about architecture or market structure, not about something that did not work.</p>
+<p>Dan Shipper’s deadlock is the smallest post in the window and the clearest failure mode: an agent must ask for approval, the policy is never, so it cannot ask, and it does not know how to change the policy. It names no product. It is worth reading next to Rauch’s post, which is about the same layer, arrives seven hours later, and comes from the other end of the stack, from someone building the infrastructure rather than using it.</p>
+<p>Two predictions, and only one of them can be checked. Peter Yang puts Fable 5.5 anywhere from five seconds to a few weeks away and calls it breathtaking; a range that wide cannot be falsified by waiting. In the 10-21 issue Garry Tan put roughly October 2027 on a different product. Dated predictions remain rare in this feed, and today’s is a reminder of why the rare ones are worth noting.</p>
+<p>First-party claims without numbers, counted as a group: Sottiaux on caching and on the incident, Rauch on durability and on a free ultimate education, Levie on a system for every role in the economy, Turck on a state-of-the-art open-source on-device voice model, Josh Woodward on a big milestone, Steinberger on works far better, Zara Zhang on signals over distribution. Every one comes from someone with an interest in the thing described, and none carries a measurement.</p>
+<p>Both zeros today are emptiness rather than dedup: the podcasts and blogs arrays came back empty, so there was nothing to match against. Across the last four issues these two slots have now come back empty, deduped, and both, which is worth stating plainly each time, because a zero in either slot describes what this feed returned, not what the world published.</p>
+<p>Coverage, for anyone reading these as a continuous record. This snapshot is 2026-10-21T06:42Z, Pacific 10-20 23:42, and the 31 posts run from Pacific 06:04 to 22:06, one Pacific day with nothing straddling midnight, ending one hour and thirty-six minutes before the snapshot. The 10-21 issue ended at Pacific 10-19 23:33, so about six and a half hours between the two windows are not covered by this feed, and whether anything happened in them cannot be determined from what was returned.</p>
+<p>Carried forward, unchanged here: no technical write-up and no second provider on the Vercel sandbox escape from 10-16; no name, actor, date or scale for the attack Sottiaux described on 10-20, and nothing on what Daybreak Blue grants or who qualifies, with the added note that the Daybreak in the 09-26 issue was a different thing, a tool run over open-source dependencies, so this feed gives no basis for treating the two as one product. Also still open: no score for Sol 6, though today Sol 6.1 is named as the thing that did the coding, the first time a versioned Sol name is attached to work in this feed; no Muse Wonder Full on the API; no cost put on Ghost Pepper maintenance; no external reproduction of the Sonnet 5.5 numbers; no OpenClaw Android review; no answer to the 10x coding-agent question; no written form of Goodfire x Hugging Face; no second network in Rauch’s traffic series; no mechanics chosen for Thariq’s game and no word on whether it ships; Wabi 2.0 has not moved past the preview three builders were shown and the group-chat and orchestrator descriptions remain unreconciled; the 1,000 tokens per second from 10-21 still has no subject; Dan Shipper’s three-part story and his ideographic line remain unidentified; Quinten and Ajay’s product is still unnamed; and what the Day 15 reset cleared is now two entries old, since Day 16 arrived without referring to it. Newly open: the person Sam Altman names only as Aleksander, with no surname, title or scope in the feed; the size of the Gemini Trusted Tester milestone; whether Fable 5.5 lands at all and when; what a Captain does inside Capy; the licence, size and benchmark behind Gradium’s model; the plan names and credit amount behind the 40,000 accounts; whether the cache change is documented anywhere; the OpenClaw plugin Steinberger wrote, of which no code appears; and which words Swyx hit. Date still ahead: Opal shuts down 2026-11-17.</p>
+</div>
+<div class="takeaway zh">
+<div class="takeaway-label">&#26680;&#24515;&#32467;&#35770;</div>
+<p>这个时钟今天落地了一件事。Day 16 是本系列里第一个既点名了变更、又给了数字的条目：API 这一侧 12 小时缓存，Codex 与 Work 里已登录用户实际上无限期缓存，回到旧会话不再有惩罚。Day 9 带过数字但是将来时，Day 10 以 reset 收尾且什么都没点名，Day 15 是一次停下加一次反转。它仍然只是产品负责人写的一行字，没有点名更新日志、也没有第二方，所以它仍是一份报告，但这个时钟的形状变了。</p>
+<p>Sottiaux 的另一条是事故，而按注意力算它是两条里更大的那条：大约 40,000 个账户被套用的用量限额，与它们选定的套餐并不对应，时间就在那个「有用户报告用量掉得比预期快」的周末。用户会被逐个联系，问题已修正，会补额度，帖子以一句道歉收尾。没有套餐名、没有补多少、没有持续时间、也没有误算掉的用量数字。这是本系列自 10-15 起一直挂着的那个用量问题第一次拿到一个数字，而这个数字是「被故障影响的账户数」，不是「被抬高的限额数」。</p>
+<p>持久性现在是穿过连续三期的那条线。10-21 那期，Vercel 发布了一个由 libfx 提供持久性的开源 artifact 构建器。10-20 那期，同一个账号最受欢迎的一条是关于国家域名的玩笑。今天 Rauch 把支撑 eve 和 Workflows 的持久化基础设施扩展给任意 harness，开源、不绑定运行时，并补了一个架构上的理由，说明为什么两个用得最多的编码 agent 不合这套模式：Claude Code 和 Codex 不是为被嵌入而设计的，因此效率更低、可移植性更差，还多出一个沙箱要求。没有数字，正文里没有仓库，没有日期。</p>
+<p>今天有四位 builder 描述着同一个方向，而没有一位给出测量。Aditya Agarwal 把推理时扩展、subagent、集群映射到线程、多核、分布式系统。Levie 把面向特定领域的自治系统称为正在成型的形式，并给了它三层。Steinberger 报告说，一个规划者加一个编码者在 worktree 里跑，对他来说胜过 subagent，外加第二个会质疑的 agent。Rauch 发布了面向 harness 的基础设施。四种说法、一个方向、没有共同的测量，而且这个窗口里没有一条推文提到另一条。</p>
+<p>今天仅有的两条「某个有名字的东西在一件有名字的任务上失败了」，都出自 Swyx。Opus 写东西很棒，前提是 prompt 里没有那个会触发拒绝的词，而他没法把一个 AI 媒体机构的命脉放在这上面。Codex 做不出动画讲解视频。没有 prompt、没有被拒绝的词、没有产出、无法复现。这个窗口里其余所有负面的说法，讲的都是架构或市场结构，不是某样东西没跑通。</p>
+<p>Dan Shipper 那条死锁是这个窗口里最小的一条，也是失效模式最清楚的一条：agent 被要求请示批准，策略设的是从不，于是它没法请示，而它也不知道去哪里改这个策略。它没有点名产品。它值得和 Rauch 那条放在一起读 —— 后者讲的是同一层，晚了七个小时到达，而且来自技术栈的另一端，出自一个在建基础设施的人，而不是在用的人。</p>
+<p>两个预测，其中只有一个可以被核对。Peter Yang 把 Fable 5.5 放在「从现在起 5 秒到几周之间」，并说它会让人屏住呼吸；这么宽的区间是没法靠等来证伪的。10-21 那期，Garry Tan 给另一个产品放了一个大约 2027 年 10 月的日期。带日期的预测在这个 feed 里始终稀少，而今天这条正好提醒了为什么那些稀少的才值得记下来。</p>
+<p>第一方、无数字的说法，作为一组来数：Sottiaux 讲缓存、讲事故；Rauch 讲持久性、讲免费的终极教育；Levie 讲经济里每个岗位都会有一套系统；Turck 讲业界最佳的开源端上语音模型；Josh Woodward 讲一个大里程碑；Steinberger 讲好得多；Zara Zhang 讲信号胜过分发。每一条都出自对所描述对象有利益关系的人，而且没有一条带测量。</p>
+<p>今天两个 0 都是空数组，不是判重：podcasts 和 blogs 两个数组返回都是空的，所以没有东西可以拿来匹配。连续四期下来，这两格已经分别出现过「空」「判重」「两个都是」，所以每次都值得把它说清楚 —— 哪一格是 0，描述的都是这个 feed 返回了什么，而不是外界发布了什么。</p>
+<p>覆盖情况，写给把这一系列当成连续记录来读的人。这一期的快照是 2026-10-21T06:42Z，即太平洋时间 10-20 23:42，31 条推文从太平洋时间 06:04 排到 22:06，是一个完整的太平洋日，没有任何一条跨过午夜，并且在快照之前一小时三十六分钟就停了。10-21 那期结束在太平洋时间 10-19 23:33，所以两个窗口之间大约六个半小时这个 feed 没有覆盖；那段时间里有没有发生过什么，无法从返回的内容里判断。</p>
+<p>结转项，在这个窗口里全部没有移动：10-16 那次 Vercel 沙箱逃逸仍然没有技术说明、也没有第二家供应商确认；Sottiaux 在 10-20 描述的那次攻击仍然没有名字、没有实施者、没有日期、没有规模，Daybreak Blue 给什么、谁能申请也仍然没有说法 —— 这里补一句：09-26 那期出现的 Daybreak 是另一回事，是一个跑在开源依赖上的工具，所以这个 feed 没有任何依据把两者当成同一个产品。同样仍未闭环的还有：Sol 6 仍然没有分数，不过今天 Sol 6.1 被点名为那个真正写了代码的东西，这是本 feed 里第一次有带版本号的 Sol 名字挂到实际完成的活儿上；Muse Wonder Full 仍然没上 API；Ghost Pepper 的维护成本仍然没有人算账；Sonnet 5.5 的数字仍然没有外部复现；OpenClaw 的 Android 审核仍然没有进展；那个 10x 编码 agent 的提问仍然没人回答；Goodfire 与 Hugging Face 那次仍然没有书面形式；Rauch 那条流量序列仍然没有第二家网络；Thariq 那个游戏仍然没有选定机制、也没有说会不会做出来；Wabi 2.0 仍然没有走出那三个人看到的预览，群聊与总控两种描述也仍然没有对上；10-21 那个每秒 1,000 token 仍然没有主语；Dan Shipper 那个三部分的 story 和那句讲个殊与通则的话仍然没有认出所指；Quinten 和 Ajay 做的产品仍然没有被点名；而 Day 15 那次 reset 清掉了什么，现在已经隔了两格 —— Day 16 到了，却完全没有提到它。本期新开：Sam Altman 只称其为 Aleksander 的那个人，feed 里没有姓氏、头衔和职责范围；Gemini Trusted Tester 那个里程碑的规模；Fable 5.5 到底会不会来、什么时候来；Capy 里的 Captain 是干什么的；Gradium 那个模型背后的许可证、规模和基准；那 40,000 个账户涉及哪些套餐、补了多少额度；这次缓存变更有没有在任何地方写成文档；Steinberger 写的那个 OpenClaw 插件（feed 里没有代码）；以及 Swyx 撞上的是哪些词。仍未到来的日期：Opal 于 2026-11-17 关停。</p>
+</div>
+</section>
+<!-- ============== NOTES ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128221;</span>
+<h2 class="section-title">&#35760;&#24405; / Notes &amp; Dedup</h2>
+<span class="section-meta">31 Zero &#183; 0 Dedup &#183; 2 Empty</span>
+</div>
+<div class="dedup">
+<p style="margin-top:12px"><strong>Tweet check</strong> &mdash; All 31 tweet IDs in this window were matched against every file under 2026/ and returned zero hits, so nothing here repeats a post from an earlier issue.</p>
+<p style="margin-top:12px"><strong>Podcast check</strong> &mdash; The slot is 0 by emptiness: the podcasts array came back empty, so there was no title, host or publishedAt to match. This is the fourth consecutive issue in which this slot has produced nothing, and the causes have differed each time, dedup on 10-20 and 10-21, an empty array today, and a counted episode on 10-19. A zero here describes what the feed returned, not what was published.</p>
+<p style="margin-top:12px"><strong>Blog check</strong> &mdash; The slot is 0 by emptiness as well: the blogs array came back empty, so there was no slug to match and nothing was deferred. Across the five issues from 10-16 to 10-21 these two slots came back as a counted episode, as dedup and as an empty array, but never both empty on the same day; today they are.</p>
+<p style="margin-top:12px"><strong>Not rendered</strong> &mdash; Nine of the 31 posts are counted but not rendered, and one builder is absent from the card section entirely. Nikunj Kothari’s only post, at 16:49 Pacific, 26 likes, is a reaction to something he calls a generational miss not to name p(bloom); it carries no AI content, names no product and the post it quotes is not in this feed, so he is counted with no card, making 15 builders counted and 14 rendered, 31 posts counted and 22 rendered. The other eight: two paid-partnership posts from Peter Yang at 16:11 (25 and 1 like) for Mercury’s payroll product, promotion with the interest stated; a bare link from Swyx at 14:48 (14 likes) and a sign-up-only post from Josh Woodward at 15:46 (48 likes), both with no text of their own; Dan Shipper’s book review at 08:07 (41 likes), the longest post in the window and carrying no AI content, plus his pasta post at 12:29 (26 likes); Peter Steinberger’s 9x-faster line at 11:09 (50 likes), which names no subject; and Garry Tan’s post at 07:37 (584 likes) on a California asset seizure tax, with no AI content. Following this series since 10-15, excluded posts are given no URL.</p>
+<p style="margin-top:12px"><strong>Coverage</strong> &mdash; This issue’s snapshot is 2026-10-21T06:42Z, Pacific 10-20 23:42, and all 31 posts sit inside Pacific 10-20, from 06:04 to 22:06. The previous issue, dated 10-21, used a snapshot of 2026-10-20T06:41Z and its posts ended at Pacific 10-19 23:33. The two windows do not meet; between Pacific 10-19 23:33 and 10-20 06:04 this feed carried nothing, and whether anything happened there cannot be determined from what was returned. The window also closes one hour and thirty-six minutes before the snapshot, so the last stretch of the Pacific day is not seen.</p>
+<p style="margin-top:12px"><strong>Not resolved</strong> &mdash; Who Aleksander is, what he was asked to take on, and when he starts; whether the 12-hour cache change is written up anywhere and which API surface it applies to; which plans the 40,000 accounts were on, how long the inconsistency ran and how much credit is being given; whether the usage reports that prompted it are the same ones behind the five-hour limits in the Pro poll that has not reappeared since 10-15; what a Captain does inside Capy and whether GStack’s support for it ships anywhere; the licence, size and benchmark behind Gradium’s model; what Dreambeans is beyond three steps; which words Swyx hit and what the codex video attempt produced; what product Dan Shipper’s approval-policy deadlock came from; what the Gemini Trusted Tester milestone is measured in; and whether Fable 5.5 exists as a version anyone else has named.</p>
+<p style="margin-top:12px"><strong>推文核对</strong> &mdash; 这个窗口里 31 个推文 ID 全部拿去和 2026/ 下的每一个文件比对，全部零命中，所以这里没有一条推文是重复此前某一期的。</p>
+<p style="margin-top:12px"><strong>播客核对</strong> &mdash; 这一格是 0，原因是数组为空：podcasts 数组返回为空，所以没有标题、主持人或 publishedAt 可以匹配。这已经是连续第四期这一格没有产出，而每次原因都不同 —— 10-20 和 10-21 是判重，今天是空数组，10-19 则是被计入。这里的 0 描述的是这个 feed 返回了什么，不是外界发布了什么。</p>
+<p style="margin-top:12px"><strong>博客核对</strong> &mdash; 这一格同样是 0、同样是数组为空：blogs 数组返回为空，所以没有 slug 可匹配，也不存在被推迟的条目。从 10-16 到 10-21 这五期里，这两格分别出现过「计入」「判重」「空数组」三种形态，但从来没有在同一天同时为空；今天是第一次。</p>
+<p style="margin-top:12px"><strong>未渲染</strong> &mdash; 31 条推文里有 9 条计入但没有做成卡片，其中一位 builder 在卡片区完全缺席。Nikunj Kothari 唯一的推文在太平洋时间 16:49，26 赞，是对某件事的感叹，说不给它起名叫 p(bloom) 是一代人的错失；它没有 AI 内容、没有点名产品，引用的那条也不在这个 feed 里，所以他被计入但没有卡片 —— 计入 15 位 builder、渲染 14 位，计入 31 条推文、渲染 22 条。另外八条是：Peter Yang 在 16:11 两条为 Mercury 薪酬产品做的付费合作（25 赞和 1 赞），把利益摆在明面上的推广；Swyx 在 14:48 一条纯链接（14 赞）和 Josh Woodward 在 15:46 一条只有报名的（48 赞），两条自身都没有正文；Dan Shipper 在 08:07 的书评（41 赞），是这个窗口里最长的一条且没有 AI 内容，以及他在 12:29 那条讲意面午餐的（26 赞）；Peter Steinberger 在 11:09 那句「本来能快 9 倍」（50 赞），没有点名对象；还有 Garry Tan 在 07:37 那条讲加州资产没收税的（584 赞），没有 AI 内容。按照本系列自 10-15 起对被排除内容的一贯处理，不给 URL。</p>
+<p style="margin-top:12px"><strong>覆盖</strong> &mdash; 这一期的快照是 2026-10-21T06:42Z，即太平洋时间 10-20 23:42，31 条推文全部落在太平洋 10-20 之内，从 06:04 排到 22:06。上一期（10-21）用的快照是 2026-10-20T06:41Z，它的推文结束在太平洋时间 10-19 23:33。两个窗口没有接上：太平洋时间 10-19 23:33 到 10-20 06:04 之间，这个 feed 什么都没有给；那段时间里有没有发生过什么，无法从返回的内容里判断。另外这个窗口在快照之前一小时三十六分钟就闭合了，所以这个太平洋日的最后一段没有被看到。</p>
+<p style="margin-top:12px"><strong>未闭环</strong> &mdash; Aleksander 是谁、被请来接下的是什么、什么时候开始；这次 12 小时缓存变更有没有写在任何地方、适用于哪个 API 面；那 40,000 个账户原本在哪些套餐上、这个不一致持续了多久、补了多少额度；引发这次排查的用量报告，和 10-15 之后就再没重现的 Pro 投票里那 5 小时限制是不是同一件事；Capy 里的 Captain 是干什么的、GStack 对它的支持有没有真的发出去；Gradium 那个模型背后的许可证、规模和基准；Dreambeans 在那三步之外到底是什么；Swyx 撞上的是哪些词、让 codex 做视频那次产出了什么；Dan Shipper 那条批准策略死锁出自哪个产品；Gemini Trusted Tester 那个里程碑是用什么衡量的；以及 Fable 5.5 这个版本有没有别处的人提过。</p>
+</div>
+</section>
+<footer class="footer">
+<div class="next-issue">&#128236; &#19979;&#19968;&#26399;&#65306;&#26126;&#22825; 10:00&#65288;&#21271;&#20140;&#26102;&#38388;&#65289;</div>
+<div class="signature">by chloevchen</div>
+</footer>
+
+<!-- by chloevchen -->
+</body>
+</html>
