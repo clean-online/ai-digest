@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Builders Digest &#183; 2026-10-26</title>
+<style>
+
+
+
+
+
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 28px 30px; margin-bottom: 24px; }
+  .podcast-source { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
+  .podcast-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; margin-bottom: 18px; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; }
+
+
+</style>
+</head>
+<body>
+<header class="topbar">
+<div class="topbar-inner">
+<a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+<span>&#21452;&#35821; &#183; Bilingual</span>
+</div>
+</header>
+<section class="header">
+<div class="eyebrow">Daily Digest &#183; 2026-10-26</div>
+<h1>AI Builders Digest</h1>
+</section>
+<div class="stats">
+<div class="stat"><div class="stat-num">11</div><div class="stat-label">Builders</div></div>
+<div class="stat"><div class="stat-num">23</div><div class="stat-label">Tweets</div></div>
+<div class="stat"><div class="stat-num">1</div><div class="stat-label">Podcast</div></div>
+<div class="stat"><div class="stat-num">0</div><div class="stat-label">Blog</div></div>
+</div>
+<p class="note-line">Feed snapshot 2026-10-25T06:39Z (Pacific 10-24 23:39). All 23 posts fall inside Pacific 10-24, from 07:00 to 23:06, one Pacific day with nothing straddling midnight, although it closes thirty-three minutes before the snapshot. The previous issue, dated 10-22, used a snapshot of 2026-10-21T06:42Z and ended at Pacific 10-20 22:06; between Pacific 10-20 22:06 and 10-24 07:00 this feed returned nothing, and no issue exists for 10-23, 10-24 or 10-25, so three Pacific days, 10-21 to 10-23, are absent from the series entirely; whether anything happened in them cannot be determined from what was returned. This feed also carried no engagement counts at all: likes, reposts, replies and quotes are null on every one of the 23 posts, so nothing here is ranked by attention. Podcast 1, blog 0, and the 0 is emptiness: the blogs array came back empty. Nine of the 23 posts are counted but not rendered: 11 builders counted and 8 rendered, 23 posts counted and 14 rendered.</p>
+<p class="note-line zh">feed 快照 2026-10-25T06:39Z（太平洋 10-24 23:39）。23 条推文全部落在太平洋 10-24 之内，从 07:00 排到 23:06，是一个完整的太平洋日，没有任何一条跨过午夜，不过它在快照之前三十三分钟就收口了。上一期（10-22）用的快照是 2026-10-21T06:42Z，推文结束在太平洋 10-20 22:06；太平洋 10-20 22:06 到 10-24 07:00 之间这个 feed 什么都没有给，而且 10-23、10-24、10-25 三期根本没有生成，所以太平洋 10-21 到 10-23 这三天在本系列里是整段缺席；那几天里有没有发生过什么，无法从返回的内容里判断。另外这个 feed 没有返回任何互动数：23 条推文的赞、转、回复、引用全部为空，所以这一期不做任何热度排序。播客 1 期，博客 0 期，0 的原因是 blogs 数组返回为空。23 条推文里有 9 条计入但没有做成卡片：计入 11 位 builder、渲染 8 位，计入 23 条推文、渲染 14 条。</p>
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128036;</span>
+<h2 class="section-title">X / Twitter</h2>
+<span class="section-meta">11 Builders &#183; 23 Tweets</span>
+</div>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thibault Sottiaux</span>
+<span class="builder-role">OpenAI Codex 与 ChatGPT</span>
+</div>
+<p class="summary-en">Three posts between 20:39 and 23:06 Pacific, and the clock moves again. At 20:39: &ldquo;Day 20/ Rest and reset.&rdquo; At 20:40, one minute later: &ldquo;By midnight PST.&rdquo; At 23:06: &ldquo;It is all propagated. Enjoy some mad codexing tomorrow. Fun week ahead too.&rdquo;</p>
+<p class="summary-en">Day 20 is the third reset this clock has carried in this series: Day 10, in the 2026-10-16 issue; Day 15, in the 2026-10-21 issue; and now Day 20. Day 17, 18 and 19 appear in no issue, but this feed also returned nothing at all across three Pacific days, so they cannot be called missing. &ldquo;It is all propagated&rdquo; names no subject, and &ldquo;By midnight PST&rdquo; reads as an answer to a question that is not in this feed. The only dated claim is the midnight one, and it is a deadline rather than a delivery.</p>
+<p class="summary-zh zh">三条推文落在太平洋时间 20:39 到 23:06 之间，时钟又走了一格。20:39 是「Day 20/ Rest and reset」；一分钟后 20:40 是「By midnight PST」；23:06 是「It is all propagated. Enjoy some mad codexing tomorrow. Fun week ahead too.」。</p>
+<p class="summary-zh zh">Day 20 是这个时钟在本系列里的第三次 reset：Day 10 在 2026-10-16 那期，Day 15 在 2026-10-21 那期，现在是 Day 20。Day 17、18、19 没有出现在任何一期里，但这个 feed 同样整整三个太平洋日什么都没给，所以不能说它们缺失。「It is all propagated」没有点名传播的是什么，「By midnight PST」看起来是在回答一个不在这个 feed 里的问题。唯一带日期的承诺是那个午夜，而它是一个截止时间，不是一次交付。</p>
+<div class="urls">
+<a href="https://x.com/thsottiaux/status/2114200152701575656">https://x.com/thsottiaux/status/2114200152701575656</a>
+<a href="https://x.com/thsottiaux/status/2114200291319124163">https://x.com/thsottiaux/status/2114200291319124163</a>
+<a href="https://x.com/thsottiaux/status/2114237083652882932">https://x.com/thsottiaux/status/2114237083652882932</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Ryo Lu</span>
+<span class="builder-role">Designed Cursor / Notion / Stripe</span>
+</div>
+<p class="summary-en">The longest thing in the window by a wide margin, posted at 19:48 Pacific, is an essay about what gets lost when the difficulty goes away. He learned programming and design by trying, failing and trying again, and &ldquo;when I stopped learning, I moved on to the next struggle.&rdquo; Now, he writes, &ldquo;we can ask a machine&rdquo;, and the result is that &ldquo;we learn how to get results without necessarily understanding how it works. And because the result looks complete, it becomes easy to miss the questions we never learned to ask.&rdquo;</p>
+<p class="summary-en">The second half turns to other people. Working with them is uncomfortable: &ldquo;everyone wants something different&rdquo;, and &ldquo;someone pushes back when you want to move.&rdquo; But &ldquo;sometimes, after struggling together, you become a band.&rdquo; His worry is that the agent removes the reason to begin at all: &ldquo;an agent is always there. Patient. Ready to keep going.&rdquo; He closes on the question he does not answer, &ldquo;is that freedom? Or a comfortable kind of confinement, where everything responds to us but fewer things reach us?&rdquo;, and on what he wants instead: &ldquo;I don&rsquo;t want a life without struggle. I want people to struggle with.&rdquo; His other two posts, at 17:34 and 19:49, are a pointer to a playlist and a bare link; neither carries text of its own.</p>
+<p class="summary-zh zh">这个窗口里最长的东西，19:48 发出，讲的是困难被拿走之后失去了什么。他学编程和设计是靠试、失败、再试，「当我不再学到东西，我就换下一个难题去啃」。现在，他写道，「我们可以去问一台机器」，结果是「我们在不理解它如何运作的情况下学会拿到结果。而因为结果看起来是完整的，很容易就漏掉那些我们从来没学会问的问题」。</p>
+<p class="summary-zh zh">后半段转向他人。和人共事是不舒服的：「每个人想要的东西都不一样」，「有人会在你想推进的时候顶回来」。但「有时候，一起扛过之后，你们会变成一支乐队」。他担心的是 agent 把开头那一步也拿走了：「一个 agent 永远在那里。有耐心。随时可以继续。」最后停在两个他自己没有回答的问题上：「这是自由吗？还是一种舒服的封闭，所有东西都回应我们，却越来越少东西能触到我们？」以及他真正想要的东西：「我不想要没有困难的人生。我想要可以一起扛的人。」他另外两条在 17:34 和 19:49，一条指向一个歌单，一条是纯链接，都没有自己的正文。</p>
+<div class="urls">
+<a href="https://x.com/ryolu_/status/2114187405251219954">https://x.com/ryolu_/status/2114187405251219954</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aaron Levie</span>
+<span class="builder-role">Box CEO</span>
+</div>
+<p class="summary-en">One post, at 19:48 Pacific, and it carries the only multiple in the window: &ldquo;We&rsquo;ll likely have 1,000X more tokens flowing through cyber agents soon than we do today.&rdquo; The argument is that the surface area of cyber risk has already passed what most companies can keep up with, and that swarms are what changes the arithmetic: &ldquo;Agent swarms that can fan out, leverage any security tool, test various perpetuations of attacks, read through logs, process enterprise data for risk level, and more.&rdquo;</p>
+<p class="summary-en">He dates the capability. It &ldquo;only emerged in the past few months&rdquo;, because long-running agents, computer use and training on cyber all had to arrive first. He names six layers where he sees the opportunity, identity, firewall, network, code scanning, data protection and more, and closes on one reason, in his words, to be optimistic about the balance of offensive and defensive capability. The 1,000X has no baseline, no date and no measurement, and it is a forecast about volume rather than a report of anything shipped. The word swarm has run through this series since July; the two closest to today are 10-16, where Rauch used it on the threat side, and 10-20, where Levie used it as the unit of value. Swarms pointed at defending enterprises are not new here either: the 10-09 issue carried that exact phrase in a list.</p>
+<p class="summary-zh zh">一条推文，太平洋时间 19:48，带着这个窗口里唯一的倍数：「不久之后，流经安全 agent 的 token 很可能是今天的 1,000 倍。」论证是：安全风险的面积已经超过了绝大多数公司能跟上的范围，而改变这个算术的是集群——「可以铺开、调用任何安全工具、试各种攻击变体、读日志、按风险等级处理企业数据的 agent 集群」。</p>
+<p class="summary-zh zh">他给这个能力标了时间：它「是过去几个月才出现的」，因为长时运行的 agent、电脑操作、还有在安全领域上的训练，三样都必须先到位。他点出六个看到机会的层：身份、防火墙、网络、代码扫描、数据保护等等，收尾时说，攻防能力之间的平衡「至少有这一个理由值得乐观」。1,000 倍没有基线、没有日期、没有测量，它是一个关于量的预测，不是某样东西已经交付的报告。「集群」这个词从七月起就贯穿本系列；离今天最近的两处是 10-16，Rauch 把它用在威胁那一侧，和 10-20，Levie 把它当作价值的单位。把集群指向「保卫企业」也不是第一次：10-09 那期的一份清单里就有这个说法。</p>
+<div class="urls">
+<a href="https://x.com/levie/status/2114187326406766604">https://x.com/levie/status/2114187326406766604</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Guillermo Rauch</span>
+<span class="builder-role">Vercel CEO</span>
+</div>
+<p class="summary-en">Two posts, at 13:03 and 18:19 Pacific. The first is a hiring filter written as a principle: there will be times when you &ldquo;over-guide the AI&rdquo; and times when you &ldquo;under-guide the AI&rdquo;, and &ldquo;how well you manage this superpower is the #0 skill I look for.&rdquo; No role, no example, no way of testing it.</p>
+<p class="summary-en">The second post is the more interesting one, because it is about what the models say rather than what the user types. He likes the vocabulary they reach for, &ldquo;gate, evidence, culprit, durable, provenance, contract&rdquo;, and his explanation is that most engineering is debugging and understanding existing systems, so the work is the detective and auditor roles: &ldquo;You do forensics.&rdquo; From there he asks what he calls the minimum viable English, and gives the only number in the window outside Levie&rsquo;s forecast: ASD-STE100 Simplified Technical English contains about 900 approved words, and &ldquo;I suspect we need far fewer.&rdquo; No measurement follows. He does not say how many, or how he would find out.</p>
+<p class="summary-zh zh">两条推文，太平洋时间 13:03 和 18:19。第一条是被写成原则的用人标准：有时候你会「过度引导 AI」，有时候「引导不足」，而「你能把这份超能力管得多好，是我看重的第 0 号技能」。没有岗位、没有例子、没有衡量办法。</p>
+<p class="summary-zh zh">第二条更有意思，因为它讲的是模型说什么，而不是用户输什么。他说自己喜欢模型会去用的那套词——「gate、evidence、culprit、durable、provenance、contract」——给出的解释是：工程里大部分工作是调试和理解已有系统，所以你扮演的是侦探和审计员：「你在做取证。」接着他问了一个他称为「最小可用英语」的问题，并给出了这个窗口里除了 Levie 那个预测之外唯一的数字：ASD-STE100 简化技术英语大约收录 900 个被认可的词，而「我怀疑我们需要的远少于此」。后面没有测量：他没有说需要多少，也没有说打算怎么找出来。</p>
+<div class="urls">
+<a href="https://x.com/rauchg/status/2114085432749347086">https://x.com/rauchg/status/2114085432749347086</a>
+<a href="https://x.com/rauchg/status/2114164830403989880">https://x.com/rauchg/status/2114164830403989880</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Alex Albert</span>
+<span class="builder-role">Research @ Anthropic</span>
+</div>
+<p class="summary-en">Three posts inside three minutes, 17:01 to 17:03 Pacific, and together they are the only first-party Anthropic naming in the window. Each is mostly a list of handles. The middle one ends &ldquo;for Claude Managed Agents!&rdquo; and the last ends &ldquo;on Duet as well!&rdquo;</p>
+<p class="summary-en">Neither name is described anywhere in what was returned: no capability, no date, no description, and the two shortened links are not expanded in this feed. Two of the three are replies inside the same chain and the handle lists overlap almost completely. This is rendered because it is the only place in the window where Anthropic names something itself, and it is the weakest card in the issue on evidence: names with nothing behind them, and nothing outside these three posts corroborates either one. Of the two, Claude Managed Agents is not new to this series: the 06-22 and 09-07 issues carried the Anthropic Engineering post on scaling them, and Thariq mentioned porting a project onto them in the 10-11 issue. Duet, written that way, appears nowhere else in this series, and whether the two are connected cannot be established here.</p>
+<p class="summary-zh zh">三条推文落在三分钟之内，太平洋时间 17:01 到 17:03，合起来是这个窗口里唯一一处 Anthropic 自己点名自家东西。每条主要都是一串账号名。中间那条以「for Claude Managed Agents!」结尾，最后一条以「on Duet as well!」结尾。</p>
+<p class="summary-zh zh">返回的内容里没有任何一处描述这两个名字：没有能力、没有日期、没有说明，两条短链接在这个 feed 里也没有展开。三条里有两条是同一条对话里的回复，账号名单几乎完全重合。把它渲染出来，是因为它是这个窗口里唯一一处 Anthropic 自己点名的地方；从证据看它也是这一期最弱的一张卡：只有名字，后面什么都没有，而且这三推之外没有任何东西能佐证其中任何一个。两个名字里，Claude Managed Agents 在本系列里不是新的：06-22 和 09-07 两期收录过 Anthropic Engineering 那篇讲如何扩展它的文章，10-11 那期 Thariq 也提到把项目迁到它上面。Duet 这个写法在本系列其他地方一次都没有出现过；两者是否相关，在这里无法确认。</p>
+<div class="urls">
+<a href="https://x.com/alexalbert__/status/2114145290970357953">https://x.com/alexalbert__/status/2114145290970357953</a>
+<a href="https://x.com/alexalbert__/status/2114145588686233612">https://x.com/alexalbert__/status/2114145588686233612</a>
+<a href="https://x.com/alexalbert__/status/2114145722320969943">https://x.com/alexalbert__/status/2114145722320969943</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aditya Agarwal</span>
+<span class="builder-role">General Partner @SPC &middot; Co-Founder @Bevel_Health</span>
+</div>
+<p class="summary-en">One post, at 16:21 Pacific, and it is short: &ldquo;One weird effect of being max AI pilled is that I have started to really treasure IRL time with my family and my friends. Put on some techno, dance with friends, take your kids to the park. Let the agents cook (or not). But dear god, celebrate humans.&rdquo;</p>
+<p class="summary-en">It is the second post in this window on the same theme and it lands about three and a half hours before Ryo Lu&rsquo;s essay. The two do not refer to each other and share no measurement. Where Ryo Lu writes about what struggling alongside other people produces, Aditya writes about choosing people over the screen. Neither names a change in their own behaviour that they have measured, and neither says what they were doing before.</p>
+<p class="summary-zh zh">一条推文，太平洋时间 16:21，很短：「被 AI 彻底说服之后有一个奇怪的副作用：我开始真的很珍惜和家人朋友面对面待着的时间。放点电子乐，和朋友跳舞，带孩子去公园。让 agent 自己去忙（或者不忙）。但天哪，要庆祝人类。」</p>
+<p class="summary-zh zh">这是这个窗口里同一主题的第二条，比 Ryo Lu 那篇早大约三个半小时。两条互不引用，也没有共同的测量。Ryo Lu 写的是和人一起扛过去会产出什么，Aditya 写的是主动选择人而不是屏幕。两个人都没有说出自己量化过的行为变化，也没有说他们之前是什么状态。</p>
+<div class="urls">
+<a href="https://x.com/adityaag/status/2114135237806760097">https://x.com/adityaag/status/2114135237806760097</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nikunj Kothari</span>
+<span class="builder-role">partner @fpvventures</span>
+</div>
+<p class="summary-en">Two of three posts are rendered, at 07:00 and 13:42 Pacific. At 07:00 he points at something outside this feed and says it puts better than he did what &ldquo;evolving from context &rarr; harnesses &rarr; judgement&rdquo; means, then adds an open invitation: &ldquo;If you have built something in this space, and want to jam on product ideas, please hit me up.&rdquo; The post he is agreeing with is not in this feed, so what he is endorsing cannot be read here.</p>
+<p class="summary-en">His 13:42 post is a fundraising ask with an object: &ldquo;If you are a helpful angel that would invest in an infra series A and we don&rsquo;t know each other, please holler!&rdquo; No company, no round size, nothing beyond &ldquo;infra series A&rdquo;. The three-step line is the part worth keeping. The word judgement as a rung appears nowhere else in this series, and the two below it are thin here too: context engineering was used once, in the 09-04 issue, and harness engineering not at all. His third post, at 13:27, is &ldquo;Venture in a single meme&rdquo; over an image, carries no text of its own and is not rendered.</p>
+<p class="summary-zh zh">三条里渲染两条，太平洋时间 07:00 和 13:42。07:00 那条指向一个不在这个 feed 里的东西，说它比自己讲得更清楚「从 context 到 harnesses 再到 judgement」是什么意思，然后加了一句公开邀请：「如果你在这个方向做过东西，想一起聊产品想法，来找我。」他认同的那条不在这个 feed 里，所以他到底在认同什么，这里读不到。</p>
+<p class="summary-zh zh">13:42 那条是一个有对象的募资请求：「如果你是那种会投基础设施方向 A 轮的、又乐于助人的天使，而我们还不认识，请来找我！」没有公司名、没有金额，除了「基础设施方向的 A 轮」之外什么都没有。真正值得留下的是那个三级台阶。judgement 作为一级，在本系列其他地方一次都没有出现过；它下面两级在这里也很薄：context engineering 只在 09-04 那期用过一次，harness engineering 一次都没有。他第三条在 13:27，是配图的一句「用一张图讲完风险投资」，没有自己的正文，不渲染。</p>
+<div class="urls">
+<a href="https://x.com/nikunj/status/2113994081345126486">https://x.com/nikunj/status/2113994081345126486</a>
+<a href="https://x.com/nikunj/status/2114095315271942176">https://x.com/nikunj/status/2114095315271942176</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Yang</span>
+<span class="builder-role">实用 AI 教程与访谈作者</span>
+</div>
+<p class="summary-en">Two posts, at 07:28 and 10:13 Pacific, and the first is rendered. &ldquo;I had trouble believing this is true but shouldn&rsquo;t have doubted&rdquo; the account he was quoting, then: &ldquo;Huge bummer for claude users. Anthony and Thariq are two of the best at listening to users.&rdquo;</p>
+<p class="summary-en">The post he is reacting to is not in this feed, so what happened is not stated anywhere here: no product, no change, no date, no number. Thariq is Claude Code at Anthropic and has appeared in this series many times; the feed gives only the first name Anthony, and that name has not been carried in this series before, so it is not filled in here. This is the second weakest card in the issue: a second-hand report of a disappointment, with the object missing. His 10:13 post, not rendered, is an endorsement of a children&rsquo;s reading app, with three reasons it stuck for him and his four-year-old, a statement that it is not sponsored, and a trial link. It carries no AI content and is counted but not rendered, following how this series has handled endorsements and non-AI posts since October.</p>
+<p class="summary-zh zh">两条推文，太平洋时间 07:28 和 10:13，渲染第一条。「我本来很难相信这是真的，但不该怀疑」他引用的那个账号，接着是：「对 claude 用户来说是个巨大的遗憾。Anthony 和 Thariq 是最会听用户的两个人。」</p>
+<p class="summary-zh zh">他在回应的那条不在这个 feed 里，所以到底发生了什么，这里没有任何一处说明：没有产品、没有变更、没有日期、没有数字。Thariq 是 Anthropic 的 Claude Code，在本系列里出现过很多次；feed 只给了 Anthony 这个名字，而这个系列此前没有出现过它，所以这里不补全。这是这一期第二弱的卡：一个转述的坏消息，而坏消息的对象是缺的。他 10:13 那条不渲染，是对一款儿童阅读应用的推荐，列了三条他和四岁孩子能坚持下来的原因，声明不是赞助，并附了一个试用链接。它没有 AI 内容，计入但不做成卡片，按本系列十月以来对推荐类和非 AI 内容的处理方式执行。</p>
+<div class="urls">
+<a href="https://x.com/petergyang/status/2114001125636768121">https://x.com/petergyang/status/2114001125636768121</a>
+</div>
+</article>
+</section>
+<!-- ============== PODCAST ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#127911;</span>
+<h2 class="section-title">Podcast</h2>
+<span class="section-meta">1 Episode</span>
+</div>
+<div class="podcast">
+<div class="podcast-source">The MAD Podcast with Matt Turck</div>
+<div class="podcast-title">Jev: The AI That Makes Decisions, Not Text &mdash; and Why It Changes Everything (Diogo Almeida)</div>
+<p class="summary-en"><strong>The Takeaway</strong> &mdash; A model that answers in probabilities instead of prose is a different product, not a smaller one, and the reason it is cheap is the same reason it is useful.</p>
+<p class="summary-en">Diogo Almeida runs TypeSafe, the company behind Jev, and was at OpenAI before that; the 2026-10-02 issue of this series recorded a Decisions API credit going to a Diogo, formerly at OpenAI, for having pushed this class of idea for a long time. Jev came out of stealth about three weeks before this recording, and the host puts the launch video at 40 million views, alongside what he says he has heard about a million users a day, a trillion tokens a day and a third of the Fortune 500, plus a Series A of $870M at a $7.5B valuation. Almeida waves the numbers off: &ldquo;the leading indicator of it all is builders being inspired to do new things&rdquo;, and the metric he actually cares about is intelligence per dollar.</p>
+<p class="summary-en">The mechanism is the part worth reading. Where a language model writes you an answer, Jev returns scores: is this email urgent, should it escalate, which department. His example is an email assistant, which he says language models still have not solved, because you end up &ldquo;programming in natural language this giant system prompt&rdquo; and the error rate climbs with the complexity. Replace that with individual classifiers and the system becomes legible: you can measure each one, none of them get forgotten, and a mistake becomes an eval. He wants probabilities rather than yes or no because the threshold belongs to the developer, and Disney&rsquo;s threshold will not be the same as a role-play product&rsquo;s.</p>
+<p class="summary-en">He is unbothered by being called a classifier: &ldquo;How does Facebook work? Classifiers. How does TikTok work? Classifiers. How does Google work? Classifiers.&rdquo; His one figure for reliability is the jaggedness: models are &ldquo;95% Einstein, 5% Mr. Bean&rdquo;, and &ldquo;if it doesn&rsquo;t tell you when it&rsquo;s the Mr. Bean, then how are you gonna automate anything?&rdquo; On the copycats that arrived within three weeks, from Cloudflare, Databricks and Microsoft: &ldquo;My guess is that they are dumb and non-robust, but I want to measure this before I say that to anyone else.&rdquo; His stated fear is that a bad copy convinces people the whole category does not work. He also says he did not pretrain: &ldquo;pre training is a giant dumpster fire of wasting resources.&rdquo;</p>
+<p class="summary-en">Two things to keep separate. The episode is dated 2026-10-15 and reached this feed ten days later, so none of it is new in calendar terms. And the feed gives a channel URL rather than a link to this episode, which is why the link below goes to the channel.</p>
+<p class="summary-zh zh"><strong>核心结论</strong> —— 一个用概率而不是用文字回答的模型，是另一种产品，不是更小的一号；而它便宜的原因，正是它有用的原因。</p>
+<p class="summary-zh zh">Diogo Almeida 经营 TypeSafe，Jev 背后的公司，此前在 OpenAI；本系列 2026-10-02 那期记过一句，说 Decisions API 这个方向的功劳要给一位「曾在 OpenAI 的 Diogo」，他推这类想法推了很久。Jev 在这次录制前三周左右走出隐身状态，主持人给出的数字是：发布视频 4,000 万次观看，还有他听说的每天约一百万用户、每天一万亿 token、以及财富 500 强里的三分之一，外加 8.7 亿美元 A 轮、75 亿美元估值。Almeida 把这些数字挥开：「真正的先行指标，是做东西的人被激发去做新东西」，而他真正在意的度量是「每一美元买到多少智能」。</p>
+<p class="summary-zh zh">值得读的是机制。语言模型给你写出一段回答，Jev 给你返回分数：这封邮件急不急、要不要升级、转给哪个部门。他举的例子是邮件助理，他说语言模型到今天也没解决它，因为最后你会变成「用自然语言去写这一大段 system prompt」，而错误率随着复杂度一起往上走。把它换成一个个单独的分类器，系统就变得可读：每一个都能测量，没有一个会被遗漏，出一次错就变成一条评测。他要概率而不是 yes/no，是因为阈值该由开发者来定，而迪士尼的阈值不会和一个角色扮演产品一样。</p>
+<p class="summary-zh zh">被叫做分类器他并不介意：「Facebook 靠什么运转？分类器。TikTok 靠什么运转？分类器。Google 靠什么运转？分类器。」他给可靠性下的唯一一个说法是那种参差感：模型是「95% 的爱因斯坦，5% 的憨豆先生」，而「如果它不告诉你它什么时候是憨豆先生，你要怎么把任何东西自动化？」对三周之内出现的跟随者，Cloudflare、Databricks 和微软：「我猜它们很笨而且不稳定，但我想先量过再对别人这么说。」他明说的担心是：一个糟糕的仿品会让人以为这一整类模型都不行。他还说自己没有做预训练：「预训练是一场巨大的资源浪费。」</p>
+<p class="summary-zh zh">有两点要分开。这期节目发布于 2026-10-15，十天后才进到这个 feed，所以按日历它一点都不新。另外 feed 给的是频道地址而不是这一期的链接，所以下面的链接指向频道。</p>
+<div class="urls"><a href="https://www.youtube.com/@DataDrivenNYC/videos">https://www.youtube.com/@DataDrivenNYC/videos</a></div>
+</div>
+</section>
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128161;</span>
+<h2 class="section-title">The Takeaway</h2>
+<span class="section-meta">2026-10-26</span>
+</div>
+<div class="takeaway">
+<div class="takeaway-label">The Takeaway</div>
+<p>The clock resets again, and this is now the clearest pattern the Day N series has produced. Day 10, Day 15 and Day 20 are all resets; Day 16 is the only entry that named a change and put a number on it, and it did so without mentioning the reset that came the day before. Day 20 adds two lines with no object: &ldquo;It is all propagated&rdquo; does not say what, and &ldquo;By midnight PST&rdquo; is a deadline rather than a delivery. Whether anything arrived by that midnight is the first thing the next issue can check.</p>
+<p>The podcast slot produces something for the first time since the 10-19 issue, and it is the largest single piece of content in this issue. Jev has been in this series since 09-18, when Rauch reported an 18x speed figure and said it was coming to Vercel AI Gateway, and it has been mentioned on 09-20, 09-24, 10-02 and 10-03. Until now it has only ever been somebody else&rsquo;s one-line claim. This is the first time the series has the person behind it explaining the mechanism, and the mechanism is specific: probabilities instead of text, classifiers instead of a system prompt, and legibility as the reason.</p>
+<p>Two builders write about people today, three and a half hours apart, and neither mentions the other. Ryo Lu&rsquo;s essay asks what is lost when the difficulty goes away and answers with &ldquo;I want people to struggle with&rdquo;. Aditya Agarwal says being fully bought in on AI made him treasure time with family and friends. Two framings, one direction, no shared measurement, and no post in this window refers to another, the same shape as the four builders who pointed one way in the 10-22 issue.</p>
+<p>Only two numbers exist in this window and neither is a measurement of anything shipped. Levie&rsquo;s 1,000X is a forecast about token volume through cyber agents with no baseline and no date. Rauch&rsquo;s 900, from ASD-STE100 Simplified Technical English, is a reference point for a question he does not answer, how small a working vocabulary for models could be. Everything else is names without descriptions, from Day 20&rsquo;s unnamed rollout to Alex Albert&rsquo;s Claude Managed Agents and Duet.</p>
+<p>One thing this issue cannot do is rank by attention. Every one of the 23 posts came back with likes, reposts, replies and quotes null, so the ordering here is by substance, not by reach. That is a change from the 10-21 and 10-22 issues, where popularity and content could be set against each other.</p>
+</div>
+<div class="takeaway zh">
+<div class="takeaway-label">&#26680;&#24515;&#32467;&#35770;</div>
+<p>时钟又 reset 了一次，而这已经是 Day N 这个系列里最清楚的一个模式。Day 10、Day 15、Day 20 三次都是 reset；Day 16 是唯一一次既点名变更又给出数字的，而它完全没有提前一天发生的那次 reset。Day 20 又加了两条没有宾语的话：「It is all propagated」没有说传播了什么，「By midnight PST」是一个截止时间而不是一次交付。那个午夜之前到底有没有东西落地，是下一期第一个可以查的。</p>
+<p>播客这一格自 10-19 那期以来第一次有产出，而且它是这一期里最大的一块内容。Jev 从 09-18 起就在本系列里了，那天 Rauch 报了一个 18 倍的速度数字，说它会进 Vercel AI Gateway；之后 09-20、09-24、10-02、10-03 都提过。在那之前，它一直只是别人嘴里的一句话。这是本系列第一次拿到它背后的人亲口讲机制，而机制是具体的：用概率代替文字，用分类器代替 system prompt，理由是可读性。</p>
+<p>今天有两位写到人，相隔三个半小时，谁也没提谁。Ryo Lu 那篇问的是困难被拿走之后失去了什么，回答是「我想要可以一起扛的人」。Aditya Agarwal 说，被 AI 彻底说服反而让他更珍惜和家人朋友的时间。两种说法、一个方向、没有共同的测量，这个窗口里也没有任何一条推文提到另一条——和 10-22 那期四位 builder 指向同一方向的形状是一样的。</p>
+<p>这个窗口里只有两个数字，而且都不是对已交付之物的测量。Levie 的 1,000 倍是一个关于流经安全 agent 的 token 量的预测，没有基线也没有日期。Rauch 的 900 来自 ASD-STE100 简化技术英语，是他自己也没回答的那个问题的参照点：模型可用的词汇量到底能小到什么程度。其余全是只有名字、没有说明的东西，从 Day 20 那次没有点名的上线，到 Alex Albert 的 Claude Managed Agents 和 Duet。</p>
+<p>这一期有一件事做不到：按热度排序。23 条推文的赞、转、回复、引用全部返回为空，所以这里的排序是按内容，不是按触达。这和 10-21、10-22 两期不同，那两期可以把热度和内容放在一起来看。</p>
+</div>
+</section>
+<!-- ============== NOTES ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128221;</span>
+<h2 class="section-title">&#35760;&#24405; / Notes &amp; Dedup</h2>
+<span class="section-meta">23 Zero &#183; 0 Dedup &#183; 1 Empty</span>
+</div>
+<div class="dedup">
+<p style="margin-top:12px"><strong>Tweet check</strong> &mdash; All 23 tweet IDs in this window were matched against every file under 2026/ and returned zero hits, so nothing here repeats a post from an earlier issue.</p>
+<p style="margin-top:12px"><strong>Podcast check</strong> &mdash; The slot is 1 for the first time since the 2026-10-19 issue. The MAD Podcast with Matt Turck, publishedAt 2026-10-15, guest Diogo Almeida; neither the guest name, written that way, nor the episode title string appears anywhere under 2026/, so it is new to this series. Two things worth recording. The episode is ten days old at this feed&rsquo;s snapshot, so it arrived late rather than fresh. And the url field gives the channel, DataDrivenNYC videos, not a link to this episode, which is why the link goes to the channel; this is how the feed has supplied this podcast on 09-21, 09-26, 10-12 and 10-19 as well. One name to reconcile: the transcript&rsquo;s introduction is transcribed as &ldquo;Jogo Almeida&rdquo; while the episode title spells &ldquo;Diogo Almeida&rdquo;, and the 2026-09-24 issue described Jev as a model shipped by Vercel, whereas 09-18 carried Rauch&rsquo;s own line that it comes from typesafeai and is coming to Vercel AI Gateway. This issue writes TypeSafe.</p>
+<p style="margin-top:12px"><strong>Blog check</strong> &mdash; The slot is 0 by emptiness: the blogs array came back empty, so there was no slug to match. This is the fourth consecutive issue in which this slot has produced nothing, 10-20, 10-21, 10-22 and today, and the causes were not all the same: 10-20 and 10-21 were dedup against earlier issues, 10-22 and today are empty arrays.</p>
+<p style="margin-top:12px"><strong>Not rendered</strong> &mdash; Nine of the 23 posts are counted but not rendered, and three builders are absent from the card section entirely. Swyx&rsquo;s two posts, at 17:01 and 17:17 Pacific, are recruitment: writers, reviewers and reporters for a new Latent Space editorial team, plus a note that part-time and one-off guest posts are welcome. They name no AI content and are the only posts he has in the window, so he is counted with no card. Garry Tan&rsquo;s single post, at 13:24, is &ldquo;What&rsquo;s new in Gstack?&rdquo; over a link, with no text of its own. Zara Zhang has two, at 08:16 and 22:20: a pointer to a thread with &ldquo;Lots of inspiring examples in this thread too&rdquo; and the line &ldquo;It is so much easier to give advice to other people than to apply the same advice to yourself&rdquo;, neither with AI content. Two of Ryo Lu&rsquo;s three are not rendered, the playlist pointer at 17:34 and the bare link at 19:49, and one of Nikunj&rsquo;s three, the meme at 13:27. Peter Yang&rsquo;s 10:13 post is a children&rsquo;s reading app endorsement with a stated no-sponsorship line and a trial link. That makes 11 builders counted and 8 rendered, 23 posts counted and 14 rendered. Following this series since October, excluded posts are given no URL.</p>
+<p style="margin-top:12px"><strong>Coverage</strong> &mdash; This issue&rsquo;s snapshot is 2026-10-25T06:39Z, Pacific 10-24 23:39, and all 23 posts sit inside Pacific 10-24, from 07:00 to 23:06. The previous issue, dated 10-22, used a snapshot of 2026-10-21T06:42Z and its posts ended at Pacific 10-20 22:06. Between Pacific 10-20 22:06 and 10-24 07:00 this feed carried nothing, and no issue was generated for 10-23, 10-24 or 10-25, so the Pacific days 10-21, 10-22 and 10-23 are absent from the series altogether rather than merely uncovered at the edges. The window also closes thirty-three minutes before the snapshot, so the last stretch of the Pacific day is not seen.</p>
+<p style="margin-top:12px"><strong>Not resolved</strong> &mdash; What &ldquo;it is all propagated&rdquo; propagated, and whether anything actually landed by the midnight he named, both first priority for the next issue; what Day 20&rsquo;s reset cleared, and whether Day 21 appears with a change attached, given that Day 17, 18 and 19 fell inside the three-day gap. What Claude Managed Agents and Duet are, whether the two are connected, and whether either shows up anywhere with a description. What Peter Yang was reacting to, and who Anthony is. Whether Rauch ever says how many words a minimum viable English needs. Whether Levie&rsquo;s 1,000X gets a baseline. What Nikunj is raising the infra series A for. What Garry Tan&rsquo;s Gstack link points to, which is the same question the 10-22 issue left open about Captains inside Capy. Whether the three copycats named in the podcast, Cloudflare, Databricks and Microsoft, have appeared anywhere in this series. Still unmoved from earlier issues: the Vercel sandbox escape write-up and the second vendor, the 10-20 attack and Daybreak Blue, the Sol 6 score, Muse Wonder Full on the API, Ghost Pepper maintenance cost, external reproduction of Sonnet 5.5, the OpenClaw Android review, the 10x coding-agent question, Goodfire and Hugging Face in writing, a second network in Rauch&rsquo;s traffic series, GPT-6.1 and the DevDay naming, the Grok bot email, Amjad&rsquo;s decompilation example, the mechanics of Thariq&rsquo;s game, Wabi 2.0 past preview, the subject behind Rauch&rsquo;s 1,000 tokens per second, and Dan Shipper&rsquo;s three-part story. Opal shuts down on 2026-11-17.</p>
+<p style="margin-top:12px"><strong>推文核对</strong> &mdash; 这个窗口里 23 个推文 ID 全部拿去和 2026/ 下的每一个文件比对，全部零命中，所以这里没有一条推文是重复此前某一期的。</p>
+<p style="margin-top:12px"><strong>播客核对</strong> &mdash; 这一格自 2026-10-19 那期以来第一次有产出。The MAD Podcast with Matt Turck，publishedAt 2026-10-15，嘉宾 Diogo Almeida；这个写法的嘉宾名和这一期的标题串，在 2026/ 下任何文件里都找不到，所以它是本系列的新条目。两点值得记下。这期节目在快照时已经十天了，所以它是迟到而不是新鲜。另外 url 字段给的是频道（DataDrivenNYC 的视频页），不是这一期的链接，所以下面的链接指向频道；这个 feed 在 09-21、09-26、10-12、10-19 提供这档播客时都是这种形式。还有一个名字要对上：字幕文本的介绍里被转写成「Jogo Almeida」，而标题写的是「Diogo Almeida」；2026-09-24 那期把 Jev 描述成 Vercel 发布的模型，而 09-18 那期记的是 Rauch 自己的话——它出自 typesafeai，会进 Vercel AI Gateway。这一期按 TypeSafe 写。</p>
+<p style="margin-top:12px"><strong>博客核对</strong> &mdash; 这一格是 0，原因是空数组：blogs 数组返回为空，所以没有条目可以匹配。这已经是连续第四期这一格没有产出，10-20、10-21、10-22 和今天，而原因并不都一样：10-20 和 10-21 是与更早的期次判重，10-22 和今天是数组为空。</p>
+<p style="margin-top:12px"><strong>未渲染</strong> &mdash; 23 条推文里有 9 条计入但没有做成卡片，其中三位 builder 在卡片区完全缺席。Swyx 的两条，太平洋时间 17:01 和 17:17，是招募：为新的 Latent Space 编辑团队找撰稿、审稿和记者，另加一句欢迎兼职和单篇投稿。里面没有 AI 内容，而且这是他在窗口里仅有的两条，所以他计入但没有卡片。Garry Tan 唯一的推文在 13:24，是配链接的一句「Gstack 有什么新东西？」，自身没有正文。Zara Zhang 有两条，08:16 和 22:20：一条指向某个 thread，配一句「这个 thread 里也有很多受启发的例子」，另一条是「给别人建议，比把同样的建议用在自己身上容易太多了」，都没有 AI 内容。Ryo Lu 三条里不渲染两条，17:34 那条指向歌单的和 19:49 那条纯链接；Nikunj 三条里不渲染一条，13:27 那张配图的玩笑。Peter Yang 在 10:13 那条是对一款儿童阅读应用的推荐，写明不是赞助，并附了试用链接。于是计入 11 位 builder、渲染 8 位，计入 23 条推文、渲染 14 条。按照本系列自十月起对被排除内容的一贯处理，不给 URL。</p>
+<p style="margin-top:12px"><strong>覆盖</strong> &mdash; 这一期的快照是 2026-10-25T06:39Z，即太平洋时间 10-24 23:39，23 条推文全部落在太平洋 10-24 之内，从 07:00 排到 23:06。上一期（10-22）用的快照是 2026-10-21T06:42Z，推文结束在太平洋时间 10-20 22:06。太平洋时间 10-20 22:06 到 10-24 07:00 之间这个 feed 什么都没有给，而 10-23、10-24、10-25 三期没有生成，所以太平洋 10-21、10-22、10-23 这三天不是边角没盖到，而是整段缺席。另外这个窗口在快照之前三十三分钟就闭合了，所以这个太平洋日的最后一段没有被看到。</p>
+<p style="margin-top:12px"><strong>未闭环</strong> &mdash; 「It is all propagated」传播了什么，以及他说的那个午夜之前到底有没有东西落地——两项都是下一期第一优先；Day 20 这次 reset 清掉了什么，以及 Day 21 会不会带着一条变更出现，因为 Day 17、18、19 正落在那三天的空档里。Claude Managed Agents 和 Duet 各是什么、两者有没有关系、有没有任何一处给出描述。Peter Yang 在回应什么，Anthony 是谁。Rauch 有没有说过「最小可用英语」到底需要多少个词。Levie 的 1,000 倍会不会补上基线。Nikunj 这轮基础设施方向的 A 轮是为什么募的。Garry Tan 那条 Gstack 链接指向什么——这和 10-22 那期留下的「Capy 里的 Captain 是干什么的」是同一个问题。播客里点名的三家跟随者，Cloudflare、Databricks 和微软，有没有在本系列的哪一期出现过。更早几期挂下来的仍然没动：Vercel 沙箱逃逸的技术说明和第二家供应商、10-20 那次攻击与 Daybreak Blue、Sol 6 的分数、Muse Wonder Full 上 API、Ghost Pepper 的维护成本、Sonnet 5.5 的外部复现、OpenClaw 的安卓审核、10x 编码 agent 那一问、Goodfire 与 Hugging Face 的书面形式、Rauch 流量序列里的第二家网络、GPT-6.1 与 DevDay 的命名、那封 Grok bot 邮件、Amjad 的反编译实例、Thariq 那个游戏的机制、Wabi 2.0 走出预览、Rauch「每秒 1,000 token」的主语，以及 Dan Shipper 那个分三部分的说法。Opal 于 2026-11-17 关停。</p>
+</div>
+</section>
+<footer class="footer">
+<div class="next-issue">&#128236; &#19979;&#19968;&#26399;&#65306;&#26126;&#22825; 10:00&#65288;&#21271;&#20140;&#26102;&#38388;&#65289;</div>
+<div class="signature">by chloevchen</div>
+</footer>
+
+<!-- by chloevchen -->
+</body>
+</html>
