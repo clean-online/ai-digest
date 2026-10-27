@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Builders Digest &#183; 2026-10-27</title>
+<style>
+
+
+
+
+
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 28px 30px; margin-bottom: 24px; }
+  .podcast-source { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
+  .podcast-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; margin-bottom: 18px; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; }
+
+
+</style>
+</head>
+<body>
+<header class="topbar">
+<div class="topbar-inner">
+<a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+<span>&#21452;&#35821; &#183; Bilingual</span>
+</div>
+</header>
+<section class="header">
+<div class="eyebrow">Daily Digest &#183; 2026-10-27</div>
+<h1>AI Builders Digest</h1>
+</section>
+<div class="stats">
+<div class="stat"><div class="stat-num">9</div><div class="stat-label">Builders</div></div>
+<div class="stat"><div class="stat-num">14</div><div class="stat-label">Tweets</div></div>
+<div class="stat"><div class="stat-num">1</div><div class="stat-label">Podcast</div></div>
+<div class="stat"><div class="stat-num">0</div><div class="stat-label">Blog</div></div>
+</div>
+<p class="note-line">Feed snapshot 2026-10-26T06:55Z (Pacific 10-25 23:55). All 14 posts fall inside Pacific 10-25, from 00:19 to 22:48 &mdash; one Pacific day, nothing straddling midnight, and it closes about an hour before the snapshot. The previous issue, dated 10-26, used a snapshot of 2026-10-25T06:39Z and ended at Pacific 10-24 23:06, so roughly the first hour and a quarter of this day is uncovered; the Pacific days 10-21 to 10-23 remain absent from the series, because no issue was generated for 10-23, 10-24 or 10-25. This issue is dated 10-27 and is being read at Pacific 10-26 23:20, which means the snapshot is about twenty-three hours behind the moment of reading and Pacific 10-26 has not entered the feed at all. Engagement counts came back populated on every post, so ranking by attention is possible again after the 10-26 issue, where all four fields were null. Podcast 1, blog 0, and the 0 is emptiness: the blogs array came back empty. Five of the 14 posts are counted but not rendered: 9 builders counted and 6 rendered, 14 posts counted and 9 rendered.</p>
+<p class="note-line zh">feed 快照 2026-10-26T06:55Z（太平洋 10-25 23:55）。14 条推文全部落在太平洋 10-25 之内，从 00:19 排到 22:48 —— 一个完整的太平洋日，没有任何一条跨过午夜，不过它在快照之前大约一小时就收口了。上一期（10-26）用的快照是 2026-10-25T06:39Z，推文结束在太平洋 10-24 23:06，所以这一天开头大约一小时十五分钟没有被盖到；太平洋 10-21 到 10-23 这三天在本系列里仍然整段缺席，因为 10-23、10-24、10-25 三期根本没有生成。这一期日期是 10-27，而阅读发生在太平洋 10-26 23:20，也就是说快照比阅读时刻晚了大约二十三小时，太平洋 10-26 这一整天还没有进 feed。互动数这次每一条都有值，所以按热度排序重新可用 —— 10-26 那期四个字段全部为空，做不了这件事。播客 1 期，博客 0 期，0 的原因是 blogs 数组返回为空。14 条推文里有 5 条计入但没有做成卡片：计入 9 位 builder、渲染 6 位，计入 14 条推文、渲染 9 条。</p>
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128036;</span>
+<h2 class="section-title">X / Twitter</h2>
+<span class="section-meta">9 Builders &#183; 14 Tweets</span>
+</div>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thibault Sottiaux</span>
+<span class="builder-role">OpenAI Codex 与 ChatGPT</span>
+</div>
+<p class="summary-en">Two posts, at 22:21 and 22:48 Pacific, and the clock moves again. At 22:21: &ldquo;Day 21/ Wonder what happens the remaining seven days. But today is a reset.&rdquo; At 22:48, twenty-seven minutes later: &ldquo;Reminder you can customize the appearance of chatgpt on web and make it soothing&rdquo;, with two links.</p>
+<p class="summary-en">Day 21 is the fourth reset this clock has carried in this series: Day 10 in the 10-16 issue, Day 15 in the 10-21 issue, Day 20 in the 10-26 issue, and now Day 21. It is also the first entry to name an end. &ldquo;The remaining seven days&rdquo; puts the whole thing at Day 28, which no earlier entry had done; until today the series had a count with no total. What it does not do is answer the two lines Day 20 left: &ldquo;It is all propagated&rdquo; still has no subject, and &ldquo;By midnight PST&rdquo; was a deadline rather than a delivery. The clock has now moved one notch past that midnight without saying whether anything arrived.</p>
+<p class="summary-en">The second post is a product feature with no number, no date and no change announced: the web appearance of ChatGPT can be customised, and the result, in his word, is soothing. Nothing else in the window says what changed. On attention, the reset is the top post in the window on all three counts &mdash; 5,168 likes, 281 reposts, 1,442 replies &mdash; and the feature post gets 1,136, 42 and 310. The most-read thing he wrote today is the two lines that name no object.</p>
+<p class="summary-zh zh">两条推文，太平洋时间 22:21 和 22:48，时钟又走了一格。22:21 是「Day 21/ Wonder what happens the remaining seven days. But today is a reset」；二十七分钟后 22:48 是「Reminder you can customize the appearance of chatgpt on web and make it soothing」，另附两个链接。</p>
+<p class="summary-zh zh">Day 21 是这个时钟在本系列里的第四次 reset：Day 10 在 10-16 那期，Day 15 在 10-21 那期，Day 20 在 10-26 那期，现在是 Day 21。它也是第一次给出终点。「还剩七天」把整件事推到 Day 28，这是此前任何一期都没有过的 —— 在那之前，本系列只有一个计数，没有总数。它没有做的是回答 Day 20 留下的那两句：「It is all propagated」到今天仍然没有主语，「By midnight PST」是一个截止时间而不是一次交付。时钟现在已经走过那个午夜一格，却始终没有说有没有东西落地。</p>
+<p class="summary-zh zh">第二条是一个产品功能：网页版 ChatGPT 的外观可以自定义，而按他的说法，结果是「让人平静」。没有数字、没有日期、没有说明变了什么，窗口里也没有别的东西提到这次变更。热度上，那条 reset 在三个指标上都是窗口第一 —— 5,168 赞、281 次转发、1,442 条回复 —— 而功能那条是 1,136、42、310。他今天被读到最多的，是那两句没有宾语的话。</p>
+<div class="urls">
+<a href="https://x.com/thsottiaux/status/2114588174249071102">https://x.com/thsottiaux/status/2114588174249071102</a>
+<a href="https://x.com/thsottiaux/status/2114595002210783279">https://x.com/thsottiaux/status/2114595002210783279</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aaron Levie</span>
+<span class="builder-role">Box CEO</span>
+</div>
+<p class="summary-en">One post, at 09:18 Pacific, and it is the longest piece of argument in the window &mdash; 244 likes, 23 reposts, 69 replies. He opens by endorsing somebody else&rsquo;s read: &ldquo;Good assessment of the on the ground reality for security in most large enterprises right now.&rdquo; The post he is quoting is not in this feed, so whose assessment it is cannot be read here.</p>
+<p class="summary-en">His own part is three moves. The surface is already past what companies can hold: &ldquo;There&rsquo;s a never ending set of libraries to keep up with, tools to leverage, and sprawling infrastructure, data, and code to secure.&rdquo; The state of risk is unknown at any given moment because &ldquo;data, in most organizations, is highly fragmented&rdquo;, with &ldquo;some systems&rdquo; opening privileges too broadly and others operating &ldquo;primarily via security through obscurity.&rdquo; Then the agents: &ldquo;Agent swarms can fan out, leverage any security tool, test various perpetuations of attacks, read through logs, process enterprise data for risk level, and more.&rdquo; &ldquo;Perpetuations&rdquo; is his spelling, and no count, customer or result is attached. He dates the capability &mdash; &ldquo;This capability only emerged in the past few months, and none of it would be possible before we had long running agents and computer use good enough&rdquo; &mdash; names six layers where he sees the opportunity, identity, firewall, network, code scanning, data protection and more, and closes on the condition rather than the opportunity: &ldquo;everyone does need to do the hard work of getting the basics right at the start.&rdquo;</p>
+<p class="summary-en">There is no number anywhere in it, which is worth recording after the 10-26 issue, where he put a 1,000X on tokens flowing through cyber agents; today that forecast is neither repeated nor given a baseline. And today he is not the only one on the subject: this issue&rsquo;s podcast has the president of OpenAI saying security spend should vastly outstrip software spend. Two independent sources, one direction, no shared measurement, and neither refers to the other &mdash; the same shape as the four builders who pointed one way in the 10-22 issue.</p>
+<p class="summary-zh zh">一条推文，太平洋时间 09:18，是这个窗口里最长的一段论证 —— 244 赞、23 次转发、69 条回复。开头是认同别人的判断：「对当下绝大多数大企业里安全现状的评估很到位。」他引用的那条不在这个 feed 里，所以那是谁的评估，这里读不到。</p>
+<p class="summary-zh zh">他自己的部分是三步。风险面已经超出企业能兜住的范围：「要跟的库没完没了，要用的工具没完没了，要保护的基础设施、数据、代码还都在扩散。」任一时刻的风险状态是未知的，因为「在绝大多数组织里，数据是高度碎片化的」，有的系统「把权限开得过宽」，有的主要靠「security through obscurity」在运作。然后是 agent：「agent 集群可以铺开、调用任何安全工具、试各种攻击的 perpetuations、读日志、按风险等级处理企业数据，等等。」perpetuations 是原文的拼写，后面没有数量、没有客户、没有结果。他给这个能力标了时间：「这个能力是过去几个月才出现的，而且如果没有足够好的长时运行 agent 和电脑操作，这一切都不可能」；他点出六个看到机会的层 —— 身份、防火墙、网络、代码扫描、数据保护等等 —— 收尾落在前提而不是机会上：「但每个人都得先把基础做对，这件苦活谁也躲不掉。」</p>
+<p class="summary-zh zh">整条没有一个数字，这值得记一笔：10-26 那期他给过一个 1,000 倍，说的是流经安全 agent 的 token；今天这个预测既没有重复，也没有补上基线。另外今天在这个话题上他不孤单 —— 本期的播客里，OpenAI 的总裁说安全支出应当远远超过软件支出。两个独立信源、一个方向、没有共同的测量，谁也没有提到谁，和 10-22 那期四位 builder 指向同一方向的形状一样。</p>
+<div class="urls">
+<a href="https://x.com/levie/status/2114391265655816315">https://x.com/levie/status/2114391265655816315</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Yang</span>
+<span class="builder-role">实用 AI 教程与访谈作者</span>
+</div>
+<p class="summary-en">Three posts, at 17:00, 20:17 and 20:33 Pacific; the first and the third are rendered. At 17:00, 245 likes, 15 reposts, 28 replies: &ldquo;Here&rsquo;s how to use Claude to copy any video shorts style in a few minutes.&rdquo; The body is a quotation from @jake11moran: &ldquo;We added this as a native capability in @HyperFrames_ studio. You just upload or pick a reference clip and then describe in the prompt what you want to change. You can see where we&rsquo;re drawing inspiration from and apply a different font or different colors. It&rsquo;s still structurally the same idea.&rdquo; It ends with a link to his own video-editing tutorial.</p>
+<p class="summary-en">Two things should be held apart. The headline names Claude, but the quoted passage describes a native capability inside HyperFrames studio, and nothing in this feed says what Claude does in it. And the post is promotion for his own tutorial; it is rendered here because that quoted passage is the only concrete description in the window of a shipped capability with a workflow attached &mdash; pick a reference clip, describe the change, swap the font or the colours, and the structure survives. Graded on evidence it is a creator&rsquo;s claim: no number, no availability, no pricing, and no user other than the person who built it.</p>
+<p class="summary-en">His 20:33 post, 38 likes and no reposts, is &ldquo;This is beautiful. Who said AI doesn&rsquo;t have taste&rdquo; over something outside this feed, so the object is missing and only the claim remains. His 20:17 post is not rendered: &ldquo;lol this is me except my wife still buys snacks&rdquo;, with no AI content and no object.</p>
+<p class="summary-zh zh">三条推文，太平洋时间 17:00、20:17 和 20:33，渲染第一条和第三条。17:00 那条，245 赞、15 次转发、28 条回复：「这是怎么用 Claude 在几分钟内复刻任意短视频风格的。」正文引的是 @jake11moran 的话：「我们把它做成了 @HyperFrames_ studio 里的原生能力。你上传或挑一段参考片，然后在提示里描述你想改什么。你能看到我们是从哪里汲取的灵感，然后换一种字体或者换一套配色。结构上还是同一个东西。」末尾是他自己那条视频剪辑教程的链接。</p>
+<p class="summary-zh zh">有两件事要分开看。标题点的是 Claude，但被引用的那段描述的是 HyperFrames studio 里的原生能力，而这个 feed 里没有任何地方说明 Claude 在其中扮演什么角色。另外这条是在给他自己的教程引流；把它渲染出来，是因为那段引文是这个窗口里唯一一处对一个已上线能力的、带着工作流的具描述 —— 挑参考片、描述改动、换字体或配色，而结构不变。按证据评级，它是一个创作者的主张：没有数字、没有上线时间、没有价格，除作者本人之外没有第二个用户。</p>
+<p class="summary-zh zh">他 20:33 那条，38 赞、零转发，是配着 feed 之外某个东西的一句「This is beautiful. Who said AI doesn&rsquo;t have taste」，所以对象是缺的，只剩一句主张。20:17 那条不渲染：「lol this is me except my wife still buys snacks」，没有 AI 内容，也没有可点名的对象。</p>
+<div class="urls">
+<a href="https://x.com/petergyang/status/2114507378532229214">https://x.com/petergyang/status/2114507378532229214</a>
+<a href="https://x.com/petergyang/status/2114560930646487116">https://x.com/petergyang/status/2114560930646487116</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nan Yu</span>
+<span class="builder-role">OpenAI Codex 产品；此前 Linear 产品负责人</span>
+</div>
+<p class="summary-en">Two posts, at 11:44 and 12:06 Pacific, both of them reactions to things outside this feed. At 11:44, 129 likes, 6 reposts, 4 replies: &ldquo;By the time it shows up in the data or UXR interviews it&rsquo;s too late. The damage has been done and the reputation tarnished.&rdquo; At 12:06, 55 likes, no reposts, 8 replies: &ldquo;Anyone else find it insane that this is the default for unoptimized apps when the iPhone Duo supports split mode?&rdquo;</p>
+<p class="summary-en">The second is the sighting worth keeping. iPhone Duo has appeared once before in this series, in the 10-03 issue, as the device Ryo Lu put ryOS on: &ldquo;flip phone. full desktop. a whole little world. ryOS on iPhone Duo.&rdquo; Today it carries a named capability, split mode, and a named default he objects to for apps that are not optimised. Neither the image nor the post he is quoting is in this feed, so what that default actually is cannot be checked here. The first post names no product either; it is a claim about timing, that damage is done before it reaches measurement, offered without a case behind it.</p>
+<p class="summary-zh zh">两条推文，太平洋时间 11:44 和 12:06，都是对 feed 之外东西的反应。11:44 那条，129 赞、6 次转发、4 条回复：「等到它在数据里、或者在用户研究访谈里出现的时候，已经太晚了。损害已经造成，名声已经坏了。」12:06 那条，55 赞、零转发、8 条回复：「iPhone Duo 都支持分屏了，未做优化的应用还默认这样，只有我觉得离谱吗？」</p>
+<p class="summary-zh zh">第二条是值得留下的那次目击。iPhone Duo 在本系列里出现过一次，在 10-03 那期，是 Ryo Lu 把 ryOS 装上去的那台设备：「翻盖手机。完整桌面。一整个小世界。ryOS on iPhone Duo。」今天它带上了一个点名的能力（分屏），以及一个他反对的点名默认行为（未优化应用的默认形态）。图片和他引用的那条都不在这个 feed 里，所以那个默认到底是什么，这里无法核实。第一条也没有点名任何产品：它是一个关于时机的主张 —— 损害在被测到之前就发生了 —— 后面没有跟着任何案例。</p>
+<div class="urls">
+<a href="https://x.com/thenanyu/status/2114427877240488442">https://x.com/thenanyu/status/2114427877240488442</a>
+<a href="https://x.com/thenanyu/status/2114433404557279435">https://x.com/thenanyu/status/2114433404557279435</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Zara Zhang</span>
+<span class="builder-role">Builder &#183; Harvard &#8217;17</span>
+</div>
+<p class="summary-en">One post, at 00:19 Pacific, the earliest thing in the window and the third most liked post in it, at 256 likes, 16 reposts and 27 replies: &ldquo;Great interview. Most people overestimate the importance of one huge launch and underestimate the power of just showing up every day on the timeline. Develop a system where you make a video every day &gt; spending tens of thousands of dollars on a single launch video.&rdquo;</p>
+<p class="summary-en">The interview she is reacting to is not in this feed, so what is here is her claim rather than a report of theirs. It is a trade stated in one line, daily output against one expensive launch, and it carries no measurement of her own: no views, no cadence, no cost, and &ldquo;tens of thousands of dollars&rdquo; is a magnitude rather than a number. Read against the rest of the day, it is the highest-ranking post in the window that is not Thibault Sottiaux&rsquo;s.</p>
+<p class="summary-zh zh">一条推文，太平洋时间 00:19，是这个窗口里最早的一条，也是里面热度第三的一条 —— 256 赞、16 次转发、27 条回复：「很棒的一次访谈。大多数人高估了一次大型发布的重要性，低估了每天都在时间线上出现的力量。做出一个让你每天产一条视频的系统，胜过花几万美元做一条发布视频。」</p>
+<p class="summary-zh zh">她在回应的那次访谈不在这个 feed 里，所以这里留下的是她的主张，而不是对访谈内容的转述。它是一句里写清的取舍：每天产出，对一次昂贵的发布。里面没有她自己的任何测量 —— 没有播放量、没有节奏、没有成本，而「几万美元」是一个量级，不是数字。放在这一整天里看，它是窗口里排名最高的一条不属于 Thibault Sottiaux 的推文。</p>
+<div class="urls">
+<a href="https://x.com/zarazhangrui/status/2114255477907570865">https://x.com/zarazhangrui/status/2114255477907570865</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Matt Turck</span>
+<span class="builder-role">FirstMark Capital VC &#183; MAD Podcast 主持人</span>
+</div>
+<p class="summary-en">Two posts, at 10:39 and 17:02 Pacific, and only the second is rendered. At 17:02, 53 likes, 5 reposts, 7 replies: &ldquo;Rare footage of how VCs turned their 2021 bets in metaverse, gaming and crypto mining into &lsquo;mission-critical AI infrastructure&rsquo;.&rdquo; No company, no fund, no name, no number, and the footage it points at is not in this feed.</p>
+<p class="summary-en">It is a claim about his own industry made by someone inside it, and the two weakest cards in this issue are this one and Peter Yang&rsquo;s line about AI having taste: both point at something outside the feed, and neither carries a number. His 10:39 post, &ldquo;Good neighborhood&rdquo; over an image, was the more liked of his two at 100 likes and is not rendered &mdash; three words, no AI content and no object &mdash; following how this series has handled image-only posts since October.</p>
+<p class="summary-zh zh">两条推文，太平洋时间 10:39 和 17:02，只渲染第二条。17:02 那条，53 赞、5 次转发、7 条回复：「罕见影像：风险投资人怎么把他们 2021 年押在元宇宙、游戏和加密挖矿上的注，包装成『任务关键的 AI 基础设施』。」没有公司、没有基金、没有人名、没有数字，它指向的那段影像也不在这个 feed 里。</p>
+<p class="summary-zh zh">这是一个圈内人对自己所在行业下的判断，而这一期最弱的两张卡就是这张和 Peter Yang 那句「谁说 AI 没有品味」：两者都指向 feed 之外的东西，两者都没有数字。他 10:39 那条是配图的一句「Good neighborhood」，热度在他两条里更高（100 赞），不渲染 —— 三个词，没有 AI 内容也没有可点名的对象 —— 按本系列自十月起对纯图片帖的一贯处理执行。</p>
+<div class="urls">
+<a href="https://x.com/mattturck/status/2114507945585328606">https://x.com/mattturck/status/2114507945585328606</a>
+</div>
+</article>
+</section>
+<!-- ============== PODCAST ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#127911;</span>
+<h2 class="section-title">Podcast</h2>
+<span class="section-meta">1 Episode</span>
+</div>
+<div class="podcast">
+<div class="podcast-source">No Priors</div>
+<div class="podcast-title">The Changing Physics of Cybersecurity and Drug Development with OpenAI President Greg Brockman</div>
+<p class="summary-en"><strong>The Takeaway</strong> &mdash; The line that will travel is the money one: security spend should &ldquo;vastly outstrip&rdquo; software spend, because software is getting cheap enough to stop being the thing you are buying. Behind it sit a window, a programme and one internal exercise, and only the internal exercise comes with a number attached.</p>
+<p class="summary-en">The security argument, in his own words. &ldquo;The physics of cybersecurity are changing&rdquo;, and the world is in &ldquo;what we call the defender&rsquo;s window&rdquo;: peak frontier capabilities can already help defenders, they are &ldquo;not broadly diffused yet&rdquo;, and the capabilities that are broadly diffused &ldquo;are ratcheting&rdquo; from one model release to the next across providers. The evidence he offers is a sentence: &ldquo;in South Korea that there were some high profile hacks of banks that were driven by different models&rdquo; &mdash; no bank, no date, no number, no attribution beyond the country. The mechanism offered to defenders is the Daybreak programme, to &ldquo;responsibly give access through our Daybreak program to defenders to be able to use our peak intelligence or to use very capable models to find and fix vulnerabilities in their systems&rdquo;, alongside a &ldquo;billion dollar commitment&rdquo; to get frontline defenders access to the models, and one named partner, CrowdStrike.</p>
+<p class="summary-en">This moves something the series has been carrying. The 10-20 issue recorded an offer of &ldquo;Daybreak Blue access&rdquo;, glossed only as a &ldquo;cyber permissive setup for defense&rdquo;, and asked what it grants and who can get it. Both halves now have an answer of sorts: access to capable models for finding and fixing vulnerabilities, for defenders. Neither source says what Blue adds to the programme, or what &ldquo;cyber permissive&rdquo; means, so that part stays open.</p>
+<p class="summary-en">The one number in the security passage is also two numbers. He says &ldquo;we took about 25 of our production engineers and said, of your projects are on hold. You are just securing now&rdquo;, and a host later paraphrases the same move as &ldquo;25% of the engineers&rdquo;. Both are printed here and not reconciled, because the transcript supports either reading. What the exercise produced is not quantified: the model was pointed at all of their infrastructure, &ldquo;radiating a bunch of things&rdquo;, they &ldquo;found a number of issues, we fixed it&rdquo;, and &ldquo;at some point we saturated the issues that this model was capable of finding&rdquo; &mdash; no count, no duration, no list, and the point he draws is that it will have to be repeated with the next model. The case for why now is about debt: the internet &ldquo;was really built for resilience, not necessarily for security&rdquo;, security got &ldquo;bolted on&rdquo; afterwards, and the tools that would have paid it down, formal verification among them, were painful and niche, so &ldquo;no one does it for anything significant&rdquo;.</p>
+<p class="summary-en">Drug development is the second half, and it is where the figures are weakest. He calls drug discovery &ldquo;the most clear and obvious area&rdquo; to revolutionise and gives first principles rather than evidence as the reason: humans are well suited to natural language and &ldquo;incredibly bad at biology&rdquo;, while a neural net has no reason to be better at one than the other. The costs come from a host, as transcribed: fifteen years and $1,500,000,000, of which &ldquo;15,000,000 or so&rdquo; is preclinical and &ldquo;1,400,000,000 plus&rdquo; is the clinical trial, with two or three years against another twelve. Those three figures do not add up &mdash; 15M and 1.4B leave the total short of 1.5B &mdash; and this issue prints them as transcribed rather than correcting them. His own bottleneck is data, and he says it is unresolved: &ldquo;do we have the data? Do we have the ability to get the data?&rdquo; The bottleneck he does name is not biological at all: regulatory filings, where &ldquo;it takes like a year to write up your whole sort of case for a clinical trial&rdquo;. On how much of it arrives, he offers &ldquo;we will see, like, 80% of what is possible, come to fruition very quickly&rdquo;, with no baseline and no date.</p>
+<p class="summary-en">On mathematics he gives the episode&rsquo;s most concrete research number: &ldquo;we published about almost 400 very important open problems that are now resolved&rdquo;, with the mathematical community going through them &ldquo;to look for insights&rdquo; and domain experts reporting &ldquo;surprising ways of applying ideas&rdquo;. He states the ceiling himself &mdash; &ldquo;we&rsquo;re not yet coming up with whole, brand new theories&rdquo; &mdash; and the distinction he draws is with the four colour theorem, where &ldquo;we just had the machine check a bunch of cases, like there&rsquo;s no beauty in that&rdquo;, so &ldquo;we&rsquo;re into a different phase of machine discovery&rdquo;. No paper, no list and no problem is named, so the 400 cannot be checked from here.</p>
+<p class="summary-en">On product, four things. The scale figure arrives in two forms inside one conversation: a host says GPT-six was rolled out &ldquo;to over a billion people&rdquo;, and he says OpenAI has &ldquo;1,200,000,000 consumers on ChatGPT&rdquo;; both are printed rather than averaged. On interface, &ldquo;the best UI is no UI&rdquo;, with the enterprise difference located in admins, controls and toggles, and the tension he names himself: if there is no interface, &ldquo;what does it mean for there to be functionality that&rsquo;s missing and how do you even surface it&rdquo;. On generated interface, &ldquo;intelligent UI&rdquo;, where the model builds the thing you need at the moment you need it, his two examples being flight booking and a one-off app for assembling a bicycle. And on agents, DOTS: &ldquo;a proactive agent, it&rsquo;s always on, always working, you stop working, it keeps working&rdquo;, which watches his inbox, Slack, calendar and projects, wakes him with a list of things he said he would do, notices scheduling conflicts he never asked about, runs as &ldquo;an Astra level model&rdquo; with &ldquo;its own cloud computer&rdquo;, and is, in his framing, &ldquo;a change to the form factor, not the capability&rdquo;. He runs one, and its icon is a little owl.</p>
+<p class="summary-en">Four provenance notes. The episode is dated 2026-10-15T10:00Z and this feed&rsquo;s snapshot is 2026-10-26T06:55Z, so it arrives eleven days old and nothing in it is new by calendar. The url field gives the No Priors channel rather than a link to this episode, which is why the link below goes to the channel. The transcript is machine-generated and the errors touch proper nouns &mdash; &ldquo;Greg Brockmiff&rdquo;, &ldquo;GPD four&rdquo;, &ldquo;OpenNAR&rdquo;, &ldquo;GPT-six&rdquo; &mdash; so every model and product name above is printed as transcribed. And on speakers, the transcript labels them only Speaker 1, 2 and 3; the introduction gives &ldquo;Elad and I&rdquo;, and his thanks comes back as &ldquo;Thanks, Regina&rdquo;, so no host name is filled in here.</p>
+<p class="summary-en">One name to reconcile across the series. Dots, spelled that way, was the subject of Dan Shipper&rsquo;s long first-hand review in the 10-09 issue &mdash; permissions that fail even after approval, and a claim of rough feature parity with Muse, Instinct and Grok bots &mdash; and that issue did not say who makes it. The same spelling now comes from the president of OpenAI. Whether they are the same product is stated in neither source, so this issue does not join them.</p>
+<p class="summary-zh zh"><strong>核心结论</strong> —— 会被传开的是那句关于钱的话：安全支出应当「远远超过」软件支出，因为软件正在便宜到不再是你要买的那个东西。它后面站着的是一个窗口、一个计划，和一次内部演练，而三者里只有那次内部演练带着数字。</p>
+<p class="summary-zh zh">安全这一段的论证，用他自己的话讲：「网络安全的物理规律正在改变」，而世界正处在「我们所说的防御者窗口」里：峰值前沿能力已经可以帮到防御者，但它们「还没有被广泛分发」，而已经被广泛分发的能力正随着各家每一次模型发布「一格一格往上走」。他给出的证据只有一句话：「在韩国，有几起引起关注的银行被黑事件，是由不同的模型驱动的」—— 没有银行名、没有日期、没有数量，除了国别之外没有任何归属。提供给防御者的机制是 Daybreak 计划：「通过我们的 Daybreak 计划，负责任地把访问权限给到防御者，让他们能用我们的峰值智能、或者用能力很强的模型去发现并修复自己系统里的漏洞」；配套的还有「十亿美元的承诺」，用来让一线防御者拿到模型，以及一个点名的合作方 CrowdStrike。</p>
+<p class="summary-zh zh">这一条让本系列挂着的一项往前动了。10-20 那期记过一次「Daybreak Blue 访问权限」的邀约，当时对它的解释只有一句「偏开放的网络安全防御配置」，那一期问的是它给的是什么、谁能拿到。现在两半各自有了某种答案：给防御者的，是用强模型发现并修复漏洞的访问权限。但两个信源都没有说 Blue 在这个计划之上多给了什么，也没有说「cyber permissive」到底是什么意思，所以那部分仍然挂着。</p>
+<p class="summary-zh zh">安全这一段里唯一那个数字同时也是两个数字。他说「我们抽调了大约 25 名产线工程师，告诉他们：你们手上的项目全部暂停，现在只做安全」；而主持人后面复述同一件事时说的是「25% 的工程师」。两个写法这里都照录，不做调和，因为转写文本两种读法都成立。至于这次演练产出了什么，没有量化：模型被指向他们的全部基础设施，「辐射出一大堆东西」，他们「发现了一些问题，然后修掉了」，最后「在某个点上，这个模型能找到的问题被我们挖尽了」—— 没有数量、没有耗时、没有清单；而他由此得出的结论是，下一个模型出来时这套流程必须重跑一遍。为什么是现在，他的理由是欠账：互联网「真正为韧性而建，未必是为安全而建」，安全是后来「外挂」上去的，而本来能还清这笔账的手段 —— 形式化验证是其中之一 —— 既痛苦又小众，所以「没有人对任何有分量的东西做这件事」。</p>
+<p class="summary-zh zh">药物研发是后半段，也是数字最薄的地方。他说药物发现是「最清楚、最显然」值得彻底改造的领域，而给出的理由是原则而不是证据：人类天然适合自然语言，却「在生物学上糟糕透顶」，而神经网络没有任何理由更擅长前者而不擅长后者。成本数字由主持人给出，按转写是：十五年、15 亿美元，其中「1,500 万左右」是临床前，而「14 亿美元以上」是临床试验，时间上是两三年对另外十二年。这三个数对不上 —— 1,500 万加 14 亿还够不到 15 亿 —— 这一期按转写原样印出，不做修正。他自己那个瓶颈是数据，而且他说它还没有解决：「我们有数据吗？我们有拿到数据的能力吗？」他真正点名的瓶颈其实跟生物学无关，是监管申报材料：「把一整个临床试验的方案写出来，要花上差不多一年」。至于这些能兑现多少，他给的是「我们会看到其中大概 80% 的可能性很快成真」，没有基线，也没有日期。</p>
+<p class="summary-zh zh">数学这一段他给出了这期节目里最具体的研究数字：「我们发表了差不多 400 个已经被解决的重要开放问题」，数学界正在逐条翻找「里面的洞见」，而领域专家报告说看到了「令人意外的思路运用方式」。上限是他自己说的：「我们还没有提出整套全新的理论」；他划的界线是四色定理 —— 那里「只是让机器去验了一大堆情形，那里面没有美」—— 所以「我们正进入机器发现的另一个阶段」。没有论文、没有清单、没有点名任何一个问题，所以 400 这个数在这里无法核实。</p>
+<p class="summary-zh zh">产品这边有四件事。规模数字在同一次对话里有两种写法：主持人说 GPT-six 被推给了「超过十亿人」，而他说 OpenAI 在 ChatGPT 上有「1,200,000,000 个消费者」；两个都照录，不取平均。界面上，「最好的界面是没有界面」，而企业侧的差别被定位在管理员、控制项和开关上，他自己点出了其中的张力：既然没有界面，那「有什么功能被关掉了，又该怎么让人知道」就意味着什么。生成式界面这边是「intelligent UI」—— 模型在你需要的那一刻造出你需要的那个东西，他举的两个例子是订机票，和一个帮你组装自行车的一次性小程序。agent 这边是 DOTS：「一个主动型 agent，永远在线、永远在干活，你停了它还在干」，它盯着他的收件箱、Slack、日历和项目，早上用一张「你说过要做但还没做的事」的清单把他叫醒，会指出他从没让它去注意的日程冲突；它跑的是「一个 Astra 级别的模型」，有「自己的云电脑」，而按他的说法，这是「形态的变化，不是能力的变化」。他自己只跑一个，图标是一只小猫头鹰。</p>
+<p class="summary-zh zh">出处上有四点要记。这期节目发布于 2026-10-15T10:00Z，而本次 feed 快照是 2026-10-26T06:55Z，所以它迟到了十一天，按日历里面没有一样东西是新的。url 字段给的是 No Priors 的频道而不是这一期，所以下面的链接指向频道。转写文本是机器生成的，而且错误碰到了专有名词 —— 「Greg Brockmiff」、「GPD four」、「OpenNAR」、「GPT-six」—— 所以上面每一个模型名和产品名都按转写原样印出。还有主讲人：转写只把他们标成 Speaker 1、2、3，开场白里出现的是「Elad and I」，他那句道谢被转成「Thanks, Regina」，所以这里不补全任何主持人姓名。</p>
+<p class="summary-zh zh">有一个名字要和本系列对上。Dots 这个写法，在 10-09 那期是 Dan Shipper 那篇长评的对象 —— 即便批准了权限仍然会失效，以及「与 Muse、Instinct 和 Grok bots 大致功能持平」的判断 —— 而那一期没有说它是谁家的。现在同一个写法出自 OpenAI 总裁之口。两者是不是同一个产品，两个信源都没有说，所以这一期不替它们建立联系。</p>
+<div class="urls"><a href="https://www.youtube.com/@NoPriorsPodcast">https://www.youtube.com/@NoPriorsPodcast</a></div>
+</div>
+</section>
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128161;</span>
+<h2 class="section-title">The Takeaway</h2>
+<span class="section-meta">2026-10-27</span>
+</div>
+<div class="takeaway">
+<div class="takeaway-label">The Takeaway</div>
+<p>The clock resets for the fourth time, and this is the first entry that says where it stops. Day 10, Day 15, Day 20 and Day 21 are all resets, and Day 16 remains the only entry that named a change and put a number on it. &ldquo;The remaining seven days&rdquo; is information the series has not had before &mdash; an end implied at Day 28 &mdash; and it arrives in a post that answers nothing the day before left open: &ldquo;It is all propagated&rdquo; still has no subject, and whether anything landed by the midnight Day 20 named is still unanswered one notch later.</p>
+<p>Security is the one subject that two independent sources speak to in the same issue. Greg Brockman, in an episode published eleven days before this snapshot, says security spend should vastly outstrip software spend and describes a defender&rsquo;s window that will not last. Aaron Levie, at 09:18 on this Pacific day, says the enterprise risk surface has already passed what most companies can hold and that agent swarms are what changes the arithmetic, on the condition that the basics get done first. One direction, no shared measurement, and neither source refers to the other. The podcast also moves a carried item: Daybreak, which the 10-20 issue could only describe as a &ldquo;cyber permissive setup&rdquo;, now has a stated purpose and a stated audience.</p>
+<p>Numbers are almost absent from the X side. Of the nine rendered posts, exactly one carries a number, and it is a calendar count: Day 21, and the seven days remaining. Everything else is names, opinions and reactions to things outside this feed. The podcast side is the opposite, and most of its numbers are uncheckable from here: about 400 resolved problems with no list, 25 engineers or 25% depending on which sentence you read, 1.2 billion consumers or over a billion, and three drug-cost figures that do not add up as transcribed.</p>
+<p>Attention and substance separate again, and this can be said because all four engagement fields came back populated, unlike the 10-26 issue. The two most liked posts in the window are both Thibault Sottiaux&rsquo;s and both name no object: a reset at 5,168 likes and a reminder that ChatGPT&rsquo;s appearance can be changed at 1,136. Third is Zara Zhang&rsquo;s claim about daily output at 256. The only post describing a shipped capability with a workflow, Peter Yang&rsquo;s on HyperFrames, is fourth at 245, and the only structured enterprise argument, Levie&rsquo;s, is fifth at 244.</p>
+<p>Nothing in the podcast is new by calendar. It is dated 2026-10-15 and reached this feed eleven days later, so it should be read as a late arrival rather than as today&rsquo;s news, the same caution the 10-26 issue applied to its episode. The blog slot is 0 again, and it is 0 by emptiness: the blogs array came back empty, the fourth consecutive issue in a row.</p>
+</div>
+<div class="takeaway zh">
+<div class="takeaway-label">&#26680;&#24515;&#32467;&#35770;</div>
+<p>时钟第四次 reset，而这是第一次说出它停在哪。Day 10、Day 15、Day 20、Day 21 四次都是 reset，Day 16 仍然是唯一一次既点名变更又给出数字的。「还剩七天」是本系列此前没有过的信息 —— 一个被推到 Day 28 的终点 —— 而它出现在一条完全没有回答前一天留下的任何问题的推文里：「It is all propagated」到今天仍然没有主语，Day 20 说的那个午夜之前到底有没有东西落地，在时钟又走一格之后仍然没有答案。</p>
+<p>安全是这一期里唯一被两个独立信源同时讲到的话题。Greg Brockman 在一期比快照早十一天发布的节目里说，安全支出应当远远超过软件支出，并描述了一个不会一直存在的防御者窗口。Aaron Levie 在这个太平洋日的 09:18 说，企业的风险面已经超出绝大多数公司能兜住的范围，而改变这个算术的是 agent 集群，前提是先把基础做对。一个方向、没有共同的测量，两个信源谁也没提到谁。播客还让一项挂着的东西往前动了：Daybreak 在 10-20 那期只能被描述成一套「偏开放的网络安全配置」，现在它有了说清的用途和说清的对象。</p>
+<p>数字在推文这一侧几乎不存在。渲染的九条里，只有一条带数字，而那是一个日历计数：Day 21，以及剩下的七天。其余全是名字、观点，和对 feed 之外东西的反应。播客那一侧正好相反，而它的数字大多在这里无法核实：大约 400 个已解决的问题但没有清单、25 名工程师或 25%（取决于你读哪一句）、12 亿消费者或超过十亿，以及三个按转写也对不上的药物成本数字。</p>
+<p>热度和内容再次分离，而这一次可以说，因为四个互动字段全部返回了值，不像 10-26 那期。窗口里热度最高的两条都出自 Thibault Sottiaux，也都没有宾语：一条 reset，5,168 赞；一条提醒你 ChatGPT 的外观可以改，1,136 赞。第三是 Zara Zhang 那条关于每天产出的主张，256 赞。唯一一条描述了一个带着工作流的已上线能力的 —— Peter Yang 讲 HyperFrames 那条 —— 排第四，245 赞；唯一一段有结构的企业论证 —— Levie 那条 —— 排第五，244 赞。</p>
+<p>播客里没有一样东西按日历算是新的。它发布于 2026-10-15，十一天后才进到这个 feed，所以应当按迟到而不是按今天的新闻来读，这和 10-26 那期对它那一集的处理是一样的。博客那一格又是 0，而且是空出来的 0：blogs 数组返回为空，这已经是连续第四期。</p>
+</div>
+</section>
+<!-- ============== NOTES ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128221;</span>
+<h2 class="section-title">&#35760;&#24405; / Notes &amp; Dedup</h2>
+<span class="section-meta">14 Zero &#183; 0 Dedup &#183; 1 Empty</span>
+</div>
+<div class="dedup">
+<p style="margin-top:12px"><strong>Tweet check</strong> &mdash; All 14 tweet IDs in this window were matched against every file under 2026/ and returned zero hits, so nothing here repeats a post from an earlier issue.</p>
+<p style="margin-top:12px"><strong>Podcast check</strong> &mdash; The slot is 1. No Priors, publishedAt 2026-10-15T10:00Z, with OpenAI president Greg Brockman; neither the guest name nor the title string appears anywhere under 2026/, so it is new to this series. It is eleven days old at this feed&rsquo;s snapshot of 2026-10-26T06:55Z, so it arrived late rather than fresh. The url field gives the No Priors channel rather than this episode, which is why the link goes to the channel. The transcript is machine-generated with errors on proper nouns, listed in the card above, and it labels the three speakers only as Speaker 1, 2 and 3; no host name is filled in. One cross-series reconciliation is recorded in the card rather than resolved: Dots was reviewed first-hand by Dan Shipper in the 10-09 issue without a maker named, and the same spelling appears in this episode.</p>
+<p style="margin-top:12px"><strong>Blog check</strong> &mdash; The slot is 0 by emptiness: the blogs array came back empty, so there was no slug to match. This is the fourth consecutive issue in which this slot has produced nothing, 10-21, 10-22, 10-26 and today, and all four are the same cause, an empty array. The last time it read 0 for a different reason was 10-20, where the entries existed but matched earlier issues.</p>
+<p style="margin-top:12px"><strong>Not rendered</strong> &mdash; Five of the 14 posts are counted but not rendered, and three builders are absent from the card section entirely. Swyx&rsquo;s single post, at 00:49 Pacific, is &ldquo;i need 12 more likes to ratio @ArfurRock whos got it&rdquo; &mdash; 10 likes, 4 replies, no AI content and no object, so he is counted with no card. Nikunj Kothari&rsquo;s single post, at 08:36, is &ldquo;Golden hour&rdquo; over an image, 40 likes and 1 repost, three words with no AI content. Dan Shipper&rsquo;s single post, at 17:10, is two shortened links and no text of its own at all, 33 likes and 8 replies, which is why he has no card; it is the only post in the window with no text. Peter Yang&rsquo;s 20:17 post, the snacks line, and Matt Turck&rsquo;s 10:39 post, &ldquo;Good neighborhood&rdquo; over an image at 100 likes, are also not rendered. That makes 9 builders counted and 6 rendered, 14 posts counted and 9 rendered. Following this series since October, excluded posts are given no URL.</p>
+<p style="margin-top:12px"><strong>Coverage</strong> &mdash; This issue&rsquo;s snapshot is 2026-10-26T06:55Z, Pacific 10-25 23:55, and all 14 posts sit inside Pacific 10-25, from 00:19 to 22:48. The previous issue, dated 10-26, used a snapshot of 2026-10-25T06:39Z and its posts ended at Pacific 10-24 23:06, so about an hour and a quarter at the start of this Pacific day is uncovered. No issue was generated for 10-23, 10-24 or 10-25, so the Pacific days 10-21, 10-22 and 10-23 remain absent from the series altogether rather than merely uncovered at the edges. This window also closes about an hour before the snapshot. One more thing worth recording: this issue is dated 10-27 and is being assembled at Pacific 10-26 23:20, so the snapshot is roughly twenty-three hours behind the moment of reading, and the whole of Pacific 10-26 has not yet entered the feed.</p>
+<p style="margin-top:12px"><strong>Not resolved</strong> &mdash; What Day 22 says, and whether the seven-day countdown is repeated, revised or dropped, which is the only end date this series has been given. What &ldquo;it is all propagated&rdquo; propagated, and whether anything landed by the midnight Day 20 named &mdash; both now two notches old rather than one. Whether Daybreak Blue and the Daybreak programme are the same thing, what &ldquo;cyber permissive&rdquo; means, and who can actually get in. Whether the security exercise produces a count, a list, a duration or a written account, and whether the 25 / 25% discrepancy gets resolved anywhere. Whether DOTS and the Dots Dan Shipper reviewed on 10-09 are the same product, and who makes it. What &ldquo;intelligent UI&rdquo; ships as, and whether the missing-functionality problem Brockman names gets a product answer. Whether the HyperFrames workflow belongs to Claude or to HyperFrames, since the headline and the quotation name different things. What the unoptimized-app default on iPhone Duo actually is. Who gave the interview Zara Zhang is reacting to, and what Matt Turck&rsquo;s &ldquo;rare footage&rdquo; points at. Whether the South Korea bank hacks get a name, a date or a number. Whether the 400 resolved problems get a list. The GPT-6.1 and DevDay naming moved only halfway today: this episode names GPT-six and Dev Day, and still does not name GPT-6.1. Still unmoved from earlier issues: the Vercel sandbox escape write-up and the second vendor, the 10-20 attack on OpenCode users, the Sol 6 score, Muse Wonder Full on the API, Ghost Pepper maintenance cost, external reproduction of Sonnet 5.5, the OpenClaw Android review, the 10x coding-agent question, Goodfire and Hugging Face in writing, a second network in Rauch&rsquo;s traffic series, the Grok bot email, Amjad&rsquo;s decompilation example, the mechanics of Thariq&rsquo;s game, Wabi 2.0 past preview, the subject behind Rauch&rsquo;s 1,000 tokens per second, Dan Shipper&rsquo;s three-part story, Claude Managed Agents and Duet, who Anthony is, Rauch&rsquo;s minimum viable English word count, what Nikunj is raising the infra series A for, Garry Tan&rsquo;s Gstack link and the Captains inside Capy, the three copycats named in the 10-26 podcast, and what the Day 15 and Day 20 resets each cleared. Opal shuts down on 2026-11-17.</p>
+<p style="margin-top:12px"><strong>推文核对</strong> &mdash; 这个窗口里 14 个推文 ID 全部拿去和 2026/ 下的每一个文件比对，全部零命中，所以这里没有一条推文是重复此前某一期的。</p>
+<p style="margin-top:12px"><strong>播客核对</strong> &mdash; 这一格是 1。No Priors，publishedAt 2026-10-15T10:00Z，嘉宾是 OpenAI 总裁 Greg Brockman；这个嘉宾名和这一期的标题串，在 2026/ 下任何文件里都找不到，所以它是本系列的新条目。它在本次 feed 快照 2026-10-26T06:55Z 时已经十一天了，所以是迟到而不是新鲜。url 字段给的是 No Priors 频道而不是这一期，所以链接指向频道。转写文本是机器生成的，专有名词上有错，卡片里已经列出来；它把三位主讲人只标成 Speaker 1、2、3，所以这里不补全主持人姓名。有一处跨系列的对照记在卡片里而没有下结论：Dots 在 10-09 那期被 Dan Shipper 以一手体验长评过，当时没有说它是谁家的，而这一期里同一个写法出现了。</p>
+<p style="margin-top:12px"><strong>博客核对</strong> &mdash; 这一格是 0，原因是空数组：blogs 数组返回为空，所以没有条目可以匹配。这已经是连续第四期这一格没有产出，10-21、10-22、10-26 和今天，而四次的成因都一样 —— 数组为空。上一次 0 是别的原因，是 10-20，那次条目存在，只是与此前的期次判重。</p>
+<p style="margin-top:12px"><strong>未渲染</strong> &mdash; 14 条推文里有 5 条计入但没有做成卡片，其中三位 builder 在卡片区完全缺席。Swyx 唯一的推文在太平洋时间 00:49，是「i need 12 more likes to ratio @ArfurRock whos got it」，10 赞、4 条回复，没有 AI 内容也没有可点名的对象，所以他计入但没有卡片。Nikunj Kothari 唯一的推文在 08:36，是配图的一句「Golden hour」，40 赞、1 次转发，三个词，没有 AI 内容。Dan Shipper 唯一的推文在 17:10，只有两个短链接、完全没有自己的正文，33 赞、8 条回复，所以他没有卡片；它也是这个窗口里唯一一条没有正文的推文。Peter Yang 在 20:17 那条零食玩笑，以及 Matt Turck 在 10:39 那条配图的「Good neighborhood」（100 赞），同样不渲染。于是计入 9 位 builder、渲染 6 位，计入 14 条推文、渲染 9 条。按照本系列自十月起对被排除内容的一贯处理，不给 URL。</p>
+<p style="margin-top:12px"><strong>覆盖</strong> &mdash; 这一期的快照是 2026-10-26T06:55Z，即太平洋时间 10-25 23:55，14 条推文全部落在太平洋 10-25 之内，从 00:19 排到 22:48。上一期（10-26）用的快照是 2026-10-25T06:39Z，推文结束在太平洋时间 10-24 23:06，所以这个太平洋日开头大约一小时十五分钟没有被盖到。10-23、10-24、10-25 三期没有生成，所以太平洋 10-21、10-22、10-23 这三天不是边角没盖到，而是整段缺席。另外这个窗口在快照之前大约一小时就闭合了。还有一件值得记下的事：这一期日期是 10-27，而成文发生在太平洋时间 10-26 23:20，也就是说快照比阅读时刻晚了大约二十三小时，太平洋 10-26 这一整天还没有进 feed。</p>
+<p style="margin-top:12px"><strong>未闭环</strong> &mdash; Day 22 会说什么，以及那个七天倒计时是被重复、被改写还是被丢掉 —— 这是本系列拿到过的唯一一个终点。 「It is all propagated」传播了什么，以及 Day 20 说的那个午夜之前有没有东西落地 —— 这两项现在不是隔了一格，而是隔了两格。Daybreak Blue 和 Daybreak 计划是不是同一件事、「cyber permissive」是什么意思、以及到底谁能拿到。那次安全演练会不会给出数量、清单、耗时或一份书面说明，以及 25 与 25% 这个分歧会不会在任何地方被解决。DOTS 和 10-09 那期 Dan Shipper 长评的 Dots 是不是同一个产品，它是谁家的。「intelligent UI」会以什么形态上线，以及 Brockman 自己点出的「功能被关掉了该怎么让人知道」会不会有产品层面的回答。HyperFrames 那个工作流到底属于 Claude 还是属于 HyperFrames —— 标题和引文点的是两个不同的东西。iPhone Duo 上那个未优化应用的默认行为到底是什么。Zara Zhang 在回应的那次访谈是谁，Matt Turck 的「罕见影像」指向什么。韩国那几起银行被黑事件会不会有名字、日期或数字。那 400 个已解决问题会不会给出清单。GPT-6.1 与 DevDay 的命名今天只移动了一半：这一期点名了 GPT-six 和 Dev Day，仍然没有出现 GPT-6.1。更早几期挂下来的仍然没动：Vercel 沙箱逃逸的技术说明和第二家供应商、10-20 那次针对 OpenCode 用户的攻击、Sol 6 的分数、Muse Wonder Full 上 API、Ghost Pepper 的维护成本、Sonnet 5.5 的外部复现、OpenClaw 的安卓审核、10x 编码 agent 那一问、Goodfire 与 Hugging Face 的书面形式、Rauch 流量序列里的第二家网络、那封 Grok bot 邮件、Amjad 的反编译实例、Thariq 那个游戏的机制、Wabi 2.0 走出预览、Rauch「每秒 1,000 token」的主语、Dan Shipper 那个分三部分的说法、Claude Managed Agents 与 Duet、Anthony 是谁、Rauch「最小可用英语」的词数、Nikunj 这轮基础设施 A 轮是为什么募的、Garry Tan 的 Gstack 链接与 Capy 里的 Captain、10-26 那期播客点名的三家跟随者，以及 Day 15 和 Day 20 两次 reset 各自清掉了什么。Opal 于 2026-11-17 关停。</p>
+</div>
+</section>
+<footer class="footer">
+<div class="next-issue">&#128236; &#19979;&#19968;&#26399;&#65306;&#26126;&#22825; 10:00&#65288;&#21271;&#20140;&#26102;&#38388;&#65289;</div>
+<div class="signature">by chloevchen</div>
+</footer>
+
+<!-- by chloevchen -->
+</body>
+</html>
