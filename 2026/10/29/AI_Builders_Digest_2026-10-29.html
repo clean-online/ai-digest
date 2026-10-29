@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Builders Digest &#183; 2026-10-29</title>
+<style>
+
+
+
+
+
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 28px 30px; margin-bottom: 24px; }
+  .podcast-source { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
+  .podcast-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; margin-bottom: 18px; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; }
+
+
+</style>
+</head>
+<body>
+<header class="topbar">
+<div class="topbar-inner">
+<a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+<span>&#21452;&#35821; &#183; Bilingual</span>
+</div>
+</header>
+<section class="header">
+<div class="eyebrow">Daily Digest &#183; 2026-10-29</div>
+<h1>AI Builders Digest</h1>
+</section>
+<div class="stats">
+<div class="stat"><div class="stat-num">13</div><div class="stat-label">Builders</div></div>
+<div class="stat"><div class="stat-num">29</div><div class="stat-label">Tweets</div></div>
+<div class="stat"><div class="stat-num">0</div><div class="stat-label">Podcast</div></div>
+<div class="stat"><div class="stat-num">0</div><div class="stat-label">Blog</div></div>
+</div>
+<p class="note-line">Something landed and the feed will not say what. Thibault Sottiaux posts twice about a midnight PST deadline, and the second one, the most-replied post in the window at 1,127 replies, is a bare shortened link followed by “has landed”. The most-liked post is Thariq’s, at 8,262, for a macOS dock he says he is not sharing. The snapshot is 2026-10-28T06:32Z, Pacific 10-27 23:32, and all 29 posts sit inside Pacific 10-27, 06:58 to 23:29.</p>
+<p class="note-line zh">有东西落地了，而 feed 不肯说是什么。Thibault Sottiaux 两次提到一个太平洋时间的午夜截止时间，第二条是这个窗口里回复数最高的一条（1,127 条回复），内容却只有一个裸短链接加一句「has landed」。赞数最高的是 Thariq 那条的 8,262，讲的是一个他说不打算分享的 macOS dock。feed 快照是 2026-10-28T06:32Z，即太平洋时间 10-27 23:32，29 条推文全部落在太平洋 10-27 的 06:58 到 23:29 之间。</p>
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128036;</span>
+<h2 class="section-title">X / Twitter</h2>
+<span class="section-meta">13 Builders &#183; 29 Tweets</span>
+</div>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Dan Shipper</span>
+<span class="builder-role">Every CEO</span>
+</div>
+<p class="summary-en">Every CEO Dan Shipper opens the window at 06:58 Pacific with the most-liked of his three posts, 442 likes and 11 reposts, and it says nothing: “extremely good explanation” over a link. The quoted post is not in the feed, so what he is calling good cannot be named here. Not rendered.</p>
+<p class="summary-en">At 07:47 he makes the one post of his that carries a subject: “video creation and game making are going to become widely distributed foundations of knowledge work in the same way doc and deck creation are today”. 227 likes, 21 reposts, 45 replies. No product, customer or number is attached.</p>
+<p class="summary-en">His third, at 09:05, is “we’ll have more on this in @every this week” over a link, and it drew 1 like, the lowest single count in this window. Not rendered.</p>
+<p class="summary-zh zh">Every CEO Dan Shipper 在太平洋时间 06:58 发出这个窗口的第一条推文，也是他三条里赞数最高的：442 赞、11 次转发，内容却只有一个「extremely good explanation」加一个链接。被引用那条不在 feed 里，所以他说好的东西是什么，这里说不出来。不渲染。</p>
+<p class="summary-zh zh">07:47 那句是他今天唯一带主张的一句：「视频创作和做游戏会像今天做文档、做幻灯片一样，成为知识工作里被广泛掌握的基本功」。227 赞、21 次转发、45 条回复。没有点产品、没有客户、没有数字。</p>
+<p class="summary-zh zh">第三条在 09:05，是「we’ll have more on this in @every this week」加一个链接，拿到 1 个赞，是这个窗口里最低的单条计数。不渲染。</p>
+<div class="urls">
+<a href="https://x.com/danshipper/status/2115093098816745910">https://x.com/danshipper/status/2115093098816745910</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Swyx</span>
+<span class="builder-role">smol_ai &amp;#183; Cognition</span>
+</div>
+<p class="summary-en">Two of three rendered. At 07:35 Pacific, Swyx puts a number on a missed bet: against a wave of people posting their Cursor “bag fumble”, he estimates his own at $500m, adding that he would very probably have been on Claude Code early because he has been a TypeScript CLI maintainer. 1,437 likes, 7 reposts, 194 replies, fifth-highest by likes in the window. The $500m is his own estimate and no arithmetic is shown.</p>
+<p class="summary-en">At 10:36 he aims it at someone: “yeah you ignored a @mntruell email in 2024 but did you pitch something like Claude Code in 2019 and then.... not do it  for 7 years”. 53 likes, 1 repost, 7 replies. @mntruell is named, but who “you” is, and what was pitched, is not in the post.</p>
+<p class="summary-en">His third, at 11:58, is “anyway here’s my soundcloud” over a link, 22 likes. Not rendered.</p>
+<p class="summary-zh zh">三条里渲染两条。太平洋时间 07:35，Swyx 给一次错过下了数字：在一波人晒自己的 Cursor「bag fumble」里，他估自己这一笔是 5 亿美元，并补了一句他本来很可能会很早用上 Claude Code，因为他一直是 TypeScript CLI 的维护者。1,437 赞、7 次转发、194 条回复，赞数在窗口里排第五。这 5 亿是他自己的估算，没有给出算术。</p>
+<p class="summary-zh zh">10:36 他把矛头指向某个人：「yeah you ignored a @mntruell email in 2024 but did you pitch something like Claude Code in 2019 and then.... not do it  for 7 years」。53 赞、1 次转发、7 条回复。@mntruell 被点名了，但「you」是谁、2019 年 pitch 的又是什么，推文里没有。</p>
+<p class="summary-zh zh">第三条在 11:58，是「anyway here’s my soundcloud」加一个链接，22 赞。不渲染。</p>
+<div class="urls">
+<a href="https://x.com/swyx/status/2115089887959359988">https://x.com/swyx/status/2115089887959359988</a>
+<a href="https://x.com/swyx/status/2115135448876269782">https://x.com/swyx/status/2115135448876269782</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nikunj Kothari</span>
+<span class="builder-role">FPV Ventures 合伙人</span>
+</div>
+<p class="summary-en">Both rendered. At 09:00 Pacific, FPV Ventures partner Nikunj Kothari lists eight terms he says he still has to go deep on because he would get ten wildly different definitions: long horizon, out of distribution, especially data, intelligence per watt, RL environments, “forward deployed”, revenue, “frontier”, self improving. 41 likes, 0 reposts, 4 replies. He allows that some are rightfully subjective, and that the variance is the point.</p>
+<p class="summary-en">At 12:02 he makes the same argument as Matt Turck, one hour and thirty-nine minutes later and without citing him: Anthropic and Databricks both have seven co-founders, so the usual advice about having too many does not describe outliers well. “There’s no ‘right’ way, there’s only the way that works for you!” 97 likes, 4 reposts, 12 replies. Neither investor sources their count to anything in the feed.</p>
+<p class="summary-zh zh">两条都渲染。太平洋时间 09:00，FPV Ventures 合伙人 Nikunj Kothari 列了八个他说自己还得深挖的词，因为问下去会得到十种差别很大的定义：long horizon、out of distribution（尤其是数据）、intelligence per watt、rl environments、“forward deployed”、revenue、“frontier”、self improving。41 赞、0 次转发、4 条回复。他承认其中一些本来就该是主观的，而分歧本身就是重点。</p>
+<p class="summary-zh zh">12:02 他讲了和 Matt Turck 一样的论点，晚了一小时三十九分，也没有引用对方：Anthropic 和 Databricks 都是七位联合创始人，所以「联合创始人太多」那套老说法解释不了这些异类。「There’s no ‘right’ way, there’s only the way that works for you!」97 赞、4 次转发、12 条回复。两位投资人都没有给自己的数字出处。</p>
+<div class="urls">
+<a href="https://x.com/nikunj/status/2115111451614744845">https://x.com/nikunj/status/2115111451614744845</a>
+<a href="https://x.com/nikunj/status/2115157188704612735">https://x.com/nikunj/status/2115157188704612735</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aditya Agarwal</span>
+<span class="builder-role">South Park Commons 普通合伙人</span>
+</div>
+<p class="summary-en">One post, at 09:32 Pacific: “Very very excited about what @centai_health is building. So much potential to bring better health to everyone in India.” 25 likes, 2 reposts, 0 replies. It names a company that has not appeared in this series before and a country, and says nothing about what is being built. It is a quote-post, and the quoted post is not in the feed.</p>
+<p class="summary-zh zh">只有一条，太平洋时间 09:32：「Very very excited about what @centai_health is building. So much potential to bring better health to everyone in India.」25 赞、2 次转发、0 条回复。它点名了一家本系列此前没出现过的公司和一个国家，但没有说在建的是什么。这是一条引用推文，被引用那条不在 feed 里。</p>
+<div class="urls">
+<a href="https://x.com/adityaag/status/2115119516191801809">https://x.com/adityaag/status/2115119516191801809</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Matt Turck</span>
+<span class="builder-role">FirstMark Capital VC &amp;#183; MAD Podcast 主持人</span>
+</div>
+<p class="summary-en">One post, at 10:23 Pacific, and it is a list with a punchline: the usual advice is that too many co-founders is bad, too much dilution, founder friction risk, analysis paralysis, and then Anthropic with 7, OpenAI with 11, Databricks with 7. 220 likes, 11 reposts, 54 replies. Nikunj Kothari makes the same point at 12:02 with two of the same three companies and no cross-reference, so the window carries one claim twice from two investors, neither citing the other. None of the three counts is sourced to anything in the feed.</p>
+<p class="summary-zh zh">只有一条，太平洋时间 10:23，是一份清单加一个反转：通常的建议是联合创始人太多不好、稀释太多、创始人摩擦风险、分析瘫痪，然后是 Anthropic 7 位、OpenAI 11 位、Databricks 7 位。220 赞、11 次转发、54 条回复。Nikunj Kothari 在 12:02 用其中同样的两家公司讲了同一个点，互不引用，所以这个窗口里同一条主张出现了两次，出自两位投资人。三个数字在 feed 里都没有出处。</p>
+<div class="urls">
+<a href="https://x.com/mattturck/status/2115132327131328806">https://x.com/mattturck/status/2115132327131328806</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thariq</span>
+<span class="builder-role">前 Anthropic Claude Code</span>
+</div>
+<p class="summary-en">All three rendered, and he holds the top of the window twice. At 10:37 Pacific, formerly of Anthropic’s Claude Code, he posts a personal project: an AI-native macOS dock with custom modes, writing and building among them, where his agent can customize mode behaviour and add new modes, and where he uses jev to classify his activity and notifications in real time and act on them. 8,262 likes, 215 reposts, 432 replies: the most-liked post in the window, and the most-reposted.</p>
+<p class="summary-en">In the same second he posts the caveat: this is the HCI work he has wanted to do for a while, but messing with OS internals has always been very time consuming, he is not sharing it, there are still many edge cases, and he would not recommend using it. 628 likes, 2 reposts, 19 replies. Jev has been in this series since 09-18, when Rauch reported an 18x speed figure and said it was coming to Vercel AI Gateway, and the 10-26 issue carried a podcast episode describing it as returning scores for email triage. This is the first time in the series that anyone reports running it inside their own software, and no measurement of the classification is offered.</p>
+<p class="summary-en">At 14:08 he states a gap rather than a product: there needs to be a new way to distribute open source software so that people can modify it through agents and still get upstream merged in automatically, and coding agents can do this but will not do it automatically. 2,465 likes, 53 reposts, 219 replies, third by likes in the window. No name, no code, no proposal.</p>
+<p class="summary-zh zh">三条全部渲染，他一个人占了窗口赞数的第一和第三。太平洋时间 10:37，这位此前在 Anthropic 做 Claude Code 的人发了一个私人项目：一个 AI 原生的 macOS dock，带自定义模式（写作、开发等），他的 agent 可以自定义模式行为、也能加新模式，他用 jev 实时分类自己的活动和通知，并据此行动。8,262 赞、215 次转发、432 条回复：窗口里赞数最高，转发也最高。</p>
+<p class="summary-zh zh">同一秒他发了那条提醒：这是他想做很久的 HCI 工作，但动 OS 内部一向很费时间，他现在不分享，边界情况还很多，也不建议别人用。628 赞、2 次转发、19 条回复。jev 从 09-18 起就在本系列里了 —— 那天 Rauch 报了一个 18 倍的速度数字，说它会进 Vercel AI Gateway；10-26 那期收录了一期播客，把它描述成返回邮件分诊分数的东西。这是本系列里第一次有人报告把它跑在自己的软件里，而分类效果如何没有任何测量。</p>
+<p class="summary-zh zh">14:08 他说的是一个缺口而不是一个产品：需要一种新的开源分发方式，让人可以借 agent 改、同时上游改动能自动合回来；编码 agent 做得到，但它们不会自动去做。2,465 赞、53 次转发、219 条回复，赞数排第三。没有名字、没有代码、没有方案。</p>
+<div class="urls">
+<a href="https://x.com/trq212/status/2115135857669881939">https://x.com/trq212/status/2115135857669881939</a>
+<a href="https://x.com/trq212/status/2115135859075015137">https://x.com/trq212/status/2115135859075015137</a>
+<a href="https://x.com/trq212/status/2115188992861970693">https://x.com/trq212/status/2115188992861970693</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Amjad Masad</span>
+<span class="builder-role">Replit CEO</span>
+</div>
+<p class="summary-en">Two of three rendered. At 15:23 Pacific, Replit CEO Amjad Masad says where he would put money in frontier AI: mostly on new discovery and its applications such as medicine, because coding and most of knowledge work is being saturated quickly by sub-frontier models. 592 likes, 31 reposts, 115 replies, the most-reposted of his three. He runs a company whose product is coding, and the post does not address that.</p>
+<p class="summary-en">At 13:37 he names a case inside a pun: in the Stanford piracy case against Anthropic, the judge’s name, Alsup, “sounds suspiciously close to ‘AI slop’ when say it fast”. 102 likes, 2 reposts, 36 replies. Both the case and the judge are new to this series, and nothing else about either is in the feed — no filing, no hearing, no ruling, no date.</p>
+<p class="summary-en">His third, at 11:36, is “Designers’ contribution to the codebase” with two images attached, 265 likes. The images are not in the feed, so there is nothing to describe. Not rendered.</p>
+<p class="summary-zh zh">三条里渲染两条。太平洋时间 15:23，Replit CEO Amjad Masad 说了他会把前沿 AI 的钱押在哪儿：主要押在新发现和它的应用上，比如医学，因为编码和大部分知识工作正迅速被次前沿模型填满。592 赞、31 次转发、115 条回复，是他三条里转发最高的。他本人经营的是一家以编码为核心产品的公司，这条推文没有处理这一点。</p>
+<p class="summary-zh zh">13:37 他用一句谐音点了一桩案子：斯坦福诉 Anthropic 的盗版案里，法官姓 Alsup，说快了听上去很像「AI slop」。102 赞、2 次转发、36 条回复。这桩案子和这位法官都是本系列第一次出现，feed 里没有别的相关信息 —— 没有诉状、没有听证、没有裁决、没有日期。</p>
+<p class="summary-zh zh">第三条在 11:36，是「Designers’ contribution to the codebase」配两张图，265 赞。图不在 feed 里，所以没有可描述的内容。不渲染。</p>
+<div class="urls">
+<a href="https://x.com/amasad/status/2115207856496480261">https://x.com/amasad/status/2115207856496480261</a>
+<a href="https://x.com/amasad/status/2115181058815660449">https://x.com/amasad/status/2115181058815660449</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Guillermo Rauch</span>
+<span class="builder-role">Vercel CEO</span>
+</div>
+<p class="summary-en">One of two rendered. At 16:06 Pacific, Vercel CEO Guillermo Rauch posts a terminal session in a monospaced face: alias now=vercel, then a two-line Dockerfile from oven/bun:alpine whose command is Bun.serve on port 80 returning “we are so back”, then now, then “Ready:” and a link. 196 likes, 4 reposts, 49 replies. It is a deploy-ergonomics demo with no measurement, no timing and no comparison, and the word bun has not appeared in this feed before. The same two words closed Dan Shipper’s S-1 post in the 10-28 issue, a day earlier and on a different subject; nothing here connects the two.</p>
+<p class="summary-en">His other post, at 12:18, drew 454 likes, more than twice this one, for two bare links and no text at all. Not rendered.</p>
+<p class="summary-zh zh">两条里渲染一条。太平洋时间 16:06，Vercel CEO Guillermo Rauch 用等宽字体发了一段终端会话：alias now=vercel，接着是一个两行的 Dockerfile，基础镜像 oven/bun:alpine，命令是 Bun.serve 监听 80 端口、返回「we are so back」，然后是 now，然后是「Ready:」加一个链接。196 赞、4 次转发、49 条回复。这是一次部署体验的演示，没有测量、没有耗时、没有对比，bun 这个词此前在这个 feed 里没出现过。同样的这两个词也出现在 Dan Shipper 在 10-28 那期那条 S-1 推文的结尾，早一天、讲的是另一件事；这里没有东西能把两者连起来。</p>
+<p class="summary-zh zh">他另一条在 12:18，拿到 454 赞，是这条的两倍多，内容是两个裸链接、一个字都没有。不渲染。</p>
+<div class="urls">
+<a href="https://x.com/rauchg/status/2115218670389756243">https://x.com/rauchg/status/2115218670389756243</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Garry Tan</span>
+<span class="builder-role">Y Combinator 总裁兼 CEO</span>
+</div>
+<p class="summary-en">Two of three rendered, and one of them answers a question this series has been carrying. At 14:26 Pacific, Y Combinator president and CEO Garry Tan writes that the Capy software factory’s renormalization of your GitHub contribution colors is real, posts his own, and says: “I was no token slouch before but wow the PRs are hot and heavy with Capy Captains (10 to 20 subagents running at all times on GStack and GBrain)”. 114 likes, 8 reposts, 53 replies. Capy first appeared in this series in the 10-04 issue, described there as a 24/7 standup for your agents; “Captains” appeared in the 10-22 issue as a feature GStack had become aware of, with nothing said about what a captain does. Today is the first time one is described at all: ten to twenty subagents, running at all times.</p>
+<p class="summary-en">At 15:55 he adds that he is “trying to slim down GStack and reduce token usage and task latency to be sure”, in reply to a post that is not in the feed. 92 likes, 3 reposts, 36 replies. No current figure for token usage or latency is given, so the reduction cannot be measured from here.</p>
+<p class="summary-en">His third, at 15:35, is a question over a link, “What did my Capy software factory do on the greenest days?”, 8 likes, the second-lowest count in the window. Not rendered.</p>
+<p class="summary-zh zh">三条里渲染两条，其中一条回答了本系列挂着的一个问题。太平洋时间 14:26，Y Combinator 总裁兼 CEO Garry Tan 说 Capy 软件工厂对你的 GitHub 贡献色块做的「重新归一化」是真的，晒了自己的图，并写道：「我以前也不是不舍得用 token 的人，但有了 Capy Captains，PR 又多又猛（GStack 和 GBrain 上同时跑着 10 到 20 个子 agent）」。114 赞、8 次转发、53 条回复。Capy 在本系列里最早出现在 10-04 那期，当时的描述是「给你的 agent 用的 24 小时站会」；Captains 出现在 10-22 那期，当时是 GStack 变得「Capy aware」后支持的一个功能，没说 captain 是干什么的。今天是第一次有人真正描述它：10 到 20 个子 agent，一直跑着。</p>
+<p class="summary-zh zh">15:55 他补了一句，说他正在「给 GStack 瘦身、降低 token 用量和任务延迟」，是在回复一条不在 feed 里的推文。92 赞、3 次转发、36 条回复。当前的 token 用量和延迟都没有数字，所以这个下降幅度从这里是量不出来的。</p>
+<p class="summary-zh zh">第三条在 15:35，是一个加链接的问句「What did my Capy software factory do on the greenest days?」，8 赞，是窗口里第二低的计数。不渲染。</p>
+<div class="urls">
+<a href="https://x.com/garrytan/status/2115193524152860771">https://x.com/garrytan/status/2115193524152860771</a>
+<a href="https://x.com/garrytan/status/2115215790756794496">https://x.com/garrytan/status/2115215790756794496</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Yang</span>
+<span class="builder-role">实用 AI 教程与访谈作者</span>
+</div>
+<p class="summary-en">All three rendered. At 17:28 Pacific, Peter Yang reports trying “the most incredible Grok @bot feature today”, calls it one of his favourite and funniest moments with AI in recent memory, says it is not quite launched to everyone but should be coming very soon, and promises a video on this one feature. 65 likes, 1 repost, 17 replies. This is the closest this series has come to learning what “bot” is: a Grok feature referred to as @bot, still rolling out. He does not name it, and no link is attached.</p>
+<p class="summary-en">At 22:08: “If you’re going to make videos about some made-up ARR then just be a satirical media company. I’d respect that.” 12 likes, 0 reposts, 9 replies, the third-lowest count in the window. He names no company and no video.</p>
+<p class="summary-en">At 22:46, four hiring practices he wants changed: filtering candidates on years of experience or some company name, prioritizing resumes and cover letters over proof of work and real projects, listing the number of people managed as an accomplishment by itself, and endless rounds of interviews over short work trials. 16 likes, 0 reposts, 4 replies. It is a quote-post, and what he is replying to is not in the feed.</p>
+<p class="summary-zh zh">三条全部渲染。太平洋时间 17:28，Peter Yang 说今天试了「最不可思议的一个 Grok @bot 功能」，称这是他最近和 AI 相处里最喜欢也最好笑的时刻之一，说它还没有向所有人放开但应该很快会来，并预告要为这一个功能单独做一期视频。65 赞、1 次转发、17 条回复。这是本系列离「bot 是什么」最近的一次：它是 Grok 的一个功能，被称作 @bot，还在放量中。他没有点名它，也没有挂链接。</p>
+<p class="summary-zh zh">22:08：「如果你要拿一个编出来的 ARR 去做视频，那就干脆做一家讽刺类媒体公司吧。那样我反倒敬你。」12 赞、0 次转发、9 条回复，是窗口里第三低的计数。他没有点任何公司和任何视频。</p>
+<p class="summary-zh zh">22:46 是他想改掉的四条招聘做法：按工作年限或某家公司的名字筛人；简历和求职信优先于作品和真实项目；把「管了多少人」本身当成一项业绩；用没完没了的面试轮次代替短期试用。16 赞、0 次转发、4 条回复。这是一条引用推文，他在回什么不在 feed 里。</p>
+<div class="urls">
+<a href="https://x.com/petergyang/status/2115239304092106772">https://x.com/petergyang/status/2115239304092106772</a>
+<a href="https://x.com/petergyang/status/2115309642209436057">https://x.com/petergyang/status/2115309642209436057</a>
+<a href="https://x.com/petergyang/status/2115319325137731757">https://x.com/petergyang/status/2115319325137731757</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thibault Sottiaux</span>
+<span class="builder-role">OpenAI Codex 与 ChatGPT</span>
+</div>
+<p class="summary-en">All three rendered, and nothing in them says what landed. At 19:43 Pacific: “Lands by midnight PST.” 1,622 likes, 50 reposts, 398 replies.</p>
+<p class="summary-en">At 21:18, one hour and thirty-five minutes later and two hours and forty-two minutes before the midnight he named: a bare shortened link followed by “has landed”. 5,209 likes, 176 reposts, 1,127 replies — second by likes in the window, and first by replies with a wide margin, since the next-highest reply count is Thariq’s 432. The link target is not in the feed, so what landed cannot be named here.</p>
+<p class="summary-en">At 23:29 he closes: “And it’s done. See you tomorrow for some good news.” 305 likes, 15 reposts, 102 replies. This series has been tracking a numbered countdown on this account: the 10-28 issue recorded Day 22 naming a model, 6.1 Terra, and noted that Day 21 had named seven days and a midnight, leaving open whether anything would land by it. Today’s two posts use a midnight again but carry no day number, so the two cannot be pinned to each other from the feed, and neither the seven days nor the Day 28 end date is repeated anywhere in this window.</p>
+<p class="summary-zh zh">三条全部渲染，没有一条说明落地的到底是什么。太平洋时间 19:43：「Lands by midnight PST.」1,622 赞、50 次转发、398 条回复。</p>
+<p class="summary-zh zh">21:18，也就是一小时三十五分之后、离他说的那个午夜还有两小时四十二分：一个裸短链接后面跟一句「has landed」。5,209 赞、176 次转发、1,127 条回复 —— 赞数在窗口里排第二，回复数排第一而且领先很多，第二名是 Thariq 的 432。链接指向哪里不在 feed 里，所以落地的到底是什么这里说不出来。</p>
+<p class="summary-zh zh">23:29 他收尾：「And it’s done. See you tomorrow for some good news.」305 赞、15 次转发、102 条回复。本系列一直在跟这个账号上的一条带编号的倒计时：10-28 那期记到 Day 22 点名了一个模型（6.1 Terra），并注明 Day 21 说过七天和一个午夜，当时留下的问题是那个午夜之前到底有没有东西落地。今天这两条又用了一个午夜，但没有编号，所以无法从 feed 里把两者钉成同一件事；七天倒计时和它指向的 Day 28，在这个窗口里也没有被重复。</p>
+<div class="urls">
+<a href="https://x.com/thsottiaux/status/2115273253711409208">https://x.com/thsottiaux/status/2115273253711409208</a>
+<a href="https://x.com/thsottiaux/status/2115297093879472332">https://x.com/thsottiaux/status/2115297093879472332</a>
+<a href="https://x.com/thsottiaux/status/2115330127886463244">https://x.com/thsottiaux/status/2115330127886463244</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aaron Levie</span>
+<span class="builder-role">Box CEO</span>
+</div>
+<p class="summary-en">One post, at 21:51 Pacific, and it opens with “This is correct”, so it is an endorsement of something the feed does not contain. Box CEO Aaron Levie puts a number on how little is deployed: the vast majority of enterprise workflows have not had agents applied to them in any meaningful way, and the economy probably has this deployed at under 1% right now. The best case today, in his words, is a few automated systems in a company that do a single pass of an LLM to make a decision or provide feedback, which is very little real automation. He attributes most of this to the capability of AI itself rather than to enterprise adoption rates. 186 likes, 10 reposts, 54 replies.</p>
+<p class="summary-en">He then names what changes it: computer use, long-running agents, harness improvements and surrounding infrastructure, which together put more complex workflows within reach; self-improving systems that raise execution rates over a volume of instances; and what he calls the emerging form factor of agent swarms, where you choose how much compute to deploy at a problem and the agents go off and do the work. The destination, he says, is not users prompting agents to complete a task but the organization reengineering the underlying workflows, with the biggest impact in finance, life sciences, healthcare and other information-heavy domains.</p>
+<p class="summary-en">The under-1% sits one day after another estimate of his: in the 10-28 issue he took the S-1 figure that the average Fortune 500 customer spends less than 0.1% of expenses on Anthropic and projected 1 to 5%. Both are his own estimates of how little is deployed, given on consecutive days, and neither is measured. The word swarm has run through this series since July, most recently in his own 10-26 post on cyber agents, where the multiple he attached to it, 1,000X, still has no baseline and gets none here.</p>
+<p class="summary-zh zh">只有一条，太平洋时间 21:51，开头是「This is correct」，所以它是附和某样 feed 里没有的东西。Box CEO Aaron Levie 给部署程度下了个数字：绝大多数企业工作流并没有真正被 agent 应用过，整个经济体现在的部署程度大概不到 1%。按他的说法，眼下最好的情况也只是一家公司里有几套自动化系统，用 LLM 跑一遍来做决策或给反馈，真正称得上「自动化」的很少。他把这件事主要归因于 AI 自身的能力，而不是企业的采用速度。186 赞、10 次转发、54 条回复。</p>
+<p class="summary-zh zh">接着他点了会改变这件事的东西：电脑操作、长时运行的 agent、harness 的改进和周边基础设施 —— 这几样合起来让更复杂的工作流够得着了；可以在一批实例上不断提高执行率的自改进系统；以及他称为「正在成形的形态」的 agent 集群，你可以自己决定往一个问题上投多少算力，然后 agent 就去把活干完。他说终点不是用户去 prompt agent 完成某个任务，而是组织把底层工作流重做一遍，影响最大的是金融、生命科学、医疗和其他信息密集的领域。</p>
+<p class="summary-zh zh">这个「不到 1%」要和他前一天给的另一个估计放在一起看：10-28 那期他取了 S-1 里「财富 500 强客户平均在 Anthropic 上的花费不到其支出的 0.1%」，然后推到 1% 到 5%。两个都是他自己对「部署得有多少」的估计，给在连续两天里，也都没有测量。swarm 这个词从七月起就贯穿本系列，最近一次出现在他 10-26 那条讲安全 agent 的推文里，当时挂在上面的那个 1,000 倍倍数至今没有基线，这一条也没有补上。</p>
+<div class="urls">
+<a href="https://x.com/levie/status/2115305369799110905">https://x.com/levie/status/2115305369799110905</a>
+</div>
+</article>
+</section>
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128161;</span>
+<h2 class="section-title">The Takeaway</h2>
+<span class="section-meta">2026-10-29</span>
+</div>
+<div class="takeaway">
+<div class="takeaway-label">The Takeaway</div>
+<p>Nothing in this window names what landed, and that is the story. Thibault Sottiaux posts a midnight PST deadline at 19:43, declares it landed at 21:18 with a bare link, and closes at 23:29 with “And it’s done.” The middle post is the most-replied in the window at 1,127, nearly three times the next, and second by likes at 5,209. This series has been tracking a numbered countdown on this account and asked in the 10-28 issue whether anything would land by the midnight Day 21 named. Today’s posts use a midnight with no day number, so the two cannot be joined from the feed, and neither the seven days nor the Day 28 end date is repeated. What is left is a landing with no object, and a promise of good news tomorrow.</p>
+<p>The most-liked post in the window is one its author will not share. Thariq’s AI-native macOS dock drew 8,262 likes and 215 reposts, the top of the window on both, and he posted the caveat in the same second: not sharing, many edge cases, would not recommend using. It is also the first time in this series that anyone reports running jev inside their own software rather than announcing it or being told about it, jev having been here since 09-18 and described in the 10-26 podcast as returning scores for email triage. No measurement of the classification is offered. His other post, third by likes at 2,465, is a gap rather than a product: a way to distribute open source so that agents can modify it and upstream still merges automatically.</p>
+<p>Two investors, one claim, no cross-reference. Matt Turck posts Anthropic 7, OpenAI 11, Databricks 7 at 10:23. Nikunj Kothari posts Anthropic and Databricks both 7 at 12:02, one hour and thirty-nine minutes later, and neither cites the other or sources the counts. Read them as two readings of the same piece of received wisdom rather than as corroboration: two people reaching the same number independently is only evidence that both know the same number.</p>
+<p>Aaron Levie gives the same quantity twice in two days, both his own estimates. In the 10-28 issue he took under 0.1% of Fortune 500 expenses from the S-1 and projected 1 to 5%. Today he says the economy is probably under 1% deployed. What is new is the mechanism list, computer use, long-running agents, harness improvements and infrastructure, and a destination that is not prompting but organizations reengineering workflows, with finance, life sciences and healthcare named. The 1,000X he put on cyber-agent tokens in the 10-26 issue still has no baseline, and nothing here supplies one.</p>
+<p>A question this series has been carrying gets an answer, of a kind. “Captains” appeared in the 10-22 issue as something GStack had become aware of, with nothing said about what one does. Garry Tan now writes that Capy Captains are ten to twenty subagents running at all times on GStack and GBrain. He is also, in the same window, trying to slim GStack down and reduce token usage and task latency, with no current number for either, so the reduction cannot be checked from here.</p>
+<p>Attention went to posts that say nothing. Rauch’s two bare links drew 454 likes, more than twice his actual terminal demo at 196. Dan Shipper’s “extremely good explanation” over a link drew 442, nearly double his real claim at 227. Sottiaux’s two-word landing drew 5,209 and 1,127 replies. Meanwhile the two posts carrying a first-party number about a running system, Garry Tan’s ten to twenty subagents and Amjad’s medicine-over-coding thesis, drew 114 and 592. This is the same shape as the last several issues: the announcements take the engagement and the substance takes what is left.</p>
+<p>Two long-standing blanks moved, and neither closed. Peter Yang’s “bot”, which this series has been unable to identify since it first appeared, is at least located now: a Grok feature he calls @bot, not yet rolled out to everyone, with a video promised but no name and no date. The Stanford piracy case against Anthropic and its judge, Alsup, appear for the first time, inside a pun, with no filing, no hearing, no ruling and no date attached.</p>
+
+</div>
+<div class="takeaway zh">
+<div class="takeaway-label">&#26680;&#24515;&#32467;&#35770;</div>
+<p>这个窗口里没有任何一条说清落地的到底是什么，而这就是今天这件事本身。Thibault Sottiaux 在 19:43 发了一个太平洋时间的午夜截止时间，21:18 用一个裸链接宣布它落地了，23:29 收尾说「And it’s done.」。中间那条是这个窗口里回复数最高的一条（1,127），接近第二名的三倍，赞数排第二（5,209）。本系列一直在跟这个账号上的一条带编号的倒计时，10-28 那期留下的正是 Day 21 那个午夜之前会不会有东西落地。今天这两条又用了一个午夜，但没有编号，所以无法从 feed 里把两者接上；七天和 Day 28 这个终点也都没有被重复。剩下的是一次没有宾语的落地，加一句明天有好消息。</p>
+<p>窗口里赞数最高的一条，是作者本人不肯分享的东西。Thariq 那个 AI 原生的 macOS dock 拿到 8,262 赞、215 次转发，两项都是窗口第一，而他在同一秒发了那条提醒：不分享、边界情况很多、不建议别人用。这也是本系列里第一次有人报告把 jev 跑在自己的软件里 —— 此前它要么是被宣布、要么是被别人提起，从 09-18 就在了，10-26 那期播客把它描述成返回邮件分诊分数的东西。分类效果如何没有任何测量。他那条排在第三的（2,465 赞）讲的不是产品而是缺口：需要一种开源分发方式，让 agent 能改、上游又能自动合回来。</p>
+<p>两位投资人、一条主张、互不引用。Matt Turck 在 10:23 给出 Anthropic 7 位、OpenAI 11 位、Databricks 7 位；Nikunj Kothari 在 12:02 说 Anthropic 和 Databricks 都是 7 位，晚一小时三十九分，两人既没有互相引用，也没有给数字出处。请把它们当成对同一条老经验的两份读法，而不是互相印证：两个人独立拿到同一个数字，只能说明两人都知道这个数字。</p>
+<p>Aaron Levie 在两天里给了同一个量两次，两次都是他自己的估计。10-28 那期他取 S-1 里「财富 500 强花费不到 0.1%」，推到 1% 到 5%；今天他说整个经济体大概部署了不到 1%。新东西是那份机制清单 —— 电脑操作、长时运行的 agent、harness 改进、周边基础设施 —— 以及一个终点：不是去 prompt，而是组织把底层工作流重做一遍，他还点名了金融、生命科学和医疗。他 10-26 那条挂在安全 agent token 上的 1,000 倍倍数至今没有基线，这一条也没有补。</p>
+<p>本系列挂着的一个问题算是有了答案，虽然是有限的那一种。Captains 在 10-22 那期出现时，只是 GStack 变得「Capy aware」后支持的一个功能，没说 captain 是干什么的；Garry Tan 这次写清楚了：Capy Captains 是同时跑在 GStack 和 GBrain 上的 10 到 20 个子 agent。他同时也在给 GStack 瘦身、降低 token 用量和任务延迟，但当前用量和延迟都没有数字，所以这个下降幅度从这里核不了。</p>
+<p>注意力给了什么都没说的那些推文。Rauch 那两个裸链接拿到 454 赞，是他那条真正有内容的终端演示（196 赞）的两倍多。Dan Shipper 那句「extremely good explanation」加链接拿到 442 赞，接近他真正那条主张（227 赞）的两倍。Sottiaux 那句两个词的落地拿到 5,209 赞、1,127 条回复。而两条带第一方数字、讲正在运行的系统的 —— Garry Tan 的 10 到 20 个子 agent、Amjad 的医学优先于编码 —— 分别是 114 赞和 592 赞。这和最近几期的形状一样：发布拿走注意力，实质拿走剩下的。</p>
+<p>两个挂了很久的空白动了，都没有闭环。Peter Yang 说的「bot」，本系列从它第一次出现起就没能认出来，现在至少定位到了：它是 Grok 的一个功能，他称它 @bot，还没有向所有人放开，预告了视频但没有名字也没有日期。斯坦福诉 Anthropic 的盗版案和那位姓 Alsup 的法官第一次出现，出现在一句谐音里，没有诉状、没有听证、没有裁决、没有日期。</p>
+
+</div>
+</section>
+<!-- ============== NOTES ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128221;</span>
+<h2 class="section-title">&#35760;&#24405; / Notes &amp; Dedup</h2>
+<span class="section-meta">29 Zero &#183; 0 Dedup &#183; 2 Empty</span>
+</div>
+<div class="dedup">
+<p style="margin-top:12px"><strong>Tweet check</strong> &mdash; All 29 tweet IDs in this window were matched against every file under 2026/ and returned zero hits, so nothing here repeats a post from an earlier issue.</p>
+<p style="margin-top:12px"><strong>Podcast check</strong> &mdash; The slot is 0 by emptiness: the podcasts array came back empty, so there was no episode to match. The cause is different from the 10-28 issue, where the slot was 0 by duplication — that day the feed returned an episode that had already been counted, on 10-16. The last issue that counted a podcast was 10-27.</p>
+<p style="margin-top:12px"><strong>Blog check</strong> &mdash; The slot is 0 by emptiness too: the blogs array came back empty. This is the sixth consecutive issue with nothing in it, 10-21, 10-22, 10-26, 10-27, 10-28 and today, and the cause is the same every time. The last zero with a different cause was 10-20, where an entry existed and was matched to an earlier issue.</p>
+<p style="margin-top:12px"><strong>Not rendered</strong> &mdash; Seven of the 29 tweets were counted but not given a card, and one of the thirteen builders is absent from the card area. Zara Zhang, at 20:44, quote-posts her own earlier tweet with “Had no idea this would become my most viewed tweet of all time”; the quoted post is not in the feed, so her only post here carries nothing to describe and she gets no card. Dan Shipper at 06:58, “extremely good explanation” over a link, 442 likes, the highest of his three; and at 09:05, “we’ll have more on this in @every this week” over a link, 1 like, the lowest count in the window. Guillermo Rauch at 12:18, two bare links and no text, 454 likes. Amjad Masad at 11:36, “Designers’ contribution to the codebase” with two images, 265 likes. Swyx at 11:58, “anyway here’s my soundcloud” over a link, 22 likes. Garry Tan at 15:35, a question over a link, 8 likes. Following this series since October, excluded posts are described but given no URL. So 13 builders counted and 12 rendered, 29 tweets counted and 22 rendered.</p>
+<p style="margin-top:12px"><strong>Coverage</strong> &mdash; This snapshot is 2026-10-28T06:32:16Z, Pacific 10-27 23:32, and all 29 posts sit inside Pacific 10-27, running 06:58 to 23:29. The window closes two minutes and thirty-eight seconds before its own snapshot, the tightest close in recent issues. The previous issue, 10-28, ended at Pacific 10-26 20:56, so about ten hours between the two windows are not covered, and what happened in them cannot be determined from what was returned. Three issues, 10-23, 10-24 and 10-25, were never generated, so Pacific 10-21, 10-22 and 10-23 are not edge gaps but whole days missing from the record. Three timestamps worth keeping together: the snapshot is Pacific 10-27 23:32, the window ends at Pacific 10-27 23:29, and this issue is dated 10-29 and written at Pacific 10-28 20:09, about twenty hours and thirty-seven minutes after the snapshot, with the whole of Pacific 10-28 still not in the feed.</p>
+<p style="margin-top:12px"><strong>Numbers</strong> &mdash; Likes, retweets and replies are populated on all 29 posts, so ranking by engagement is possible here, unlike the 10-26 issue where all four fields were null. Quotes is null on all 29 and is not used. Top by likes is Thariq at 8,262, then Sottiaux at 5,209, Thariq again at 2,465, Sottiaux at 1,622 and Swyx at 1,437. Top by replies is Sottiaux at 1,127, with the second-highest, Thariq’s 432, well under half of it. Top by reposts is Thariq at 215, then Sottiaux at 176. The lowest count in the window is Dan Shipper’s 1 like. Two internal gaps were checked and hold: the 19:43 deadline to the 21:18 landing is one hour and thirty-five minutes, and 21:18 to midnight is two hours and forty-two minutes.</p>
+<p style="margin-top:12px"><strong>Not resolved</strong> &mdash; What landed at Sottiaux’s midnight, since the post carries only a shortened link. Whether today’s midnight is the one Day 21 named, given that neither post carries a day number and the seven days were not repeated. Whether the countdown reaches Day 28 with anything attached to it, and what tomorrow’s good news is. Whether Thariq ever shares the dock, and whether the jev classification gets any measurement. Whether the open source distribution layer he describes gets a name, code or a proposal. Whether Rauch’s bun-on-Vercel demo turns into anything with a number attached. Whether Garry Tan reports a token usage or latency figure for GStack, and whether ten to twenty subagents is a setting or a ceiling. Whether Peter Yang’s Grok @bot gets a name and a launch date, and whether the promised video appears. Whether Amjad’s Alsup pun is attached to a filing, a hearing or a ruling, and whether the Stanford piracy case against Anthropic appears anywhere else in this feed. Whether Nikunj gets definitions for any of his eight terms. Whether either investor ever sources the co-founder counts. Whether Levie’s under-1% gets a measurement, and whether the 1,000X ever gets a baseline. Whether Centai Health appears again with a description. Still unmoved from earlier issues: the Sol 6 score, Muse Wonder Full on the API, Ghost Pepper maintenance cost, external reproduction of Sonnet 5.5, the OpenClaw Android review, the 10x coding-agent question, Goodfire and Hugging Face in writing, a second network in Rauch’s traffic series, Amjad’s decompilation example, Wabi 2.0 past preview, the subject behind Rauch’s 1,000 tokens per second, Dan Shipper’s three-part story, Claude Managed Agents and Duet, who Anthony is, Rauch’s minimum viable English word count, what Nikunj is raising the infrastructure series A for, Garry Tan’s Gstack link, the three copycats named in the 10-26 podcast, the South Korea bank hacks, the 400 resolved problems, intelligent UI, HyperFrames, the iPhone Duo default, what the Day 15 and Day 20 resets each cleared, and whether the Terra in Day 22 is the GPT-5.6 Terra priced in the 08-01 issue. Opal shuts down on 2026-11-17.</p>
+<p style="margin-top:12px"><strong>推文核对</strong> &mdash; 这个窗口里 29 个推文 ID 全部拿去和 2026/ 下的每一个文件比对，全部零命中，所以这里没有一条推文是重复此前某一期的。</p>
+<p style="margin-top:12px"><strong>播客核对</strong> &mdash; 这一格是 0，原因是空数组：podcasts 数组返回为空，所以没有条目可以匹配。成因和 10-28 那期不同 —— 那天的 0 是判重，feed 返回了一期、但已经在 10-16 那期计入过。上一次真正计入播客是 10-27 那期。</p>
+<p style="margin-top:12px"><strong>博客核对</strong> &mdash; 这一格同样是 0，原因也是空数组：blogs 数组返回为空。这已经是连续第六期这一格没有产出 —— 10-21、10-22、10-26、10-27、10-28 和今天，六次的成因都一样。上一次 0 是别的原因，是 10-20，那次条目存在，只是与此前的期次判重。</p>
+<p style="margin-top:12px"><strong>未渲染</strong> &mdash; 29 条推文里有 7 条计入但没有做成卡片；13 位 builder 里有 1 位在卡片区缺席。Zara Zhang 在 20:44 引用了自己更早的一条推文，写「完全没想到这会成为我史上观看量最高的一条」；被引用那条不在 feed 里，所以她在这里唯一的一条推文没有可描述的内容，也就不给卡片。Dan Shipper 在 06:58 的「extremely good explanation」加链接，442 赞，是他三条里最高的；09:05 的「we’ll have more on this in @every this week」加链接，1 赞，是这个窗口里最低的计数。Guillermo Rauch 在 12:18，两个裸链接、没有正文，454 赞。Amjad Masad 在 11:36，「Designers’ contribution to the codebase」配两张图，265 赞。Swyx 在 11:58，「anyway here’s my soundcloud」加链接，22 赞。Garry Tan 在 15:35，一个加链接的问句，8 赞。按照本系列自十月起对被排除内容的一贯处理，会描述但不给 URL。于是计入 13 位 builder、渲染 12 位，计入 29 条推文、渲染 22 条。</p>
+<p style="margin-top:12px"><strong>覆盖</strong> &mdash; 这一期的快照是 2026-10-28T06:32:16Z，即太平洋时间 10-27 23:32，29 条推文全部落在太平洋 10-27 之内，从 06:58 排到 23:29。这个窗口在自己快照之前两分三十八秒就闭合了，是最近几期里收得最紧的一次。上一期（10-28）结束在太平洋 10-26 20:56，所以两个窗口之间大约十个小时没有被盖到，这段时间里发生了什么，从返回的内容里判断不了。10-23、10-24、10-25 三期没有生成，所以太平洋 10-21、10-22、10-23 这三天不是边角没盖到，而是整段缺席。还有三个时间戳值得放在一起看：快照是太平洋 10-27 23:32，窗口结束在太平洋 10-27 23:29，而这一期日期是 10-29、成文发生在太平洋 10-28 20:09 —— 比快照晚约二十小时三十七分，太平洋 10-28 这一整天还没有进 feed。</p>
+<p style="margin-top:12px"><strong>数字</strong> &mdash; likes、retweets、replies 三个字段在 29 条推文上都有值，所以这一期可以做热度排序，这一点和 10-26 那期四个字段整批为 null 相反。quotes 字段 29 条全为 null，不使用。赞数前五是 Thariq 8,262、Sottiaux 5,209、Thariq 2,465、Sottiaux 1,622、Swyx 1,437。回复数第一是 Sottiaux 的 1,127，第二名 Thariq 的 432 还不到它的一半。转发数第一是 Thariq 的 215，第二是 Sottiaux 的 176。窗口里最低的计数是 Dan Shipper 那 1 个赞。推文内部的两处时间差核对过，都成立：19:43 的截止时间到 21:18 的落地是一小时三十五分，21:18 到午夜是两小时四十二分。</p>
+<p style="margin-top:12px"><strong>未闭环</strong> &mdash; Sottiaux 那个午夜到底落地了什么 —— 那条推文里只有一个短链接。今天的午夜是不是 Day 21 说的那个 —— 两条都没有编号，七天也没有被重复。倒计时走到 Day 28 时会不会带上任何东西，以及明天的「好消息」是什么。Thariq 会不会分享那个 dock，jev 的分类效果会不会有任何测量。他说的那层开源分发会不会有名字、代码或方案。Rauch 那个 bun 上 Vercel 的演示会不会变成任何带数字的东西。Garry Tan 会不会给出 GStack 的 token 用量或延迟数字，以及 10 到 20 个子 agent 是一个设置还是上限。Peter Yang 那个 Grok @bot 会不会有名字和上线日期，以及预告的视频会不会出现。Amjad 那句 Alsup 谐音后面挂的是诉状、听证还是裁决，以及斯坦福诉 Anthropic 这桩案子会不会在这个 feed 里第二次出现。Nikunj 那八个词里有没有任何一个拿到定义。两位投资人里有没有谁给联合创始人的人数出处。Levie 的「不到 1%」会不会有测量，1,000 倍会不会补上基线。Centai Health 会不会再次出现并带上描述。更早几期挂下来的仍然没动：Sol 6 的分数、Muse Wonder Full 上 API、Ghost Pepper 的维护成本、Sonnet 5.5 的外部复现、OpenClaw 的安卓审核、10x 编码 agent 那一问、Goodfire 与 Hugging Face 的书面形式、Rauch 流量序列里的第二家网络、Amjad 的反编译实例、Wabi 2.0 走出预览、Rauch「每秒 1,000 token」的主语、Dan Shipper 那个分三部分的说法、Claude Managed Agents 与 Duet、Anthony 是谁、Rauch「最小可用英语」的词数、Nikunj 这轮基础设施 A 轮是为什么募的、Garry Tan 的 Gstack 链接、10-26 那期播客点名的三家跟随者、韩国那几起银行被黑事件、那 400 个已解决问题、intelligent UI、HyperFrames、iPhone Duo 的默认行为、Day 15 和 Day 20 两次 reset 各自清掉了什么，以及 Day 22 的 Terra 是不是 08-01 那期记过价格的 GPT-5.6 Terra。Opal 于 2026-11-17 关停。</p>
+
+</div>
+</section>
+<footer class="footer">
+<div class="next-issue">&#128236; &#19979;&#19968;&#26399;&#65306;&#26126;&#22825; 10:00&#65288;&#21271;&#20140;&#26102;&#38388;&#65289;</div>
+<div class="signature">by chloevchen</div>
+</footer>
+
+<!-- by chloevchen -->
+</body>
+</html>
