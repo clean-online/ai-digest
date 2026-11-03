@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Builders Digest · 2026-11-03</title>
+<style>
+
+
+
+
+
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 28px 30px; margin-bottom: 24px; }
+  .podcast-source { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
+  .podcast-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; margin-bottom: 18px; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; }
+
+
+</style>
+</head>
+<body>
+<header class="topbar">
+<div class="topbar-inner">
+<a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+<span>双语 · Bilingual</span>
+</div>
+</header>
+<section class="header">
+<div class="eyebrow">Daily Digest · 2026-11-03</div>
+<h1>AI Builders Digest</h1>
+</section>
+<div class="stats">
+<div class="stat"><div class="stat-num">11</div><div class="stat-label">Builders</div></div>
+<div class="stat"><div class="stat-num">22</div><div class="stat-label">Tweets</div></div>
+<div class="stat"><div class="stat-num">1</div><div class="stat-label">Podcast</div></div>
+<div class="stat"><div class="stat-num">0</div><div class="stat-label">Blog</div></div>
+</div>
+<p class="note-line">The window closes on the number this series has been waiting for. OpenAI&rsquo;s Thibault Sottiaux posts &ldquo;Day 28/ Banked 2/2&rdquo; at 15:27 Pacific, 7,495 likes, 233 reposts and 1,342 replies, second on all three counts, and Day 28 is the day Day 21 pointed to when it gave seven days: Day 21 sits on Pacific 10-25 in the 10-27 issue, and seven days from there is Pacific 11-01, which is where this one lands. The other half of the window belongs to Andrej Karpathy, who answers from the inside a question the 11-02 issue could only ask from outside: HackerTube, 43 million Hacker News comments over twenty years filtered to 6,454 videos, about two hours on Opus 5.5, with three things done by hand. His post is first on likes, reposts and replies at 36,797, 3,269 and 1,497, about 4.9 times the likes of the next post. The snapshot is 2026-11-02T06:35:38Z, Pacific 11-01 22:35; twenty-one of the twenty-two posts sit inside Pacific 11-01 and the window closes 24m36s before the snapshot.</p>
+<p class="note-line zh">这个窗口收在本系列一直在等的那个数上。OpenAI 的 Thibault Sottiaux 在太平洋时间 15:27 发了「Day 28/ Banked 2/2」，7,495 赞、233 次转发、1,342 条回复，三项都排第二；而 Day 28 正是 Day 21 给出七天时指向的那一天 —— Day 21 落在太平洋 10-25（10-27 那期），从那里往后七天是太平洋 11-01，也就是今天这条落地的地方。窗口的另一半属于 Andrej Karpathy，他以当事人的身份回答了 11-02 那期只能从外部提出的问题：HackerTube，把 20 年 HN 上的 4,300 万条评论筛成 6,454 个视频，用 Opus 5.5 大约两小时，其中只有三件事是他亲手做的。他那条以 36,797 赞、3,269 次转发、1,497 条回复在三项上都排第一，赞数约为第二名的 4.9 倍。feed 快照是 2026-11-02T06:35:38Z，即太平洋时间 11-01 22:35；22 条里有 21 条落在太平洋 11-01 之内，窗口在快照前 24 分 36 秒收口。</p>
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128036;</span>
+<h2 class="section-title">X / Twitter</h2>
+<span class="section-meta">11 Builders · 22 Tweets</span>
+</div>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Swyx</span>
+<span class="builder-role">smol_ai · Cognition · Latent Space</span>
+</div>
+<p class="summary-en">Swyx has one post and it opens the window, at 23:39 Pacific on 10-31, thirty-six minutes after the last post the 11-02 issue captured. It is a reply to Karpathy made of a link and the word &ldquo;url&rdquo;, 21 likes, 3 reposts and 3 replies, the second-lowest like count in the window behind Peter Yang&rsquo;s 17. Not rendered: there is no object in it, and it precedes Karpathy&rsquo;s HackerTube post by about eleven hours, so it cannot be a reply to that.</p>
+<p class="summary-zh zh">Swyx 只有一条，而且它开了这个窗口：太平洋时间 10-31 23:39，比 11-02 那期收到的最后一条晚三十六分钟。它是给 Karpathy 的一条回复，内容是一个链接加一个词「url」，21 赞、3 次转发、3 条回复，是这个窗口里赞数第二低的一条（最低是 Peter Yang 那条 17 赞）。不渲染：里面没有宾语，而且它比 Karpathy 那条 HackerTube 早约十一个小时，所以不可能是回复那条。</p>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Garry Tan</span>
+<span class="builder-role">Y Combinator</span>
+</div>
+<p class="summary-en">Y Combinator President and CEO Garry Tan posts three times, at 07:05, 09:11 and 22:11 Pacific, and all three quote a post that is not in the feed. The first is &ldquo;YC is the YC for hard tech&rdquo;, 498 likes, 27 reposts and 59 replies, the best-reacted of his three.</p>
+<p class="summary-en">The second, at 09:11, is &ldquo;Practical robotics is nigh&rdquo;, 296 likes, 9 reposts and 53 replies. Both are four words or fewer and both point at something outside the feed, so what he is endorsing cannot be named in either case.</p>
+<p class="summary-en">The third, at 22:11, is the one carrying a number, and it answers a question left open on 10-30, when three builders named Particle and none of them gave a link: &ldquo;Particle-1 is as good as much larger models for agentic retrieval but 1/23 the price&rdquo;. There is now a name, a task and a price ratio where there was nothing. What is still missing is which much larger models, what benchmark produced the comparison, what the price is a twenty-third of, and any link at all. At 30 likes, 3 reposts and 14 replies it is third from the bottom on likes, behind Peter Yang&rsquo;s 17 and Swyx&rsquo;s 21, and it is the only post in the bottom three that carries a number at all: the only price ratio in twenty-two posts draws less attention than every joke, every brand line and every four-word post.</p>
+<p class="summary-zh zh">Y Combinator 总裁兼 CEO Garry Tan 发了三条，在太平洋时间 07:05、09:11 和 22:11，三条都引用了不在 feed 里的推文。第一条是「YC is the YC for hard tech」，498 赞、27 次转发、59 条回复，是他三条里互动最高的。</p>
+<p class="summary-zh zh">第二条在 09:11：「Practical robotics is nigh」，296 赞、9 次转发、53 条回复。两条都在四个词以内，两条都指向 feed 之外的东西，所以他在赞同什么，两条里都说不出来。</p>
+<p class="summary-zh zh">第三条在 22:11，是唯一带数字的一条，而它回答的是 10-30 那期留下的问题 —— 当时三位 builder 点名 Particle，没有一位给出链接：「Particle-1 is as good as much larger models for agentic retrieval but 1/23 the price」。现在有了名字、有了任务、有了一个价格比，而此前什么都没有。仍然缺的是：那些「大得多的模型」是哪几个、这个比较跑在什么基准上、这个价格是谁的二十三分之一，以及任何链接。它以 30 赞、3 次转发、14 条回复排在赞数倒数第三（前面是 Peter Yang 的 17 和 Swyx 的 21），而它是倒数三条里唯一带数字的一条：22 条里唯一的价格比，拿到的注意力比每一个玩笑、每一句品牌口号、每一条四个词的推文都少。</p>
+<div class="urls"><a href="https://x.com/garrytan/status/2116909591607099793">https://x.com/garrytan/status/2116909591607099793</a><a href="https://x.com/garrytan/status/2116941191526895975">https://x.com/garrytan/status/2116941191526895975</a><a href="https://x.com/garrytan/status/2117137390016073977">https://x.com/garrytan/status/2117137390016073977</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thibault Sottiaux</span>
+<span class="builder-role">Codex &amp; ChatGPT, OpenAI</span>
+</div>
+<p class="summary-en">OpenAI&rsquo;s Thibault Sottiaux posts three times and the first two are jokes. At 08:50: &ldquo;My dog sent you the meeting notes from yesterday, did you see them?&rdquo;, 403 likes, 1 repost, 18 replies. At 08:51, forty-one seconds later: &ldquo;My dog just patched that bug we couldn&rsquo;t find for two weeks. Clever dog&rdquo;, 509 likes, 1 repost, 32 replies. Neither names a product and neither is marked as being about one, so whether the dog stands for an agent is not stated anywhere.</p>
+<p class="summary-en">The third, at 15:27, is the one this series has been counting toward: &ldquo;Day 28/ Banked 2/2&rdquo;. 7,495 likes, 233 reposts and 1,342 replies, second on all three counts behind Karpathy and the only post besides his to pass a thousand replies. It has no object, no link and no statement of what is being banked.</p>
+<p class="summary-en">Two things about it can be pinned down and one still cannot. The day number lands on the day two separate counts point to. The numbered posts in this series run Day 21 on Pacific 10-25, Day 22 on Pacific 10-26 and Day 24 on Pacific 10-28, one number per Pacific day, and Day 28 is four numbers past Day 24, which is Pacific 11-01. Day 21 also gave seven days, and seven days past Pacific 10-25 is the same date. The fraction closes a loop too: &ldquo;Banked 1/2&rdquo; was posted on Pacific 10-31 in the 11-02 issue and this is 2/2 the next day. What stays unreachable is the object, which no day in this series has ever named, and Day 23, 25, 26 and 27 still carry no number anywhere in the feed: Day 23 fell on Pacific 10-27, which produced two midnight posts and no number, and on the one-number-per-day reading Day 25 and Day 26 fall on Pacific 10-29 and 10-30, the two days this feed never captured.</p>
+<p class="summary-zh zh">OpenAI 的 Thibault Sottiaux 发了三条，前两条是玩笑。08:50：「My dog sent you the meeting notes from yesterday, did you see them?」，403 赞、1 次转发、18 条回复。四十一秒后的 08:51：「My dog just patched that bug we couldn&rsquo;t find for two weeks. Clever dog」，509 赞、1 次转发、32 条回复。两条都没有点任何产品，也没有任何标记说明它们在讲某个产品，所以那只狗是不是在指代 agent，feed 里没有任何地方说明。</p>
+<p class="summary-zh zh">第三条在 15:27，是本系列一直在数着的那一条：「Day 28/ Banked 2/2」。7,495 赞、233 次转发、1,342 条回复，三项都排第二，只在 Karpathy 之后，也是除他之外唯一一条回复过千的。它没有宾语、没有链接，也没有说明被 banked 的是什么。</p>
+<p class="summary-zh zh">关于它有两点能钉住，有一点仍然不能。日期编号落在两个独立推算都指向的那一天：本系列里带编号的推文是 Day 21（太平洋 10-25）、Day 22（太平洋 10-26）和 Day 24（太平洋 10-28），一个太平洋日对应一个编号，而 Day 28 在 Day 24 之后四个编号，也就是太平洋 11-01。Day 21 当时还给过七天，从太平洋 10-25 起算七天也是同一天。那个分数也把一环合上了：「Banked 1/2」发布于太平洋 10-31（11-02 那期），而这是第二天上的 2/2。够不着的是宾语 —— 本系列里没有任何一个 Day 说过被数的是什么、被 banked 的是什么；而 Day 23、25、26、27 在这份 feed 里始终没有编号：Day 23 落在太平洋 10-27，那天出的是两条带午夜、没有编号的推文；按一天一号的读法，Day 25 与 Day 26 落在太平洋 10-29 与 10-30，也就是这个 feed 从未采集到的那两天。</p>
+<div class="urls"><a href="https://x.com/thsottiaux/status/2116936031866077423">https://x.com/thsottiaux/status/2116936031866077423</a><a href="https://x.com/thsottiaux/status/2116936205623611781">https://x.com/thsottiaux/status/2116936205623611781</a><a href="https://x.com/thsottiaux/status/2117035794678546764">https://x.com/thsottiaux/status/2117035794678546764</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Yang</span>
+<span class="builder-role">Practical AI</span>
+</div>
+<p class="summary-en">Peter Yang posts three times, at 09:31, 12:15 and 17:00 Pacific. The first is the only ranking of its kind in the window: &ldquo;I wish I could just use one AI tool but right now there are clear winners in each category below: Browser/computer use = ChatGPT + Codex; Design/video editing/&lsquo;taste&rsquo; = Claude; 24/7 agents and scheduled jobs = Grok Bot. Also, Gemini is underrated for writing but need to test it more.&rdquo; 190 likes, 6 reposts and 82 replies.</p>
+<p class="summary-en">Grok Bot moves a small item forward. In the 10-29 issue it was a Grok feature still rolling out, referred to as @bot, with no name and no link; here it has a job, always-on agents and scheduled jobs. What is still not given is what the product is called or when it opened up.</p>
+<p class="summary-en">At 12:15 he quotes @jacalulu, described as a product director at Google Labs, on whether a product needs a person in it: &ldquo;It really makes you question, why do you want a person in your product? Is your product something that needs a UI?&rdquo; The answer is conditional. Creating something, and learning something, are reasons for the person to interact; being entertained or consuming something still involves them; and there are products he uses today that he &ldquo;would be more than happy to not use, or at least not be the main person interacting with the interface.&rdquo; 17 likes, 0 reposts, 17 replies, the lowest of his three.</p>
+<p class="summary-en">At 17:00 comes a line-up rather than an argument, four upcoming episodes of Behind the Craft: Ashley Alexander, VP of Product at OpenAI; Nate Parrott, the Anthropic designer behind Claude Design, Dashboard and Motion; Matt Pocock, whose AI skills for working with coding agents are given 300K+ GitHub stars; and Jacob Sansbury, who by his account of an a16z partner has built &ldquo;the most AI-pilled gaming company in the world with just 10 people and $32M/year in Claude spend&rdquo;. 40 likes, 0 reposts, 19 replies. The only figures in this window about what a ten-person team spends on a model sit inside a podcast line-up, and the spend figure is third-hand.</p>
+<p class="summary-zh zh">Peter Yang 发了三条，在太平洋时间 09:31、12:15 和 17:00。第一条是这个窗口里唯一一份这类排序：「I wish I could just use one AI tool but right now there are clear winners in each category below: Browser/computer use = ChatGPT + Codex; Design/video editing/&lsquo;taste&rsquo; = Claude; 24/7 agents and scheduled jobs = Grok Bot. Also, Gemini is underrated for writing but need to test it more.」190 赞、6 次转发、82 条回复。</p>
+<p class="summary-zh zh">Grok Bot 把一个挂账项推进了一格。10-29 那期里它是一个还在放量中的 Grok 功能，被称作 @bot，没有名字也没有链接；今天它有了用途：24 小时在线的 agent 与定时任务。仍然没给的是这个产品叫什么、什么时候放开的。</p>
+<p class="summary-zh zh">12:15 他引用了 @jacalulu（介绍为 Google Labs 的产品总监）关于「产品里到底需不需要一个人」的说法：「It really makes you question, why do you want a person in your product? Is your product something that needs a UI?」给出的答案是有条件的：凡是涉及我在创造什么、我想学点什么，那就有理由让我参与；但凡是我想被取悦、想消费点什么，用的仍然是我；而确实有一些他今天在用的产品，他「非常乐意不再去用它，至少不再是那个主要和界面打交道的人」。17 赞、0 次转发、17 条回复，是他三条里最低的。</p>
+<p class="summary-zh zh">17:00 那条是排片而不是论证，四个即将上线的 Behind the Craft 嘉宾：Ashley Alexander，OpenAI 产品副总裁；Nate Parrott，Anthropic 的设计师，做过 Claude Design、Dashboard 和 Motion；Matt Pocock，他给 coding agent 用的那套 AI skills 被标为 300K+ GitHub stars；以及 Jacob Sansbury —— 按他转述一位 a16z 合伙人的说法，这家公司「用 10 个人和每年 3,200 万美元的 Claude 开销，做出了世界上最 AI-pilled 的游戏公司」。40 赞、0 次转发、19 条回复。这个窗口里唯一一组关于「十个人的团队在模型上花多少钱」的数字，出现在一期播客的排片里，而且这个开销数字是三手的。</p>
+<div class="urls"><a href="https://x.com/petergyang/status/2116946320674152810">https://x.com/petergyang/status/2116946320674152810</a><a href="https://x.com/petergyang/status/2116987415319740756">https://x.com/petergyang/status/2116987415319740756</a><a href="https://x.com/petergyang/status/2117059131349868790">https://x.com/petergyang/status/2117059131349868790</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Andrej Karpathy</span>
+<span class="builder-role">AI Researcher</span>
+</div>
+<p class="summary-en">Andrej Karpathy posts once, at 10:14 Pacific, and it is the largest post in the window on all three counts, 36,797 likes, 3,269 reposts and 1,497 replies, about 4.9 times the likes and 14 times the reposts of the next post. It also answers, from the person himself, a question the 11-02 issue had to leave open from the outside.</p>
+<p class="summary-en">HackerTube, introduced as a weekend hack: he was annoyed with YouTube&rsquo;s recommendations, so he had Claude filter down 43M comments over 20 years of HN to 6,454 videos that keep being recommended. The claim is a &ldquo;*Significantly* better viewing experience&rdquo; and the cost is &ldquo;~2 hours with Opus 5.5&rdquo;. Three design choices are named: no logins, with state kept in the local browser session; a thumbnail that is a representative frame from the middle of the video rather than the hyper-optimised upload; and the underlying comment analysis shipped as one zip file, so anyone can point their own Claude at it and ask for their own version. There is also &ldquo;HackerTube Longs&rdquo;.</p>
+<p class="summary-en">The process is where the numbers are, and it separates what he did from what the agent did. He uses Claude Code, the desktop app for Mac, with Opus 5.5 on Medium effort as his default, talks only to Claude, and names three things he did by hand in the browser: create a Google Cloud API key to query YouTube for video metadata, boot a VPS box for serving, and buy the domain name. Once the box was up he gave Claude the IP and told it to update, secure, harden, deploy and optimise the code, and &ldquo;it did the whole thing&rdquo;. He closes on &ldquo;Many awesome projects that would have normally taken weeks/months even can now be few-shotted for breakfast. What else are we not thinking of.&rdquo;</p>
+<p class="summary-en">Two things close here and two stay open. The 11-02 issue recorded Swyx reporting second-hand that Karpathy runs medium effort on Opus 5.5 on Hackertube, with nothing in the feed describing what that was; today he says it himself, with the model, the effort setting, the elapsed time, the input size and the output size attached. What is still missing is anything a reader can check against the product: the link in the post does not resolve here, there is no count of videos watched, and there is no comparison against YouTube&rsquo;s own recommendations that anyone else can run.</p>
+<p class="summary-zh zh">Andrej Karpathy 只发了一条，在太平洋时间 10:14，而它是这个窗口里三项指标全部最大的一条：36,797 赞、3,269 次转发、1,497 条回复，赞数约为第二名的 4.9 倍、转发约为 14 倍。它还由本人回答了 11-02 那期只能从外部提出的一个问题。</p>
+<p class="summary-zh zh">HackerTube，被介绍成一个周末做的东西：他受够了 YouTube 的推荐，于是让 Claude 把 20 年 HN 上的 4,300 万条评论筛成 6,454 个「一直被人推荐」的视频。他的说法是「*明显*更好的观看体验」，代价是「用 Opus 5.5 大约两小时」。他点名了三个设计选择：不需要登录（状态存在本地浏览器会话里）；缩略图取视频中间的一帧，而不是那个被反复 A/B 优化过的上传图；底层的评论分析结果打包成一个 zip，任何人都可以让自己的 Claude 去读它、做出自己的版本。另外还有「HackerTube Longs」。</p>
+<p class="summary-zh zh">过程才是带数字的部分，而它把「他做了什么」和「agent 做了什么」分开了。他用 Claude Code（Mac 的桌面版），默认 Opus 5.5、Medium effort，只跟 Claude 说话，并点名了三件他在浏览器里亲手做的事：从 Google Cloud 控制台建一个 API key 用来查 YouTube 的视频元数据、开一台 VPS 用来服务、买域名。机器起来之后他把 IP 交给 Claude，让它更新、加固、防护、部署并优化代码，而「它把整件事做完了」。他的收尾是：「很多过去要花几周甚至几个月才能做的项目，现在可以在早饭前用几次就做出来。还有什么是我们没想到的？」</p>
+<p class="summary-zh zh">这里合上了两件事，也仍然开着两件事。11-02 那期记下 Swyx 转述说 Karpathy 在 Hackertube 上用的是 medium 档 Opus 5.5，而 feed 里没有任何地方描述那是什么；今天他本人说了这件事，并且附上了模型、effort 档位、耗时、输入规模和产出规模。仍然缺的是一个读者可以拿去核对的东西：推文里的链接在这里无法解析，没有观看量的数字，也没有任何别人能重跑一遍的、与 YouTube 自身推荐的对照。</p>
+<div class="urls"><a href="https://x.com/karpathy/status/2116957135661945283">https://x.com/karpathy/status/2116957135661945283</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thariq</span>
+<span class="builder-role">前 Anthropic Claude Code</span>
+</div>
+<p class="summary-en">Thariq posts twice, 2m17s apart, and both are the game build this series has been carrying since 10-21. At 11:32: &ldquo;adding a new character: a taekwondo master that fights with fire&rdquo;, and the art style has been updated &ldquo;from 3d models to use generated sprites&rdquo;. 990 likes, 16 reposts and 93 replies, the fifth-highest like count in the window. It quotes a post that is not in the feed.</p>
+<p class="summary-en">At 11:35, the follow-up: &ldquo;also had a little highlight intro video / I like how its all coming together! hoping to have a vertical slice sometime next week&rdquo;. 43 likes, 0 reposts, 5 replies. This is the first date of any kind attached to this build in this series &mdash; &ldquo;sometime next week&rdquo;, which from Pacific 11-01 means the week beginning 11-02 &mdash; and it is the only commitment in the window that can be checked later. What has not changed since 10-21 is that there is still no name for the game, no engine named, and nothing anyone can play.</p>
+<p class="summary-zh zh">Thariq 发了两条，相隔 2 分 17 秒，两条都是本系列从 10-21 起一直带着的那个游戏 build。11:32：「adding a new character: a taekwondo master that fights with fire」，并且美术风格已经「从 3D 模型改成用生成的 sprite」。990 赞、16 次转发、93 条回复，赞数在窗口里排第五。它引用了一条不在 feed 里的推文。</p>
+<p class="summary-zh zh">11:35 是接着那条：「also had a little highlight intro video / I like how its all coming together! hoping to have a vertical slice sometime next week」。43 赞、0 次转发、5 条回复。这是本系列里第一次给这个 build 挂上任何形式的日期 ——「下周某个时候」，从太平洋 11-01 算就是 11-02 起的那一周 —— 也是这个窗口里唯一一个日后可以核对的承诺。从 10-21 以来没有变的是：这个游戏仍然没有名字，没有点名引擎，也没有任何可以玩到的东西。</p>
+<div class="urls"><a href="https://x.com/trq212/status/2116976789046350040">https://x.com/trq212/status/2116976789046350040</a><a href="https://x.com/trq212/status/2116977363728867664">https://x.com/trq212/status/2116977363728867664</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Dan Shipper</span>
+<span class="builder-role">Every CEO</span>
+</div>
+<p class="summary-en">Every CEO Dan Shipper posts twice, at 11:38 and 14:02 Pacific, and both quote a post that is not in the feed. The 14:02 post is the one with a word in it: &ldquo;argon cooks&rdquo;, 116 likes, 2 reposts, 6 replies. Argon is a name this series has carried on 10-15 and again on 10-30, both times as a Gemini model. Nothing here says what it is cooking or whether it is the same thing, and the quoted post is not in the feed, so the four words are all there is.</p>
+<p class="summary-en">The 11:38 post, &ldquo;this is anti competitive and not cool&rdquo;, 108 likes, 6 reposts and 21 replies, names neither a company nor an act. Not rendered.</p>
+<p class="summary-zh zh">Every CEO Dan Shipper 发了两条，在太平洋时间 11:38 和 14:02，两条都引用了不在 feed 里的推文。14:02 那条是唯一带一个词的一条：「argon cooks」，116 赞、2 次转发、6 条回复。Argon 是本系列在 10-15 记过、10-30 又记过一次的名字，两次都是作为 Gemini 的一个模型。这里没有说它在「cooks」什么，也没有说是不是同一个东西，被引的推文也不在 feed 里，所以这四个词就是全部。</p>
+<p class="summary-zh zh">11:38 那条「this is anti competitive and not cool」，108 赞、6 次转发、21 条回复，既没点公司也没点事。不渲染。</p>
+<div class="urls"><a href="https://x.com/danshipper/status/2117014507083948453">https://x.com/danshipper/status/2117014507083948453</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Guillermo Rauch</span>
+<span class="builder-role">Vercel CEO</span>
+</div>
+<p class="summary-en">Vercel CEO Guillermo Rauch posts three times, at 12:18, 13:08 and 15:43 Pacific. At 12:18 he is working with Gemini on something behind a link the feed does not resolve: &ldquo;hilarious&rdquo;, &ldquo;SUPER EXCITED!&rdquo;, and &ldquo;I&rsquo;ve been testing it on two high complexity projects and it&rsquo;s doing great&rdquo;. 381 likes, 9 reposts, 69 replies. Two projects and an enthusiasm rating is the whole of it; what he is building is never named.</p>
+<p class="summary-en">At 13:08 comes the argument, third on replies in the window at 242, with 2,251 likes, third, and 222 reposts, second. &ldquo;Own your intelligence.&rdquo; Then: &ldquo;Anyone that opposes this has something to sell you (perhaps your own intelligence back to you.)&rdquo; The mechanism he names is local models continuing to proliferate, with the &ldquo;absolute unit&rdquo; massive models out of reach locally for now, and the practical advice is to keep options open and to own the harness, the data, the connections and the runtime, &ldquo;your agents&rdquo;, and to embrace open source. There is no measurement, no model named and no repository.</p>
+<p class="summary-en">The same idea was stated one issue ago by a different person in a different seat. In the 11-02 issue the buyer from Arca, Aman Singh, drew his line on managed agents on exactly this ground, rendered there as owning your intelligence being what gives you the ability to impact the business. Rauch does not cite it and neither mentions the other; two sources, one direction, no shared measurement, which is the shape this series has to record rather than merge.</p>
+<p class="summary-en">At 15:43, the brand line: F1 is &ldquo;basically the perfect competition for our times&rdquo;, the celebration of extraordinary technology and extraordinary human ability, which is &ldquo;what Vercel stands for! (also: winning)&rdquo;. 555 likes, 13 reposts, 35 replies. It quotes a post that is not in the feed and carries no claim about a product.</p>
+<p class="summary-zh zh">Vercel CEO Guillermo Rauch 发了三条，在太平洋时间 12:18、13:08 和 15:43。12:18 他在用 Gemini 做一个东西，链接 feed 无法解析：「hilarious」、「SUPER EXCITED!」，以及「我已经在两个高复杂度项目上测过它，表现很好」。381 赞、9 次转发、69 条回复。两个项目加一句热情评级就是全部；他在做什么，从头到尾没有名字。</p>
+<p class="summary-zh zh">13:08 是那条论证，回复数在窗口里排第三（242 条），另有 2,251 赞（第三）和 222 次转发（第二）。「Own your intelligence.」接着是：「任何反对这一点的人，都有东西要卖给你（也许就是把你的智能卖回给你。）」他点名的机制是本地模型要继续扩散，而那些「绝对巨物」级的大模型眼下在本地还够不着；实操建议是保留选项，并且握住你自己的 harness、数据、连接和运行时 ——「你的 agent」—— 以及拥抱开源。没有测量，没有点名任何模型，没有仓库。</p>
+<p class="summary-zh zh">同一个想法在上一期由另一个人、以另一种身份说过。11-02 那期里 Arca 的买方 Aman Singh 正是在这一点上划的线，对 managed agents 不那么积极，本系列当时把它译作「拥有自己的智能，会让你拥有影响业务的能力」。Rauch 没有引用他，两人也都没有提到对方；两个信源、一个方向、没有共同的测量 —— 这正是本系列必须如实并列、而不能合并成一种趋势的形状。</p>
+<p class="summary-zh zh">15:43 是那句品牌话：F1「基本就是我们这个时代最完美的竞赛」，是对极致技术与极致人类能力的庆祝，而这正是「Vercel 所代表的！（还有：赢）」。555 赞、13 次转发、35 条回复。它引用了一条不在 feed 里的推文，没有带任何关于产品的主张。</p>
+<div class="urls"><a href="https://x.com/rauchg/status/2116988333096370443">https://x.com/rauchg/status/2116988333096370443</a><a href="https://x.com/rauchg/status/2117000819623243925">https://x.com/rauchg/status/2117000819623243925</a><a href="https://x.com/rauchg/status/2117039740096847920">https://x.com/rauchg/status/2117039740096847920</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Amjad Masad</span>
+<span class="builder-role">Replit CEO</span>
+</div>
+<p class="summary-en">Replit CEO Amjad Masad posts twice, at 12:57 and 13:48 Pacific. The 13:48 post is one sentence of warning and nothing else: &ldquo;If you&rsquo;re enjoying a subsidized AI subscription get ready to get rug pulled.&rdquo; 2,266 likes, 93 reposts and 176 replies, third on likes and fourth on replies in the window. It quotes a post that is not in the feed, so which subscription, which provider and on what timeline are all unanswered, and there is no figure and no company named.</p>
+<p class="summary-en">The 12:57 post is the product one and it is shorter than the warning: &ldquo;You can enable this on Replit with one toggle. If you enable the &lsquo;feedback widget&rsquo; on your site, users&rsquo; feedback become prompts for the agents to build.&rdquo; 245 likes, 9 reposts, 76 replies. It too quotes something not in the feed, so what &ldquo;this&rdquo; is cannot be named; what is new is the mechanism, user feedback turned directly into the prompts agents build from, and the claim that it is one toggle.</p>
+<p class="summary-zh zh">Replit CEO Amjad Masad 发了两条，在太平洋时间 12:57 和 13:48。13:48 那条是一句警告，此外什么都没有：「If you&rsquo;re enjoying a subsidized AI subscription get ready to get rug pulled.」2,266 赞、93 次转发、176 条回复，赞数第三、回复数第四。它引用了一条不在 feed 里的推文，所以是哪个订阅、哪家厂商、什么时间线，全都没有回答；没有数字，也没有点名任何公司。</p>
+<p class="summary-zh zh">12:57 那条是讲产品的，而且比那句警告还短：「You can enable this on Replit with one toggle. If you enable the &lsquo;feedback widget&rsquo; on your site, users&rsquo; feedback become prompts for the agents to build.」245 赞、9 次转发、76 条回复。它也引用了不在 feed 里的东西，所以「this」是什么说不出来；新的是那个机制 —— 用户的反馈直接变成 agent 用来做东西的 prompt —— 以及「一个开关就能开」这个说法。</p>
+<div class="urls"><a href="https://x.com/amasad/status/2116998155925360965">https://x.com/amasad/status/2116998155925360965</a><a href="https://x.com/amasad/status/2117010858845089805">https://x.com/amasad/status/2117010858845089805</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Zara Zhang</span>
+<span class="builder-role">Builder</span>
+</div>
+<p class="summary-en">Zara Zhang posts once, at 18:49 Pacific: &ldquo;What if your Linktree were an actual tree&rdquo;, with two links. 83 likes, 2 reposts, 16 replies. The object is at least nameable here, a link-in-bio page taken literally, and nothing else in the feed mentions it, so what she built and whether it runs cannot be said.</p>
+<p class="summary-zh zh">Zara Zhang 发了一条，在太平洋时间 18:49：「What if your Linktree were an actual tree」，配两个链接。83 赞、2 次转发、16 条回复。这里的宾语至少是说得出来的 —— 把一个 link-in-bio 页面做成一棵真的树 —— 而 feed 里没有别的地方提到它，所以她做了什么、能不能跑，说不出来。</p>
+<div class="urls"><a href="https://x.com/zarazhangrui/status/2117086544586780867">https://x.com/zarazhangrui/status/2117086544586780867</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aaron Levie</span>
+<span class="builder-role">Box CEO</span>
+</div>
+<p class="summary-en">Box CEO Aaron Levie posts once, at 22:01 Pacific, thirty-five minutes before the window closes, and it is the longest argument in the window and among the least-reacted posts in it, 67 likes, 9 reposts and 31 replies, with five of the twenty-two scoring lower on likes. It is a quote of a post that is not in the feed, so what prompted it is not visible.</p>
+<p class="summary-en">The claim is a reversal of who helps whom: &ldquo;We&rsquo;re clearly moving from a world where agents help us do our work incrementally better or faster, to us helping agents do their work.&rdquo; Everyone in an information-heavy job becomes &ldquo;a manager of a team of agents, instead of an individual contributor with just some added leverage from AI&rdquo;, and the fields he names are coding, cybersecurity, legal work, biotech and engineering.</p>
+<p class="summary-en">The consequence is the part worth keeping: leverage stops being tied to hours, because agents can parallelise, so &ldquo;your leverage will begin to be decoupled from the normal ratio of hours spent working to output generated&rdquo;, and the organisations that reorient around that sooner &ldquo;will see compounding gains in their workflows&rdquo;. It is complete and entirely unmeasured, no percentage, no headcount, no before-and-after, which is now two issues running for Levie after the 11-02 litmus test that also carried no figures.</p>
+<p class="summary-zh zh">Box CEO Aaron Levie 发了一条，在太平洋时间 22:01，也就是窗口收口前三十五分钟；它是这个窗口里最长的一段论证，也是互动最低的几条之一：67 赞、9 次转发、31 条回复，22 条里有 5 条的赞数比它更低。它引用了一条不在 feed 里的推文，所以是什么引出这段话的，看不到。</p>
+<p class="summary-zh zh">他的主张把「谁帮谁」掉了个方向：「We&rsquo;re clearly moving from a world where agents help us do our work incrementally better or faster, to us helping agents do their work.」每一个信息密集型岗位上的人都变成「一组 agent 的管理者，而不是一个只是多了点 AI 杠杆的个人贡献者」；他点名的领域是写代码、网络安全、法务、生物技术和工程。</p>
+<p class="summary-zh zh">值得留下的是他推出的那个后果：杠杆不再和工时绑定，因为 agent 可以并行，所以「你的杠杆将开始与『投入的工时 vs 产出的产出』这个惯常比例脱钩」，而更早围绕这一点重组运营的组织「会在自己的工作流里看到复利式的增益」。这段论证是完整的，但完全没有测量 —— 没有百分比、没有人数、没有前后对比。这对 Levie 来说已经是连续第二期了：11-02 那期那条检验同样一个数字都没有。</p>
+<div class="urls"><a href="https://x.com/levie/status/2117134917847093491">https://x.com/levie/status/2117134917847093491</a></div>
+</article>
+</section>
+<!-- ============== PODCAST ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#127911;</span>
+<h2 class="section-title">Podcast</h2>
+<span class="section-meta">1 Episode</span>
+</div>
+<div class="podcast">
+<div class="podcast-source">Unsupervised Learning</div>
+<div class="podcast-title">Ep 95: Modal CEO on the Future of Inference, the Chaos of the GPU Market &amp; Origins of the Sandbox Bet</div>
+<p class="summary-en">Unsupervised Learning records this one with the CEO of Modal, published 2026-10-28T13:03:16Z, Pacific 10-28 06:03. That is nearly four Pacific days before this snapshot and outside the window entirely, so unlike the last two entries in this series this one is late rather than fresh: whatever he says about GPU prices was said before any of the Pacific 11-01 posts above. It is Ep 95, and it is new to this series, which has carried Ep 86, 89, 91, 92, 93 and 94. The chair at the opening is Patrick Chase, a GP at Redpoint, standing in for Jacob Efron, who is on the episode and asks most of the questions. The guest is called Eric once and Erik once in the transcript and is not given a surname on air.</p>
+<p class="summary-en">The figures are the spine. Modal was at roughly $2M run rate when its Series A deck went out and has crossed $1B run rate since, about 100x in three years. Sandboxes, launched in 2023, are now about a third of revenue and a standalone $300M run rate business, having grown &ldquo;a thousand x almost&rdquo; since 2025. LLM inference is also about a third of revenue, and the company is at 150 engineers. He also says &ldquo;we&rsquo;ve run 15x in the last twelve months&rdquo; without saying what is being multiplied.</p>
+<p class="summary-en">The sandbox origin story is an argument about asymmetry. The first prototype took Akshat a few days, he spent a little time on the SDK, and it did not work immediately; in 2025 it &ldquo;kinda blew up because I think models got really good at writing code&rdquo;, after which the system was rewritten five times. Asked for the next one, he says there is nothing with the same profile today and names four candidates instead: low latency, voice-to-voice and real-time video, &ldquo;almost like building a CDN for inference&rdquo;; training and reinforcement learning for mid-sized models; and full operating systems, Mac, Windows, Android and iPhone.</p>
+<p class="summary-en">The GPU market is described from inside it. Capacity exists but &ldquo;you just have to look a little further, accept higher prices, accept longer terms&rdquo;, and Modal now works with 25 clouds and closes two or three compute deals a week. GTC was &ldquo;like an open air drug market, but, like, GPUs&rdquo;, with hotel lobbies and late-night WhatsApp groups, and one connection came through a sales VP&rsquo;s cousin who was golfing with someone. The reason it stays that way is that compute is &ldquo;not like a fungible contract&rdquo;. Some of the neo clouds are &ldquo;former crypto miners who haven&rsquo;t really thought about&hellip; running a twenty four seven operation&rdquo;. H100s are still the most common chip at Modal even as they ramp hard on Blackwell.</p>
+<p class="summary-en">On neo clouds the position is two-sided. They are &ldquo;fine business models&rdquo;, because contracts are locked in and GPU lifetimes have been longer than expected so the residual value is real, but they are &ldquo;at their core&hellip; financing vehicles&rdquo; with high leverage and a high cost of capital, and the three successful hyperscalers all sat inside companies with solid cash flow and a public listing. The structural risk he names is the 30%: a GPU commitment needs only about 30% up front, so raising a billion dollars can secure three billion of GPUs, leaving &ldquo;implicit leverage&hellip; and a dependence on subsequent fundraising&rdquo;. If that funding pulls back, the neo labs become neo clouds, which he says Mistral already did.</p>
+<p class="summary-en">The prediction is where he says his mind changed. Asked whether GPU rental prices are higher or lower in twelve months: higher. &ldquo;I actually changed my mind on this&hellip; in the last forty eight hours&rdquo; &mdash; he read the Anthropic S-1, had an agent summarise it, and found a company that is &ldquo;basically&hellip; profitable&rdquo; to a degree he had not anticipated, which removes any incentive to slow capacity acquisition, and he assumes the same at OpenAI. It is the sixth reading of that filing in this series after five on 10-28, the first from outside X, and the first attached to a stated change of position rather than to a valuation.</p>
+<p class="summary-en">Inside his own company the agent numbers are the ones that travel. &ldquo;Probably&hellip; 95% of the lines of code that gets merged as Modal is probably written by agents to some extent.&rdquo; The adoption pattern inverted his expectation: he assumed juniors would adopt first and it is &ldquo;almost the other way around&rdquo;, the very senior engineers, because for them it is &ldquo;like giving them&hellip; 10 interns&rdquo; and they had been constrained by typing speed. He still says humans supervise heavily because infrastructure has &ldquo;a lot of tail risks&rdquo;, that software engineers are &ldquo;pretty safe&hellip; for the next few years&rdquo;, and that short term it will be harder for new grads &ldquo;except for that, the very high side of the spectrum&rdquo;. He would still encourage his own kids to study computer science.</p>
+<p class="summary-en">Two operational consequences of agents being the user are named, and neither is about capability. Deprecations: agents are trained on old code, so &ldquo;removing features is much harder for us&rdquo; and they can no longer just pull something from the documentation and wait three months. And what he calls agent optimisation, which is &ldquo;more like similar&hellip; to search engine optimization&rdquo;: ask Claude Code which tool to use to deploy a model and see what it recommends. The consequence he draws is about incumbency &mdash; &ldquo;I&rsquo;ve heard people say, like, oh, I&rsquo;m just gonna use React for everything because agents are really good at it&rdquo; &mdash; and it is why being inside the training data is now &ldquo;very, very valuable&rdquo;. In passing he notes that Anthropic &ldquo;a couple days ago&hellip; announced they&rsquo;re moving off Git, I believe, or at least GitHub&rdquo;.</p>
+<p class="summary-en">On what lasts: he will not go into model training, he thinks post-training risks becoming &ldquo;just a service business&rdquo; unless it is turned into a product, he expects every successful company to end up multiproduct, and he dislikes the word agentic because &ldquo;shouldn&rsquo;t all software do that?&rdquo; The customers named are Cognition, which uses inference and sandboxes for reinforcement learning, Ramp, which launched its internal coding agent as a standalone product, Suno, Runway, Decagon, DoorDash, computational biotech firms, and robotics companies including 1x. He also asks why voice assistants are &ldquo;so bad in 2026&rdquo; and answers with his own Google Home.</p>
+<p class="summary-en">Transcript artifacts, since everything above is quoted from it: Modal is rendered as &ldquo;Bodle&rdquo; once and as &ldquo;model&rdquo; throughout, Claude Code as &ldquo;ClockCode&rdquo;, Anthropic once as &ldquo;Ontopic&rdquo;, Suno as &ldquo;Sumo&rdquo;, and Elon&rsquo;s line about the neo clouds is transcribed as &ldquo;all of your clothes are gonna die&rdquo; where the sense is clouds. &ldquo;TypeSafe with Java&rdquo; is left as it stands, because this series has also seen Jev and Typesafe together and cannot tell what was said. The url field points to the Redpoint channel page rather than the episode, as it has in earlier entries.</p>
+<p class="summary-zh zh">Unsupervised Learning 这一期的嘉宾是 Modal 的 CEO，发布于 2026-10-28T13:03:16Z，即太平洋时间 10-28 06:03。这比本期快照早了将近四个太平洋日，并且完全落在窗口之外 —— 所以与本系列最近两条不同，这一条是迟到而不是新鲜：他关于 GPU 价格说的那些话，都早于上面那些太平洋 11-01 的推文。这是 Ep 95，本系列此前收录过 Ep 86、89、91、92、93 和 94。开场主持的是 Redpoint 的 GP Patrick Chase，他替 Jacob Efron 开场，而 Efron 本人也在这一期里，并且问了大部分问题。嘉宾在转写里一次被叫做 Eric、一次被叫做 Erik，节目里没有给出姓氏。</p>
+<p class="summary-zh zh">数字是这期的骨架。Modal 在 Series A 那份 deck 出去时大约是 200 万美元 run rate，现在已经跨过 10 亿美元 run rate，三年约 100 倍。Sandbox 在 2023 年上线，现在约占收入的三分之一，是一个独立的 3 亿美元 run rate 业务，自 2025 年以来增长「差不多一千倍」。LLM 推理也约占收入的三分之一，公司有 150 名工程师。他还说「我们过去十二个月跑了 15x」，但没有说明被乘的是什么。</p>
+<p class="summary-zh zh">Sandbox 的起源故事是一个关于不对称的论证。第一版原型花了 Akshat 几天，他又在 SDK 上花了一点时间，但没有立刻起量；到 2025 年它「差不多是爆掉了，因为我觉得那时候模型写代码的水平真的变好了」，之后整套系统被重写了五次。被问到下一个 Sandbox 在哪，他说今天没有同样形状的东西，转而点了四个候选：低延迟，也就是语音对语音和实时视频，「几乎像是在为推理建一个 CDN」；中等规模模型的训练与强化学习；以及完整的操作系统，Mac、Windows、安卓和 iPhone。</p>
+<p class="summary-zh zh">GPU 市场是从内部被描述的。算力是有的，但「你得再往远一点找，接受更高的价格，接受更长的期限」，而 Modal 现在对接 25 家云，每周谈成两三笔算力交易。GTC「就像一个露天毒品市场，只不过是 GPU」，有酒店大堂，有深夜的 WhatsApp 群，有一笔还是销售副总裁的表亲和别人打高尔夫时搭上的。它之所以一直是这样，是因为算力「不是一份可替代的合约」。有些 neo cloud「以前是挖矿的，并没有认真想过要做 7×24 的运营」。H100 至今仍是 Modal 上最常见的芯片，哪怕他们正在大规模上 Blackwell。</p>
+<p class="summary-zh zh">对 neo cloud 的立场是两面的。它们是「还不错的生意」，因为合约锁住了、GPU 寿命比预期长，残值是真的；但它们「本质上是融资工具」，杠杆很高、资金成本很高，而三家成功的超大厂都长在有稳定现金流、并且已上市的公司体内。他点名的结构性风险是那个 30%：一笔 GPU 承诺只需要先付大约 30%，所以融到 10 亿美元就能锁定 30 亿美元的 GPU，留下的是「隐性杠杆……以及对后续融资的依赖」。如果那笔钱退潮，neo lab 就变成 neo cloud，而他说 Mistral 已经这么做了。</p>
+<p class="summary-zh zh">预测是他明确说自己改了主意的地方。被问到十二个月后 GPU 租金是更高还是更低：更高。「我其实是在过去四十八小时里改的主意」—— 他读了 Anthropic 的 S-1，让一个 agent 做了摘要，发现这是一家「基本上……盈利」的公司，盈利程度超出他的预期，这就让放慢算力采购失去了理由，而他假设 OpenAI 那边也是同一套逻辑。这是本系列里第六次读到那份文件（前五次都在 10-28 那期），是第一次来自 X 之外，也是第一次被挂在一个明确改口的表述上，而不是挂在一个估值上。</p>
+<p class="summary-zh zh">在他自己公司里，那些关于 agent 的数字是最容易传播的。「大概……Modal 合并进去的代码里，95% 的行在某种程度上是 agent 写的。」采用顺序和他的预期相反：他原以为会用得最多的是初级工程师，结果「几乎正好反过来」，是最资深的那些人，因为对他们来说这「像是给了他们 10 个实习生」，而他们此前一直被打字速度卡着。他仍然强调人要在环上重度监督，因为基础设施「有很多尾部风险」；他说软件工程师「在未来几年内还是相当安全的」，短期对应届毕业生会更难，「除了最顶尖的那一部分」。他仍然会鼓励自己的孩子学计算机。</p>
+<p class="summary-zh zh">他点名了两条「agent 成为用户」带来的运营后果，两条都和模型能力无关。一是弃用：agent 是在旧代码上训练的，所以「下线功能对我们来说难得多」，他们再也不能把文档里的东西删掉然后等三个月。二是他称之为 agent 优化的东西，而它「更像是……搜索引擎优化」：去问 Claude Code 部署一个模型该用哪个工具，看它推荐什么。他由此推出的结论是关于在位者的：「我听人说，哦，那我以后就一律用 React 了，因为 agent 用它特别顺手」—— 这就是为什么进到训练数据里现在「非常、非常值钱」。顺带他还提到 Anthropic「几天前……宣布要从 Git 上搬走，我记得是，或者至少是从 GitHub」。</p>
+<p class="summary-zh zh">关于什么留得下来：他不会去做模型训练；他认为后训练有变成「只是一门服务生意」的风险，除非把它做成产品；他预计每一家成功的公司最终都会变成多产品公司；而他不喜欢 agentic 这个词，因为「难道不是所有软件都该这样吗？」被点名的客户有 Cognition（用推理和 sandbox 做强化学习）、Ramp（把内部 coding agent 当成独立产品发布了）、Suno、Runway、Decagon、DoorDash、计算生物科技公司，以及包括 1x 在内的机器人公司。他还问了一句：为什么语音助手「到了 2026 年还这么差」，然后用自己那台 Google Home 作答。</p>
+<p class="summary-zh zh">转写瑕疵，因为上面的内容都是从中引的：Modal 一次被写成「Bodle」，通篇被写成「model」；Claude Code 被写成「ClockCode」；Anthropic 一次被写成「Ontopic」；Suno 被写成「Sumo」；而关于 neo cloud 的那句 Elon 的话被转写成「all of your clothes are gonna die」，语义上是 clouds（云）而不是 clothes（衣服）。「TypeSafe with Java」照录不动，因为本系列此前也见过 Jev 与 Typesafe 一起出现，无法判断当时说的是什么。另外，url 字段指向的是 Redpoint 的频道页而不是这一集，这一点与本系列此前的几条一样。</p>
+<div class="urls"><a href="https://www.youtube.com/@RedpointAI">https://www.youtube.com/@RedpointAI</a></div>
+</div>
+</section>
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128161;</span>
+<h2 class="section-title">The Takeaway</h2>
+<span class="section-meta">2026-11-03</span>
+</div>
+<div class="takeaway">
+<div class="takeaway-label">The Takeaway</div>
+<p>The counter reached the number it said it would. Sottiaux&rsquo;s &ldquo;Day 28/ Banked 2/2&rdquo; is the first post in this series to carry a day number and a fraction at the same time, and Day 28 is where two independent counts put it: one number per Pacific day from Day 22 on 10-26 and Day 24 on 10-28, which makes Day 28 Pacific 11-01, and Day 21&rsquo;s seven days from Pacific 10-25, which is the same date. Both land on the day it posted. What has not moved in eight numbered posts is the object: no day has ever said what is being counted or what is being banked, and this one is second on likes, reposts and replies at 7,495, 233 and 1,342.</p>
+<p>Karpathy answers the 11-02 question himself and with numbers. HackerTube is 43 million Hacker News comments over twenty years filtered to 6,454 videos, about two hours on Opus 5.5, and three manual steps, an API key, a VPS and a domain, with everything else delegated including &ldquo;update, secure, harden, deploy and optimize&rdquo;. It is first on all three counts at 36,797 likes, 3,269 reposts and 1,497 replies, about 4.9 times the likes of the next post. It also confirms the second-hand report in the 11-02 issue, Opus 5.5 at medium effort, from the person running it.</p>
+<p>&ldquo;Own your intelligence&rdquo; is now two sources with no bridge between them. Rauch&rsquo;s version carries 2,251 likes, 222 reposts and 242 replies and argues for local models, open source, and owning the harness, the data, the connections and the runtime. The Arca buyer in the 11-02 issue used the same idea to explain why he is cooler on managed agents. Neither cites the other, neither measures anything, and the direction is the same, so this series records them as two rather than as a trend.</p>
+<p>The one price ratio in the window has the fewest likes. Garry Tan&rsquo;s Particle-1, &ldquo;as good as much larger models for agentic retrieval but 1/23 the price&rdquo;, is what the 10-30 issue was missing, a name, a task and a number where three builders had named it with nothing attached, and it drew 30 likes, 3 reposts and 14 replies, third-lowest of all twenty-two posts on likes and behind a bare link and a quotation. Amjad&rsquo;s one-sentence warning about subsidised subscriptions drew 2,266. This window rewards the sentence, not the evidence.</p>
+<p>The podcast is late but it is the only reading of that filing that moves anything. Published Pacific 10-28, nearly four days before this snapshot, it is the sixth reading of the Anthropic S-1 in this series and the first from outside X: the Modal CEO changed his GPU-price call inside forty-eight hours because an agent summary showed him a company that is &ldquo;basically&hellip; profitable&rdquo;, which removes the reason to slow capacity buying. It is a prediction resting on one person&rsquo;s reading of a document this series has never seen.</p>
+<p>Coverage has no gap this time. Twenty-one of the twenty-two posts sit inside Pacific 11-01 and the twenty-second is at Pacific 10-31 23:39, thirty-six minutes after the last post the 11-02 issue captured, so nothing is missing between the two issues. Pacific 10-29 and 10-30 remain permanently uncaptured from earlier in the run.</p>
+</div>
+<div class="takeaway zh">
+<div class="takeaway-label">核心结论</div>
+<p>计数器走到了它自己说过的那个数。Sottiaux 的「Day 28/ Banked 2/2」是本系列里第一条同时带日期编号和分数的推文，而 Day 28 落在两个独立推算都指向的那一天：从 Day 22（10-26）和 Day 24（10-28）按一天一号往下数，Day 28 是太平洋 11-01；从 Day 21 在太平洋 10-25 给出的七天往下数，也是同一天。两个算法都落在它发布的那天。八条带编号的推文里始终没有动的是宾语 —— 没有任何一个 Day 说过被数的是什么、被 banked 的是什么；而这条以 7,495 赞、233 次转发、1,342 条回复排在三项的第二。</p>
+<p>Karpathy 本人、并且带着数字回答了 11-02 那个问题。HackerTube 是把 20 年 HN 上的 4,300 万条评论筛成 6,454 个视频，用 Opus 5.5 大约两小时，人工只做了三步 —— 一个 API key、一台 VPS、一个域名 —— 其余全部交出去，包括「更新、加固、防护、部署和优化」。它以 36,797 赞、3,269 次转发、1,497 条回复在三项上都排第一，赞数约为第二名的 4.9 倍。它还由跑它的那个人本人确认了 11-02 那期的转述：Opus 5.5、medium 档。</p>
+<p>「Own your intelligence」现在有两个信源，而两者之间没有任何桥。Rauch 这一版有 2,251 赞、222 次转发、242 条回复，主张本地模型、开源，以及握住自己的 harness、数据、连接和运行时。11-02 那期 Arca 的买方用的是同一个想法，用来解释他为什么对 managed agents 没那么积极。两人互不引用，都没有任何测量，方向却一致 —— 所以本系列把它们记成两条，而不是记成一种趋势。</p>
+<p>这个窗口里唯一的价格比拿到了最少的赞。Garry Tan 的 Particle-1，「在 agentic retrieval 上和大得多的模型一样好，价格是 1/23」，正是 10-30 那期缺的东西 —— 三位 builder 点名它时什么都没带上，而现在有了名字、任务和数字；它拿到的是 30 赞、3 次转发、14 条回复，22 条里赞数倒数第三，排在它前面的两条一条是裸链接、一条是引文。Amjad 那句关于补贴订阅的一句话警告拿到了 2,266。这个窗口奖励的是句子，不是证据。</p>
+<p>播客是迟到的，但它是那份文件这么多读法里唯一推动了什么的一读。它发布于太平洋 10-28，比本期快照早将近四天，是本系列里第六次读到那份 Anthropic S-1，也是第一次来自 X 之外：Modal 的 CEO 在四十八小时内改了自己对 GPU 价格的判断，因为一份 agent 摘要让他看到一家「基本上……盈利」的公司，而这让放慢算力采购失去了理由。这是一个预测，它架在一个人对一份本系列从未见过的文件的阅读上。</p>
+<p>这次覆盖没有缺口。22 条里有 21 条落在太平洋 11-01 之内，第 22 条在太平洋 10-31 23:39，比 11-02 那期收到的最后一条晚三十六分钟，所以两期之间没有丢东西。太平洋 10-29 与 10-30 仍然因为更早那次运行而永久缺失。</p>
+</div>
+</section>
+<!-- ============== NOTES ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128221;</span>
+<h2 class="section-title">记录 / Notes &amp; Dedup</h2>
+<span class="section-meta">22 Zero · 0 Dedup · 1 Late</span>
+</div>
+<div class="dedup">
+<p style="margin-top:12px"><strong>Tweet check</strong> &mdash; All 22 tweet IDs in this window were matched against every file under 2026/ and returned zero hits, so nothing here repeats a post from an earlier issue.</p>
+<p style="margin-top:12px"><strong>Podcast check</strong> &mdash; The slot is 1 and it is late rather than fresh: the episode was published 2026-10-28T13:03:16Z, Pacific 10-28 06:03, nearly four Pacific days before this snapshot and outside the window entirely. That breaks a run of two fresh entries, 10-30 and 11-02. Ep 95 is new to this series, which has carried Ep 86, 89, 91, 92, 93 and 94. The url field gives the Redpoint channel page rather than the specific episode, as it has in earlier entries.</p>
+<p style="margin-top:12px"><strong>Blog check</strong> &mdash; The slot is 0 by emptiness: the blogs array came back empty. This is the ninth consecutive issue with nothing in it, 10-21, 10-22, 10-26, 10-27, 10-28, 10-29, 10-30, 11-02 and today, and the cause is the same every time.</p>
+<p style="margin-top:12px"><strong>Not rendered</strong> &mdash; Two of the 22 tweets were counted but given no paragraph of their own: Swyx&rsquo;s reply to Karpathy, a link and the word &ldquo;url&rdquo; with no object, and Dan Shipper&rsquo;s &ldquo;this is anti competitive and not cool&rdquo;, which quotes a post that is not in the feed and names neither a company nor an act. The remaining twenty are rendered and carry URLs.</p>
+<p style="margin-top:12px"><strong>Coverage</strong> &mdash; The snapshot is 2026-11-02T06:35:38Z, Pacific 11-01 22:35. The window runs Pacific 10-31 23:39 to Pacific 11-01 22:11, with 21 of the 22 posts inside Pacific 11-01, and closes 24m36s before the snapshot. This issue is written at Pacific 11-02 18:18, so the snapshot lags the moment of writing by about 20 hours. Unlike the last two issues there is no gap: the previous issue ended at Pacific 10-31 23:03 and this one begins thirty-six minutes later. Pacific 10-29 and 10-30 were never captured, because the runs scheduled for 10-31 and 11-01 did not fire and this feed keeps only its latest snapshot; per this series&rsquo; rule, they are not backfilled.</p>
+<p style="margin-top:12px"><strong>Engagement fields</strong> &mdash; likes, reposts and replies are populated on all 22 posts, so the ranking above is real. There is no quotes field in this feed at all, and it is not used.</p>
+<p style="margin-top:12px"><strong>Absent</strong> &mdash; Eleven accounts posted. The other tracked accounts have nothing in this snapshot, among them Sam Altman, Peter Steinberger, Nikunj Kothari, Matt Turck, Ryo Lu, Cat Wu and Alex Albert.</p>
+<p style="margin-top:12px"><strong>Transcript</strong> &mdash; The artifacts are flagged in the podcast section rather than silently corrected: Modal as &ldquo;Bodle&rdquo; and &ldquo;model&rdquo;, Claude Code as &ldquo;ClockCode&rdquo;, Anthropic as &ldquo;Ontopic&rdquo;, Suno as &ldquo;Sumo&rdquo;, and &ldquo;clothes&rdquo; where the sense is clouds. &ldquo;TypeSafe with Java&rdquo; is left as it stands.</p>
+</div>
+<div class="dedup zh" style="margin-top:14px">
+<p style="margin-top:12px"><strong>Tweet check</strong> &mdash; 本窗口的 22 个推文 ID 全部与 2026/ 下每一个文件做过比对，零命中，所以这里没有任何一条是早期某期发过的。</p>
+<p style="margin-top:12px"><strong>Podcast check</strong> &mdash; 这一格是 1，而且是迟到而不是新鲜：这一集发布于 2026-10-28T13:03:16Z，即太平洋时间 10-28 06:03，比本期快照早将近四个太平洋日，完全落在窗口之外。这中断了连续两条新鲜的纪录（10-30 和 11-02）。Ep 95 对本系列是新的，此前收录过 Ep 86、89、91、92、93 和 94。url 字段给出的是 Redpoint 的频道页而不是具体这一集，这一点与此前几条一样。</p>
+<p style="margin-top:12px"><strong>Blog check</strong> &mdash; 这一格是 0，成因是空数组：blogs 数组返回为空。这是连续第九期为空 —— 10-21、10-22、10-26、10-27、10-28、10-29、10-30、11-02 和今天 —— 每一次的成因都相同。</p>
+<p style="margin-top:12px"><strong>Not rendered</strong> &mdash; 22 条里有 2 条计数但没有单独成段：Swyx 给 Karpathy 的那条回复（一个链接加一个词「url」，没有宾语），以及 Dan Shipper 的「this is anti competitive and not cool」（引用了一条不在 feed 里的推文，既没点公司也没点事）。其余二十条全部渲染并带链接。</p>
+<p style="margin-top:12px"><strong>Coverage</strong> &mdash; 快照是 2026-11-02T06:35:38Z，即太平洋时间 11-01 22:35。窗口从太平洋 10-31 23:39 到 11-01 22:11，22 条里有 21 条落在太平洋 11-01 之内，并在快照前 24 分 36 秒收口。本期成文于太平洋 11-02 18:18，快照比成文时刻落后约 20 小时。与前两期不同，这次没有缺口：上一期收在太平洋 10-31 23:03，这一期在三十六分钟后接上。太平洋 10-29 与 10-30 从未被采集到，因为 10-31 与 11-01 两次运行没有触发，而这个 feed 只保留最新一份快照；按本系列规则，不补发。</p>
+<p style="margin-top:12px"><strong>Engagement fields</strong> &mdash; 22 条的 likes、reposts 和 replies 都有值，所以上面的排序是真实可用的。这个 feed 根本没有 quotes 字段，不使用。</p>
+<p style="margin-top:12px"><strong>Absent</strong> &mdash; 十一个账号有内容。其余被追踪的账号在这份快照里没有条目，其中包括 Sam Altman、Peter Steinberger、Nikunj Kothari、Matt Turck、Ryo Lu、Cat Wu 和 Alex Albert。</p>
+<p style="margin-top:12px"><strong>Transcript</strong> &mdash; 转写中的瑕疵已在播客一节里标注而不是静默修正：Modal 被写成「Bodle」和「model」，Claude Code 被写成「ClockCode」，Anthropic 被写成「Ontopic」，Suno 被写成「Sumo」，以及语义上是 clouds 却写成「clothes」的那句。「TypeSafe with Java」照录不动。</p>
+</div>
+</section>
+<footer class="footer">
+<div class="next-issue">&#128236; &#19979;&#19968;&#26399;&#65306;&#26126;&#22825; 10:00&#65288;&#21271;&#20140;&#26102;&#38388;&#65289;</div>
+<div class="signature">by chloevchen</div>
+</footer>
+
+<!-- by chloevchen -->
+</body>
+</html>
