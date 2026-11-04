@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Builders Digest · 2026-11-04</title>
+<style>
+
+
+
+
+
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 28px 30px; margin-bottom: 24px; }
+  .podcast-source { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
+  .podcast-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; margin-bottom: 18px; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; }
+
+
+</style>
+</head>
+<body>
+<header class="topbar">
+<div class="topbar-inner">
+<a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders, Not Influencers</a>
+<span>双语 · Bilingual</span>
+</div>
+</header>
+<section class="header">
+<div class="eyebrow">Daily Digest · 2026-11-04</div>
+<h1>AI Builders Digest</h1>
+</section>
+<div class="stats">
+<div class="stat"><div class="stat-num">12</div><div class="stat-label">Builders</div></div>
+<div class="stat"><div class="stat-num">29</div><div class="stat-label">Tweets</div></div>
+<div class="stat"><div class="stat-num">1</div><div class="stat-label">Podcast</div></div>
+<div class="stat"><div class="stat-num">0</div><div class="stat-label">Blog</div></div>
+</div>
+<p class="note-line">The counter stops the day after it landed. The 11-03 issue carried Day 28 with Banked 2/2, the only numbered end this series has seen a prediction reach, and today Thibault Sottiaux posts three times with no day number, no fraction and no object; the shortest of the three, “Le GPT Fat”, draws 567 replies, the most in the window. Two of the three top-liked posts are four words or fewer: Josh Woodward’s “HBD SRK!” leads reposts at 762, 5.7 times the next post, and Sottiaux’s three words lead replies. The longest post in the window, Peter Yang’s 499-character account of a writing workflow blocked by a missing browser tool, draws 200 likes. The podcast is fresh again after one late entry, published inside the same Pacific day as every post here, and it is the first inside account from a legal AI company in this series. The snapshot is 2026-11-03T06:27:49Z, Pacific 11-02 22:27; all twenty-nine posts sit inside Pacific 11-02 and the window closes 19m34s before the snapshot.</p>
+<p class="note-line zh">计数器在落地后的第二天停了。11-03 那期是 Day 28 加 Banked 2/2，也是本系列唯一一次看到一个预测真的走到编号终点；今天 Thibault Sottiaux 发了三条，没有编号、没有分数、也没有宾语，其中最短的一条「Le GPT Fat」拿到 567 条回复，是这个窗口里最高的。赞数最高的三条里有两条在四个词以内：Josh Woodward 的「HBD SRK!」以 762 次转发排第一，是第二名的 5.7 倍；Sottiaux 那三个词则排在回复第一。窗口里最长的一条是 Peter Yang 那段 499 字符的写作流程记录，讲的是一个缺失的浏览器操作把流程卡住，它拿到 200 赞。播客在上一条迟到之后重新变新鲜，发布时间与这里所有推文同属一个太平洋日，也是本系列第一次听到法律 AI 公司内部的人自己讲。feed 快照是 2026-11-03T06:27:49Z，即太平洋时间 11-02 22:27；29 条全部落在太平洋 11-02 之内，窗口在快照前 19 分 34 秒收口。</p>
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128036;</span>
+<h2 class="section-title">X / Twitter</h2>
+<span class="section-meta">12 Builders · 29 Tweets</span>
+</div>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Josh Woodward</span>
+<span class="builder-role">VP, Google Labs &amp; Gemini</span>
+</div>
+<p class="summary-en">Google Labs VP Josh Woodward opens the window at 06:30 Pacific with “HBD SRK!”, a four-character birthday greeting over a link. It is his only post in this snapshot and it leads all twenty-nine posts on reposts at 762, 5.7 times the next highest, Thariq’s 133; it is second on likes at 3,455 and has 25 replies. The feed does not say who SRK is or what the link points to, and the post quotes another post that is not in the feed. It is counted and linked, but no argument is built on it, because there is none in the text.</p>
+<p class="summary-zh zh">Google Labs 副总裁 Josh Woodward 在太平洋时间 06:30 开了这个窗口，发的是「HBD SRK!」——一句四个字符的生日祝福，配一个链接。这是他在这份快照里唯一一条，却以 762 次转发排在 29 条第一，是第二名 Thariq 的 133 次的 5.7 倍；3,455 赞排第二，25 条回复。feed 没有说 SRK 是谁，也没有说链接指向什么，这条还引用了另一条不在 feed 里的推文。它照常计数、照常给链接，但没有据此展开任何观点，因为原文里没有。</p>
+<div class="urls"><a href="https://x.com/joshwoodward/status/2117262979955912732" target="_blank">https://x.com/joshwoodward/status/2117262979955912732</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Garry Tan</span>
+<span class="builder-role">President &amp; CEO, Y Combinator</span>
+</div>
+<p class="summary-en">Y Combinator President and CEO Garry Tan posts three times, at 07:16, 14:34 and 16:14 Pacific, and all three quote posts that are not in the feed. The first is about California politics: “Repeal CEQA, the primary NIMBY tool to prevent building anything”, naming hospitals, high speed rail and housing, 504 likes, 35 reposts and 35 replies. It is the only post in the window about state policy and the best-reacted of his three.</p>
+<p class="summary-en">At 14:34 he writes “Interesting new use of smaller models: direct manipulation of weights” over a link, 477 likes, 34 reposts and 55 replies. Swyx returns to weight-space programming at 21:42 from a different quoted post; the two do not quote each other and neither names a method, a model or a result. Neither “weight-space” nor “exhalation”, the phrase Swyx uses, appears anywhere earlier in this series.</p>
+<p class="summary-en">At 16:14 comes the only self-reported throughput number in the window: “Capy Captains increased my issue fixing throughput by about 5X overnight”, followed by “Being able to coordinate across captains and subthreads is an insane unlock”. 90 likes, 7 reposts and 47 replies. Capy has appeared in this series since 10-04 and Captains were described on 10-29 as ten to twenty subagents running at all times; what is new here is a multiple. There is no baseline, no measurement window, no comparison group and no link, so 5X cannot be checked from the feed.</p>
+<p class="summary-zh zh">Y Combinator 总裁兼 CEO Garry Tan 发了三条，在太平洋时间 07:16、14:34 和 16:14，三条都引用了不在 feed 里的推文。第一条谈加州政治：「Repeal CEQA, the primary NIMBY tool to prevent building anything」，点名医院、高铁和住房，504 赞、35 次转发、35 条回复。它是这个窗口里唯一谈州政策的一条，也是他三条里互动最高的一条。</p>
+<p class="summary-zh zh">14:34 那条是「Interesting new use of smaller models: direct manipulation of weights」，配一个链接，477 赞、34 次转发、55 条回复。Swyx 在 21:42 从另一条被引推文回到 weight-space programming；两人互不引用，也都没有点出方法、模型或结果。「weight-space」和 Swyx 用的「exhalation」在本系列此前都没有出现过。</p>
+<p class="summary-zh zh">16:14 那条给出窗口里唯一一个自报的吞吐数字：「Capy Captains increased my issue fixing throughput by about 5X overnight」，后面接一句「Being able to coordinate across captains and subthreads is an insane unlock」。90 赞、7 次转发、47 条回复。Capy 从 10-04 那期起就在本系列里出现，Captains 在 10-29 那期被描述成同时跑着的 10 到 20 个子 agent；这次新出现的是一个倍数。没有基线、没有观测窗口、没有对照组、也没有链接，所以 5X 从 feed 里核不了。</p>
+<div class="urls"><a href="https://x.com/garrytan/status/2117274654981452000" target="_blank">https://x.com/garrytan/status/2117274654981452000</a><a href="https://x.com/garrytan/status/2117384926052135106" target="_blank">https://x.com/garrytan/status/2117384926052135106</a><a href="https://x.com/garrytan/status/2117410016730964358" target="_blank">https://x.com/garrytan/status/2117410016730964358</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thibault Sottiaux</span>
+<span class="builder-role">Codex &amp; ChatGPT, OpenAI</span>
+</div>
+<p class="summary-en">OpenAI’s Thibault Sottiaux, who works on Codex and ChatGPT, posts three times, at 07:51, 16:26 and 21:29 Pacific, and none carries a day number, a fraction or the word banked. That is the change from the 11-03 issue, where Day 28 with Banked 2/2 was the first numbered end this series saw reached. His three posts together draw 7,078 likes, 189 reposts and 1,164 replies, 34%, 15% and 54% of all engagement in the window.</p>
+<p class="summary-en">The 07:51 post is the only one that describes behaviour: “Your dot will choose the best model for the task, drawing on different models for different parts of the work.” 2,176 likes, 34 reposts and 267 replies. The word dot has appeared in this series on 10-03, 10-07 and 10-30, as a pet avatar and an inbox count, a product moment with no detail, and a day-numbered messaging capability respectively; this is the first time the feed says it selects models. Nothing in the feed says what dot is, which models it chooses between, or what task was used.</p>
+<p class="summary-en">At 16:26 he writes “We know some Git-fu. Excited the team is finally able to talk about it a bit. Massive props to @tnm and team” over a link, 2,364 likes, 75 reposts and 330 replies. The quoted post is not in the feed, so what the team can now talk about cannot be named. At 21:29, “Le GPT Fat”, three words with no link and no object, draws 2,538 likes, 80 reposts and 567 replies: first on replies, third on likes and third on reposts. It is the most-replied post in the window and the only one above 500 replies.</p>
+<p class="summary-zh zh">在 OpenAI 负责 Codex 与 ChatGPT 的 Thibault Sottiaux 发了三条，在太平洋时间 07:51、16:26 和 21:29，没有一条带日期编号、带分数或带 banked 这个词。这就是相对 11-03 那期的变化 —— 那期的 Day 28 加 Banked 2/2，是本系列第一次看到编号终点被走到。他这三条合计 7,078 赞、189 次转发、1,164 条回复，占整个窗口互动的 34%、15% 和 54%。</p>
+<p class="summary-zh zh">07:51 那条是唯一描述行为的：「Your dot will choose the best model for the task, drawing on different models for different parts of the work.」2,176 赞、34 次转发、267 条回复。dot 这个词在本系列 10-03、10-07、10-30 三期出现过，分别是宠物头像与收件箱计数、一句没有细节的产品时刻，以及带日期编号的发消息能力；这是 feed 第一次说它会挑模型。feed 没有说 dot 是什么、在哪些模型之间挑、也没有说用的是什么任务。</p>
+<p class="summary-zh zh">16:26 他写「We know some Git-fu. Excited the team is finally able to talk about it a bit. Massive props to @tnm and team」，配一个链接，2,364 赞、75 次转发、330 条回复。被引的推文不在 feed 里，所以团队现在能谈的是什么说不出来。21:29 的「Le GPT Fat」三个词，没有链接也没有宾语，拿到 2,538 赞、80 次转发、567 条回复：回复第一、赞第三、转发第三。它是窗口里回复最多的一条，也是唯一一条过 500 回复的。</p>
+<div class="urls"><a href="https://x.com/thsottiaux/status/2117283355427495983" target="_blank">https://x.com/thsottiaux/status/2117283355427495983</a><a href="https://x.com/thsottiaux/status/2117412956950638872" target="_blank">https://x.com/thsottiaux/status/2117412956950638872</a><a href="https://x.com/thsottiaux/status/2117489367417803042" target="_blank">https://x.com/thsottiaux/status/2117489367417803042</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thariq</span>
+<span class="builder-role">formerly Claude Code, Anthropic</span>
+</div>
+<p class="summary-en">Thariq, formerly of Claude Code at Anthropic, has one post and it leads the window on likes. At 09:20 Pacific he writes “one week in my takeaway is that you don't need unlimited tokens to do great work, the $200 plans are amazing” and “this is the most expensive intelligence will ever be”: 6,728 likes, 133 reposts and 409 replies, first on likes, second on reposts and second on replies. It is the only post in the window with a subscription price and the only prediction about cost, and it gives neither a comparison baseline nor a time horizon. The feed does not say which week he is one week into, or which plans he means.</p>
+<p class="summary-zh zh">曾在 Anthropic 做 Claude Code 的 Thariq 只有一条，却排在窗口赞数第一。太平洋时间 09:20 他写「one week in my takeaway is that you don't need unlimited tokens to do great work, the $200 plans are amazing」，还有「this is the most expensive intelligence will ever be」：6,728 赞、133 次转发、409 条回复，赞第一、转发第二、回复第二。它是窗口里唯一带订阅价格的一条，也是唯一一条关于成本的预测，既没有对比基线也没有时间尺度。feed 没有说「一周下来」指的是哪一周，也没有说哪些套餐。</p>
+<div class="urls"><a href="https://x.com/trq212/status/2117305792923889731" target="_blank">https://x.com/trq212/status/2117305792923889731</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aditya Agarwal</span>
+<span class="builder-role">General Partner, SPC</span>
+</div>
+<p class="summary-en">SPC General Partner Aditya Agarwal posts twice within one second, at 09:51 Pacific, both about an event. The first welcomes an SPC alumnus, describes him as a four-time founder and an IOI medalist, names him as co-founder and CEO of WisprFlow, says the company recently raised a $280M Series B at a $2B valuation, and gives a date, Nov 12th. It is the only funding amount and the only valuation in the window, and it appears inside an event announcement rather than an analysis: 18 likes, 1 repost and 2 replies. The second, “Spots limited, request here:” with a link, has 2 likes and no reposts or replies. Both are promotional; they are counted and linked, and the numbers above are quoted as written.</p>
+<p class="summary-zh zh">SPC 普通合伙人 Aditya Agarwal 在一秒内连发两条，都是太平洋时间 09:51，也都关于一场活动。第一条欢迎一位 SPC 校友，说他是四次创业者、IOI 奖牌得主，是 WisprFlow 的联合创始人兼 CEO，公司最近完成 2.8 亿美元 B 轮、估值 20 亿美元，并给出 11 月 12 日这个日期。这是窗口里唯一的融资金额和唯一的估值，而且它出现在活动预告里，不是分析里：18 赞、1 次转发、2 条回复。第二条是「Spots limited, request here:」加链接，2 赞，转发与回复均为 0。两条都是宣传性质，照常计数、照常给链接，上面的数字均按原文照录。</p>
+<div class="urls"><a href="https://x.com/adityaag/status/2117313674981355761" target="_blank">https://x.com/adityaag/status/2117313674981355761</a><a href="https://x.com/adityaag/status/2117313677833765256" target="_blank">https://x.com/adityaag/status/2117313677833765256</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Swyx</span>
+<span class="builder-role">smol_ai · Cognition · Latent Space</span>
+</div>
+<p class="summary-en">Swyx posts three times, at 11:02, 11:41 and 21:42 Pacific. The first expects a follow-up between CompleteSkeptic and typesafeai to “melt on twitter” and says he looks forward to attending; 3 likes, no reposts and 1 reply, the third-lowest like count in the window. The second is “lmaoooo” with two links, 343 likes, 16 reposts and 11 replies, quoted from a post that is not in the feed. Neither gives an object that can be checked.</p>
+<p class="summary-en">The third, at 21:42, is “with weight-space programming, we are now at paragraph 2 of exhalation” with two links, 21 likes, no reposts and 16 replies. The phrase is left as written: the feed does not explain what exhalation refers to, and the quoted post is not in the feed. Neither “weight-space” nor “exhalation” appears anywhere earlier in this series. It sits about seven hours after Garry Tan’s “direct manipulation of weights” without quoting it.</p>
+<p class="summary-zh zh">Swyx 发了三条，在太平洋时间 11:02、11:41 和 21:42。第一条预计 CompleteSkeptic 与 typesafeai 的后续讨论会「melt on twitter」，并说自己期待参加；3 赞、0 次转发、1 条回复，是窗口里赞数倒数第三。第二条是「lmaoooo」加两个链接，343 赞、16 次转发、11 条回复，引用了一条不在 feed 里的推文。两条都给不出可核对的宾语。</p>
+<p class="summary-zh zh">21:42 第三条是「with weight-space programming, we are now at paragraph 2 of exhalation」加两个链接，21 赞、0 次转发、16 条回复。这个说法照录不动：feed 没有解释 exhalation 指什么，被引的推文也不在 feed 里。「weight-space」和「exhalation」在本系列此前都没有出现过。它比 Garry Tan 那条「direct manipulation of weights」晚约七小时，但没有引用它。</p>
+<div class="urls"><a href="https://x.com/swyx/status/2117331535007531009" target="_blank">https://x.com/swyx/status/2117331535007531009</a><a href="https://x.com/swyx/status/2117341332645826945" target="_blank">https://x.com/swyx/status/2117341332645826945</a><a href="https://x.com/swyx/status/2117492548780589510" target="_blank">https://x.com/swyx/status/2117492548780589510</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Yang</span>
+<span class="builder-role">Practical AI tutorials &amp; interviews</span>
+</div>
+<p class="summary-en">Peter Yang, who writes practical AI tutorials and interviews, posts three times. The longest post in the window is at 11:10 Pacific: “The best model for writing &amp; editing is held back by its harness.” He says both ChatGPT and Gemini suggested copy edits for a post he was working on, that ChatGPT’s suggestions were almost entirely bad and Gemini’s were actually great, but that Antigravity does not seem to have working browser use, so he has to paste Gemini’s edits back into ChatGPT to make the changes in his browser, and that he is tweeting it in the hope Antigravity gets much better much faster. At 499 characters it is the only first-hand workflow account in the window, and it draws 200 likes, 3 reposts and 62 replies.</p>
+<p class="summary-en">Two of his three are not arguments. At 20:26, “Insane growth this is what an AI native product looks like!” over a link, 19 likes and 2 replies, names neither the product nor the growth. At 21:21 he says an Amazon Prime account lets you play triple AAA games for free, 9 likes, 2 reposts and 2 replies, a personal post with no AI content. Both are counted and linked.</p>
+<p class="summary-zh zh">写实用 AI 教程和访谈的 Peter Yang 发了三条。窗口里最长的一条在太平洋时间 11:10：「The best model for writing &amp; editing is held back by its harness.」他说 ChatGPT 和 Gemini 都为一篇在写的稿子提了改稿建议，ChatGPT 的建议几乎全不可用，Gemini 的确实很好；但 Antigravity 似乎没有能用的浏览器操作，他只能把 Gemini 的建议粘回 ChatGPT，让它在浏览器里改，并发这条推是希望 Antigravity 能更快变好。全文 499 字符，是窗口里唯一一份第一手工作流程记录，拿到 200 赞、3 次转发、62 条回复。</p>
+<p class="summary-zh zh">另外两条不构成观点。20:26 的「Insane growth this is what an AI native product looks like!」加一个链接，19 赞、2 条回复，既没点产品也没点增长是什么。21:21 他说有 Amazon Prime 账号就能免费玩 3A 游戏，9 赞、2 次转发、2 条回复，是一条与 AI 无关的个人帖。两条都照常计数、照常给链接。</p>
+<div class="urls"><a href="https://x.com/petergyang/status/2117333424403042330" target="_blank">https://x.com/petergyang/status/2117333424403042330</a><a href="https://x.com/petergyang/status/2117473529797214279" target="_blank">https://x.com/petergyang/status/2117473529797214279</a><a href="https://x.com/petergyang/status/2117487282236321835" target="_blank">https://x.com/petergyang/status/2117487282236321835</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Guillermo Rauch</span>
+<span class="builder-role">CEO, Vercel</span>
+</div>
+<p class="summary-en">Vercel CEO Guillermo Rauch posts three times, at 11:28, 15:12 and 16:52 Pacific, all quoting posts that are not in the feed. The 11:28 post is the longest argument about agent environments in the window: “Stateless sandboxes are the wrong benchmark. Agents are only useful if they have their workspace with them (identity, skills, repos, memories…)”. He credits the Vercel Sandbox team with latency and throughput SLOs, reliability and security, says it is shipping clusters in 19 global regions and new features every week, and describes customer demand as a double digit growth percentage per week. 230 likes, 6 reposts and 123 replies, fifth on replies. The 19 regions and the weekly growth rate have no baseline, no period and no unit given in the feed.</p>
+<p class="summary-en">At 15:12, “So cool!” over a link, 162 likes, 4 reposts and 13 replies. At 16:52, “So bullish on WebMCP” over a link, 352 likes, 13 reposts and 73 replies. WebMCP has appeared in this series on 09-03, 09-06 and 09-19, in the last of those as part of Nikunj Kothari’s site with an MCP endpoint; today’s four words add no product, spec or measurement, so this is not the first mention of the name.</p>
+<p class="summary-zh zh">Vercel CEO Guillermo Rauch 发了三条，在太平洋时间 11:28、15:12 和 16:52，全部引用了不在 feed 里的推文。11:28 那条是窗口里关于 agent 环境最长的一段论证：「Stateless sandboxes are the wrong benchmark. Agents are only useful if they have their workspace with them (identity, skills, repos, memories…)」。他肯定 Vercel Sandbox 团队在延迟与吞吐 SLO、可靠性与安全上的交付，说它同时在 19 个全球区域铺集群、每周上新功能，并把客户需求描述成每周两位数的百分比增长。230 赞、6 次转发、123 条回复，回复数第五。19 个区域和每周增长率在 feed 里都没有基线、没有区间、也没有单位。</p>
+<p class="summary-zh zh">15:12 的「So cool!」加一个链接，162 赞、4 次转发、13 条回复。16:52 的「So bullish on WebMCP」加一个链接，352 赞、13 次转发、73 条回复。WebMCP 在本系列 09-03、09-06、09-19 三期出现过，最后一次是 Nikunj Kothari 那个带 MCP 端点的站点；今天这四个字没有带来产品、规格或测量，所以这不是这个名字第一次出现。</p>
+<div class="urls"><a href="https://x.com/rauchg/status/2117338179535810957" target="_blank">https://x.com/rauchg/status/2117338179535810957</a><a href="https://x.com/rauchg/status/2117394353304052210" target="_blank">https://x.com/rauchg/status/2117394353304052210</a><a href="https://x.com/rauchg/status/2117419661654720671" target="_blank">https://x.com/rauchg/status/2117419661654720671</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nikunj Kothari</span>
+<span class="builder-role">Partner, FPV Ventures</span>
+</div>
+<p class="summary-en">FPV Ventures partner Nikunj Kothari posts three times, at 13:04, 15:23 and 16:28 Pacific. The first is the only post in the window carrying a sample size: he sketches a pipeline from a startup or CEO vaguely posting revenue numbers, to a fundraise kickoff they were totally not going to do till early next year, and puts it at about 11 days, “(n=17, grok bot tokens were harmed for this analysis)”. 68 likes, no reposts and 11 replies. He names no company, no source and no method beyond n=17.</p>
+<p class="summary-en">At 15:23, “Proof 😂” with a link, 0 likes, 0 reposts and 0 replies, the only zero-engagement post in the window. At 16:28 he announces a new event series called Slice for Thought, with the first guest the head of insights at OpenRouter, this Wednesday Nov 4th at noon, sixty-minute IRL sessions in San Francisco, off the record, every Wednesday, open to ten to twelve guests, and a Luma link. 50 likes, 1 repost and 7 replies. It is promotional and gets no argument of its own, but its date and format are quoted as written.</p>
+<p class="summary-zh zh">FPV Ventures 合伙人 Nikunj Kothari 发了三条，在太平洋时间 13:04、15:23 和 16:28。第一条是窗口里唯一带样本量的：他把「创业公司或 CEO 含糊地晒营收数字」到「本来明年年初之前完全不打算启动的融资 kickoff」这段流程估成约 11 天，并写「(n=17, grok bot tokens were harmed for this analysis)」。68 赞、0 次转发、11 条回复。除了 n=17，他没有给公司、来源或方法。</p>
+<p class="summary-zh zh">15:23 的「Proof 😂」加链接，0 赞、0 次转发、0 条回复，是窗口里唯一一条零互动。16:28 他预告一个新的活动系列 Slice for Thought，首场嘉宾是 OpenRouter 的洞察负责人，本周三 11 月 4 日中午，旧金山线下 60 分钟，全程不公开记录，每周三一次，开放 10 到 12 位听众，附一个 Luma 链接。50 赞、1 次转发、7 条回复。这是宣传内容，不据此展开观点，日期与形式按原文照录。</p>
+<div class="urls"><a href="https://x.com/nikunj/status/2117362283223687621" target="_blank">https://x.com/nikunj/status/2117362283223687621</a><a href="https://x.com/nikunj/status/2117397103618252826" target="_blank">https://x.com/nikunj/status/2117397103618252826</a><a href="https://x.com/nikunj/status/2117413490256433207" target="_blank">https://x.com/nikunj/status/2117413490256433207</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Dan Shipper</span>
+<span class="builder-role">CEO, Every</span>
+</div>
+<p class="summary-en">Every CEO Dan Shipper posts three times, at 13:07, 14:40 and 17:28 Pacific. At 13:07 he writes “partly argon is so good / partly antigravity is stuck in 2025 so it doesnt have all of the crazy features and complexity”, 42 likes, no reposts and 6 replies. Argon has appeared in this series on 10-15, 10-30 and 11-03, each time as a Gemini model; nothing here says what is good about it or whether it is the same thing. Antigravity is the same tool Peter Yang says lacks working browser use about two hours earlier, but the two posts do not reference each other and neither supplies a measurement.</p>
+<p class="summary-en">At 14:40, “Lfg” with a link, 86 likes, 4 reposts and 7 replies, quoted from a post that is not in the feed. At 17:28, “if you're wondering why, read the @every vibe check of argon” with a link, 12 likes and no reposts or replies. The linked article is not in the feed, so what it measures cannot be quoted here.</p>
+<p class="summary-zh zh">Every CEO Dan Shipper 发了三条，在太平洋时间 13:07、14:40 和 17:28。13:07 那条是「partly argon is so good / partly antigravity is stuck in 2025 so it doesnt have all of the crazy features and complexity」，42 赞、0 次转发、6 条回复。Argon 在本系列 10-15、10-30、11-03 三期出现过，每次都是作为 Gemini 的一个模型；这里没有说它好在哪，也没有说是不是同一个东西。Antigravity 正是 Peter Yang 约两小时前说缺少可用浏览器操作的那个工具，但两条互不引用，也都没有给出测量。</p>
+<p class="summary-zh zh">14:40 的「Lfg」加链接，86 赞、4 次转发、7 条回复，引用了一条不在 feed 里的推文。17:28 的「if you're wondering why, read the @every vibe check of argon」加链接，12 赞，转发与回复均为 0。链接指向的文章不在 feed 里，所以它测了什么在这里引不了。</p>
+<div class="urls"><a href="https://x.com/danshipper/status/2117363007340609556" target="_blank">https://x.com/danshipper/status/2117363007340609556</a><a href="https://x.com/danshipper/status/2117386273984012535" target="_blank">https://x.com/danshipper/status/2117386273984012535</a><a href="https://x.com/danshipper/status/2117428596688171450" target="_blank">https://x.com/danshipper/status/2117428596688171450</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nan Yu</span>
+<span class="builder-role">Product, Codex at OpenAI</span>
+</div>
+<p class="summary-en">Nan Yu, product at Codex in OpenAI and previously head of product at Linear, posts twice at 17:29 and 17:44 Pacific. The first is personal, “Took a united flight without starlink ask me how it was (it sucked)”, 13 likes and 2 replies, with no AI content; it is counted and linked but given no argument. The second is a one-line judgment, “Except for rare circumstances, group chat is a terrible multiplayer AI experience. Literally guaranteed slop”, 76 likes, no reposts and 12 replies. It quotes a post that is not in the feed and gives neither an example nor a measure.</p>
+<p class="summary-zh zh">OpenAI Codex 产品、此前任 Linear 产品负责人的 Nan Yu 在太平洋时间 17:29 和 17:44 发了两条。第一条是个人帖：「Took a united flight without starlink ask me how it was (it sucked)」，13 赞、2 条回复，没有 AI 内容；照常计数、照常给链接，但不展开观点。第二条是一句判断：「Except for rare circumstances, group chat is a terrible multiplayer AI experience. Literally guaranteed slop」，76 赞、0 次转发、12 条回复。它引用了一条不在 feed 里的推文，既没给例子也没给测量。</p>
+<div class="urls"><a href="https://x.com/thenanyu/status/2117428991435178080" target="_blank">https://x.com/thenanyu/status/2117428991435178080</a><a href="https://x.com/thenanyu/status/2117432599559716940" target="_blank">https://x.com/thenanyu/status/2117432599559716940</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Amjad Masad</span>
+<span class="builder-role">CEO, Replit</span>
+</div>
+<p class="summary-en">Replit CEO Amjad Masad posts twice, at 20:58 and 22:08 Pacific, both quoting posts that are not in the feed. The first, “This is widespread in finance. The ban hammer is coming down.”, 771 likes, 48 reposts and 57 replies, is sixth on likes and names neither the practice nor who is banning it.</p>
+<p class="summary-en">The second is a full principle and the last post in the window, at 22:08: “AI agents should operate in dedicated, organization-controlled environments with limited access to the resources each task requires.” It draws 8 likes, 1 repost and 4 replies, fourth-lowest on likes. Set beside Rauch’s workspace argument at 11:28 and the podcast’s account of keeping client data on Azure, there are three statements here about agent environments; they do not quote or cite one another, none measures anything, and Rauch argues for carrying the workspace with the agent while Masad argues for isolating it, so this series records three rather than a trend.</p>
+<p class="summary-zh zh">Replit CEO Amjad Masad 发了两条，在太平洋时间 20:58 和 22:08，都引用了不在 feed 里的推文。第一条是「This is widespread in finance. The ban hammer is coming down.」，771 赞、48 次转发、57 条回复，赞数第六，既没点是什么做法，也没点是谁要封。</p>
+<p class="summary-zh zh">第二条是一句完整原则，也是窗口最后一条，22:08：「AI agents should operate in dedicated, organization-controlled environments with limited access to the resources each task requires.」它拿到 8 赞、1 次转发、4 条回复，赞数倒数第四。把它和 Rauch 在 11:28 的工作区主张、播客里客户数据全放在 Azure 的做法放在一起，这个窗口里关于 agent 环境一共有三处表述；三处互不引用、都没有测量，而且 Rauch 主张让工作区跟着 agent 走，Masad 主张把 agent 隔离起来，方向并不相同 —— 所以本系列记成三条，而不是记成一种趋势。</p>
+<div class="urls"><a href="https://x.com/amasad/status/2117481616943820843" target="_blank">https://x.com/amasad/status/2117481616943820843</a><a href="https://x.com/amasad/status/2117499074496872882" target="_blank">https://x.com/amasad/status/2117499074496872882</a></div>
+</article>
+</section>
+<!-- ============== PODCAST ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#127911;</span>
+<h2 class="section-title">Podcast</h2>
+<span class="section-meta">1 Episode</span>
+</div>
+<div class="podcast">
+<div class="podcast-source">Latent Space</div>
+<div class="podcast-title">Building Legal Agents When You Can't See the Data - Jacob Lauritzen, CTO of Legora</div>
+<p class="summary-en">Latent Space publishes this one at 2026-11-02T20:50:24Z, Pacific 11-02 12:50, inside the same Pacific day as every post in this window and about nine and a half hours before the snapshot. It is fresh, after the 11-03 issue carried a late episode from Pacific 10-28. The guest is Jacob Lauritzen, CTO of Legora, described by the host as one of the fastest-growing legal tech companies in history, started in a basement in Stockholm and now expanding into New York and San Francisco. The company name appears once earlier in this series, on 06-27, when Garry Tan called it the defining legal AI startup; this is the first time it speaks for itself here. The url field gives the Latent Space channel page rather than the episode, as it has in earlier entries, and no video id is supplied.</p>
+<p class="summary-en">The counterintuitive claim is that a model release did the work the team had not done. A citation problem that made output hard to follow went “from like 70% to, like, 99%” on the next model release: “It's just like we did nothing and, like, great.” Because of that, the early decision was not to spend time on complex evals but on a better harness, on the expectation that “every two, three months you get just a frontier model”. The framing in the conversation is that a lot of legal work does not require Mythos-level intelligence, and the answer puts about 60% of the work in the category that can already be done really well, with the rest a cost and latency problem except for very complex analysis, which still needs more intelligence.</p>
+<p class="summary-en">Evals are now a team rather than a side task. Three engineers and three lawyers, plus a pool of legal engineers with three or four years in Big Law, keep a heat map of model performance across legal practice areas and tasks. There are RL-environment-style worlds, one described as a 10,000-file data room for due diligence, and the tasks split into finding red flags and drafting the report. The observation worth keeping is that model releases “improve some and, and regress in others”, and “that actually happens a lot more than you'd think”. On the product side there are five things in the model picker, users ask for the newest model by name, and the conversation puts the cost of choosing it at “10X faster” credit burn.</p>
+<p class="summary-en">The title’s problem, not seeing the data, shows up in infrastructure and in debugging. All infrastructure runs on Azure, the guest says, because when the company started law firms would not accept AWS. When a customer reports something that is not working, the team asks for anonymised documents and can only fix it if it can recreate the problem. The conversation also considers buying a law firm to get data: that would supply the inputs, but the outputs are harder because you only see the end result and have to reverse engineer how they got there, whereas real traces from real use in the product are “extremely high value”. The scale has changed from twenty engineers, when maintaining an API was too slow, to “we're a hundred engineers now, and it feels like we're way too small”.</p>
+<p class="summary-en">Transcript artifacts: the host introduces the guest as Jacob Lauridsen, CTO of Lagora, and the guest confirms the Danish reading of the surname and that it means son of Laurits; the company is Lagora throughout the transcript, while the title in the feed says Jacob Lauritzen, CTO of Legora. This section uses the feed’s spelling, and the difference is flagged rather than silently corrected or adjudicated. The cold open includes “Paralegals, gone. Junior lawyers, gone. I don't need them.” followed immediately by “that's actually not what we're seeing”, so it is not treated as the guest’s position.</p>
+<p class="summary-zh zh">Latent Space 这一集发布于 2026-11-02T20:50:24Z，即太平洋时间 11-02 12:50，与窗口里每一条推文同属一个太平洋日，比快照早约九个半小时。它是新鲜的，上一期的播客（11-03 那期）则是太平洋 10-28 的一条迟到条目。嘉宾是 Legora 的 CTO Jacob Lauritzen，主持人称它是史上增长最快的法律科技公司之一，起步于斯德哥尔摩的一间地下室，如今正向纽约和旧金山扩张。这个名字在本系列此前只出现过一次，06-27 那期 Garry Tan 称它是「定义性的法律 AI 创业公司」；这是它第一次由自己人在这里讲。url 字段给的是 Latent Space 频道页而不是具体这一集，与此前几条一样，feed 也没有给视频 id。</p>
+<p class="summary-zh zh">最反直觉的一点是：一次模型发布把团队没做的工作做完了。有个引用问题让输出很难追溯，下一次模型发布后它「from like 70% to, like, 99%」，原话是「It's just like we did nothing and, like, great.」正因如此，早期他们没有把时间花在复杂 evals 上，而是花在更好的 harness 上，理由是「every two, three months you get just a frontier model」。对话里的框架是很多法律工作并不需要 Mythos 级别的智能，回答把大约 60% 的工作归进「现在就能做得很好」那一类，剩下的主要是成本与延迟问题，只有非常复杂的分析仍需要更强的智能。</p>
+<p class="summary-zh zh">Evals 现在已经是一个团队，不是顺手做的事。3 名工程师加 3 名律师，另有一批在 Big Law 待过三到四年的 legal engineers，维护一张按法律业务领域与任务切分的模型表现 heat map。里面有类 RL 环境的「世界」，其中一个被描述成用于尽调的 1 万份文件 data room，任务拆成找红旗和起草报告两部分。最值得留住的一句观察是，模型发布常常「improve some and, and regress in others」，而且「that actually happens a lot more than you'd think」。产品侧现在有五个模型可选，用户会点名要最新的那个，而对话里给出的代价是 credits「10X faster」地烧掉。</p>
+<p class="summary-zh zh">标题里那个「看不见数据」的问题，出现在基础设施和排障两处。嘉宾说全部基础设施跑在 Azure 上，因为公司刚起步时律所不接受 AWS。客户报一个问题过来，团队会请对方把文档匿名化，只有能复现才修得好。对话里还考虑过买下一家律所来拿数据：那样能拿到输入，但输出难得多，因为你只看到最终结果，得反推他们是怎么走到那里的；相比之下产品里真实使用留下的 traces 才是「extremely high value」。规模也从 20 名工程师、连维护一套 API 都嫌拖速度，变成「we're a hundred engineers now, and it feels like we're way too small」。</p>
+<p class="summary-zh zh">转写瑕疵：主持人把嘉宾介绍成 Jacob Lauridsen、Lagora 的 CTO，嘉宾确认了这个姓氏的丹麦语读法，说意思是「Laurits 之子」；转写全篇把公司写成 Lagora，而 feed 的标题写的是 Jacob Lauritzen, CTO of Legora。本节按 feed 的拼法写，差异单独标注，不静默改掉，也不代为判断哪个拼法正确。开场还有一句「Paralegals, gone. Junior lawyers, gone. I don't need them.」，紧跟着就是「that's actually not what we're seeing」，所以不把它当作嘉宾的立场引用。</p>
+<div class="urls"><a href="https://www.youtube.com/@LatentSpacePod" target="_blank">https://www.youtube.com/@LatentSpacePod</a></div>
+</div>
+</section>
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128161;</span>
+<h2 class="section-title">The Takeaway</h2>
+<span class="section-meta">2026-11-04</span>
+</div>
+<div class="takeaway">
+<div class="takeaway-label">The Takeaway</div>
+<p>The counter stops one issue after it reached its number. The 11-03 issue carried Day 28 with Banked 2/2, the only numbered end this series has seen a prediction reach, and today Sottiaux’s three posts have no day number, no fraction and no object. They still take 7,078 likes, 189 reposts and 1,164 replies, 34%, 15% and 54% of the window’s totals. “Le GPT Fat”, three words, is first on replies at 567 and the only post above 500. The series has still never been told what was being counted or banked.</p>
+<p>Heat and information point in opposite directions. Josh Woodward’s four-character birthday greeting leads reposts at 762, 5.7 times the second post, and Sottiaux’s three words lead replies, while Peter Yang’s 499-character first-hand workflow account draws 200 likes, 3 reposts and 62 replies. Thariq’s one post leads likes at 6,728 and is also the only prediction in the window about cost, “this is the most expensive intelligence will ever be”, with no baseline and no horizon.</p>
+<p>The numbers in this window mostly arrive without anything to check them against: Garry Tan’s about 5X issue-fixing throughput, Rauch’s 19 regions and double-digit weekly growth, Thariq’s $200 plans, Aditya Agarwal’s $280M Series B at a $2B valuation inside an event announcement, Nikunj Kothari’s 11 days with n=17. The one set that comes with a mechanism is in the podcast, where a citation rate went from 70% to 99% on a model release while the team did nothing.</p>
+<p>Three statements about agent environments sit in this window and they are not one trend. Rauch says agents need their workspace with them, Masad says agents should run in dedicated organization-controlled environments with limited access, and the Legora account puts all infrastructure on Azure because law firms would not accept AWS. None cites another, none measures anything, and the first two pull in different directions. Rauch’s post has 230 likes and Masad’s has 8.</p>
+<p>The podcast is fresh and it is the first inside account from a legal AI company in this series. Published Pacific 11-02 12:50, it sits inside the same Pacific day as all twenty-nine posts. Its most portable claim is that a model release solved a 70%-to-99% citation problem without work from the team, which is why the early effort went into the harness rather than complex evals; the evals team exists now, three engineers and three lawyers with a heat map, and finds that releases often improve some tasks while regressing others. Legora had appeared only once before, as one sentence of praise on 06-27.</p>
+<p>Coverage has no gap this time. All twenty-nine posts sit inside Pacific 11-02, from 06:30 to 22:08, and the window closes 19m34s before the snapshot at Pacific 11-02 22:27. The previous snapshot was 2026-11-02T06:35:38Z, so the two snapshots are one day apart with no skipped run. Pacific 10-29 and 10-30 remain permanently uncaptured from the runs that did not fire on 10-31 and 11-01.</p>
+</div>
+<div class="takeaway zh">
+<div class="takeaway-label">核心结论</div>
+<p>计数器在走到那个数的下一期就停了。11-03 那期是 Day 28 加 Banked 2/2，也是本系列唯一一次看到预测走到编号终点；今天 Sottiaux 的三条没有编号、没有分数、也没有宾语。它们仍然拿走 7,078 赞、189 次转发、1,164 条回复，占整个窗口的 34%、15% 和 54%。「Le GPT Fat」三个词，以 567 条回复排第一，也是唯一一条过 500 的。本系列至今仍没有被告诉过，被数的是什么、被 banked 的又是什么。</p>
+<p>热度和信息量朝相反方向走。Josh Woodward 那句四个字符的生日祝福以 762 次转发排第一，是第二名的 5.7 倍；Sottiaux 那三个词排在回复第一；而 Peter Yang 那段 499 字符的第一手流程记录只有 200 赞、3 次转发、62 条回复。Thariq 唯一一条以 6,728 赞排在赞数第一，也是窗口里唯一关于成本的预测「this is the most expensive intelligence will ever be」，没有基线，也没有时间尺度。</p>
+<p>这个窗口里的数字大多没有可对照的东西：Garry Tan 的修 issue 吞吐约 5 倍、Rauch 的 19 个区域和每周两位数增长、Thariq 的 200 美元套餐、Aditya Agarwal 放在活动预告里的 2.8 亿美元 B 轮与 20 亿美元估值、Nikunj Kothari 的 11 天加 n=17。唯一带机制的一组数字在播客里：一次模型发布把引用正确率从 70% 推到 99%，而团队什么都没做。</p>
+<p>窗口里关于 agent 环境有三处表述，它们不是一种趋势。Rauch 说 agent 要带着自己的工作区，Masad 说 agent 应该跑在组织可控、按任务限权的专用环境里，Legora 那段则说因为律所不接受 AWS，全部基础设施放在 Azure 上。三处互不引用、都没有测量，前两条方向还不一样。Rauch 那条 230 赞，Masad 那条 8 赞。</p>
+<p>播客是新鲜的，也是本系列第一次从法律 AI 公司内部听到说法。发布于太平洋 11-02 12:50，与 29 条推文同属一个太平洋日。最容易被带走的一句是：一次模型发布解决了从 70% 到 99% 的引用问题，团队没做任何事，所以早期精力放在 harness 而不是复杂 evals 上；现在 evals 团队已经存在，3 名工程师加 3 名律师、一张 heat map，并且发现模型发布常常在某些任务上变好、在另一些上退步。Legora 此前只出现过一次，是 06-27 那期的一句称赞。</p>
+<p>这次覆盖没有缺口。29 条全部落在太平洋 11-02 之内，从 06:30 到 22:08，窗口在快照（太平洋 11-02 22:27）前 19 分 34 秒收口。上一份快照是 2026-11-02T06:35:38Z，两份快照相隔一天，中间没有漏跑。太平洋 10-29 与 10-30 仍然因为 10-31 和 11-01 两次运行没有触发而永久缺失。</p>
+</div>
+</section>
+<!-- ============== NOTES ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128221;</span>
+<h2 class="section-title">记录 / Notes &amp; Dedup</h2>
+<span class="section-meta">29 Zero · 0 Dedup · 1 Fresh</span>
+</div>
+<div class="dedup">
+<p style="margin-top:12px"><strong>Tweet check</strong> &mdash; All 29 tweet IDs in this window were matched against every file under 2026/ and returned zero hits. Fifteen of the 29 are quote posts, all 15 quoted IDs are outside the feed, and no two quote the same ID, so there is no hidden shared object grouping any of them together.</p>
+<p style="margin-top:12px"><strong>Podcast check</strong> &mdash; The slot is 1 and it is fresh: the episode was published 2026-11-02T20:50:24Z, Pacific 11-02 12:50, inside the window and on the same Pacific day as every post. That follows one late entry on 11-03 and two fresh ones on 10-30 and 11-02. Jacob Lauritzen, Legora and this episode title have no earlier hit in 2026/; Legora itself appears once, on 06-27, in a sentence of praise from Garry Tan, not as an episode. The url field gives the Latent Space channel page rather than the specific episode, as it has in earlier entries.</p>
+<p style="margin-top:12px"><strong>Blog check</strong> &mdash; The slot is 0 by emptiness: the blogs array came back empty. This is the tenth consecutive issue with nothing in it, 10-21, 10-22, 10-26, 10-27, 10-28, 10-29, 10-30, 11-02, 11-03 and today.</p>
+<p style="margin-top:12px"><strong>Thin posts</strong> &mdash; Ten of the 29 carry no argument of their own: Josh Woodward’s “HBD SRK!”, Swyx’s “lmaoooo”, Peter Yang’s “Insane growth” and the Amazon Prime post, Nikunj Kothari’s “Proof 😂” and the Slice for Thought announcement, Dan Shipper’s “Lfg”, Rauch’s “So cool!”, Aditya Agarwal’s “Spots limited”, and Nan Yu’s United flight. Each is counted, linked in its builder’s card and described in one clause; no opinion is attributed to any of them, and all 29 links appear in the cards.</p>
+<p style="margin-top:12px"><strong>Coverage</strong> &mdash; The snapshot is 2026-11-03T06:27:49Z, Pacific 11-02 22:27:49, converted with UTC-8 because daylight time ended in the Pacific zone on 11-01. The window runs Pacific 11-02 06:30:05 to 22:08:15, all 29 posts on one Pacific day, and closes 19m34s before the snapshot. This issue is written at Pacific 11-03 18:15, so the snapshot lags the moment of writing by about 20 hours. There is no gap: the previous issue used the snapshot at 2026-11-02T06:35:38Z and ended at Pacific 11-01 22:11, and these two snapshots are one day apart. Pacific 10-29 and 10-30 were never captured, because the runs scheduled for 10-31 and 11-01 did not fire and this feed keeps only its latest snapshot; per this series’ rule, they are not backfilled.</p>
+<p style="margin-top:12px"><strong>Engagement fields</strong> &mdash; likes, reposts and replies are populated on all 29 posts, so every ranking above is real. There is no quotes field in this feed at all, and it is not used. Top by likes: Thariq 6,728, Woodward 3,455, Sottiaux 2,538, Sottiaux 2,364, Sottiaux 2,176. Top by reposts: Woodward 762, Thariq 133, Sottiaux 80, Sottiaux 75, Masad 48. Top by replies: Sottiaux 567, Thariq 409, Sottiaux 330, Sottiaux 267, Rauch 123. The only zero-engagement post is Nikunj Kothari’s “Proof 😂”. The 762-to-133 ratio is 5.7.</p>
+<p style="margin-top:12px"><strong>Absent</strong> &mdash; Twelve accounts posted. Of the twenty-four names on the tracked list, seven appear: Garry Tan, Peter Yang, Guillermo Rauch, Amjad Masad, Nikunj Kothari, Swyx and Aditya Agarwal. The other seventeen have nothing in this snapshot: Sam Altman, Peter Steinberger, Kevin Weil, Matt Turck, Mikhil Paranjpe, Jim Fan, Andrej Karpathy, Yann LeCun, Jensen Huang, Dario Amodei, Emad Mostaque, Aravind Srinivas, Mustafa Suleyman, Emmanuelle Lapoumeyrolle, Alex Graveley, Alex Karp and Thomas Wolf. The other five accounts in the feed, Josh Woodward, Thibault Sottiaux, Nan Yu, Thariq and Dan Shipper, come from the feed’s own source list rather than the twenty-four.</p>
+<p style="margin-top:12px"><strong>Transcript</strong> &mdash; The feed title says Jacob Lauritzen, CTO of Legora; the transcript says Jacob Lauridsen, CTO of Lagora, and the guest confirms the Danish reading of the surname. Both forms are printed, neither is corrected silently. The cold open’s “Paralegals, gone” line is followed by “that's actually not what we're seeing”, so it is not quoted as a position. The episode url is a channel page, not a video id.</p>
+<p style="margin-top:12px"><strong>Not resolved</strong> &mdash; Whether Day 29 or a 3/x banked fraction appears, and what was ever being counted or banked; what dot is and which models it chooses between; whether HackerTube gets a second source or a runnable comparison; whether Particle-1 gets a link, a benchmark or a baseline for 1/23; whether Thariq’s vertical slice shows up in the week he named; whether the $200-plan prediction gets a baseline; whether the Capy 5X gets a measurement window; whether Vercel’s 19 regions or weekly growth rate ever get a unit; whether Argon gets a description; whether the Legora eval heat map or those 10,000-file worlds get a published result. Still unmoved from earlier issues: the Sol 6 score, Muse Wonder Full on the API, Ghost Pepper maintenance cost, external reproduction of Sonnet 5.5, the OpenClaw Android review, the 10x coding-agent question, Goodfire and Hugging Face in writing, a second network in Rauch’s traffic series, Amjad’s decompilation example, Wabi 2.0 past preview, the subject behind Rauch’s 1,000 tokens per second, Dan Shipper’s three-part story, Claude Managed Agents and Duet, who Anthony is, Rauch’s minimum viable English word count, Nikunj’s infrastructure series A, Garry Tan’s Gstack link, the three copycats named in the 10-26 podcast, the South Korea bank hacks, the 400 resolved problems, intelligent UI, HyperFrames, the iPhone Duo default behaviour, what Day 15 and Day 20 each cleared, whether the Day 22 Terra is the GPT-5.6 Terra priced in the 08-01 issue, Agent Habitat, Thariq’s shaman build, what AIE Code is, the 20 Google Beam locations, and ViBench 2.0’s score. Opal shuts down on 2026-11-17.</p>
+</div>
+<div class="dedup zh" style="margin-top:14px">
+<p style="margin-top:12px"><strong>推文核对</strong> &mdash; 本窗口的 29 个推文 ID 全部与 2026/ 下每一个文件比对过，零命中。29 条里有 15 条是引用推文，15 个被引用 ID 全部在 feed 之外，且没有两条指向同一个 ID，所以不存在某一组人其实在回应同一个不可见对象的情况。</p>
+<p style="margin-top:12px"><strong>播客核对</strong> &mdash; 这一格是 1，而且是新鲜：这一集发布于 2026-11-02T20:50:24Z，即太平洋时间 11-02 12:50，落在窗口之内，与所有推文同属一个太平洋日。它前面是 11-03 那期的一条迟到，再往前 10-30 和 11-02 两期都是新鲜。Jacob Lauritzen、Legora 和这一集标题在 2026/ 下都没有更早命中；Legora 本身只出现过一次，是 06-27 那期 Garry Tan 的一句称赞，不是作为一期播客。url 字段给出的是 Latent Space 频道页而不是具体这一集，与此前几条一样。</p>
+<p style="margin-top:12px"><strong>博客核对</strong> &mdash; 这一格是 0，成因是空数组：blogs 数组返回为空。这是连续第十期为空 —— 10-21、10-22、10-26、10-27、10-28、10-29、10-30、11-02、11-03 和今天。</p>
+<p style="margin-top:12px"><strong>薄内容</strong> &mdash; 29 条里有 10 条本身不承载观点：Josh Woodward 的「HBD SRK!」、Swyx 的「lmaoooo」、Peter Yang 的「Insane growth」和 Amazon Prime 那条、Nikunj Kothari 的「Proof 😂」与 Slice for Thought 活动预告、Dan Shipper 的「Lfg」、Rauch 的「So cool!」、Aditya Agarwal 的「Spots limited」，以及 Nan Yu 的联合航空那条。每一条都计数、都在各自卡片里给了链接、都用一句话点名，没有替它们补观点；29 个链接全部出现在卡片里。</p>
+<p style="margin-top:12px"><strong>覆盖</strong> &mdash; 快照是 2026-11-03T06:27:49Z，即太平洋时间 11-02 22:27:49，按 UTC-8 换算，因为太平洋时区夏令时已在 11-01 结束。窗口从太平洋 11-02 06:30:05 到 22:08:15，29 条全在同一个太平洋日，并在快照前 19 分 34 秒收口。本期成文于太平洋 11-03 18:15，快照比成文时刻落后约 20 小时。没有缺口：上一期用的是 2026-11-02T06:35:38Z 那份快照，收在太平洋 11-01 22:11，两份快照正好相隔一天。太平洋 10-29 与 10-30 从未被采集到，因为 10-31 与 11-01 两次运行没有触发，而这个 feed 只保留最新一份快照；按本系列规则，不补发。</p>
+<p style="margin-top:12px"><strong>互动字段</strong> &mdash; 29 条的 likes、reposts 和 replies 都有值，所以上面的排序都可用。这个 feed 根本没有 quotes 字段，不使用。赞数前五：Thariq 6,728、Woodward 3,455、Sottiaux 2,538、Sottiaux 2,364、Sottiaux 2,176。转发前五：Woodward 762、Thariq 133、Sottiaux 80、Sottiaux 75、Masad 48。回复前五：Sottiaux 567、Thariq 409、Sottiaux 330、Sottiaux 267、Rauch 123。唯一零互动的是 Nikunj Kothari 的「Proof 😂」。762 与 133 之比是 5.7。</p>
+<p style="margin-top:12px"><strong>缺席</strong> &mdash; 有内容的账号是 12 个。追踪名单上的 24 位里有 7 位出现：Garry Tan、Peter Yang、Guillermo Rauch、Amjad Masad、Nikunj Kothari、Swyx、Aditya Agarwal。其余 17 位在这份快照里没有条目：Sam Altman、Peter Steinberger、Kevin Weil、Matt Turck、Mikhil Paranjpe、Jim Fan、Andrej Karpathy、Yann LeCun、Jensen Huang、Dario Amodei、Emad Mostaque、Aravind Srinivas、Mustafa Suleyman、Emmanuelle Lapoumeyrolle、Alex Graveley、Alex Karp、Thomas Wolf。feed 里另外 5 位 —— Josh Woodward、Thibault Sottiaux、Nan Yu、Thariq、Dan Shipper —— 来自 feed 自带的信源列表，不在这 24 位之内。</p>
+<p style="margin-top:12px"><strong>转写</strong> &mdash; feed 标题写的是 Jacob Lauritzen, CTO of Legora；转写里写的是 Jacob Lauridsen, CTO of Lagora，嘉宾还确认了这个姓氏的丹麦语读法。两种拼法都印出来，不静默改掉任何一个。开场那句「Paralegals, gone」后面紧跟着「that's actually not what we're seeing」，所以不把它当立场引用。这一集的 url 是频道页，不是视频 id。</p>
+<p style="margin-top:12px"><strong>未闭环</strong> &mdash; Day 29 或 3/x 的分数会不会出现，被数与被 banked 的到底是什么；dot 是什么、它在哪些模型之间挑；HackerTube 会不会有第二个信源或可跑的对照；Particle-1 会不会补上链接、基准，以及 1/23 的对照基线；Thariq 说的 vertical slice 会不会在他给的那个星期里出现；200 美元套餐那个预测会不会有基线；Capy 的 5 倍会不会给观测窗口；Vercel 的 19 个区域与每周增长率会不会给单位；Argon 会不会被描述清楚；Legora 那张 eval heat map 和 1 万份文件的「世界」会不会有公开结果。此前各期仍未移动：Sol 6 分数、Muse Wonder Full 上 API、Ghost Pepper 维护成本、Sonnet 5.5 外部复现、OpenClaw 安卓审核、10x 编码 agent 提问、Goodfire 与 Hugging Face 书面形式、Rauch 流量序列第二家网络、Amjad 反编译实例、Wabi 2.0 走出预览、Rauch 每秒 1,000 token 主语、Dan Shipper 三部分说法、Claude Managed Agents 与 Duet、Anthony 是谁、Rauch 最小可用英语词数、Nikunj 基础设施 A 轮、Garry Tan 的 Gstack 链接、10-26 播客点名的三家跟随者、韩国银行被黑事件、400 个已解决问题、intelligent UI、HyperFrames、iPhone Duo 默认行为、Day 15 与 Day 20 两次 reset 各清了什么、Day 22 的 Terra 是不是 08-01 的 GPT-5.6 Terra、Agent Habitat、Thariq 的萨满 build、AIE Code 是什么、Google Beam 那 20 个地点，以及 ViBench 2.0 的分数。Opal 于 2026-11-17 关停。</p>
+</div>
+</section>
+<footer class="footer">
+<div class="next-issue">&#128236; &#19979;&#19968;&#26399;&#65306;&#26126;&#22825; 10:00&#65288;&#21271;&#20140;&#26102;&#38388;&#65289;</div>
+<div class="signature">by chloevchen</div>
+</footer>
+
+<!-- by chloevchen -->
+</body>
