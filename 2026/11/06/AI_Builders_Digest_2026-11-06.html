@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Builders Digest · 2026-11-06</title>
+<style>
+
+
+
+
+
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 28px 30px; margin-bottom: 24px; }
+  .podcast-source { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
+  .podcast-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; margin-bottom: 18px; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; }
+
+
+</style>
+</head>
+<body>
+<header class="topbar">
+<div class="topbar-inner">
+<a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders · AI Builders Digest</a>
+<span>双语 · Bilingual</span>
+</div>
+</header>
+<section class="header">
+<div class="eyebrow">Daily Digest · 2026-11-06</div>
+<h1>AI Builders Digest</h1>
+</section>
+<div class="stats">
+<div class="stat"><div class="stat-num">15</div><div class="stat-label">Builders</div></div>
+<div class="stat"><div class="stat-num">30</div><div class="stat-label">Tweets</div></div>
+<div class="stat"><div class="stat-num">1</div><div class="stat-label">Podcast</div></div>
+<div class="stat"><div class="stat-num">0</div><div class="stat-label">Blog</div></div>
+</div>
+<p class="note-line">Cat Wu's move to OpenAI takes all three engagement fields one day after this series recorded her leaving Anthropic, while Vercel's security product posts its first 24-hour numbers one day after its launch. The numbered counter stays absent for a third issue. The podcast is fresh again, and its most portable idea is a line between weightlifting and forklifting tasks.</p>
+<p class="note-line zh">Cat Wu 加入 OpenAI 拿走三项互动第一，而本系列上一期刚记录她离开 Anthropic；Vercel 的安全产品在发布次日给出了第一组 24 小时数字。编号计数器连续第三期缺席。播客重新变新鲜，最容易被带走的是 weightlifting 与 forklifting 两类任务的划分。</p>
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128036;</span>
+<h2 class="section-title">X / Twitter</h2>
+<span class="section-meta">15 Builders · 30 Tweets</span>
+</div>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Zara Zhang</span>
+<span class="builder-role">Builder</span>
+</div>
+<p class="summary-en">Zara Zhang, whose bio describes her as a builder, posts twice. Her 11-03 22:39 post is the only one in this window on the previous Pacific day, 2h52m after the 11-05 issue's window closed: she notices that the vast majority of people sharing personal websites in a thread are developers or designers, and asks whether that is because only they need one or only they know how to make one. 99 likes, 3 reposts, 43 replies. At 15:18 on 11-04 she asks what the best group chat tool is for engaging a user community, ruling out Discord as too overwhelming, WhatsApp as not widely used in the US, iMessage as too personal and Slack as too corporate; 64 likes, 1 repost, 59 replies. The earlier post quotes a post outside the feed.</p>
+<p class="summary-zh zh">简介里自述为 builder 的 Zara Zhang 发了两条。太平洋 11-03 22:39 那条是本期唯一落在前一个太平洋日的推文，比 11-05 那期窗口收口晚 2 小时 52 分：她注意到某个帖子里晒个人网站的绝大多数是开发者或设计师，于是问，是因为只有他们需要个人网站，还是只有他们会做。99 赞、3 次转发、43 条回复。11-04 15:18 她问跟用户社群互动最好用哪个群聊工具，逐个排除了 Discord（太吵）、WhatsApp（美国用得少）、iMessage（太私人）和 Slack（太企业）；64 赞、1 次转发、59 条回复。前一条引用了 feed 之外的推文。</p>
+<div class="urls"><a href="https://x.com/zarazhangrui/status/2117869262505427072" target="_blank">https://x.com/zarazhangrui/status/2117869262505427072</a><a href="https://x.com/zarazhangrui/status/2118120795780370768" target="_blank">https://x.com/zarazhangrui/status/2118120795780370768</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Amjad Masad</span>
+<span class="builder-role">CEO, Replit</span>
+</div>
+<p class="summary-en">Replit CEO Amjad Masad posts twice, at opposite ends of the window's information density. At 01:00 Pacific, "Wow can't believe Michigan is under Shawerma law now" takes 7,790 likes, 376 reposts and 293 replies, second in all three fields, and carries no explanation the feed can resolve. At 19:15 he announces a partnership with Sumitomo Mitsui Finance &amp; Leasing (SMFL), one of Japan's leading financial institutions: Replit is powering SMFL's core software products, and he gives one concrete before-and-after, a project recently completed in one week by one person that previously required six people working for six months. Next they will bring AI-powered software creation to Japanese enterprises, framed around labor shortages. 216 likes, 12 reposts, 48 replies. SMFL has no prior mention anywhere in this series.</p>
+<p class="summary-zh zh">Replit CEO Amjad Masad 发了两条，分别落在窗口信息密度的两端。太平洋时间 01:00 的「真不敢相信密歇根现在归 Shawerma 法管了」拿到 7790 赞、376 次转发、293 条回复，三项都排第二，但 feed 里没有任何可还原的解释。19:15 他宣布与日本主要金融机构之一三井住友融资租赁（SMFL）合作：Replit 正在为 SMFL 的核心软件产品提供动力，并给了一个具体的前后对照——最近一个项目用一个人、一周完成，以前需要六个人做六个月。下一步是把 AI 驱动的软件创作带给日本企业，理由是应对劳动力短缺。216 赞、12 次转发、48 条回复。SMFL 在本系列此前零次出现。</p>
+<div class="urls"><a href="https://x.com/amasad/status/2117904733658845218" target="_blank">https://x.com/amasad/status/2117904733658845218</a><a href="https://x.com/amasad/status/2118180254300688857" target="_blank">https://x.com/amasad/status/2118180254300688857</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Yang</span>
+<span class="builder-role">Practical AI tutorials &amp; interviews</span>
+</div>
+<p class="summary-en">Peter Yang, who writes practical AI tutorials and interviews, posts three times. At 07:27 a bare pointer, "Read the written post for all 5 steps", 10 likes. At 09:32 he says he does not use AI to call local businesses but has no sympathy for using it on Xfinity's customer support, because their phone system will not let you talk to a human when your address has an active outage; 34 likes, 36 replies. At 20:23 he thanks friends at OpenAI and Amplitude for an event he hosted, 17 likes, 1 repost, 7 replies. The 09:32 post quotes a post outside the feed.</p>
+<p class="summary-zh zh">写实用 AI 教程和访谈的 Peter Yang 发了三条。07:27 是一个纯指引：「看文章全文有 5 个步骤」，10 赞。09:32 他说自己不会用 AI 给本地商家打电话，但用 AI 打 Xfinity 那套糟糕的客服电话他一点不同情，因为地址区有故障时电话系统根本不让人转人工；34 赞、36 条回复。20:23 他感谢 OpenAI 和 Amplitude 的朋友一起办的活动，17 赞、1 次转发、7 条回复。09:32 那条引用了 feed 之外的一条推文。</p>
+<div class="urls"><a href="https://x.com/petergyang/status/2118002158201340288" target="_blank">https://x.com/petergyang/status/2118002158201340288</a><a href="https://x.com/petergyang/status/2118033608007139638" target="_blank">https://x.com/petergyang/status/2118033608007139638</a><a href="https://x.com/petergyang/status/2118197393229545534" target="_blank">https://x.com/petergyang/status/2118197393229545534</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Matt Turck</span>
+<span class="builder-role">VC, FirstMark Capital · MAD Podcast</span>
+</div>
+<p class="summary-en">FirstMark Capital VC and MAD Podcast host Matt Turck posts twice. At 08:02 he describes what he wants as a customer: one central AI brain reachable by text or voice, able to buy something or get support and take agentic action, 24/7, instantly available, always in a good mood. He says the Dialpad and Ada combination creates a major new entrant pursuing that vision and discloses he has been an investor since the Series A. 18 likes, 2 reposts, 12 replies. At 16:44 he offers a 2028 US election prediction, Ossoff over Talarico and AOC in the Democratic primary, Rubio over JD Vance in the GOP primary, Ossoff winning the presidency, and flags it himself as a foreign-born VC's political predictions. 91 likes, 20 replies. Both quote posts outside the feed.</p>
+<p class="summary-zh zh">FirstMark Capital 投资人、MAD Podcast 主持人 Matt Turck 发了两条。08:02 他写自己作为客户想要什么：一个集中的 AI 大脑，发文字或说话都能找它，想买东西或要售后都行，还能真的动手做事（agent 动作），7×24、随时可用、态度始终很好。他说 Dialpad 与 Ada 的组合造就了一个追逐这个方向的重要新玩家，并主动交代自己从 A 轮起就是投资人。18 赞、2 次转发、12 条回复。16:44 他给了一个 2028 年美国大选预测：民主党初选 Ossoff 胜过 Talarico 和 AOC，共和党初选 Rubio 胜过 JD Vance，Ossoff 赢得总统；他自己也标注这是「一个外国出生的 VC 的美国政治预测」。91 赞、20 条回复。两条都引用了 feed 之外的推文。</p>
+<div class="urls"><a href="https://x.com/mattturck/status/2118010883754299884" target="_blank">https://x.com/mattturck/status/2118010883754299884</a><a href="https://x.com/mattturck/status/2118142497188610501" target="_blank">https://x.com/mattturck/status/2118142497188610501</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Garry Tan</span>
+<span class="builder-role">President &amp; CEO, Y Combinator</span>
+</div>
+<p class="summary-en">Y Combinator President and CEO Garry Tan posts three times. At 11:10 he says California tech builders dodged a bullet on an asset seizure tax, hopes Prop 42 passes, thanks Sergey Brin, and argues asset seizure is the one guaranteed way to kill the golden goose; 726 likes, 39 reposts, 28 replies. At 17:34, "We did it guys / Connie Chan is a private citizen" over two links, 1,450 likes, 26 reposts, 50 replies, sixth on likes in the window and unexplained by the feed. At 21:57, the last post in the window, he says GStack's /review skill is "actually useful for preventing bugs still", 29 likes, 2 reposts, 22 replies. Prop 42, Connie Chan and the /review skill are all new to this series; GStack itself has appeared before, and an earlier issue used the word review only in an ordinary routing phrase. Two of the three quote posts outside the feed.</p>
+<p class="summary-zh zh">Y Combinator 总裁兼 CEO Garry Tan 发了三条。11:10 他说加州科技从业者在一项资产查封税上「躲过一劫」，希望 Prop 42 通过，谢了 Sergey Brin，并说资产查封是唯一保证能杀死下金蛋的鹅的做法；726 赞、39 次转发、28 条回复。17:34 是「我们做到了 / Connie Chan 现在是普通公民」加两个链接，1450 赞、26 次转发、50 条回复，排窗口赞数第六，feed 里没有解释所指。21:57 是窗口最后一条，他说 GStack 的 /review skill「到现在仍然真能防 bug」，29 赞、2 次转发、22 条回复。Prop 42、Connie Chan 和 /review skill 在本系列都是第一次出现；GStack 本身此前出现过，更早有一期里的 review 只是路由短语里的普通词。三条里有两条引用了 feed 之外的推文。</p>
+<div class="urls"><a href="https://x.com/garrytan/status/2118058438714650985" target="_blank">https://x.com/garrytan/status/2118058438714650985</a><a href="https://x.com/garrytan/status/2118154891176857608" target="_blank">https://x.com/garrytan/status/2118154891176857608</a><a href="https://x.com/garrytan/status/2118221083233206736" target="_blank">https://x.com/garrytan/status/2118221083233206736</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Guillermo Rauch</span>
+<span class="builder-role">CEO, Vercel</span>
+</div>
+<p class="summary-en">Vercel CEO Guillermo Rauch posts three times. His 18:22 post is the longest argument in the window and takes 2,482 likes, 222 reposts and 198 replies, third on likes and reposts, fourth on replies. He writes that in coming weeks and months we will learn that most human-made software was really slow, had many security vulnerabilities and was under-specified and incorrect; AI will rewrite it all many times, make it fast, cost-efficient and secure, think about failure modes we could not wrap our heads around, formally verify, load test and harden it, turn memory-unsafe foundations into robust optimized ones, and if asked, thoroughly document it, teach it and make diagrams, animations and slide decks. "In many ways, we are witnessing the true birth of software engineering." These are predictions, not measurements.</p>
+<p class="summary-en">At 17:23 he posts the first numbers for the product the 11-05 issue saw launched: in just 24 hours, 6,817 vulnerabilities identified, 580 critical or high, 1,411 already patched by Agent, and Vercel Security Reviews are 100% free until Nov 10. 839 likes, 39 reposts, 78 replies. That issue recorded the launch of an internal security agent, called @hacker there, that audits every line of code and works whether you host on Vercel or not, with no numbers attached; this is the same product giving self-reported 24-hour counts one day later, with no external verification anywhere in the feed. At 12:20, "Greatness is the byproduct of a million iterations. Agents or otherwise.", 377 likes, 11 reposts, 75 replies.</p>
+<p class="summary-zh zh">Vercel CEO Guillermo Rauch 发了三条。18:22 那条是窗口里篇幅最长的论证，2482 赞、222 次转发、198 条回复，赞数与转发第三、回复第四。他写：未来几周几个月我们会学到，大部分人造软件其实很慢、有很多安全漏洞、规格写得不够细而且不正确；AI 会把它全部重写很多遍，让它变快、省成本、安全，会去想我们根本想不到的失效模式，会做形式化验证、负载测试、加固，把内存不安全的地基换成稳健且优化过的；你要是开口，它还会彻底写文档、讲给你听、画图、做动画、做幻灯片。「在很多意义上，我们正在见证软件工程真正的诞生。」这些是预测，不是测量。</p>
+<p class="summary-zh zh">17:23 他给出了 11-05 那期刚发布产品的第一组数字：仅 24 小时内，识别出 6,817 个漏洞，其中 580 个为 critical 或 high，1,411 个已由 Agent 修补，Vercel Security Reviews 在 11 月 10 日前 100% 免费。839 赞、39 次转发、78 条回复。那一期记录的是一个内部安全 agent（当时叫 @hacker）的发布：每一行代码都会被自动审计、不管是否托管在 Vercel 都能用，但没有任何数字；这是同一个产品在一天之后给出自报的 24 小时计数，feed 里没有外部复核。12:20 是「伟大是一百万次迭代的副产品，用不用 agent 都一样」，377 赞、11 次转发、75 条回复。</p>
+<div class="urls"><a href="https://x.com/rauchg/status/2118075898830463048" target="_blank">https://x.com/rauchg/status/2118075898830463048</a><a href="https://x.com/rauchg/status/2118152230260092940" target="_blank">https://x.com/rauchg/status/2118152230260092940</a><a href="https://x.com/rauchg/status/2118166970273292299" target="_blank">https://x.com/rauchg/status/2118166970273292299</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Steinberger</span>
+<span class="builder-role">OpenClaw · OpenAI</span>
+</div>
+<p class="summary-en">Peter Steinberger of OpenClaw and OpenAI posts once, at 15:01 Pacific, and asks the window's clearest open question: do individual limits still make sense? As capabilities increase, he says, you want to work with an agent that represents your project, runs loops and evolves your codebase, while the humans merely curate the automations. 518 likes, 22 reposts, 118 replies, fifth on replies. It quotes a post outside the feed. It is a question, not a measurement or a launch.</p>
+<p class="summary-zh zh">OpenClaw 与 OpenAI 的 Peter Steinberger 只发了一条，太平洋时间 15:01，也是窗口里最清楚的一个开放式问题：个人额度还说得通吗？他说能力越强，你越想要一个代表你项目的 agent，它自己跑循环、演进你的代码库，而人只是打理这些自动化。518 赞、22 次转发、118 条回复，回复数第五。这条引用了 feed 之外的一条推文。它是一个提问，不是测量、也不是发布。</p>
+<div class="urls"><a href="https://x.com/steipete/status/2118116514700386439" target="_blank">https://x.com/steipete/status/2118116514700386439</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thariq</span>
+<span class="builder-role">formerly Claude Code, Anthropic</span>
+</div>
+<p class="summary-en">Thariq, whose bio reads "playing WoW forever, formerly Claude Code", posts twice 17 seconds apart at 15:32. The first is an ASCII candle circle around the words "Apple lets apps build Shortcuts for you", captioned "manifesting": 1,790 likes, 25 reposts, 67 replies, fifth on likes in the window. Seventeen seconds later, "sorry I mean inshallah", 862 likes, 5 reposts, 16 replies. Both are wishes, not announcements; the feed contains no product, no date and no link for Shortcuts. The word Shortcuts appears once earlier in this series (09-25) as an ordinary noun meaning a shortcut, not as an Apple feature.</p>
+<p class="summary-zh zh">简介写着「playing WoW forever, formerly Claude Code」的 Thariq 在 15:32 相隔 17 秒连发两条。第一条是蜡烛摆成圈的 ASCII 图，中间写着「Apple 让 app 替你建 Shortcuts」，配文「manifesting」（许愿）；1790 赞、25 次转发、67 条回复，排窗口赞数第五。17 秒后是「sorry I mean inshallah」，862 赞、5 次转发、16 条回复。两条都是许愿，不是发布；feed 里没有给 Shortcuts 任何产品、日期或链接。Shortcuts 这个词在本系列此前出现过一次（09-25），当时是「捷径」的普通名词，不是 Apple 的功能。</p>
+<div class="urls"><a href="https://x.com/trq212/status/2118124218839859700" target="_blank">https://x.com/trq212/status/2118124218839859700</a><a href="https://x.com/trq212/status/2118124292500287814" target="_blank">https://x.com/trq212/status/2118124292500287814</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Cat Wu</span>
+<span class="builder-role">Core Products, OpenAI</span>
+</div>
+<p class="summary-en">Cat Wu posts at 16:25 Pacific that she is joining OpenAI to lead product management for Core Products, and it takes all three engagement fields by a wide margin: 11,973 likes, 527 reposts, 1,422 replies, the only post above ten thousand likes in the window. Her reasons are that OpenAI showed the world scaling works, brought AI to over a billion people and believes great products are core to the mission; she will work with Thibault Sottiaux and the PM team on agents "that have your back and your team's, and keep you in control", so people get more time for the people and work they love. This directly follows the 11-05 issue, where she wrote that the previous Friday was her last day at Anthropic and gave a two-year before-and-after from inside Claude Code. Her bio in this feed reads "core products @openai, prev: claude code @anthropic"; the previous issue's read "Claude Code &amp; Cowork, Anthropic". The feed states the new role; it does not state a start date.</p>
+<p class="summary-en">This post is also the only in-feed quote target in the window, and two posts quote it: Nan Yu's "CatGPT" at 17:10 and Dan Shipper's "omfg" at 16:30. They are two responses to the same object, not two independent sources. Sottiaux's "CatGPT" at 16:30 is not a quote tweet but carries the same two words; it is recorded as text, not counted as a third source.</p>
+<p class="summary-zh zh">Cat Wu 在太平洋时间 16:25 发文，说要加入 OpenAI、负责 Core Products 的产品管理，三项互动大幅领先：11973 赞、527 次转发、1422 条回复，是窗口里唯一过万赞的一条。她给的理由是 OpenAI 向世界证明了 scaling 走得通、把 AI 带给了十亿以上的人、并且相信好产品是使命的核心；她会和 Thibault Sottiaux 以及 PM 团队一起，做「替你和你的团队兜底、又让你保持掌控」的 agent，让人把时间留给喜欢的人和工作。这直接接上 11-05 那期：当时她写上周五是她在 Anthropic 的最后一天，并给出了一段 Claude Code 内部的两年前后对照。本期 feed 里她的简介已变成「core products @openai, prev: claude code @anthropic」，上一期是「Claude Code &amp; Cowork, Anthropic」。feed 写了新职位，没有写入职日期。</p>
+<p class="summary-zh zh">这条也是窗口里唯一被 feed 内引用的对象，两条推文引用了它：Nan Yu 17:10 的「CatGPT」和 Dan Shipper 16:30 的「omfg」。它们是对同一对象的两份回应，不是两个独立信源。Sottiaux 16:30 的「CatGPT」不是引用推文，但带着同样两个词，按文字照录，不当成第三个信源。</p>
+<div class="urls"><a href="https://x.com/_catwu/status/2118137612577968402" target="_blank">https://x.com/_catwu/status/2118137612577968402</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thibault Sottiaux</span>
+<span class="builder-role">Codex &amp; ChatGPT, OpenAI</span>
+</div>
+<p class="summary-en">OpenAI's Thibault Sottiaux, who works on Codex and ChatGPT, posts three times. At 16:30, "CatGPT" alone, 989 likes, 33 reposts, 106 replies. At 17:02, "We've assembled a world class cyber team and I'm excited for us to share more about our work over the weeks and months" over a link: 2,188 likes, 68 reposts, 268 replies, fourth on likes and third on replies. In the same minute he adds "Reach out to @clintgibler if you want to work on securing the world", 227 likes, 5 reposts, 47 replies. No Day number, no score and no object appears in any of the three. The numbered counter that stopped after the 11-03 issue's Day 28 with Banked 2/2 is absent for a third consecutive issue, and what was ever being counted or banked is still unanswered. The cyber team is new content in this series; the feed gives no names, no scope and no date beyond "weeks and months".</p>
+<p class="summary-zh zh">在 OpenAI 负责 Codex 和 ChatGPT 的 Thibault Sottiaux 发了三条。16:30 只有「CatGPT」两个词，989 赞、33 次转发、106 条回复。17:02 是「我们组建了一支世界级的网络安全团队，很期待接下来几周几个月逐步分享我们的工作」加一个链接：2188 赞、68 次转发、268 条回复，赞数第四、回复第三。同一分钟他又补一条「想一起守护世界安全就找 @clintgibler」，227 赞、5 次转发、47 条回复。三条里没有编号、没有分数、也没有宾语。11-03 那期 Day 28 加 Banked 2/2 之后停掉的计数器，连续第三期缺席；当初到底在数什么、banked 的是什么，仍然没有答案。网络安全团队在本系列是新内容，但 feed 除了「接下来几周几个月」没给名字、没给范围、也没给日期。</p>
+<div class="urls"><a href="https://x.com/thsottiaux/status/2118138764161913278" target="_blank">https://x.com/thsottiaux/status/2118138764161913278</a><a href="https://x.com/thsottiaux/status/2118146794362405231" target="_blank">https://x.com/thsottiaux/status/2118146794362405231</a><a href="https://x.com/thsottiaux/status/2118146834325733453" target="_blank">https://x.com/thsottiaux/status/2118146834325733453</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Dan Shipper</span>
+<span class="builder-role">CEO, Every</span>
+</div>
+<p class="summary-en">Every CEO Dan Shipper posts twice. At 16:30, "omfg" over a link quoting Cat Wu's announcement, 201 likes, 9 replies. At 18:37 he jokes that "all of these new @openai hires obvoiusly because they read my codex piece", 57 likes, 4 reposts, 13 replies; the misspelling is in the original. The first is the second of the two responses to the same in-feed post, not an independent source. The second is a joke with no named hire beyond the plural.</p>
+<p class="summary-zh zh">Every CEO Dan Shipper 发了两条。16:30 是「omfg」加一个链接，引用了 Cat Wu 的入职公告，201 赞、9 条回复。18:37 他开玩笑说「这些 OpenAI 新招的人显然都是因为读了我那篇 codex 文章」，57 赞、4 次转发、13 条回复；原文里 obvoiusly 这个拼错照录。前一条是对同一条 feed 内推文的两份回应之一，不算独立信源；后一条是玩笑，除了复数没有点名任何一位新同事。</p>
+<div class="urls"><a href="https://x.com/danshipper/status/2118138941765280149" target="_blank">https://x.com/danshipper/status/2118138941765280149</a><a href="https://x.com/danshipper/status/2118170810841965023" target="_blank">https://x.com/danshipper/status/2118170810841965023</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nikunj Kothari</span>
+<span class="builder-role">Partner, FPV Ventures</span>
+</div>
+<p class="summary-en">FPV Ventures partner Nikunj Kothari posts once, at 16:48, about a spontaneous interview event he wants to run every week. He is looking for speakers who can talk about an area casually but in depth for 45 minutes, and who are not a household name now but most likely will be one in 12 months. 34 likes, 11 replies. It quotes a post outside the feed.</p>
+<p class="summary-zh zh">FPV Ventures 合伙人 Nikunj Kothari 在 16:48 发了一条，说的是一场临时起意的访谈活动，他想每周都办，正在找两类嘉宾：能就一个领域随口但深入地聊 45 分钟，以及现在还不是家喻户晓、但 12 个月后大概率会是的人。34 赞、11 条回复。这条引用了 feed 之外的推文。</p>
+<div class="urls"><a href="https://x.com/nikunj/status/2118143456799494541" target="_blank">https://x.com/nikunj/status/2118143456799494541</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nan Yu</span>
+<span class="builder-role">Product, Codex at OpenAI</span>
+</div>
+<p class="summary-en">Nan Yu, product at Codex in OpenAI and previously head of product at Linear, posts once at 17:10: "CatGPT" over a link, quoting exactly Cat Wu's announcement. 76 likes, 4 replies. It is one of the two responses to the same in-feed post, recorded as a relation rather than an independent source.</p>
+<p class="summary-zh zh">OpenAI Codex 产品、此前任 Linear 产品负责人的 Nan Yu 在 17:10 只发了一条：「CatGPT」加一个链接，引用的正是 Cat Wu 那条入职公告。76 赞、4 条回复。它是对同一条 feed 内推文的两份回应之一，按关系照录，不算独立信源。</p>
+<div class="urls"><a href="https://x.com/thenanyu/status/2118148902125998468" target="_blank">https://x.com/thenanyu/status/2118148902125998468</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Swyx</span>
+<span class="builder-role">smol_ai · Cognition · Latent Space</span>
+</div>
+<p class="summary-en">Swyx posts three times, and all three quote posts outside the feed. At 21:08 he writes "3x faster 5x cheaper but evals SAME ON FRONTIERCODE 2", calls it "distillation without tradeoffs", calls @thinkymachines "inkling" one of the most underrated base models in the world, and expects a ton more of these especially on US pretrained models. 52 likes, 1 repost, 54 replies. The 3x and 5x have no named baseline and no named subject in the post; inkling is new to this series, while Thinking Machines has appeared twice before (05-13, 05-25). At 17:25, "i'm still processing. what an insane run. $0 to $100B ARR in 2.5 years" names no company; 234 likes, 3 reposts, 43 replies. At 18:33, "announced on aie channel. so hyped" over a link is the lowest-engagement post in the window: 1 like, 0 reposts, 0 replies.</p>
+<p class="summary-zh zh">Swyx 发了三条，三条都引用了 feed 之外的推文。21:08 他写「快 3 倍、便宜 5 倍，但 FRONTIERCODE 2 上的 evals 一样」，称这是「没有取舍的蒸馏」，说 @thinkymachines 的「inkling」是世界上最被低估的 base model 之一，并预期尤其在美国预训练模型上会看到大量同类。52 赞、1 次转发、54 条回复。3 倍和 5 倍在这条里既没有对照基线、也没有点名主语；inkling 在本系列是第一次出现，Thinking Machines 此前出现过两次（05-13、05-25）。17:25 的「还没缓过来，2.5 年从 0 做到 1000 亿美元 ARR，太夸张了」没有点名公司；234 赞、3 次转发、43 条回复。18:33 的「在 aie 频道宣布了，太期待了」加一个链接，是窗口里互动最低的一条：1 赞、0 转发、0 回复。</p>
+<div class="urls"><a href="https://x.com/swyx/status/2118152585911869634" target="_blank">https://x.com/swyx/status/2118152585911869634</a><a href="https://x.com/swyx/status/2118169736563589350" target="_blank">https://x.com/swyx/status/2118169736563589350</a><a href="https://x.com/swyx/status/2118208851506036989" target="_blank">https://x.com/swyx/status/2118208851506036989</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Ryo Lu</span>
+<span class="builder-role">Designed at Cursor · Notion · Stripe</span>
+</div>
+<p class="summary-en">Ryo Lu, who designed at Cursor, Notion and Stripe, posts at 21:05 about a talk he gave at AI Engineer Shanghai on a question he keeps coming back to: when we can make anything, do we still know what we want? He wants tools that help us find our own answers rather than skip the process of forming them, not just more output but more room to think, care and make together, and says he will share more soon. 162 likes, 5 reposts, 8 replies. It quotes a post outside the feed; no product or date is given.</p>
+<p class="summary-zh zh">曾在 Cursor、Notion、Stripe 做设计的 Ryo Lu 在 21:05 写了他在 AI Engineer 上海的一场演讲，主题是他反复回到的问题：当我们什么都能造出来时，还知道自己想要什么吗？他说想要的工具是帮人找到自己的答案，而不是跳过形成答案的过程；要的不只是更多产出，而是更多一起思考、在意和创造的空间。他说之后会分享更多。162 赞、5 次转发、8 条回复。这条引用了 feed 之外的推文，没有给产品，也没有给日期。</p>
+<div class="urls"><a href="https://x.com/ryolu_/status/2118207967728451760" target="_blank">https://x.com/ryolu_/status/2118207967728451760</a></div>
+</article>
+</section>
+<!-- ============== PODCAST ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#127911;</span>
+<h2 class="section-title">Podcast</h2>
+<span class="section-meta">1 Episode · Fresh</span>
+</div>
+<div class="podcast">
+<div class="podcast-source">AI &amp; I by Every</div>
+<div class="podcast-title">The Inside Story of the 50 Who Built Modern AI With Kevin Roose</div>
+<p class="summary-en">AI &amp; I by Every publishes The Inside Story of the 50 Who Built Modern AI With Kevin Roose at 2026-11-04T17:02:33Z, Pacific 11-04 09:02:33. That is inside this window and on the same Pacific day, so the slot is fresh again after the 11-05 issue's late episode. Kevin Roose is a former New York Times writer, now co-host of Machine Gods with Casey Newton (made with NPR, two episodes a week, started the previous week), and the author of The AGI Chronicles, already a New York Times bestseller a few weeks after publication; he wrote 450 pages in a year. Kevin Roose, The AGI Chronicles and Machine Gods have no prior mention in this series, while AI &amp; I by Every is a regular source here, most recently on 10-30 with Fred Graver. The feed's URL is the Every playlist rather than a specific video and is reproduced as given.</p>
+<p class="summary-en">The single most portable idea is his split between weightlifting and forklifting tasks. Weightlifting tasks are ones where the struggle is the benefit: "It was a total waste of time to bring a forklift into the gym and have it lift weights for you", because you do not get stronger and neither does the forklift. Forklifting tasks are heavy things you simply need moved from A to B, where a tool that shortcuts the work should be used. Mixing them up leaves you weaker and still lugging pallets. What he is currently weightlifting is parenting, including reading his kid's bedtime stories himself; what he is forklifting is the legal and process grind of starting a company, paperwork, insurance documents and small block-and-tackle tasks.</p>
+<p class="summary-en">The most counterintuitive constraint is on his own book: "a way that I didn't use AI was to write the book. So all the words are from this brain and these fingers." He did use it for nearly everything else. A council of Claude's ran in Claude Code as a swarm of agents, each given a persona, an AI skeptic, an AI historian able to correct technical precursors, a Walter Isaacson-style crafts person interested in flow and storytelling arc, with a master editor agent synthesizing their written opinion of each finished chapter. He says it caught a couple of factual errors that neither he nor his human editors had caught. "A couple years ago, you know, we had to fact check the AIs, and now the AIs fact check me." He also used NotebookLM to query the whole research pile, which has appeared in this series before, and had a human researcher and human editors.</p>
+<p class="summary-en">On editing, his line is that AI does line editing great, is getting better at pacing and structure, but cannot yet do the coaching, motivation and judgment about whether a story is worth pursuing; he needs both. He writes mostly in Google Docs, has three or four agents running at a time for admin and daily-life tasks, and says "I'm playing with everything. Literally, like, I can't keep track. I have agents now that are, like, correcting my other agents. It's a huge mess." He also says hallucination rates have gone way down and the systems are much better at grounding answers in real sources.</p>
+<p class="summary-en">The book's most concrete artifact is a memo he found in reporting: the big blob of compute hypothesis, written by Dario Amodei while he was vice president of research at OpenAI, before he left to start Anthropic in 2017, at a point when large language models had not yet been invented. Against the era's narrow, task-specific systems, the memo argued for assembling large unstructured masses of computational capacity and pointing them at general problems like predicting the next word in a sentence, trusting that intelligence would result. Roose says it reshaped OpenAI's roadmap and that he published its first ten pages on his Substack. He also name-checks Ilya Sutskever's "you must feel the AGI", Arthur C. Clarke's Profiles of the Future and Richard Rhodes' The Making of the Atomic Bomb, and says he first felt the AGI in 2023 with Bing Sydney.</p>
+<p class="summary-en">On regulation, he does not expect federal AI legislation from the Trump administration at least right now, and says a bad event is what usually triggers one. His first step is an industry standard or certification: subject a model to safety testing before public release, "We require pharmaceutical companies to test their drugs before selling them to the public. We should require AI companies to test their models before offering them to the public." The second is a coordination mechanism for slowing the frontier, which he says he was convinced of only in the last couple of months because Dario, Demis and Sam and other leaders really do think this is moving too quickly and want time for safety research. The host raises the hugging face incident as an example of things going wrong; this series recorded an analysis of that incident on 10-03. On the book's scope the numbers are printed as given rather than reconciled: the title says 50 who built modern AI, the host speaks of 150 people tinkering, and Roose says he interviewed the 50 plus about 150 people in total connected to the scene. Several proper nouns in the machine transcript are garbled (Dario Amade, Leo Szalar, habakasha, Balotro, Cloud Code) and are not silently corrected here.</p>
+<p class="summary-zh zh">AI &amp; I by Every 的《The Inside Story of the 50 Who Built Modern AI With Kevin Roose》发布于 2026-11-04T17:02:33Z，即太平洋时间 11-04 09:02:33。它落在本期窗口内、也在同一个太平洋日，所以这一格在 11-05 那期迟到之后重新变新鲜。Kevin Roose 是前《纽约时报》记者，现在与 Casey Newton 共同主持 Machine Gods（与 NPR 合作，每周两期，上一周刚开播），也是《The AGI Chronicles》的作者；书出版几周就已登上《纽约时报》畅销榜，他用一年写了 450 页。Kevin Roose、《The AGI Chronicles》和 Machine Gods 在本系列此前零次出现，而 AI &amp; I by Every 是这里的常客，最近一次是 10-30 那期与 Fred Graver。feed 给的 URL 是 Every 的播放列表而不是具体视频，按原样照录。</p>
+<p class="summary-zh zh">最容易被带走的是他把任务分成 weightlifting 与 forklifting 两类。weightlifting 是「挣扎本身就是收益」的那些事：「把叉车开进健身房替你举铁，完全是浪费时间」，因为你不会变强，叉车也不会。forklifting 是只想把重物从 A 搬到 B 的活，这时候就该用能抄近路的工具。两类搞混，结果是人没变强，还抱着一堆根本不必自己扛的托盘。他现在 weightlifting 的是养育孩子，包括亲自给孩子读睡前故事；forklifting 的是开公司那些法律与流程杂活——文书、保险文件、各种琐碎的搬运式任务。</p>
+<p class="summary-zh zh">最反直觉的一条约束用在他自己的书上：「有一件事我没让 AI 做，就是写这本书。所有字都来自这个脑袋和这双手。」但除此之外的环节几乎都用了。他在 Claude Code 里跑了一组 agent，自称 council of Claude's，给每个 agent 分配一个角色：一个认为 LLM 并不真的智能的 AI 怀疑论者、一个能纠正技术史细节的 AI 历史学家、一个只关心行文流畅与叙事弧线的 Walter Isaacson 式手艺人，再由一个 master editor agent 把意见汇总成一份针对每章成稿的书面评估。他说这套东西抓到了几处他自己和人类编辑都没发现的事实错误。「几年前还得我们给 AI 做事实核查，现在是 AI 给我做事实核查。」他也用 NotebookLM 在整个研究资料堆里提问（NotebookLM 本系列此前出现过），并且配了人类研究员和人类编辑。</p>
+<p class="summary-zh zh">谈编辑，他的判断是：AI 做逐行编辑「非常好」，节奏和结构在进步，但还做不到教练、激励、以及「这个故事值不值得追」的判断；他自己两样都需要。他主要在 Google Docs 里写作，同时跑着三四个 agent 处理行政和日常事务，并说「我什么都在试，真的记不过来，现在甚至有 agent 在纠正我的其他 agent，一团乱」。他也说幻觉率已经明显下降，系统更会把回答落在真实来源上。</p>
+<p class="summary-zh zh">书里最具体的一件史料是他在采访中挖到的一份备忘录：big blob of compute hypothesis，Dario Amodei 在 OpenAI 任研究副总裁、离开去创办 Anthropic（2017）之前写的，那时大语言模型还没被发明。当时主流是为特定任务定制窄模型，这份备忘录主张把大规模、无结构的算力堆起来，指向「预测句子里的下一个词」这类通用问题，并相信智能会从中涌现。Roose 说它重塑了 OpenAI 的路线图和野心，自己在 Substack 上发了前 10 页。他还提到 Ilya Sutskever 那句「you must feel the AGI」、Arthur C. Clarke 的《Profiles of the Future》和 Richard Rhodes 的《The Making of the Atomic Bomb》，并说自己 2023 年遇到 Bing Sydney 时第一次「feel the AGI」。</p>
+<p class="summary-zh zh">谈监管，他认为至少现阶段不会从 Trump 政府拿到联邦 AI 立法，并说通常要出一次坏事才会触发。他给的第一步是行业标准或认证：模型公开发布前先做安全测试，「我们要求药企在卖药前测试药物，也应该要求 AI 公司在把模型交给公众前测试模型」。第二步是给前沿减速的协调机制，他说自己也是最近几个月才被说服这有可能，因为 Dario、Demis、Sam 等领导者确实觉得进展太快，想给安全研究团队争取时间。主持人举了 the hugging face incident 作为「已经出事」的例子，本系列在 10-03 记录过对该事件的一次分析。书的规模上，几个数字按原样照录、不调和：标题说 50 位建造者，主持人说 150 位在摸索的人，Roose 自己说采访了那 50 位、外加与这个圈子相关的共约 150 人。机器转写把若干专名识别得含混（Dario Amade、Leo Szalar、habakasha、Balotro、Cloud Code），这里不静默修正。</p>
+<div class="urls"><a href="https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL" target="_blank">https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL</a></div>
+</div>
+</section>
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128161;</span>
+<h2 class="section-title">The Takeaway</h2>
+<span class="section-meta">2026-11-06</span>
+</div>
+<div class="takeaway">
+<div class="takeaway-label">The Takeaway</div>
+<p>Cat Wu joining OpenAI takes all three engagement fields by a wide margin, 11,973 likes, 527 reposts, 1,422 replies, the only post above ten thousand likes, and it directly follows the 11-05 issue where she wrote that the previous Friday was her last day at Anthropic. One issue records a departure, the next records the destination, and her bio in the feed changed with it. The feed gives the new role but no start date.</p>
+<p>The numbered counter is absent for a third consecutive issue. The 11-03 issue carried Day 28 with Banked 2/2, the only numbered end this series has seen; neither 11-04, 11-05 nor today has a Day number, a score or an object. Sottiaux's three posts instead bring new content, a world class cyber team with 2,188 likes, but no names, no scope and no date beyond "weeks and months". What was ever being counted or banked remains unanswered.</p>
+<p>Vercel's security product is the rare case of a launch followed by numbers one day later. The 11-05 issue recorded the launch of an internal agent auditing every line of code; today Rauch gives 24-hour self-reported counts, 6,817 vulnerabilities identified, 580 critical or high, 1,411 already patched by Agent, free until Nov 10. No external verification appears anywhere in the feed, so these are reports, not measurements.</p>
+<p>Heat and checkable information point in opposite directions again, the same shape as 11-04 and 11-05. The second most-liked post is Amjad Masad's unexplained "Michigan is under Shawerma law now" at 7,790 likes, and Thariq's candle-circle wish takes 1,790. The window's most concrete first-party number, one person in one week replacing six people in six months at SMFL, takes 216 likes, and the longest argument, Rauch's 2,482-like post on the true birth of software engineering, is a prediction with no measurement.</p>
+<p>The podcast is fresh again, and its most portable idea is a line between weightlifting and forklifting tasks. Its most counterintuitive detail is that Roose did not use AI to write the book's prose but ran a council of Claude personas in Claude Code to review each chapter, which he says caught factual errors his human editors missed. On regulation he gives an actionable first step, safety testing before public release, on the analogy of drug testing.</p>
+<p>Two of the window's numbers arrive without a subject. Swyx's "3x faster 5x cheaper" has no named baseline and no named model, and "$0 to $100B ARR in 2.5 years" quotes a post outside the feed and names no company. The model name inkling is new to this series; Thinking Machines has appeared twice before. Peter Steinberger's question about whether individual limits still make sense is the window's clearest open question and carries no answer.</p>
+<p>Coverage has no gap. Twenty-nine of the 30 posts sit inside Pacific 11-04, from 01:00:11 to 21:57:15, and the single exception, Zara Zhang at Pacific 11-03 22:39:14, lands 2h52m after the previous issue's window closed at Pacific 11-03 19:47. The snapshot is Pacific 11-04 22:28:43, so this window closes 31m28s before it; the previous snapshot was 2026-11-04T06:28:22Z, one day earlier. Pacific 10-29 and 10-30 remain permanently missing from two cron runs that did not fire. This issue was written at Pacific 11-05 18:21, about 20 hours after the snapshot.</p>
+</div>
+<div class="takeaway zh">
+<div class="takeaway-label">核心结论</div>
+<p>Cat Wu 加入 OpenAI 拿走三项互动第一且大幅领先：11973 赞、527 次转发、1422 条回复，是窗口里唯一过万赞的一条，也直接接上 11-05 那期——当时她写上周五是在 Anthropic 的最后一天。一期记录离开，下一期记录去向，feed 里她的简介也跟着变了。feed 给了新职位，没给入职日期。</p>
+<p>编号计数器连续第三期缺席。11-03 那期是 Day 28 加 Banked 2/2，也是本系列唯一一次看到编号走到终点；11-04、11-05 和本期都没有编号、没有分数、也没有宾语。Sottiaux 的三条倒是给了新内容：一支「世界级网络安全团队」，2188 赞，但没有名字、没有范围，日期只有「接下来几周几个月」。当初到底在数什么、banked 的是什么，仍然没有答案。</p>
+<p>Vercel 的安全产品是本系列少见的「发布次日给数」。11-05 那期记录的是一个自动审计每一行代码的内部 agent 发布；今天 Rauch 给出 24 小时自报计数：识别 6,817 个漏洞、580 个 critical 或 high、1,411 个已由 Agent 修补，11 月 10 日前免费。feed 里没有任何外部复核，所以这些是自报，不是测量结果。</p>
+<p>热度和可核对的信息量再一次朝相反方向走，与 11-04、11-05 是同一形态。赞数第二是 Amjad Masad 那句没有解释的「密歇根现在归 Shawerma 法管了」（7790 赞），Thariq 的蜡烛许愿图 1790 赞；而窗口里最具体的一手数字——SMFL 项目一人一周替代六人六个月——只有 216 赞，篇幅最长的论证（Rauch 2482 赞谈软件工程真正的诞生）是一组不带测量的预测。</p>
+<p>播客重新变新鲜，最容易被带走的是 weightlifting 与 forklifting 的划分。最反直觉的细节是 Roose 没用 AI 写书正文，却在 Claude Code 里跑了一组带不同人格的 Claude 审校每章，他说这套东西抓到了人类编辑漏掉的事实错误。监管上他给了一个能照做的第一步：公开发布前做安全测试，类比药品上市前测试。</p>
+<p>窗口里有两组数字没有主语。Swyx 的「快 3 倍、便宜 5 倍」既没有对照基线也没点名模型，「2.5 年从 0 到 1000 亿美元 ARR」引用了 feed 外的推文、没点名公司。模型名 inkling 在本系列首次出现，Thinking Machines 此前出现过两次。Peter Steinberger 那句「个人额度还说得通吗」是窗口里最清楚的开放式问题，feed 里没有答案。</p>
+<p>这次覆盖没有缺口。30 条里 29 条落在太平洋 11-04，从 01:00:11 到 21:57:15；唯一例外是 Zara Zhang 在太平洋 11-03 22:39:14，比上一期窗口收口（太平洋 11-03 19:47）晚 2 小时 52 分，没有重叠。快照是太平洋 11-04 22:28:43，本期窗口在它之前 31 分 28 秒收口；上一份快照是 2026-11-04T06:28:22Z，相隔一天。太平洋 10-29 与 10-30 仍因两次 cron 未触发而永久缺失。本期成文于太平洋 11-05 18:21，比快照晚约 20 小时。</p>
+</div>
+</section>
+<!-- ============== NOTES ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128221;</span>
+<h2 class="section-title">记录 / Notes &amp; Dedup</h2>
+<span class="section-meta">30 Zero · 1 Fresh · 0 Dedup</span>
+</div>
+<div class="dedup">
+<p style="margin-top:12px"><strong>Tweet check</strong> &mdash; All 30 tweet IDs were matched against the 117 HTML files under 2026/ and returned zero hits. Eighteen of the 30 are quote tweets. Seventeen quoted IDs sit outside the feed and no two point at the same outside ID. One quoted ID, Cat Wu's announcement, is inside the feed and is quoted twice, by Nan Yu and Dan Shipper: the only in-feed quote group, recorded as two responses to one object rather than independent sources. Sottiaux's CatGPT is not a quote tweet but carries the same two words and is printed as text.</p>
+<p style="margin-top:12px"><strong>Podcast check</strong> &mdash; The slot is 1 and it is fresh. Published 2026-11-04T17:02:33Z, Pacific 11-04 09:02:33, inside the window and on the same Pacific day, following a late episode in the 11-05 issue. AI &amp; I by Every is a regular source here (most recently 10-30); Kevin Roose, The AGI Chronicles and Machine Gods are new. The URL is the Every playlist from the feed, not a specific video. The 50 / 150 scope numbers are printed as given, not reconciled.</p>
+<p style="margin-top:12px"><strong>Blog check</strong> &mdash; The slot is 0 by emptiness: the blogs array came back empty. This is the twelfth consecutive empty issue: 10-21, 10-22, 10-26, 10-27, 10-28, 10-29, 10-30, 11-02, 11-03, 11-04, 11-05 and today.</p>
+<p style="margin-top:12px"><strong>Transcript</strong> &mdash; The transcript labels speakers 1, 2 and 3; speaker 1 is Kevin Roose, speaker 3 conducts the interview, and speaker 2 delivers the mid-roll sponsor read and never names himself, so no host name is supplied here. Several proper nouns are garbled by machine transcription (Dario Amade, Leo Szalar, habakasha, Balotro, Cloud Code) and are not silently corrected. The cold open line about agents correcting other agents is Roose speaking, not the hosts.</p>
+<p style="margin-top:12px"><strong>Thin posts</strong> &mdash; Six of the 30 carry no argument of their own: Peter Yang's pointer to a written post and his event thanks, Garry Tan's Connie Chan line, Swyx's $0 to $100B reaction and his aie channel note, and Dan Shipper's omfg. All are given links inside their own cards. Every one of the 30 posts has a link, so the stats strip, section meta, index meta and body link count agree.</p>
+<p style="margin-top:12px"><strong>Coverage</strong> &mdash; Three timestamps: the snapshot is 2026-11-05T06:28:43.321Z, Pacific 11-04 22:28:43, converted with UTC-8 because Pacific daylight time ended on 11-01; this issue was written at Pacific 11-05 18:21; the previous snapshot was 2026-11-04T06:28:22.825Z, one day earlier. Pacific 10-29 and 10-30 remain permanently missing. No gap in this issue.</p>
+<p style="margin-top:12px"><strong>Engagement fields</strong> &mdash; likes, reposts and replies are populated on all 30 posts, so every ranking above is usable; this feed has no quotes field and none is used. Likes top five: Cat Wu 11,973, Amjad Masad 7,790, Guillermo Rauch 2,482, Thibault Sottiaux 2,188, Thariq 1,790. Reposts top three: 527, 376, 222. Replies top three: 1,422, 293, 268. Lowest is Swyx's aie channel note at 1 like, 0 reposts, 0 replies.</p>
+<p style="margin-top:12px"><strong>Absent</strong> &mdash; Fifteen accounts posted. Of the 24 names on the tracked list, eight appear: Garry Tan, Peter Steinberger, Peter Yang, Guillermo Rauch, Amjad Masad, Nikunj Kothari, Swyx and Matt Turck. Seven accounts in the feed are outside that list: Thibault Sottiaux, Nan Yu, Cat Wu, Thariq, Ryo Lu, Zara Zhang and Dan Shipper. Sam Altman, who led all three engagement fields in the 11-05 issue, is absent today.</p>
+<p style="margin-top:12px"><strong>Not resolved</strong> &mdash; Whether a Day 29 or a 3/x banked fraction appears, and what was ever being counted; what dot is; HackerTube's second source or runnable comparison; Particle-1's link, benchmark and the baseline for 1/23; a product name and launch date for the Grok Bot; a second source or external check for Claude's auto-connect plugins and Vercel Security Reviews; Nebius's 1% of AWS and tenfold, and Levie's 5-10X, with checkable baselines; WebMCP beyond four mentions; what Argon is; Sol 6 scores; ViBench 2.0 scores; the Legora eval heat map results. Fixed dates: Opal shuts down 2026-11-17; Vercel Security Reviews are free until Nov 10.</p>
+</div>
+<div class="dedup zh" style="margin-top:14px">
+<p style="margin-top:12px"><strong>推文核对</strong> &mdash; 本窗口 30 个推文 ID 全部与 2026/ 下 117 个 HTML 文件比对过，零命中。30 条里 18 条是引用推文，17 个被引用 ID 在 feed 之外，且没有两条指向同一个外部 ID。唯一一个在 feed 内的被引用 ID 是 Cat Wu 的入职公告，被引用了两次（Nan Yu 与 Dan Shipper）：这是窗口里唯一一组 feed 内引用，按「对同一对象的两份回应」照录，不当成独立信源。Sottiaux 的 CatGPT 不是引用推文，但带着同样两个词，按文字照录。</p>
+<p style="margin-top:12px"><strong>播客核对</strong> &mdash; 这一格是 1，而且新鲜。发布于 2026-11-04T17:02:33Z，即太平洋 11-04 09:02:33，落在窗口内、同一个太平洋日，接在 11-05 那期迟到之后。AI &amp; I by Every 是本系列常客（最近一次 10-30）；Kevin Roose、《The AGI Chronicles》和 Machine Gods 都是首次。URL 用的是 feed 给的 Every 播放列表，不是具体视频。50 与 150 这两个规模数字按原样照录，不调和。</p>
+<p style="margin-top:12px"><strong>博客核对</strong> &mdash; 这一格是 0，成因是空数组：blogs 数组返回为空。这是连续第十二期为空：10-21、10-22、10-26、10-27、10-28、10-29、10-30、11-02、11-03、11-04、11-05 和今天。</p>
+<p style="margin-top:12px"><strong>转写</strong> &mdash; 转写把说话人标成 1、2、3 号：1 号是 Kevin Roose，3 号主持访谈，2 号念中段广告且始终没有自报姓名，所以这里不补主持人名字。机器转写把若干专名识别得含混（Dario Amade、Leo Szalar、habakasha、Balotro、Cloud Code），不静默修正。冷开场那句「现在有 agent 在纠正我的其他 agent」是 Roose 说的，不是主持人。</p>
+<p style="margin-top:12px"><strong>薄内容</strong> &mdash; 30 条里有 6 条本身不承载观点：Peter Yang 指向文章的纯指引与活动致谢、Garry Tan 的 Connie Chan 那句、Swyx 的 0 到 1000 亿美元感想与 aie channel 那条、Dan Shipper 的 omfg。全部在各自卡片里给了链接。30 条推文每条都有链接，因此 stats strip、section meta、index meta 与正文链接数四处天然一致。</p>
+<p style="margin-top:12px"><strong>覆盖</strong> &mdash; 三个时间戳：快照 2026-11-05T06:28:43.321Z 即太平洋 11-04 22:28:43，按 UTC-8 换算，因为太平洋夏令时已在 11-01 结束；本期成文于太平洋 11-05 18:21；上一份快照是 2026-11-04T06:28:22.825Z，相隔一天。太平洋 10-29 与 10-30 仍永久缺失。本期无缺口。</p>
+<p style="margin-top:12px"><strong>互动字段</strong> &mdash; 30 条的 likes、reposts、replies 全有值，上面的排序都可用；这个 feed 没有 quotes 字段，不使用。赞数前五：Cat Wu 11973、Amjad Masad 7790、Guillermo Rauch 2482、Thibault Sottiaux 2188、Thariq 1790。转发前三：527、376、222。回复前三：1422、293、268。最低是 Swyx 的 aie channel 那条，1 赞、0 转发、0 回复。</p>
+<p style="margin-top:12px"><strong>缺席</strong> &mdash; 有内容的账号 15 个。追踪名单 24 位里出现 8 位：Garry Tan、Peter Steinberger、Peter Yang、Guillermo Rauch、Amjad Masad、Nikunj Kothari、Swyx、Matt Turck。feed 里另外 7 个账号不在名单上：Thibault Sottiaux、Nan Yu、Cat Wu、Thariq、Ryo Lu、Zara Zhang、Dan Shipper。上一期三项互动第一的 Sam Altman 本期整位缺席。</p>
+<p style="margin-top:12px"><strong>未闭环</strong> &mdash; Day 29 或 3/x 的分数会不会出现、被数与被 banked 的到底是什么；dot 是什么；HackerTube 会不会有第二个信源或可跑的对照；Particle-1 的链接、基准与 1/23 的对照基线；Grok Bot 的产品名与上线日期；Claude 插件自动连接与 Vercel Security Reviews 会不会有第二信源或外部复核；Nebius 的 1% of AWS 与 tenfold、Levie 的 5-10X 会不会有可核对基线；WebMCP 会不会超出四次提名；Argon 是什么；Sol 6 分数；ViBench 2.0 分数；Legora 的 eval heat map 结果。已定日期：Opal 2026-11-17 关停；Vercel Security Reviews 免费到 11 月 10 日。</p>
+</div>
+</section>
+<footer class="footer">
+<div class="next-issue">&#128236; &#19979;&#19968;&#26399;&#65306;&#26126;&#22825; 10:00&#65288;&#21271;&#20140;&#26102;&#38388;&#65289;</div>
+<div class="signature">by chloevchen</div>
+</footer>
+
+<!-- by chloevchen -->
+</body>
+</html>
