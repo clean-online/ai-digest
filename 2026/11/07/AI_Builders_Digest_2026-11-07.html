@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Builders Digest &middot; 2026-11-07</title>
+<style>
+
+
+
+
+
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 28px 30px; margin-bottom: 24px; }
+  .podcast-source { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
+  .podcast-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; margin-bottom: 18px; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; }
+
+
+</style>
+</head>
+<body>
+<header class="topbar">
+<div class="topbar-inner">
+<a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders &middot; AI Builders Digest</a>
+<span>双语 &middot; Bilingual</span>
+</div>
+</header>
+<section class="header">
+<div class="eyebrow">Daily Digest &middot; 2026-11-07</div>
+<h1>AI Builders Digest</h1>
+</section>
+<div class="stats">
+<div class="stat"><div class="stat-num">13</div><div class="stat-label">Builders</div></div>
+<div class="stat"><div class="stat-num">29</div><div class="stat-label">Tweets</div></div>
+<div class="stat"><div class="stat-num">1</div><div class="stat-label">Podcast</div></div>
+<div class="stat"><div class="stat-num">0</div><div class="stat-label">Blog</div></div>
+</div>
+<p class="note-line">Claude&rsquo;s Personal Finance launch takes all three engagement fields with the window&rsquo;s only full set of product boundaries stated up front. Sottiaux turns last issue&rsquo;s cyber team into a position on secure infrastructure, and the numbered counter stays absent for a fourth issue. The podcast gives jev its first outing here as a company and a model, and its most portable idea is a refusal to trust benchmarks.</p>
+<p class="note-line zh">Claude 的 Personal Finance 发布拿走三项互动第一，也是窗口里唯一一条把产品边界一口气说清的发布。Sottiaux 把上一期的网络安全团队变成一个关于安全基础设施的立场，编号计数器连续第四期缺席。播客是 jev 在本系列第一次以公司和模型的身份出场，最容易被带走的是对 benchmark 的拒绝。</p>
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128036;</span>
+<h2 class="section-title">X / Twitter</h2>
+<span class="section-meta">13 Builders &middot; 29 Tweets</span>
+</div>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Steinberger</span>
+<span class="builder-role">OpenClaw &middot; OpenAI</span>
+</div>
+<p class="summary-en">Peter Steinberger of OpenClaw and OpenAI posts twice. At 16:32 Pacific, &ldquo;Just a normal Thursday.&rdquo; over a link, 251 likes, 11 reposts, 22 replies. At 23:54 he asks whether Apple is just lying: any time he builds for or uses Safari it is slower, has fewer features, has weird bugs and plenty of websites just do not work, and getting even somewhat close to Chrome&rsquo;s performance is a fight. 378 likes, 4 reposts, 87 replies. Both quote posts outside the feed. The second is a complaint framed as a question, not a measurement.</p>
+<p class="summary-zh zh">OpenClaw 与 OpenAI 的 Peter Steinberger 发了两条。太平洋 16:32 是「普通的一个周四」加一个链接，251 赞、11 次转发、22 条回复。23:54 他问 Apple 是不是在撒谎：不管为 Safari 开发还是用它，都更慢、功能更少、怪 bug 多，很多网站根本跑不起来，想勉强接近 Chrome 的性能都得费一番劲。378 赞、4 次转发、87 条回复。两条都引用了 feed 之外的推文。后一条是包装成提问的抱怨，不是测量。</p>
+<div class="urls"><a href="https://x.com/steipete/status/2118380936882803044" target="_blank">https://x.com/steipete/status/2118380936882803044</a><a href="https://x.com/steipete/status/2118492097917628704" target="_blank">https://x.com/steipete/status/2118492097917628704</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thariq</span>
+<span class="builder-role">formerly Claude Code, Anthropic</span>
+</div>
+<p class="summary-en">Thariq, formerly of Claude Code at Anthropic, posts once at 17:46 Pacific and shares what he calls one of his favorite prompts for agents like Instinct: location based reminders. His example is to keep track of when he has done his laundry, and if it has been more than five days, remind him 30 minutes after he gets home on a weekday and keep bugging him until he confirms or delays. 2,351 likes, 45 reposts, 165 replies, third on likes and reposts in the window. Instinct is not new to this series; the name has appeared in earlier issues since early October.</p>
+<p class="summary-zh zh">曾在 Anthropic 做 Claude Code 的 Thariq 在太平洋 17:46 只发了一条，给出他称为「给 Instinct 这类 agent 最常用的 prompt 之一」的写法：基于位置的提醒。例子是记住自己上次洗衣是什么时候，超过五天就在工作日到家 30 分钟后提醒，并且一直催到本人确认或推迟为止。2351 赞、45 次转发、165 条回复，赞数与转发都排窗口第三。Instinct 在本系列不是第一次出现，这个名字从十月初起就出现过。</p>
+<div class="urls"><a href="https://x.com/trq212/status/2118399561324699655" target="_blank">https://x.com/trq212/status/2118399561324699655</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Claude</span>
+<span class="builder-role">Anthropic &middot; official account</span>
+</div>
+<p class="summary-en">Claude&rsquo;s official account posts twice in the same second, 18:00:35 Pacific, announcing Personal Finance in Claude, in beta in the US. Connect the accounts you choose and Claude answers your money questions in everyday language, from your own balances and transactions; access is read-only and Claude cannot move, manage or invest your money. It takes all three engagement fields by a wide margin: 30,096 likes, 1,488 reposts, 1,058 replies, the only post above ten thousand likes and the only one above a thousand reposts or replies.</p>
+<p class="summary-en">The second post, 1,375 likes, 25 reposts, 53 replies, adds the boundaries: like the rest of Claude, Personal Finance has no ads or sponsored recommendations, is not designed to give investment advice, and is rolling out gradually in the US on the Pro, Max and Ultra plans. The phrase Personal Finance appeared once earlier in this series, on 09-21, as six ChatGPT Finances prompts; today it is a named product, and the two are not merged here.</p>
+<p class="summary-zh zh">Claude 官方账号在太平洋 18:00:35 同一秒连发两条，宣布 Personal Finance in Claude 在美国开启 beta。连接自己选的账户后，Claude 用日常语言回答关于钱的问题，依据是你自己的余额和交易记录；权限是只读，Claude 不能转账、管理或投资你的钱。三项互动大幅领先：30096 赞、1488 次转发、1058 条回复，是窗口里唯一过万赞、也是唯一转发和回复都过千的一条。</p>
+<p class="summary-zh zh">第二条 1375 赞、25 次转发、53 条回复，补齐了边界：和 Claude 其他部分一样，Personal Finance 没有广告、没有赞助推荐，也不用于给投资建议，正在美国按 Pro、Max、Ultra 三档逐步开放。Personal Finance 这个说法在本系列此前出现过一次，09-21 那期是 ChatGPT Finances 的六个提示词；今天它是一个具体产品名，两者不合并。</p>
+<div class="urls"><a href="https://x.com/claudeai/status/2118403114890137895" target="_blank">https://x.com/claudeai/status/2118403114890137895</a><a href="https://x.com/claudeai/status/2118403117779988744" target="_blank">https://x.com/claudeai/status/2118403117779988744</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Dan Shipper</span>
+<span class="builder-role">CEO, Every</span>
+</div>
+<p class="summary-en">Every CEO Dan Shipper posts once at 19:15 Pacific: &ldquo;Thesis: 2027 - LIVE from Brooklyn!&rdquo; over a link, 26 likes, 5 reposts, 2 replies. The feed gives no further detail.</p>
+<p class="summary-zh zh">Every CEO Dan Shipper 在太平洋 19:15 只发了一条：「Thesis: 2027，布鲁克林现场！」加一个链接，26 赞、5 次转发、2 条回复。feed 没有给更多内容。</p>
+<div class="urls"><a href="https://x.com/danshipper/status/2118421854666838338" target="_blank">https://x.com/danshipper/status/2118421854666838338</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aaron Levie</span>
+<span class="builder-role">CEO, Box</span>
+</div>
+<p class="summary-en">Box CEO Aaron Levie posts twice. At 19:43 Pacific a bare link, 131 likes, 17 reposts, 34 replies. At 00:19 the next morning he writes the window&rsquo;s longest enterprise argument: there will be 100X more agents in the enterprise working with our data and systems than people do today, every agent deployment comes down to access to critical context, and 90% of enterprise data is unstructured, living in documents, contracts, marketing assets, research materials, financial plans and design files. He announces a partnership with NVIDIA to deliver advanced context retrieval in Box, combining lexical and semantic search under enterprise security, access controls and data governance policies, and closes with &ldquo;Files &#129309; GPUs&rdquo;. 140 likes, 18 reposts, 56 replies. Both 100X and 90% are stated without a baseline or a source; this is the most complete argument in the window and takes 140 likes.</p>
+<p class="summary-zh zh">Box CEO Aaron Levie 发了两条。太平洋 19:43 是一个纯链接，131 赞、17 次转发、34 条回复。次日 00:19 他写了窗口里篇幅最长的企业论证：企业里跟数据和系统打交道的 agent 会比今天的人多 100 倍，每一次 agent 部署都归结为能否拿到做决策、查资料、执行任务所需的关键上下文，而企业 90% 的数据是非结构化的，活在文档、合同、营销素材、研究材料、财务计划和设计文件里。他宣布与 NVIDIA 合作，在 Box 里做结合词法与语义检索的 context retrieval，并受企业安全、访问控制和数据治理策略约束，结尾写「Files &#129309; GPUs」。140 赞、18 次转发、56 条回复。100 倍和 90% 都没给基线，也没给出处；这是窗口里最完整的一段论证，只有 140 赞。</p>
+<div class="urls"><a href="https://x.com/levie/status/2118429008711102831" target="_blank">https://x.com/levie/status/2118429008711102831</a><a href="https://x.com/levie/status/2118498574497665316" target="_blank">https://x.com/levie/status/2118498574497665316</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aditya Agarwal</span>
+<span class="builder-role">General Partner, SPC</span>
+</div>
+<p class="summary-en">SPC general partner Aditya Agarwal posts three times. At 20:29 &ldquo;Also on YouTube&rdquo; over a link, 2 likes. At 22:54:15, one second before his last, he writes that someone being willing to invest at a certain valuation does not make it the right valuation for your company, 30 likes, 3 reposts, 4 replies; it quotes a post outside the feed. One second later, &ldquo;Full conversation with @traestephens at @spc&rdquo; over a link, 1 like, the second-lowest like count in the window. Two of the three point at the same conversation; the feed gives neither its content nor a name for the quoted post.</p>
+<p class="summary-zh zh">SPC 普通合伙人 Aditya Agarwal 发了三条。20:29 是「Also on YouTube」加链接，2 赞。22:54:15，也就是最后一条前一秒，他写「有人愿意按某个估值投资，不代表那个估值对你的公司就是对的」，30 赞、3 次转发、4 条回复，引用了 feed 之外的一条推文。一秒后是「与 @traestephens 在 @spc 的完整对谈」加链接，1 赞，是窗口里赞数倒数第二。三条里有两条指向同一场对谈，feed 既没给对谈内容，也没给被引用推文的名字。</p>
+<div class="urls"><a href="https://x.com/adityaag/status/2118440568070328555" target="_blank">https://x.com/adityaag/status/2118440568070328555</a><a href="https://x.com/adityaag/status/2118477020325884357" target="_blank">https://x.com/adityaag/status/2118477020325884357</a><a href="https://x.com/adityaag/status/2118477023891058762" target="_blank">https://x.com/adityaag/status/2118477023891058762</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Guillermo Rauch</span>
+<span class="builder-role">CEO, Vercel</span>
+</div>
+<p class="summary-en">Vercel CEO Guillermo Rauch posts three times, all quoting posts outside the feed, and all three are about agents doing things over time. At 20:30 he calls &ldquo;doing stuff for you over time&rdquo; the killer app of agents: Muse and Instinct consolidate memories at night, remind you of stuff in the morning, message you after N days since your last interaction; Vercel Schedules are &ldquo;like Cron on steroids&rdquo;, defined at runtime, scaling infinitely and sitting outside the Sandbox, so compute can be invoked cost-efficiently as needed. 256 likes, 6 reposts, 87 replies.</p>
+<p class="summary-en">At 22:03, &ldquo;SpaceXSI &#129309; Vercel / Grok and Cursor can now build, deploy, and scale&rdquo; over two links, 803 likes, 31 reposts, 64 replies. At 22:44 a five-step loop: get an X sub, build with Bot / Cursor, deploy to Vercel (scales from 0 to the moon), launch and distribute on X, monetize with X Money / Creators, &ldquo;The loop is nearly complete&rdquo;. 738 likes, 20 reposts, 98 replies. SpaceXSI is new to this series and the feed does not expand the name; Muse and Instinct have both appeared in earlier issues and are not firsts here.</p>
+<p class="summary-zh zh">Vercel CEO Guillermo Rauch 发了三条，三条都引用了 feed 之外的推文，也都在讲 agent 长时间替人做事。20:30 他把「长时间替你做事」称为 agent 的杀手级用法：Muse 和 Instinct 夜里整合记忆、早上提醒你、距上次互动过了 N 天就来消息；Vercel Schedules 是「加强版 Cron」，可在运行时定义、无限扩展、位于 Sandbox 之外，因此能按需低成本地调用算力。256 赞、6 次转发、87 条回复。</p>
+<p class="summary-zh zh">22:03 是「SpaceXSI &#129309; Vercel / Grok 和 Cursor 现在可以构建、部署、扩缩容」加两个链接，803 赞、31 次转发、64 条回复。22:44 给了五步闭环：开 X 订阅、用 Bot / Cursor 构建、部署到 Vercel（从 0 扩到月球）、在 X 上发布分发、用 X Money / Creators 变现，「闭环快完成了」。738 赞、20 次转发、98 条回复。SpaceXSI 在本系列是第一次出现，feed 没有展开这个名字；Muse 和 Instinct 此前都出现过，不是首次。</p>
+<div class="urls"><a href="https://x.com/rauchg/status/2118440831355068671" target="_blank">https://x.com/rauchg/status/2118440831355068671</a><a href="https://x.com/rauchg/status/2118464177211940997" target="_blank">https://x.com/rauchg/status/2118464177211940997</a><a href="https://x.com/rauchg/status/2118474519925158186" target="_blank">https://x.com/rauchg/status/2118474519925158186</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thibault Sottiaux</span>
+<span class="builder-role">Codex &amp; ChatGPT, OpenAI</span>
+</div>
+<p class="summary-en">OpenAI&rsquo;s Thibault Sottiaux, who works on Codex and ChatGPT, posts three times. At 22:39 Pacific, &ldquo;Generating*&rdquo; alone, 140 likes, 32 replies, with no object. At 05:00:41 the next morning he says humans were not very good at writing secure infrastructure, that the endstate will be hypersecure infrastructure and software for all, and that there will be turbulence before reaching it: 3,558 likes, 161 reposts, 417 replies, second in all three fields. Forty-nine seconds later, formal proofs of tens of millions of lines of code are no longer a ridiculous thing and belong in the realm of what should be considered when designing new systems, 543 likes, 20 reposts, 55 replies. No Day number, score or object appears in any of the three; the numbered counter that stopped after the 11-03 issue&rsquo;s Day 28 with Banked 2/2 is absent for a fourth consecutive issue. The two morning posts continue the direction of the 11-06 issue&rsquo;s &ldquo;world class cyber team&rdquo; but name no team, scope or date.</p>
+<p class="summary-zh zh">在 OpenAI 负责 Codex 和 ChatGPT 的 Thibault Sottiaux 发了三条。太平洋 22:39 只有「Generating*」，140 赞、32 条回复，没有宾语。次日 05:00:41 他说人类一直不太擅长写安全的基础设施，终局是人人都能用上的超安全基础设施和软件，但到那之前会经历一段动荡：3558 赞、161 次转发、417 条回复，三项都排第二。49 秒后补一条：对数千万行代码做形式化证明不再荒谬，设计新系统时该把它纳入考虑范围，543 赞、20 次转发、55 条回复。三条里没有编号、没有分数、也没有宾语；11-03 那期 Day 28 加 Banked 2/2 之后停掉的计数器，连续第四期缺席。两条晨间推文顺着 11-06 那期「世界级网络安全团队」的方向，但没给团队名字、范围或日期。</p>
+<div class="urls"><a href="https://x.com/thsottiaux/status/2118473288368406582" target="_blank">https://x.com/thsottiaux/status/2118473288368406582</a><a href="https://x.com/thsottiaux/status/2118569235953893573" target="_blank">https://x.com/thsottiaux/status/2118569235953893573</a><a href="https://x.com/thsottiaux/status/2118569441860723112" target="_blank">https://x.com/thsottiaux/status/2118569441860723112</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Amjad Masad</span>
+<span class="builder-role">CEO, Replit</span>
+</div>
+<p class="summary-en">Replit CEO Amjad Masad posts twice, both quoting posts outside the feed. At 00:38 Pacific he says there are so many Linux zero-day vulnerabilities these days but Replit avoids 96% of them with a custom Kernel build, and points to a write-up of the new sandbox design: 155 likes, 13 reposts, 39 replies. The 96% is self-reported and has no external check anywhere in the feed. At 00:50, &ldquo;Replit is the only collaborative AI coding system out there.&rdquo; over a link, 149 likes, 9 reposts, 51 replies. The superlative comes with no comparison set in the post.</p>
+<p class="summary-zh zh">Replit CEO Amjad Masad 发了两条，都引用 feed 之外的推文。太平洋 00:38 他说现在 Linux 零日漏洞太多，但 Replit 靠自研 Kernel 构建避开了其中 96%，并指向一篇讲新沙箱设计的文章：155 赞、13 次转发、39 条回复。96% 是自报，feed 里没有任何外部复核。00:50 是「Replit 是市面上唯一的协作式 AI 编程系统」加一个链接，149 赞、9 次转发、51 条回复。这句最高级说法没有给出比较对象。</p>
+<div class="urls"><a href="https://x.com/amasad/status/2118503241390665776" target="_blank">https://x.com/amasad/status/2118503241390665776</a><a href="https://x.com/amasad/status/2118506378440400951" target="_blank">https://x.com/amasad/status/2118506378440400951</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Garry Tan</span>
+<span class="builder-role">President &amp; CEO, Y Combinator</span>
+</div>
+<p class="summary-en">Y Combinator President and CEO Garry Tan posts three times. At 02:13 he calls something &ldquo;the first long horizon benchmark for PE/IB work&rdquo; and says solving high finance is on the path to AGI, 172 likes, 15 reposts, 34 replies; it quotes a post outside the feed and the benchmark is not named. At 04:15:06, in the same second as a link to his Walter Isaacson podcast conversation, he writes that this week&rsquo;s results make him optimistic about an unprecedented bipartisan opportunity to take on Big Tech&rsquo;s abuse of market power, that inventing powerful AI is only half the job, that Congress can open markets for Little Tech, and that AI&rsquo;s gains should be spread widely rather than concentrated in companies that already control distribution: 114 likes, 11 reposts, 30 replies. The other post of that second is a pointer with 20 likes. Walter Isaacson appeared once before in this series, in the 11-06 issue&rsquo;s podcast as a persona for a chapter-reviewing agent; that is a different context and is not merged here.</p>
+<p class="summary-zh zh">Y Combinator 总裁兼 CEO Garry Tan 发了三条。02:13 他把某个东西称为「首个面向 PE/IB 工作的长周期 benchmark」，并说解决高金融是通往 AGI 的路，172 赞、15 次转发、34 条回复；这条引用了 feed 之外的推文，benchmark 没有点名。04:15:06，与一条指向 Walter Isaacson 播客对谈的链接同一秒，他写本周结果让他乐观，认为出现了难得的跨党派机会去处理大型科技公司滥用市场权力、为下一代创业者打开市场；造出强大的 AI 只是一半工作，国会可以为 Little Tech 打开市场，AI 的收益应该尽量铺开，而不是进一步集中到已经掌控分发的公司手里：114 赞、11 次转发、30 条回复。同一秒的另一条只是个指引，20 赞。Walter Isaacson 在本系列此前出现过一次，是 11-06 那期播客里给审校章节的 agent 设定的一个人格，语境不同，不合并。</p>
+<div class="urls"><a href="https://x.com/garrytan/status/2118527182092071179" target="_blank">https://x.com/garrytan/status/2118527182092071179</a><a href="https://x.com/garrytan/status/2118557763156733984" target="_blank">https://x.com/garrytan/status/2118557763156733984</a><a href="https://x.com/garrytan/status/2118557765610377611" target="_blank">https://x.com/garrytan/status/2118557765610377611</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Yang</span>
+<span class="builder-role">Practical AI tutorials &amp; interviews</span>
+</div>
+<p class="summary-en">Peter Yang, who writes practical AI tutorials and interviews, posts three times, all short. At 02:24 a joke about telling his wife he is just buying a new internet router, 11 likes. At 02:55 he asks Suno and Tesla to add the app to cars by default, saying it is better than any radio and that driving while voice-dictating songs to listen to would be amazing, 15 likes, 13 replies. At 03:50, &ldquo;Yo it&rsquo;s just cardboard&rdquo; over a link, 7 likes. The middle one is a wish, not a product or a partnership.</p>
+<p class="summary-zh zh">写实用 AI 教程和访谈的 Peter Yang 发了三条，都很短。02:24 是「就跟老婆说买了个新路由器」的玩笑，11 赞。02:55 他喊话 Suno 和 Tesla 把这个 app 默认装进车里，说它比任何电台都好，边开车边语音口述生成歌来听会很棒，15 赞、13 条回复。03:50 是「这就是个纸板啊」加链接，7 赞。中间那条是许愿，不是产品，也不是合作。</p>
+<div class="urls"><a href="https://x.com/petergyang/status/2118530037431611880" target="_blank">https://x.com/petergyang/status/2118530037431611880</a><a href="https://x.com/petergyang/status/2118537836098203781" target="_blank">https://x.com/petergyang/status/2118537836098203781</a><a href="https://x.com/petergyang/status/2118551550859907392" target="_blank">https://x.com/petergyang/status/2118551550859907392</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Swyx</span>
+<span class="builder-role">smol_ai &middot; Cognition &middot; Latent Space</span>
+</div>
+<p class="summary-en">Swyx posts three times, all in the last three hours of the window. At 03:00 he asks people to put the pitchforks down: he chatted with someone and learned why he had been missing context and communication, says it is not a Sequoia-wide thing but a small gap he got caught in, that the quoted tweet has important inaccuracies and incomplete information he cannot share, and that it should be treated as unrelated to the broader Sequoia restructuring announced this week; 30 likes, 1 reply, and it quotes a post outside the feed. At 03:15 he recommends @brittwalker_ as a scout, 17 likes, 4 replies, also a quote of an outside post. At 06:20, the last post in the window, he lists the trumpet/clarinet, woodwinds and horn players needed for next year&rsquo;s show: 0 likes, 0 reposts, 0 replies, the lowest engagement in the window. Sequoia appeared once earlier in this series, on 09-17, in a funding context; the feed does not connect the two.</p>
+<p class="summary-zh zh">Swyx 发了三条，都落在窗口最后三小时。03:00 他请大家把叉子放下：聊过之后他明白了自己为什么漏掉了背景和沟通，说这不是 Sequoia 整体的问题，只是他卡进了一个小缝隙；被引用那条推文有重要的不准确和不完整之处，但他不能分享，基本应当把它和本周宣布的 Sequoia 整体重组当成无关。30 赞、1 条回复，引用了 feed 之外的一条推文。03:15 他推荐 @brittwalker_ 做 scout，17 赞、4 条回复，同样引用 feed 外推文。06:20 是窗口最后一条，列明年演出还缺小号/单簧管、木管、圆号乐手：0 赞、0 转发、0 回复，是窗口里互动最低的一条。Sequoia 在本系列此前出现过一次，09-17 那期是融资语境；feed 没有把两者连起来。</p>
+<div class="urls"><a href="https://x.com/swyx/status/2118538896434999759" target="_blank">https://x.com/swyx/status/2118538896434999759</a><a href="https://x.com/swyx/status/2118542845556691411" target="_blank">https://x.com/swyx/status/2118542845556691411</a><a href="https://x.com/swyx/status/2118589412011622728" target="_blank">https://x.com/swyx/status/2118589412011622728</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Madhu Guru</span>
+<span class="builder-role">Sr Director, AI at Meta</span>
+</div>
+<p class="summary-en">Madhu Guru, senior director of AI at Meta and previously at Google, posts once at 04:33: a good hang with @signulll, and a plan to make time to meet more of his Twitter friends through the end of the year, with an invitation to people in the Bay Area. 22 likes, 1 repost, 4 replies. It is a social note with no product or argument.</p>
+<p class="summary-zh zh">Meta 的 AI 高级总监、此前在 Google 的 Madhu Guru 在 04:33 只发了一条：今天和 @signulll 聊得很愉快，打算年底前多腾时间见见推特上的朋友，也邀请湾区的人找他。22 赞、1 次转发、4 条回复。这是一条社交内容，没有产品，也没有观点。</p>
+<div class="urls"><a href="https://x.com/realmadhuguru/status/2118562286256414897" target="_blank">https://x.com/realmadhuguru/status/2118562286256414897</a></div>
+</article>
+</section>
+<!-- ============== PODCAST ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#127911;</span>
+<h2 class="section-title">Podcast</h2>
+<span class="section-meta">1 Episode &middot; Fresh</span>
+</div>
+<div class="podcast">
+<div class="podcast-source">Unsupervised Learning</div>
+<div class="podcast-title">Ep 97: Jev Creator on Decision Models, Benchmark Fatigue &amp; Why the Labs Missed It</div>
+<p class="summary-en">Unsupervised Learning publishes Ep 97, &ldquo;Jev Creator on Decision Models, Benchmark Fatigue &amp; Why the Labs Missed It&rdquo;, at 2026-11-05T14:05:50Z, Pacific 11-05 06:05:50. It is on the same Pacific day as the window and before the snapshot, though 2h26m earlier than the window&rsquo;s first tweet; by this series&rsquo; rule it is fresh, not late. The feed&rsquo;s URL is the RedpointAI channel rather than a specific video and is reproduced as given. The host names himself at the end as Jacob Efron, an investor at Redpoint who runs the show as a nights and weekends project; the guest is introduced as Jev&rsquo;s creator and TypeSave&rsquo;s CEO. The machine transcript garbles his name as Jogo, Jojo and Jago and the model name as Jeb, Jab and gem, so no full name is supplied here. Unsupervised Learning is a regular source, most recently Ep 96 in the 11-05 issue; Ep 97 has no prior hit in 2026/.</p>
+<p class="summary-en">The most portable idea is a refusal. &ldquo;I&rsquo;m anti benchmarks.&rdquo; He says people have already stopped caring about new releases in his class of model because they have been lied to so many times, that benchmarks do not capture reliability, and that shipping the shape of a task without utility is &ldquo;pure overpromised, underdelivered&rdquo; that burns the goodwill developers need. His north star is reliability, not cost or speed: &ldquo;Why can we solve Millennium Prize problems in math but not automate anything touching accounting?&rdquo; He wants intelligence to be &ldquo;a lot like SQL&rdquo;, so reliable that it is provider agnostic, and says JEV is not there yet.</p>
+<p class="summary-en">The name Jev comes from Jevons paradox, which the transcript writes as &ldquo;Jevan&rsquo;s paradox&rdquo;. He says the rebound effect is real, cheaper intelligence gets thrown at more places, but backfire, a larger total market, has not happened yet: &ldquo;Absolutely not.&rdquo; The one estimate with numbers is coding agents: a 20 to 40% speedup, with error bars for long-term effects like skill degradation and tech debt, depending on the use case and the user&rsquo;s skill; some uses are &ldquo;kind of like an infinite percent speed up&rdquo;, others as bad as coding by hand, and on average &ldquo;a decent but small boost&rdquo;. On images he puts his own model at &ldquo;maybe 10% of the way that our text model is&rdquo;, calls it completely insufficient and says he would be embarrassed to call it prod ready. These are his characterizations, not measurements.</p>
+<p class="summary-en">The longest technical thread is what he calls the tyranny of the KV cache: nearly every coding-agent design decision is built around it, state becomes an append-only global dictionary, and this blocks effective routing and sub-agents. He floats alternatives, multiple agents sharing one context, semantic compaction, a cheap MapReduce over history, semantic dependent typing and semantic security checks on every tool call, and labels them a spoiler for a future release and &ldquo;cool sci fi&rdquo;, not shipped features. He also says the field is in a &ldquo;Stockholm syndrome&rdquo; where developers wait for model providers instead of pushing them, and that real-world usage feeds back into the roadmap &ldquo;almost none&rdquo;.</p>
+<p class="summary-en">On Anthropic&rsquo;s IPO he declines a valuation call: expectations are miscalibrated because some people value &ldquo;building god as basically infinite&rdquo;, and &ldquo;the let them cure cancer is going to be like Marie Antoinette&rsquo;s, let them eat cake&rdquo;. His sharpest claim about the labs is that their greatest strength is not models, product or distribution but financial engineering, especially on compute deals, and that a bubble can pop simply because expectations are missed, not because the technology stops being transformative. On safety he separates ASI, bio, cyber and trust-and-safety into different threat models, estimates true agency is two breakthroughs of gigantic magnitude away, and says treating Bostrom&rsquo;s Superintelligence as reality rather than interesting science fiction worries him. The host phrases Anthropic as a &ldquo;$1.52000000000000 dollar company&rdquo;; the transcript gives no unit or magnitude and it is not reconstructed here.</p>
+<p class="summary-en">He closes by asking the field to unlearn the lack of agency LLMs have taught it and &ldquo;get back to playing rather than being these victims of stuff&rdquo;, and to build &ldquo;playable AI&rdquo;. A producer read in the middle of the transcript, Anne Maris with a 35,000 subscriber target by year end, is a mid-roll spot and not a guest position. Proper nouns garbled by machine transcription, RLCD, &ldquo;Cohere QUEN 3.8 Next Flash&rdquo;, &ldquo;Opus five five&rdquo; and LangChain written as one word, are not silently corrected. One more note on the name: this series has recorded jev since 09-18 as a JSON classifier and a tool Thariq uses to classify his own activity; today&rsquo;s episode presents Jev as a model and a company with a word origin. The feed and the transcript do not say whether these are the same thing, so they are not merged here.</p>
+<p class="summary-zh zh">Unsupervised Learning 的 Ep 97《Jev Creator on Decision Models, Benchmark Fatigue &amp; Why the Labs Missed It》发布于 2026-11-05T14:05:50Z，即太平洋 11-05 06:05:50。它与窗口同属一个太平洋日、也在快照之前，但比窗口第一条推文早 2 小时 26 分；按本系列口径算新鲜，不算迟到。feed 给的 URL 是 RedpointAI 频道页而不是具体视频，按原样照录。主持人在结尾自报 Jacob Efron，是 Redpoint 的投资人，这档节目是他在本职工作之外夜间和周末做的；嘉宾在转写里被介绍为 Jev 的创造者、TypeSave 的 CEO。机器转写把他的名字读成 Jogo、Jojo、Jago，把模型名读成 Jeb、Jab、gem，所以这里不补全名。Unsupervised Learning 是本系列常客，最近一次是 11-05 那期的 Ep 96；Ep 97 在 2026/ 下零命中。</p>
+<p class="summary-zh zh">最容易被带走的是一个否定：「我反对 benchmark。」他说自己这类模型的新发布大家已经不在乎了，因为被骗过太多次；benchmark 量不到可靠性；只交出任务的「形状」而不管有没有用，是「彻头彻尾的过度承诺、交付不足」，会烧掉开发者本就需要的信任。他的北极星是可靠性，不是成本或速度：「为什么我们能解千禧年大奖数学难题，却自动化不了任何碰会计的活？」他希望智能「很像 SQL」，可靠到与供应商无关，并说 JEV 还没到那一步。</p>
+<p class="summary-zh zh">Jev 这个名字来自 Jevons 悖论，转写把它写成「Jevan&rsquo;s paradox」。他说回弹效应是有的，更便宜的智能会被撒到更多地方；但反噬，也就是总市场规模变大，目前「绝对没有」。全篇唯一带数字的估计是编码 agent：提速 20% 到 40%，并给技能退化、技术债这类长期影响留了误差区间，还取决于用例和使用者的水平；有些场景「差不多是无限倍提速」，有些差到跟手写一样，平均是「不大但实在的提升」。图像模型他自评「大概只有文本模型的 10%」，说它完全不够用，真要称它 prod ready 会让他难为情。这些是他的定性，不是测量结果。</p>
+<p class="summary-zh zh">最长的一段技术线索是他所说的 KV cache 的暴政：编码 agent 几乎所有设计决策都围着它转，状态变成只能追加的全局大字典，这让路由和 sub-agent 都难以真正生效。他抛了几组替代设想：多个 agent 共享同一份上下文、按语义做 compaction、对历史做一次极便宜的 MapReduce、语义化的依赖类型、以及给每一次 tool call 加语义安全检查；并明确把它们称作未来某次发布的剧透和「很酷的科幻」，不是已上线功能。他也说整个领域陷在一种「斯德哥尔摩综合征」里，开发者等模型厂商给东西而不是去推着厂商走，而真实使用反馈进入路线图的比例「几乎没有」。</p>
+<p class="summary-zh zh">谈 Anthropic 上市，他拒绝给估值判断：预期之所以错配，是因为有人把「造神」按近乎无限来估值，「让他们去攻克癌症，会变成玛丽·安托瓦内特那句让他们吃蛋糕」。他对实验室最锐利的一句是，它们最强的不是模型、产品或分发，而是财务工程，尤其在算力交易上；泡沫可以仅仅因为预期没兑现而破，不因为技术不再具有变革性。谈安全，他把 ASI、生物、网络、信任与安全拆成不同的威胁模型，估计真正的自主性还差「两次巨大量级的突破」，并说把 Bostrom 的《Superintelligence》当现实、而不是当一本科幻佳作来看，让他担心。主持人把 Anthropic 说成「一家 $1.52000000000000 美元的公司」，转写没给单位和量级，这里不做还原。</p>
+<p class="summary-zh zh">收尾他请这个领域把 LLM 教给它的那种「没有主动权」重新忘掉，「回去玩，而不是当受害者」，去做「可玩的 AI」。转写中段有一段制作人 Anne Maris 的插播，说年底要达到 35,000 订阅、否则会被解雇，那是中插广告，不是嘉宾立场。机器转写读错的专名，RLCD、「Cohere QUEN 3.8 Next Flash」、「Opus five five」、把 LangChain 连成一个词，都不静默修正。还有一处同名要交代：本系列自 09-18 起记录的 jev，是一个 JSON 分类器，也是 Thariq 用来给自己的活动分类的工具；本期播客把 Jev 呈现为带词源的模型与公司。feed 和转写都没说两者是不是同一个东西，因此这里不合并。</p>
+<div class="urls"><a href="https://www.youtube.com/@RedpointAI" target="_blank">https://www.youtube.com/@RedpointAI</a></div>
+</div>
+</section>
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128161;</span>
+<h2 class="section-title">The Takeaway</h2>
+<span class="section-meta">2026-11-07</span>
+</div>
+<div class="takeaway">
+<div class="takeaway-label">The Takeaway</div>
+<p>Claude&rsquo;s Personal Finance launch takes all three engagement fields by a wide margin, 30,096 likes, 1,488 reposts and 1,058 replies, the only post above ten thousand likes and the only one above a thousand reposts or replies. It is also the window&rsquo;s only first-party product post with its boundaries stated in the same breath: read-only access, no moving or investing money, no ads or sponsored recommendations, not investment advice, beta in the US on Pro, Max and Ultra. A second post in the same second, 1,375 likes, adds the rest.</p>
+<p>Sottiaux&rsquo;s two morning posts, 49 seconds apart, are second in all three fields with 3,558 likes, 161 reposts and 417 replies. They turn the 11-06 issue&rsquo;s &ldquo;world class cyber team&rdquo; into a position: humans were not good at writing secure infrastructure, the endstate is hypersecure, turbulence comes first, and formal proofs of tens of millions of lines of code now belong in system design. No team, scope or date is given, and no Day number, score or object appears in any of his three posts. The numbered counter has been absent for four consecutive issues since Day 28 with Banked 2/2 on 11-03.</p>
+<p>Two independent sources speak about agents that work over time without referencing each other. Thariq gives a concrete location-based reminder prompt for agents like Instinct, 2,351 likes. Rauch&rsquo;s three posts name Muse and Instinct consolidating memories at night, Vercel Schedules as &ldquo;Cron on steroids&rdquo;, and a five-step loop from an X sub to X Money. Neither gives a measurement, and neither Muse nor Instinct is new to this series.</p>
+<p>Heat and checkable information point in opposite directions again. The window&rsquo;s most complete enterprise argument, Levie&rsquo;s 100X agents and 90% unstructured data with an NVIDIA context-retrieval partnership, takes 140 likes, and both 100X and 90% arrive without a baseline or a source. Amjad&rsquo;s 96% of Linux zero-days avoided by a custom Kernel build is self-reported with no external check, 155 likes. The second most-liked post is Sottiaux&rsquo;s position, which is also unmeasured.</p>
+<p>The podcast is new, Ep 97, and gives the name jev its first outing here as a company and a model, with a word origin in Jevons paradox; the series has recorded jev since 09-18 in a different form and the two are not merged. Its most portable ideas are two refusals: benchmarks do not capture reliability, and the image model is only about 10% of the way to the text model. Its one numeric estimate is a 20 to 40% coding-agent speedup, explicitly qualified by use case, user skill and long-term error bars.</p>
+<p>Three numbers arrive with no subject or baseline: 100X, 90% and 96%. SpaceXSI appears for the first time in this series inside Rauch&rsquo;s post and the feed does not expand it. The title&rsquo;s Decision Models has two earlier hits, on 10-03 and 11-02, in different contexts; no identity is asserted. Peter Steinberger&rsquo;s Safari complaint is a first-person question with concrete reasons behind it, and the feed carries no answer.</p>
+<p>Coverage has no gap. All 29 posts sit inside Pacific 11-05, from 08:32:27 to 22:20:51, closing 8m19s before the snapshot at Pacific 11-05 22:29:10; the previous snapshot was 2026-11-05T06:28:43Z, one day earlier. The podcast was published at Pacific 11-05 06:05:50, the same Pacific day and 2h26m before the first tweet. Pacific 10-29 and 10-30 remain permanently missing from two cron runs that did not fire. This issue was written at Pacific 11-06 18:19, about 20 hours after the snapshot.</p>
+</div>
+<div class="takeaway zh">
+<div class="takeaway-label">核心结论</div>
+<p>Claude 的 Personal Finance 发布拿走三项互动第一且大幅领先：30096 赞、1488 次转发、1058 条回复，是窗口里唯一过万赞、也是唯一转发和回复都过千的一条。它也是窗口里唯一一条在一口气之内把边界说清的第一方产品发布：只读权限、不能转账或投资、没有广告和赞助推荐、不用于给投资建议、在美国按 Pro、Max、Ultra 开启 beta。同一秒的第二条 1375 赞，把剩下的边界补齐。</p>
+<p>Sottiaux 相隔 49 秒的两条晨间推文，3558 赞、161 次转发、417 条回复，三项都排第二，把 11-06 那期「世界级网络安全团队」变成了一个立场：人类不擅长写安全基础设施，终局是超安全，动荡在先，数千万行代码的形式化证明现在该进系统设计。团队、范围、日期都没给，三条里也没有编号、分数或宾语。自 11-03 那期 Day 28 加 Banked 2/2 之后，编号计数器已连续四期缺席。</p>
+<p>两个独立信源都在讲长时间替人做事的 agent，彼此没有引用。Thariq 给了一个具体的基于位置的提醒 prompt，对象写作 Instinct，2351 赞。Rauch 的三条点名 Muse 和 Instinct 夜里整合记忆、把 Vercel Schedules 称作「加强版 Cron」，还给了从 X 订阅到 X Money 的五步闭环。两人都没给测量，Muse 和 Instinct 在本系列也都不是新名字。</p>
+<p>热度和可核对的信息量再一次朝相反方向走。窗口里最完整的企业论证是 Levie 的 100 倍 agent、90% 非结构化数据，加上与 NVIDIA 的 context retrieval 合作，只有 140 赞，而 100 倍和 90% 都没给基线或出处。Amjad 那个「自研 Kernel 避开 96% 的 Linux 零日漏洞」是自报、feed 里没有外部复核，155 赞。赞数第二的 Sottiaux 立场同样不带测量。</p>
+<p>播客是新的一集 Ep 97，也是 jev 这个名字在本系列第一次以公司和模型的身份出场，还给了 Jevons 悖论的词源；本系列自 09-18 起记录的 jev 是另一种形态，两者不合并。最容易被带走的是两个否定：benchmark 量不到可靠性，图像模型大约只有文本模型的 10%。全篇唯一带数字的估计是编码 agent 提速 20% 到 40%，并且明确按用例、使用者水平和长期误差打了折扣。</p>
+<p>三组数字没有主语或基线：100 倍、90%、96%。SpaceXSI 在 Rauch 那条里首次进入本系列，feed 没有展开这个名字。标题里的 Decision Models 在 10-03 和 11-02 两期有过不同语境的命中，不代为判断是否同一概念。Steinberger 抱怨 Safari 那条带着具体理由，是一个第一人称提问，feed 里没有答案。</p>
+<p>这次覆盖没有缺口。29 条全部落在太平洋 11-05，从 08:32:27 到 22:20:51，在快照太平洋 11-05 22:29:10 之前 8 分 19 秒收口；上一份快照是 2026-11-05T06:28:43Z，相隔一天。播客发布于太平洋 11-05 06:05:50，同一个太平洋日，比第一条推文早 2 小时 26 分。太平洋 10-29 与 10-30 仍因两次 cron 未触发而永久缺失。本期成文于太平洋 11-06 18:19，比快照晚约 20 小时。</p>
+</div>
+</section>
+<!-- ============== NOTES ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128221;</span>
+<h2 class="section-title">记录 / Notes &amp; Dedup</h2>
+<span class="section-meta">29 Zero &middot; 1 Fresh &middot; 0 Dedup</span>
+</div>
+<div class="dedup">
+<p style="margin-top:12px"><strong>Tweet check</strong> &mdash; All 29 tweet IDs were matched against the 118 HTML files under 2026/ and returned zero hits. Eleven of the 29 are quote tweets; the 11 quoted IDs are all distinct, all sit outside the feed, and no two point at the same outside ID. There is no in-feed quote group in this window.</p>
+<p style="margin-top:12px"><strong>Podcast check</strong> &mdash; The slot is 1 and it is fresh. Published 2026-11-05T14:05:50Z, Pacific 11-05 06:05:50, on the same Pacific day as the window and 2h26m before its first tweet. Ep 97, Jev Creator, Benchmark Fatigue and Why the Labs Missed It have zero prior hits in 2026/; Decision Models hits two earlier issues (10-03, 11-02) in different contexts and is not treated as the same concept. Unsupervised Learning is a regular source, most recently Ep 96 on 11-05. The RedpointAI channel URL appears in eight earlier issues as a channel-level resource and is not dedup evidence. The URL is reproduced as given, a channel page rather than a specific video.</p>
+<p style="margin-top:12px"><strong>Blog check</strong> &mdash; The slot is 0 by emptiness: the blogs array came back empty. This is the thirteenth consecutive empty issue: 10-21, 10-22, 10-26, 10-27, 10-28, 10-29, 10-30, 11-02, 11-03, 11-04, 11-05, 11-06 and today.</p>
+<p style="margin-top:12px"><strong>Transcript</strong> &mdash; The transcript labels speakers 1 and 2; speaker 1 hosts and names himself at the end as Jacob Efron of Redpoint, speaker 2 is the guest. A mid-roll producer read, Anne Maris with a 35,000 subscriber target by year end, is an ad spot and not a guest position. Garbled proper nouns, Jogo / Jojo / Jago, Jeb / Jab / gem, TypeSave, RLCD, Cohere QUEN 3.8 Next Flash, Opus five five, and the host&rsquo;s $1.52000000000000 dollar phrasing, are not silently corrected or reconstructed. The guest&rsquo;s OpenAI past, the Jevons word origin and the 20-40% estimate are attributed to his own account.</p>
+<p style="margin-top:12px"><strong>Same names</strong> &mdash; Five spellings recur here from earlier issues in different senses. jev has been recorded since 09-18 as a JSON classifier and Thariq&rsquo;s activity classifier; today it is a model and a company with a word origin, and the two are not merged. Decision Models hit 10-03 and 11-02 in other contexts. Personal Finance hit 09-21 as ChatGPT Finances prompts. Walter Isaacson hit 11-06 as a chapter-reviewing agent persona. Sequoia hit 09-17 in a funding context. SpaceXSI has no prior hit.</p>
+<p style="margin-top:12px"><strong>Thin posts</strong> &mdash; Twelve of the 29 carry no argument of their own: Steinberger&rsquo;s Thursday pointer, Dan Shipper&rsquo;s Thesis 2027 line, Levie&rsquo;s bare link, two of Aditya&rsquo;s three pointers, Sottiaux&rsquo;s Generating*, Peter Yang&rsquo;s three short posts, Swyx&rsquo;s scout note and musician list, and Madhu Guru&rsquo;s social note. All are given links inside their own cards. Every one of the 29 posts has a link, so the stats strip, section meta, index meta and body link count agree.</p>
+<p style="margin-top:12px"><strong>Coverage</strong> &mdash; Three timestamps: the snapshot is 2026-11-06T06:29:10.275Z, Pacific 11-05 22:29:10, converted with UTC-8 because Pacific daylight time ended on 11-01; this issue was written at Pacific 11-06 18:19; the previous snapshot was 2026-11-05T06:28:43.321Z, one day earlier. All 29 tweets fall on Pacific 11-05, 08:32:27 to 22:20:51, with no gap. Pacific 10-29 and 10-30 remain permanently missing.</p>
+<p style="margin-top:12px"><strong>Engagement fields</strong> &mdash; Likes, reposts and replies are populated on all 29 posts; this feed has no quotes field and none is used. Likes top five: Claude 30,096, Sottiaux 3,558, Thariq 2,351, Claude 1,375, Rauch 803. Reposts top three: 1,488, 161, 45. Replies top three: 1,058, 417, 165. Lowest is Swyx&rsquo;s musician list at 0 likes, 0 reposts, 0 replies; next is Aditya&rsquo;s conversation pointer at 1 like. Every &ldquo;most&rdquo; or &ldquo;lowest&rdquo; claim above was checked against a full-window sort first.</p>
+<p style="margin-top:12px"><strong>Absent</strong> &mdash; Thirteen accounts posted. Of the 24 names on the tracked list, seven appear: Garry Tan, Peter Steinberger, Peter Yang, Guillermo Rauch, Amjad Masad, Swyx and Aditya Agarwal. Six accounts in the feed are outside that list: Thibault Sottiaux, Madhu Guru, Thariq, Aaron Levie, Claude and Dan Shipper. Sam Altman, who led the 11-05 issue, is absent for a second issue.</p>
+<p style="margin-top:12px"><strong>Not resolved</strong> &mdash; Will a Day 29 or a 3/x banked fraction appear, and what was ever being counted; what dot is; whether the jev recorded since 09-18 and the Jev in today&rsquo;s podcast are the same thing; a second source or external check for Personal Finance, Vercel Schedules and Replit&rsquo;s 96%; what SpaceXSI is; Particle-1&rsquo;s link, benchmark and the baseline for 1/23; HackerTube&rsquo;s second source; a product name and launch date for the Grok Bot; Nebius&rsquo;s 1% of AWS and tenfold, and Levie&rsquo;s 5-10X, with checkable baselines; WebMCP beyond four mentions; what Argon is; Sol 6 scores; ViBench 2.0 scores; the Legora eval heat map results. Fixed dates: Opal shuts down 2026-11-17; Vercel Security Reviews are free until Nov 10.</p>
+</div>
+<div class="dedup zh" style="margin-top:14px">
+<p style="margin-top:12px"><strong>推文核对</strong> &mdash; 本窗口 29 个推文 ID 全部与 2026/ 下 118 个 HTML 文件比对过，零命中。29 条里 11 条是引用推文，11 个被引用 ID 互不相同、全部在 feed 之外，也没有两条指向同一个外部 ID。本期窗口没有 feed 内引用组。</p>
+<p style="margin-top:12px"><strong>播客核对</strong> &mdash; 这一格是 1，而且新鲜。发布于 2026-11-05T14:05:50Z，即太平洋 11-05 06:05:50，与窗口同一个太平洋日，比第一条推文早 2 小时 26 分。Ep 97、Jev Creator、Benchmark Fatigue 和 Why the Labs Missed It 在 2026/ 下零命中；Decision Models 在 10-03、11-02 两期有过不同语境的命中，不当成同一概念。Unsupervised Learning 是本系列常客，最近一次是 11-05 那期的 Ep 96。RedpointAI 频道 URL 在此前 8 期出现过，属频道级资源，不作去重证据。URL 按 feed 原样照录，是频道页而不是具体视频。</p>
+<p style="margin-top:12px"><strong>博客核对</strong> &mdash; 这一格是 0，成因是空数组：blogs 数组返回为空。这是连续第十三期为空：10-21、10-22、10-26、10-27、10-28、10-29、10-30、11-02、11-03、11-04、11-05、11-06 和今天。</p>
+<p style="margin-top:12px"><strong>转写</strong> &mdash; 转写把说话人标成 1、2 号：1 号主持，结尾自报是 Redpoint 的 Jacob Efron，2 号是嘉宾。中段制作人 Anne Maris 的插播（年底 35,000 订阅目标）是广告口播，不是嘉宾立场。读错的专名，Jogo／Jojo／Jago、Jeb／Jab／gem、TypeSave、RLCD、Cohere QUEN 3.8 Next Flash、Opus five five，以及主持人那句 $1.52000000000000 美元，都不静默修正、也不代为还原。嘉宾的 OpenAI 经历、Jevons 词源和 20-40% 估计，均按他本人自述照录。</p>
+<p style="margin-top:12px"><strong>同名</strong> &mdash; 有五个写法在此前各期以不同含义出现过。jev 自 09-18 起被记为一个 JSON 分类器、也是 Thariq 给活动分类的工具；今天它是带词源的模型与公司，两者不合并。Decision Models 在 10-03、11-02 是别的语境。Personal Finance 在 09-21 是 ChatGPT Finances 的提示词。Walter Isaacson 在 11-06 是审校章节的 agent 人格。Sequoia 在 09-17 是融资语境。SpaceXSI 全站零命中。</p>
+<p style="margin-top:12px"><strong>薄内容</strong> &mdash; 29 条里有 12 条本身不承载观点：Steinberger 的「普通周四」、Dan Shipper 的 Thesis 2027、Levie 的裸链接、Aditya 三条里的两个指引、Sottiaux 的 Generating*、Peter Yang 三条、Swyx 的 scout 推荐与乐手清单、Madhu Guru 的社交邀约。全部在各自卡片里给了链接。29 条推文每条都有链接，因此 stats strip、section meta、index meta 与正文链接数四处天然一致。</p>
+<p style="margin-top:12px"><strong>覆盖</strong> &mdash; 三个时间戳：快照 2026-11-06T06:29:10.275Z 即太平洋 11-05 22:29:10，按 UTC-8 换算，因为太平洋夏令时已在 11-01 结束；本期成文于太平洋 11-06 18:19；上一份快照是 2026-11-05T06:28:43.321Z，相隔一天。29 条全部落在太平洋 11-05，08:32:27 到 22:20:51，无缺口。太平洋 10-29 与 10-30 仍永久缺失。</p>
+<p style="margin-top:12px"><strong>互动字段</strong> &mdash; 29 条的 likes、reposts、replies 全有值，这个 feed 没有 quotes 字段，不使用。赞数前五：Claude 30096、Sottiaux 3558、Thariq 2351、Claude 1375、Rauch 803。转发前三：1488、161、45。回复前三：1058、417、165。最低是 Swyx 的乐手清单，0 赞、0 转发、0 回复；其次是 Aditya 的对谈指引，1 赞。上面每一处「最」和「最低」都先做了全窗口排序核对。</p>
+<p style="margin-top:12px"><strong>缺席</strong> &mdash; 有内容的账号 13 个。追踪名单 24 位里出现 7 位：Garry Tan、Peter Steinberger、Peter Yang、Guillermo Rauch、Amjad Masad、Swyx、Aditya Agarwal。feed 里另外 6 个账号不在名单上：Thibault Sottiaux、Madhu Guru、Thariq、Aaron Levie、Claude、Dan Shipper。11-05 那期三项第一的 Sam Altman 连续第二期缺席。</p>
+<p style="margin-top:12px"><strong>未闭环</strong> &mdash; Day 29 或 3/x 的分数会不会出现、被数与被 banked 的到底是什么；dot 是什么；09-18 起记录的 jev 与本期播客的 Jev 是不是同一个东西；Personal Finance、Vercel Schedules 和 Replit 那个 96% 会不会有第二信源或外部复核；SpaceXSI 是什么；Particle-1 的链接、基准与 1/23 的对照基线；HackerTube 的第二信源；Grok Bot 的产品名与上线日期；Nebius 的 1% of AWS 与 tenfold、Levie 的 5-10X 会不会有可核对基线；WebMCP 会不会超出四次提名；Argon 是什么；Sol 6 分数；ViBench 2.0 分数；Legora 的 eval heat map 结果。已定日期：Opal 2026-11-17 关停；Vercel Security Reviews 免费到 11 月 10 日。</p>
+</div>
+</section>
+<footer class="footer">
+<div class="next-issue">&#128236; &#19979;&#19968;&#26399;&#65306;&#26126;&#22825; 10:00&#65288;&#21271;&#20140;&#26102;&#38388;&#65289;</div>
+<div class="signature">by chloevchen</div>
+</footer>
+
+<!-- by chloevchen -->
+</body>
+</html>
