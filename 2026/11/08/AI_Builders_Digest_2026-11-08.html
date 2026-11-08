@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Builders Digest &middot; 2026-11-08</title>
+<style>
+
+
+
+
+
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 28px 30px; margin-bottom: 24px; }
+  .podcast-source { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
+  .podcast-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; margin-bottom: 18px; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; }
+
+
+</style>
+</head>
+<body>
+<header class="topbar">
+<div class="topbar-inner">
+<a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders &middot; AI Builders Digest</a>
+<span>双语 &middot; Bilingual</span>
+</div>
+</header>
+<section class="header">
+<div class="eyebrow">Daily Digest &middot; 2026-11-08</div>
+<h1>AI Builders Digest</h1>
+</section>
+<div class="stats">
+<div class="stat"><div class="stat-num">13</div><div class="stat-label">Builders</div></div>
+<div class="stat"><div class="stat-num">29</div><div class="stat-label">Tweets</div></div>
+<div class="stat"><div class="stat-num">1</div><div class="stat-label">Podcast</div></div>
+<div class="stat"><div class="stat-num">0</div><div class="stat-label">Blog</div></div>
+</div>
+<p class="note-line">Three words, &ldquo;It&rsquo;s Friday&rdquo;, take all three engagement fields and are quoted by their own author four hours later. A single outside ID is answered twice, and the podcast&rsquo;s most portable idea is a demand to run the baseline first.</p>
+<p class="note-line zh">三个词「It's Friday」拿走三项互动第一，四小时后被作者自己引用。一个 feed 外 ID 被回应了两次，播客里最容易被带走的是一句「先把 baseline 做了」。</p>
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128036;</span>
+<h2 class="section-title">X / Twitter</h2>
+<span class="section-meta">13 Builders &middot; 29 Tweets</span>
+</div>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nikunj Kothari</span>
+<span class="builder-role">Partner, FPV Ventures</span>
+</div>
+<p class="summary-en">FPV Ventures partner Nikunj Kothari posts three times. His 23:27 Pacific post on 11-05 is the earliest in the window, a one-liner about startups talking about their views on X when most of them were paid partnerships, 16 likes, 3 reposts, 4 replies. At 09:33 the next morning he writes the window's longest post, 2,122 characters of satire on building a 100M company in two weeks before Thanksgiving: raise $2M, spend $200k on the launch video, $200k promoting it and $500k on tokens, collect LOIs and cARR from friendly customers, tranche the seed at 40M, 80M and 100M, incorporate as late as possible and claim 0 to 10M in revenue on day 14. He closes by saying it is satire but every sentence in it has personally happened to him. 72 likes, 1 repost, 18 replies.</p>
+<p class="summary-en">At 14:58 he reintroduces texts wrapped, a tool that analyses iMessage, WhatsApp and phone calls with one terminal command and full disk access, running 100% local on Mac, with no AI and open source, 5 likes. The name texts wrapped has no prior hit in 2026/.</p>
+<p class="summary-zh zh">FPV Ventures 合伙人 Nikunj Kothari 发了三条。太平洋 11-05 23:27 那条是窗口里最早的一条，一句话调侃创业公司在 X 上谈观点、而其中大多数是付费合作，16 赞、3 次转发、4 条回复。次日 09:33 他写了窗口里最长的一条，2122 个字符的讽刺文，讲怎么在感恩节前两周造出一家 1 亿美元公司：募 200 万，20 万拍发布视频、20 万做推广、50 万烧 token，从相熟客户那里拿 LOI 和 cARR，种子轮按 4000 万、8000 万、1 亿分档，公司尽量晚注册，好在第 14 天宣称收入从 0 做到 1000 万。结尾他自己注明这是讽刺，但里面每一句单独都亲身发生过。72 赞、1 次转发、18 条回复。</p>
+<p class="summary-zh zh">14:58 他重新介绍 texts wrapped，一个用一条终端命令加全盘访问权分析 iMessage、WhatsApp 和通话记录的工具，Mac 上 100% 本地运行、不用 AI、开源，5 赞。texts wrapped 这个名字在 2026/ 下此前零命中。</p>
+<div class="urls"><a href="https://x.com/nikunj/status/2118606231405547841" target="_blank">https://x.com/nikunj/status/2118606231405547841</a><a href="https://x.com/nikunj/status/2118758688567792008" target="_blank">https://x.com/nikunj/status/2118758688567792008</a><a href="https://x.com/nikunj/status/2118840414853861627" target="_blank">https://x.com/nikunj/status/2118840414853861627</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Dan Shipper</span>
+<span class="builder-role">CEO, Every</span>
+</div>
+<p class="summary-en">Every CEO Dan Shipper posts twice, both short. At 06:10 Pacific, the single word &ldquo;banger&rdquo; over a link, 154 likes, 6 reposts, 4 replies, quoting a post outside the feed. At 09:26 a team photo captioned &ldquo;the @every team, nov 2026&rdquo; with &ldquo;so proud of this crew!&rdquo;, 206 likes, 12 reposts, 30 replies. Neither carries an argument, and the feed gives no content for the quoted post.</p>
+<p class="summary-zh zh">Every CEO Dan Shipper 发了两条，都很短。太平洋 06:10 是只有一个词的「banger」加一个链接，154 赞、6 次转发、4 条回复，引用了 feed 之外的一条推文。09:26 是一张团队合影，配文「the @every team, nov 2026」和「so proud of this crew!」，206 赞、12 次转发、30 条回复。两条都不承载观点，feed 也没给被引用推文的内容。</p>
+<div class="urls"><a href="https://x.com/danshipper/status/2118707652918485148" target="_blank">https://x.com/danshipper/status/2118707652918485148</a><a href="https://x.com/danshipper/status/2118757047026028939" target="_blank">https://x.com/danshipper/status/2118757047026028939</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aaron Levie</span>
+<span class="builder-role">CEO, Box</span>
+</div>
+<p class="summary-en">Box CEO Aaron Levie posts once at 07:12 Pacific: &ldquo;The future is files. And GPUs.&rdquo; over a link, 208 likes, 20 reposts, 41 replies. The same two words, files and GPUs, closed his NVIDIA context-retrieval partnership post in the 11-07 issue as &ldquo;Files &#129309; GPUs&rdquo;. This is a second outing of the phrase by the same author, with no new numbers, product or announcement attached in the feed.</p>
+<p class="summary-zh zh">Box CEO Aaron Levie 在太平洋 07:12 只发了一条：「The future is files. And GPUs.」加一个链接，208 赞、20 次转发、41 条回复。files 和 GPUs 这两个词在 11-07 那期已经出现过，是他宣布与 NVIDIA 做 context retrieval 合作那条推文的结尾「Files &#129309; GPUs」。这是同一作者第二次用这个说法，feed 里没有附带新数字、新产品或新公告。</p>
+<div class="urls"><a href="https://x.com/levie/status/2118723097901846580" target="_blank">https://x.com/levie/status/2118723097901846580</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aditya Agarwal</span>
+<span class="builder-role">General Partner, SPC</span>
+</div>
+<p class="summary-en">SPC general partner Aditya Agarwal posts twice in the same second, 07:51:47 and 07:51:48 Pacific. The first: &ldquo;SpaceX didn&rsquo;t build Starship overnight. Ambitious technology demands both urgency &amp; patience.&rdquo; over two links, 20 likes, 3 reposts, 1 reply, quoting a post outside the feed. One second later, a pointer reading &ldquo;Full conversation at @spc with @traestephens&rdquo;, 4 likes and zero on the other two fields. The same conversation was pointed at once before, in the 11-07 issue, and the feed still gives neither its content nor a name for the quoted post. Starship has no prior hit in 2026/.</p>
+<p class="summary-zh zh">SPC 普通合伙人 Aditya Agarwal 在同一秒连发两条，太平洋 07:51:47 与 07:51:48。第一条是「SpaceX 不是一夜造出 Starship 的，有野心的技术既需要紧迫也需要耐心」加两个链接，20 赞、3 次转发、1 条回复，引用了 feed 之外的一条推文。一秒后是「与 @traestephens 在 @spc 的完整对谈」指引，4 赞，其余两项为 0。同一场对谈在 11-07 那期已经出现过一次指引，feed 到现在既没给对谈内容，也没给被引用推文的名字。Starship 在 2026/ 下此前零命中。</p>
+<div class="urls"><a href="https://x.com/adityaag/status/2118733089887170878" target="_blank">https://x.com/adityaag/status/2118733089887170878</a><a href="https://x.com/adityaag/status/2118733093230240144" target="_blank">https://x.com/adityaag/status/2118733093230240144</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thariq</span>
+<span class="builder-role">formerly Claude Code, Anthropic</span>
+</div>
+<p class="summary-en">Thariq, formerly of Claude Code at Anthropic, posts three times. At 11:31 Pacific, &ldquo;feels like it&rsquo;s really coming together&rdquo; over a link, 1,327 likes, 11 reposts, 115 replies. At 13:46 he names a pattern he likes: creator apps such as Instagram Edits and Roblox Studio shipping with built-in MCPs, so agents can do part of the work while power users keep collaborating in the tools they already use, 1,130 likes, 22 reposts, 107 replies. MCP has appeared many times in this series and is not new here.</p>
+<p class="summary-en">At 16:13, &ldquo;too many people building agents and not enough people using software to improve the quality of fish&rdquo; over a link, 2,269 likes, 62 reposts, 73 replies, second on likes and reposts in the window. It quotes the same outside ID as Nan Yu&rsquo;s shrimp-welfare post at 14:01; the two are one group of responses to an object the feed does not show, not two independent sources.</p>
+<p class="summary-zh zh">曾在 Anthropic 做 Claude Code 的 Thariq 发了三条。太平洋 11:31 是「感觉真的要成型了」加一个链接，1327 赞、11 次转发、115 条回复。13:46 他点出一个自己喜欢的模式：Instagram Edits、Roblox Studio 这类创作工具把 MCP 直接内置进来，agent 可以做掉一部分工作，重度用户则继续在自己惯用的工具里协作，1130 赞、22 次转发、107 条回复。MCP 在本系列出现过很多次，不是首次。</p>
+<p class="summary-zh zh">16:13 是「做 agent 的人太多，用软件去改善鱼的质量的人太少」加一个链接，2269 赞、62 次转发、73 条回复，赞数和转发都排窗口第二。它和 Nan Yu 在 14:01 那条关于虾的推文引用的是同一个 feed 外 ID，两条是针对同一个不可见对象的一组回应，不算两个独立信源。</p>
+<div class="urls"><a href="https://x.com/trq212/status/2118788283564179513" target="_blank">https://x.com/trq212/status/2118788283564179513</a><a href="https://x.com/trq212/status/2118822238262853904" target="_blank">https://x.com/trq212/status/2118822238262853904</a><a href="https://x.com/trq212/status/2118859267314958761" target="_blank">https://x.com/trq212/status/2118859267314958761</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Matt Turck</span>
+<span class="builder-role">VC, FirstMark Capital</span>
+</div>
+<p class="summary-en">FirstMark Capital VC Matt Turck posts once at 11:43 Pacific: a joke about how VCs who got into the second tranche of a hot deal look at the VCs in the third tranche, over a link, 128 likes, 1 repost, 5 replies. It is a one-line joke with no argument attached.</p>
+<p class="summary-zh zh">FirstMark Capital 投资人 Matt Turck 在太平洋 11:43 只发了一条：拿「挤进热门项目第二档的 VC 怎么看第三档的 VC」开玩笑，加一个链接，128 赞、1 次转发、5 条回复。一句玩笑，没有观点。</p>
+<div class="urls"><a href="https://x.com/mattturck/status/2118791325394845839" target="_blank">https://x.com/mattturck/status/2118791325394845839</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Yang</span>
+<span class="builder-role">Practical AI tutorials &amp; interviews</span>
+</div>
+<p class="summary-en">Peter Yang, who writes practical AI tutorials and interviews, posts three times. At 13:02 Pacific he notes that apps able to use models from different labs, naming @conductor_build and cursor, are being acquired by the labs themselves, while the ones left, @t3dotcodes and @orca_build, are open source; he thinks there is still a lot of user and enterprise demand for cross-lab apps. 49 likes, 2 reposts, 39 replies.</p>
+<p class="summary-en">At 15:47 he says an interview with @jsnnsa blew his mind more than any guest since @steipete and that he will ship the episode early, 90 likes, 11 reposts, 24 replies, quoting a post outside the feed. At 16:52 he pages his favorite ChatGPT Images PM over a link, 17 likes, 14 replies. Only the first of the three carries an argument.</p>
+<p class="summary-zh zh">写实用 AI 教程和访谈的 Peter Yang 发了三条。太平洋 13:02 他观察到，能调用不同实验室模型的应用，比如 @conductor_build 和 cursor，正在被实验室自己收购，剩下的 @t3dotcodes、@orca_build 是开源项目；他个人认为用户和企业对跨实验室模型的应用仍有很大需求。49 赞、2 次转发、39 条回复。</p>
+<p class="summary-zh zh">15:47 他说刚采访完 @jsnnsa，是继 @steipete 之后最让他震惊的嘉宾，会提前把节目做出来，90 赞、11 次转发、24 条回复，引用了 feed 之外的一条推文。16:52 他喊话自己最喜欢的 ChatGPT Images PM，加一个链接，17 赞、14 条回复。三条里只有第一条带观点。</p>
+<div class="urls"><a href="https://x.com/petergyang/status/2118811231545122998" target="_blank">https://x.com/petergyang/status/2118811231545122998</a><a href="https://x.com/petergyang/status/2118852799094206787" target="_blank">https://x.com/petergyang/status/2118852799094206787</a><a href="https://x.com/petergyang/status/2118869042153095422" target="_blank">https://x.com/petergyang/status/2118869042153095422</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nan Yu</span>
+<span class="builder-role">Product, Codex at OpenAI</span>
+</div>
+<p class="summary-en">Nan Yu, who works on product for Codex at OpenAI, posts once at 14:01 Pacific: &ldquo;what do the shrimp welfare ppl think about this one I wonder&rdquo; over a link, 27 likes, 5 replies, zero reposts. It quotes the same outside ID that Thariq&rsquo;s fish post quotes at 16:13. The two are one group of responses; the feed does not show what they are responding to. Shrimp has no prior hit in 2026/.</p>
+<p class="summary-zh zh">在 OpenAI 负责 Codex 产品的 Nan Yu 在太平洋 14:01 只发了一条：「不知道关注虾的福祉的人会怎么看这个」加一个链接，27 赞、5 条回复、0 次转发。它和 Thariq 在 16:13 那条关于鱼的推文引用的是同一个 feed 外 ID，两条属于同一组回应，feed 没有给出它们回应的对象。shrimp 在 2026/ 下此前零命中。</p>
+<div class="urls"><a href="https://x.com/thenanyu/status/2118826112562434303" target="_blank">https://x.com/thenanyu/status/2118826112562434303</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Swyx</span>
+<span class="builder-role">smol_ai &middot; Cognition &middot; Latent Space</span>
+</div>
+<p class="summary-en">Swyx posts three times. At 14:14 Pacific, &ldquo;unironically, @allenpark cooked&rdquo; over a link, 3 likes, 2 replies. At 14:21 a recap-video pointer at seven accounts, 2 likes and zero on the other fields, quoting a post outside the feed; it is the window&rsquo;s lowest like count. At 19:18 he commits to weekly coverage of the Anthropic IPO all the way until it does or does not happen, says he covered mega-IPOs from $BABA to $TEAM and gets to dust off his equity hedge fund analyst hat alongside his AI Engineer hat, with @jaminball challenging @ttunguz as writer-VC-extraordinare of his generation: 78 likes, 44 replies, zero reposts, quoting a post outside the feed.</p>
+<p class="summary-en">The IPO commitment is the only one of the three with a stated plan. &ldquo;Anthropic IPO&rdquo; as an exact phrase has zero hits in 2026/; the 11-07 issue&rsquo;s podcast touched on an Anthropic listing and declined a valuation call, which is a different context and is not merged here.</p>
+<p class="summary-zh zh">Swyx 发了三条。太平洋 14:14 是「不夸张地说，@allenpark 真做成了」加一个链接，3 赞、2 条回复。14:21 是 @ 了七个账号的复盘视频指引，2 赞、其余两项为 0，是窗口里赞数最低的一条，引用了 feed 之外的一条推文。19:18 他承诺每周追踪 Anthropic IPO，一直追到它发生或者确定不发生为止，说自己报道过从 $BABA 到 $TEAM 的大型 IPO，这回可以把股权对冲基金分析师的帽子重新戴到 AI Engineer 的帽子旁边，同行的 @jaminball 正在挑战 @ttunguz 这一代「作家型 VC」的位置：78 赞、44 条回复、0 次转发，同样引用 feed 外推文。</p>
+<p class="summary-zh zh">三条里只有这条给了明确的计划。「Anthropic IPO」这个精确写法在 2026/ 下零命中；11-07 那期播客谈到过 Anthropic 上市并拒绝给估值判断，语境不同，不合并。</p>
+<div class="urls"><a href="https://x.com/swyx/status/2118829491904708834" target="_blank">https://x.com/swyx/status/2118829491904708834</a><a href="https://x.com/swyx/status/2118831214308262043" target="_blank">https://x.com/swyx/status/2118831214308262043</a><a href="https://x.com/swyx/status/2118905788915982341" target="_blank">https://x.com/swyx/status/2118905788915982341</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Guillermo Rauch</span>
+<span class="builder-role">CEO, Vercel</span>
+</div>
+<p class="summary-en">Vercel CEO Guillermo Rauch posts three times. At 16:01 Pacific he writes on generative UI for conversational agents: combining @aisdk with Chat SDK and json-render takes you straight from LLM to UI on Slack and Teams, and he believes this will become the dominant Human-Agent Interaction (HAI) paradigm, with two links, 1,147 likes, 60 reposts, 131 replies, third on reposts and replies in the window. Generative UI and HAI have no prior hit in 2026/.</p>
+<p class="summary-en">At 19:58, &ldquo;Somewhere, something incredible is waiting to be known&rdquo;, 356 likes, 20 reposts, 44 replies. At 20:47, &ldquo;Imagine we get gta6.wasm before gta6&rdquo;, 143 likes, 2 reposts, 42 replies. The latter two are single lines with no product or argument attached.</p>
+<p class="summary-zh zh">Vercel CEO Guillermo Rauch 发了三条。太平洋 16:01 他讲对话式 agent 的 generative UI：把 @aisdk 与 Chat SDK、json-render 组合起来，可以在 Slack、Teams 这类平台上从 LLM 直接走到 UI，他相信这会成为主流的人机交互（HAI）范式，配两个链接，1147 赞、60 次转发、131 条回复，转发和回复都排窗口第三。generative UI 与 HAI 在 2026/ 下此前零命中。</p>
+<p class="summary-zh zh">19:58 是「某个地方，有件了不起的事正等着被知道」，356 赞、20 次转发、44 条回复。20:47 是「想象一下我们先等到 gta6.wasm 再等到 gta6」，143 赞、2 次转发、42 条回复。后两条都是孤零零一句话，没有带产品，也没有论证。</p>
+<div class="urls"><a href="https://x.com/rauchg/status/2118856239719608353" target="_blank">https://x.com/rauchg/status/2118856239719608353</a><a href="https://x.com/rauchg/status/2118916001152803057" target="_blank">https://x.com/rauchg/status/2118916001152803057</a><a href="https://x.com/rauchg/status/2118928276118986991" target="_blank">https://x.com/rauchg/status/2118928276118986991</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thibault Sottiaux</span>
+<span class="builder-role">Codex &amp; ChatGPT, OpenAI</span>
+</div>
+<p class="summary-en">OpenAI&rsquo;s Thibault Sottiaux, who works on Codex and ChatGPT, posts three times and takes all three engagement fields with the shortest of them. At 17:03 Pacific, &ldquo;It&rsquo;s Friday&rdquo; alone, 5,778 likes, 110 reposts, 1,692 replies, the highest likes in the window, the only post above a thousand replies and the only one above a hundred reposts. At 21:29, &ldquo;Get me out of the basement&rdquo; over two images, 1,776 likes, 48 reposts, 586 replies, second on replies; this one quotes his own 17:03 post, the only in-feed quote in the window. Twenty-nine seconds later, &ldquo;Quite cool what you can do with a single prompt these days&rdquo; with an eyes emoji, 492 likes, 7 reposts, 105 replies.</p>
+<p class="summary-en">No Day number, score or object appears in any of the three. The numbered counter that stopped after the 11-03 issue&rsquo;s Day 28 with Banked 2/2 is absent for a fifth consecutive issue. The feed attaches no product, link or explanation to any of them.</p>
+<p class="summary-zh zh">在 OpenAI 负责 Codex 和 ChatGPT 的 Thibault Sottiaux 发了三条，其中最短的一条拿走了三项互动第一。太平洋 17:03 只有「It's Friday」，5778 赞、110 次转发、1692 条回复，赞数窗口最高，是唯一破千回复、也是唯一转发过百的一条。21:29 是「Get me out of the basement」加两张图，1776 赞、48 次转发、586 条回复，回复排第二；这条引用了他自己 17:03 那条，是本期窗口唯一的 feed 内引用。29 秒后是「现在一条 prompt 能做的事真不错」加一个眼睛 emoji，492 赞、7 次转发、105 条回复。</p>
+<p class="summary-zh zh">三条里没有编号、没有分数，也没有宾语。11-03 那期 Day 28 加 Banked 2/2 之后停掉的计数器，连续第五期缺席。feed 没有给这三条附任何产品、链接或解释。</p>
+<div class="urls"><a href="https://x.com/thsottiaux/status/2118871902366441879" target="_blank">https://x.com/thsottiaux/status/2118871902366441879</a><a href="https://x.com/thsottiaux/status/2118938956301779171" target="_blank">https://x.com/thsottiaux/status/2118938956301779171</a><a href="https://x.com/thsottiaux/status/2118939076791546000" target="_blank">https://x.com/thsottiaux/status/2118939076791546000</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Garry Tan</span>
+<span class="builder-role">President &amp; CEO, Y Combinator</span>
+</div>
+<p class="summary-en">Y Combinator President and CEO Garry Tan posts three times. At 20:14 Pacific he argues that eval-driven development loops for agent skills are necessary, because every new model gets better and you can remove things you no longer need; he has just removed /investigate as a skill because Opus 5.5 does it better without it, and closes with &ldquo;You can feel the AGI tide rising&rdquo;: 217 likes, 9 reposts, 58 replies. Opus 5.5 has appeared in this series before and is not new here.</p>
+<p class="summary-en">At 22:16 he quotes a claim that 3 million tokens of advice from ordinary people facing complex moral dilemmas brought malicious behavior down to 0% with a 28-fold jump in efficiency across model generations, 10 likes, 1 repost, 3 replies. At 22:18, the window&rsquo;s last post, he says computer use on Aside is amazing and has the added benefit of being a real Chromium browser that few or almost no sites can block, 4 likes, 1 repost, 2 replies. Both quote posts outside the feed and neither quoted claim comes with a source the feed can show. Aside has appeared three times before in this series, on 09-06, 10-15 and 10-20.</p>
+<p class="summary-zh zh">Y Combinator 总裁兼 CEO Garry Tan 发了三条。太平洋 20:14 他主张 agent skill 必须走 eval 驱动的开发循环，因为每个新模型都会变强，用不上的东西可以删掉；他刚删掉 /investigate 这个 skill，理由是 Opus 5.5 不带它做得更好，结尾写「你能感觉到 AGI 的潮水在涨」：217 赞、9 次转发、58 条回复。Opus 5.5 在本系列此前出现过，不是首次。</p>
+<p class="summary-zh zh">22:16 他引用了一段说法：用普通人面对复杂道德困境给出的 300 万 token 建议，把恶意行为降到 0%，模型代际之间效率提升 28 倍，10 赞、1 次转发、3 条回复。22:18 是窗口最后一条，他说 Aside 上的 computer use 很惊艳，还有个额外好处是它就是一个真实的 Chromium 浏览器，几乎没有网站能屏蔽，4 赞、1 次转发、2 条回复。两条都引用 feed 之外的推文，feed 里都看不到被引用说法的出处。Aside 在本系列此前出现过三次，09-06、10-15、10-20。</p>
+<div class="urls"><a href="https://x.com/garrytan/status/2118920030243139596" target="_blank">https://x.com/garrytan/status/2118920030243139596</a><a href="https://x.com/garrytan/status/2118950671886287323" target="_blank">https://x.com/garrytan/status/2118950671886287323</a><a href="https://x.com/garrytan/status/2118951284376285508" target="_blank">https://x.com/garrytan/status/2118951284376285508</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Zara Zhang</span>
+<span class="builder-role">Builder</span>
+</div>
+<p class="summary-en">Builder Zara Zhang posts once at 21:30 Pacific, quoting a post outside the feed: her personal website is the new resume, LinkedIn shows a list of titles while a personal website shows your taste, your thinking and your actual work, and you do not need to be confined by the existing social media platforms. 28 likes, 2 reposts, 5 replies.</p>
+<p class="summary-zh zh">Builder Zara Zhang 在太平洋 21:30 只发了一条，引用 feed 之外的一条推文：个人网站是新的简历，LinkedIn 给的是一串头衔，个人网站给的是你的品味、你的思考和真实的作品，人不必被困在现有的社交平台里。28 赞、2 次转发、5 条回复。</p>
+<div class="urls"><a href="https://x.com/zarazhangrui/status/2118939184841052386" target="_blank">https://x.com/zarazhangrui/status/2118939184841052386</a></div>
+</article>
+</section>
+<!-- ============== PODCAST ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#127911;</span>
+<h2 class="section-title">Podcast</h2>
+<span class="section-meta">1 Episode &middot; Fresh</span>
+</div>
+<div class="podcast">
+<div class="podcast-source">Latent Space</div>
+<div class="podcast-title">Controlling Biology - Fabian Theis, Helmholtz Munich</div>
+<p class="summary-en">Latent Space publishes &ldquo;Controlling Biology - Fabian Theis, Helmholtz Munich&rdquo; at 2026-11-06T14:48:24Z, Pacific 11-06 06:48:24, 37m42s after the first tweet of that Pacific day (06:10:42) and before the snapshot, so by this series&rsquo; rule it is fresh. The feed&rsquo;s URL is the Latent Space channel page rather than a specific video and is reproduced as given. The show calls itself the Latent Space AI for Science podcast; the hosts name themselves as RJ Hanocki, CTO of Mira Omics, and Brandon Anderson, who develops RNA therapeutics at Atomic AI. The guest is Fabian Theis, who leads AI and computational biology efforts at Helmholtz Munich; the hosts credit his lab with Scanpy, Anndata and scVerse. Fabian Theis, Helmholtz Munich and Controlling Biology all have zero prior hits in 2026/.</p>
+<p class="summary-en">The through-line is a three-step account of the field: mapping with human cell atlases, then prediction with world models, and now steering the next experiment. Theis calls a virtual cell a world model over transcriptome or other omics space, not F of X but F of X and the action A, predicting the next state. He thinks equating a virtual cell with perturbation prediction is a bit too simplistic; the deeper question is whether you can predict how a cell behaves under all kinds of perturbations, which he calls maybe even a holy grail of computational biology. Understanding, in his framing, means predicting a system&rsquo;s output behaviour given different inputs.</p>
+<p class="summary-en">The most portable idea is a discipline about baselines. His lab&rsquo;s 2019 scGen did linear shifts in a latent space, and a paper of his was plainly titled &ldquo;Deep Learning is not needed for cell type prediction&rdquo;; within one organ, logistic regression or a tool like CellTypist still does the job, and it only gets subtler across organs. He points at the Arc Institute Virtual Cell Challenge, whose fixed metrics were not single-cell specific and could be exploited, and at a Nature paper by Bo Wang and collaborators arguing the metric was the problem. His line to students: &ldquo;I know you wanna do the most fancy deep learning thing, but please, please, you know, have the baseline.&rdquo; For drugs the hardest baseline is simply better than the mean, and the data are very noisy.</p>
+<p class="summary-en">On scale, the numbers are his own characterisations. A Pars Bio &ldquo;giga lab&rdquo; measured ten million transcriptomes in a single experiment; the perturbation space has widened from control versus disease to a hundred cell lines with full CRISPR knockouts or batteries of a thousand drugs. His contrastive-learning paper scConcert was compared with Geneformer up to maybe thirty million cells, and on Hugging Face they now have a three hundred and fifty million cell model going up to maybe a hundred million parameters, with scaling behaviour starting to emerge, and sixteen species in the latent space. Cell flow, a flow-matching generative model along the action, was accepted at Nature Methods and depends heavily on a good latent space. He says the literature shows strong a priori inductive biases cost predictive power, cites AlphaFold learning rotational symmetry from more data, and concludes that at some point data beats human-made additional concepts; but in the current perturbation-space data regime hybrid models are still the way to go.</p>
+<p class="summary-en">On the business side, a host mentions Biohub announcing a one point eight billion dollar collaboration with the DOE, NIH, Meta and Google to collect and open source multi-scale biological data for a new generation of virtual cells. Theis is blunt about platform companies that say they will decode biology without saying what they will do with it: many pivot to &ldquo;We make a drug&rdquo; because that is what investors understand. He puts the sweet spot in coupling modelling with unique data generation, citing a Cancer Organoid Perturbation Atlas consortium where pharma buys early access to the datasets, and says the moat is increasingly the specific data alongside the virtual cell model. On Helmholtz Munich he describes a Computational Health Center with maybe forty-five group leaders and professors and five hundred to six hundred people, no undergraduate teaching, only PhD students and postdocs, and a longer-term vision of a virtual human. On Germany he says the EU creates as many startups as the US but drops off at the scaling stage, where big-ticket series A and B money is missing.</p>
+<p class="summary-en">The episode also describes the Munich School for Data Science, running about eight years, where two PIs, one methods-oriented and one domain-oriented, jointly supervise a student in what he calls a Y model, &ldquo;Y plus Y equals H&rdquo;, with the student attending two lab meetings. He mentions NVIDIA hiring two of his people in one month. On guiding experiments he names Lab Compass, an inverse generative model that tells you what to do to reach a certain state, set up with a Cambridge collaborator over three or four lab-in-the-loop cycles in hematopoiesis, and says the paper should be on bioRxiv today or tomorrow. He calls the ultimate vision &ldquo;we want to RL everything&rdquo; but immediately adds &ldquo;It&rsquo;s a bit out there&rdquo; and says at the moment it is more like active learning. The transcript opens with a cold-open edit that repeats almost verbatim the closing passage on steering; it is not treated here as a separate statement. Proper nouns and names are reproduced as the transcript gives them and are not silently corrected. Virtual cell appeared once before in this series, on 09-21, as a goalpost for foundational world models rather than as biology, and the two are not merged.</p>
+<p class="summary-zh zh">Latent Space 发布《Controlling Biology - Fabian Theis, Helmholtz Munich》，时间 2026-11-06T14:48:24Z，即太平洋 11-06 06:48:24，比当天（太平洋 11-06）第一条推文 06:10:42 晚 37 分 42 秒，同一太平洋日、在快照之前，按本系列口径算新鲜。feed 给的 URL 是 Latent Space 频道页而不是具体视频，按原样照录。节目自称 Latent Space AI for Science podcast，主持人自报 RJ Hanocki（Mira Omics CTO）与 Brandon Anderson（在 Atomic AI 做 RNA 疗法）。嘉宾是 Fabian Theis，在 Helmholtz Munich 负责 AI 与计算生物学方向，主持人把 Scanpy、Anndata、scVerse 归到他的实验室。Fabian Theis、Helmholtz Munich、Controlling Biology 在 2026/ 下此前都零命中。</p>
+<p class="summary-zh zh">主线是他对这个领域的三段式说法：先用人类细胞图谱做 mapping，再用世界模型做 prediction，现在可以反过来 steering 下一次实验。他把虚拟细胞称为转录组或其他组学空间上的世界模型，不是 F(X)，而是 F(X, A)，输入状态加动作，预测下一个状态。他认为把虚拟细胞直接等同于扰动预测有点过于简化，更深的那个问题是能不能预测一个细胞在各类扰动下怎么表现，他说这算得上计算生物学里的一点「圣杯」。在他的框架里，理解一个系统就是给定不同输入能预测它的输出行为。</p>
+<p class="summary-zh zh">最容易被带走的是一条关于 baseline 的纪律。他实验室 2019 年的 scGen 是在隐空间里做线性平移，他有一篇论文的标题干脆就叫「Deep Learning is not needed for cell type prediction」；同一器官内，logistic regression 或 CellTypist 这类工具就够用，跨器官才更微妙。他点名 Arc Institute 的 Virtual Cell Challenge，说它固定下来的指标并不够单细胞特异、可以被钻空子，也提到 Bo Wang 与合作者的一篇 Nature 论文，认为问题出在指标上。他给学生的话是：「我知道你们想做最花哨的深度学习，但拜托、拜托，先把 baseline 做了。」药物场景里最难的 baseline 其实就是「比均值好一点」，而数据噪声很大。</p>
+<p class="summary-zh zh">规模这块，数字都是他本人的定性描述。Pars Bio 的「giga lab」单次实验测了 1000 万个转录组；扰动空间从对照对疾病，扩到上百个细胞系做全 CRISPR 敲除、或上千种药物的组合。他的对比学习论文 scConcert 与 Geneformer 比到大约 3000 万个细胞，Hugging Face 上现在是 3.5 亿细胞、上限大约 1 亿参数的模型，已经能看到 scaling 行为，隐空间里还放进 16 个物种。cell flow 是沿动作做 push forward 的 flow matching 生成模型，被 Nature Methods 接收，很依赖一个好的隐空间。他说文献已经清楚显示过强的先验归纳偏置会损失预测力，举 AlphaFold 后来靠更多数据自己学到旋转对称性、而且更灵活，结论是到了某个点数据会胜过人写进模型的额外概念；但他认为当前扰动空间的数据量还没到 data-rich，混合模型仍是该走的路。</p>
+<p class="summary-zh zh">商业化这边，一位主持人提到 Biohub 宣布与 DOE、NIH、Meta、Google 一项 18 亿美元合作，收集并开源多尺度生物数据，用于新一代虚拟细胞。Theis 对那些说要「解码生物学」却不说拿它做什么的平台公司很直白：很多最后改口成「我们做药」，因为投资人只认这个。他把甜点区放在建模与独特数据生成结合上，举例 Cancer Organoid Perturbation Atlas 联合体，药厂买的是数据集的早期访问权，并说护城河越来越是虚拟细胞模型之外那份特定数据。谈 Helmholtz Munich，他描述自己搭的 Computational Health Center 大约 45 位组长和教授、500 到 600 人，没有本科教学，只有博士生和博士后，更远的愿景是 virtual human。谈德国，他说欧盟新创公司数量和美国相当，掉队发生在 scaling 阶段，A 轮、B 轮的大票资金不在欧洲。</p>
+<p class="summary-zh zh">节目还讲了 Munich School for Data Science，办了大约八年，两位 PI 一位偏方法、一位偏领域，共同带一个学生，他叫它 Y model，「Y 加 Y 等于 H」，学生要参加两个组会。他提到 NVIDIA 几个月里一个月招走了他两个人。谈引导实验，他点名 Lab Compass，一个逆生成模型，在已有前向世界模型的前提下告诉你为了到达某个状态该做什么，是与剑桥一位合作者在造血系统上做了三四轮 lab-in-the-loop 迭代做出来的，他说论文应该今明两天上 bioRxiv。他把终极愿景说成「we want to RL everything」，但紧接着补一句「这有点远」，目前更像 active learning。转写开头有一段与结尾几乎逐字重复的剪辑式 cold open，这里不当成另一处独立发言。转写里的专名与人名按原样照录，不静默修正。virtual cell 这个说法在本系列此前出现过一次，09-21 那期是作为基础世界模型的目标，不是生物学语境，两者不合并。</p>
+<div class="urls"><a href="https://www.youtube.com/@LatentSpacePod" target="_blank">https://www.youtube.com/@LatentSpacePod</a></div>
+</div>
+</section>
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128161;</span>
+<h2 class="section-title">The Takeaway</h2>
+<span class="section-meta">2026-11-08</span>
+</div>
+<div class="takeaway">
+<div class="takeaway-label">The Takeaway</div>
+<p>Three words take all three engagement fields. Sottiaux&rsquo;s &ldquo;It&rsquo;s Friday&rdquo; at 17:03 Pacific has 5,778 likes, 110 reposts and 1,692 replies, the highest likes in the window, the only post above a thousand replies and the only one above a hundred reposts. Four hours and twenty-six minutes later he quotes it himself with &ldquo;Get me out of the basement&rdquo;, 1,776 likes, 48 reposts and 586 replies, second on replies. That is the only in-feed quote in the window. His three posts together take 8,046 likes, 165 reposts and 2,383 replies, and none of them carries a product, link, explanation, Day number, score or object. The numbered counter has been absent for five consecutive issues since Day 28 with Banked 2/2 on 11-03.</p>
+<p>One outside ID is answered twice. Nan Yu&rsquo;s shrimp-welfare post at 14:01 and Thariq&rsquo;s fish post at 16:13 both quote 2118783732316573851, an object the feed does not show. They are one group of responses, not two independent sources. The other eight quoted IDs are distinct and all sit outside the feed. In total 11 of the 29 posts are quote tweets, with 10 distinct quoted IDs.</p>
+<p>Six posts clear a thousand likes. Four of them are single lines with no argument behind them: Sottiaux&rsquo;s &ldquo;It&rsquo;s Friday&rdquo; (5,778), Thariq&rsquo;s fish remark (2,269), Sottiaux&rsquo;s basement post (1,776) and Thariq&rsquo;s &ldquo;coming together&rdquo; (1,327). The other two are Rauch&rsquo;s generative UI (1,147 likes, 60 reposts and 131 replies) and Thariq&rsquo;s MCP pattern (1,130 likes). The window&rsquo;s longest and most concrete piece of writing, Nikunj&rsquo;s 2,122-character satire of building a 100M company in two weeks, takes 72 likes. Peter Yang&rsquo;s cross-lab app observation takes 49 likes and Garry Tan&rsquo;s eval-driven loop 217 likes.</p>
+<p>Numbers arrive without baselines. Garry Tan quotes 3 million tokens, 0% malicious behavior and a 28-fold efficiency jump from a post outside the feed. The podcast carries its own unlabelled figures, ten million transcriptomes in one experiment, 350 million cells and roughly 100 million parameters, 16 species, 45 group leaders and 500 to 600 people, and a one point eight billion dollar collaboration stated by a host. Nikunj&rsquo;s $2M, 40M, 80M and 100M are inside a post he explicitly labels satire. None is independently checked in the feed.</p>
+<p>The podcast is new to this series. Fabian Theis, Helmholtz Munich, Controlling Biology, Lab Compass, CellTypist, scConcert and Yamanaka all have zero prior hits in 2026/. Its most portable idea is baseline discipline, and its sharpest structural claim is mapping to prediction to steering. The &ldquo;RL everything&rdquo; vision is immediately qualified by Theis as a bit out there and closer to active learning today. The URL is a channel page and is reproduced as given. Virtual cell hit one earlier issue, 09-21, in a world-model context, and is not merged with today&rsquo;s biology sense.</p>
+<p>Two cross-issue lines continue. Levie&rsquo;s &ldquo;The future is files. And GPUs.&rdquo; is the same phrase that closed his NVIDIA partnership post in the 11-07 issue, with nothing new attached. Aditya&rsquo;s @traestephens conversation pointer repeats the one from 11-07; the feed still gives no content. Swyx adds a new tracked item, weekly coverage of the Anthropic IPO until it does or does not happen; the exact phrase has no prior hit, while the 11-07 podcast declined a valuation call on an Anthropic listing. Aside has three earlier hits, 09-06, 10-15 and 10-20, all from Garry Tan.</p>
+<p>Coverage has no gap. 28 of the 29 posts sit on Pacific 11-06, 06:10:42 to 22:18:49, and one, Nikunj&rsquo;s, sits at Pacific 11-05 23:27:42, 58m32s after the previous snapshot and with no overlap. The window closes 6m24s before the snapshot at Pacific 11-06 22:25:13; the previous snapshot was 2026-11-06T06:29:10.275Z, one day earlier. The podcast was published at Pacific 11-06 06:48:24, the same Pacific day. This issue was written at Pacific 11-07 18:16, about 20 hours after the snapshot. Pacific 10-29 and 10-30 remain permanently missing from two cron runs that did not fire.</p>
+</div>
+<div class="takeaway zh">
+<div class="takeaway-label">核心结论</div>
+<p>三个词拿走三项互动第一。Sottiaux 太平洋 17:03 的「It's Friday」有 5778 赞、110 次转发、1692 条回复，赞数窗口最高，是唯一破千回复、也是唯一转发过百的一条。4 小时 26 分后他用「Get me out of the basement」引用了自己这条，1776 赞、48 次转发、586 条回复，回复排第二，这也是本期唯一的 feed 内引用。他三条合计 8046 赞、165 次转发、2383 条回复，没有一条带产品、链接、解释、编号、分数或宾语。自 11-03 那期 Day 28 加 Banked 2/2 之后，编号计数器已连续五期缺席。</p>
+<p>一个 feed 外 ID 被回应了两次。Nan Yu 14:01 关于虾的推文和 Thariq 16:13 关于鱼的推文，都引用 2118783732316573851，而 feed 没有给出这个对象。两条是同一组回应，不是两个独立信源。其余 8 个被引用 ID 互不相同、全在 feed 外。29 条里 11 条是引用推文，共 10 个不同的被引用 ID。</p>
+<p>破千赞的有六条。其中四条是没有展开观点的短句：Sottiaux 的「It's Friday」（5778）、Thariq 那句关于鱼的话（2269）、Sottiaux 的 basement（1776）、Thariq 的「要成型了」（1327）。另外两条是 Rauch 的 generative UI（1147 赞、60 次转发、131 条回复）和 Thariq 的 MCP 模式（1130 赞）。窗口里最长、最具体的一篇是 Nikunj 那段 2122 字符、讽刺两周造出 1 亿美元公司的长文，只有 72 赞。Peter Yang 的跨实验室应用观察 49 赞，Garry Tan 的 eval 驱动循环 217 赞。</p>
+<p>几组数字没有基线。Garry Tan 引用 feed 外推文里的 300 万 token、恶意行为降到 0%、效率提升 28 倍。播客里也有未经标注的数字：单次实验 1000 万转录组、3.5 亿细胞与约 1 亿参数、16 个物种、45 位组长与 500 到 600 人，以及主持人陈述的 18 亿美元合作。Nikunj 的 200 万、4000 万、8000 万、1 亿都在他自己明说是讽刺的那条里。feed 里没有对以上任何一项做外部复核。</p>
+<p>播客对本系列是新的。Fabian Theis、Helmholtz Munich、Controlling Biology、Lab Compass、CellTypist、scConcert、Yamanaka 在 2026/ 下全部零命中。最容易被带走的是 baseline 纪律，最有结构感的判断是从 mapping 到 prediction 再到 steering。「RL everything」这个愿景被 Theis 自己立刻收了一句「有点远」，说目前更像 active learning。URL 是频道页，按原样照录。virtual cell 在 09-21 一期有过世界模型语境的命中，不与今天的生物学含义合并。</p>
+<p>两条跨期线继续。Levie 的「The future is files. And GPUs.」与 11-07 那期 NVIDIA 合作推文结尾是同一个说法，没带新东西。Aditya 指向 @traestephens 对谈的指引是 11-07 那条的重复，feed 仍未给内容。Swyx 新增了一个追踪项，每周追踪 Anthropic IPO，直到它发生或确定不发生；这个精确写法此前零命中，11-07 播客里对 Anthropic 上市拒绝给估值判断属另一处语境。Aside 此前有三次命中，09-06、10-15、10-20，都来自 Garry Tan。</p>
+<p>这次覆盖没有缺口。29 条里 28 条落在太平洋 11-06，06:10:42 到 22:18:49，另 1 条是 Nikunj 在太平洋 11-05 23:27:42，比上一份快照晚 58 分 32 秒，无重叠。窗口在快照太平洋 11-06 22:25:13 之前 6 分 24 秒收口，上一份快照是 2026-11-06T06:29:10.275Z，相隔一天。播客发布于太平洋 11-06 06:48:24，同一个太平洋日。本期成文于太平洋 11-07 18:16，比快照晚约 20 小时。太平洋 10-29 与 10-30 仍因两次 cron 未触发而永久缺失。</p>
+</div>
+</section>
+<!-- ============== NOTES ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128221;</span>
+<h2 class="section-title">记录 / Notes &amp; Dedup</h2>
+<span class="section-meta">29 Zero &middot; 1 Fresh &middot; 0 Dedup</span>
+</div>
+<div class="dedup">
+<p style="margin-top:12px"><strong>Tweet check</strong> &mdash; All 29 tweet IDs were matched against the 119 HTML files under 2026/ and returned zero hits. Eleven of the 29 are quote tweets with 10 distinct quoted IDs. One quoted ID is in the feed: Sottiaux quotes his own 17:03 &ldquo;It&rsquo;s Friday&rdquo; at 21:29. One outside ID, 2118783732316573851, is quoted twice, by Nan Yu and Thariq, and is one group of responses rather than two sources. The other eight quoted IDs are distinct and all sit outside the feed.</p>
+<p style="margin-top:12px"><strong>Podcast check</strong> &mdash; The slot is 1 and it is fresh. Published 2026-11-06T14:48:24Z, Pacific 11-06 06:48:24, 37m42s after the first tweet of that Pacific day (06:10:42) and before the snapshot. Fabian Theis, Controlling Biology, Helmholtz Munich, Lab Compass, CellTypist, scConcert and Yamanaka have zero prior hits in 2026/. The @LatentSpacePod channel URL appears in three earlier issues as a channel-level resource and is not dedup evidence. The URL is reproduced as given, a channel page rather than a specific video. Virtual cell hit 09-21 in a world-model context and is not merged.</p>
+<p style="margin-top:12px"><strong>Blog check</strong> &mdash; The slot is 0 by emptiness: the blogs array came back empty. This is the fourteenth consecutive empty issue: 10-21, 10-22, 10-26, 10-27, 10-28, 10-29, 10-30, 11-02, 11-03, 11-04, 11-05, 11-06, 11-07 and today.</p>
+<p style="margin-top:12px"><strong>Transcript</strong> &mdash; The hosts name themselves as RJ Hanocki, CTO of Mira Omics, and Brandon Anderson, who develops RNA therapeutics at Atomic AI; the show calls itself the Latent Space AI for Science podcast. The guest is Fabian Theis of Helmholtz Munich. The transcript opens with a cold-open edit that repeats the closing steering passage almost verbatim; it is not treated as a separate statement. Proper nouns and all figures are reproduced as given, not silently corrected or reconstructed. The 1.8 billion dollar collaboration is stated by a host, not by the guest.</p>
+<p style="margin-top:12px"><strong>Same names</strong> &mdash; Files and GPUs appeared in the 11-07 issue as the close of Levie&rsquo;s NVIDIA post. @traestephens appeared on 10-21 and 11-07. Aside appeared on 09-06, 10-15 and 10-20, all from Garry Tan. Opus 5.5 has many earlier hits. MCP has many earlier hits. Virtual cell hit 09-21 in a different sense. Generative UI, HAI, Starship, shrimp, texts wrapped and Anthropic IPO as an exact phrase all have zero prior hits.</p>
+<p style="margin-top:12px"><strong>Thin posts</strong> &mdash; 20 of the 29 carry no argument of their own, named one by one here: Nikunj's paid-partnership line; his texts wrapped pointer; Dan Shipper's banger; his team photo; Aaron Levie's files-and-GPUs line; Aditya's conversation pointer; Matt Turck's tranche joke; Thariq's coming-together line; his fish remark; Peter Yang's interview teaser; his PM page; Rauch's Somewhere line; his gta6.wasm line; Nan Yu's shrimp question; Swyx's cooked pointer; his recap-video pointer; Sottiaux's It's Friday; his basement post; his single-prompt line; Garry Tan's 3-million-token quote. All are given links inside their own cards. Every one of the 29 posts has a link, so the stats strip, section meta, index meta and body link count agree.</p>
+<p style="margin-top:12px"><strong>Coverage</strong> &mdash; Three timestamps: the snapshot is 2026-11-07T06:25:13.003Z, Pacific 11-06 22:25:13, converted with UTC-8 because Pacific daylight time ended on 11-01; this issue was written at Pacific 11-07 18:16; the previous snapshot was 2026-11-06T06:29:10.275Z, one day earlier. 28 of 29 tweets fall on Pacific 11-06, 06:10:42 to 22:18:49, with one at Pacific 11-05 23:27:42 and no gap. Pacific 10-29 and 10-30 remain permanently missing.</p>
+<p style="margin-top:12px"><strong>Engagement fields</strong> &mdash; Likes, retweets and replies are populated on all 29 posts; this feed has no quotes field and none is used. Likes top five: Sottiaux 5,778, Thariq 2,269, Sottiaux 1,776, Thariq 1,327, Rauch 1,147. Reposts top three: 110, 62, 60. Replies top three: 1,692, 586, 131. Lowest is Swyx&rsquo;s recap-video pointer at 2 likes, 0 reposts, 0 replies; two posts tie next at 4 likes, Aditya&rsquo;s conversation pointer and Garry Tan&rsquo;s Aside post. Every &ldquo;most&rdquo; or &ldquo;lowest&rdquo; claim above was checked against a full-window sort first.</p>
+<p style="margin-top:12px"><strong>Absent</strong> &mdash; Thirteen accounts posted. Of the 24 names on the tracked list, seven appear: Garry Tan, Peter Yang, Guillermo Rauch, Nikunj Kothari, Swyx, Matt Turck and Aditya Agarwal. Six accounts in the feed are outside that list: Thibault Sottiaux, Nan Yu, Thariq, Aaron Levie, Zara Zhang and Dan Shipper. Sam Altman, who led the 11-05 issue, is absent for a third issue.</p>
+<p style="margin-top:12px"><strong>Not resolved</strong> &mdash; Will a Day 29 or a 3/x banked fraction appear, and what was ever being counted; what dot is; whether the jev recorded since 09-18 and the Jev in the 11-07 podcast are the same thing; a second source for Personal Finance, Vercel Schedules and Replit&rsquo;s 96%; what SpaceXSI is; Particle-1&rsquo;s 1/23 baseline; HackerTube&rsquo;s second source; the Grok Bot launch date; Sol 6 and ViBench 2.0 scores; the Legora eval heat map results. New: whether Swyx&rsquo;s weekly Anthropic IPO coverage actually appears, whether Lab Compass gets a paper or code, whether texts wrapped gets a second source, and whether the next cross-lab app acquisition is named. Fixed dates: Opal shuts down 2026-11-17; Vercel Security Reviews are free until Nov 10.</p>
+</div>
+<div class="dedup zh" style="margin-top:14px">
+<p style="margin-top:12px"><strong>推文核对</strong> &mdash; 本窗口 29 个推文 ID 全部与 2026/ 下 119 个 HTML 文件比对过，零命中。29 条里 11 条是引用推文，共 10 个不同的被引用 ID。其中 1 个被引用 ID 在 feed 内：Sottiaux 21:29 引用了自己 17:03 的「It's Friday」。1 个 feed 外 ID，2118783732316573851，被 Nan Yu 和 Thariq 各引用一次，属同一组回应而不是两个信源。其余 8 个被引用 ID 互不相同、全在 feed 之外。</p>
+<p style="margin-top:12px"><strong>播客核对</strong> &mdash; 这一格是 1，而且新鲜。发布于 2026-11-06T14:48:24Z，即太平洋 11-06 06:48:24，比当天（太平洋 11-06）第一条推文 06:10:42 晚 37 分 42 秒，同一太平洋日、在快照之前。Fabian Theis、Controlling Biology、Helmholtz Munich、Lab Compass、CellTypist、scConcert、Yamanaka 在 2026/ 下零命中。@LatentSpacePod 频道 URL 在此前 3 期出现过，属频道级资源，不作去重证据。URL 按 feed 原样照录，是频道页而不是具体视频。virtual cell 在 09-21 一期是世界模型语境，不合并。</p>
+<p style="margin-top:12px"><strong>博客核对</strong> &mdash; 这一格是 0，成因是空数组：blogs 数组返回为空。这是连续第十四期为空：10-21、10-22、10-26、10-27、10-28、10-29、10-30、11-02、11-03、11-04、11-05、11-06、11-07 和今天。</p>
+<p style="margin-top:12px"><strong>转写</strong> &mdash; 主持人自报 RJ Hanocki（Mira Omics CTO）与 Brandon Anderson（在 Atomic AI 做 RNA 疗法），节目自称 Latent Space AI for Science podcast。嘉宾是 Helmholtz Munich 的 Fabian Theis。转写开头有一段与结尾几乎逐字重复的剪辑式 cold open，不当作另一处独立发言。专名与所有数字按原样照录，不静默修正、也不代为还原。18 亿美元合作是主持人说的，不是嘉宾说的。</p>
+<p style="margin-top:12px"><strong>同名</strong> &mdash; files 与 GPUs 在 11-07 那期是 Levie 那条 NVIDIA 推文的结尾。@traestephens 在 10-21、11-07 出现过。Aside 在 09-06、10-15、10-20 出现过，三次都来自 Garry Tan。Opus 5.5 与 MCP 在本系列都有多次命中。virtual cell 在 09-21 是另一种含义。generative UI、HAI、Starship、shrimp、texts wrapped，以及「Anthropic IPO」这个精确写法，全站零命中。</p>
+<p style="margin-top:12px"><strong>薄内容</strong> &mdash; 29 条里有 20 条本身不承载观点，逐条点名：Nikunj 的付费合作吐槽、他的 texts wrapped 指引、Dan Shipper 的 banger、他的团队合影、Aaron Levie 的 files 与 GPUs 短句、Aditya 的对谈指引、Matt Turck 的分档玩笑、Thariq 的「要成型了」、他那句关于鱼的话、Peter Yang 的访谈预告、他喊话 PM 那条、Rauch 的「Somewhere」、他的 gta6.wasm、Nan Yu 关于虾的提问、Swyx 的 cooked 指引、他的复盘视频指引、Sottiaux 的 It's Friday、他的 basement、他的 single-prompt 那句、Garry Tan 的 300 万 token 引用。全部在各自卡片里给了链接。29 条推文每条都有链接，因此 stats strip、section meta、index meta 与正文链接数四处天然一致。</p>
+<p style="margin-top:12px"><strong>覆盖</strong> &mdash; 三个时间戳：快照 2026-11-07T06:25:13.003Z 即太平洋 11-06 22:25:13，按 UTC-8 换算，因为太平洋夏令时已在 11-01 结束；本期成文于太平洋 11-07 18:16；上一份快照是 2026-11-06T06:29:10.275Z，相隔一天。29 条里 28 条落在太平洋 11-06，06:10:42 到 22:18:49，另 1 条在太平洋 11-05 23:27:42，无缺口。太平洋 10-29 与 10-30 仍永久缺失。</p>
+<p style="margin-top:12px"><strong>互动字段</strong> &mdash; 29 条的 likes、reposts、replies 全有值，这个 feed 没有 quotes 字段，不使用。赞数前五：Sottiaux 5778、Thariq 2269、Sottiaux 1776、Thariq 1327、Rauch 1147。转发前三：110、62、60。回复前三：1692、586、131。最低是 Swyx 的复盘视频指引，2 赞、0 转发、0 回复；其次有两条并列 4 赞，Aditya 的对谈指引和 Garry Tan 的 Aside 那条。上面每一处「最」和「最低」都先做了全窗口排序核对。</p>
+<p style="margin-top:12px"><strong>缺席</strong> &mdash; 有内容的账号 13 个。追踪名单 24 位里出现 7 位：Garry Tan、Peter Yang、Guillermo Rauch、Nikunj Kothari、Swyx、Matt Turck、Aditya Agarwal。feed 里另外 6 个账号不在名单上：Thibault Sottiaux、Nan Yu、Thariq、Aaron Levie、Zara Zhang、Dan Shipper。11-05 那期三项第一的 Sam Altman 连续第三期缺席。</p>
+<p style="margin-top:12px"><strong>未闭环</strong> &mdash; Day 29 或 3/x 的分数会不会出现、被数与被 banked 的到底是什么；dot 是什么；09-18 起记录的 jev 与 11-07 播客的 Jev 是不是同一个东西；Personal Finance、Vercel Schedules 和 Replit 那个 96% 会不会有第二信源；SpaceXSI 是什么；Particle-1 的 1/23 基线；HackerTube 的第二信源；Grok Bot 上线日期；Sol 6 与 ViBench 2.0 分数；Legora 的 eval heat map 结果。新增：Swyx 的 Anthropic IPO 周更会不会真的出现、Lab Compass 会不会有论文或代码、texts wrapped 会不会有第二信源、下一家被收购的跨实验室应用会不会被点名。已定日期：Opal 2026-11-17 关停；Vercel Security Reviews 免费到 11 月 10 日。</p>
+</div>
+</section>
+<footer class="footer">
+<div class="next-issue">&#128236; &#19979;&#19968;&#26399;&#65306;&#26126;&#22825; 10:00&#65288;&#21271;&#20140;&#26102;&#38388;&#65289;</div>
+<div class="signature">by chloevchen</div>
+</footer>
+
+<!-- by chloevchen -->
+</body>
+</html>
