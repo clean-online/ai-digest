@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Builders Digest &middot; 2026-11-09</title>
+<style>
+
+
+
+
+
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 28px 30px; margin-bottom: 24px; }
+  .podcast-source { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
+  .podcast-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; margin-bottom: 18px; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; }
+
+
+</style>
+</head>
+<body>
+<header class="topbar">
+<div class="topbar-inner">
+<a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders &middot; AI Builders Digest</a>
+<span>双语 &middot; Bilingual</span>
+</div>
+</header>
+<section class="header">
+<div class="eyebrow">Daily Digest &middot; 2026-11-09</div>
+<h1>AI Builders Digest</h1>
+</section>
+<div class="stats">
+<div class="stat"><div class="stat-num">10</div><div class="stat-label">Builders</div></div><div class="stat"><div class="stat-num">19</div><div class="stat-label">Tweets</div></div><div class="stat"><div class="stat-num">1</div><div class="stat-label">Podcast</div></div><div class="stat"><div class="stat-num">0</div><div class="stat-label">Blog</div></div>
+</div>
+<p class="note-line">Karpathy&rsquo;s TristanTube takes the top likes and reposts, and the only concrete product numbers in the window come from a Pro-plan clarification that its author quotes himself. The podcast arrives three days late but is new to the series.</p>
+<p class="note-line zh">Karpathy 的 TristanTube 拿到赞数和转发两项第一，窗口里唯一带具体产品数字的是一条 Pro 套餐澄清，作者随后引用了自己。播客迟到约三天，但对本系列是新的。</p>
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128036;</span>
+<h2 class="section-title">X / Twitter</h2>
+<span class="section-meta">10 Builders · 19 Tweets</span>
+</div>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thibault Sottiaux</span>
+<span class="builder-role">Codex &amp; ChatGPT, OpenAI</span>
+</div>
+<p class="summary-en">OpenAI&rsquo;s Thibault Sottiaux, who works on Codex and ChatGPT, posts three times and takes two of the top three reply counts. The one carrying numbers is at 21:09 Pacific on 11-07: answering confusion, he says all Pro plans have no 5-hour limits and gives usage relative to Plus, Pro 100 = 10X, Pro 200 = 20X, Pro 500 = 50X with access to ultrafast, 2,756 likes, 86 reposts, 650 replies, second on replies. 35m52s later he quotes that same post to ask &ldquo;Would a Pro 50 make sense? Wdyt?&rdquo;, 1,369 likes, 58 reposts, 855 replies, the highest reply count in the window and one of the two in-feed quotes. His third post takes 417 replies, fourth in the window; Karpathy&rsquo;s 475 is third.</p>
+<p class="summary-en">At 22:27 Pacific on 11-06 he posts the single word &ldquo;Cyber&rdquo; over a link, 1,601 likes, 39 reposts, 417 replies, quoting a post outside the feed whose content is not shown. The 10-13 issue recorded a different formulation on the same Pro line: 2X usage across Pro 100, 200 and 500 at the cost of bringing back 5-hour limits, from a poll whose vote count was never given. The two statements are recorded side by side here; the feed does not say how they relate, so neither is treated as a revision of the other.</p>
+<p class="summary-zh zh">在 OpenAI 负责 Codex 和 ChatGPT 的 Thibault Sottiaux 发了三条，回复数前三里占了两位。带数字的那条在太平洋 11-07 21:09：他回应一些困惑，说所有 Pro 套餐都没有 5 小时限制，并给出相对 Plus 的用量，Pro 100 = 10X、Pro 200 = 20X、Pro 500 = 50X 且可用 ultrafast，2756 赞、86 次转发、650 条回复，回复排第二。35 分 52 秒后他引用自己这条，问「Would a Pro 50 make sense? Wdyt?」，1369 赞、58 次转发、855 条回复，是窗口回复数最高的一条，也是本期两处 feed 内引用之一。他第三条是 417 条回复，排第四；Karpathy 的 475 排第三。</p>
+<p class="summary-zh zh">太平洋 11-06 22:27 他只发了「Cyber」一个词加一个链接，1601 赞、39 次转发、417 条回复，引用了 feed 之外的一条推文，feed 没有给出其内容。10-13 那期在同一条 Pro 线上记的是另一种说法：Pro 100/200/500 三档都给 2X 用量，代价是恢复 5 小时限制，出自一个始终没给票数的投票。这里把两处说法并排列出；feed 没有说明它们的关系，因此不把其中一处写成另一处的改口。</p>
+<div class="urls"><a href="https://x.com/thsottiaux/status/2118953362725159104" target="_blank">https://x.com/thsottiaux/status/2118953362725159104</a><a href="https://x.com/thsottiaux/status/2119296267545419987" target="_blank">https://x.com/thsottiaux/status/2119296267545419987</a><a href="https://x.com/thsottiaux/status/2119305294291612140" target="_blank">https://x.com/thsottiaux/status/2119305294291612140</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aaron Levie</span>
+<span class="builder-role">CEO, Box</span>
+</div>
+<p class="summary-en">Box CEO Aaron Levie posts two long arguments, both quoting posts outside the feed whose content is not shown. At 08:54 Pacific on 11-07 he says productivity gains an order of magnitude or two above pre-AI output levels are showing up in coding, and lists what it takes: the right harness, deep understanding of the domain, likely a relatively new codebase, fluency at working with multiple agents at once, and low-friction testing and deployment. His sharper claim is that the gap is not diminishing: the more depth someone had before, and the more willing they are now to take a different approach, the more leverage they get, and it compounds as models take on larger work. He expects it to spread from software engineering to other computer-use-sensitive domains, naming scientific fields, AEC, finance and cyber, 582 likes, 51 reposts, 99 replies.</p>
+<p class="summary-en">At 22:29 Pacific on 11-06 he argues that agent inference can run almost anywhere, because long-running agents are becoming the norm and the work is not as sensitive to latency back to the user. He gives an example of $500 of value from an automated task against one extra second of return, says data can pass into these systems encrypted and be discarded right after, so AI factories can be treated as ephemeral systems, which slightly changes data residency dynamics and gives more freedom over where AI data centers are deployed, 256 likes, 37 reposts, 105 replies.</p>
+<p class="summary-zh zh">Box CEO Aaron Levie 发了两条长论证，都引用了 feed 之外的推文，feed 未给出其内容。太平洋 11-07 08:54 他说，比 pre-AI 产出水平高一个到两个数量级的生产力提升，正在编码领域出现，并列出条件：合适的 harness、对所在领域的深入理解、大概率是较新的代码库、能同时驾驭多个 agent、以及低摩擦的测试与部署。更关键的一句是这个差距并没有在收敛：过去积累越深、现在越愿意换一套做法的人，杠杆越大，而且随着模型能接下更大的工作和更难的问题还在复利。他预期这会从软件工程扩散到其他对 computer use 敏感的领域，点名科学、AEC、金融、cyber，582 赞、51 次转发、99 条回复。</p>
+<p class="summary-zh zh">太平洋 11-06 22:29 他主张 agent 的推理几乎可以跑在任何地方，因为长时间运行的 agent 正在成为常态，而这类工作对用户侧的延迟不像别的技术那么敏感。他举例说，一个自动化任务带来 500 美元价值、只是多花一秒返回；数据可以加密进入这些系统、筛完即丢弃，因此 AI factory 可以当成临时系统看待，这会略微改变 data residency 的格局，也让 AI 数据中心的选址更自由，256 赞、37 次转发、105 条回复。</p>
+<div class="urls"><a href="https://x.com/levie/status/2118953909524050288" target="_blank">https://x.com/levie/status/2118953909524050288</a><a href="https://x.com/levie/status/2119111328099168409" target="_blank">https://x.com/levie/status/2119111328099168409</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Zara Zhang</span>
+<span class="builder-role">Builder</span>
+</div>
+<p class="summary-en">Builder Zara Zhang posts once at 23:28 Pacific on 11-06. She argues that startup fates are made, not predetermined: one idea has a thousand ways to execute it and a hundred people will take a hundred different approaches, and brilliant people with brilliant execution can create something out of nothing or make the impossible look obvious in hindsight. 146 likes, 5 reposts, 29 replies. It is her only post in the window and carries no quote.</p>
+<p class="summary-zh zh">Builder Zara Zhang 在太平洋 11-06 23:28 只发了一条。她主张创业公司的命运是做出来的，不是注定的：同一个想法有一千种执行方式，一百个人会走出一百条路；厉害的人配上厉害的执行，常常能从无到有造出东西，或者让原本不可能的事在事后显得理所当然。146 赞、5 次转发、29 条回复。这是她在窗口里的唯一一条，没有引用。</p>
+<div class="urls"><a href="https://x.com/zarazhangrui/status/2118968862557475298" target="_blank">https://x.com/zarazhangrui/status/2118968862557475298</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Andrej Karpathy</span>
+<span class="builder-role">bio not provided in feed</span>
+</div>
+<p class="summary-en">Andrej Karpathy posts once at 09:07 Pacific on 11-07 and takes the top likes and reposts: 6,445 and 515, both the highest in the window, with 475 replies, third on replies behind Sottiaux&rsquo;s 855 and 650. He says Tristan published his top YouTube channels earlier in the week, so he turned it into TristanTube, 47K super nerdy videos plus TV mode for laid-back watching, one-shotted with Claude Code in 3 minutes, over three links. It quotes a post outside the feed. TristanTube, Tristan and 47K all have zero prior hits in 2026/.</p>
+<p class="summary-en">HackerTube, recorded in the 11-03 issue as 43 million Hacker News comments filtered to 6,454 videos, about two hours on Opus 5.5 and three things done by hand, is a different name from the same author. The feed does not say the two are the same project or a continuation of one another, so they are listed side by side and not merged.</p>
+<p class="summary-zh zh">Andrej Karpathy 在太平洋 11-07 09:07 只发了一条，拿到赞数和转发两项第一：6445 赞、515 次转发，都是窗口最高；回复 475 条排第三，前面是 Sottiaux 的 855 和 650。他说 Tristan 本周早些时候公布了自己最常看的 YouTube 频道，于是他把它做成了 TristanTube：47K 个极客视频，外加适合躺着看的 TV mode，用 Claude Code 三分钟 one-shot 做出来，配三个链接。这条引用了 feed 之外的一条推文。TristanTube、Tristan、47K 在 2026/ 下此前全部零命中。</p>
+<p class="summary-zh zh">11-03 那期记下的 HackerTube，是把 4300 万条 Hacker News 评论筛成 6454 个视频、Opus 5.5 上约两小时、人工只做三件事，出自同一作者但是另一个名字。feed 没有说两者是同一个项目，也没有说一个是另一个的延续，因此这里只并列，不合并。</p>
+<div class="urls"><a href="https://x.com/karpathy/status/2119114537442189652" target="_blank">https://x.com/karpathy/status/2119114537442189652</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Amjad Masad</span>
+<span class="builder-role">CEO, Replit</span>
+</div>
+<p class="summary-en">Replit CEO Amjad Masad posts twice, both quoting posts outside the feed whose content is not shown. At 09:53 Pacific on 11-07 he says he really enjoyed Kazakhstan, calling it a super AI pilled government and a great place for the Network School, 454 likes, 22 reposts, 37 replies. At 15:55 he posts only the phrase &ldquo;The Better Lesson:&rdquo; over a link, 255 likes, 12 reposts, 37 replies. Neither carries a product announcement or an argument in the feed. Network School and Kazakhstan have zero prior hits in 2026/.</p>
+<p class="summary-zh zh">Replit CEO Amjad Masad 发了两条，都引用了 feed 之外的推文，feed 未给出其内容。太平洋 11-07 09:53 他说很喜欢 Kazakhstan，称当地政府「super AI pilled」，也很适合 Network School，454 赞、22 次转发、37 条回复。15:55 他只发了「The Better Lesson:」一句加一个链接，255 赞、12 次转发、37 条回复。两条在 feed 里都没有产品发布，也没有论证。Network School 与 Kazakhstan 在 2026/ 下此前零命中。</p>
+<div class="urls"><a href="https://x.com/amasad/status/2119126064815608270" target="_blank">https://x.com/amasad/status/2119126064815608270</a><a href="https://x.com/amasad/status/2119217304953053419" target="_blank">https://x.com/amasad/status/2119217304953053419</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Garry Tan</span>
+<span class="builder-role">President &amp; CEO, Y Combinator</span>
+</div>
+<p class="summary-en">Y Combinator President and CEO Garry Tan posts three times, all quoting posts outside the feed. At 10:59 Pacific on 11-07, &ldquo;Man don&rsquo;t show this essay to the NIMBYs&rdquo; over a link, 84 likes, 0 reposts, 5 replies. At 11:16 he writes &ldquo;We could have abundance&rdquo; and says the defining political issue of the next decade is whether superintelligence delivers human progress in science, medicine and engineering, or whether we choose the darkness, 314 likes, 21 reposts, 55 replies. At 12:59, &ldquo;WIRED is a shell of its former self&rdquo;, 110 likes, 3 reposts, 16 replies.</p>
+<p class="summary-en">Only the abundance post carries a stated position; the other two are one-line reactions. WIRED as a proper noun has zero prior hits in 2026/ (earlier hits of wired were a different word), while NIMBY appeared on 11-04 and 06-10 in different contexts, so neither is treated as new here.</p>
+<p class="summary-zh zh">Y Combinator 总裁兼 CEO Garry Tan 发了三条，全部引用 feed 之外的推文。太平洋 11-07 10:59 是「Man don't show this essay to the NIMBYs」加一个链接，84 赞、0 次转发、5 条回复。11:16 他写「We could have abundance」，并说未来十年的决定性政治议题，是超级智能能不能在科学、医学、工程上带来人类进步，还是我们选择黑暗，314 赞、21 次转发、55 条回复。12:59 是「WIRED is a shell of its former self」，110 赞、3 次转发、16 条回复。</p>
+<p class="summary-zh zh">三条里只有 abundance 那条带明确立场，另外两条都是一句话反应。WIRED 作为专名在 2026/ 下零命中（此前命中的 wired 是另一个词）；NIMBY 在 11-04、06-10 有过不同语境的命中，两者都不按首次处理。</p>
+<div class="urls"><a href="https://x.com/garrytan/status/2119142686422859899" target="_blank">https://x.com/garrytan/status/2119142686422859899</a><a href="https://x.com/garrytan/status/2119146939514278238" target="_blank">https://x.com/garrytan/status/2119146939514278238</a><a href="https://x.com/garrytan/status/2119172824271360124" target="_blank">https://x.com/garrytan/status/2119172824271360124</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aditya Agarwal</span>
+<span class="builder-role">General Partner, SPC</span>
+</div>
+<p class="summary-en">SPC general partner Aditya Agarwal posts once at 11:57 Pacific on 11-07. He argues that if building data centers becomes harder, the obvious position is to be long whoever already has capacity, the hyperscalers, because demand for the spice only keeps going up, so the spice holders win. What suffers, he says, is the rate of new model training, and he closes with &ldquo;I guess we will pace the frontier after all. The body politic speaketh.&rdquo; 41 likes, 3 reposts, 5 replies, the third-lowest like count in the window. The feed gives no source for the spice metaphor and no numbers behind any of the claims.</p>
+<p class="summary-zh zh">SPC 普通合伙人 Aditya Agarwal 在太平洋 11-07 11:57 只发了一条。他主张，如果建数据中心变难，明显的做法就是做多已经有产能的一方，也就是超大厂，因为对 spice 的需求只会继续上升，所以持有 spice 的人会赢。他说受影响的是新模型训练的速度，结尾写「I guess we will pace the frontier after all. The body politic speaketh.」41 赞、3 次转发、5 条回复，是窗口赞数第三低的一条。feed 没有给 spice 这个比喻的出处，以上任何判断背后也都没有数字。</p>
+<div class="urls"><a href="https://x.com/adityaag/status/2119157297167372646" target="_blank">https://x.com/adityaag/status/2119157297167372646</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nikunj Kothari</span>
+<span class="builder-role">Partner, FPV Ventures</span>
+</div>
+<p class="summary-en">FPV Ventures partner Nikunj Kothari posts twice. At 12:16 Pacific on 11-07 he writes a long satire on how to get investors to fomo a series A and collect seven term sheets: vague-post revenue or customers with no y axis, make launch videos, buy &ldquo;articles&rdquo; in &ldquo;premier&rdquo; publications, repeat mantras like large ambition and long horizon agent swarms, claim not to be raising, and say you are optimizing for the best partner while wanting the best valuation. He closes by saying the whole thing is satire but individually each line is true, 80 likes, 3 reposts, 8 replies, quoting a post outside the feed. The 11-08 issue recorded a 2,122-character satire from the same author with the same closing disclaimer; the two are separate posts and are not merged.</p>
+<p class="summary-en">At 16:46 he posts a session notice: the next guest is danielrupawalla, cofounder of ArcanumLabs_, next Wednesday Nov 11 at noon, a 60-minute IRL session in SF with 45 minutes of his questions and 15 minutes of the guest&rsquo;s questions about venture, off the record under Chatham House rules, open to 10 to 12 guests, with a Luma registration link, 13 likes, 1 repost, 3 replies. ArcanumLabs_ and Chatham House have zero prior hits in 2026/.</p>
+<p class="summary-zh zh">FPV Ventures 合伙人 Nikunj Kothari 发了两条。太平洋 11-07 12:16 他写一篇长讽刺，讲怎么让投资人 FOMO 一轮 A 轮、拿到七份 term sheet：含糊地晒收入或客户、不给 y 轴，拍发布视频，在「一流」刊物买「文章」，反复念 large ambition、long horizon agent swarms 这类咒语，声称自己没在融资，嘴上说挑最好的合伙人、心里只想要最高估值。结尾他自己注明整篇是讽刺，但每一句单独都是真的，80 赞、3 次转发、8 条回复，引用了 feed 之外的一条推文。11-08 那期记过同一作者一篇 2122 字符的讽刺长文，结尾用的是同样的免责声明；两条是独立推文，不合并。</p>
+<p class="summary-zh zh">16:46 他发了一条活动通知：下一位嘉宾是 ArcanumLabs_ 联合创始人 danielrupawalla，下周三 11 月 11 日中午，旧金山线下 60 分钟，前 45 分钟他问尖锐问题，后 15 分钟嘉宾反过来问关于 venture 的问题，全程不公开、按 Chatham House 规则，开放 10 到 12 位旁听嘉宾，附 Luma 报名链接，13 赞、1 次转发、3 条回复。ArcanumLabs_ 与 Chatham House 在 2026/ 下此前零命中。</p>
+<div class="urls"><a href="https://x.com/nikunj/status/2119162212044742938" target="_blank">https://x.com/nikunj/status/2119162212044742938</a><a href="https://x.com/nikunj/status/2119229917019971879" target="_blank">https://x.com/nikunj/status/2119229917019971879</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Swyx</span>
+<span class="builder-role">smol_ai &middot; Cognition &middot; Latent Space</span>
+</div>
+<p class="summary-en">Swyx posts three times within about two hours on Pacific 11-07. At 15:29:10, &ldquo;just arrived&hellip; best swag game in the business. u guys are in for a treat next week&rdquo; over two links, 92 likes, 2 reposts, 18 replies, quoting a post outside the feed. Nine seconds later, at 15:29:19, a bare link with no text, 1 like, 0 reposts, 0 replies, the window&rsquo;s lowest like count. At 17:37, &ldquo;sticker game inspired by dexhorthy CompleteSkeptic et al&rdquo;, 74 likes, 0 reposts, 9 replies; this one quotes his own 15:29:10 swag post, the other in-feed quote in the window. None of the three carries an argument, and the feed gives no content for the quoted outside post.</p>
+<p class="summary-zh zh">Swyx 在太平洋 11-07 约两小时内发了三条。15:29:10 是「just arrived… best swag game in the business. u guys are in for a treat next week」加两个链接，92 赞、2 次转发、18 条回复，引用 feed 之外的一条推文。9 秒后的 15:29:19 是一个没有文字的裸链接，1 赞、0 次转发、0 条回复，是窗口赞数最低的一条。17:37 是「sticker game inspired by dexhorthy CompleteSkeptic et al」，74 赞、0 次转发、9 条回复，这条引用了他自己 15:29:10 的 swag 推文，是本期另一处 feed 内引用。三条都不承载观点，feed 也没有给被引用的外部推文内容。</p>
+<div class="urls"><a href="https://x.com/swyx/status/2119210582654210255" target="_blank">https://x.com/swyx/status/2119210582654210255</a><a href="https://x.com/swyx/status/2119210618976944259" target="_blank">https://x.com/swyx/status/2119210618976944259</a><a href="https://x.com/swyx/status/2119242830707311005" target="_blank">https://x.com/swyx/status/2119242830707311005</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Steinberger</span>
+<span class="builder-role">OpenClaw &middot; OpenAI</span>
+</div>
+<p class="summary-en">Peter Steinberger, whose bio names OpenClaw and OpenAI, posts once at 19:02 Pacific on 11-07 and takes 1,053 likes, 44 reposts, 85 replies, the fifth of the five posts above a thousand likes. He says the Asahi project was all about taking something closed and restricted and opening it up, that adding new restrictions making it harder for other projects to build on that is not the way, and that &ldquo;that AI rejection is just silly&rdquo;, over one link. Asahi has zero prior hits in 2026/, and the feed gives no further explanation of what the project or the rejection refers to.</p>
+<p class="summary-zh zh">Peter Steinberger 的 bio 里写着 OpenClaw 与 OpenAI。他在太平洋 11-07 19:02 只发了一条，拿到 1053 赞、44 次转发、85 条回复，是第五条破千赞。他说 Asahi 项目的全部意义，就是把一个封闭、受限的东西打开；现在再加新限制、让别人更难在它之上做东西，不是正确的方向，还说「that AI rejection is just silly」，配一个链接。Asahi 在 2026/ 下此前零命中，feed 也没有进一步说明这个项目或那次 rejection 指的是什么。</p>
+<div class="urls"><a href="https://x.com/steipete/status/2119264334627090514" target="_blank">https://x.com/steipete/status/2119264334627090514</a></div>
+</article>
+</section>
+<!-- ============== PODCAST ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#127911;</span>
+<h2 class="section-title">Podcast</h2>
+<span class="section-meta">1 Episode &middot; Late</span>
+</div>
+<div class="podcast">
+<div class="podcast-source">No Priors</div>
+<div class="podcast-title">Tokenization, Agentic Trading, Harmonic: Robinhood&rsquo;s Mission to Expand Ownership with CEO Vlad Tenev</div>
+<p class="summary-en">No Priors publishes &ldquo;Tokenization, Agentic Trading, Harmonic: Robinhood&rsquo;s Mission to Expand Ownership with CEO Vlad Tenev&rdquo; at 2026-11-05T11:00:00Z, Pacific 11-05 03:00:00. That is 2 days 19h25m57s before the snapshot at Pacific 11-07 22:25:57 and 1 day 19h27m04s before the window&rsquo;s first tweet, so by this series&rsquo; rule it is late, not fresh, after the fresh podcast in the 11-08 issue. The feed&rsquo;s URL is the No Priors channel page rather than a specific video and is reproduced as given. No Priors as a show has appeared many times before, and the 09-13 issue carried a different episode of the same channel with Coinbase CEO Brian Armstrong; Vlad Tenev, Robinhood, Harmonic, Agentic Trading and the full episode title all have zero prior hits in 2026/, so this episode is new to the series. The transcript opens with a cold-open edit that stitches together lines from much later in the conversation; it is not treated as a separate statement.</p>
+<p class="summary-en">Vlad Tenev, founder and CEO of Robinhood, frames the company in one word: ownership. He argues it matters twice over, because owning assets is the tried-and-true route to financial independence for an individual, and because a society without broad ownership is fragile, while people who own things become defenders of the system. He traces that instinct to childhood in Bulgaria at the collapse of the Soviet Union, with 170% inflation in 1991 and 2,000% annualized in 1997, rolling blackouts, and a grandfather who converted his salary into copper cookware as a store of value. Robinhood now operates in some form in over 120 countries, and he lists Trump accounts, Robinhood Ventures and tokenization as extensions of the same idea, the last being &ldquo;ownership gone global&rdquo;.</p>
+<p class="summary-en">On the math side he is blunt about the current wave being too centralized. Harmonic, a startup he co-founded to build mathematical superintelligence, produced Aristotle, which he says was one of three models to get a gold medal on the International Math Olympiad about a year ago, and was later opened to the public, where people used it on unsolved problems including Erdosche problems. Math, he says, barely changed for thousands of years and has now converged with coding through version control and Lean. His objection is to a world where a few AI companies own the data centers, the secret models and every discovery, and he calls that a dystopian outcome that would be far better received if the tools were put in the hands of ordinary users. He does not claim this is inevitable; he says it is unlikely for reasons beyond just technological and market ones.</p>
+<p class="summary-en">On products, tokenization wraps a real asset in a box and mints tokens against it, the way a stablecoin wraps dollars or treasuries. Robinhood launched stock tokens in Europe last year without full DeFi support and relaunched them this year fully DeFi enabled alongside Robinhood Chain, a blockchain built for real world assets that he calls one of the fastest growing across a lot of metrics in history and the number one chain by developer activity. He answers the corpo chain criticism by saying a little organizational decentralization purity is a fair trade for focused leadership and backed primitives. On prediction markets he calls them an evolution of news, where the odds show both what is happening and what is likely to happen. He describes KPI contracts as announced and planned for launch, and says they now allow trading an EPS or revenue print directly instead of using the stock as a proxy; the transcript uses both tenses and the feed does not reconcile them.</p>
+<p class="summary-en">The agentic trading numbers are all his own characterisations, with no external check in the feed. He says over 150,000 customers have opened agentic trading accounts in the few months since launch, and that tool calls have followed a smooth exponential to something like 30,000,000 per day as last announced. The product began as a Robinhood MCP, and at the Hood Summit a couple of weeks earlier became Robinhood Agents, with the harness and UI inside a Robinhood account, plus skills and an agent app store that can connect to sources such as satellite data. His north star is putting the capabilities of a hedge fund or a sophisticated algorithmic trading firm into the pockets of normal individuals. He says agentic trades are still a low percentage of total trading and not imminently a double-digit percentage, so there is warning time, and the day-one safeguards are a segregated account, trade approvals on by default, and a sandbox he says is close to air gapped.</p>
+<p class="summary-en">On the ownership gap he says the major AI companies are private, so individuals could not get exposure to OpenAI or Anthropic a few years ago, and an AI lab listing at a trillion or two would leave no room for the 1,000x returns that Microsoft or Amazon IPO buyers once had. Robinhood Ventures Fund I holds late-stage privates including OpenAI and Crusoe and trades on the NYSE, while Fund II is designed with YC to reach seed and Series A. He cites an SEC initiative directing FINRA to create a knowledge-based accreditation exam, and argues the accredited investor rule comes from a time before the internet. For Trump accounts, Robinhood is sole initial trustee and broker with BNY, Treasury and the IRS, each newborn from January 2025 for the next three years gets $1,000 from Treasury, and Michael and Susan Dell added over 6,000,000,000 for children in lower income zip codes; he states a goal of moving household stock ownership from 65% to 95%. Figures, rankings and institutional descriptions in this paragraph are his own statements, not measurements the feed verifies.</p>
+<p class="summary-en">The transcript has no speaker labels beyond Speaker 1 and Speaker 2, and the host does not give a name, so none is supplied here. It also carries ASR spellings that are reproduced rather than silently corrected: AgenTik and AgenTic for Agentic, Terence Tau for the mathematician the host says he studied under, Erdosche problems, Versus Code, Zaprecise, and the closing address no-fryers.com. Where the JSON title supplies a spelling, the episode is referred to by that form. Cold-open lines repeat later passages almost verbatim and are not counted as separate claims.</p>
+<p class="summary-zh zh">No Priors 发布《Tokenization, Agentic Trading, Harmonic: Robinhood's Mission to Expand Ownership with CEO Vlad Tenev》，时间 2026-11-05T11:00:00Z，即太平洋 11-05 03:00:00。它比快照（太平洋 11-07 22:25:57）早 2 天 19 小时 25 分 57 秒，也比窗口第一条推文早 1 天 19 小时 27 分 04 秒，完全在窗口之外，按本系列口径判为迟到，而不是 11-08 那期之后的又一次新鲜。feed 给的 URL 是 No Priors 频道页而不是具体视频，按原样照录。No Priors 这个节目在本系列出现过很多次，09-13 那期收录的是同一频道另一集，嘉宾是 Coinbase CEO Brian Armstrong；Vlad Tenev、Robinhood、Harmonic、Agentic Trading 以及完整节目标题在 2026/ 下全部零命中，因此这一集对本系列是新的。转写开头有一段把后面多处原话拼在一起的剪辑式 cold open，这里不当成另一处独立发言。</p>
+<p class="summary-zh zh">Robinhood 创始人兼 CEO Vlad Tenev 用一个词概括公司：ownership。他说这件事有两层意义，个人层面持有资产是走向财务独立最可靠的路，集体层面没有广泛所有权的社会天然脆弱，而有产者会成为系统的维护者。他把这种直觉追到童年：苏联解体前后的保加利亚，1991 年通胀 170%、1997 年年化 2000%，轮流停电，祖父一领到薪水就换成铜锅具当储值。Robinhood 如今以某种形式在 120 多个国家运营，他把 Trump accounts、Robinhood Ventures、tokenization 都归到同一条主线下，最后一项被他称作「ownership gone global」。</p>
+<p class="summary-zh zh">数学这边，他对当下这波浪潮的判断很直白：太中心化。他联合创办的 Harmonic 目标是做数学超级智能，他说大约一年前做出的 Aristotle 是三个拿到国际数学奥林匹克金牌的模型之一，后来对外开放，有人拿它去攻未解问题，包括 Erdosche problems。他说数学几千年几乎没怎么变过，如今因为版本控制和 Lean 与编码汇合了。他反对的是少数 AI 公司握着数据中心、秘密模型和全部发现的那种世界，称之为一种 dystopian 结局，并说如果工具交到普通用户手里，同样的成果会容易被接受得多。他没有说这必然发生，反而说除了技术和市场层面的理由之外还有别的原因，认为不太可能。</p>
+<p class="summary-zh zh">产品上，tokenization 是把真实资产装进一个盒子、再对着盒子铸造代币，就像 stablecoin 把美元或国债包起来。Robinhood 去年在南法发布过 stock tokens，但当时没完全开放 DeFi；今年重新发布，做成完整 DeFi 可用，并配了为真实世界资产建的 Robinhood Chain，他称它按很多指标算是史上增长最快的链之一、开发者活跃度第一。面对「corpo chain」的批评，他的回应是牺牲一点组织去中心化的纯粹性，换集中领导和有品牌背书的基础组件是划算的。谈 prediction markets，他说它是新闻的一种演化，赔率同时显示正在发生什么和将要发生什么。他提到 KPI contracts 时既说是已宣布、计划推出，又说现在已能直接交易 EPS 或营收数字，不必拿股票当代理；转写里两种时态都有，feed 没有说清二者关系。</p>
+<p class="summary-zh zh">agentic trading 的数字全是他本人的定性描述，feed 里没有外部复核。他说产品上线几个月已有超过 15 万客户开了 agentic trading 账户，tool calls 沿一条平滑指数上升，最近公布的数字大约是每天 3000 万次。产品起点是一个 Robinhood MCP，几周前的 Hood Summit 上升级为 Robinhood Agents，harness 和整套 UI 都放进 Robinhood 账户里，另有 skills 和能接卫星数据之类来源的 agent app store。他给的北极星，是把对冲基金或成熟量化交易公司的能力放进普通人的口袋。他说 agentic 成交目前只占总成交的很低比例，短期内不会到两位数百分比，因此还有预警时间；上线首日的护栏是独立隔离账户、默认开启交易确认，以及一个他说接近 air gapped 的沙箱。</p>
+<p class="summary-zh zh">谈所有权缺口，他说主要 AI 公司都还是私有的，个人几年前根本拿不到 OpenAI 或 Anthropic 的敞口；而一家 AI 实验室若以一万亿或两万亿美元上市，个人投资者也就没有微软、亚马逊 IPO 时代那种 1000 倍空间了。Robinhood Ventures Fund I 装的是后期私有公司，含 OpenAI 与 Crusoe，在纽交所像股票一样交易；Fund II 则设计成与 YC 合作、够到种子轮和 A 轮。他提到 SEC 上周指示 FINRA 设立基于知识的认证考试，并认为 accredited investor 规则出自互联网之前的年代。Trump accounts 上，Robinhood 是 sole initial trustee and broker，与 BNY、Treasury、IRS 合作，2025 年 1 月起三年内每名新生儿由 Treasury 存 1000 美元，Michael 与 Susan Dell 又为低收入邮编儿童追加超过 60 亿美元；他给出的目标是把家庭持股率从 65% 提到 95%。本段里的数字、排名与机构描述都是他的自述，不是 feed 核实过的测量。</p>
+<p class="summary-zh zh">转写只有 Speaker 1 与 Speaker 2 两个标签，主持人没有自报姓名，这里也不补。转写里还有若干 ASR 拼写，按原样照录而不静默修正：Agentic 被写成 AgenTik、AgenTic；主持人说他师从的数学家被写成 Terence Tau；另有 Erdosche problems、Versus Code、Zaprecise，以及结尾的网址 no-fryers.com。JSON 标题给出了拼法的地方，正文按标题形式称呼。cold open 里的句子与后文几乎逐字重复，不另算一处主张。</p>
+<div class="urls"><a href="https://www.youtube.com/@NoPriorsPodcast" target="_blank">https://www.youtube.com/@NoPriorsPodcast</a></div>
+</div>
+</section>
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128161;</span>
+<h2 class="section-title">The Takeaway</h2>
+<span class="section-meta">2026-11-09</span>
+</div>
+<div class="takeaway">
+<div class="takeaway-label">The Takeaway</div>
+<p>Andrej Karpathy&rsquo;s TristanTube takes the top likes and reposts at 6,445 and 515, both the highest in the window, with 475 replies, third behind Sottiaux&rsquo;s 855 and 650. 47K videos, TV mode, one-shotted with Claude Code in 3 minutes. It comes from the same author as the HackerTube recorded on 11-03, 43 million comments filtered to 6,454 videos, but carries a different name; the feed does not say they are the same project, so the two are listed side by side and not merged. Karpathy&rsquo;s bio field is empty in the feed, so no role is added.</p>
+<p>Thibault Sottiaux takes two of the top three reply counts, 855 and 650, with 417 on his third post, fourth in the window; Karpathy&rsquo;s 475 is third. His three posts together take 5,726 likes, 183 reposts and 1,922 replies. The only post in the window with concrete product numbers is his Pro clarification, no 5-hour limits and 10X / 20X / 50X relative to Plus, and he quotes it himself 35m52s later to ask about a Pro 50. The 10-13 issue recorded a different formulation, 2X across Pro 100 / 200 / 500 at the cost of bringing back 5-hour limits, from a poll with no vote count. Both are printed; the feed gives no relation between them, so neither is called a reversal.</p>
+<p>Attention and checkable detail stay apart. 5 posts clear a thousand likes: Karpathy&rsquo;s TristanTube (6,445), Sottiaux&rsquo;s three, including a one-word &ldquo;Cyber&rdquo; and a one-line question, and Peter Steinberger&rsquo;s Asahi post (1,053). Two of those carry no argument at all. Aaron Levie&rsquo;s two long arguments take 582 and 256 likes, Garry Tan&rsquo;s abundance post 314, Nikunj Kothari&rsquo;s satire 80, and Aditya Agarwal&rsquo;s data-center thesis 41. No post clears a thousand replies, and only one clears a hundred reposts, Karpathy at 515. Every superlative above was checked against a full-window sort first.</p>
+<p>Quote structure is different from the 11-08 issue. 13 of the 19 posts are quote tweets with 13 distinct quoted IDs. Two are in-feed, both authors quoting themselves: Swyx quotes his own swag post, Sottiaux quotes his own Pro clarification. The other 11 quoted IDs are distinct, all outside the feed, and there is no group of two posts answering the same outside ID, which the 11-08 issue did have. The feed shows the content of none of those outside posts.</p>
+<p>The podcast is late but new. No Priors with Vlad Tenev was published at Pacific 11-05 03:00, 2 days 19h25m57s before the snapshot and entirely outside the window; the 11-08 issue&rsquo;s podcast was fresh, so the slot alternates again. The 09-13 issue carried a different No Priors episode with Coinbase CEO Brian Armstrong, and the channel URL is a channel-level resource, not dedup evidence. What travels is the ownership thesis and the objection that AI-driven math discovery is too centralized; every number in the episode, 150,000 accounts, 30,000,000 tool calls per day, 120 countries, 6,000,000,000 in donations and 65% to 95% household ownership, is stated by the guest without an external check in the feed.</p>
+<p>Coverage has no gap. 16 of the 19 posts sit on Pacific 11-07, 08:54:46 to 21:45:31, and 3 sit on Pacific 11-06, 22:27:04 to 23:28:40, all after the previous issue&rsquo;s window closed at Pacific 11-06 22:18:49. The window closes 40m26s before the snapshot at Pacific 11-07 22:25:57, one day after the previous snapshot. This issue was written at Pacific 11-08 18:13, about 20 hours after the snapshot. Pacific 10-29 and 10-30 remain permanently missing from two cron runs that did not fire. Ten accounts posted: 7 are on the tracked list of 24 and 3 are not. Sam Altman, who led the 11-05 issue, is absent for a fourth issue.</p>
+</div>
+<div class="takeaway zh">
+<div class="takeaway-label">核心结论</div>
+<p>Andrej Karpathy 的 TristanTube 拿到赞数和转发两项第一：6445 赞、515 次转发，都是窗口最高；回复 475 条排第三，前面是 Sottiaux 的 855 和 650。47K 个视频、TV mode、用 Claude Code 三分钟 one-shot 做出。它和 11-03 那期记下的 HackerTube（4300 万条评论筛成 6454 个视频）出自同一作者，但名字不同；feed 没说两者是同一个项目，因此只并列、不合并。Karpathy 在 feed 里的 bio 字段为空，所以没有给他补头衔。</p>
+<p>Thibault Sottiaux 在回复数前三里占两位：855、650，第三条 417 排第四，Karpathy 的 475 排第三；三条合计 5726 赞、183 次转发、1922 条回复。窗口里唯一带具体产品数字的是他澄清 Pro 套餐那条：没有 5 小时限制、相对 Plus 为 10X / 20X / 50X；35 分 52 秒后他自己引用这条，问要不要 Pro 50。10-13 那期记的是另一种说法：Pro 100/200/500 三档 2X，代价是恢复 5 小时限制，出自一个没给票数的投票。两处都照录；feed 没有说明二者关系，所以不把其中一处写成反转。</p>
+<p>热度和可核对的信息仍然各走各的。破千赞的有 5 条：Karpathy 的 TristanTube（6445）、Sottiaux 的三条（其中一条只有一个词「Cyber」、一条只有一句提问）、Peter Steinberger 的 Asahi（1053）。其中两条完全不承载观点。Aaron Levie 两条长论证分别是 582 赞和 256 赞，Garry Tan 的 abundance 314 赞，Nikunj 的讽刺长文 80 赞，Aditya 的数据中心判断 41 赞。没有一条破千回复，转发过百的只有 Karpathy 那一条（515）。上面每一处「最」都先做了全窗口排序核对。</p>
+<p>引用结构和 11-08 那期不同。19 条里 13 条是引用推文，共 13 个不同的被引用 ID。两处在 feed 内，且都是作者引用自己：Swyx 引用自己的 swag 推文，Sottiaux 引用自己的 Pro 澄清。其余 11 个被引用 ID 互不相同、全在 feed 外，没有出现 11-08 那种「两条推文指向同一个 feed 外 ID」的同组。feed 没有给出这些外部推文的内容。</p>
+<p>播客迟到，但对本系列是新的。No Priors × Vlad Tenev 发布于太平洋 11-05 03:00，比快照早 2 天 19 小时 25 分 57 秒，完全在窗口之外；11-08 那期是新鲜，这一格又轮换回迟到。09-13 那期收录的是同一频道另一集，嘉宾为 Coinbase CEO Brian Armstrong，频道 URL 属频道级资源，不作去重证据。最容易被带走的是 ownership 主线，以及「AI 做数学发现太中心化」这个反对意见；节目里每个数字，15 万账户、每天 3000 万次 tool calls、120 个国家、60 亿美元捐赠、家庭持股率 65% 到 95%，都是嘉宾自述，feed 里没有外部复核。</p>
+<p>这次覆盖没有缺口。19 条里 16 条落在太平洋 11-07，08:54:46 到 21:45:31；3 条在太平洋 11-06，22:27:04 到 23:28:40，全部晚于上一期窗口收口的太平洋 11-06 22:18:49。窗口在快照太平洋 11-07 22:25:57 之前 40 分 26 秒收口，上一份快照相隔一天。本期成文于太平洋 11-08 18:13，比快照晚约 20 小时。太平洋 10-29 与 10-30 仍因两次 cron 未触发而永久缺失。有内容的账号 10 个，其中 7 位在 24 位追踪名单上、3 位不在。11-05 那期三项第一的 Sam Altman 连续第四期缺席。</p>
+</div>
+</section>
+<!-- ============== NOTES ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128221;</span>
+<h2 class="section-title">记录 / Notes &amp; Dedup</h2>
+<span class="section-meta">19 Zero &middot; 1 Late &middot; 0 Dedup</span>
+</div>
+<div class="dedup">
+<p style="margin-top:12px"><strong>Tweet check</strong> &mdash; All 19 tweet IDs were matched against the 120 HTML files under 2026/ and returned zero hits. 13 of the 19 are quote tweets with 13 distinct quoted IDs. Two quoted IDs are in the feed, both self-quotes: Swyx 17:37 quotes his own 15:29:10 swag post, and Sottiaux 21:45 quotes his own 21:09 Pro clarification. The other 11 quoted IDs are distinct, all outside the feed, with no shared group.</p>
+<p style="margin-top:12px"><strong>Podcast check</strong> &mdash; The slot is 1 and it is late. Published 2026-11-05T11:00:00Z, Pacific 11-05 03:00:00, 2 days 19h25m57s before the snapshot and 1 day 19h27m04s before the window&rsquo;s first tweet, entirely outside the window. Vlad Tenev, Robinhood, Harmonic, Agentic Trading, Aristotle, the full episode title and the exact phrase Tokenization, Agentic Trading all have zero prior hits in 2026/. The 09-13 issue carried a different episode of the same channel with Brian Armstrong of Coinbase, and the @NoPriorsPodcast channel URL appears many times as a channel-level resource and is not dedup evidence. The URL is reproduced as given, a channel page rather than a specific video.</p>
+<p style="margin-top:12px"><strong>Blog check</strong> &mdash; The slot is 0 by emptiness: the blogs array came back empty. This is the fifteenth consecutive empty issue: 10-21, 10-22, 10-26, 10-27, 10-28, 10-29, 10-30, 11-02, 11-03, 11-04, 11-05, 11-06, 11-07, 11-08 and today.</p>
+<p style="margin-top:12px"><strong>Transcript</strong> &mdash; The transcript has only Speaker 1 and Speaker 2 labels; the host does not give a name and none is supplied. Speaker 1 is Vlad Tenev, introduced as founder and CEO of Robinhood and co-founder of Harmonic. A cold-open edit at the start stitches together lines from later in the conversation and is not treated as a separate statement. ASR spellings are reproduced rather than silently corrected: AgenTik / AgenTic for Agentic, Terence Tau, Erdosche problems, Versus Code, Zaprecise and the closing address no-fryers.com. All figures and rankings are the guest&rsquo;s own statements; the feed verifies none of them.</p>
+<p style="margin-top:12px"><strong>Same names</strong> &mdash; HackerTube has many earlier hits, including 11-03 where Karpathy gave 43 million comments to 6,454 videos. No Priors has many hits at channel level. Coinbase and Brian Armstrong hit 09-13 and 09-22. Pro 100 and Pro 500 hit earlier issues, and the 10-13 issue recorded 2X usage across Pro 100, 200 and 500 with 5-hour limits; Pro 200, Pro 50 and the exact phrase data residency have zero prior hits. ultrafast, 5-hour limits, AI factory, abundance, NIMBY, Luma, satire and one-shotted all have earlier hits in different contexts. WIRED as a proper noun has zero prior hits; earlier hits of wired were a different word. Zero prior hits: TristanTube, Tristan, 47K, TV mode, Asahi, Network School, Kazakhstan, spice, ArcanumLabs_, Chatham House, danielrupawalla, Vlad Tenev, Robinhood, Harmonic, Aristotle and Agentic Trading.</p>
+<p style="margin-top:12px"><strong>Thin posts</strong> &mdash; 10 of the 19 carry no argument of their own, named one by one here: Sottiaux's one-word Cyber post; Sottiaux's Would-a-Pro-50 question; Amjad's Kazakhstan note; Amjad's The Better Lesson link; Garry Tan's WIRED line; Garry Tan's NIMBY line; Nikunj's session notice; Swyx's swag pointer; Swyx's bare link; Swyx's sticker pointer. All are given links inside their own cards. Every one of the 19 posts has a link, so the stats strip, section meta, index meta and body link count agree.</p>
+<p style="margin-top:12px"><strong>Coverage</strong> &mdash; Three timestamps: the snapshot is 2026-11-08T06:25:57.526Z, Pacific 11-07 22:25:57, converted with UTC-8 because Pacific daylight time ended on 11-01; this issue was written at Pacific 11-08 18:13; the previous snapshot was 2026-11-07T06:25:13.003Z, one day earlier. 16 of 19 tweets fall on Pacific 11-07, 08:54:46 to 21:45:31, and 3 on Pacific 11-06, 22:27:04 to 23:28:40, with no gap. The window closes 40m26s before the snapshot. Pacific 10-29 and 10-30 remain permanently missing.</p>
+<p style="margin-top:12px"><strong>Engagement fields</strong> &mdash; Likes, retweets and replies are populated on all 19 posts; this feed has no quotes field and none is used. Likes top five: Karpathy 6,445, Sottiaux 2,756, Sottiaux 1,601, Sottiaux 1,369, Steinberger 1,053. Reposts top three: 515, 86, 58. Replies top three: 855, 650, 475. Lowest is Swyx&rsquo;s bare link at 1 like, 0 reposts, 0 replies; next are Nikunj&rsquo;s session notice at 13 and Aditya&rsquo;s data-center post at 41. 5 posts clear a thousand likes, 0 clear a thousand replies and 1 clears a hundred reposts. Every &ldquo;most&rdquo; or &ldquo;lowest&rdquo; claim was checked against a full-window sort first.</p>
+<p style="margin-top:12px"><strong>Absent</strong> &mdash; Ten accounts posted. Of the 24 names on the tracked list, 7 appear: Andrej Karpathy, Swyx, Amjad Masad, Garry Tan, Nikunj Kothari, Peter Steinberger, Aditya Agarwal. 3 accounts in the feed are outside that list: Thibault Sottiaux, Aaron Levie, Zara Zhang. Sam Altman, who led the 11-05 issue, is absent for a fourth issue.</p>
+<p style="margin-top:12px"><strong>Not resolved</strong> &mdash; Will a Day 29 or a 3/x banked fraction appear, and what was ever being counted; what dot is; whether the jev recorded since 09-18 and the Jev in the 11-07 podcast are the same thing; a second source for Personal Finance, Vercel Schedules and Replit&rsquo;s 96%; what SpaceXSI is; Particle-1&rsquo;s 1/23 baseline; HackerTube&rsquo;s second source; the Grok Bot launch date; Sol 6 and ViBench 2.0 scores; the Legora eval heat map results; whether Swyx&rsquo;s weekly Anthropic IPO coverage appears; whether Lab Compass gets a paper or code; whether texts wrapped gets a second source; whether the next cross-lab app acquisition is named. New: whether TristanTube and HackerTube are ever said to be related, what Asahi and its AI rejection refer to, whether a Pro 50 tier appears, and whether the Pro clarification and the 10-13 poll are ever reconciled. Fixed dates: Opal shuts down 2026-11-17; Vercel Security Reviews are free until Nov 10.</p>
+</div>
+<div class="dedup zh" style="margin-top:14px">
+<p style="margin-top:12px"><strong>推文核对</strong> &mdash; 本窗口 19 个推文 ID 全部与 2026/ 下 120 个 HTML 文件比对过，零命中。19 条里 13 条是引用推文，共 13 个不同的被引用 ID。其中 2 个在 feed 内，且都是引用自己：Swyx 17:37 引用自己 15:29:10 的 swag 推文，Sottiaux 21:45 引用自己 21:09 的 Pro 澄清。其余 11 个被引用 ID 互不相同、全在 feed 外，没有同组。</p>
+<p style="margin-top:12px"><strong>播客核对</strong> &mdash; 这一格是 1，而且迟到。发布于 2026-11-05T11:00:00Z，即太平洋 11-05 03:00:00，比快照早 2 天 19 小时 25 分 57 秒，比窗口第一条推文早 1 天 19 小时 27 分 04 秒，完全在窗口之外。Vlad Tenev、Robinhood、Harmonic、Agentic Trading、Aristotle、完整节目标题，以及「Tokenization, Agentic Trading」这个精确写法，在 2026/ 下全部零命中。09-13 那期收录的是同一频道另一集，嘉宾是 Coinbase 的 Brian Armstrong；@NoPriorsPodcast 频道 URL 多次出现，属频道级资源，不作去重证据。URL 按 feed 原样照录，是频道页而不是具体视频。</p>
+<p style="margin-top:12px"><strong>博客核对</strong> &mdash; 这一格是 0，成因是空数组：blogs 数组返回为空。这是连续第十五期为空：10-21、10-22、10-26、10-27、10-28、10-29、10-30、11-02、11-03、11-04、11-05、11-06、11-07、11-08 和今天。</p>
+<p style="margin-top:12px"><strong>转写</strong> &mdash; 转写只有 Speaker 1 与 Speaker 2 两个标签，主持人没有自报姓名，这里也不补。Speaker 1 是 Vlad Tenev，被介绍为 Robinhood 创始人兼 CEO、Harmonic 联合创始人。开头一段 cold open 把后面的原话剪接在一起，不当成另一处独立发言。ASR 拼写按原样照录、不静默修正：Agentic 写作 AgenTik / AgenTic，另有 Terence Tau、Erdosche problems、Versus Code、Zaprecise，以及结尾网址 no-fryers.com。所有数字与排名都是嘉宾自述，feed 没有核实其中任何一项。</p>
+<p style="margin-top:12px"><strong>同名</strong> &mdash; HackerTube 此前多次命中，11-03 那期 Karpathy 给的是 4300 万条评论筛成 6454 个视频。No Priors 在频道层面多次命中。Coinbase 与 Brian Armstrong 命中 09-13、09-22。Pro 100、Pro 500 此前有命中，10-13 那期记的是 Pro 100/200/500 三档 2X 用量配 5 小时限制；Pro 200、Pro 50 以及 data residency 这个精确写法零命中。ultrafast、5-hour limits、AI factory、abundance、NIMBY、Luma、satire、one-shotted 都有不同语境的旧命中。WIRED 作为专名零命中，此前命中的 wired 是另一个词。全站零命中：TristanTube、Tristan、47K、TV mode、Asahi、Network School、Kazakhstan、spice、ArcanumLabs_、Chatham House、danielrupawalla、Vlad Tenev、Robinhood、Harmonic、Aristotle、Agentic Trading。</p>
+<p style="margin-top:12px"><strong>薄内容</strong> &mdash; 19 条里有 10 条本身不承载观点，逐条点名：Sottiaux 的 Cyber 单词帖；Sottiaux 的「Would a Pro 50 make sense」提问；Amjad 的 Kazakhstan 行程帖；Amjad 的「The Better Lesson」链接帖；Garry Tan 的 WIRED 短评；Garry Tan 的 NIMBY 玩笑；Nikunj 的下期活动通知；Swyx 的 swag 指引；Swyx 的裸链接；Swyx 的 sticker 指引。全部在各自卡片里给了链接。19 条推文每条都有链接，因此 stats strip、section meta、index meta 与正文链接数四处天然一致。</p>
+<p style="margin-top:12px"><strong>覆盖</strong> &mdash; 三个时间戳：快照 2026-11-08T06:25:57.526Z 即太平洋 11-07 22:25:57，按 UTC-8 换算，因为太平洋夏令时已在 11-01 结束；本期成文于太平洋 11-08 18:13；上一份快照是 2026-11-07T06:25:13.003Z，相隔一天。19 条里 16 条落在太平洋 11-07，08:54:46 到 21:45:31，3 条在太平洋 11-06，22:27:04 到 23:28:40，无缺口。窗口在快照前 40 分 26 秒收口。太平洋 10-29 与 10-30 仍永久缺失。</p>
+<p style="margin-top:12px"><strong>互动字段</strong> &mdash; 19 条的 likes、retweets、replies 全有值，这个 feed 没有 quotes 字段，不使用。赞数前五：Karpathy 6445、Sottiaux 2756、Sottiaux 1601、Sottiaux 1369、Steinberger 1053。转发前三：515、86、58。回复前三：855、650、475。最低是 Swyx 的裸链接，1 赞、0 转发、0 回复；其次是 Nikunj 的活动通知 13 赞、Aditya 的数据中心那条 41 赞。破千赞 5 条，破千回复 0 条，转发过百 1 条。上面每一处「最」和「最低」都先做了全窗口排序核对。</p>
+<p style="margin-top:12px"><strong>缺席</strong> &mdash; 有内容的账号 10 个。追踪名单 24 位里出现 7 位：Andrej Karpathy、Swyx、Amjad Masad、Garry Tan、Nikunj Kothari、Peter Steinberger、Aditya Agarwal。feed 里另外 3 个账号不在名单上：Thibault Sottiaux、Aaron Levie、Zara Zhang。11-05 那期三项第一的 Sam Altman 连续第四期缺席。</p>
+<p style="margin-top:12px"><strong>未闭环</strong> &mdash; Day 29 或 3/x 的分数会不会出现、被数与被 banked 的到底是什么；dot 是什么；09-18 起记录的 jev 与 11-07 播客的 Jev 是不是同一个东西；Personal Finance、Vercel Schedules 和 Replit 那个 96% 会不会有第二信源；SpaceXSI 是什么；Particle-1 的 1/23 基线；HackerTube 的第二信源；Grok Bot 上线日期；Sol 6 与 ViBench 2.0 分数；Legora 的 eval heat map 结果；Swyx 的 Anthropic IPO 周更会不会真的出现；Lab Compass 会不会有论文或代码；texts wrapped 会不会有第二信源；下一家被收购的跨实验室应用会不会被点名。新增：TristanTube 与 HackerTube 会不会被说明有关系、Asahi 和那次 AI rejection 指的是什么、Pro 50 这一档会不会出现，以及今天的 Pro 澄清与 10-13 那个投票会不会被说清关系。已定日期：Opal 2026-11-17 关停；Vercel Security Reviews 免费到 11 月 10 日。</p>
+</div>
+</section>
+<footer class="footer">
+<div class="next-issue">&#128236; &#19979;&#19968;&#26399;&#65306;&#26126;&#22825; 10:00&#65288;&#21271;&#20140;&#26102;&#38388;&#65289;</div>
+<div class="signature">by chloevchen</div>
+</footer>
+
+<!-- by chloevchen -->
+</body>
+</html>
