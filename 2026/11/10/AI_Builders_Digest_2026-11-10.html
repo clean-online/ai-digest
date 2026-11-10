@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Builders Digest &middot; 2026-11-10</title>
+<style>
+
+
+
+
+
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 28px 30px; margin-bottom: 24px; }
+  .podcast-source { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
+  .podcast-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; margin-bottom: 18px; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; }
+
+
+</style>
+</head>
+<body>
+<header class="topbar">
+<div class="topbar-inner">
+<a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders &middot; AI Builders Digest</a>
+<span>双语 &middot; Bilingual</span>
+</div>
+</header>
+<section class="header">
+<div class="eyebrow">Daily Digest &middot; 2026-11-10</div>
+<h1>AI Builders Digest</h1>
+</section>
+<div class="stats">
+<div class="stat"><div class="stat-num">10</div><div class="stat-label">Builders</div></div><div class="stat"><div class="stat-num">21</div><div class="stat-label">Tweets</div></div><div class="stat"><div class="stat-num">1</div><div class="stat-label">Podcast</div></div><div class="stat"><div class="stat-num">0</div><div class="stat-label">Blog</div></div>
+</div>
+<p class="note-line">A record-player simulation takes all three engagement fields, while the window&rsquo;s second-highest like count goes to a comedy reaction with no AI content. The podcast lands inside the window and links to a specific video.</p>
+<p class="note-line zh">一条唱片机模拟拿走三项互动第一，窗口第二高的赞数却给了一条与 AI 无关的喜剧反应。播客落在窗口内，链接指向具体视频。</p>
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128036;</span>
+<h2 class="section-title">X / Twitter</h2>
+<span class="section-meta">10 Builders · 21 Tweets</span>
+</div>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Zara Zhang</span>
+<span class="builder-role">Builder</span>
+</div>
+<p class="summary-en">Builder Zara Zhang posts twice on Pacific 11-08, 16h32m03s apart. At 00:13 she writes that the joy of building a product comes from the collision between the predictability of how technology behaves &amp; the unpredictability of how humans behave, 168 likes, 7 reposts, 32 replies.</p>
+<p class="summary-en">At 16:45 she says she has almost stopped using the term &ldquo;vibe coding&rdquo; because of its negative connotation, that it implies no effort or soul went into the output and that it is just AI slop, while people often do put their heart and soul into work made with AI coding tools and the two are not contradictory, so a better word is needed. 404 likes, 12 reposts, 182 replies, second on replies in the window. vibe coding has earlier hits in 2026/ in different contexts.</p>
+<p class="summary-zh zh">Builder Zara Zhang 在太平洋 11-08 发了两条，相隔 16 小时 32 分 03 秒。00:13 她写，做产品的乐趣来自技术行为的可预测性与人行为的不可预测性之间的碰撞，168 赞、7 次转发、32 条回复。</p>
+<p class="summary-zh zh">16:45 她说自己几乎不再用「vibe coding」这个词，因为它的负面含义暗示没投入多少心思、产出只是 AI slop，但人们用 AI 编码工具时往往确实倾注了心意，两者并不矛盾，所以需要一个更好的词。404 赞、12 次转发、182 条回复，是窗口回复数第二。vibe coding 在 2026/ 下此前有不同语境的命中。</p>
+<div class="urls"><a href="https://x.com/zarazhangrui/status/2119342420412510686" target="_blank">https://x.com/zarazhangrui/status/2119342420412510686</a><a href="https://x.com/zarazhangrui/status/2119592080318341128" target="_blank">https://x.com/zarazhangrui/status/2119592080318341128</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Matt Turck</span>
+<span class="builder-role">VC at FirstMarkCap</span>
+</div>
+<p class="summary-en">Matt Turck posts twice about an impersonation clip, neither with AI content. At 07:52 Pacific 11-08, &ldquo;Lol not Elon now, after nailing the Tucker Carlson impersonation&rdquo;, crediting an &ldquo;absolutely epic run from Jeremy Culhane&rdquo; over a link, 2,018 likes, 138 reposts, 53 replies, second on likes and second on reposts in the window. Jeremy Culhane and Tucker Carlson have zero prior hits in 2026/.</p>
+<p class="summary-en">At 12:20 he answers the pushback: trolls coming out in full force, Elon is a business genius, a visionary and the richest man in the world, and it is ok for comedians to poke some fun. 21 likes, 0 reposts, 2 replies. Together the two take 2,039 likes, 138 reposts and 55 replies, most of the window&rsquo;s second-highest like total going to a reaction with no product, number or policy in it.</p>
+<p class="summary-zh zh">Matt Turck 发了两条关于一段喜剧模仿的内容，都与 AI 无关。太平洋 11-08 07:52 是「Lol not Elon now, after nailing the Tucker Carlson impersonation」，并称 Jeremy Culhane 的表演「absolutely epic run」，配一个链接，2018 赞、138 次转发、53 条回复，是窗口赞数第二、转发第二。Jeremy Culhane 与 Tucker Carlson 在 2026/ 下零命中。</p>
+<p class="summary-zh zh">12:20 他回应争议：trolls 都出来了，Elon 是商业天才、有远见、也是世界首富，喜剧演员开点玩笑没什么。21 赞、0 次转发、2 条回复。两条合计 2039 赞、138 次转发、55 条回复，窗口第二高的赞数里绝大部分给了一条没有产品、没有数字、没有观点的反应。</p>
+<div class="urls"><a href="https://x.com/mattturck/status/2119457959625498698" target="_blank">https://x.com/mattturck/status/2119457959625498698</a><a href="https://x.com/mattturck/status/2119525416780361766" target="_blank">https://x.com/mattturck/status/2119525416780361766</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nan Yu</span>
+<span class="builder-role">Product, Codex at OpenAI</span>
+</div>
+<p class="summary-en">Nan Yu, whose bio says product, codex @openai and previously head of product at Linear, posts three times inside 2h02m21s on Pacific 11-08, all on the same point. At 08:09, software got a lot easier if you know what you want to build and a lot harder if you do not; with clarity you can straight-shot to the solution, without it you ship a pile of junk and spend a lot of money doing it, and in the pre-AI era you would ship nothing, which he calls an improvement, 193 likes, 11 reposts, 14 replies.</p>
+<p class="summary-en">At 08:12, quoting a post outside the feed, he says this is basically true in all aspects of software: choose the dumbest architecture that will work and the dumbest design that gets the job done, because being clever means your users also have to be just as clever to understand your cleverness, 263 likes, 11 reposts, 22 replies. At 10:11, quoting another outside post, he answers that you should definitely pick &ldquo;dumbest&rdquo; over &ldquo;simplest&rdquo;, that simple is something you iterate to, dumb is the correct starting point, otherwise you start to outsmart yourself, 9 likes, 1 repost, 1 reply. The three together take 465 likes, 23 reposts and 37 replies.</p>
+<p class="summary-zh zh">Nan Yu 的 bio 写着 OpenAI Codex 产品、此前是 Linear 产品负责人。他在太平洋 11-08 的 2 小时 02 分 21 秒内发了三条，讲的是同一件事。08:09 他说，知道自己要造什么时软件变容易了很多，不知道时则难了很多；想清楚了可以直奔解法，没想清楚就会交付一堆垃圾、还花掉很多钱，而 pre-AI 时代你会什么都交付不出来，他把这称为一种进步，193 赞、11 次转发、14 条回复。</p>
+<p class="summary-zh zh">08:12 他引用 feed 之外的一条推文说，这在软件的各个方面基本都成立：选能用就行的最笨架构、能完成工作的最笨设计，因为耍聪明意味着用户也得同样聪明才看得懂你的聪明，263 赞、11 次转发、22 条回复。10:11 他引用另一条外部推文回答，一定选「dumbest」而不是「simplest」：简单是迭代出来的，笨才是对的起点，否则你会开始跟自己斗智，9 赞、1 次转发、1 条回复。三条合计 465 赞、23 次转发、37 条回复。</p>
+<div class="urls"><a href="https://x.com/thenanyu/status/2119462224721002560" target="_blank">https://x.com/thenanyu/status/2119462224721002560</a><a href="https://x.com/thenanyu/status/2119462979179892925" target="_blank">https://x.com/thenanyu/status/2119462979179892925</a><a href="https://x.com/thenanyu/status/2119493015190249556" target="_blank">https://x.com/thenanyu/status/2119493015190249556</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aaron Levie</span>
+<span class="builder-role">CEO, Box</span>
+</div>
+<p class="summary-en">Box CEO Aaron Levie posts two long arguments. At 10:50 Pacific 11-08 he says a good lesson in AI is to check back every 3 to 6 months and retry something that was not possible before, because the past six months of model progress on computer and tool use, less context rot, better reasoning, multimodality and deeper domain expertise make models vastly more capable at execution. Anything with an API, and even many things without, can be controlled by an agent as an underlying capability, so systems no longer depend only on models generating from whole cloth. He lists security agents using existing data feeds and cyber tooling, IT agents running workflows across software stacks, data agents migrating data or processes, and architect and design agents using CAD, 278 likes, 19 reposts, 105 replies, third on replies.</p>
+<p class="summary-en">At 16:44, quoting a post outside the feed, he says the field is moving from output at the rate you can chat back and forth to setting a problem for a set of agents to do an arbitrarily large amount of work, so productivity goes from maybe 20-50% to gains that do not really have an upper limit. Agent swarms fanning out complex work in parallel have already been seen in coding, next is cyber, then scientific fields and life sciences, and compute becomes the variable we flex to solve a problem, 256 likes, 18 reposts, 81 replies, fourth on replies. Neither post gives an external source or a baseline for its percentages.</p>
+<p class="summary-zh zh">Box CEO Aaron Levie 发了两条长论证。太平洋 11-08 10:50 他说，AI 的一条经验是每 3 到 6 个月回头再试一次此前做不到的事，因为过去六个月模型在 computer and tool use、context rot 减少、推理、多模态和领域深度上的进展，让模型能执行的事大为增加。凡是有 API 的东西、甚至很多没有 API 的，都能被 agent 当作底层能力调用，因此系统不再只依赖模型从零生成。他列举安全 agent 用现有数据馈送与 cyber 工具、IT agent 跨软件栈跑工作流、data agent 迁移数据或流程、架构与设计 agent 用 CAD，278 赞、19 次转发、105 条回复，回复排第三。</p>
+<p class="summary-zh zh">16:44 他引用 feed 之外的一条推文说，这个领域正从「产出速度约等于你和 AI 一来一回聊天的速度」，转向「给一组 agent 定一个问题，让它们去做任意大量的工作」，生产力因此从大概 20-50% 走向没有上限。agent swarms 把复杂工作并行铺开，在编码领域已经看到，接下来是 cyber，再是科学领域和生命科学，compute 变成可以伸缩用来解题的变量，256 赞、18 次转发、81 条回复，回复排第四。两条都没有给外部出处，也没有给这些百分比的基线。</p>
+<div class="urls"><a href="https://x.com/levie/status/2119502716770902234" target="_blank">https://x.com/levie/status/2119502716770902234</a><a href="https://x.com/levie/status/2119592025440092192" target="_blank">https://x.com/levie/status/2119592025440092192</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Guillermo Rauch</span>
+<span class="builder-role">CEO, Vercel</span>
+</div>
+<p class="summary-en">Vercel CEO Guillermo Rauch posts once at 13:03 Pacific 11-08 and takes the top likes, reposts and replies, 2,242, 143 and 187, all three highest in the window. He built a physical simulation of a record player with WebGL2 and Web Audio that is shockingly accurate: instead of playing a song it converts the song into the physical shape of a groove, then a simulated stylus rides those walls 384,000 times a second and you hear the voltage that motion would induce in a cartridge. Crackle, pops, wow/flutter and dull inner grooves are natural byproducts, you can DJ the record, the converted songs are public domain or CC-licensed, and the code is linked for remixing and re-deployment.</p>
+<p class="summary-en">It is the only post in the window that carries a mechanism, a number and a code link at once. 384,000, WebGL2, Web Audio, wow/flutter and stylus all have zero prior hits in 2026/.</p>
+<p class="summary-zh zh">Vercel CEO Guillermo Rauch 在太平洋 11-08 13:03 只发了一条，拿到赞数、转发、回复三项第一：2242 赞、143 次转发、187 条回复，都是窗口最高。他用 WebGL2 和 Web Audio 做了一个唱片机的物理模拟，准确度惊人：不播放歌曲，而是把歌转换成唱纹的物理形状，再让模拟唱针每秒沿纹壁跑 384,000 次，你听到的是这个运动在唱头里会感应出的电压。爆音、噼啪声、wow/flutter、内圈发闷都是模拟自然产生的副产物，还能给这张唱片做 DJ；转用的歌曲是公有领域或 CC 授权，代码附了链接供 remix 和重新部署。</p>
+<p class="summary-zh zh">这是窗口里唯一一条同时带机制、数字和代码链接的推文。384,000、WebGL2、Web Audio、wow/flutter、stylus 在 2026/ 下全部零命中。</p>
+<div class="urls"><a href="https://x.com/rauchg/status/2119536313712230802" target="_blank">https://x.com/rauchg/status/2119536313712230802</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Swyx</span>
+<span class="builder-role">smol_ai &middot; Cognition &middot; Latent Space</span>
+</div>
+<p class="summary-en">Swyx posts three times on Pacific 11-08, all short pointers with links and all quoting posts outside the feed whose content the feed does not show. At 13:33, if you are wondering how, ask their VP of FDE Pauline Brunet, with thanks to realbasilchatha for curating, 1 like, 0 reposts, 1 reply, the lowest like count in the window. At 13:59, &ldquo;and a special pod!&rdquo; over a link, 3 likes, 0 reposts, 0 replies.</p>
+<p class="summary-en">At 18:00, &ldquo;are you listening anon?&rdquo; over two links, 134 likes, 2 reposts, 20 replies. The three together take 138 likes, 2 reposts and 21 replies. Pauline Brunet and realbasilchatha have zero prior hits in 2026/. None of the three carries an argument.</p>
+<p class="summary-zh zh">Swyx 在太平洋 11-08 发了三条，都是带链接的短指引，且都引用了 feed 之外的推文，feed 没有给出其内容。13:33 是「想知道怎么做的话，去问他们的 VP of FDE Pauline Brunet」，并感谢 realbasilchatha 整理，1 赞、0 次转发、1 条回复，是窗口赞数最低的一条。13:59 是「and a special pod!」加一个链接，3 赞、0 次转发、0 条回复。</p>
+<p class="summary-zh zh">18:00 是「are you listening anon?」加两个链接，134 赞、2 次转发、20 条回复。三条合计 138 赞、2 次转发、21 条回复。Pauline Brunet 与 realbasilchatha 在 2026/ 下零命中。三条都不承载观点。</p>
+<div class="urls"><a href="https://x.com/swyx/status/2119543788192600450" target="_blank">https://x.com/swyx/status/2119543788192600450</a><a href="https://x.com/swyx/status/2119550477629379009" target="_blank">https://x.com/swyx/status/2119550477629379009</a><a href="https://x.com/swyx/status/2119611058881192187" target="_blank">https://x.com/swyx/status/2119611058881192187</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Yang</span>
+<span class="builder-role">Practical AI tutorials and interviews</span>
+</div>
+<p class="summary-en">Peter Yang, whose bio describes practical AI tutorials and interviews, posts three times on Pacific 11-08, none about an AI product. At 14:24 he writes an anecdotal observation that cheating is more common in Asia, describing men whose wife and kids live in the US or Canada while they do business in Asia and have another girlfriend or family in a 二奶村, saying most of the time the wife knows, and that he is not saying any of it is right, 280 likes, 14 reposts, 43 replies.</p>
+<p class="summary-en">At 17:00, quoting a post outside the feed, he reproduces a passage attributed to AshleyYuki, VP of Product at OpenAI, about both parents being diagnosed with two cancers each within a week, taking a month off work, and the cognitive, emotional and time load on a caregiver, with a link to a full episode, 46 likes, 8 reposts, 2 replies. At 21:06, &ldquo;This affair is going to destroy billions in shareholder value isn&rsquo;t it&rdquo;, 60 likes, 1 repost, 12 replies, with no object and no link. The feed does not say whether the affair remark and the earlier observation refer to the same thing, so they are recorded side by side and not merged.</p>
+<p class="summary-zh zh">Peter Yang 的 bio 写的是实用 AI 教程与访谈。他在太平洋 11-08 发了三条，没有一条关于 AI 产品。14:24 他写了一段轶事式观察，说亚洲的出轨更常见，描述一些人的妻小住在美国或加拿大、本人在亚洲做生意并另有女友甚至家庭在「二奶村」，多数时候妻子也知道，并声明自己不是说这样对，280 赞、14 次转发、43 条回复。</p>
+<p class="summary-zh zh">17:00 他引用 feed 之外的一条推文，转引了据称出自 OpenAI 产品副总裁 AshleyYuki 的一段话：父母双方在一周内各自确诊两种癌症，她决定请一个月假，以及照护者在认知、情绪和时间上的负荷，附完整一期节目的链接，46 赞、8 次转发、2 条回复。21:06 是「This affair is going to destroy billions in shareholder value isn't it」，60 赞、1 次转发、12 条回复，没有宾语、没有链接。feed 没有说这句 affair 与前面那条观察指的是同一件事，因此只并列、不合并。</p>
+<div class="urls"><a href="https://x.com/petergyang/status/2119556651636441416" target="_blank">https://x.com/petergyang/status/2119556651636441416</a><a href="https://x.com/petergyang/status/2119595860057288967" target="_blank">https://x.com/petergyang/status/2119595860057288967</a><a href="https://x.com/petergyang/status/2119657833516171384" target="_blank">https://x.com/petergyang/status/2119657833516171384</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Ryo Lu</span>
+<span class="builder-role">Designed Cursor, Notion, Stripe</span>
+</div>
+<p class="summary-en">Ryo Lu posts once at 16:24 Pacific 11-08: &ldquo;when we can do anything, do we still know what we want?&rdquo;, followed by the full talk from @aiDotEngineer shanghai, every slide handmade in keynote, subtitles in 中文 and english, over one link, 704 likes, 70 reposts, 29 replies, third on likes and third on reposts. The question sits close to Nan Yu&rsquo;s clarity point and Aaron Levie&rsquo;s framing of setting a problem for agents, but the three posts do not quote or reference one another and share no measurement, so they are recorded as three separate statements rather than a trend.</p>
+<p class="summary-zh zh">Ryo Lu 在太平洋 11-08 16:24 只发了一条：「when we can do anything, do we still know what we want?」，随后贴出 @aiDotEngineer shanghai 的完整演讲，每张 slide 用 keynote 手工做，字幕中英双语，配一个链接，704 赞、70 次转发、29 条回复，赞数第三、转发第三。这个提问和 Nan Yu 讲清晰度、Aaron Levie 讲给 agent 定问题挨得很近，但三条推文互不引用、没有共同测量，因此按三条独立说法记录，不写成一种趋势。</p>
+<div class="urls"><a href="https://x.com/ryolu_/status/2119586846657454152" target="_blank">https://x.com/ryolu_/status/2119586846657454152</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Garry Tan</span>
+<span class="builder-role">President &amp; CEO, Y Combinator</span>
+</div>
+<p class="summary-en">Y Combinator President and CEO Garry Tan posts three times in 48m23s on Pacific 11-08. At 18:04, once you realize software is so easily changed with frontier models, these bugs become a little bit unbearable, and it seems obvious personal just-in-time software will be inevitable, 22 likes, 0 reposts, 2 replies. At 18:18, quoting a post outside the feed, &ldquo;You&rsquo;re really going to want your own software factory&rdquo; over a link, 344 likes, 24 reposts, 32 replies.</p>
+<p class="summary-en">At 18:52, quoting another outside post, he says his gstack-evals project took a look at a Jev Engineering article and tried to replicate it, also told it to try particle-1, and it turns out the article replicates and particle-1 is even better, over two links, 140 likes, 8 reposts, 24 replies. gstack-evals and Jev Engineering have zero prior hits in 2026/; GStack, gstack, Jev and Particle-1 have earlier hits in different contexts. The feed gives no score, no baseline and no statement that these are the same objects recorded in earlier issues, so no such link is made here.</p>
+<p class="summary-zh zh">Y Combinator 总裁兼 CEO Garry Tan 在太平洋 11-08 的 48 分 23 秒内发了三条。18:04 他说，一旦意识到软件用前沿模型改起来这么容易，这些 bug 就有点难以忍受，同时个人即时软件显然会不可避免，22 赞、0 次转发、2 条回复。18:18 他引用 feed 之外的一条推文，写「You're really going to want your own software factory」加一个链接，344 赞、24 次转发、32 条回复。</p>
+<p class="summary-zh zh">18:52 他引用另一条外部推文说，自己的 gstack-evals 项目看了那篇 Jev Engineering 文章并试着复现，还让它试了 particle-1，结果文章可以复现、particle-1 还更好，配两个链接，140 赞、8 次转发、24 条回复。gstack-evals 与 Jev Engineering 在 2026/ 下零命中；GStack、gstack、Jev、Particle-1 有不同语境的旧命中。feed 没有给分数、没有给基线，也没有说这些就是此前几期记下的那些对象，因此这里不作连接。</p>
+<div class="urls"><a href="https://x.com/garrytan/status/2119612084220842483" target="_blank">https://x.com/garrytan/status/2119612084220842483</a><a href="https://x.com/garrytan/status/2119615647592395037" target="_blank">https://x.com/garrytan/status/2119615647592395037</a><a href="https://x.com/garrytan/status/2119624260675350605" target="_blank">https://x.com/garrytan/status/2119624260675350605</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nikunj Kothari</span>
+<span class="builder-role">Partner, FPV Ventures</span>
+</div>
+<p class="summary-en">FPV Ventures partner Nikunj Kothari posts once at 21:56 Pacific 11-08, the window&rsquo;s last post, 17 likes, 0 reposts, 2 replies, the fourth-lowest like count. If you are visiting SF and want to meet more people, remove swap notes, synergies, pick your brain, networking, &ldquo;san fran&rdquo; and grab coffee if you are free from your vocabulary; show your work instead, because the most interesting people here are not at the fancy large conference but probably at their office. The work can be a thoughtful cold email, a five line pointed DM, side projects you have shipped, or a meetup you organize. He says he still gets so much slop across the board that if he sees anyone put in the effort, he tries to go out of his way to meet them, and even the busiest people have 15 minutes if you give them a reason.</p>
+<p class="summary-zh zh">FPV Ventures 合伙人 Nikunj Kothari 在太平洋 11-08 21:56 只发了一条，是窗口最后一条，17 赞、0 次转发、2 条回复，赞数倒数第四。他说如果来旧金山想多认识人，就把 swap notes、synergies、pick your brain、networking、「san fran」、grab coffee if you're free 这些说法从词汇里删掉，改为展示自己的作品，因为这座城市里最有趣的人不在那个大型大会上，多半在自己的办公室里。作品可以是一封用心的冷邮件、五行直接的私信、已经上线的 side project，或者你自己组织的 meetup。他说自己现在仍然收到满屏的 slop，所以只要看到有人真下了功夫，就愿意特意去见；再忙的人也能挤出 15 分钟，只要你给个理由。</p>
+<div class="urls"><a href="https://x.com/nikunj/status/2119670529254981756" target="_blank">https://x.com/nikunj/status/2119670529254981756</a></div>
+</article>
+</section>
+<!-- ============== PODCAST ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#127911;</span>
+<h2 class="section-title">Podcast</h2>
+<span class="section-meta">1 Episode &middot; Fresh</span>
+</div>
+<div class="podcast">
+<div class="podcast-source">Latent Space</div>
+<div class="podcast-title">[One Million AI Engineer Special] How Stanford Teaches AI-Native Engineering &mdash; Mihail Eric, Monaco</div>
+<p class="summary-en">Latent Space publishes &ldquo;[One Million AI Engineer Special] How Stanford Teaches AI-Native Engineering &mdash; Mihail Eric, Monaco&rdquo; at 2026-11-08T21:23:29Z, Pacific 11-08 13:23:29. That is 13h10m26s after the window&rsquo;s first tweet, 8h33m21s before its last, and 9h13m08s before the snapshot at Pacific 11-08 22:36:37, so it falls inside the window on the same Pacific day and is fresh, breaking the late slot in the 11-09 issue. The URL is a specific video rather than a channel page and is reproduced as given. Mihail Eric, Monaco, CS 146S, Modern Software Developer, One Million AI Engineer, Chip Hieatt, Resolve, Night Shift, Ramp Inspect, Stripe Minions, Gastown, Aviator, Ankit, Silas, Eno, Conway, CSAT, 106B, K-shot, Monocoder, Hal and Grokbot all have zero prior hits in 2026/. The transcript has no speaker labels and no timestamps; the host is named only as Swyx inside the dialogue, and the opening introduction is not treated as a separate statement.</p>
+<p class="summary-en">Mihail Eric is introduced as an adjunct professor at Stanford and head of AI at Monaco, teaching CS 146S, the Modern Software Developer, for the second time. The idea started in November 2024, when coding agents were earlier and the methodology was scattered across blog posts; he spent about nine to ten months building a proposal, got it through a committee, and first taught it in fall 2025, before Opus 4.5 and 4.6, with a Business Insider article about it last year. He took inspiration from Chip Hieatt, who taught a machine learning systems design class. This year autonomous coding agents picked up in a way not seen before, so the course was refreshed. His sharpest line is that most students are cooked and some of them are going to be super valuable; he calls it a spicy thing to say but says he genuinely believes it, and asks what happens to the rest of America. On the first day of class he tells students every company needs them but the floor is much higher: being an L3 in Google&rsquo;s leveling is not sufficient, they generally have to be near senior level going in. The class is not for beginners and does not replace traditional CS; algorithms classes are prerequisites.</p>
+<p class="summary-en">Last year was a broad tour of the ISDLC, with a coding agent for code review, one for spec design, one for SRE, and nine pedagogical assignments plus an open-ended capstone that he thinks many students could have one-shotted. This year the principles are solidifying: careful context engineering, and design and architecture for complex tasks. He surveyed the class on Tuesday and not a single person really types by hand anymore, all sophomores and juniors at Stanford. The nine assignments are replaced by contributions to open source partners he spent most of the summer recruiting, where maintainers review student code and pass on mental models of good software. Beyond the Claude, Cursor and Cognition licenses the university already provides, he accrued extra credits from Factory, Cognition and OpenAI so students are not bottlenecked by a $20 a month subscription. The ten weeks run from harness internals and building a coding agent from scratch in week one, through context engineering, tool design and MCP in week two (&ldquo;I&rsquo;m still pro MCP&rdquo;), skills in week three, agent config files, hooks and sub-agents in week four, agent-ready code bases in week five, agentic code review in week six, security in week seven, background agents in week eight, team-level infrastructure in week nine, to the software factory in week ten. His blog post argues that an agentic loop that talks to you and edits your file needs no more than two hundred lines and no more than Stanford 106B, introductory algorithms; no sub-agents, no MCP.</p>
+<p class="summary-en">Code review became the new bottleneck: once generation velocity is high you could in theory put up 30 plus PRs a day, but if you insert yourself as the gate you become the choke point of that velocity. He wants the middle ground, a class of problems you can auto-approve some percentage of the time once thoughtful design has gone into agent readiness and verifiability, and asks whether careful review still means line-by-line or something else, with the PR description effectively serving as the current spec. He calls code review the final boss, alongside intent, as the two choke points in a fully automated system, and points to posts from Amplitude, Cloudflare, Augment and Ankit of Aviator on killing the code review. At Monaco they follow &ldquo;buy to learn and build to keep&rdquo; (he says it the other way round first and corrects himself), built their own background agent platform Monocoder on top of Coder and a Slack bot called Hal that is part AI SRE, part customer success, part QA engineer, and adopted Devin for code review only after an organically spreading internal recommendation, having earlier done a statistically driven PR analysis across CodeRabbit, Graphite and Ellipsis and picked no vendor.</p>
+<p class="summary-en">On security his objection is not that models write buggier code. He says models will on average have fewer bugs, but they introduce bugs you would not make as a human, and the deeper problem is that you do not even know what you are putting out because you are no longer reviewing everything. His rule is that not all parts of a code base are created equal: data, billing and auth are don&rsquo;t-write-code zones, everything else go nuts, and if you do not know the difference between authn and authz or have never looked at AWS IAM, learn it, because once you have the language you can prompt for it and without the language you are stuck. He is unconvinced by the belief that models will fix all security, asking what if they introduce new and different bugs, and mentions a proposal attributed to Malta of Vercel to port highly dependent software written in C and C++ to Rust for about $6 million, alongside Daybreak, Glasswing and Pacing the Frontier from the model labs. On dependencies he notes a package with 100,000 users worldwide will have bugs found by someone, while your own custom dependency will be discovered slowly. He also relays that Wiz and Socket are, by one VC&rsquo;s account two days earlier, the only security companies in the last five years that worked, and that the best time for any security company is right after a high-profile incident.</p>
+<p class="summary-en">The software factory is the tenth week and the recurring question is where humans remain. He describes a spectrum of dark factories, notes that even the frontier companies selling factories claim only some 30 percent of fully agentically driven contributions, and that people who went very far dark factory came out saying &ldquo;I was wrong, guys&rdquo;. Boris recently tweeted &ldquo;I am often wrong&rdquo;, and he warns against treating the creator of Claude Code as gospel; the principle is experimentation, as little as ten minutes a day on something you did not do before. The role question runs through Conway&rsquo;s law, &ldquo;you ship your org chart&rdquo;, and the host&rsquo;s line that if a tool is for everyone it is for no one; platform engineer is the role he would have chosen if he had not started AIE. PR merge rate as a measure will be ridiculous in two years, he says, with the answer somewhere between money and CSAT, and the role evolves toward a PM engineer who thinks about holistic systems rather than one part of the puzzle. He seeds capstone ideas with the YC request for startups and says snapping a photo into an app is not ambitious in this day and age, writing a browser is. On Steve Yegge&rsquo;s levels of psychosis and Gastown, the host says he does not want to hire anyone who has not been through psychosis and come out the other end, because he is currently paying salary and tokens for someone to go through it and getting nothing out. Boris&rsquo;s team adoption artifact is described as five levels on a zero index, gated, assisted, parallel, supervised autonomy and AI native, with Anthropic said to be at stage three; dynamic workflows means writing a harness on demand rather than copying the parent agent.</p>
+<p class="summary-en">The parting freebie is week 11: make benchmarks and evals, which he says gets you in the door of every frontier lab and top agent lab, with rigorous engineering blog posts and a lot of hanging fruit, and money to be made if turned into businesses; SWE-Bench is recalled as an undergrad project from Princeton. He expects more from this cohort because last year he still spent time on K-shot prompting, a lesson students no longer think about, and calls it raising the floor. The course is nine months in the making and he is speaking at the end of week one. ASR spellings are reproduced rather than silently corrected: the channel is first read as AIU Code before the host restates it as AI Engineer, Claude Code as Cloud Code, Monaco as Monica, Anthropic as Anthopic, and SWE-Bench as C- Sweet Bench; none is reconciled. All figures, rankings and institutional descriptions above are statements made in the transcript; the feed verifies none of them. Muse, Instinct, Grokbot, Daybreak and Glasswing are named in passing while listing background agents, with Grokbot described as Cursor under the hood, but the feed does not say whether these are the same objects recorded in earlier issues, so no link is made.</p>
+<p class="summary-zh zh">Latent Space 发布《[One Million AI Engineer Special] How Stanford Teaches AI-Native Engineering &mdash; Mihail Eric, Monaco》，时间 2026-11-08T21:23:29Z，即太平洋 11-08 13:23:29。它比窗口第一条推文晚 13 小时 10 分 26 秒，比最后一条早 8 小时 33 分 21 秒，比快照（太平洋 11-08 22:36:37）早 9 小时 13 分 08 秒，落在窗口内、同一个太平洋日，判为新鲜，中断了 11-09 那期的迟到。feed 给的 URL 是具体视频而不是频道页，按原样照录。Mihail Eric、Monaco、CS 146S、Modern Software Developer、One Million AI Engineer、Chip Hieatt、Resolve、Night Shift、Ramp Inspect、Stripe Minions、Gastown、Aviator、Ankit、Silas、Eno、Conway、CSAT、106B、K-shot、Monocoder、Hal、Grokbot 在 2026/ 下全部零命中。转写没有 speaker 标签、没有时间戳，主持人只在对话里被称为 Swyx，开头的介绍不当成另一处独立发言。</p>
+<p class="summary-zh zh">Mihail Eric 被介绍为 Stanford 兼职教授、Monaco 的 Head of AI，第二次开讲 CS 146S《Modern Software Developer》。想法起于 2024 年 11 月，那时 coding agent 还早、方法论散落在博客里；他花了约九到十个月写提案、过委员会，2025 年秋季首次开课，在 Opus 4.5、4.6 之前，去年还有一篇 Business Insider 报道。他参考了教机器学习系统设计课的 Chip Hieatt。今年自主 coding agent 的普及程度前所未见，于是重新改版。最尖锐的一句是「most students are cooked」，另有一些人会非常有价值；他自称这是故意说得刺激，但确实这么认为，并追问美国其他地方的人怎么办。第一堂课他就告诉学生，每家公司都需要你们，但门槛高了很多：按 Google 的分级只做 L3 不够，入职时基本要接近 senior。这门课不是给初学者的，也不替代传统计算机科学，算法课反而是先修。</p>
+<p class="summary-zh zh">去年是一次 ISDLC 巡览：code review、spec design、SRE 各有一个 coding agent，九个偏教学式的作业加一个开放式 capstone，他觉得很多学生一次就能 one-shot。今年原则开始固化：仔细的 context engineering，以及用设计与架构处理复杂任务。他周二做了课堂调查，没有一个人还真正手敲代码，全是大二大三的 Stanford 学生。九个作业换成向他花了一整个夏天招募的开源伙伴贡献代码，由维护者审学生的 PR、把好软件的思维模型传下去。学校原本就有 Claude、Cursor、Cognition 的 license，他又额外争取到 Factory、Cognition、OpenAI 的额度，免得学生被每月 20 美元的订阅卡住。十周从第一周 harness 内部机制、从零写一个 coding agent，到第二周 context engineering、工具设计与 MCP（「I'm still pro MCP」），第三周 skills，第四周 agent 配置文件、hooks、sub-agents，第五周 agent-ready 代码库，第六周 agentic code review，第七周安全，第八周后台 agent，第九周团队级基础设施，第十周 software factory。他那篇博客的主张是：一个能对话、能改文件的 agentic loop，用 Stanford 106B（算法入门）的水平、不超过两百行就能写出来，不需要 sub-agents，也不需要 MCP。</p>
+<p class="summary-zh zh">code review 成了新瓶颈：生成速度上来之后，理论上一天能提 30 多个 PR，但只要你把自己插进去当闸门，你就是这条速度的卡点。他要的是中间地带：在 agent readiness 和 verifiability 上做过设计之后，有一类问题可以按某个比例自动批准；并追问即使要人工细看，是否还是逐行看，PR description 实际上承担了当前 spec 的角色。他把 code review 和 intent 并列为全自动化系统里的两个 choke point，前者被他称作 final boss，并提到 Amplitude、Cloudflare、Augment 以及 Aviator 的 Ankit 关于「干掉 code review」的文章。Monaco 内部的原则是「buy to learn and build to keep」（他先说反了一次再自己纠正），自建了基于 Coder 的后台 agent 平台 Monocoder，以及 Slack 里的 Hal，一半 AI SRE、一半客户成功、一半 QA；code review 用 Devin 是在一次统计驱动的 PR 分析（比较过 CodeRabbit、Graphite、Ellipsis，当时一家都没选）之后，靠团队自发口口相传才用起来的。</p>
+<p class="summary-zh zh">安全上他反对的不是「模型写的代码 bug 更多」。他说模型平均 bug 反而更少，但会引入人不会犯的 bug，更根本的问题是你不再逐条审查，于是根本不知道自己放出去的是什么。他的规则是代码库各部分并不等价：data、billing、auth 属于「别写代码」的区域，其余随意；如果分不清 authn 和 authz、没看过 AWS IAM，就先去学，因为有了这套语言你才能 prompt，没有这套语言就无从下手。他不接受「模型会解决所有安全」这个信念，反问万一它们引入的是新的、不一样的 bug 呢；并提到 Vercel 的 Malta 提议把高度依赖的 C/C++ 软件移植到 Rust、大约 600 万美元，以及模型实验室那边的 Daybreak、Glasswing、Pacing the Frontier。谈依赖时他说，一个有 10 万全球用户的包总会有人替你找出问题，而自己写的定制依赖被发现得很慢。他还转述两天前一位 VC 的说法：过去五年真正跑出来的安全公司只有 Wiz 和 Socket，以及任何安全公司最好的时机都是一次高调事故刚发生之后。</p>
+<p class="summary-zh zh">software factory 是第十周，反复出现的问题是人在哪里。他描述 dark factory 有一个频谱，指出连卖 factory 的前沿公司也只声称大约 30% 的产出是完全由 agent 驱动的，也有人走得很远之后出来说「I was wrong, guys」。Boris 最近发推说「I am often wrong」，他提醒不要把 Claude Code 的创造者的话当福音；原则是实验，每天哪怕十分钟做一件没做过的事。角色问题穿过 Conway's law（「you ship your org chart」）和主持人那句「如果工具是给所有人的，那它谁也不为」；他说如果不是创办了 AIE，自己会去做 platform engineer。以 PR merge rate 衡量工程师两年后会显得荒谬，答案在钱和 CSAT 之间，角色会走向 PM engineer，想的是整体系统而不是 puzzle 里自己那一块。capstone 选题他直接拿 YC request for startups 当种子，并说如今把一张照片变成 app 不算有野心，写一个浏览器才算。谈 Steve Yegge 的 psychosis 分级和 Gastown 时，主持人说他不想雇没经历过 psychosis 又走出来的人，因为他正在替一个人付薪水和 token 去经历这场 psychosis、却什么也没得到。Boris 那份团队采用度 artifact 从零起算共五级：gated、assisted、parallel、supervised autonomy、AI native，并说 Anthropic 还在第三级；dynamic workflows 指按需写一个 harness，而不是复制父 agent。</p>
+<p class="summary-zh zh">临走给的免费建议是第 11 周：做 benchmark 和 eval，说这能敲开每家前沿实验室和顶级 agent 实验室的门，严谨的工程博客还有大量低垂果实，做成生意也能赚到钱；SWE-Bench 被回忆为 Princeton 的本科项目。他说这一届要提高预期，因为去年他还花时间讲 K-shot prompting，而学生现在根本不会去想它，并把这称为抬高地板。课程筹备了九个月，录制时刚结束第一周。转写里的 ASR 拼写按原样照录、不静默修正：频道先被读成 AIU Code，主持人随后改口 AI Engineer；Claude Code 作 Cloud Code，Monaco 作 Monica，Anthropic 作 Anthopic，SWE-Bench 作 C- Sweet Bench，都不代为还原。以上所有数字、排名与机构描述都是转写里的自述，feed 没有核实其中任何一项。列举后台 agent 时顺带点名了 Muse、Instinct、Grokbot、Daybreak、Glasswing，其中 Grokbot 被说成底层是 Cursor；feed 没有说明它们是否就是此前几期记下的那些对象，因此不作连接。</p>
+<div class="urls"><a href="https://www.youtube.com/watch?v=dpY7YzZo4kE" target="_blank">https://www.youtube.com/watch?v=dpY7YzZo4kE</a></div>
+</div>
+</section>
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128161;</span>
+<h2 class="section-title">The Takeaway</h2>
+<span class="section-meta">2026-11-10</span>
+</div>
+<div class="takeaway">
+<div class="takeaway-label">The Takeaway</div>
+<p>Vercel CEO Guillermo Rauch&rsquo;s record-player simulation takes the top likes, reposts and replies, 2,242, 143 and 187, all three highest in the window. It is also the only post carrying a mechanism, a number and a code link at once: a song converted into the physical shape of a groove, a simulated stylus riding the walls 384,000 times a second. Two posts clear a thousand likes, this one and Matt Turck&rsquo;s comedy reaction at 2,018.</p>
+<p>Attention and checkable detail stay apart. Turck&rsquo;s two posts about a Tucker Carlson impersonation take 2,039 likes, while the two long Aaron Levie arguments take 278 and 256, Nan Yu&rsquo;s three posts 465 together, and Nikunj Kothari&rsquo;s long post on showing your work 17, the fourth-lowest like count. 2 posts clear a thousand likes, 0 clear a thousand replies and 2 clear a hundred reposts. Every &ldquo;most&rdquo; or &ldquo;lowest&rdquo; claim was checked against a full-window sort first.</p>
+<p>Four separate statements circle the same question of what to want before you build: Nan Yu says software got easier if you know what you want and harder if you do not, and to choose the dumbest architecture; Ryo Lu asks &ldquo;when we can do anything, do we still know what we want?&rdquo;; Aaron Levie frames the shift as setting a problem for a set of agents; Zara Zhang wants a better word than vibe coding. They do not quote or reference one another and share no measurement, so they are recorded as four separate statements, not a trend.</p>
+<p>Quote structure differs from the 11-09 issue. 9 of the 21 posts are quote tweets with 9 distinct quoted IDs, every one outside the feed, with no shared group and no self-quote. The 11-09 issue had two in-feed self-quotes; this one has none. The feed shows the content of none of those outside posts.</p>
+<p>The podcast is fresh and new. Latent Space with Mihail Eric was published at Pacific 11-08 13:23:29, inside the window and 9h13m08s before the snapshot, and its URL is a specific video rather than a channel page. The one-million-subscriber special covers Stanford CS 146S, the claim that most students are cooked, code review as the new bottleneck with two choke points, a 200-line agentic loop, ten minutes a day of experimentation, and the week-11 advice to make benchmarks and evals. Every number in the episode, 30 plus PRs a day, some 30 percent, $6 million, 100,000 users and 15 minutes, is stated by the speakers without an external check in the feed.</p>
+<p>Coverage has no gap. All 21 posts sit on Pacific 11-08, 00:13:03 to 21:56:50, beginning 2h27m32s after the previous issue closed at Pacific 11-07 21:45:31. The window closes 39m47s before the snapshot at Pacific 11-08 22:36:37, one day and 10m40s after the previous snapshot. This issue was written at Pacific 2026-11-09 18:40, about 20 hours after the snapshot. Pacific 10-29 and 10-30 remain permanently missing from two cron runs that did not fire. Ten accounts posted: 6 are on the tracked list of 24 and 4 are not. Sam Altman, who led the 11-05 issue, is absent for a fifth issue.</p>
+</div>
+<div class="takeaway zh">
+<div class="takeaway-label">核心结论</div>
+<p>Vercel CEO Guillermo Rauch 的唱片机模拟拿到赞数、转发、回复三项第一：2242 赞、143 次转发、187 条回复，都是窗口最高。它也是唯一一条同时带机制、数字和代码链接的推文：把歌转换成唱纹的物理形状，模拟唱针每秒沿纹壁跑 384,000 次。破千赞的有两条，这一条和 Matt Turck 那段喜剧反应的 2018 赞。</p>
+<p>热度和可核对的信息仍然各走各的。Turck 两条关于 Tucker Carlson 模仿的推文合计 2039 赞，而 Aaron Levie 两条长论证分别是 278 赞和 256 赞，Nan Yu 三条合计 465 赞，Nikunj Kothari 讲展示作品的长文只有 17 赞、倒数第四。破千赞 2 条，破千回复 0 条，转发过百 2 条。上面每一处「最」和「最低」都先做了全窗口排序核对。</p>
+<p>有四条独立说法绕着同一个问题：动手之前到底要什么。Nan Yu 说知道要造什么时软件变容易、不知道时变难，并要选最笨的架构；Ryo Lu 问「when we can do anything, do we still know what we want?」；Aaron Levie 把转变概括成给一组 agent 定一个问题；Zara Zhang 想给 vibe coding 找个更好的词。它们互不引用、没有共同测量，因此记成四条独立说法，不写成一种趋势。</p>
+<p>引用结构和 11-09 那期不同。21 条里 9 条是引用推文，共 9 个不同的被引用 ID，全部在 feed 外，没有同组，也没有自引。11-09 那期有两处 feed 内自引，本期一处都没有。feed 没有给出这些外部推文的内容。</p>
+<p>播客新鲜，且对本系列是新的。Latent Space × Mihail Eric 发布于太平洋 11-08 13:23:29，落在窗口内、比快照早 9 小时 13 分 08 秒，URL 是具体视频而不是频道页。这期百万订阅特别节目讲 Stanford CS 146S、「most students are cooked」、code review 成为新瓶颈与两个 choke point、两百行的 agentic loop、每天十分钟实验，以及第 11 周去做 benchmark 和 eval 的建议。节目里每个数字，一天 30 多个 PR、大约 30%、600 万美元、10 万用户、15 分钟，都是对话里的自述，feed 没有外部复核。</p>
+<p>这次覆盖没有缺口。21 条全部落在太平洋 11-08，00:13:03 到 21:56:50，起点比上一期收口的太平洋 11-07 21:45:31 晚 2 小时 27 分 32 秒。窗口在快照太平洋 11-08 22:36:37 之前 39 分 47 秒收口，上一份快照相隔一天零 10 分 40 秒。本期成文于太平洋 2026-11-09 18:40，比快照晚约 20 小时。太平洋 10-29 与 10-30 仍因两次 cron 未触发而永久缺失。有内容的账号 10 个，其中 6 位在 24 位追踪名单上、4 位不在。11-05 那期三项第一的 Sam Altman 连续第五期缺席。</p>
+</div>
+</section>
+<!-- ============== NOTES ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128221;</span>
+<h2 class="section-title">记录 / Notes &amp; Dedup</h2>
+<span class="section-meta">21 Zero &middot; 1 Fresh &middot; 0 Dedup</span>
+</div>
+<div class="dedup">
+<p style="margin-top:12px"><strong>Tweet check</strong> &mdash; All 21 tweet IDs were matched against the 121 HTML files under 2026/ and returned zero hits. 9 of the 21 are quote tweets with 9 distinct quoted IDs, all outside the feed, with no shared group and no in-feed self-quote. The feed shows the content of none of those outside posts.</p>
+<p style="margin-top:12px"><strong>Podcast check</strong> &mdash; The slot is 1 and it is fresh. Published 2026-11-08T21:23:29Z, Pacific 11-08 13:23:29, 13h10m26s after the window&rsquo;s first tweet and 9h13m08s before the snapshot, inside the window on the same Pacific day. The URL is a specific video, not a channel page, and is reproduced as given. Mihail Eric, Monaco, CS 146S, Modern Software Developer, One Million AI Engineer, Chip Hieatt, Resolve, Night Shift, Ramp Inspect, Stripe Minions, Gastown, Aviator, Ankit, Silas, Eno, Conway, CSAT, 106B, K-shot, Monocoder, Hal and Grokbot all have zero prior hits in 2026/. The 11-09 podcast was late, so the slot alternates again.</p>
+<p style="margin-top:12px"><strong>Blog check</strong> &mdash; The slot is 0 by emptiness: the blogs array came back empty. This is the sixteenth consecutive empty issue: 10-21, 10-22, 10-26, 10-27, 10-28, 10-29, 10-30, 11-02, 11-03, 11-04, 11-05, 11-06, 11-07, 11-08, 11-09 and today.</p>
+<p style="margin-top:12px"><strong>Transcript</strong> &mdash; The transcript has no speaker labels and no timestamps. The host is named only as Swyx inside the dialogue; the guest is introduced as Mihail Eric, adjunct professor at Stanford and head of AI at Monaco. The opening introduction is not treated as a separate statement. ASR spellings are reproduced rather than silently corrected: AIU Code before the host restates it as AI Engineer, Cloud Code for Claude Code, Monica for Monaco, Anthopic for Anthropic and C- Sweet Bench for SWE-Bench. A named list of background agents includes Muse, Instinct, Grokbot, Daybreak and Glasswing, with Grokbot called Cursor under the hood; the feed does not say whether these are the objects recorded in earlier issues, so no link is made. All figures and rankings are statements in the transcript; the feed verifies none of them.</p>
+<p style="margin-top:12px"><strong>Same names</strong> &mdash; Zero prior hits: Mihail Eric, Monaco, CS 146S, Modern Software Developer, One Million AI Engineer, AIU Code, Chip Hieatt, Resolve, Night Shift, Ramp Inspect, Stripe Minions, Gastown, Gas City, Aviator, Ankit, Silas, Eno, Conway, CSAT, 106B, K-shot, Monocoder, Hal, Grokbot, Pauline Brunet, realbasilchatha, Jeremy Culhane, AshleyYuki, 384,000, WebGL2, Web Audio, wow/flutter, gstack-evals, Jev Engineering and two hundred lines. Earlier hits in different contexts: Muse, Instinct, Daybreak, Glasswing, GStack, gstack, Jev, Particle-1, slop, vibe coding, software factory, dark factory, code review, Cloudflare, Amplitude, Augment, Devin, Factory, Cursor, Claude Code, Codex, SWE-Bench, Steve Yegge, psychosis, AIE, AI Engineer and Eve.</p>
+<p style="margin-top:12px"><strong>Thin posts</strong> &mdash; 8 of the 21 carry no argument of their own, named one by one here: Matt Turck's Tucker Carlson impersonation reaction; Matt Turck's trolls/Elon reply; Swyx's VP of FDE pointer; Swyx's and-a-special-pod line; Swyx's are-you-listening-anon line; Peter Yang's cheating-in-Asia observation; Peter Yang's quoted caregiver passage; Peter Yang's one-line This-affair remark. All are given links inside their own cards. Every one of the 21 posts has a link, so the stats strip, section meta, index meta and body link count agree.</p>
+<p style="margin-top:12px"><strong>Coverage</strong> &mdash; Three timestamps: the snapshot is 2026-11-09T06:36:37.960Z, Pacific 11-08 22:36:37, converted with UTC-8 because Pacific daylight time ended on 11-01; this issue was written at Pacific 2026-11-09 18:40; the previous snapshot was 2026-11-08T06:25:57.526Z, one day and 10m40s earlier. All 21 tweets fall on Pacific 11-08, 00:13:03 to 21:56:50, with no gap. The window closes 39m47s before the snapshot. Pacific 10-29 and 10-30 remain permanently missing.</p>
+<p style="margin-top:12px"><strong>Engagement fields</strong> &mdash; Likes, retweets and replies are populated on all 21 posts; this feed has no quotes field and none is used, and reposts is null on all 21. Likes top five: Rauch 2,242, Turck 2,018, Ryo Lu 704, Zara Zhang 404, Garry Tan 344. Reposts top three: 143, 138, 70. Replies top three: 187, 182, 105. Lowest is Swyx&rsquo;s VP of FDE pointer at 1 like, 0 reposts, 1 reply; next are Swyx&rsquo;s special pod at 3 and Nan Yu&rsquo;s third post at 9. 2 posts clear a thousand likes, 0 clear a thousand replies and 2 clear a hundred reposts. Every &ldquo;most&rdquo; or &ldquo;lowest&rdquo; claim was checked against a full-window sort first.</p>
+<p style="margin-top:12px"><strong>Absent</strong> &mdash; Ten accounts posted. Of the 24 names on the tracked list, 6 appear: Swyx, Peter Yang, Guillermo Rauch, Garry Tan, Matt Turck, Nikunj Kothari. 4 accounts in the feed are outside that list: Nan Yu, Aaron Levie, Ryo Lu, Zara Zhang. Sam Altman, who led the 11-05 issue, is absent for a fifth issue.</p>
+<p style="margin-top:12px"><strong>Not resolved</strong> &mdash; Will a Day 29 or a 3/x banked fraction appear, and what was ever being counted; what dot is; whether the jev recorded since 09-18 and the Jev in the 11-07 podcast are the same thing; whether the Jev Engineering article and particle-1 in Garry Tan&rsquo;s gstack-evals post are those same objects; a second source for Personal Finance, Vercel Schedules and Replit&rsquo;s 96%; what SpaceXSI is; Particle-1&rsquo;s 1/23 baseline; HackerTube&rsquo;s second source; the Grok Bot launch date; Sol 6 and ViBench 2.0 scores; the Legora eval heat map results; whether Swyx&rsquo;s weekly Anthropic IPO coverage appears; whether Lab Compass gets a paper or code; whether texts wrapped gets a second source; whether the next cross-lab app acquisition is named. New: what the CS 146S open source partners ship, whether the one-million-subscriber special gets a second source, and whether the AIU Code opening is the AIE Code recorded earlier. Fixed dates: Opal shuts down 2026-11-17; Vercel Security Reviews were free until Nov 10.</p>
+</div>
+<div class="dedup zh" style="margin-top:14px">
+<p style="margin-top:12px"><strong>推文核对</strong> &mdash; 本窗口 21 个推文 ID 全部与 2026/ 下 121 个 HTML 文件比对过，零命中。21 条里 9 条是引用推文，共 9 个不同的被引用 ID，全部在 feed 外，没有同组，也没有 feed 内自引。feed 没有给出这些外部推文的内容。</p>
+<p style="margin-top:12px"><strong>播客核对</strong> &mdash; 这一格是 1，而且新鲜。发布于 2026-11-08T21:23:29Z，即太平洋 11-08 13:23:29，比窗口第一条推文晚 13h10m26s，比快照早 9h13m08s，落在窗口内、同一个太平洋日。URL 是具体视频而不是频道页，按 feed 原样照录。Mihail Eric、Monaco、CS 146S、Modern Software Developer、One Million AI Engineer、Chip Hieatt、Resolve、Night Shift、Ramp Inspect、Stripe Minions、Gastown、Aviator、Ankit、Silas、Eno、Conway、CSAT、106B、K-shot、Monocoder、Hal、Grokbot 在 2026/ 下全部零命中。11-09 那期播客是迟到，这一格又轮换回新鲜。</p>
+<p style="margin-top:12px"><strong>博客核对</strong> &mdash; 这一格是 0，成因是空数组：blogs 数组返回为空。这是连续第十六期为空：10-21、10-22、10-26、10-27、10-28、10-29、10-30、11-02、11-03、11-04、11-05、11-06、11-07、11-08、11-09 和今天。</p>
+<p style="margin-top:12px"><strong>转写</strong> &mdash; 转写没有 speaker 标签、没有时间戳。主持人只在对话里被称为 Swyx；嘉宾被介绍为 Mihail Eric，Stanford 兼职教授、Monaco 的 Head of AI。开头的介绍不当成另一处独立发言。ASR 拼写按原样照录、不静默修正：频道先读作 AIU Code、主持人随后改口 AI Engineer；Claude Code 作 Cloud Code，Monaco 作 Monica，Anthropic 作 Anthopic，SWE-Bench 作 C- Sweet Bench。列举后台 agent 时点名了 Muse、Instinct、Grokbot、Daybreak、Glasswing，其中 Grokbot 被说成底层是 Cursor；feed 没有说明它们是否就是此前几期记下的对象，因此不作连接。所有数字与排名都是转写里的自述，feed 没有核实其中任何一项。</p>
+<p style="margin-top:12px"><strong>同名</strong> &mdash; 全站零命中：Mihail Eric、Monaco、CS 146S、Modern Software Developer、One Million AI Engineer、AIU Code、Chip Hieatt、Resolve、Night Shift、Ramp Inspect、Stripe Minions、Gastown、Gas City、Aviator、Ankit、Silas、Eno、Conway、CSAT、106B、K-shot、Monocoder、Hal、Grokbot、Pauline Brunet、realbasilchatha、Jeremy Culhane、AshleyYuki、384,000、WebGL2、Web Audio、wow/flutter、gstack-evals、Jev Engineering、two hundred lines。有不同语境旧命中的：Muse、Instinct、Daybreak、Glasswing、GStack、gstack、Jev、Particle-1、slop、vibe coding、software factory、dark factory、code review、Cloudflare、Amplitude、Augment、Devin、Factory、Cursor、Claude Code、Codex、SWE-Bench、Steve Yegge、psychosis、AIE、AI Engineer、Eve。</p>
+<p style="margin-top:12px"><strong>薄内容</strong> &mdash; 21 条里有 8 条本身不承载观点，逐条点名：Matt Turck 的 Tucker Carlson 模仿反应；Matt Turck 的 trolls/Elon 回应；Swyx 的 VP of FDE 指引；Swyx 的「and a special pod!」；Swyx 的「are you listening anon?」；Peter Yang 的亚洲婚外情观察；Peter Yang 转引的照护者引文；Peter Yang 的「This affair...」一句。全部在各自卡片里给了链接。21 条推文每条都有链接，因此 stats strip、section meta、index meta 与正文链接数四处天然一致。</p>
+<p style="margin-top:12px"><strong>覆盖</strong> &mdash; 三个时间戳：快照 2026-11-09T06:36:37.960Z 即太平洋 11-08 22:36:37，按 UTC-8 换算，因为太平洋夏令时已在 11-01 结束；本期成文于太平洋 2026-11-09 18:40；上一份快照是 2026-11-08T06:25:57.526Z，相隔一天零 10 分 40 秒。21 条全部落在太平洋 11-08，00:13:03 到 21:56:50，无缺口。窗口在快照前 39 分 47 秒收口。太平洋 10-29 与 10-30 仍永久缺失。</p>
+<p style="margin-top:12px"><strong>互动字段</strong> &mdash; 21 条的 likes、retweets、replies 全有值，这个 feed 没有 quotes 字段，不使用；reposts 在 21 条里全为 null。赞数前五：Rauch 2242、Turck 2018、Ryo Lu 704、Zara Zhang 404、Garry Tan 344。转发前三：143、138、70。回复前三：187、182、105。最低是 Swyx 的 VP of FDE 指引，1 赞、0 转发、1 回复；其次是 Swyx 的 special pod 3 赞、Nan Yu 第三条 9 赞。破千赞 2 条，破千回复 0 条，转发过百 2 条。上面每一处「最」和「最低」都先做了全窗口排序核对。</p>
+<p style="margin-top:12px"><strong>缺席</strong> &mdash; 有内容的账号 10 个。追踪名单 24 位里出现 6 位：Swyx、Peter Yang、Guillermo Rauch、Garry Tan、Matt Turck、Nikunj Kothari。feed 里另外 4 个账号不在名单上：Nan Yu、Aaron Levie、Ryo Lu、Zara Zhang。11-05 那期三项第一的 Sam Altman 连续第五期缺席。</p>
+<p style="margin-top:12px"><strong>未闭环</strong> &mdash; Day 29 或 3/x 的分数会不会出现、被数与被 banked 的到底是什么；dot 是什么；09-18 起记录的 jev 与 11-07 播客的 Jev 是不是同一个东西；Garry Tan 的 gstack-evals 提到的 Jev Engineering 文章与 particle-1 是不是那些对象；Personal Finance、Vercel Schedules 和 Replit 那个 96% 会不会有第二信源；SpaceXSI 是什么；Particle-1 的 1/23 基线；HackerTube 的第二信源；Grok Bot 上线日期；Sol 6 与 ViBench 2.0 分数；Legora 的 eval heat map 结果；Swyx 的 Anthropic IPO 周更会不会真的出现；Lab Compass 会不会有论文或代码；texts wrapped 会不会有第二信源；下一家被收购的跨实验室应用会不会被点名。新增：CS 146S 的开源伙伴最终交付什么、百万订阅特别节目会不会有第二信源，以及开场那个 AIU Code 是不是此前记下的 AIE Code。已定日期：Opal 2026-11-17 关停；Vercel Security Reviews 免费到 11 月 10 日。</p>
+</div>
+</section>
+<footer class="footer">
+<div class="next-issue">&#128236; &#19979;&#19968;&#26399;&#65306;&#26126;&#22825; 10:00&#65288;&#21271;&#20140;&#26102;&#38388;&#65289;</div>
+<div class="signature">by chloevchen</div>
+</footer>
+
+<!-- by chloevchen -->
+</body>
+</html>
