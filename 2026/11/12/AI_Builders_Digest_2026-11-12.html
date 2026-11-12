@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Builders Digest &middot; 2026-11-12</title>
+
+<style>
+
+
+
+
+
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 28px 30px; margin-bottom: 24px; }
+  .podcast-source { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
+  .podcast-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; margin-bottom: 18px; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; }
+
+
+</style>
+</head>
+<body>
+<header class="topbar">
+<div class="topbar-inner">
+<a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders &middot; AI Builders Digest</a>
+<span>双语 &middot; Bilingual</span>
+</div>
+</header>
+<section class="header">
+<div class="eyebrow">Daily Digest &middot; 2026-11-12</div>
+<h1>AI Builders Digest</h1>
+</section>
+<div class="stats">
+<div class="stat"><div class="stat-num">15</div><div class="stat-label">Builders</div></div><div class="stat"><div class="stat-num">32</div><div class="stat-label">Tweets</div></div><div class="stat"><div class="stat-num">1</div><div class="stat-label">Podcast</div></div><div class="stat"><div class="stat-num">0</div><div class="stat-label">Blog</div></div>
+</div>
+<p class="note-line">Two of the window's three top engagement fields go to two short lines from the same person, neither carrying an argument, while the longest and most detailed post takes 143 likes. One Claude announcement is quoted by two different builders inside the feed, and the podcast explains why agents keep recommending a single email API.</p>
+<p class="note-line zh">窗口三项互动第一里有两项落在同一个人两条不带观点的短句上，最长、细节最多的一条却只有 143 赞；Claude 一条公告被 feed 内两位不同 builder 各自引用，播客则解释了 agent 为什么会一直推荐同一个邮件 API。</p>
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128036;</span>
+<h2 class="section-title">X / Twitter</h2>
+<span class="section-meta">15 Builders &middot; 32 Tweets</span>
+</div>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Zara Zhang</span>
+<span class="builder-role">Builder, Harvard '17</span>
+</div>
+<p class="summary-en">Zara Zhang, who describes herself simply as a builder, posts twice at the edges of the window. At Pacific 11-09 22:29:04, the earliest post in this issue, she gives the first step of sharing work and building an audience: do not wait until it is done or perfect, share a work in progress, because sometimes that is how you find out whether it is even worth finishing. 266 likes, 22 retweets, 41 replies. At Pacific 11-10 11:20:15 she offers a split for why users do not come back to a product: 20% of the time they do not like it, 80% of the time they forgot it even exists. 119 likes, 5 retweets, 19 replies. Neither post attaches an external link; both are opinions rather than product news.</p>
+<p class="summary-zh zh">Zara Zhang 的 bio 只写了 builder，她在窗口两端各发了一条。太平洋 11-09 22:29:04 这条是本期最早的一条，讲分享作品、积累读者的第一步：别等做完了、完美了才发，把进行中的东西先发出去，有时候正是靠这个才能判断它到底值不值得做完。266 赞、22 次转发、41 条回复。太平洋 11-10 11:20:15 她给了一个关于用户不再回来的拆分：20% 是不喜欢这个产品，80% 是根本忘了它存在。119 赞、5 次转发、19 条回复。两条都只是短文本、没有外链，都是观点而不是产品消息。</p>
+<div class="urls"><a href="https://x.com/zarazhangrui/status/2120041030951297033" target="_blank">https://x.com/zarazhangrui/status/2120041030951297033</a><a href="https://x.com/zarazhangrui/status/2120235104194932841" target="_blank">https://x.com/zarazhangrui/status/2120235104194932841</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Ryo Lu</span>
+<span class="builder-role">Designed Cursor, Notion, Stripe</span>
+</div>
+<p class="summary-en">Ryo Lu, whose bio says he designed Cursor, Notion and Stripe, posts three times. A thin pointer at Pacific 11-10 01:44:00 says the journal can be read or watched in English, Chinese or Japanese, 8 likes, 0 retweets, 1 reply. At 18:07:54 he argues that the magic is in working together with other humans, not each of us running our own army of agents in silos, and says he is glad to see it come alive, 314 likes, 11 retweets, 12 replies. At 20:57:17 he writes that software is built not just to optimise, complete tasks or impose constraints, but to build a world where people are let in, aspire to things they could not do before, create and find themselves, just like filmmakers and musicians, 91 likes, 6 retweets, 7 replies. Two of the three are quote tweets of posts outside the feed.</p>
+<p class="summary-zh zh">Ryo Lu 的 bio 写的是设计过 Cursor、Notion、Stripe，他发了三条。太平洋 11-10 01:44:00 是一条薄的指引，说自己的 journal 可以用英文、中文或日文读或看，8 赞、0 次转发、1 条回复。18:07:54 他说魔力在于人和人一起做事，而不是每个人各自在孤岛里跑一支 agent 军队，并说很高兴看到它真的出现，314 赞、11 次转发、12 条回复。20:57:17 他写：我们做软件不只是为了优化、完成任务或把自己的约束加进去，而是为了造一个世界，让人能进来、能向往以前做不到的事、能创造、能找到自己，就像电影人和音乐人一样，91 赞、6 次转发、7 条回复。三条里两条是引用 feed 外推文。</p>
+<div class="urls"><a href="https://x.com/ryolu_/status/2120090087715426614" target="_blank">https://x.com/ryolu_/status/2120090087715426614</a><a href="https://x.com/ryolu_/status/2120337691661443081" target="_blank">https://x.com/ryolu_/status/2120337691661443081</a><a href="https://x.com/ryolu_/status/2120380317429350654" target="_blank">https://x.com/ryolu_/status/2120380317429350654</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nikunj Kothari</span>
+<span class="builder-role">FPV Ventures partner, seed/A</span>
+</div>
+<p class="summary-en">FPV Ventures partner Nikunj Kothari posts three times, all short. At Pacific 11-10 06:45:00 he asks Fable for a one shot banger video for Wrap2026, 6 likes, 0 retweets, 1 reply. At 13:02:22 a three-word reaction, Mic drop / Gulp / Wow, 41 likes, 0 retweets, 4 replies. At 21:23:45, the last post in the window, he quotes an MLK Jr. line about where a person stands in times of challenge and controversy and calls a post-mortem a must read for every infra provider, saying he is proud of the Railway team for the transparency, 9 likes, 0 retweets, 1 reply. The first two are named here as thin posts; the third is a recommendation without the post-mortem's contents in the feed.</p>
+<p class="summary-zh zh">FPV Ventures 合伙人、投 seed/A 轮的 Nikunj Kothari 发了三条，都很短。太平洋 11-10 06:45:00 他让 Fable 给 Wrap2026 做一条一次成片的视频，6 赞、0 次转发、1 条回复。13:02:22 是三个词的反应，Mic drop / Gulp / Wow，41 赞、0 次转发、4 条回复。21:23:45 是本期窗口最后一条，他引了一句马丁·路德·金关于人在挑战与争议时刻站在哪里的话，说那份 post-mortem 每个基础设施提供方都该读，并称赞 Railway 团队的透明度，9 赞、0 次转发、1 条回复。前两条作为薄内容点名；第三条是推荐，feed 里没有那份 post-mortem 的内容。</p>
+<div class="urls"><a href="https://x.com/nikunj/status/2120165833993322497" target="_blank">https://x.com/nikunj/status/2120165833993322497</a><a href="https://x.com/nikunj/status/2120260803295363388" target="_blank">https://x.com/nikunj/status/2120260803295363388</a><a href="https://x.com/nikunj/status/2120386979389157530" target="_blank">https://x.com/nikunj/status/2120386979389157530</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Josh Woodward</span>
+<span class="builder-role">VP, Google Labs / Gemini App / AI Studio</span>
+</div>
+<p class="summary-en">Google VP Josh Woodward posts the official availability line at Pacific 11-10 08:06:07: Gemini 4 Carbon is in the Gemini App for Ultra subscribers worldwide. 689 likes, 30 retweets, 107 replies, eighth on likes and fifth on replies. It is a single announcement with no benchmark or pricing attached; the same model gets a much longer day-zero test from Dan Shipper two minutes later. Gemini 4 Carbon appears once before in this series, in the 10-30 issue's unresolved list asking whether it would ever get a benchmark or a date; that item is now answered by this launch and by the vibe check, with the two kept as separate statements.</p>
+<p class="summary-zh zh">Google 副总裁 Josh Woodward 在太平洋 11-10 08:06:07 发了官方上线一句：Gemini 4 Carbon 已面向全球 Ultra 订阅用户在 Gemini App 中开放。689 赞、30 次转发、107 条回复，赞数第八、回复第五。这只是一条公告，没有基准也没有价格；两分钟后同一个模型在 Dan Shipper 那里得到一篇长得多的 day-zero 实测。Gemini 4 Carbon 在本系列此前出现过一次，是 10-30 期「未闭环」清单里问它会不会有基准或日期；本期这次上线和那篇 vibe check 把这条追踪项落了地，两者作为两条独立说法并列，不合并。</p>
+<div class="urls"><a href="https://x.com/joshwoodward/status/2120186249281778135" target="_blank">https://x.com/joshwoodward/status/2120186249281778135</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Dan Shipper</span>
+<span class="builder-role">CEO, Every</span>
+</div>
+<p class="summary-en">Every CEO Dan Shipper posts three times around the Gemini 4 Carbon launch. At Pacific 11-10 08:08:02, a thin LIVE Vibe Check pointer, 9 likes, 1 retweet, 1 reply. At 08:11:07 he publishes the window's longest post at 2,265 characters, a day-zero vibe check: Carbon is a much better coder than Argon but he is probably keeping Argon for writing, and after testing across coding, writing, design and knowledge work at Every it can work for hours on an ambitious project but does not always know when to stop. 143 likes, 7 retweets, 31 replies. At 15:15:33 a thin pointer to the full vibe check, 2 likes, 1 retweet, 1 reply, the window's lowest like count.</p>
+<p class="summary-zh zh">Every CEO Dan Shipper 在 Gemini 4 Carbon 发布前后发了三条。太平洋 11-10 08:08:02 是一条薄的 LIVE Vibe Check 指引，9 赞、1 次转发、1 条回复。08:11:07 他发了窗口最长的一条，2,265 字符，是 day-zero vibe check：Carbon 写代码比 Argon 强得多，但写作他大概还是留着 Argon；在 Every 跨编码、写作、设计、知识工作测下来，它能在一个有野心的项目上连续干几小时，却不总知道该什么时候停。143 赞、7 次转发、31 条回复。15:15:33 是一条指向完整 vibe check 的薄指引，2 赞、1 次转发、1 条回复，是窗口最低赞。</p>
+<p class="summary-en">The detail is in that long post. On one run of their Senior Engineer benchmark Carbon scored 44% against Argon's 21%, still middle of the pack; hammer_mt gave it a backlog, it identified 6 tasks as ready then did 15, including work someone else was already doing, and was stopped after almost 4.5 hours. Randy Counsman gave it 3D scans of the podcast studio and an equipment list and got, in one attempt, a browser-based model accurate enough to check whether new gear would fit without entering the shot; Carbon is estimated to have written about 95% of a big update to Everycut, Every's internal video editor. Kieran Klaassen values its tests and documentation on large projects, including a record of approaches considered and rejected, but says it can produce huge files where Fable keeps things modular, and Fable remains his first choice. Randy found it caught audio editing issues other models missed; Kieran handed it a recorded meeting and got 6 titled clips. Jack Cheng got a hyperrealistic ginkgo-leaf app icon; objects and 3D scenes look better than Argon's, while interfaces split the team, with Jack and Randy getting boxes within boxes and Tyler Nishida liking its new-interface ideas. The editorial benchmark put Carbon and Argon about even, but Carbon costs more, so he has not seen enough improvement to justify switching. His Reach Test is a yellow square, I'll use it sometimes, and the advice is to give it one big job with a clear finish line, review what comes back, and try it as a second opinion especially on audio and video.</p>
+<p class="summary-zh zh">细节都在那条长文里。他们 Senior Engineer benchmark 的一次运行里 Carbon 拿了 44%，Argon 是 21%，仍属中游；hammer_mt 给它一个 backlog，它识别出 6 个任务就绪，却做了 15 个，其中包括别人已经在做的工作，跑了近 4.5 小时后被叫停。Randy Counsman 给了播客棚的 3D 扫描和一份设备清单，它一次就建出一个浏览器里的模型，精度够用来判断新设备放进画面会不会穿帮；据估计 Everycut（Every 内部视频编辑器）一次大更新里约 95% 是 Carbon 写的。Kieran Klaassen 看重大项目里它的测试和文档，包括记录考虑过又否掉的方案，但也说它容易写出巨大的文件，而 Fable 会更模块化，Fable 仍是他的首选。Randy 发现它能抓到其他模型漏掉的音频剪辑问题；Kieran 把一段会议录音交给它要 shorts，拿回 6 条带标题的片段。Jack Cheng 得到一个超写实的银杏叶 app 图标；物体和 3D 场景比 Argon 好，界面则让团队分成两派，Jack 和 Randy 老是拿到盒子套盒子，Tyler Nishida 却喜欢它对新界面的想法。编辑部基准里 Carbon 和 Argon 差不多，但 Carbon 更贵，所以他认为改进还不足以换过去。他给的 Reach Test 是一个黄色方块，I'll use it sometimes；建议是一次给它一个大任务、讲清完成线、回头复核结果，并把它当第二意见，尤其在音视频上。</p>
+<div class="urls"><a href="https://x.com/danshipper/status/2120186731114778688" target="_blank">https://x.com/danshipper/status/2120186731114778688</a><a href="https://x.com/danshipper/status/2120187507396530309" target="_blank">https://x.com/danshipper/status/2120187507396530309</a><a href="https://x.com/danshipper/status/2120294319773073919" target="_blank">https://x.com/danshipper/status/2120294319773073919</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Guillermo Rauch</span>
+<span class="builder-role">CEO, Vercel</span>
+</div>
+<p class="summary-en">Vercel CEO Guillermo Rauch posts twice. At Pacific 11-10 08:15:01 he gives the first cumulative numbers for Vercel Security Review, less than 1 week since launch: 57,897 vulnerabilities identified, 6,029 critical or high, 14,665 already patched by Agent. He says he is shocked at the number of critical vulnerabilities that would go unnoticed and at how easily the agent automatically fixes them, and that it can be turned on for any repo no matter where you deploy to. 446 likes, 24 retweets, 127 replies, third on replies. These are self-reported counts over a different window from the 24-hour figures (6,817 / 580 / 1,411) recorded on 11-06 right after the 11-05 launch; they are placed side by side, not merged, and the feed offers no external verification of either set.</p>
+<p class="summary-zh zh">Vercel CEO Guillermo Rauch 发了两条。太平洋 11-10 08:15:01 他给出 Vercel Security Review 上线不到一周的第一组累计数字：识别出 57,897 个漏洞，其中 6,029 个严重或高危，14,665 个已由 Agent 自动修好。他说让自己吃惊的是两点，一是会有这么多严重漏洞被忽略，二是 agent 自动修复起来太容易；并说不管你部署在哪里，任何仓库都能开。446 赞、24 次转发、127 条回复，回复数第三。这是自报数字，窗口与 11-06 期记下的那组 24 小时数字（6,817 / 580 / 1,411）不同，后者紧跟在 11-05 期发布之后；两组并列放置，不合并，feed 对任何一组都没有外部核实。</p>
+<p class="summary-en">At 18:06:41 he argues that Rust is a superb language and ecosystem especially given it was invented before agentic coding, and that with agents new languages will blossom, even purpose-built ones for specific use cases and discretionary C or LLVM IR or assembly, because AI is fluid and there is no more one-size-fits-all. 518 likes, 12 retweets, 98 replies. Both posts quote content outside the feed.</p>
+<p class="summary-zh zh">18:06:41 他说 Rust 是极好的语言和生态，尤其考虑到它诞生在 agentic coding 之前；有了 agent，新语言会大量出现，甚至为特定用途专门造的语言，以及随取随用的 C、LLVM IR、汇编，因为 AI 是流动的，不再有一套通吃所有场景的东西。518 赞、12 次转发、98 条回复。两条都是引用 feed 外内容。</p>
+<div class="urls"><a href="https://x.com/rauchg/status/2120188488628977819" target="_blank">https://x.com/rauchg/status/2120188488628977819</a><a href="https://x.com/rauchg/status/2120337388178379178" target="_blank">https://x.com/rauchg/status/2120337388178379178</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nan Yu</span>
+<span class="builder-role">Product, Codex at OpenAI</span>
+</div>
+<p class="summary-en">Nan Yu, product lead for Codex at OpenAI and formerly head of product at Linear, posts twice within two minutes. At Pacific 11-10 09:14:28 he points to a dictation app detail few others get right, that you can map the Apple dictation key, a special variant of F5, and that push to talk, double tap and single tap shortcuts are supported, crediting bamitsmanas for getting the edges right. 16 likes, 0 retweets, 1 reply. At 09:16:18 a quote tweet replying to bamitsmanas, That's like 30 coffees, or a 1-2 months of ChatGPT pro, 5 likes, 0 retweets, 0 replies, named here as a thin post. Neither post carries an argument about models or products beyond the dictation detail and the price comparison.</p>
+<p class="summary-zh zh">Nan Yu 的 bio 写的是 OpenAI Codex 产品、此前 Linear 产品负责人，他在两分钟内发了两条。太平洋 11-10 09:14:28 他指出一个少有听写 app 做对的细节：可以把 Apple 听写键（F5 的特殊变体）映射过来，并且支持 push to talk、双击、单击快捷键，他称赞 bamitsmanas 把这些边角都做对了。16 赞、0 次转发、1 条回复。09:16:18 是一条回 bamitsmanas 的引用推文，That's like 30 coffees, or a 1-2 months of ChatGPT pro，5 赞、0 次转发、0 条回复，作为薄内容在此点名。两条除了听写细节和这句价格对比，都没有关于模型或产品的论证。</p>
+<div class="urls"><a href="https://x.com/thenanyu/status/2120203450223104012" target="_blank">https://x.com/thenanyu/status/2120203450223104012</a><a href="https://x.com/thenanyu/status/2120203911265218969" target="_blank">https://x.com/thenanyu/status/2120203911265218969</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Claude</span>
+<span class="builder-role">Official Claude account, Anthropic</span>
+</div>
+<p class="summary-en">The Claude official account posts three lines in three consecutive seconds at Pacific 11-10 09:26:05, 09:26:06 and 09:26:07. At 09:26:05, Claude Data, formerly Dashboards, is now generally available on paid plans; alongside dashboards Claude can draft data stories and narrated videos from your metrics for review before sharing, with certified queries and live sharing in beta, 1,683 likes, 47 retweets, 18 replies, fourth on likes. At 09:26:06, with interactive connectors you can open the full version of a tool inside Claude and work in Adobe, Atlassian and Box beside the conversation, making changes yourself or asking Claude to make them with you, rolling out on web and desktop, 2,885 likes, 132 retweets, 58 replies, third on likes and second on retweets. At 09:26:07, these updates are starting to roll out today so you may not see them all right away, with a link to read more about Claude Whiteboards, Sheets, Data and interactive connectors, 1,149 likes, 42 retweets, 8 replies.</p>
+<p class="summary-zh zh">Claude 官方账号在太平洋 11-10 09:26:05、09:26:06、09:26:07 连续三秒各发一条。09:26:05：Claude Data（原 Dashboards）在付费计划上正式可用；除 dashboards 外，Claude 能根据你的指标起草 data stories 和带解说的视频，供你分享前复核，certified queries 与 live sharing 处于 beta，1,683 赞、47 次转发、18 条回复，赞数第四。09:26:06：有了 interactive connectors，可以在 Claude 里打开工具的完整版本，在对话旁边用 Adobe、Atlassian、Box，自己改或让 Claude 一起改，先在 web 和桌面端上线，2,885 赞、132 次转发、58 条回复，赞数第三、转发第二。09:26:07：这些更新今天开始推送，所以不一定马上全都能看到，并附了了解 Claude Whiteboards、Sheets、Data 与 interactive connectors 的链接，1,149 赞、42 次转发、8 条回复。</p>
+<p class="summary-en">The 09:26:06 post is the only ID in this feed quoted by two different builders: Thibault Sottiaux's Labs innovating together ftw and Aaron Levie's Box and Anthropic announcement both quote 2120206375137484875. It is also the only quote-tweet group inside the feed this issue. None of the three Claude posts is itself a quote tweet.</p>
+<p class="summary-zh zh">09:26:06 那条是本期 feed 里唯一被两位不同 builder 引用的 ID：Thibault Sottiaux 的 Labs innovating together ftw 与 Aaron Levie 的 Box 与 Anthropic 合作公告都引用了 2120206375137484875。它也是本期 feed 内唯一的一组同组引用。Claude 这三条本身都不是引用推文。</p>
+<div class="urls"><a href="https://x.com/claudeai/status/2120206372478566799" target="_blank">https://x.com/claudeai/status/2120206372478566799</a><a href="https://x.com/claudeai/status/2120206375137484875" target="_blank">https://x.com/claudeai/status/2120206375137484875</a><a href="https://x.com/claudeai/status/2120206379315261702" target="_blank">https://x.com/claudeai/status/2120206379315261702</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thariq</span>
+<span class="builder-role">Formerly Claude Code, Anthropic</span>
+</div>
+<p class="summary-en">Thariq, whose bio says he formerly worked on Claude Code at Anthropic, posts once at Pacific 11-10 10:34:03: we need fewer one shot demos and more tools that show how you can collaborate with models to bring your vision to life. 1,590 likes, 68 retweets, 125 replies, fifth on likes and fourth on replies. It is a quote tweet of a post outside the feed; the feed does not show what that post said, so no argument from it is reproduced here.</p>
+<p class="summary-zh zh">Thariq 的 bio 写的是此前在 Anthropic 做 Claude Code，他在太平洋 11-10 10:34:03 发了一条：我们需要少一点一次性 demo，多一点能展示人怎么和模型协作、把想法做出来的工具。1,590 赞、68 次转发、125 条回复，赞数第五、回复第四。这是一条引用 feed 外推文的推文；feed 没有给出被引用那条的内容，因此不转述其中任何观点。</p>
+<div class="urls"><a href="https://x.com/trq212/status/2120223476279869875" target="_blank">https://x.com/trq212/status/2120223476279869875</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Steinberger</span>
+<span class="builder-role">OpenClaw, OpenAI</span>
+</div>
+<p class="summary-en">Peter Steinberger, who describes himself as the ClawFather back from retirement to mess with AI and lists OpenClaw and OpenAI, posts once at Pacific 11-10 10:54:40. He reproduces a quoted passage saying that when a company ran diagnostics on about 700 systems it found 10,500 vulnerabilities, held an emergency press conference on June 16 and applied fixes over three months; when diagnostics were re-run using GPT-6 Astra, described there as the latest model released by US-based OpenAI, it confirmed 35,000 new vulnerabilities, and the passage ends, Honestly, we're completely exhausted. 1,334 likes, 135 retweets, 104 replies, first on retweets, sixth on likes and sixth on replies. The post is not a quote tweet and gives no source for the passage; the numbers are reproduced as text in the post, not verified anywhere in the feed.</p>
+<p class="summary-zh zh">Peter Steinberger 的 bio 自称是退休回来折腾 AI 的 ClawFather，并列了 OpenClaw 和 OpenAI，他在太平洋 11-10 10:54:40 发了一条。他贴出一段带引号的文字：某公司对约 700 套系统做诊断，发现 10,500 个漏洞，6 月 16 日开了紧急发布会，用三个月修完；后来用被文中称为「美国 OpenAI 最新模型」的 GPT-6 Astra 重跑诊断，又确认了 35,000 个新漏洞，段落结尾是 Honestly, we're completely exhausted。1,334 赞、135 次转发、104 条回复，转发第一、赞数第六、回复第六。这条不是引用推文，也没有给出那段文字的出处；这些数字是推文里照录的文字，feed 没有任何一处对其核实。</p>
+<div class="urls"><a href="https://x.com/steipete/status/2120228665946710248" target="_blank">https://x.com/steipete/status/2120228665946710248</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aditya Agarwal</span>
+<span class="builder-role">SPC general partner, Bevel Health co-founder</span>
+</div>
+<p class="summary-en">SPC general partner and Bevel Health co-founder Aditya Agarwal posts once at Pacific 11-10 12:17:06, a quote tweet saying Strongly concur and adding that his most successful friends also have the most intense hobbies. 190 likes, 3 retweets, 5 replies. It is named here as a thin post: it carries agreement and a general observation, with no argument of its own, and the feed does not show the post being quoted.</p>
+<p class="summary-zh zh">SPC 普通合伙人、Bevel Health 联合创始人 Aditya Agarwal 在太平洋 11-10 12:17:06 发了一条引用推文，写 Strongly concur，并补一句他最成功的朋友们也都有最投入的爱好。190 赞、3 次转发、5 条回复。这里作为薄内容点名：它只有附和和一句泛泛的观察，本身不承载论证，feed 也没有给出被引用那条的内容。</p>
+<div class="urls"><a href="https://x.com/adityaag/status/2120249412685607254" target="_blank">https://x.com/adityaag/status/2120249412685607254</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Swyx</span>
+<span class="builder-role">smol.ai, Cognition, AI Engineer, Latent Space</span>
+</div>
+<p class="summary-en">Swyx, whose bio lists smol.ai, Cognition, Temporal, AI Engineer and Latent Space, posts three times. At Pacific 11-10 13:00:05 he says he finally asked Zeno Rocha, whom he calls the CEO of AEO, why his agents keep choosing Resend even when he does not want them to, 83 likes, 4 retweets, 69 replies, eighth on replies. At 20:27:29 he says he had a preview of the keynote, had to agree to an embargo to get the talk on board, that it is not the full story, and points to the AIE live stream from 9am to 6pm the next day and Thursday, 71 likes, 2 retweets, 23 replies. At 20:41:27, this is my engines thread, 5 likes, 0 retweets, 1 reply. All three are quote tweets of posts outside the feed; the last two are named as thin posts.</p>
+<p class="summary-zh zh">Swyx 的 bio 列了 smol.ai、Cognition、Temporal、AI Engineer、Latent Space，他发了三条。太平洋 11-10 13:00:05 他说自己终于问了被他称作 the CEO of AEO 的 Zeno Rocha，为什么他的 agent 总在他不想的时候选 Resend，83 赞、4 次转发、69 条回复，回复第八。20:27:29 他说预览过那场 keynote，为了让这个演讲上会不得不答应 embargo，并说这不是全部内容，同时指向第二天和周四 9 点到 18 点的 AIE 直播，71 赞、2 次转发、23 条回复。20:41:27 是 this is my engines thread，5 赞、0 次转发、1 条回复。三条都是引用 feed 外推文；后两条作为薄内容点名。</p>
+<div class="urls"><a href="https://x.com/swyx/status/2120260228902264872" target="_blank">https://x.com/swyx/status/2120260228902264872</a><a href="https://x.com/swyx/status/2120372817720197357" target="_blank">https://x.com/swyx/status/2120372817720197357</a><a href="https://x.com/swyx/status/2120376333142569316" target="_blank">https://x.com/swyx/status/2120376333142569316</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aaron Levie</span>
+<span class="builder-role">CEO, Box</span>
+</div>
+<p class="summary-en">Box CEO Aaron Levie posts twice. At Pacific 11-10 13:04:48, quoting the Claude interactive connectors post inside this feed, he argues agents will work with enterprise files 100X more than people do today and announces a partnership with Anthropic bringing full read/write interoperability to Box content via Claude: an agent can pull content into a workflow, write file updates back to Box and view them directly inside Claude, all via MCP, so contracts, presentations and strategy docs can be created, edited and updated. 166 likes, 21 retweets, 66 replies. At 21:18:49 he publishes a 1,584-character argument that agent swarms could drive another leap in output and separate teams that adopt the pattern from those that do not, laying out a progression from chat to agents that complete whole tasks to goal-seeking swarms with no inherent limit to productivity gains, and naming game development, coding, trading, life sciences research, IT automation, cyber, math and animation as areas where swarms will matter, with harnesses, applied AI products and infrastructure, and a new field of FDE work, to build. 72 likes, 5 retweets, 26 replies. The long post takes fewer likes than the short one.</p>
+<p class="summary-zh zh">Box CEO Aaron Levie 发了两条。太平洋 11-10 13:04:48，他引用本期 feed 内 Claude 那条 interactive connectors，提出 agent 与企业文件打交道的量会是今天人的 100 倍，并宣布与 Anthropic 合作，把 Box 内容经 Claude 做成完整读写互通：agent 既能把内容拉进工作流，也能把文件改动写回 Box、在 Claude 里直接查看，全部走 MCP，于是合同、演示稿、策略文档都能创建、编辑、更新。166 赞、21 次转发、66 条回复。21:18:49 他发了一条 1,584 字符的长文，论证 agent swarms 可能带来又一次产出跃升，并把采用这种工作方式的团队和没采用的拉开差距；他给出一条演进线：chat 到能独立完成整件事的 agent，再到目标导向、会自己找路径、产出的提升没有内在上限的 swarms；点名游戏开发、编码、交易、生命科学研究、IT 自动化、网络安全、数学和动画这些领域，并说 harness、应用型 AI 产品、基础设施，以及一整个新的 FDE 工作领域值得去做。72 赞、5 次转发、26 条回复。长文拿到的赞比短文还少。</p>
+<div class="urls"><a href="https://x.com/levie/status/2120261416733036905" target="_blank">https://x.com/levie/status/2120261416733036905</a><a href="https://x.com/levie/status/2120385739342897469" target="_blank">https://x.com/levie/status/2120385739342897469</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thibault Sottiaux</span>
+<span class="builder-role">Codex &amp; ChatGPT, OpenAI</span>
+</div>
+<p class="summary-en">Thibault Sottiaux, whose bio says Codex and ChatGPT at OpenAI, posts two short lines two minutes apart and takes the top two like counts and the top two reply counts in the window. At Pacific 11-10 13:26:31, Labs innovating together ftw, quoting the Claude interactive connectors post inside this feed, 3,892 likes, 109 retweets, 386 replies, first on likes, third on retweets and second on replies. At 13:28:04, How many of you have a small business?, quoting a post outside the feed, 3,252 likes, 81 retweets, 866 replies, second on likes and first on replies. Neither line carries an argument, a number or a link of its own beyond the quoted post and a shortened link; together they take 7,144 likes, 190 retweets and 1,252 replies, more than a third of all likes in the window.</p>
+<p class="summary-zh zh">Thibault Sottiaux 的 bio 写的是 OpenAI 的 Codex 与 ChatGPT，他隔两分钟发了两条短句，却拿走窗口赞数前二和回复数前二。太平洋 11-10 13:26:31 的 Labs innovating together ftw 引用本期 feed 内 Claude 那条 interactive connectors，3,892 赞、109 次转发、386 条回复，赞数第一、转发第三、回复第二。13:28:04 的 How many of you have a small business? 引用 feed 外一条，3,252 赞、81 次转发、866 条回复，赞数第二、回复第一。两条都没有论证、没有数字，除被引用推文和一个短链外也没有自己的链接；合计 7,144 赞、190 次转发、1,252 条回复，超过全窗口赞数的三分之一。</p>
+<div class="urls"><a href="https://x.com/thsottiaux/status/2120266880963473789" target="_blank">https://x.com/thsottiaux/status/2120266880963473789</a><a href="https://x.com/thsottiaux/status/2120267268517249036" target="_blank">https://x.com/thsottiaux/status/2120267268517249036</a></div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Yang</span>
+<span class="builder-role">Practical AI tutorials and interviews</span>
+</div>
+<p class="summary-en">Peter Yang, whose bio offers practical AI tutorials and interviews for busy people, posts three times at the end of the window. At Pacific 11-10 16:59:06 he says he does not really care about the stock price, but if Anthropic can accelerate cures of terrible diseases it will be one of the most impactful companies in history, and that he is glad Dario is focused on this rather than winning on viral shorts and TikTok memes, 437 likes, 10 retweets, 28 replies. At 17:25:23 a thin pointer, Here's the updated game btw, 5 likes, 0 retweets, 1 reply. At 20:18:21, agreeing with Kartik, he says game developers and gamers hating on tasteful use of AI is idiotic, and that there is a huge difference between using AI to pump out slop and using it as another tool to make a great game, 27 likes, 1 retweet, 10 replies. All three are quote tweets of posts outside the feed.</p>
+<p class="summary-zh zh">Peter Yang 的 bio 是给忙人做实用 AI 教程和访谈，他在窗口末尾发了三条。太平洋 11-10 16:59:06 他说自己不太在意股价，但如果 Anthropic 能加速这些重病的治愈，它会是史上最有影响力的公司之一；他还说很高兴 Dario 把精力放在这件事上，而不是去赢 viral shorts 和 TikTok 梗，437 赞、10 次转发、28 条回复。17:25:23 是一条薄的指引，Here's the updated game btw，5 赞、0 次转发、1 条回复。20:18:21 他附议 Kartik，说游戏开发者和玩家去抵制（有分寸地）用 AI 很蠢，用 AI 批量灌 slop 和把它当成又一件工具用来做好游戏，是完全不同的两件事，27 赞、1 次转发、10 条回复。三条都是引用 feed 外推文。</p>
+<div class="urls"><a href="https://x.com/petergyang/status/2120320377163501817" target="_blank">https://x.com/petergyang/status/2120320377163501817</a><a href="https://x.com/petergyang/status/2120326994579931419" target="_blank">https://x.com/petergyang/status/2120326994579931419</a><a href="https://x.com/petergyang/status/2120370522622181809" target="_blank">https://x.com/petergyang/status/2120370522622181809</a></div>
+</article>
+</section>
+<!-- ============== PODCAST ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#127911;</span>
+<h2 class="section-title">Podcast</h2>
+<span class="section-meta">1 Episode &middot; Fresh</span>
+</div>
+<div class="podcast">
+<div class="podcast-source">Latent Space</div>
+<div class="podcast-title">Designing for Agents &mdash; Zeno Rocha, Resend</div>
+<p class="summary-en">The Takeaway: a product that language models keep recommending got there not by buying an SEO inheritance but by rewriting every page into a form an agent can actually read, from FAQs and llms.txt to a plain-text version of the pricing page. Zeno Rocha, founder of Resend and author of the Dracula theme and React Email, came to email as a front-end developer with no infrastructure background, on the premise that a large, old market had plenty of competitors but nobody caring about the developer persona, and asked what the Stripe of email would look like. He reports 4.3 million users as of that morning, 120,000 paid customers, a ten million AR company, and customers including Warner Brothers and HBO; the SDK's NPM downloads crossed SendGrid's earlier this year and are now more than double, though the volume of mail sent is still much smaller than SendGrid's. The transcript offers no speaker labels and no timestamps, and every figure in it is a self-report that the feed does not verify.</p>
+<p class="summary-en">The part most builders can steal is the delivery mechanics. Volume email is not an app you scale by adding GPUs: Gmail, Outlook and Yahoo each behave differently, so 100,000 messages cannot simply be thrown at Gmail at once. The engaged recipients go first in a queue, batches are spaced out, IP blocks are bought with their history checked and balanced into pools over time. The rule is to do exactly what an abuser would not do, since an abuser buys a fresh domain, sends a lot at once and never sends again. Resend says it trusts users by default instead of putting everyone behind a two-day human review, then blocks quickly on bounce and complaint signals and talks to the customer, because most cases turn out to be misuse rather than abuse, a skill issue. Auto-generating a plain-text version of every HTML email raised deliverability, because spam filters can read the content directly instead of parsing it. Open rates are no longer reliable after Apple's privacy changes, and click tracking that rewrites links to a shared domain risks a noisy-neighbor blacklist.</p>
+<p class="summary-en">The agent-facing work is specific and deliberately unglamorous. Resend writes long-tail docs for every framework, puts an FAQ on almost every page, adds llms.txt on docs and marketing pages, and serves a markdown version of every page by appending .md or by content negotiation. The pricing page mattered: a model once answered a cost comparison with wrong numbers and called the pricing obscure, so he published a plain-text version, because agents do not really drag a JavaScript widget, and a few days later the same question came back right. He is openly unsure which of these moves help, saying of the markdown trick that he is not sure it matters, and he describes a recency bias in at least Opus 4.5 that favoured newer tools with more organic coverage. On MCP he reports at least two X growth month over month, around 1.2 million calls by the end of August by his own uncertain estimate, and more than 80 tools now against roughly 20 or fewer at launch, explicitly against Cloudflare's two; the first MCP was an open-source local one built by Yoko, an a16z investor, and doing a remote MCP properly meant rebuilding the permissions model through OAuth and RBAC. As a buyer he dropped Plausible for PostHog because the former's MCP was built by Sentry rather than maintained by the vendor, and uses Strava because Strava has an MCP. The most human line is about scale and priority: he says he would rather be a ten million AR company whose daughter wants to play with him than a hundred million dollar one where she does not, after a YC partner told him he worried too much about design. Whether any single AEO tactic works is left open; the conversation separately mentions four analytics subscriptions and a home-made AEO tracker, with no result attached to either.</p>
+<p class="summary-zh zh">核心结论：一个被语言模型反复推荐的产品，靠的不是继承一份 SEO 老本，而是把每个页面都改写成 agent 真能读的形式，从 FAQ、llms.txt 到定价页的纯文本版本。Zeno Rocha 是 Resend 创始人，也是 Dracula 主题和 React Email 的作者，他以前端开发者、毫无基础设施背景的身份进入邮件这个领域，前提是这个又大又老的赛道竞争者很多，却没人在乎开发者这个角色，于是他问：如果这是「邮件里的 Stripe」，该长什么样。他报出的数字是当天早上 430 万用户、12 万付费客户、一家 1000 万美元 ARR 的公司，客户里有 Warner Brothers 和 HBO；SDK 的 NPM 下载量今年早些时候超过 SendGrid，现在是其两倍多，不过实际发信量仍远小于 SendGrid。转写没有 speaker 标签、没有时间戳，里面每个数字都是自述，feed 没有核实其中任何一项。</p>
+<p class="summary-zh zh">最值得搬走的是投递机制。批量邮件不是加 GPU 就能扩容的 app：Gmail、Outlook、Yahoo 各家规则不同，10 万封不能一次砸给 Gmail。要把互动最活跃的收件人排在队列前面，分批、批次之间留间隔，买 IP 段时查历史、再分散成 IP 池长期做平衡。原则是「滥用者怎么做，你就反着来」：滥用者买个新域名、一次性狂发、之后再也不发。Resend 说他们默认信任用户，不把所有人挡在两天的审核后面，而是靠退信和投诉信号快速封禁、再去找客户聊，因为多数情况是使用不当而不是恶意滥用，是 skill issue。给每封 HTML 邮件自动生成纯文本版本提升了送达率，因为垃圾邮件过滤器可以直接读内容而不用去解析。Apple 的隐私改动之后 open rate 不再可靠；把链接重写到共享域名的 click tracking 则有被邻居拖进黑名单的风险。</p>
+<p class="summary-zh zh">面向 agent 的活很具体，也刻意不漂亮。Resend 给每个框架写长尾文档，几乎每页都加 FAQ，在文档和营销页都放 llms.txt，并且给每个页面提供 markdown 版本，追加 .md 或走内容协商都能拿到。定价页是个转折点：有一次模型算比价给出错误数字、还说它的定价含糊，于是他补了一版纯文本，因为 agent 不会去拖一个 JavaScript 组件；几天后再问同一个问题，答案就对了。他坦白说不清哪招真的有用，谈到 markdown 那招时说 not sure it matters；他说至少在 Opus 4.5 上能看到一种近因偏差，更偏爱较新、自然被讨论得更多的工具。MCP 方面他报的是每月至少两倍增长、按他自己带不确定语气的估计到 8 月底约 120 万次调用、现在 80 多个工具而上线时大约 20 个或更少，并明确拿来对比 Cloudflare 只有两个；第一个 MCP 是 a16z 投资人 Yoko 做的开源本地版本，而把 remote MCP 做对，意味着把权限模型经 OAuth 和 RBAC 重做一遍。作为买方，他因为 Plausible 的 MCP 由 Sentry 代做、不是厂商自己维护而换用 PostHog，用 Strava 则因为 Strava 有 MCP。最有人味的一句关于规模与取舍：当年 YC 一位合伙人说他太在意设计，他后来的结论是，宁可做一家 1000 万美元 ARR、女儿还愿意跟他玩的公司，也不做一家一亿美元、女儿不想理他的公司。至于某一招 AEO 到底有没有用，对话里没有下结论；另外提到四份分析工具订阅和一个自制的 AEO tracker，都没有给出结果。</p>
+<div class="urls"><a href="https://www.youtube.com/@LatentSpacePod" target="_blank">https://www.youtube.com/@LatentSpacePod</a></div>
+</div>
+</section>
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128161;</span>
+<h2 class="section-title">The Takeaway</h2>
+<span class="section-meta">2026-11-12</span>
+</div>
+<div class="takeaway">
+<div class="takeaway-label">The Takeaway</div>
+<p>Three engagement fields go to three different posts, none of them an argument. Thibault Sottiaux's Labs innovating together ftw takes first on likes at 3,892, with 109 retweets and 386 replies; his two-minutes-later How many of you have a small business? takes first on replies at 866 and second on likes at 3,252, with 81 retweets; Peter Steinberger's quoted passage takes first on retweets at 135, with 1,334 likes and 104 replies. Together the three take 8,478 likes, 325 retweets and 1,356 replies, 43% of the window's 19,523 likes. Every rank here was checked against a full-window sort first.</p>
+<p>Attention and checkable detail stay apart. Dan Shipper's day-zero Gemini 4 Carbon vibe check is the window's longest post at 2,265 characters and carries the most concrete numbers, yet takes 143 likes; Aaron Levie's 1,584-character agent-swarms argument takes 72. Across 32 posts, 7 clear a thousand likes, none clears ten thousand, none clears a thousand replies and 3 clear a hundred retweets. The lowest like count is 2, on Dan Shipper's pointer to his own full vibe check.</p>
+<p>The window's product news comes in two clusters. The Claude account posts three lines in three seconds at Pacific 09:26:05 to 09:26:07 on Claude Data, interactive connectors and rollout; the 09:26:06 connectors post is the only ID quoted twice inside the feed, by Sottiaux and by Aaron Levie, whose own announcement brings Box read/write interoperability into Claude via MCP. Gemini 4 Carbon is announced for Gemini App Ultra subscribers by Josh Woodward and tested the same morning by Dan Shipper, who reports 44% against Argon's 21% on one Senior Engineer benchmark run, about 95% of an Everycut update written by Carbon, and an editorial benchmark roughly even with Argon at higher cost. The 10-30 issue listed whether Gemini 4 Carbon would get a benchmark or a date as unresolved; this issue answers it with both, kept as separate statements rather than merged.</p>
+<p>Quote structure is close to recent issues. 19 of the 32 posts are quote tweets with 18 distinct quoted IDs. One of those IDs, 2120206375137484875, sits inside this feed and is quoted by two posts, the only shared group; 17 are outside the feed, with no self-quote. The feed shows the content of none of the outside posts, so no argument from them is reproduced. Claude Whiteboards, Claude Sheets, Claude Data and interactive connectors all have zero prior hits in 2026/; AEO has three earlier hits in different contexts (08-01, 09-06, 09-26) and is not merged with them; Vercel Security Review has an 11-05 launch and 11-06 24-hour numbers, and today's less-than-one-week counts are placed beside, not on top of, those.</p>
+<p>The podcast is fresh and new to the series. Latent Space's Designing for Agents with Zeno Rocha of Resend was published at 2026-11-10T20:06:15Z, Pacific 11-10 12:06:15, which is 13h37m11s after the window's first tweet, 9h17m30s before its last and 10h22m03s before the snapshot, so it falls inside the same Pacific day as 31 of the 32 posts and within the snapshot's reach. Its URL is a channel page rather than a specific video and is reproduced as given. While the X posts carry release-day numbers, the transcript reports 4.3 million users, 120,000 paid customers, a ten million AR company, more than 80 MCP tools and around 1.2 million MCP calls by the end of August, all self-reported and unverified by the feed. The two sit side by side without being merged into one claim.</p>
+<p>Coverage has no gap. 31 posts fall on Pacific 11-10 and 1, Zara Zhang's work-in-progress line, on Pacific 11-09 22:29:04, 0h14m18s after the previous issue closed at Pacific 11-09 22:14:46, with no overlap. The window runs 22h54m41s and closes 1h04m33s before the snapshot at Pacific 2026-11-10 22:28:17; the previous snapshot was 24h00m39s earlier. This issue was written at Pacific 2026-11-11 18:31:16. Pacific 10-29 and 10-30 remain permanently missing from two cron runs that did not fire. 15 accounts posted: 6 are on the tracked list of 24 and 9 are not. Sam Altman is absent for a seventh issue.</p>
+</div>
+<div class="takeaway zh">
+<div class="takeaway-label">核心结论</div>
+<p>三项互动第一落在三条不同的推文上，没有一条是论证。Thibault Sottiaux 的 Labs innovating together ftw 拿赞数第一 3,892，109 次转发、386 条回复；两分钟后他那条 How many of you have a small business? 拿回复第一 866、赞数第二 3,252，81 次转发；Peter Steinberger 贴的那段引文拿转发第一 135，1,334 赞、104 条回复。三条合计 8,478 赞、325 次转发、1,356 条回复，占全窗口 19,523 赞的 43%。上面每一处排名都先做了全窗口排序核对。</p>
+<p>热度和可核对的信息仍然各走各的。Dan Shipper 的 Gemini 4 Carbon day-zero vibe check 是窗口最长的一条，2,265 字符、细节最实，只有 143 赞；Aaron Levie 那条 1,584 字符的 agent swarms 长文只有 72 赞。32 条里破千赞 7 条、破万赞 0 条、破千回复 0 条、转发过百 3 条。最低赞是 2，落在 Dan Shipper 指向自己完整 vibe check 的那条指引上。</p>
+<p>产品消息分成两簇。Claude 官方账号在太平洋 09:26:05 到 09:26:07 三秒内连发三条，讲 Claude Data、interactive connectors 和推送节奏；09:26:06 那条 connectors 是本期唯一被 feed 内两条推文引用的 ID，引用者是 Sottiaux 和 Aaron Levie，后者同时宣布把 Box 内容经 MCP 做成在 Claude 里的读写互通。Gemini 4 Carbon 由 Josh Woodward 宣布面向 Gemini App Ultra 订阅用户开放，同一上午 Dan Shipper 给出实测：Senior Engineer benchmark 一次运行 44% 对 Argon 的 21%、Everycut 一次更新约 95% 由 Carbon 写出、编辑部基准与 Argon 大致持平但更贵。10-30 期把「Gemini 4 Carbon 会不会有基准或日期」列为未闭环；本期用上线和实测把两条都答了，作为独立说法并列，不合并。</p>
+<p>引用结构和最近几期接近。32 条里 19 条是引用推文，共 18 个不同的被引用 ID。其中一个 ID 2120206375137484875 在本期 feed 内、被两条引用，是唯一一组同组；17 个在 feed 外，没有自引。feed 没有给出这些外部推文的内容，因此不转述其中任何观点。Claude Whiteboards、Claude Sheets、Claude Data、interactive connectors 在 2026/ 下全部零命中；AEO 有三处不同语境的旧命中（08-01、09-06、09-26），不与本期合并；Vercel Security Review 有 11-05 的发布和 11-06 的 24 小时数字，今天这组「上线不到一周」的数字与它们并列放置，不叠加。</p>
+<p>播客新鲜，且对本系列是新的。Latent Space 的 Designing for Agents，嘉宾是 Resend 的 Zeno Rocha，发布于 2026-11-10T20:06:15Z，即太平洋 11-10 12:06:15，比窗口第一条推文晚 13h37m11s、比最后一条早 9h17m30s、比快照早 10h22m03s，因此与 32 条中的 31 条落在同一个太平洋日，也在快照覆盖范围内。URL 是频道页而不是具体视频，按 feed 原样照录。X 这边是发布日的数字，转写里则是 430 万用户、12 万付费客户、1000 万美元 ARR、80 多个 MCP 工具、8 月底约 120 万次 MCP 调用，全部是自述，feed 未核实。两边并列放置，不合并成一个判断。</p>
+<p>这次覆盖没有缺口。31 条落在太平洋 11-10，1 条是 Zara Zhang 的 work-in-progress 那条，落在太平洋 11-09 22:29:04，比上一期收口的太平洋 11-09 22:14:46 晚 0h14m18s，无重叠。窗口长 22h54m41s，在太平洋 2026-11-10 22:28:17 的快照之前 1h04m33s 收口；上一份快照相隔 24h00m39s。本期成文于太平洋 2026-11-11 18:31:16。太平洋 10-29 与 10-30 仍因两次 cron 未触发而永久缺失。有内容的账号 15 个，其中 6 位在 24 位追踪名单上、9 位不在。Sam Altman 连续第七期缺席。</p>
+</div>
+</section>
+<!-- ============== NOTES ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128221;</span>
+<h2 class="section-title">记录 / Notes &amp; Dedup</h2>
+<span class="section-meta">32 Zero &middot; 1 Fresh &middot; 0 Dedup</span>
+</div>
+<div class="dedup">
+<p style="margin-top:12px"><strong>Tweet check</strong> &mdash; All 32 tweet IDs were matched against the 123 HTML files under 2026/, excluding the 11/12 output directory, and returned zero hits. 19 of the 32 are quote tweets with 18 distinct quoted IDs: 1 of those IDs sits inside this feed and is quoted by two posts (Sottiaux and Aaron Levie both quote 2120206375137484875), 17 are outside the feed, with no self-quote. The feed shows the content of none of the outside posts.</p>
+<p style="margin-top:12px"><strong>Podcast check</strong> &mdash; The slot is 1 and it is fresh. Published 2026-11-10T20:06:15.000Z, Pacific 2026-11-10 12:06:15, 13h37m11s after the window's first tweet, 9h17m30s before its last and 10h22m03s before the snapshot, so it is mid-window but on the same Pacific day as 31 of 32 posts and inside the snapshot's reach. The URL is a channel page rather than a specific video and is reproduced as given. Zero prior hits in 2026/ after stripping style blocks: Zeno Rocha, Resend, Designing for Agents, Domain Connect, React Email, Dracula, SendGrid, Postmark, Mailgun, Warner Brothers, HBO, AgentMail, Yoko, CMO agent, AEO tracker, Gauge, Ahrefs, Moz, Grammarly, Wrap2026, MLK, SOC 2, free tier, four point three million, 120,000, ten million AR, Claude Whiteboards, Claude Sheets, Claude Data, interactive connectors, Astro launch, no sign-up, unauthenticated usage, wbd.com. Earlier hits in different contexts, not merged: AEO (08-01, 09-06, 09-26), Gemini 4 Carbon (the 10-30 unresolved list), Vercel Security Review (11-05 launch, 11-06 counts), llms.txt (05-26), Argon, Carbon, Opus 4.5, Instinct, Profound, MCP, agent swarms, vibe check, Everycut, Box, GPT-6 Astra, Railway, Substack, Superhuman, Poke, Mistral, WorkOS. All name checks were run after stripping style blocks, so CSS property names are not counted as prior hits.</p>
+<p style="margin-top:12px"><strong>Blog check</strong> &mdash; The slot is 0 by emptiness: the blogs array came back empty. This is the eighteenth consecutive empty issue: 10-21, 10-22, 10-26, 10-27, 10-28, 10-29, 10-30, 11-02, 11-03, 11-04, 11-05, 11-06, 11-07, 11-08, 11-09, 11-10, 11-11 and today.</p>
+<p style="margin-top:12px"><strong>Transcript</strong> &mdash; The transcript has no speaker labels and no timestamps. Zeno Rocha is introduced as the founder of Resend and the author of the Dracula theme and React Email, a former front-end developer with no email background; a voice declares early on that he is an angel investor with about thirty-plus investments. The cold open and the closing repeat the same set of numbers (4.3 million users, ten million AR, the daughter line), recorded once rather than as two statements. Numbers and ASR spellings are reproduced as heard where quoted, and the heading uses the JSON spelling Zeno Rocha. All figures, growth multiples and tool counts are statements in the transcript; the feed verifies none of them.</p>
+<p style="margin-top:12px"><strong>Same names</strong> &mdash; Zero prior hits in 2026/: Zeno Rocha、Resend、Designing for Agents、Domain Connect、React Email、Dracula、SendGrid、Postmark、Mailgun、Warner Brothers、HBO、AgentMail、Yoko、CMO agent、AEO tracker、Gauge、Ahrefs、Moz、Grammarly、Wrap2026、MLK、SOC 2、free tier、four point three million、120,000、ten million AR、Claude Whiteboards、Claude Sheets、Claude Data、interactive connectors、Astro launch、no sign-up、unauthenticated usage、wbd.com. Earlier hits in different contexts: AEO、Gemini 4 Carbon、Vercel Security Review、llms.txt、Argon、Carbon、Opus 4.5、Instinct、Profound、MCP、agent swarms、vibe check、Everycut、Box、GPT-6 Astra、Railway、Substack、Superhuman、Poke、Mistral、WorkOS、AIE、Fable、Dario、Anthropic.</p>
+<p style="margin-top:12px"><strong>Thin posts</strong> &mdash; 12 of the 32 carry no argument of their own and are named one by one here: Ryo Lu's journal pointer; Nikunj Kothari's Wrap2026 one-shot request; Nikunj Kothari's Mic drop / Gulp / Wow; Dan Shipper's LIVE Vibe Check pointer; Dan Shipper's pointer to the full vibe check; Nan Yu's 30 coffees reply; Peter Yang's updated game pointer; Aditya Agarwal's Strongly concur; Swyx's engines thread; Swyx's keynote preview and stream pointer; Sottiaux's Labs innovating together ftw; Sottiaux's small business question. All are given links inside their own cards. Every one of the 32 posts has a link, so the stats strip, section meta, index meta and body link count agree.</p>
+<p style="margin-top:12px"><strong>Coverage</strong> &mdash; Three timestamps: the snapshot is 2026-11-11T06:28:17.628Z, Pacific 2026-11-10 22:28:17, converted with UTC-8 because Pacific daylight time ended on 11-01; this issue was written at Pacific 2026-11-11 18:31:16; the previous snapshot was 2026-11-09 22:27:38, 24h00m39s earlier. 31 posts fall on Pacific 11-10 and 1 on Pacific 11-09 22:29:04, with no gap: the previous issue closed at Pacific 2026-11-09 22:14:46, 0h14m18s before this window opens. The window runs 22h54m41s and closes 1h04m33s before the snapshot. Pacific 10-29 and 10-30 remain permanently missing.</p>
+<p style="margin-top:12px"><strong>Engagement fields</strong> &mdash; Likes, retweets and replies are populated on all 32 posts; this feed has no quotes field and none is used, and reposts is null on all 32. Likes top five: 3,892, 3,252, 2,885, 1,683, 1,590. Retweets top three: 135, 132, 109. Replies top three: 866, 386, 127. Lowest is Dan Shipper's full-vibe-check pointer at 2 likes, 1 retweet, 1 reply; next are Swyx's engines thread and Peter Yang's updated game at 5 likes. 7 posts clear a thousand likes, 0 clear ten thousand, 0 clear a thousand replies and 3 clear a hundred retweets. Total: 19,523 likes, 779 retweets, 2,246 replies. Every highest or lowest claim was checked against a full-window sort first.</p>
+<p style="margin-top:12px"><strong>Absent</strong> &mdash; 15 accounts posted. Of the 24 names on the tracked list, 6 appear: Swyx, Peter Yang, Guillermo Rauch, Nikunj Kothari, Peter Steinberger, Aditya Agarwal. 9 accounts in the feed are outside that list: Josh Woodward, Thibault Sottiaux, Nan Yu, Thariq, Aaron Levie, Ryo Lu, Zara Zhang, Dan Shipper, Claude. Sam Altman, who led the 11-05 issue, is absent for a seventh issue.</p>
+<p style="margin-top:12px"><strong>Not resolved</strong> &mdash; Whether a Day 29 or a 3/x banked fraction appears and what was ever counted; what dot is; whether the jev recorded since 09-18 and the Jev in the 11-07 podcast are the same thing; a second source for Personal Finance, Vercel Schedules and Replit's 96%; what SpaceXSI is; Particle-1's 1/23 baseline; HackerTube's second source; the Grok Bot launch date; Sol 6 and ViBench 2.0 scores; the Legora eval heat map results; whether Swyx's weekly Anthropic IPO coverage appears; whether Lab Compass gets a paper or code; whether texts wrapped gets a second source; the CS 146S open source partners' deliverable; the one-million-subscriber special's second source; Handshake AI's Atlas, Care Bench and Gandalf results; a second source for the 50% life-sciences and sub-20% finance scores; the basis of the $10B to $100B data-market projection. New: whether Claude Whiteboards, Sheets and Data get a spec or a second source; whether Box and Claude read/write interoperability ships as described; what the Claude interactive connectors launch covers beyond Adobe, Atlassian and Box; whether Gemini 4 Carbon's 44% benchmark and 95% of Everycut are confirmed elsewhere; what the Everycut update itself is; the AIE keynote under embargo and the engines thread; the Railway post-mortem; Zeno Rocha's AEO tactics and whether any single one works; Resend's down-to-the-metal infrastructure announcement; the MCP tool count and the 1.2 million calls; Swyx's CEO of AEO phrase and the aie live stream; whether the small business question gets an answer. Fixed dates: Opal shuts down 2026-11-17; Vercel Security Reviews were free until Nov 10; Enterprise Vibe Coding is due November 27.</p>
+</div>
+<div class="dedup zh" style="margin-top:14px">
+<p style="margin-top:12px"><strong>推文核对</strong> &mdash; 本窗口 32 个推文 ID 全部与 2026/ 下 123 个 HTML 文件比对过（排除 11/12 输出目录），零命中。32 条里 19 条是引用推文，共 18 个不同的被引用 ID：其中 1 个在本期 feed 内、被两条引用（Sottiaux 和 Aaron Levie 都引用 2120206375137484875），17 个在 feed 外，没有自引。feed 没有给出这些外部推文的内容。</p>
+<p style="margin-top:12px"><strong>播客核对</strong> &mdash; 这一格是 1，而且新鲜。发布于 2026-11-10T20:06:15.000Z，即太平洋 2026-11-10 12:06:15，比窗口第一条推文晚 13h37m11s、比最后一条早 9h17m30s、比快照早 10h22m03s，处在窗口中段，但与 32 条里的 31 条同属一个太平洋日，也在快照覆盖范围内。URL 是频道页而不是具体视频，按 feed 原样照录。剥离 style 块后，2026/ 下全站零命中的有：Zeno Rocha、Resend、Designing for Agents、Domain Connect、React Email、Dracula、SendGrid、Postmark、Mailgun、Warner Brothers、HBO、AgentMail、Yoko、CMO agent、AEO tracker、Gauge、Ahrefs、Moz、Grammarly、Wrap2026、MLK、SOC 2、free tier、four point three million、120,000、ten million AR、Claude Whiteboards、Claude Sheets、Claude Data、interactive connectors、Astro launch、no sign-up、unauthenticated usage、wbd.com。有不同语境旧命中、不与本期合并的：AEO（08-01、09-06、09-26）、Gemini 4 Carbon（10-30 期的未闭环清单）、Vercel Security Review（11-05 发布、11-06 数字）、llms.txt（05-26）、Argon、Carbon、Opus 4.5、Instinct、Profound、MCP、agent swarms、vibe check、Everycut、Box、GPT-6 Astra、Railway、Substack、Superhuman、Poke、Mistral、WorkOS。所有专名核对都在剥离样式块后进行，CSS 属性名不计入旧命中。</p>
+<p style="margin-top:12px"><strong>博客核对</strong> &mdash; 这一格是 0，成因是空数组：blogs 数组返回为空。这是连续第十八期为空：10-21、10-22、10-26、10-27、10-28、10-29、10-30、11-02、11-03、11-04、11-05、11-06、11-07、11-08、11-09、11-10、11-11 和今天。</p>
+<p style="margin-top:12px"><strong>转写</strong> &mdash; 转写没有 speaker 标签、没有时间戳。Zeno Rocha 被介绍为 Resend 创始人、Dracula 主题与 React Email 的作者，前端出身、没有邮件背景；开头有个声音自述是天使投资人，投过三十多家公司。cold open 和结尾重复同一组数字（430 万用户、1000 万 ARR、女儿那句），只记一次、不当成两处发言。引到的数字和听到的拼写按原样保留，标题人名用 JSON 里的写法。所有数字、增长倍数与工具数量都是转写里的自述，feed 没有核实其中任何一项。</p>
+<p style="margin-top:12px"><strong>同名</strong> &mdash; 2026/ 下全站零命中：Zeno Rocha、Resend、Designing for Agents、Domain Connect、React Email、Dracula、SendGrid、Postmark、Mailgun、Warner Brothers、HBO、AgentMail、Yoko、CMO agent、AEO tracker、Gauge、Ahrefs、Moz、Grammarly、Wrap2026、MLK、SOC 2、free tier、four point three million、120,000、ten million AR、Claude Whiteboards、Claude Sheets、Claude Data、interactive connectors、Astro launch、no sign-up、unauthenticated usage、wbd.com。有不同语境旧命中的：AEO、Gemini 4 Carbon、Vercel Security Review、llms.txt、Argon、Carbon、Opus 4.5、Instinct、Profound、MCP、agent swarms、vibe check、Everycut、Box、GPT-6 Astra、Railway、Substack、Superhuman、Poke、Mistral、WorkOS、AIE、Fable、Dario、Anthropic。</p>
+<p style="margin-top:12px"><strong>薄内容</strong> &mdash; 32 条里有 12 条本身不承载观点，逐条点名：Ryo Lu 的 journal 指引；Nikunj Kothari 的 Wrap2026 一次成片请求；Nikunj Kothari 的 Mic drop / Gulp / Wow；Dan Shipper 的 LIVE Vibe Check 指引；Dan Shipper 指向完整 vibe check 的指引；Nan Yu 的 30 coffees 回复；Peter Yang 的 updated game 指引；Aditya Agarwal 的 Strongly concur；Swyx 的 engines thread；Swyx 的 keynote 预告与直播指引；Sottiaux 的 Labs innovating together ftw；Sottiaux 的 small business 提问。全部在各自卡片里给了链接。32 条推文每条都有链接，因此 stats strip、section meta、index meta 与正文链接数四处天然一致。</p>
+<p style="margin-top:12px"><strong>覆盖</strong> &mdash; 三个时间戳：快照 2026-11-11T06:28:17.628Z 即太平洋 2026-11-10 22:28:17，按 UTC-8 换算，因为太平洋夏令时已在 11-01 结束；本期成文于太平洋 2026-11-11 18:31:16；上一份快照是太平洋 2026-11-09 22:27:38，相隔 24h00m39s。31 条落在太平洋 11-10，1 条落在太平洋 11-09 22:29:04，无缺口：上一期收口于太平洋 2026-11-09 22:14:46，距本期窗口打开 0h14m18s。窗口长 22h54m41s，在快照前 1h04m33s 收口。太平洋 10-29 与 10-30 仍永久缺失。</p>
+<p style="margin-top:12px"><strong>互动字段</strong> &mdash; 32 条的 likes、retweets、replies 全有值，这个 feed 没有 quotes 字段，不使用；reposts 在 32 条里全为 null。赞数前五：3,892、3,252、2,885、1,683、1,590。转发前三：135、132、109。回复前三：866、386、127。最低是 Dan Shipper 指向完整 vibe check 的那条，2 赞、1 次转发、1 条回复；其次是 Swyx 的 engines thread 和 Peter Yang 的 updated game，各 5 赞。破千赞 7 条，破万赞 0 条，破千回复 0 条，转发过百 3 条。合计 19,523 赞、779 次转发、2,246 条回复。上面每一处「最」和「最低」都先做了全窗口排序核对。</p>
+<p style="margin-top:12px"><strong>缺席</strong> &mdash; 有内容的账号 15 个。追踪名单 24 位里出现 6 位：Swyx、Peter Yang、Guillermo Rauch、Nikunj Kothari、Peter Steinberger、Aditya Agarwal。feed 里另外 9 个账号不在名单上：Josh Woodward、Thibault Sottiaux、Nan Yu、Thariq、Aaron Levie、Ryo Lu、Zara Zhang、Dan Shipper、Claude。11-05 那期三项第一的 Sam Altman 连续第七期缺席。</p>
+<p style="margin-top:12px"><strong>未闭环</strong> &mdash; Day 29 或 3/x 的分数会不会出现、被数与被 banked 的到底是什么；dot 是什么；09-18 起记录的 jev 与 11-07 播客的 Jev 是不是同一个东西；Personal Finance、Vercel Schedules 和 Replit 那个 96% 会不会有第二信源；SpaceXSI 是什么；Particle-1 的 1/23 基线；HackerTube 的第二信源；Grok Bot 上线日期；Sol 6 与 ViBench 2.0 分数；Legora 的 eval heat map 结果；Swyx 的 Anthropic IPO 周更会不会真的出现；Lab Compass 会不会有论文或代码；texts wrapped 会不会有第二信源；CS 146S 的开源伙伴最终交付什么；百万订阅特别节目会不会有第二信源；Handshake AI 的 Atlas、Care Bench、Gandalf 会不会公开结果；生命科学 50%、金融不到 20% 这两个基准分的第二信源；100 亿到 1000 亿美元数据市场预测的口径。新增：Claude Whiteboards、Sheets、Data 会不会有规格或第二信源；Box 与 Claude 的读写互通会不会按描述上线；interactive connectors 除 Adobe、Atlassian、Box 之外还覆盖什么；Gemini 4 Carbon 的 44% 基准与 Everycut 约 95% 会不会有别的信源；Everycut 那次更新本身是什么；AIE 那场 embargo 下的 keynote 和 engines thread；Railway 的 post-mortem；Zeno Rocha 的 AEO 做法里到底哪一招有用；Resend 下沉到基础设施的公告；MCP 工具数与 120 万次调用；Swyx 的 CEO of AEO 这个说法和 aie 直播；那个 small business 提问会不会有下文。已定日期：Opal 2026-11-17 关停；Vercel Security Reviews 免费到 11 月 10 日；《Enterprise Vibe Coding》11 月 27 日出版。</p>
+</div>
+</section>
+<footer class="footer">
+<div class="next-issue">&#128236; &#19979;&#19968;&#26399;&#65306;&#26126;&#22825; 10:00&#65288;&#21271;&#20140;&#26102;&#38388;&#65289;</div>
+<div class="signature">by chloevchen</div>
+</footer>
+
+<!-- by chloevchen -->
+</body>
+</html>
