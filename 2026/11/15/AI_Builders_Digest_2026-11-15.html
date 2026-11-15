@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Builders Digest &middot; 2026-11-15</title>
+<style>
+
+
+
+
+
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 28px 30px; margin-bottom: 24px; }
+  .podcast-source { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
+  .podcast-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; margin-bottom: 18px; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; }
+
+
+</style>
+</head>
+<body>
+<header class="topbar">
+<div class="topbar-inner">
+<a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders &middot; AI Builders Digest</a>
+<span>双语 &middot; Bilingual</span>
+</div>
+</header>
+<section class="header">
+<div class="eyebrow">Daily Digest &middot; 2026-11-15</div>
+<h1>AI Builders Digest</h1>
+</section>
+<div class="stats">
+<div class="stat">
+<div class="stat-num">9</div>
+<div class="stat-label">Builders</div>
+</div>
+<div class="stat">
+<div class="stat-num">21</div>
+<div class="stat-label">Tweets</div>
+</div>
+<div class="stat">
+<div class="stat-num">1</div>
+<div class="stat-label">Podcast</div>
+</div>
+<div class="stat">
+<div class="stat-num">0</div>
+<div class="stat-label">Blog</div>
+</div>
+</div>
+<p class="note-line">Nine builders, 21 posts, all on Pacific 11-13. The top-liked post is a bare 'Co-sign' at 3,392 likes; the top replies and reposts both go to Amjad Masad's Stand with Jensen letter (108 and 367). The single podcast is a Training Data episode on continual learning, published over eight days before this window.</p>
+<p class="note-line zh">9 位 builder、21 条推文，全部落在太平洋 11-13。赞数最高的是那条只写了「Co-sign」的推文，3,392 赞；回复和转发第一都是 Amjad Masad 那条 Stand with Jensen 公开信，分别是 108 和 367。唯一一期播客是 Training Data 讲持续学习的一集，发布时间比本期窗口早八天多。</p>
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128036;</span>
+<h2 class="section-title">X / Twitter</h2>
+<span class="section-meta">9 Builders &middot; 21 Tweets</span>
+</div>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Dan Shipper</span>
+<span class="builder-role">CEO, Every</span>
+</div>
+<p class="summary-en">Every CEO Dan Shipper posted three short items, all pointing at links rather than spelling out a position: one says 'stuff like this seems to be getting more common' and that everyone in AI should help fix it (a quote post), one asks why teams still pay for software even when Fable 5.2 can vibe code anything, and one introduces 'the most important formula in AI'. The feed carries no text for the linked targets, so nothing further is attributed to him.</p>
+<p class="summary-zh zh">Every CEO Dan Shipper 发了三条短帖，都是给链接、没有在文字里展开观点：一条说「这类事好像越来越常见」，AI 圈里每个人都该帮忙把它修好（引用推文）；一条问既然 Fable 5.2 什么都能 vibe code，为什么团队还付钱买软件；一条用「AI 里最重要的公式」引出一个链接。feed 里没有这些链接目标的内容，所以不替他补立场。</p>
+<div class="urls">
+<a href="https://x.com/danshipper/status/2121243400293007866" target="_blank">https://x.com/danshipper/status/2121243400293007866</a>
+<a href="https://x.com/danshipper/status/2121248233510818003" target="_blank">https://x.com/danshipper/status/2121248233510818003</a>
+<a href="https://x.com/danshipper/status/2121367890095960507" target="_blank">https://x.com/danshipper/status/2121367890095960507</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Guillermo Rauch</span>
+<span class="builder-role">CEO, Vercel</span>
+</div>
+<p class="summary-en">Vercel CEO Guillermo Rauch's highest-liked post is a bare 'Co-sign' (3,392 likes, 103 reposts, 37 replies) pointing at a link the feed does not include. He also wrote 'Vercel Sandbox is inevitable' (227 likes, 67 replies). The substantive post is on Workflow SDK 5 and Vercel Workflows: 'time to first step' and 'time between steps' have 'massively improved', encryption and security were doubled down on, reliability has been 'proven at massive scale' with disaster-recovery scenarios exercised, and the underlying durability log is now reusable for any agent harness under the name durable-harness. That post drew 101 replies, the second-highest in the window.</p>
+<p class="summary-zh zh">Vercel CEO Guillermo Rauch 赞数最高的一条只写了「Co-sign」（3,392 赞、103 转发、37 回复），指向 feed 里没有收录的链接。他还写了「Vercel Sandbox is inevitable」（227 赞、67 回复）。有实质内容的是讲 Workflow SDK 5 与 Vercel Workflows 的一条：'time to first step' 与 'time between steps' 大幅改善，加密和安全上加了投入，可靠性已在大规模下验证并跑过多个灾备场景，底层 durability log 现在可给任意 agent harness 复用，名字叫 durable-harness。这条拿到 101 回复，是全窗口第二高。</p>
+<div class="urls">
+<a href="https://x.com/rauchg/status/2121277727940776114" target="_blank">https://x.com/rauchg/status/2121277727940776114</a>
+<a href="https://x.com/rauchg/status/2121347136965210286" target="_blank">https://x.com/rauchg/status/2121347136965210286</a>
+<a href="https://x.com/rauchg/status/2121351007615811799" target="_blank">https://x.com/rauchg/status/2121351007615811799</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aditya Agarwal</span>
+<span class="builder-role">General Partner, SPC</span>
+</div>
+<p class="summary-en">SPC general partner and Bevel Health co-founder Aditya Agarwal posted 'We are in an extremely weird timeline right now.' (114 likes, 11 replies), and a quote post naming seven companies in the AI 100: Baseten, Render, Profound, Replit, Gamma, Cog and Density. The feed carries no further detail on the list or on what the first post refers to.</p>
+<p class="summary-zh zh">SPC 普通合伙人、Bevel Health 联合创始人 Aditya Agarwal 发了「We are in an extremely weird timeline right now.」（114 赞、11 回复），以及一条引用推文，点名 AI 100 里的七家公司：Baseten、Render、Profound、Replit、Gamma、Cog 和 Density。feed 没有给出这份名单或第一条所指事件的更多内容。</p>
+<div class="urls">
+<a href="https://x.com/adityaag/status/2121281677238604148" target="_blank">https://x.com/adityaag/status/2121281677238604148</a>
+<a href="https://x.com/adityaag/status/2121372222292201767" target="_blank">https://x.com/adityaag/status/2121372222292201767</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nikunj Kothari</span>
+<span class="builder-role">Partner, FPV Ventures</span>
+</div>
+<p class="summary-en">FPV Ventures partner Nikunj Kothari made two points. On the FAA nationwide ground stop he wrote that it is 'only the THIRD time in modern history' this has happened, after 9/11 and the 2023 NOTAM system outage, with 'reasons unclear', and added 'Happy Friday the 13th to all the agents celebrating'. On benchmarks he argued that after Llama 4 he thought 'benchmark-maxxing as a flex' had stopped, but 'the cartel is back again'; his claim is that there is 'no substitute to really using the models for your workflows', that only 'very very few benchmarks that truly matter', and the rest is 'posturing or hill climbing' used as marketing. The benchmark post drew 5 likes and no replies; the FAA post 54 likes.</p>
+<p class="summary-zh zh">FPV Ventures 合伙人 Nikunj Kothari 讲了两点。关于 FAA 全国停飞，他写这是「现代史上第三次」，前两次是 9/11 和 2023 年 NOTAM 系统故障，这次「原因不明」，并补了一句「祝所有在庆祝的 agents 十三号星期五快乐」。关于基准，他说以为 Llama 4 之后大家不再把刷榜当炫耀，结果「cartel 又回来了」；他的主张是「真正把模型用到自己的工作流里」没有替代品，真正重要的基准「非常非常少」，其余多是姿态或为了营销的爬榜。基准那条 5 赞、0 回复；FAA 那条 54 赞。</p>
+<div class="urls">
+<a href="https://x.com/nikunj/status/2121320899161010360" target="_blank">https://x.com/nikunj/status/2121320899161010360</a>
+<a href="https://x.com/nikunj/status/2121366466905981435" target="_blank">https://x.com/nikunj/status/2121366466905981435</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Matt Turck</span>
+<span class="builder-role">VC, FirstMark Capital</span>
+</div>
+<p class="summary-en">FirstMark Capital VC Matt Turck posted one line on the FAA nationwide airport ground stop: 'Breaking news: VCs to opine shortly on FAA nationwide airport ground stop.' It drew 150 likes and 18 replies. The feed carries no further detail on the stop itself.</p>
+<p class="summary-zh zh">FirstMark Capital 的 VC Matt Turck 就 FAA 全国机场停飞发了一句「突发新闻：VC 们马上要对 FAA 全国机场停飞发表看法」，150 赞、18 回复。feed 没有停飞本身的更多内容。</p>
+<div class="urls">
+<a href="https://x.com/mattturck/status/2121358328169132503" target="_blank">https://x.com/mattturck/status/2121358328169132503</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Amjad Masad</span>
+<span class="builder-role">CEO, Replit</span>
+</div>
+<p class="summary-en">Replit CEO Amjad Masad posted three times, two of them around the Stand with Jensen letter. He asked people to 'Read the Stand with Jensen letter and consider adding your name. #standwithjensen', the window's top post for replies (108) and reposts (367), and second for likes (2,557). He then said he worked with the owner of the StandWithJensen page, 'built and hosted on Replit', to raise the rate limit so it 'should now scale' (1,270 likes, 104 reposts, 59 replies). Separately he wrote that partnering with Visa on agentic commerce has 'been great' and that 'more features and use cases are coming' (105 likes, 35 replies). The feed has no independent reporting on the letter or on what is happening with Jensen Huang; these are recorded as his posts, not as a confirmed event.</p>
+<p class="summary-zh zh">Replit CEO Amjad Masad 发了三条，其中两条围着 Stand with Jensen 公开信与 Replit。他请人「读一读 Stand with Jensen 公开信，考虑署名」，#standwithjensen，这条是全窗口回复第一（108）、转发第一（367）、赞数第二（2,557）。随后他说与 StandWithJensen 页面的所有者一起把 rate limit 提上去，页面「built and hosted on Replit」，现在「应该能撑住了」（1,270 赞、104 转发、59 回复）。另外一条写与 Visa 在 agentic commerce 上的合作「很愉快」，「更多功能和用例即将到来」（105 赞、35 回复）。feed 没有关于这封信或 Jensen Huang 事件的独立报道，这里只按他的推文记录，不当成已确认的事件。</p>
+<div class="urls">
+<a href="https://x.com/amasad/status/2121377395244749097" target="_blank">https://x.com/amasad/status/2121377395244749097</a>
+<a href="https://x.com/amasad/status/2121389001546567837" target="_blank">https://x.com/amasad/status/2121389001546567837</a>
+<a href="https://x.com/amasad/status/2121428406764204199" target="_blank">https://x.com/amasad/status/2121428406764204199</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Yang</span>
+<span class="builder-role">Practical AI tutorials</span>
+</div>
+<p class="summary-en">Peter Yang, who writes practical AI tutorials, shared a free /fuck-cancer skill: upload a patient's medical records to a folder, have ChatGPT or Claude install the skill, and point it at the folder to create a one-page brief and research clinical trials; he invites forks for other long-term conditions and sums it up as 'Use the full power of AI to beat shitty diseases' (434 likes, 36 reposts). Two other posts point at links the feed does not include: one says 'it's still unclear that Alice Huang is a spy despite WSJ jumping to conclusions' and cites what he calls evidence 'from the Singapore gov'; another shares 'a story from an NVIDIA employee' and encourages readers to 'do your own research'.</p>
+<p class="summary-zh zh">写实用 AI 教程的 Peter Yang 分享了一个免费的 /fuck-cancer skill：把患者病历传到一个文件夹，让 ChatGPT 或 Claude 装上这个 skill，指向文件夹生成一页简报、检索临床试验；他欢迎 fork 去改其他长期病症，总结是「用 AI 的全部能力去对付这些糟糕的病」（434 赞、36 转发）。另外两条都指向 feed 里没有收录的链接：一条说「尽管 WSJ 直接下了结论，Alice Huang 是不是间谍仍不清楚」，并附他称为「来自新加坡政府」的证据；另一条转了「一位 NVIDIA 员工的故事」，让读者「自己做调查」。</p>
+<div class="urls">
+<a href="https://x.com/petergyang/status/2121430386685395022" target="_blank">https://x.com/petergyang/status/2121430386685395022</a>
+<a href="https://x.com/petergyang/status/2121430819667579031" target="_blank">https://x.com/petergyang/status/2121430819667579031</a>
+<a href="https://x.com/petergyang/status/2121431117526134923" target="_blank">https://x.com/petergyang/status/2121431117526134923</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Garry Tan</span>
+<span class="builder-role">President &amp; CEO, Y Combinator</span>
+</div>
+<p class="summary-en">Y Combinator president and CEO Garry Tan signed the Stand with Jensen letter: 'Jensen deserves due process, not whatever is happening right now. I signed. #standwithjensen' (2,017 likes, 122 reposts, 69 replies). He also shared an open source harness eval repo and what it found (135 likes). On model choice he advises keeping 'Opus 5.5 as your coding default in Claude Code': on 52 coding tasks in Claude Code 2.1.322, he reports Fable 5.2 'solved about as many (82.7% vs 84.6%) but cost 2.80x as much per solved task', adding that Opus already solves most of these tasks so telling the two apart 'will take harder ones'. The two 69-reply posts tie for third place in replies.</p>
+<p class="summary-zh zh">Y Combinator 总裁兼 CEO Garry Tan 签了 Stand with Jensen 公开信：「Jensen deserves due process, not whatever is happening right now. I signed. #standwithjensen」（2,017 赞、122 转发、69 回复）。他还分享了自己开源的 harness eval repo 和它跑出来的结果（135 赞）。模型选择上他建议「Keep Opus 5.5 as your coding default in Claude Code」：在 Claude Code 2.1.322 的 52 个编码任务里，他报 Fable 5.2「解出的数量差不多（82.7% 对 84.6%），但每解出一个任务成本是 2.80 倍」，并补了一句 Opus 本来就能解掉其中大部分任务，要区分两者「得用更难的题」。两条 69 回复并列回复数第三。</p>
+<div class="urls">
+<a href="https://x.com/garrytan/status/2121462697787342932" target="_blank">https://x.com/garrytan/status/2121462697787342932</a>
+<a href="https://x.com/garrytan/status/2121463161069228382" target="_blank">https://x.com/garrytan/status/2121463161069228382</a>
+<a href="https://x.com/garrytan/status/2121464508225053153" target="_blank">https://x.com/garrytan/status/2121464508225053153</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Swyx</span>
+<span class="builder-role">smol_ai, Cognition, Latent Space</span>
+</div>
+<p class="summary-en">Swyx, whose bio lists smol_ai, Cognition, Temporal, AI Engineer and Latent Space, posted one line: 'come to [link] tmr !' with a second link, a quote post at 3 likes, 1 repost and 3 replies. The feed carries no text for what the links point to, so no event name is added here.</p>
+<p class="summary-zh zh">Swyx 的 bio 列了 smol_ai、Cognition、Temporal、AI Engineer 和 Latent Space。他发了一条「come to [链接] tmr !」加第二个链接的引用短帖，3 赞、1 转发、3 回复。feed 没有这两个链接指向的内容，这里不补活动名。</p>
+<div class="urls">
+<a href="https://x.com/swyx/status/2121473082372292885" target="_blank">https://x.com/swyx/status/2121473082372292885</a>
+</div>
+</article>
+</section>
+<!-- ============== PODCAST ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#127911;</span>
+<h2 class="section-title">Podcast</h2>
+<span class="section-meta">1 Episode &middot; Late</span>
+</div>
+<div class="podcast">
+<div class="podcast-source">Training Data</div>
+<div class="podcast-title">A Model For Everyone: How Ronak From Trajectory Is Building Products For Continual Learning</div>
+<p class="summary-en">The Takeaway: what AI is missing is a way for each company to feed its own real-world experience back into a model, cheaply and continuously. Ronak, who builds Trajectory, starts from an Apple analogy. In the early 2000s a computer had the Internet and a phone had calls, and nobody thought to put the two together; his bet is that training, eval and deployment belong in one place, so a model can be uploaded back to production, gather new traces and close the loop. He calls today's setup 'pseudo continual learning': agents are like AAA paper maps or MapQuest, where any route change means a full batch update, while the goal is Google Maps, where every drive updates the map. Humans, he says, are the only true continual learners.</p>
+<p class="summary-zh zh">核心结论：AI 现在缺的，是让每家公司把自己真实场景里的经验低成本、持续地回灌进模型的一条路。Ronak 在做的 Trajectory 从苹果的类比讲起。2000 年初，电脑能上网、手机能打电话，没人想到把两者合到一起；他的判断是训练、评估、部署应该放在同一个地方，模型传回生产环境、收集新的 traces，闭环就合上了。他把今天的状态叫「伪持续学习」：现在的 agent 像 AAA 的纸质地图或 MapQuest，改一次路线就要整批重算，目标则是 Google Maps，每开一次车地图都在更新。他说人类才是真正的持续学习者。</p>
+<p class="summary-en">The concrete claim is about cost. Training a custom model used to need 'hundreds of millions of dollars of R and D in compute', a large research team and six to nine months, as he describes from his time at Windsurf and from Cursor Composer. Trajectory's customers bring agent traces and a definition of 'what good looks like', and get a one-click train, eval and deploy loop. With Harvey, he reports a model 'six times cheaper' that moved accuracy 'from around 4% accuracy for an open source model to around 18%', and says cheaper models let you 'expend so many more tokens'. With Rogo, the target is what he calls 'intelligence density': the same task, far fewer tokens.</p>
+<p class="summary-zh zh">更具体的一层是成本。按他在 Windsurf 以及 Cursor Composer 时期的描述，训一个定制模型过去要「数亿美元的研发算力」、一个庞大的研究团队和六到九个月。Trajectory 的客户只需带来 agent traces 和一份「什么算好」的定义，就能走一键训练、评估、部署的闭环。Harvey 那一例，他报的是模型「便宜六倍」，准确率「从开源模型约 4% 提到约 18%」，并说更便宜的模型让你「能花得起多得多的 token」。Rogo 那一例，目标是他说的「智能密度」：同样的任务，用少得多的 token 做完。</p>
+<p class="summary-en">Two research problems remain. Environments are hard to reproduce, so his team pushes gRPO toward 'group size one', learning from 10,000 trajectories that each come from a different task instead of replaying one environment eight or 16 times. Rewards are hard to label, so they pick 100 representative traces, have the customer write a rubric for those, and train a meta grader to propagate it to the wider 10,000. His longer-range word for what is still missing is curiosity: LLMs go 'straight from state zero to state one' but do not encode the transition function in between.</p>
+<p class="summary-zh zh">还有两个研究上的难点。环境很难复现，所以团队把 gRPO 往「group size one」推，让 10,000 条各来自不同任务的 trajectory 也能学习，而不是把同一个环境重放 8 次或 16 次。奖励很难标注，于是挑 100 条有代表性的 trace，让客户只为这 100 条写评分标准，再训一个 meta grader 把标准推广到全部 10,000 条。他把更远处仍缺的东西叫好奇心：LLM 会「直接从状态零跳到状态一」，但中间那段转换函数没有被编码进去。</p>
+<p class="summary-en">He draws a line between recursive self-improvement, which puts a model in a black box to improve itself, and continual learning, which 'keeps humans in the loop'. He contrasts today's 'pre industrial revolution society', where everyone consults 'one oracle of technology', with Adam Smith's specialisation in Wealth of Nations. His pitch for product builders is that they become 'almost like a gardener', setting trellises and letting the product grow. 'There's a reason why only 1% of enterprises actually have been adopted by AI,' he says; the goal is to turn that 1% into 99%.</p>
+<p class="summary-zh zh">他划了一条线：递归自我改进是把模型放进黑盒让它自我提升，持续学习则「让人留在回路里」。他把今天比作「工业革命前的社会」，人人都去问「一个技术神谕」，对照的是《国富论》里亚当·斯密讲的专业化。给产品人的说法是，产品建造者会变得「几乎像个园丁」，搭好棚架，让产品自己长。「只有 1% 的企业真正用上了 AI，这是有原因的，」他说，目标是把这 1% 变成 99%。</p>
+<p class="summary-en">The URL in the feed is a playlist page, so that is what is linked here rather than a specific video. All the figures above are the speaker's own reports; the feed carries no independent check on them.</p>
+<p class="summary-zh zh">feed 给的 URL 是 playlist 页，所以这里按原样链接，不补具体视频地址。上面这些数字都是嘉宾自述，feed 没有独立核实。</p>
+<div class="urls">
+<a href="https://www.youtube.com/playlist?list=PLOhHNjZItNnMm5tdW61JpnyxeYH5NDDx8" target="_blank">https://www.youtube.com/playlist?list=PLOhHNjZItNnMm5tdW61JpnyxeYH5NDDx8</a>
+</div>
+</div>
+</section>
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128161;</span>
+<h2 class="section-title">The Takeaway</h2>
+<span class="section-meta">2026-11-15</span>
+</div>
+<div class="takeaway">
+<div class="takeaway-label">The Takeaway</div>
+<p>Engagement splits across three different short posts. The top-liked post is Guillermo Rauch's bare 'Co-sign' at 3,392 likes; the top replies (108) and reposts (367) both go to Amjad Masad's Stand with Jensen letter. Four posts pass 1,000 likes, none pass 10,000, and four pass 100 reposts. Total for the window: 11,209 likes, 805 reposts, 643 replies.</p>
+<p>The Stand with Jensen thread continues from the previous two issues. Amjad Masad asks people to sign the letter and says he raised the rate limit on the StandWithJensen page hosted on Replit; Garry Tan writes 'Jensen deserves due process' and says he signed. Guillermo Rauch's 'Co-sign' points at a link the feed does not include, and Peter Yang posts separately about reporting on Alice Huang and a story from an NVIDIA employee; none of these is tied to the letter in the feed. There is still no independent report or board statement, so all of it is recorded as their own posts.</p>
+<p>Product items are concrete but unverified. Guillermo Rauch lists Workflow SDK 5 and Vercel Workflows improvements, a reusable durability log named durable-harness, and 'Vercel Sandbox is inevitable'; Garry Tan reports 82.7% vs 84.6% on 52 coding tasks with a 2.80x cost per solved task for Fable 5.2; Amjad Masad mentions a Visa agentic commerce partnership. None has a second source in the feed.</p>
+<p>The podcast slot is 1 and late. The Training Data episode with Ronak of Trajectory was published on Pacific 11-05 02:00:00, over eight days before the first post in this window, and its full title has no prior hit in the series. The URL in the feed is a playlist page, recorded as given rather than a specific video.</p>
+<p>Quote structure differs from the last issue. 13 of the 21 posts are quote posts, pointing at 13 distinct IDs, all outside this feed, with no self-quotes and no two posts sharing a target. The previous issue had 17 quote posts and one shared target.</p>
+<p>Coverage has no gap. All 21 posts fall on Pacific 11-13, from 06:06:52 to 21:19:32, a 15h12m40s window closing 1h06m03s before the snapshot; the gap from the previous issue's close is 9h27m43s. Pacific 10-29 and 10-30 remain missing from the series.</p>
+</div>
+<div class="takeaway zh">
+<div class="takeaway-label">核心结论</div>
+<p>互动分散在三条不同的短帖上。赞数第一是 Guillermo Rauch 只写了「Co-sign」的那条，3,392 赞；回复第一（108）和转发第一（367）都是 Amjad Masad 那条 Stand with Jensen 公开信。破千赞 4 条、破万赞 0 条、转发过百 4 条。全窗口合计 11,209 赞、805 转发、643 回复。</p>
+<p>Stand with Jensen 这条线从前两期延续下来。Amjad Masad 请人署名，并说已把托管在 Replit 上的 StandWithJensen 页面的 rate limit 提上去；Garry Tan 写「Jensen deserves due process」，说自己签了。Guillermo Rauch 的「Co-sign」指向 feed 里没有收录的链接，Peter Yang 另发了关于 Alice Huang 报道和一位 NVIDIA 员工故事的两条；feed 里都没有把它们和公开信连起来。目前仍没有独立报道或董事会声明，全部按他们本人的推文记录。</p>
+<p>产品消息具体，但都没有被核实。Guillermo Rauch 列了 Workflow SDK 5 与 Vercel Workflows 的改进、可复用的 durability log（durable-harness），以及「Vercel Sandbox is inevitable」；Garry Tan 报了 52 个编码任务上 82.7% 对 84.6%、Fable 5.2 每解出一道题成本 2.80 倍；Amjad Masad 提到与 Visa 的 agentic commerce 合作。feed 里都没有第二信源。</p>
+<p>播客这一格是 1，而且迟到。Training Data 与 Trajectory 的 Ronak 这一集发布于太平洋 11-05 02:00:00，比本期首条推文早八天多；完整标题在本系列此前没有出现过。feed 给的 URL 是 playlist 页，按原样照录，不补具体视频地址。</p>
+<p>引用结构和上一期不同。21 条里有 13 条是引用推文，指向 13 个不同的 ID，全部在 feed 之外，没有自引，也没有两条指向同一个目标。上一期是 17 条引用推文、1 个共同目标。</p>
+<p>这次覆盖没有缺口。21 条全部落在太平洋 11-13，06:06:52 到 21:19:32，窗口 15h12m40s，在快照前 1h06m03s 收口；距上一期收口 9h27m43s。太平洋 10-29、10-30 在本系列里仍缺失。</p>
+</div>
+</section>
+<!-- ============== NOTES ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128221;</span>
+<h2 class="section-title">记录 / Notes &amp; Dedup</h2>
+<span class="section-meta">21 Zero &middot; 1 Late &middot; 0 Dedup</span>
+</div>
+<div class="dedup">
+<p style="margin-top:12px">
+<strong>Tweet check</strong> &mdash; All 21 tweet IDs have zero hits across the 126 historical digest HTML files under 2026/ (excluding the 11/15 output directory). No duplicate posts from earlier issues.</p>
+<p style="margin-top:12px">
+<strong>Podcast check</strong> &mdash; The slot is 1 and late: publishedAt is Pacific 2026-11-05 02:00:00, 196h06m52s before the first post, 211h19m32s before the last, and 212h25m35s before the snapshot, so it sits entirely outside the window. It is still new to this series: Ronak, Vernak, Rogo, group size one and intelligence density have zero hits across the historical pages in this series. Training Data as a channel name appears 39 times and is not used as a dedup signal; the 09-02 issue carried a different episode from the same channel (Rich Sutton and Khurram Javed). A speaker in this transcript mentions a recent episode with Rich Sutton and David Silver; the feed does not say whether that is the same one, so the 09-02 episode and the one named here are recorded side by side, not merged.</p>
+<p style="margin-top:12px">
+<strong>Blog check</strong> &mdash; The slot is 0. The blogs array is empty for the twenty-first consecutive issue; no blog entry is created.</p>
+<p style="margin-top:12px">
+<strong>Transcript</strong> &mdash; 35,530 characters over 230 lines, with Speaker 1/2/3 labels and timestamps. The opening cold open repeats a line from 17:37 and the closing line is a sign-off; neither is treated as a separate argument. Spellings are kept as transcribed (Vernak, Deepbind, DeepMind, Gemini three, GPT-four point, Blankchain, gRPO). The line about 'plentiful intelligence' from foundation model labs and 'plentiful experience' from domain workers is spoken by a host, not by Ronak. Figures such as six times cheaper, 4% to 18% and 1% to 99% are the speaker's own reports; the feed does not verify them.</p>
+<p style="margin-top:12px">
+<strong>Same names</strong> &mdash; Zero-hit strings in this window: Ronak, Vernak, Trajectory, Rogo, Blankchain, Braintrust, Raindrop, group size one, intelligence density, durable-harness, gRPO, StandWithJensen, Alice Huang, Workflow SDK 5, MapQuest and AI 100. Prior hits are not called firsts: continual learning, Rich Sutton, Harvey, GRPO, Vercel Sandbox, Opus 5.5, agentic commerce, Thinking Machines and Baseten all appear in older issues. Trajectory as a capitalised company name has zero hits; lower-case trajectory as a common noun appears separately.</p>
+<p style="margin-top:12px">
+<strong>Thin posts</strong> &mdash; 10 of the 21 posts are short link posts or one-liners without an argument in the text: Swyx's 'come to ... tmr', three Dan Shipper link posts, Guillermo Rauch's 'Co-sign' and 'Vercel Sandbox is inevitable', Garry Tan's harness eval repo link, Peter Yang's NVIDIA employee link, Matt Turck's FAA one-liner, and Aditya Agarwal's 'extremely weird timeline'. Their links are kept; no event name or position is added for them.</p>
+<p style="margin-top:12px">
+<strong>Coverage</strong> &mdash; Three timestamps: snapshot 2026-11-14T06:25:34.902Z (Pacific 11-13 22:25:34), first post Pacific 11-13 06:06:52, last post Pacific 11-13 21:19:32. Window 15h12m40s, closing 1h06m03s before the snapshot; 9h27m43s after the previous issue's close (Pacific 11-12 20:39:09); previous snapshot was 23h57m32s earlier. All 21 posts fall on Pacific 11-13; Pacific 10-29 and 10-30 remain missing from the series.</p>
+<p style="margin-top:12px">
+<strong>Engagement fields</strong> &mdash; Likes, reposts and replies are taken as-is from the feed. Four posts pass 1,000 likes, none pass 10,000, none pass 1,000 replies, four pass 100 reposts; totals are 11,209 / 805 / 643. Two posts tie at 69 replies and are written as a tie, not split into separate ranks.</p>
+<p style="margin-top:12px">
+<strong>Absent</strong> &mdash; 9 accounts have posts; 8 of them are on the 24-name tracking list and 1 (Dan Shipper) is not. Sam Altman does not appear for the tenth consecutive issue. Garry Tan appears this issue after being absent on 11-14. Blogs are empty for the twenty-first consecutive issue.</p>
+<p style="margin-top:12px">
+<strong>Not resolved</strong> &mdash; Whether an independent report or NVIDIA board statement appears about the Stand with Jensen letter; what Guillermo Rauch's 'Co-sign' link points to; second sources for Workflow SDK 5, Vercel Sandbox, the 2.80x cost and the Visa partnership; whether the Rich Sutton and David Silver episode named in the transcript is the 09-02 one; a specific video URL for this episode; specs for durable-harness; the AI 100 list; and the standing items carried from earlier issues (Day 29 / 3/x, dot, jev, Particle-1, HackerTube, Grok Bot, Legora, the data-market figure, Claude Whiteboards, Box interop, interactive connectors, the AIE keynote and MCP tool counts).</p>
+</div>
+<div class="dedup zh" style="margin-top:14px">
+<p style="margin-top:12px">
+<strong>推文核对</strong> &mdash; 21 个推文 ID 对 2026/ 下 126 个历史 HTML 零命中（排除 11/15 输出目录），没有和往期重复的推文。</p>
+<p style="margin-top:12px">
+<strong>播客核对</strong> &mdash; 这一格是 1，而且迟到：publishedAt 是太平洋 2026-11-05 02:00:00，比首条推文早 196h06m52s、比末条早 211h19m32s、比快照早 212h25m35s，完全在窗口之外。但对本系列仍是新的：Ronak、Vernak、Rogo、group size one、intelligence density 在本系列此前的页面里零命中。Training Data 作为频道名出现过 39 次，不作去重依据；09-02 期收录的是同一频道的另一集（Rich Sutton 与 Khurram Javed）。本期转写里有一位主持人提到最近请过 Rich Sutton 与 David Silver，feed 没说是不是同一集，两集只并列不合并。</p>
+<p style="margin-top:12px">
+<strong>博客核对</strong> &mdash; 这一格是 0，blogs 数组连续第二十一期为空，不生成博客条目。</p>
+<p style="margin-top:12px">
+<strong>转写</strong> &mdash; 35,530 字符、230 行，带 Speaker 1/2/3 标签与时间戳。开头 cold open 重复了 17:37 的一句，结尾是致谢，都不当独立论点。拼写按转写原样保留（Vernak、Deepbind、DeepMind、Gemini three、GPT-four point、Blankchain、gRPO）。「foundation model labs 提供充沛智能、各行业从业者提供充沛经验」这句是主持人说的，不是 Ronak 说的。six times cheaper、4% 到 18%、1% 到 99% 都是嘉宾自述，feed 未核实。</p>
+<p style="margin-top:12px">
+<strong>同名</strong> &mdash; 本期零命中的具体字符串：Ronak、Vernak、Trajectory、Rogo、Blankchain、Braintrust、Raindrop、group size one、intelligence density、durable-harness、gRPO、StandWithJensen、Alice Huang、Workflow SDK 5、MapQuest、AI 100。有旧命中的不写「首次」：continual learning、Rich Sutton、Harvey、GRPO、Vercel Sandbox、Opus 5.5、agentic commerce、Thinking Machines、Baseten 都在此前页面出现过。Trajectory 作为首字母大写的公司名零命中；小写的普通名词 trajectory 单独算。</p>
+<p style="margin-top:12px">
+<strong>薄内容</strong> &mdash; 21 条里有 10 条是短链接帖或一句话、文字里没有展开观点：Swyx 的「come to ... tmr」、Dan Shipper 三条链接帖、Guillermo Rauch 的「Co-sign」与「Vercel Sandbox is inevitable」、Garry Tan 的 harness eval repo 链接、Peter Yang 的 NVIDIA employee 链接、Matt Turck 的 FAA 一句话、Aditya Agarwal 的「extremely weird timeline」。链接照留，不替它们补活动名或立场。</p>
+<p style="margin-top:12px">
+<strong>覆盖</strong> &mdash; 三个时间戳：快照 2026-11-14T06:25:34.902Z（太平洋 11-13 22:25:34）、首条太平洋 11-13 06:06:52、末条太平洋 11-13 21:19:32。窗口 15h12m40s，在快照前 1h06m03s 收口；距上一期收口（太平洋 11-12 20:39:09）9h27m43s；上一份快照相隔 23h57m32s。21 条全在太平洋 11-13；太平洋 10-29、10-30 在本系列仍缺失。</p>
+<p style="margin-top:12px">
+<strong>互动字段</strong> &mdash; likes、reposts、replies 按 feed 原值取。破千赞 4 条、破万赞 0 条、破千回复 0 条、转发过百 4 条；合计 11,209 / 805 / 643。两条 69 回复按并列写，不拆名次。</p>
+<p style="margin-top:12px">
+<strong>缺席</strong> &mdash; 有内容的账号 9 个，其中 8 个在 24 位追踪名单上，1 个（Dan Shipper）不在。Sam Altman 连续第十期未出现。Garry Tan 在 11-14 缺席后本期出现。blogs 连续第二十一期为空。</p>
+<p style="margin-top:12px">
+<strong>未闭环</strong> &mdash; Stand with Jensen 公开信会不会有独立报道或 NVIDIA 董事会声明；Guillermo Rauch 的「Co-sign」链接指向什么；Workflow SDK 5、Vercel Sandbox、2.80x 成本与 Visa 合作的第二信源；转写里提到的 Rich Sutton 与 David Silver 那集是不是 09-02 收录的那集；这一集的具体视频地址；durable-harness 的规格；AI 100 名单；以及从往期带来的长期项（Day 29 / 3/x、dot、jev、Particle-1、HackerTube、Grok Bot、Legora、数据市场规模、Claude Whiteboards、Box 互通、interactive connectors、AIE keynote、MCP 工具数）。</p>
+</div>
+</section>
+<footer class="footer">
+<div class="next-issue">&#128236; &#19979;&#19968;&#26399;&#65306;&#26126;&#22825; 10:00&#65288;&#21271;&#20140;&#26102;&#38388;&#65289;</div>
+<div class="signature">by chloevchen</div>
+</footer>
+<!-- by chloevchen -->
+</body>
+</html>
