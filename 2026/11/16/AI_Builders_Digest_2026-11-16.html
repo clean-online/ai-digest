@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Builders Digest &middot; 2026-11-16</title>
+<style>
+
+
+
+
+
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 28px 30px; margin-bottom: 24px; }
+  .podcast-source { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
+  .podcast-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; margin-bottom: 18px; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; }
+
+
+</style>
+</head>
+<body>
+<header class="topbar">
+<div class="topbar-inner">
+<a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders &middot; AI Builders Digest</a>
+<span>双语 &middot; Bilingual</span>
+</div>
+</header>
+<section class="header">
+<div class="eyebrow">Daily Digest &middot; 2026-11-16</div>
+<h1>AI Builders Digest</h1>
+</section>
+<div class="stats">
+<div class="stat">
+<div class="stat-num">13</div>
+<div class="stat-label">Builders</div>
+</div>
+<div class="stat">
+<div class="stat-num">26</div>
+<div class="stat-label">Tweets</div>
+</div>
+<div class="stat">
+<div class="stat-num">0</div>
+<div class="stat-label">Podcast</div>
+</div>
+<div class="stat">
+<div class="stat-num">0</div>
+<div class="stat-label">Blog</div>
+</div>
+</div>
+<p class="note-line">Thirteen builders, 26 posts, all on Pacific 11-14. The 'Murphy&#39;s world' post takes the top likes (1,115) and reposts (87), while the top replies (534) go to a Daybreak feedback request. The Podcast slot is 0 because its single episode is a repeat of the 11-07 issue; the Blog slot is 0 because the blogs array is empty. The two zeros have different causes.</p>
+<p class="note-line zh">13 位 builder、26 条推文，全部落在太平洋 11-14。「Murphy&#39;s world」那条拿赞数第一（1,115）和转发第一（87），回复第一（534）是 Daybreak 的反馈征集。Podcast 这一格是 0，因为唯一一集是 11-07 期的重复；Blog 这一格是 0，因为 blogs 数组为空。两个 0 的成因不同。</p>
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128036;</span>
+<h2 class="section-title">X / Twitter</h2>
+<span class="section-meta">13 Builders &middot; 26 Tweets</span>
+</div>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Amjad Masad</span>
+<span class="builder-role">CEO, Replit</span>
+</div>
+<p class="summary-en">Replit CEO Amjad Masad's 'We&#39;ve entered Murphy&#39;s world' is the window's top post for likes (1,115) and reposts (87), and second for replies (142): with billions of things happening at once, recursively interdependent and accelerating, what was once considered a rare failure is now a daily thing. He follows with a longer claim that technology is inherently recursively self-improving and that the degree of autonomy has been going up over time, so AI is an accelerant but did not start this cycle, citing Douglas Engelbart. A third, quote post says only 'Autonomous Businesses are here.' and points at a target the feed does not include.</p>
+<p class="summary-zh zh">Replit CEO Amjad Masad 的「We&#39;ve entered Murphy&#39;s world」是全窗口赞数第一（1,115）、转发第一（87）、回复第二（142）：当数十亿件事同时发生、递归相互依赖且不断加速，曾经罕见的故障现在成了日常。他接着给出一段更长的判断：技术本质上就在递归自我改进，自主程度一直在上升，所以 AI 是加速剂，但并不是它开启了这轮循环，并提到 Douglas Engelbart。第三条是引用推文，只写了「Autonomous Businesses are here.」，指向 feed 没有收录的目标。</p>
+<div class="urls">
+<a href="https://x.com/amasad/status/2121519931741127144" target="_blank">https://x.com/amasad/status/2121519931741127144</a>
+<a href="https://x.com/amasad/status/2121549054173757554" target="_blank">https://x.com/amasad/status/2121549054173757554</a>
+<a href="https://x.com/amasad/status/2121765647168483589" target="_blank">https://x.com/amasad/status/2121765647168483589</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Matt Turck</span>
+<span class="builder-role">VC, FirstMark Capital</span>
+</div>
+<p class="summary-en">FirstMark Capital VC Matt Turck quote-posts 'Great take.' and adds that NVIDIA is the one deep-pocketed player with a clear business interest in open weights AI, and was willing to make founder-type big bets, then asks 'What happens now?' It drew 18 likes and 9 replies. The feed carries no text for the post he is responding to, so nothing further is attributed.</p>
+<p class="summary-zh zh">FirstMark Capital 的 VC Matt Turck 引用了一条推文，写「Great take.」，并补上自己的判断：NVIDIA 是唯一一个有明确商业利益去做开放权重 AI 的金主，也愿意下创始人式的大注，然后问「What happens now?」。这条 18 赞、9 回复。feed 没有收录他回应的那条推文内容，这里不替它补立场。</p>
+<div class="urls">
+<a href="https://x.com/mattturck/status/2121608999053492408" target="_blank">https://x.com/mattturck/status/2121608999053492408</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Dan Shipper</span>
+<span class="builder-role">CEO, Every</span>
+</div>
+<p class="summary-en">Every CEO Dan Shipper promotes the publication's 'frontier feed', saying an agent should read it because it carries all of the frontier team's experiments with AI, including raw code and short writeups (199 likes, 21 replies). A follow-up post gives only 'experiment writeup + code here:' with a link (6 likes, the window's second-lowest). A third shows 'live look of how Fable wrote an email for me this morning' as a quote post (93 likes, 8 replies). The feed carries no text for any of the linked targets.</p>
+<p class="summary-zh zh">Every CEO Dan Shipper 介绍自家的「frontier feed」，说应该让自己的 agent 去读，因为那里汇总了前沿团队用 AI 做的全部实验，包括原始代码和短篇记录（199 赞、21 回复）。下一条只写了「experiment writeup + code here:」加一个链接（6 赞，全窗口赞数倒数第二）。第三条是引用推文，写「live look of how Fable wrote an email for me this morning」（93 赞、8 回复）。feed 没有收录这些链接目标的内容。</p>
+<div class="urls">
+<a href="https://x.com/danshipper/status/2121620539655819305" target="_blank">https://x.com/danshipper/status/2121620539655819305</a>
+<a href="https://x.com/danshipper/status/2121626458745639162" target="_blank">https://x.com/danshipper/status/2121626458745639162</a>
+<a href="https://x.com/danshipper/status/2121652571211510094" target="_blank">https://x.com/danshipper/status/2121652571211510094</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Yang</span>
+<span class="builder-role">Practical AI tutorials</span>
+</div>
+<p class="summary-en">Peter Yang, who writes practical AI tutorials, shares two prompts to try with Fable 5.2: '/doctor prompt-audit', which audits a Claude Code setup (Claude md, skills, commands) and proposes fixes, and '/claude-api prompt-audit [skill name]', which audits one skill in depth. He wishes Claude Code would auto-suggest running these every time Anthropic releases a new model (440 likes, 53 replies). His other post only asks readers to star the repo, with a link (12 likes, no replies).</p>
+<p class="summary-zh zh">写实用 AI 教程的 Peter Yang 分享了两个可以配合 Fable 5.2 试的 prompt：「/doctor prompt-audit」用来审查 Claude Code 的配置（Claude md、skills、commands）并提出修复建议，「/claude-api prompt-audit [skill name]」用来深入审查某一个 skill。他希望 Anthropic 每次发新模型时 Claude Code 都能自动建议跑一遍（440 赞、53 回复）。另一条只是请读者给 repo 点星，附一个链接（12 赞、0 回复）。</p>
+<div class="urls">
+<a href="https://x.com/petergyang/status/2121637240132735289" target="_blank">https://x.com/petergyang/status/2121637240132735289</a>
+<a href="https://x.com/petergyang/status/2121649295950762363" target="_blank">https://x.com/petergyang/status/2121649295950762363</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nikunj Kothari</span>
+<span class="builder-role">Partner, FPV Ventures</span>
+</div>
+<p class="summary-en">FPV Ventures partner Nikunj Kothari posts a link titled '2026 Startup Bookshelf' (136 likes, 4 replies) and, late in the window, 'Eagerly looking forward to reading the incident reports from this week..' (9 likes, no replies). Neither post says what the bookshelf contains or which incidents are meant, and the feed carries no text for either link.</p>
+<p class="summary-zh zh">FPV Ventures 合伙人 Nikunj Kothari 发了一条题为「2026 Startup Bookshelf」的链接（136 赞、4 回复），快到窗口末尾又写「Eagerly looking forward to reading the incident reports from this week..」（9 赞、0 回复）。两条都没说书单里有什么、指的是哪几起事故，feed 也没有这两个链接的内容。</p>
+<div class="urls">
+<a href="https://x.com/nikunj/status/2121640157443215824" target="_blank">https://x.com/nikunj/status/2121640157443215824</a>
+<a href="https://x.com/nikunj/status/2121832102182453518" target="_blank">https://x.com/nikunj/status/2121832102182453518</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Zara Zhang</span>
+<span class="builder-role">Builder</span>
+</div>
+<p class="summary-en">Zara Zhang, whose bio lists Builder and Harvard '17, posts one word, 'True', as a quote post (60 likes, 1 repost, 3 replies). The feed carries no text for the target, so nothing further is attributed to her.</p>
+<p class="summary-zh zh">Zara Zhang 的 bio 写着 Builder 和 Harvard '17。她发了一个词「True」，是一条引用推文（60 赞、1 转发、3 回复）。feed 没有收录被引用内容，这里不替她补观点。</p>
+<div class="urls">
+<a href="https://x.com/zarazhangrui/status/2121654053453357342" target="_blank">https://x.com/zarazhangrui/status/2121654053453357342</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aaron Levie</span>
+<span class="builder-role">CEO, Box</span>
+</div>
+<p class="summary-en">Box CEO Aaron Levie argues that as models keep getting better at coding, tool and computer use, math and other coding-related tasks, agents that use software to do their work or generate code from scratch will improve faster than all other domains of knowledge work. His conclusion is that more and more work will just become 'coding-shaped' to adapt to what agents are good at, visible in recent releases where agents generate code that becomes animated videos, games and 3D models. He says models do not really have to know everything about anything; they have to use or generate software effectively, combined with deep domain expertise to make the right judgment calls inside workflows, and that this combination unlocks almost everything else (206 likes, 96 replies, third in replies).</p>
+<p class="summary-zh zh">Box CEO Aaron Levie 的判断是：模型在编码、工具与计算机使用、数学等编码相关任务上会持续变强，因此能用软件干活、或从零生成代码的 agent，进步速度会快于知识工作的其他领域。他的结论是，越来越多的工作会变成「coding-shaped」，去适配 agent 擅长的事，近几个月的模型发布里已经能看到 agent 生成代码再变成动画视频、游戏和 3D 模型。他说模型其实不必什么都知道，真正要做的是有效地使用或生成软件，再叠加深度领域专业知识，在工作流里做对判断；有了这个组合，其余几乎都会被解锁（206 赞、96 回复，回复第三）。</p>
+<div class="urls">
+<a href="https://x.com/levie/status/2121686564078297461" target="_blank">https://x.com/levie/status/2121686564078297461</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Steinberger</span>
+<span class="builder-role">OpenClaw / OpenAI</span>
+</div>
+<p class="summary-en">Peter Steinberger, whose bio describes OpenClaw and OpenAI, posts a single popcorn emoji as a quote post (485 likes, 27 replies). The feed carries no text for the target, so no argument is added here.</p>
+<p class="summary-zh zh">Peter Steinberger 的 bio 写着 OpenClaw 与 OpenAI。他只发了一个爆米花 emoji，是一条引用推文（485 赞、27 回复）。feed 没有收录被引用内容，这里不补论点。</p>
+<div class="urls">
+<a href="https://x.com/steipete/status/2121706904917520875" target="_blank">https://x.com/steipete/status/2121706904917520875</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Garry Tan</span>
+<span class="builder-role">President &amp; CEO, Y Combinator</span>
+</div>
+<p class="summary-en">Y Combinator president and CEO Garry Tan calls for modernizing the FAA, saying paper charts, copper wire and a brittle antiquated system without enough failsafes or modern software are not serving the people of America properly (167 likes, 36 replies). Two quote posts carry no argument in their text: 'Do all this and use it with gbrain :-)' (455 likes, 47 replies) and 'Aside Browser is a huge unlock for every AI agent' (120 likes, 49 replies). The feed carries no text for what either quote post refers to.</p>
+<p class="summary-zh zh">Y Combinator 总裁兼 CEO Garry Tan 呼吁 FAA 现代化，说纸质航图、铜线，以及一套脆弱、缺少失效保护、没有现代软件的旧系统，并没有好好服务美国民众（167 赞、36 回复）。另两条引用推文的文字里没有展开观点：「Do all this and use it with gbrain :-)」（455 赞、47 回复）和「Aside Browser is a huge unlock for every AI agent」（120 赞、49 回复）。feed 没有收录这两条引用指向的内容。</p>
+<div class="urls">
+<a href="https://x.com/garrytan/status/2121727702025765094" target="_blank">https://x.com/garrytan/status/2121727702025765094</a>
+<a href="https://x.com/garrytan/status/2121768476775989404" target="_blank">https://x.com/garrytan/status/2121768476775989404</a>
+<a href="https://x.com/garrytan/status/2121824006819258485" target="_blank">https://x.com/garrytan/status/2121824006819258485</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Swyx</span>
+<span class="builder-role">smol_ai, Cognition, Latent Space</span>
+</div>
+<p class="summary-en">Swyx, whose bio lists smol_ai, Cognition, Temporal, AI Engineer and Latent Space, has three posts. The most substantive is a quote post saying it is 'obviously correct' that 'we are so suboptimal in AI UX rn it is crazy esp given existence of models too cheap to meter' (225 likes, 83 replies, fourth in replies). The other two are short link posts with no argument in the text: 'there WILL be audience participation' (2 likes, the window's lowest) and 'holy shit u guys like a lot of poteto' (62 likes). The feed carries no text for any linked target.</p>
+<p class="summary-zh zh">Swyx 的 bio 列了 smol_ai、Cognition、Temporal、AI Engineer 和 Latent Space，本期三条。最有实质内容的是一条引用推文，说「obviously correct」，现在「we are so suboptimal in AI UX rn it is crazy esp given existence of models too cheap to meter」（225 赞、83 回复，回复第四）。另两条都是没有展开观点的短链接帖：「there WILL be audience participation」（2 赞，全窗口最低）和「holy shit u guys like a lot of poteto」（62 赞）。feed 没有收录这些链接目标的内容。</p>
+<div class="urls">
+<a href="https://x.com/swyx/status/2121738675705029005" target="_blank">https://x.com/swyx/status/2121738675705029005</a>
+<a href="https://x.com/swyx/status/2121757606801023085" target="_blank">https://x.com/swyx/status/2121757606801023085</a>
+<a href="https://x.com/swyx/status/2121815348370612414" target="_blank">https://x.com/swyx/status/2121815348370612414</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Guillermo Rauch</span>
+<span class="builder-role">CEO, Vercel</span>
+</div>
+<p class="summary-en">Vercel CEO Guillermo Rauch's most substantive post reports experiencing @uisdk: two prompts of fx + Gemini Argon, pure Web Components and no framework, where the agent reused 14 UI SDK behaviors out of the box, naming window resizing, drag, menubar hover-switching, typeahead, roving toolbar focus, 10-band EQ sliders, scoped hotkeys, ARIA and WebMCP agent control (616 likes, 74 replies, third in likes). An earlier post says subagents on a linked site 'work so well' and are delightful, that a surprising amount of goodness fits in 6.33mb, and that all his projects are built by planning with the smartest model and delegating to fast model subagents via a 1-line instruction in ~/.fx/AGENTS.md (275 likes, 71 replies). A third post says only 'An awesome day for humanity' with an ASCII star pattern and a link (404 likes, 16 replies). The feed carries no text for the linked targets.</p>
+<p class="summary-zh zh">Vercel CEO Guillermo Rauch 最有实质内容的一条讲他试了 @uisdk：两个 prompt，fx 加 Gemini Argon，纯 Web Components、不用框架，agent 直接复用了 14 个 UI SDK behaviors，他逐一点名窗口缩放、拖拽、菜单栏悬停切换、typeahead、roving toolbar focus、10 段 EQ 滑块、scoped hotkeys、ARIA 和 WebMCP agent control（616 赞、74 回复，赞数第三）。早一条说某个链接站点上的 subagents「work so well」、体验很好，6.33mb 里装了惊人多的东西，他自己的所有项目都是用最聪明的模型做规划、再委派给快速模型 subagents，靠 ~/.fx/AGENTS.md 里一行指令（275 赞、71 回复）。第三条只写了「An awesome day for humanity」，配一段星号 ASCII 图案和一个链接（404 赞、16 回复）。feed 没有收录这些链接目标的内容。</p>
+<div class="urls">
+<a href="https://x.com/rauchg/status/2121739228698886454" target="_blank">https://x.com/rauchg/status/2121739228698886454</a>
+<a href="https://x.com/rauchg/status/2121804295381377342" target="_blank">https://x.com/rauchg/status/2121804295381377342</a>
+<a href="https://x.com/rauchg/status/2121825273373229134" target="_blank">https://x.com/rauchg/status/2121825273373229134</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Josh Woodward</span>
+<span class="builder-role">VP, Google Labs / Gemini</span>
+</div>
+<p class="summary-en">Google VP Josh Woodward posts two items at the same second about 'New in Gemini: Connect Google Wallet for personal finance insights', listing instant charts to visualize spend, finding sneaky subscription price hikes, and making a holiday budget based on what was actually spent last year (462 likes, 40 reposts, second in reposts, 42 replies). The companion post says it is 'Available to all Gemini app users in the USA to start' (24 likes, 3 replies). The feed carries no second source for the feature.</p>
+<p class="summary-zh zh">Google VP Josh Woodward 在同一秒发了两条，讲「New in Gemini: Connect Google Wallet for personal finance insights」，列出几个用途：生成即时图表看支出、找出悄悄涨价的订阅、按去年实际花费做节日预算（462 赞、40 转发，转发第二，42 回复）。配套那条写「Available to all Gemini app users in the USA to start」（24 赞、3 回复）。feed 里没有这个功能的第二信源。</p>
+<div class="urls">
+<a href="https://x.com/joshwoodward/status/2121755282326102417" target="_blank">https://x.com/joshwoodward/status/2121755282326102417</a>
+<a href="https://x.com/joshwoodward/status/2121755283785699376" target="_blank">https://x.com/joshwoodward/status/2121755283785699376</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thibault Sottiaux</span>
+<span class="builder-role">Codex &amp; ChatGPT, OpenAI</span>
+</div>
+<p class="summary-en">Thibault Sottiaux, whose bio lists Codex and ChatGPT at OpenAI, asks for feedback on Daybreak from the cyber team, naming models, codex plugins, blue/red access, documentation, red teaming and defense factory, and asking 'What can we do better or improve?' It draws the window's top replies (534) and second-most likes (737), with 30 reposts. The feed gives no description of Daybreak itself and no product link.</p>
+<p class="summary-zh zh">Thibault Sottiaux 的 bio 列着 OpenAI 的 Codex 与 ChatGPT。他替 cyber team 向 Daybreak 征求反馈，逐项点名 models、codex plugins、blue/red access、documentation、red teaming 和 defense factory，问「What can we do better or improve?」。这条拿到全窗口回复第一（534）、赞数第二（737）、转发 30。feed 没有给出 Daybreak 本身的描述，也没有产品链接。</p>
+<div class="urls">
+<a href="https://x.com/thsottiaux/status/2121845965997101118" target="_blank">https://x.com/thsottiaux/status/2121845965997101118</a>
+</div>
+</article>
+</section>
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128161;</span>
+<h2 class="section-title">The Takeaway</h2>
+<span class="section-meta">No Podcast Today &middot; 2026-11-16</span>
+</div>
+<div class="takeaway">
+<div class="takeaway-label">The Takeaway</div>
+<p>Engagement splits across two posts. Amjad Masad's 'Murphy&#39;s world' leads likes (1,115) and reposts (87) and is second in replies (142); Thibault Sottiaux's Daybreak feedback request leads replies (534) and is second in likes (737). One post passes 1,000 likes, none pass 10,000, none pass 100 reposts, and two pass 100 replies. Window totals: 6,903 likes, 360 reposts, 1,476 replies.</p>
+<p>The most-liked post is a bare judgment with no link, no number and no product. The top-replies post is a request for feedback that names six concrete areas (models, codex plugins, blue/red access, documentation, red teaming, defense factory). It continues the cyber-team thread recorded from 11-06 onward, and this is the post that spells out the areas it wants feedback on. The Day and banked counters are again absent.</p>
+<p>Product items are specific but mostly unverified. Josh Woodward's two same-second posts describe connecting Google Wallet to Gemini for personal finance insights, available to all Gemini app users in the USA; this is a different vendor's feature from the Claude Personal Finance launch in the 11-07 issue and the two are not merged. Guillermo Rauch reports @uisdk with Gemini Argon and 14 reused UI SDK behaviors, subagents via a 1-line instruction in ~/.fx/AGENTS.md, and a short 'An awesome day for humanity' post. Peter Yang gives two Fable 5.2 audit prompts. None has a second source in the feed.</p>
+<p>Aaron Levie's long post argues that as models improve at coding, more work becomes 'coding-shaped', and value comes from using or generating software well plus deep domain judgment. It drew 206 likes and 96 replies, third in replies. The contrast with the 1,115-like 'Murphy&#39;s world' post continues the gap between engagement and checkable information.</p>
+<p>The Podcast slot is 0 and the Blog slot is 0, but the causes differ. The podcasts array is not empty: it holds Unsupervised Learning Ep 97, identical to the 11-07 issue in title, publishedAt and channel URL, so it is deduplicated and listed under Already Covered. The blogs array is empty for the twenty-second consecutive issue. Neither zero means the feed failed to refresh.</p>
+<p>Quote structure and coverage: 13 of the 26 posts are quote posts, pointing at 13 distinct IDs, all outside this feed, with no self-quotes and no two posts sharing a target. All 26 posts fall on Pacific 11-14, from 00:25:42 to 22:01:14, a 21h35m32s window closing 0h25m38s before the snapshot; the gap from the previous issue's close is 3h06m10s. Pacific 10-29 and 10-30 remain missing from the series.</p>
+<p>13 accounts have posts; 8 are on the 24-name tracking list (Swyx, Peter Yang, Amjad Masad, Guillermo Rauch, Garry Tan, Matt Turck, Nikunj Kothari, Peter Steinberger) and 5 are not (Josh Woodward, Thibault Sottiaux, Aaron Levie, Zara Zhang, Dan Shipper). Sam Altman does not appear for the eleventh consecutive issue.</p>
+</div>
+<div class="takeaway zh">
+<div class="takeaway-label">核心结论</div>
+<p>互动分散在两条推文上。Amjad Masad 的「Murphy&#39;s world」拿赞数第一（1,115）和转发第一（87），回复第二（142）；Thibault Sottiaux 的 Daybreak 反馈征集拿回复第一（534）、赞数第二（737）。破千赞 1 条、破万赞 0 条、转发过百 0 条、回复过百 2 条。全窗口合计 6,903 赞、360 转发、1,476 回复。</p>
+<p>赞数最高的那条是一句没有链接、没有数字、没有产品的判断。回复最高的那条是征求意见，点名了六个具体方向（models、codex plugins、blue/red access、documentation、red teaming、defense factory）。它接上了 11-06 起记录的 cyber team 这条线，这一条把想要反馈的范围写具体了。Day 与 banked 编号本期仍缺席。</p>
+<p>产品消息具体，但大多没有被核实。Josh Woodward 同秒两条讲 Gemini 接入 Google Wallet 做个人财务洞察，面向美国全部 Gemini app 用户；这与 11-07 期 Claude Personal Finance 发布是不同厂商的同类功能，两者不合并。Guillermo Rauch 报告了 @uisdk 配 Gemini Argon、复用 14 个 UI SDK behaviors，靠 ~/.fx/AGENTS.md 一行指令的 subagents，以及一句「An awesome day for humanity」。Peter Yang 给了两个 Fable 5.2 审查 prompt。feed 里都没有第二信源。</p>
+<p>Aaron Levie 的长推讲了一条完整的推理：模型编码能力变强，越来越多工作会变成「coding-shaped」，价值来自把软件用好或生成好，再叠加深度领域判断。它拿到 206 赞、96 回复，回复第三。与 1,115 赞的「Murphy&#39;s world」并列，热度和可核对信息之间的落差仍在。</p>
+<p>Podcast 是 0，Blog 也是 0，但成因不同。podcasts 数组并不为空，装的是 Unsupervised Learning Ep 97，标题、publishedAt、频道链接都与 11-07 期完全一致，按去重规则剔除，只在「已收录」里列出；blogs 数组为空，连续第二十二期。两个 0 都不意味着 feed 没刷新。</p>
+<p>引用结构与覆盖：26 条里有 13 条引用推文，指向 13 个不同 ID，全部在 feed 之外，没有自引，也没有两条指向同一目标。26 条全部落在太平洋 11-14，00:25:42 到 22:01:14，窗口 21h35m32s，在快照前 0h25m38s 收口；距上一期收口 3h06m10s。太平洋 10-29、10-30 在本系列仍缺失。</p>
+<p>有内容的账号 13 个，其中 8 位在 24 位追踪名单上（Swyx、Peter Yang、Amjad Masad、Guillermo Rauch、Garry Tan、Matt Turck、Nikunj Kothari、Peter Steinberger），5 位不在（Josh Woodward、Thibault Sottiaux、Aaron Levie、Zara Zhang、Dan Shipper）。Sam Altman 连续第十一期未出现。</p>
+</div>
+</section>
+<!-- ============== ALREADY COVERED ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128257;</span>
+<h2 class="section-title">&#24050;&#25910;&#24405; / Already Covered</h2>
+<span class="section-meta">1 Item &middot; Deduped</span>
+</div>
+<div class="dedup">
+<p>Unsupervised Learning &middot; &#8220;Ep 97: Jev Creator on Decision Models, Benchmark Fatigue &amp; Why the Labs Missed It&#8221; &middot; publishedAt 2026-11-05T14:05:50Z (Pacific 11-05 06:05:50). Already covered as the Podcast item in the <a href="https://clean-online.github.io/ai-digest/2026/11/07/AI_Builders_Digest_2026-11-07.html">2026-11-07 issue</a>. Judged the same episode on four things: the identical title, the identical publication timestamp, the identical channel URL <a href="https://www.youtube.com/@RedpointAI">https://www.youtube.com/@RedpointAI</a>, and the same transcript anchors (Jev, the creator introduced as TypeSave&#39;s CEO, and JEV models). The feed brings nothing the 11-07 issue did not already have: both issues have only the RedpointAI channel page and no specific video URL, so there is no link to backfill. The podcast slot had not repeated since 11-07: the eight windows from 11-08 to 11-15 each carried a different episode. The episode is listed here but not counted in the Podcast stat.</p>
+<p class="zh">Unsupervised Learning &middot;《Ep 97: Jev Creator on Decision Models, Benchmark Fatigue &amp; Why the Labs Missed It》&middot; 发布时间 2026-11-05T14:05:50Z（太平洋 11-05 06:05:50）。已在 <a href="https://clean-online.github.io/ai-digest/2026/11/07/AI_Builders_Digest_2026-11-07.html">2026-11-07 那期</a>作为 Podcast 收录。判为同一集靠四件事：标题完全一致、发布时间戳一致、频道链接一致 <a href="https://www.youtube.com/@RedpointAI">https://www.youtube.com/@RedpointAI</a>、转写锚点一致（Jev、被介绍为 TypeSave CEO 的创作者、JEV 模型）。今天这期 feed 没有带来 11-07 那期没有的东西：两期都只有 RedpointAI 频道页、没有具体视频地址，所以没有需要补记的链接。11-07 之后播客槽位一直没有重复：11-08 到 11-15 这八个窗口各是一集不同的节目。这一集只在此列出，不计入 Podcast 统计。</p>
+</div>
+</section>
+<!-- ============== NOTES ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128221;</span>
+<h2 class="section-title">记录 / Notes &amp; Dedup</h2>
+<span class="section-meta">26 Zero &middot; 1 Deduped &middot; 0 Blog</span>
+</div>
+<div class="dedup">
+<p style="margin-top:12px">
+<strong>Tweet check</strong> &mdash; All 26 tweet IDs have zero hits across the 127 historical digest HTML files under 2026/ (excluding the 11/16 output directory). No duplicate posts from earlier issues.</p>
+<p style="margin-top:12px">
+<strong>Podcast check</strong> &mdash; The slot is 0 by dedup, not by an empty array. The single episode is Unsupervised Learning Ep 97, publishedAt 2026-11-05T14:05:50Z (Pacific 11-05 06:05:50), 210h19m52s before the first post, 231h55m24s before the last and 232h21m02s before the snapshot. Its full title, publishedAt and channel URL all match the 11-07 issue, where it was the Podcast item; the transcript anchors (Jev, TypeSave&#39;s CEO, JEV models) match too. The episode is listed under Already Covered and not counted. Both issues have only the RedpointAI channel page, so there is no specific video URL to backfill. The eight windows from 11-08 to 11-15 carried eight different episodes.</p>
+<p style="margin-top:12px">
+<strong>Blog check</strong> &mdash; The slot is 0 because the blogs array is empty for the twenty-second consecutive issue; no blog entry is created. This zero has a different cause from the Podcast zero.</p>
+<p style="margin-top:12px">
+<strong>Transcript</strong> &mdash; 74,442 characters over 641 lines, with Speaker 1/2 labels and timestamps. The opening cold open refers to Jev's viral launch about a month earlier and introduces the guest as TypeSave's CEO, matching the 11-07 summary. Because the episode is deduplicated, no podcast card is rendered and the transcript is used only to confirm it is the same recording. Spellings are kept as transcribed (Jeb, Jogo, Jojo, Jago); no full guest name is supplied.</p>
+<p style="margin-top:12px">
+<strong>Same names</strong> &mdash; Zero-hit strings in this window: uisdk, Aside Browser, Murphy, frontier feed, Autonomous Businesses, coding-shaped, Startup Bookshelf, Google Wallet, incident reports, 6.33, 10-band EQ, roving toolbar. Prior hits are not called firsts: Daybreak, Gemini Argon, Argon, WebMCP, GBrain, prompt-audit, AGENTS.md, Fable 5.2, open weights, FAA, RedpointAI, Jev Creator, TypeSave, Decision Models, Benchmark Fatigue and Ep 97 all appear in older issues. Lower-case gbrain has zero hits while capitalised GBrain has 51; Daybreak has 54 prior hits and is not identified here with any earlier Daybreak mention.</p>
+<p style="margin-top:12px">
+<strong>Thin posts</strong> &mdash; 14 of the 26 posts are short link posts or one-liners without an argument in the text: the 'experiment writeup + code here' and 'live look of how Fable wrote an email' posts, Peter Yang's star-the-repo link, Nikunj Kothari's bookshelf link and incident-reports line, Zara Zhang's 'True', Peter Steinberger's popcorn emoji, Swyx's 'there WILL be audience participation' and 'holy shit u guys like a lot of poteto', Josh Woodward's USA-availability line, Amjad Masad's 'Autonomous Businesses are here', Garry Tan's gbrain and Aside Browser lines, Guillermo Rauch's 'An awesome day for humanity'. Their links are kept; no event name or position is added for them.</p>
+<p style="margin-top:12px">
+<strong>Coverage</strong> &mdash; Three timestamps: snapshot 2026-11-15T06:26:52.164Z (Pacific 11-14 22:26:52), first post Pacific 11-14 00:25:42, last post Pacific 11-14 22:01:14. Window 21h35m32s, closing 0h25m38s before the snapshot; 3h06m10s after the previous issue's close (Pacific 11-13 21:19:32); previous snapshot was 24h01m17s earlier. All 26 posts fall on Pacific 11-14; Pacific 10-29 and 10-30 remain missing from the series.</p>
+<p style="margin-top:12px">
+<strong>Engagement fields</strong> &mdash; Likes, reposts and replies are taken as-is from the feed; the quotes field is null for all 26 posts and is not used. One post passes 1,000 likes, none pass 10,000, none pass 100 reposts, two pass 100 replies; totals are 6,903 / 360 / 1,476. Every rank statement is checked against the full-window sorted list.</p>
+<p style="margin-top:12px">
+<strong>Not resolved</strong> &mdash; An independent report or NVIDIA board statement on Stand with Jensen; what Guillermo Rauch's earlier 'Co-sign' link pointed to; second sources for the Gemini Wallet feature, @uisdk, the 14 UI SDK behaviors, the 2.80x Fable 5.2 cost and the Visa partnership; a specific video URL for Ep 97; specs for durable-harness; the AI 100 list; whether Daybreak here is the Daybreak Blue mentioned on 10-20; and the standing items carried from earlier issues (Day 29 / 3/x, dot, jev, Particle-1, HackerTube, Grok Bot, Legora, the data-market figure, Claude Whiteboards, Box interop, interactive connectors, the AIE keynote and MCP tool counts).</p>
+</div>
+<div class="dedup zh" style="margin-top:14px">
+<p style="margin-top:12px">
+<strong>推文核对</strong> &mdash; 26 个推文 ID 对 2026/ 下 127 个历史 HTML 零命中（排除 11/16 输出目录），没有和往期重复的推文。</p>
+<p style="margin-top:12px">
+<strong>播客核对</strong> &mdash; 这一格是 0，成因是判重，不是数组为空。唯一一集是 Unsupervised Learning Ep 97，publishedAt 为 2026-11-05T14:05:50Z（太平洋 11-05 06:05:50），比首条推文早 210h19m52s、比末条早 231h55m24s、比快照早 232h21m02s。完整标题、publishedAt、频道链接都与 11-07 期一致，那一期它正是 Podcast 主角；转写锚点（Jev、被介绍为 TypeSave CEO 的创作者、JEV 模型）也一致。这一集只在「已收录」里列出，不计入统计。两期都只有 RedpointAI 频道页，没有具体视频地址可补记。11-08 到 11-15 这八个窗口各收录了一集不同的节目。</p>
+<p style="margin-top:12px">
+<strong>博客核对</strong> &mdash; 这一格是 0，因为 blogs 数组连续第二十二期为空，不生成博客条目。这个 0 与 Podcast 的 0 成因不同。</p>
+<p style="margin-top:12px">
+<strong>转写</strong> &mdash; 74,442 字符、641 行，带 Speaker 1/2 标签与时间戳。开头 cold open 提到 Jev 约一个月前走红，并把嘉宾介绍为 TypeSave 的 CEO，与 11-07 期摘要一致。因为这一集被判重，本期不渲染播客卡，转写只用来确认是同一段录音。拼写按转写原样保留（Jeb、Jogo、Jojo、Jago），不补嘉宾全名。</p>
+<p style="margin-top:12px">
+<strong>同名</strong> &mdash; 本期零命中的具体字符串：uisdk、Aside Browser、Murphy、frontier feed、Autonomous Businesses、coding-shaped、Startup Bookshelf、Google Wallet、incident reports、6.33、10-band EQ、roving toolbar。有旧命中的不写「首次」：Daybreak、Gemini Argon、Argon、WebMCP、GBrain、prompt-audit、AGENTS.md、Fable 5.2、open weights、FAA、RedpointAI、Jev Creator、TypeSave、Decision Models、Benchmark Fatigue、Ep 97 都在此前页面出现过。小写 gbrain 零命中，首字母大写的 GBrain 有 51 次命中；Daybreak 有 54 次旧命中，这里不把它与更早的 Daybreak 说法指认为同一物。</p>
+<p style="margin-top:12px">
+<strong>薄内容</strong> &mdash; 26 条里有 14 条是短链接帖或一句话、文字里没有展开观点：「experiment writeup + code here」与「live look of how Fable wrote an email」两条、Peter Yang 的点星链接、Nikunj Kothari 的书单链接与事故报告那句、Zara Zhang 的「True」、Peter Steinberger 的爆米花 emoji、Swyx 的「there WILL be audience participation」与「holy shit u guys like a lot of poteto」、Josh Woodward 的美国上线那句、Amjad Masad 的「Autonomous Businesses are here」、Garry Tan 的 gbrain 与 Aside Browser 两条、Guillermo Rauch 的「An awesome day for humanity」。链接照留，不替它们补活动名或立场。</p>
+<p style="margin-top:12px">
+<strong>覆盖</strong> &mdash; 三个时间戳：快照 2026-11-15T06:26:52.164Z（太平洋 11-14 22:26:52）、首条太平洋 11-14 00:25:42、末条太平洋 11-14 22:01:14。窗口 21h35m32s，在快照前 0h25m38s 收口；距上一期收口（太平洋 11-13 21:19:32）3h06m10s；上一份快照相隔 24h01m17s。26 条全在太平洋 11-14；太平洋 10-29、10-30 在本系列仍缺失。</p>
+<p style="margin-top:12px">
+<strong>互动字段</strong> &mdash; likes、reposts、replies 按 feed 原值取；quotes 字段 26 条全为 null，不使用。破千赞 1 条、破万赞 0 条、转发过百 0 条、回复过百 2 条；合计 6,903 / 360 / 1,476。所有名次说法都按全窗口排序逐条回查。</p>
+<p style="margin-top:12px">
+<strong>未闭环</strong> &mdash; Stand with Jensen 会不会有独立报道或 NVIDIA 董事会声明；Guillermo Rauch 早前「Co-sign」链接指向什么；Gemini Wallet 功能、@uisdk、14 个 UI SDK behaviors、Fable 5.2 的 2.80 倍成本与 Visa 合作的第二信源；Ep 97 的具体视频地址；durable-harness 的规格；AI 100 名单；本期的 Daybreak 是不是 10-20 提过的 Daybreak Blue；以及从往期带来的长期项（Day 29 / 3/x、dot、jev、Particle-1、HackerTube、Grok Bot、Legora、数据市场规模、Claude Whiteboards、Box 互通、interactive connectors、AIE keynote、MCP 工具数）。</p>
+</div>
+</section>
+<footer class="footer">
+<div class="next-issue">&#128236; &#19979;&#19968;&#26399;&#65306;&#26126;&#22825; 10:00&#65288;&#21271;&#20140;&#26102;&#38388;&#65289;</div>
+<div class="signature">by chloevchen</div>
+</footer>
+</body>
+</html>
+<!-- by chloevchen -->
