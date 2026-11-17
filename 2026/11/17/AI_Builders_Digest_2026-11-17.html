@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Builders Digest &middot; 2026-11-17</title>
+<style>
+
+
+
+
+
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 28px 30px; margin-bottom: 24px; }
+  .podcast-source { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
+  .podcast-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; margin-bottom: 18px; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; }
+
+
+</style>
+</head>
+<body>
+<header class="topbar">
+<div class="topbar-inner">
+<a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders &middot; AI Builders Digest</a>
+<span>双语 &middot; Bilingual</span>
+</div>
+</header>
+<section class="header">
+<div class="eyebrow">Daily Digest &middot; 2026-11-17</div>
+<h1>AI Builders Digest</h1>
+</section>
+<div class="stats">
+<div class="stat">
+<div class="stat-num">11</div>
+<div class="stat-label">Builders</div>
+</div>
+<div class="stat">
+<div class="stat-num">19</div>
+<div class="stat-label">Tweets</div>
+</div>
+<div class="stat">
+<div class="stat-num">0</div>
+<div class="stat-label">Podcast</div>
+</div>
+<div class="stat">
+<div class="stat-num">0</div>
+<div class="stat-label">Blog</div>
+</div>
+</div>
+<p class="note-line">Eleven builders, 19 posts, all on Pacific 11-15. Thibault Sottiaux&#39;s one-line note that the Codex team may have fixed the &#39;model at capacity&#39; errors takes all three engagement leads (2,500 likes, 84 reposts, 795 replies). Guillermo Rauch&#39;s 𝚡𝚎𝚎𝚝 launch is the window&#39;s most detailed technical post. The Podcast slot is 0 because its single episode is a repeat of the 11-09 issue; the Blog slot is 0 because the blogs array is empty. The two zeros have different causes.</p>
+<p class="note-line zh">11 位 builder、19 条推文，全部落在太平洋 11-15。Thibault Sottiaux 一句「Codex 团队可能已经修好了『model at capacity』报错」包揽三项互动第一（2,500 赞、84 转发、795 回复）。Guillermo Rauch 发布 𝚡𝚎𝚎𝚝 是本期技术细节最完整的一条。Podcast 这一格是 0，因为唯一一集是 11-09 期的重复；Blog 这一格是 0，因为 blogs 数组为空。两个 0 的成因不同。</p>
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128036;</span>
+<h2 class="section-title">X / Twitter</h2>
+<span class="section-meta">11 Builders &middot; 19 Tweets</span>
+</div>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Swyx</span>
+<span class="builder-role">smol_ai, Cognition, Latent Space</span>
+</div>
+<p class="summary-en">Swyx, whose bio lists smol_ai, Cognition, Temporal, AI Engineer and Latent Space, has three short posts. Two say a &#39;clanker&#39; wrote up the talk or a short recap of it and carry links (8 likes, 1 repost, 0 replies; 0 likes, 0 reposts, 1 reply). A quote post says only &#39;apparently it is pretty normal&#39; with a link (4 likes, 2 replies). The feed carries no text for any linked target, so no talk or recap is attributed here.</p>
+<p class="summary-zh zh">Swyx 的 bio 列了 smol_ai、Cognition、Temporal、AI Engineer 和 Latent Space，本期三条短帖。两条说有个「clanker」把那场 talk 或简短回顾写了出来，各带一个链接（8 赞、1 转发、0 回复；0 赞、0 转发、1 回复）。一条引用推文只写了「apparently it is pretty normal」加一个链接（4 赞、2 回复）。feed 没有收录这些链接目标的内容，这里不替它们补 talk 或回顾。</p>
+<div class="urls">
+<a href="https://x.com/swyx/status/2122031563961684032" target="_blank">https://x.com/swyx/status/2122031563961684032</a>
+<a href="https://x.com/swyx/status/2122032217430032548" target="_blank">https://x.com/swyx/status/2122032217430032548</a>
+<a href="https://x.com/swyx/status/2122066060769952161" target="_blank">https://x.com/swyx/status/2122066060769952161</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thibault Sottiaux</span>
+<span class="builder-role">Codex &amp; ChatGPT, OpenAI</span>
+</div>
+<p class="summary-en">Thibault Sottiaux, whose bio lists Codex and ChatGPT at OpenAI, posts one line: the Codex team might have actually fixed the &#39;model at capacity&#39; errors that have been pestering users, with a link (2,500 likes, 84 reposts, 795 replies). It leads all three engagement fields and is the window&#39;s only post above 1,000 likes. The phrase &#39;model at capacity&#39; appeared once before in this series, in the 06-18 issue, where it was recorded as a Codex high-error-rate episode the team fixed rapidly; the feed here does not say whether this is the same incident. No second source for the fix is in the feed.</p>
+<p class="summary-zh zh">Thibault Sottiaux 的 bio 列着 OpenAI 的 Codex 与 ChatGPT。他只发了一句：Codex 团队可能真的修好了最近一直烦人的 「model at capacity」报错，附一个链接（2,500 赞、84 转发、795 回复）。这条包揽三项互动第一，也是全窗口唯一破千赞。「model at capacity」这个说法在本系列此前出现过一次，在 06-18 期，当时记录为 Codex 的高错误率、团队快速修复；本期 feed 没有说是不是同一次事件。feed 里也没有这个修复的第二信源。</p>
+<div class="urls">
+<a href="https://x.com/thsottiaux/status/2122206990101536852" target="_blank">https://x.com/thsottiaux/status/2122206990101536852</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Yang</span>
+<span class="builder-role">Practical AI tutorials</span>
+</div>
+<p class="summary-en">Peter Yang, who writes practical AI tutorials, posts two excerpts from an interview with Nate Parrott of Anthropic about Claude Design. One quotes Parrott describing how Claude, asked to build an app, invents &#39;the most brilliant visual style&#39; (serif text, an off-white background, orange, bars on the edges of cards) because in its mind it has only done this once; the Claude Design prompt counters by naming those fonts and colors and telling Claude not to use them unless the user asks. The other has Parrott say that at The Browser Company each idea took a couple of weeks to build for Arc, while at Anthropic it now takes one to two days, so the building cycle has compressed but the cycle of putting things in people&#39;s hands has not (51 likes, 1 repost, 24 replies; 42 likes, 10 replies). A third post is a current-affairs link with no AI argument in its text; the link is kept and nothing is added to it.</p>
+<p class="summary-zh zh">写实用 AI 教程的 Peter Yang 发了两段访谈节选，受访者是 Anthropic 的 Nate Parrott，谈 Claude Design。一段里 Parrott 说，让 Claude 做个 app 时，它会「发明最惊艳的视觉风格」（衬线字、米白底、橙色、卡片边缘的条），因为在它看来这套只做过一次；Claude Design 的 prompt 就直接点名这几个字体和颜色，告诉 Claude 除非用户要求否则别用。另一段里 Parrott 说，在 The Browser Company 做 Arc 时每个想法要花几周验证，现在在 Anthropic 一两天就能做出来，所以被压缩的是构建周期，把东西放到人手里、看会不会用的那段没有压缩（51 赞、1 转发、24 回复；42 赞、10 回复）。第三条是时事链接帖，文字里没有 AI 相关论点；链接照留，不补内容。</p>
+<div class="urls">
+<a href="https://x.com/petergyang/status/2122039657001300125" target="_blank">https://x.com/petergyang/status/2122039657001300125</a>
+<a href="https://x.com/petergyang/status/2122060856498524510" target="_blank">https://x.com/petergyang/status/2122060856498524510</a>
+<a href="https://x.com/petergyang/status/2122132596352327816" target="_blank">https://x.com/petergyang/status/2122132596352327816</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nan Yu</span>
+<span class="builder-role">Product, Codex at OpenAI</span>
+</div>
+<p class="summary-en">Nan Yu, on product for Codex at OpenAI and previously head of product at Linear, asks for the best home-automation hub if he just wants Codex to control everything, ideally something plug-and-play that Codex sees as another computer (18 likes, 10 replies). A second post only observes &#39;It&#39;s cute that my Waymo turns on its windshield wipers in the rain&#39; (57 likes, 2 reposts, 2 replies). Neither carries a product answer or a link to one.</p>
+<p class="summary-zh zh">Nan Yu 在 OpenAI 做 Codex 产品，此前是 Linear 的产品负责人。他问：如果只想让 Codex 控制家里一切，最好的家庭自动化 hub 是哪个，最好是即插即用、Codex 差不多把它当成另一台电脑（18 赞、10 回复）。另一条只写了一句「我的 Waymo 下雨会开雨刷，挺可爱的」（57 赞、2 转发、2 回复）。两条都没有给出产品答案或相应链接。</p>
+<div class="urls">
+<a href="https://x.com/thenanyu/status/2122096121946468451" target="_blank">https://x.com/thenanyu/status/2122096121946468451</a>
+<a href="https://x.com/thenanyu/status/2122096965865664924" target="_blank">https://x.com/thenanyu/status/2122096965865664924</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thariq</span>
+<span class="builder-role">formerly Claude Code, Anthropic</span>
+</div>
+<p class="summary-en">Thariq, formerly on Claude Code at Anthropic, posts &#39;a new arena and two new characters&#39; with two image links (956 likes, 11 reposts, 54 replies), the window&#39;s second-highest like count. The text does not say what the arena or characters belong to, and the feed carries no text for either link.</p>
+<p class="summary-zh zh">Thariq 此前在 Anthropic 做 Claude Code。他发了「a new arena and two new characters」配两张图链接（956 赞、11 转发、54 回复），是全窗口赞数第二。文字没说这个 arena 和角色属于什么，feed 也没有这两个链接的内容。</p>
+<div class="urls">
+<a href="https://x.com/trq212/status/2122154124024381828" target="_blank">https://x.com/trq212/status/2122154124024381828</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Amjad Masad</span>
+<span class="builder-role">CEO, Replit</span>
+</div>
+<p class="summary-en">Replit CEO Amjad Masad posts two short quote posts. &#39;It&#39;s been an interesting 48 hours.&#39; with a link draws 491 likes, 21 reposts and 30 replies; &#39;Good summary.&#39; with a link draws 336 likes, 18 reposts and 12 replies. Both are quote posts whose targets the feed does not include, so no subject is attributed to either.</p>
+<p class="summary-zh zh">Replit CEO Amjad Masad 发了两条短引用推文。「It&#39;s been an interesting 48 hours.」加一个链接，491 赞、21 转发、30 回复；「Good summary.」加一个链接，336 赞、18 转发、12 回复。两条的被引用目标 feed 都没有收录，这里不替它们补主题。</p>
+<div class="urls">
+<a href="https://x.com/amasad/status/2122062419010961439" target="_blank">https://x.com/amasad/status/2122062419010961439</a>
+<a href="https://x.com/amasad/status/2122185760799609017" target="_blank">https://x.com/amasad/status/2122185760799609017</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Guillermo Rauch</span>
+<span class="builder-role">CEO, Vercel</span>
+</div>
+<p class="summary-en">Vercel CEO Guillermo Rauch introduces 𝚡𝚎𝚎𝚝, a hermetic, pixel-perfect X post renderer in safe Rust/wasm that needs no browser, network, filesystem or system fonts and renders a post to PNG in about 1ms (0.4ms for jack&#39;s &#39;setting up my twttr&#39;), which he says is 100x-1000x faster than booting a browser for a screenshot at the same accuracy. He lists what it reproduces: Blink and HarfBuzz text shaping, 1/64px line breaking, RTL bidi, 28 Chirp font subsets, CJK/Math/Emoji fallbacks and &#39;Show more&#39; rules. He calls 𝚡𝚎𝚎𝚝 an &#39;autorepo&#39;: an oracle boots Chrome to verify tens of thousands of text layout rules, a CI canary watches the original and files signed PRs for agents to act on, and the whole thing was conceived around &#39;verification engineering&#39; (629 likes, 27 reposts, 81 replies, third in likes and second in reposts). Rauch used that same phrase in the 10-03 and 10-05 issues. A lighter second post says AI models are getting good at naming things: a CLI he wrote to diagnose system slowdowns named itself 𝚑𝚘𝚐, and he jokes that with cache invalidation the hardest problems in computer science may be solved (459 likes, 8 reposts, 110 replies, second in replies).</p>
+<p class="summary-zh zh">Vercel CEO Guillermo Rauch 发布 𝚡𝚎𝚎𝚝：一个 hermetic、像素级还原的 X 帖子渲染器，用 safe Rust/wasm 写成，不需要浏览器、网络、文件系统或系统字体，约 1ms 把一条帖子渲成 PNG（jack 那条「setting up my twttr」是 0.4ms）；他说这比启动浏览器截图快 100 到 1000 倍，准确度一样。他逐项列出复现的东西：Blink 与 HarfBuzz 文本整形、1/64px 断行、RTL bidi、28 个 Chirp 字体子集、CJK/Math/Emoji 回退、「Show more」规则。他把 𝚡𝚎𝚎𝚝 叫做「autorepo」：一个 oracle 启动 Chrome 去验证数万条文本布局规则，CI canary 盯着原始版本、给 agent 提签名 PR，整套东西从一开始就围绕「verification engineering」设计（629 赞、27 转发、81 回复，赞数第三、转发第二）。Rauch 在 10-03、10-05 两期就提过同一个说法。另一条轻松些：他说 AI 模型越来越会起名字，自己写了个诊断系统变慢的 CLI，它给自己起名 𝚑𝚘𝚐，他顺带开玩笑说既然缓存失效也解决了，计算机科学最难的问题大概都解决了（459 赞、8 转发、110 回复，回复第二）。</p>
+<div class="urls">
+<a href="https://x.com/rauchg/status/2122127120055034258" target="_blank">https://x.com/rauchg/status/2122127120055034258</a>
+<a href="https://x.com/rauchg/status/2122184794209714368" target="_blank">https://x.com/rauchg/status/2122184794209714368</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Zara Zhang</span>
+<span class="builder-role">Builder</span>
+</div>
+<p class="summary-en">Zara Zhang, whose bio lists Builder and Harvard &#39;17, posts two quote posts. &#39;Being good at LinkedIn probably makes you bad at X&#39; draws 122 likes, 3 reposts and 33 replies; &#39;I love this store so much&#39; with a link draws 21 likes and 2 replies. The feed carries no text for either target, so no further position is attributed.</p>
+<p class="summary-zh zh">Zara Zhang 的 bio 写着 Builder 和 Harvard &#39;17。她发了两条引用推文。「Being good at LinkedIn probably makes you bad at X」拿到 122 赞、3 转发、33 回复；「I love this store so much」加一个链接，21 赞、2 回复。feed 没有收录两条被引用内容，这里不替她补观点。</p>
+<div class="urls">
+<a href="https://x.com/zarazhangrui/status/2122021053442703852" target="_blank">https://x.com/zarazhangrui/status/2122021053442703852</a>
+<a href="https://x.com/zarazhangrui/status/2122021380745290202" target="_blank">https://x.com/zarazhangrui/status/2122021380745290202</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nikunj Kothari</span>
+<span class="builder-role">Partner, FPV Ventures</span>
+</div>
+<p class="summary-en">FPV Ventures partner Nikunj Kothari announces the next guest in a weekly series, a cofounder of CoreAuto, on Friday November 20 at noon, on RL methods, synthetic data, loops and automation. The format is 60 minutes in person in San Francisco, the first 45 minutes for his questions to the guest and the last 15 for the guest to ask about venture, all off the record under Chatham House rules, open to 15 listeners, with a Luma link to register (58 likes, 1 repost, 4 replies).</p>
+<p class="summary-zh zh">FPV Ventures 合伙人 Nikunj Kothari 预告每周系列的下一位嘉宾：CoreAuto 的一位联合创始人，11 月 20 日周五中午，聊 RL （方法、合成数据、循环、自动化）。形式是旧金山线下 60 分钟，前 45 分钟他向嘉宾提问，后 15 分钟嘉宾反过来问 venture，全程 off the record、按 Chatham House rules，开放 15 位听众，附 Luma 报名链接（58 赞、1 转发、4 回复）。</p>
+<div class="urls">
+<a href="https://x.com/nikunj/status/2122042319419609105" target="_blank">https://x.com/nikunj/status/2122042319419609105</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Dan Shipper</span>
+<span class="builder-role">CEO, Every</span>
+</div>
+<p class="summary-en">Every CEO Dan Shipper says the team has been working on &#39;compounding skills&#39; (skills that get better every time you use them), that hammer_mt finally cracked it, and that over the weekend he made a skill for writing context-window summaries and used autoresearch to iterate until it hit 80% of his taste against a no-skill baseline. The full writeup is on the Every frontier feed (143 likes, 4 reposts, 30 replies). The feed has no second source for the 80% figure.</p>
+<p class="summary-zh zh">Every CEO Dan Shipper 说团队最近在做「compounding skills」（越用越好的 skills），hammer_mt 终于把它做通了；他周末做了个写 context window summaries 的 skill，用 autoresearch 迭代到「达到我口味的 80%」，对比的是没有 skill 的基线。完整记录在 Every 的 frontier feed（143 赞、4 转发、30 回复）。feed 里没有这个 80% 的第二信源。</p>
+<div class="urls">
+<a href="https://x.com/danshipper/status/2122091033001337134" target="_blank">https://x.com/danshipper/status/2122091033001337134</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aditya Agarwal</span>
+<span class="builder-role">General Partner, SPC</span>
+</div>
+<p class="summary-en">Aditya Agarwal, general partner at SPC, co-founder of Bevel Health and formerly CTO at Dropbox, shares an image from one of SPC&#39;s aerospace companies in India: &#39;The journey to the stars starts with a single plane on a remote runway on an early Sunday morning. Ad Astra.&#39; (114 likes, 13 reposts, 5 replies). It carries no AI argument and no product link; the post&#39;s link is kept as given.</p>
+<p class="summary-zh zh">SPC 普通合伙人、Bevel Health 联合创始人、前 Dropbox CTO Aditya Agarwal 分享了 SPC 在印度的一家航空航天公司发来的图：「通往星辰的旅程，从某个周日清晨、偏远跑道上的一架飞机开始。Ad Astra.」（114 赞、13 转发、5 回复）。这条没有 AI 相关论点，也没有产品链接；帖子里的链接照留。</p>
+<div class="urls">
+<a href="https://x.com/adityaag/status/2122003237335343457" target="_blank">https://x.com/adityaag/status/2122003237335343457</a>
+</div>
+</article>
+</section>
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128161;</span>
+<h2 class="section-title">The Takeaway</h2>
+<span class="section-meta">No Podcast Today &middot; 2026-11-17</span>
+</div>
+<div class="takeaway">
+<div class="takeaway-label">The Takeaway</div>
+<p>Engagement concentrates on a single line. Thibault Sottiaux&#39;s note that the Codex team may have fixed the &#39;model at capacity&#39; errors leads likes (2,500), reposts (84) and replies (795), and is the only post above 1,000 likes. None passes 10,000 likes, none passes 100 reposts, and two pass 100 replies (795 and 110). Window totals: 6,118 likes, 196 reposts, 1,219 replies.</p>
+<p>The most-liked post is a one-line product-status note with a link and no number of its own. The most detailed technical post is Guillermo Rauch&#39;s 𝚡𝚎𝚎𝚝 launch (629 likes, 27 reposts, 81 replies): a Rust/wasm X-post renderer that outputs PNG in about 1ms without a browser, reproducing Blink and HarfBuzz shaping, 28 Chirp font subsets and &#39;Show more&#39; rules, structured as an &#39;autorepo&#39; verified by an oracle booting Chrome. Rauch used &#39;verification engineering&#39; in the 10-03 and 10-05 issues; the phrase appears here again as the design principle behind 𝚡𝚎𝚎𝚝. The &#39;model at capacity&#39; phrase also has one prior hit, in the 06-18 issue, recorded then as a Codex high-error-rate episode fixed rapidly. Neither earlier mention is treated as the same incident as today&#39;s post; the feed does not say so.</p>
+<p>Other concrete items are short on verification. Peter Yang quotes two passages from an Anthropic designer on the Claude Design prompt (naming fonts and colors Claude over-uses) and on the building cycle compressing from weeks to one or two days while the cycle of putting things in people&#39;s hands has not. Dan Shipper describes &#39;compounding skills&#39; and a context-window-summary skill iterated with autoresearch to 80% of his taste against a no-skill baseline. Nikunj Kothari posts a dated RL session with a named format and rules. None has a second source in the feed.</p>
+<p>Much of the window is thin. Thariq&#39;s &#39;a new arena and two new characters&#39; is second in likes (956) with no explanation in the text. Amjad Masad&#39;s two quote posts (&#39;It&#39;s been an interesting 48 hours.&#39; at 491 likes and &#39;Good summary.&#39; at 336) and Zara Zhang&#39;s two one-liners carry no argument. Swyx&#39;s three posts, two of them about a &#39;clanker&#39; writing up a talk, total 12 likes. Nan Yu asks a home-automation question and comments on a Waymo; Aditya Agarwal posts a plane-photo line unrelated to AI. One of Peter Yang&#39;s three posts is a current-affairs link with no AI argument; its link is kept and nothing is added to it.</p>
+<p>The Podcast slot is 0 and the Blog slot is 0, with different causes. The podcasts array is not empty: it holds the No Priors episode with Robinhood CEO Vlad Tenev, identical in title, publishedAt and channel URL to the 11-09 issue, where it was the Podcast item, so it is deduplicated and listed under Already Covered. This is the second consecutive issue with a deduplicated podcast (the 11-16 issue repeated the 11-07 episode), but the episode here repeats 11-09, not 11-07. The blogs array is empty for the twenty-third consecutive issue. Neither zero means the feed failed to refresh.</p>
+<p>Quote structure and coverage: 9 of the 19 posts are quote posts, pointing at 8 distinct IDs, all outside this feed, with no self-quotes and one pair sharing a target (Peter Yang&#39;s two excerpts quote the same ID). All 19 posts fall on Pacific 11-15, from 08:26:11 to 21:55:49, a 13h29m38s window closing 46m26s before the snapshot; the gap from the previous issue&#39;s close is 10h24m57s. Pacific 10-29 and 10-30 remain missing from the series.</p>
+<p>11 accounts have posts; 6 are on the 24-name tracking list (Swyx, Peter Yang, Amjad Masad, Guillermo Rauch, Nikunj Kothari, Aditya Agarwal) and 5 are not (Thibault Sottiaux, Nan Yu, Thariq, Zara Zhang, Dan Shipper). Sam Altman does not appear for the twelfth consecutive issue.</p>
+</div>
+<div class="takeaway zh">
+<div class="takeaway-label">核心结论</div>
+<p>互动集中在一条上。Thibault Sottiaux 那句「Codex 团队可能修好了『model at capacity』报错」拿赞数（2,500）、转发（84）、回复（795）三项第一，也是唯一破千赞的一条。破万赞 0 条、转发过百 0 条、回复过百 2 条（795 和 110）。全窗口合计 6,118 赞、196 转发、1,219 回复。</p>
+<p>赞数最高的是一句带链接、自己不带数字的产品状态说明。技术细节最完整的是 Guillermo Rauch 发布 𝚡𝚎𝚎𝚝（629 赞、27 转发、81 回复）：一个 Rust/wasm 的 X 帖子渲染器，不开浏览器约 1ms 出 PNG，复现 Blink 与 HarfBuzz 整形、28 个 Chirp 字体子集和「Show more」规则，做成「autorepo」，由启动 Chrome 的 oracle 来验证。Rauch 在 10-03、10-05 两期提过「verification engineering」，本期这个词又出现，作为 𝚡𝚎𝚎𝚝 的设计原则。「model at capacity」也有一处旧命中，在 06-18 期，当时记录为 Codex 高错误率、团队快速修复。两处旧说法都不当作与本期同一事件，feed 没有这么说。</p>
+<p>其余具体条目大多没有第二信源。Peter Yang 引了两段 Anthropic 设计师的访谈，一段讲 Claude Design 的 prompt 点名 Claude 过度偏好的字体和颜色，一段讲构建周期从几周压到一两天、但把东西放到人手里看会不会用的周期没压缩。Dan Shipper 讲「compounding skills」，以及一个用 autoresearch 迭代到「达到我口味 80%」的 context window summaries skill，对比无 skill 基线。Nikunj Kothari 发了一条有日期、有固定形式的 RL 活动。feed 里都没有第二信源。</p>
+<p>窗口里薄内容不少。Thariq 的「a new arena and two new characters」赞数第二（956），文字里没解释是什么。Amjad Masad 两条引用（「It&#39;s been an interesting 48 hours.」491 赞、「Good summary.」336 赞）和 Zara Zhang 两句话都没有展开观点。Swyx 三条里有两条在说「clanker」把 talk 写了出来，三条合计 12 赞。Nan Yu 问家庭自动化、顺带评了一句 Waymo；Aditya Agarwal 发了一条与 AI 无关的飞机图配文。Peter Yang 三条里有一条是时事链接帖、文字里没有 AI 论点；链接照留，不补内容。</p>
+<p>Podcast 是 0，Blog 也是 0，成因不同。podcasts 数组并不为空，装的是 No Priors 那集 Robinhood CEO Vlad Tenev，标题、publishedAt、频道链接都与 11-09 期一致，那一期它正是 Podcast 主角，按去重规则剔除，只在「已收录」里列出。这是连续第二期播客判重（11-16 期重复的是 11-07 那集），但本期重复的是 11-09，不是 11-07。blogs 数组连续第二十三期为空。两个 0 都不意味着 feed 没刷新。</p>
+<p>引用结构与覆盖：19 条里有 9 条引用推文，指向 8 个不同 ID，全部在 feed 之外，没有自引，有一组两条指向同一目标（Peter Yang 两段节选引同一个 ID）。19 条全部落在太平洋 11-15，08:26:11 到 21:55:49，窗口 13h29m38s，在快照前 46m26s 收口；距上一期收口 10h24m57s。太平洋 10-29、10-30 在本系列仍缺失。</p>
+<p>有内容的账号 11 个，其中 6 位在 24 位追踪名单上（Swyx、Peter Yang、Amjad Masad、Guillermo Rauch、Nikunj Kothari、Aditya Agarwal），5 位不在（Thibault Sottiaux、Nan Yu、Thariq、Zara Zhang、Dan Shipper）。Sam Altman 连续第十二期未出现。</p>
+</div>
+</section>
+<!-- ============== ALREADY COVERED ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128257;</span>
+<h2 class="section-title">&#24050;&#25910;&#24405; / Already Covered</h2>
+<span class="section-meta">1 Item &middot; Deduped</span>
+</div>
+<div class="dedup">
+<p>No Priors &middot; &ldquo;Tokenization, Agentic Trading, Harmonic: Robinhood&rsquo;s Mission to Expand Ownership with CEO Vlad Tenev&rdquo; &middot; publishedAt 2026-11-05T11:00:00Z (Pacific 11-05 03:00:00). Already covered as the Podcast item in the <a href="https://clean-online.github.io/ai-digest/2026/11/09/AI_Builders_Digest_2026-11-09.html">2026-11-09 issue</a>. Judged the same episode on four things: the identical title, the identical publication timestamp, the identical channel URL <a href="https://www.youtube.com/@NoPriorsPodcast">https://www.youtube.com/@NoPriorsPodcast</a>, and the same transcript anchors (Vlad Tenev introduced as Robinhood&rsquo;s founder and CEO, agentic trading accounts, Harmonic, prediction markets). The feed brings nothing the 11-09 issue did not already have: both issues have only the No Priors channel page and no specific video URL, so there is no link to backfill. The episode is 245h26m11s before the first post, 258h55m49s before the last and 259h42m15s before the snapshot, entirely outside the window. The 11-09 episode had not reappeared in the six windows from 11-10 to 11-15; the 11-16 issue repeated a different episode (from 11-07). The episode is listed here but not counted in the Podcast stat.</p>
+<p class="zh">No Priors &middot;《Tokenization, Agentic Trading, Harmonic: Robinhood&rsquo;s Mission to Expand Ownership with CEO Vlad Tenev》&middot; 发布时间 2026-11-05T11:00:00Z（太平洋 11-05 03:00:00）。已在 <a href="https://clean-online.github.io/ai-digest/2026/11/09/AI_Builders_Digest_2026-11-09.html">2026-11-09 那期</a>作为 Podcast 收录。判为同一集靠四件事：标题完全一致、发布时间戳一致、频道链接一致 <a href="https://www.youtube.com/@NoPriorsPodcast">https://www.youtube.com/@NoPriorsPodcast</a>、转写锚点一致（Vlad Tenev 被介绍为 Robinhood 创始人兼 CEO、agentic trading 账户、Harmonic、prediction markets）。今天这期 feed 没有带来 11-09 那期没有的东西：两期都只有 No Priors 频道页、没有具体视频地址，所以没有需要补记的链接。这一集比首条推文早 245h26m11s、比末条早 258h55m49s、比快照早 259h42m15s，完全在窗口之外。11-09 这集在 11-10 到 11-15 六个窗口里没有再出现；11-16 期重复的是另一集（11-07 那集）。这一集只在此列出，不计入 Podcast 统计。</p>
+</div>
+</section>
+<!-- ============== NOTES ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128221;</span>
+<h2 class="section-title">记录 / Notes &amp; Dedup</h2>
+<span class="section-meta">19 Zero &middot; 1 Deduped &middot; 0 Blog</span>
+</div>
+<div class="dedup">
+<p style="margin-top:12px">
+<strong>Tweet check</strong> &mdash; All 19 tweet IDs have zero hits across the 128 historical digest HTML files under 2026/ (excluding the 11/17 output directory). No duplicate posts from earlier issues.</p>
+<p style="margin-top:12px">
+<strong>Podcast check</strong> &mdash; The slot is 0 by dedup, not by an empty array. The single episode is No Priors with Vlad Tenev, publishedAt 2026-11-05T11:00:00Z (Pacific 11-05 03:00:00), 245h26m11s before the first post, 258h55m49s before the last and 259h42m15s before the snapshot. Its full title, publishedAt and channel URL all match the 11-09 issue, where it was the Podcast item; the transcript anchors (Vlad Tenev, Robinhood CEO, agentic trading, Harmonic, prediction markets) match too. The episode is listed under Already Covered and not counted. Both issues have only the No Priors channel page, so there is no specific video URL to backfill. The six windows from 11-10 to 11-15 carried six different episodes; the 11-16 issue repeated the 11-07 episode.</p>
+<p style="margin-top:12px">
+<strong>Blog check</strong> &mdash; The slot is 0 because the blogs array is empty for the twenty-third consecutive issue; no blog entry is created. This zero has a different cause from the Podcast zero.</p>
+<p style="margin-top:12px">
+<strong>Transcript</strong> &mdash; 48,817 characters over 383 lines, with Speaker 1/2 labels and timestamps. The opening is a cold-open edit that stitches together lines from later in the conversation: prediction markets as an evolution of news, agentic trading accounts, an introduction of Vlad Tenev as Robinhood&#39;s founder and CEO, and Harmonic as a math superintelligence effort. Because the episode is deduplicated, no podcast card is rendered and the transcript is used only to confirm it is the same recording.</p>
+<p style="margin-top:12px">
+<strong>Same names</strong> &mdash; Whole-word zero-hit strings in this window: xeet, autorepo, hog, HarfBuzz, Chirp, compounding skills, autoresearch, nateparrott, coreauto, Ad Astra, clanker, Show more. Prior hits are not called firsts: verification engineering (3), model at capacity (1), Codex, Claude Design, Waymo, LinkedIn and hammer_mt all appear in older issues. A plain substring count for &#39;hog&#39; returns 1, but that hit is inside &#39;acqui-hired&#39; in the 10-10 issue; the whole-word count is 0, so it is not treated as an earlier use of the CLI name. The &#39;model at capacity&#39; phrase has one prior hit (06-18) and &#39;verification engineering&#39; three (10-03, 10-05); both are recorded as earlier appearances only, not as the same incident or claim as today&#39;s post.</p>
+<p style="margin-top:12px">
+<strong>Thin posts</strong> &mdash; 13 of the 19 posts are short link posts or one-liners without an argument in the text: Swyx&#39;s two &#39;clanker&#39; links and &#39;apparently it is pretty normal&#39;, Thariq&#39;s &#39;a new arena and two new characters&#39;, Amjad Masad&#39;s &#39;interesting 48 hours&#39; and &#39;Good summary&#39;, Zara Zhang&#39;s LinkedIn/X line and store line, Nan Yu&#39;s Waymo line, Aditya Agarwal&#39;s plane-photo line, and Peter Yang&#39;s current-affairs link. Their links are kept; no event name, position or subject is added for them, and the current-affairs link is not expanded.</p>
+<p style="margin-top:12px">
+<strong>Coverage</strong> &mdash; Three timestamps: snapshot 2026-11-16T06:42:15.797Z (Pacific 11-15 22:42:15), first post Pacific 11-15 08:26:11, last post Pacific 11-15 21:55:49. Window 13h29m38s, closing 46m26s before the snapshot; 10h24m57s after the previous issue&#39;s close (Pacific 11-14 22:01:14); previous snapshot was 24h15m24s earlier. All 19 posts fall on Pacific 11-15; Pacific 10-29 and 10-30 remain missing from the series.</p>
+<p style="margin-top:12px">
+<strong>Engagement fields</strong> &mdash; Likes, reposts and replies are taken as-is from the feed. This window&#39;s tweet objects have no quotes field, so only the three present fields are used. One post passes 1,000 likes, none pass 10,000, none pass 100 reposts, two pass 100 replies; totals are 6,118 / 196 / 1,219. Every rank statement is checked against the full-window sorted list.</p>
+<p style="margin-top:12px">
+<strong>Not resolved</strong> &mdash; An independent report or NVIDIA board statement on Stand with Jensen; what Guillermo Rauch&#39;s earlier &#39;Co-sign&#39; link pointed to; second sources for the Gemini Wallet feature, @uisdk, the 14 UI SDK behaviors, the 2.80x Fable 5.2 cost and the Visa partnership; a specific video URL for the 11-09 episode; specs for durable-harness; the AI 100 list; whether the Codex &#39;model at capacity&#39; fix is the incident recorded on 06-18; a second source for 𝚡𝚎𝚎𝚝&#39;s 1ms / 100x-1000x figures and Dan Shipper&#39;s 80% figure; what Thariq&#39;s arena and characters belong to; what the &#39;interesting 48 hours&#39; refers to; and the standing items carried from earlier issues (Day 29 / 3/x, dot, jev, Particle-1, HackerTube, Grok Bot, Legora, the data-market figure, Claude Whiteboards, Box interop, interactive connectors, the AIE keynote and MCP tool counts).</p>
+</div>
+<div class="dedup zh" style="margin-top:14px">
+<p style="margin-top:12px">
+<strong>推文核对</strong> &mdash; 19 个推文 ID 对 2026/ 下 128 个历史 HTML 零命中（排除 11/17 输出目录），没有和往期重复的推文。</p>
+<p style="margin-top:12px">
+<strong>播客核对</strong> &mdash; 这一格是 0，成因是判重，不是数组为空。唯一一集是 No Priors 的 Vlad Tenev，publishedAt 为 2026-11-05T11:00:00Z（太平洋 11-05 03:00:00），比首条推文早 245h26m11s、比末条早 258h55m49s、比快照早 259h42m15s。完整标题、publishedAt、频道链接都与 11-09 期一致，那一期它正是 Podcast 主角；转写锚点（Vlad Tenev、Robinhood CEO、agentic trading、Harmonic、prediction markets）也一致。这一集只在「已收录」里列出，不计入统计。两期都只有 No Priors 频道页，没有具体视频地址可补记。11-10 到 11-15 六个窗口各收录了一集不同的节目；11-16 期重复的是 11-07 那集。</p>
+<p style="margin-top:12px">
+<strong>博客核对</strong> &mdash; 这一格是 0，因为 blogs 数组连续第二十三期为空，不生成博客条目。这个 0 与 Podcast 的 0 成因不同。</p>
+<p style="margin-top:12px">
+<strong>转写</strong> &mdash; 48,817 字符、383 行，带 Speaker 1/2 标签与时间戳。开头是 cold open 剪辑，把后面对话里的几句拼在一起：prediction markets 是新闻的演化、agentic trading 账户、把 Vlad Tenev 介绍为 Robinhood 创始人兼 CEO、Harmonic 是做数学超级智能的项目。因为这一集被判重，本期不渲染播客卡，转写只用来确认是同一段录音。</p>
+<p style="margin-top:12px">
+<strong>同名</strong> &mdash; 本期整词零命中的具体字符串：xeet、autorepo、hog、HarfBuzz、Chirp、compounding skills、autoresearch、nateparrott、coreauto、Ad Astra、clanker、Show more。有旧命中的不写「首次」：verification engineering（3）、model at capacity（1）、Codex、Claude Design、Waymo、LinkedIn、hammer_mt 都在此前页面出现过。「hog」按普通子串数会命中 1 次，但那次在 10-10 期的「acqui-hired」里，整词数为 0，所以不算作 CLI 名字的旧用法。「model at capacity」有一处旧命中（06-18）、「verification engineering」有三处（10-03、10-05）；都只记为更早出现过，不指认为与本期同一事件或同一主张。</p>
+<p style="margin-top:12px">
+<strong>薄内容</strong> &mdash; 19 条里有 13 条是短链接帖或一句话、文字里没有展开观点：Swyx 的两条「clanker」链接和「apparently it is pretty normal」、Thariq 的「a new arena and two new characters」、Amjad Masad 的「interesting 48 hours」与「Good summary」、Zara Zhang 的 LinkedIn/X 与店铺两条、Nan Yu 的 Waymo 那句、Aditya Agarwal 的飞机图配文，以及 Peter Yang 那条时事链接。链接照留，不替它们补活动名、立场或主题；时事链接不展开。</p>
+<p style="margin-top:12px">
+<strong>覆盖</strong> &mdash; 三个时间戳：快照 2026-11-16T06:42:15.797Z（太平洋 11-15 22:42:15）、首条太平洋 11-15 08:26:11、末条太平洋 11-15 21:55:49。窗口 13h29m38s，在快照前 46m26s 收口；距上一期收口（太平洋 11-14 22:01:14）10h24m57s；上一份快照相隔 24h15m24s。19 条全在太平洋 11-15；太平洋 10-29、10-30 在本系列仍缺失。</p>
+<p style="margin-top:12px">
+<strong>互动字段</strong> &mdash; likes、reposts、replies 按 feed 原值取。本期 tweet 对象没有 quotes 字段，只使用存在的三个字段。破千赞 1 条、破万赞 0 条、转发过百 0 条、回复过百 2 条；合计 6,118 / 196 / 1,219。所有名次说法都按全窗口排序逐条回查。</p>
+<p style="margin-top:12px">
+<strong>未闭环</strong> &mdash; Stand with Jensen 会不会有独立报道或 NVIDIA 董事会声明；Guillermo Rauch 早前「Co-sign」链接指向什么；Gemini Wallet 功能、@uisdk、14 个 UI SDK behaviors、Fable 5.2 的 2.80 倍成本与 Visa 合作的第二信源；11-09 那集的具体视频地址；durable-harness 的规格；AI 100 名单；本期 Codex「model at capacity」修复是不是 06-18 记录的那次；𝚡𝚎𝚎𝚝 的 1ms / 100 到 1000 倍与 Dan Shipper 的 80% 有没有第二信源；Thariq 的 arena 和角色属于什么；「interesting 48 hours」指什么；以及从往期带来的长期项（Day 29 / 3/x、dot、jev、Particle-1、HackerTube、Grok Bot、Legora、数据市场规模、Claude Whiteboards、Box 互通、interactive connectors、AIE keynote、MCP 工具数）。</p>
+</div>
+</section>
+<footer class="footer">
+<div class="next-issue">&#128236; &#19979;&#19968;&#26399;&#65306;&#26126;&#22825; 10:00&#65288;&#21271;&#20140;&#26102;&#38388;&#65289;</div>
+<div class="signature">by chloevchen</div>
+</footer>
+</body>
+</html>
+<!-- by chloevchen -->
