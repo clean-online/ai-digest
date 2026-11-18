@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Builders Digest &middot; 2026-11-18</title>
+<style>
+
+
+
+
+
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 28px 30px; margin-bottom: 24px; }
+  .podcast-source { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
+  .podcast-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; margin-bottom: 18px; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; }
+
+
+</style>
+</head>
+<body id="top">
+<header class="topbar">
+<div class="topbar-inner">
+<a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders &middot; AI Builders Digest</a>
+<span>双语 &middot; Bilingual</span>
+</div>
+</header>
+<section class="header">
+<div class="eyebrow">Daily Digest &middot; 2026-11-18</div>
+<h1>AI Builders Digest</h1>
+</section>
+<div class="stats">
+<div class="stat">
+<div class="stat-num">14</div>
+<div class="stat-label">Builders</div>
+</div>
+<div class="stat">
+<div class="stat-num">29</div>
+<div class="stat-label">Tweets</div>
+</div>
+<div class="stat">
+<div class="stat-num">0</div>
+<div class="stat-label">Podcast</div>
+</div>
+<div class="stat">
+<div class="stat-num">0</div>
+<div class="stat-label">Blog</div>
+</div>
+</div>
+<p class="note-line">Fourteen builders, 29 posts, all on Pacific 11-16. Thariq&#39;s two posts one second apart take all three engagement leads: &#39;software factories feel like a temporary problem&#39; draws 4,841 likes, 200 reposts and 374 replies, and his game-character example draws 1,329 likes. Guillermo Rauch&#39;s three posts and Aaron Levie&#39;s long token-spend argument carry the window&#39;s product reasoning. The Podcast slot is 0 because its single episode is a repeat of the 11-10 issue; the Blog slot is 0 because the blogs array is empty. The two zeros have different causes.</p>
+<p class="note-line zh">14 位 builder、29 条推文，全部落在太平洋 11-16。Thariq 相隔 1 秒的两条包揽三项互动第一：「software factories feel like a temporary problem」拿到 4,841 赞、200 转发、374 回复，另一条游戏角色示例 1,329 赞。Guillermo Rauch 的三条和 Aaron Levie 关于 token 花费的长论证，是本期最有产品推理的分量。Podcast 这一格是 0，因为唯一一集是 11-10 期的重复；Blog 这一格是 0，因为 blogs 数组为空。两个 0 的成因不同。</p>
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128036;</span>
+<h2 class="section-title">X / Twitter</h2>
+<span class="section-meta">14 Builders &middot; 29 Tweets</span>
+</div>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Swyx</span>
+<span class="builder-role">smol_ai, Cognition, Latent Space</span>
+</div>
+<p class="summary-en">Swyx, whose bio lists smol_ai, Cognition, Temporal, AI Engineer and Latent Space, has three short posts. A quote post says only &#39;together deleted megkernels&#39; with a link (1 like, 0 reposts, 0 replies). &#39;women are destroying the men, wtf is happening rn&#39; carries a link (7 likes, 2 replies). &#39;gmail has no gcal search despite cal is sent via gmail&#39; also carries a link (0 likes, 3 replies). The feed has no text for any linked target, so no subject is added to them.</p>
+<p class="summary-zh zh">Swyx 的 bio 列了 smol_ai、Cognition、Temporal、AI Engineer 和 Latent Space，本期三条短帖。一条引用推文只写了「together deleted megkernels」加一个链接（1 赞、0 转发、0 回复）。「women are destroying the men, wtf is happening rn」带一个链接（7 赞、2 回复）。「gmail has no gcal search despite cal is sent via gmail」也带一个链接（0 赞、3 回复）。feed 没有收录这些链接目标的内容，这里不替它们补主题。</p>
+<div class="urls">
+<a href="https://x.com/swyx/status/2122427240441131203" target="_blank">https://x.com/swyx/status/2122427240441131203</a>
+<a href="https://x.com/swyx/status/2122512082835067151" target="_blank">https://x.com/swyx/status/2122512082835067151</a>
+<a href="https://x.com/swyx/status/2122566522094915765" target="_blank">https://x.com/swyx/status/2122566522094915765</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Josh Woodward</span>
+<span class="builder-role">VP, Google Labs &amp; Gemini</span>
+</div>
+<p class="summary-en">Josh Woodward, VP at Google for Google Labs, the Gemini app and AI Studio, posts &#39;Welcome! Welcome!&#39; as a quote of the Google Labs post below (112 likes, 4 reposts, 7 replies). His other post turns sources into interactive sites with @Gemini_Notebook, with a periodic table made as an example, and says these are easy to make and easy to share (294 likes, 29 reposts, 18 replies). The feed has no second source for the feature.</p>
+<p class="summary-zh zh">Josh Woodward 在 Google 负责 Google Labs、Gemini app 与 AI Studio，VP。他发「Welcome! Welcome!」，引用的正是本期下面那条 Google Labs 的帖子（112 赞、4 转发、7 回复）。另一条讲用 @Gemini_Notebook 把资料变成可交互的站点，举了个元素周期表的例子，说这种站点好做也好分享（294 赞、29 转发、18 回复）。feed 里没有这个功能之外的第二信源。</p>
+<div class="urls">
+<a href="https://x.com/joshwoodward/status/2122453269842886788" target="_blank">https://x.com/joshwoodward/status/2122453269842886788</a>
+<a href="https://x.com/joshwoodward/status/2122514247045496978" target="_blank">https://x.com/joshwoodward/status/2122514247045496978</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Yang</span>
+<span class="builder-role">Practical AI tutorials</span>
+</div>
+<p class="summary-en">Peter Yang, who writes practical AI tutorials, posts five takeaways from @nateparrott on getting Claude to design without AI slop: give Claude context upfront with screenshots and past work, research familiar UX patterns for hard layout problems, write the model&#39;s biases (serif text, off-white backgrounds, card-edge bars) into design.md, start with wireframes, and ask for five options then remix them. The post links to a full episode and a written version (138 likes, 12 reposts, 43 replies). The name @nateparrott and the Claude Design topic both appeared in the 11-17 issue; the feed does not say whether this is the same interview. His other post is a quote saying &#39;This is like AI slop it literally says nothing? Did Megaspeed violate laws or not?&#39; (13 likes, 4 replies); the feed has no text for the linked target.</p>
+<p class="summary-zh zh">写实用 AI 教程的 Peter Yang 发了 @nateparrott 的五条 takeaways，讲怎么让 Claude 做设计不带 AI slop：先把截图、喜欢的页面和过往作品作为上下文给 Claude；难做的布局让 Claude 去研究人已经熟悉的同类产品；把模型自己的偏好（衬线字、米白底、卡片边缘的条）写进 design.md；先做 wireframes；关键页面让它给 5 个方案再挑着 remix。帖子附了完整视频和文字版两个链接（138 赞、12 转发、43 回复）。@nateparrott 这个名字和 Claude Design 这个话题在 11-17 期都出现过，但 feed 没说是不是同一场访谈。另一条是引用推文：「This is like AI slop it literally says nothing? Did Megaspeed violate laws or not?」（13 赞、4 回复），被引用目标 feed 没有收录。</p>
+<div class="urls">
+<a href="https://x.com/petergyang/status/2122347721298510021" target="_blank">https://x.com/petergyang/status/2122347721298510021</a>
+<a href="https://x.com/petergyang/status/2122558387162652701" target="_blank">https://x.com/petergyang/status/2122558387162652701</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nan Yu</span>
+<span class="builder-role">Product, Codex at OpenAI</span>
+</div>
+<p class="summary-en">Nan Yu, on product for Codex at OpenAI and previously head of product at Linear, posts &#39;look, a sane person&#39; as a quote of Thariq&#39;s software-factories post below (310 likes, 4 reposts, 4 replies). &#39;Be like jori&#39; is another quote post (40 likes, 1 reply). Both are one-line reactions; the feed has no text for the second target.</p>
+<p class="summary-zh zh">Nan Yu 在 OpenAI 做 Codex 产品，此前是 Linear 的产品负责人。他发「look, a sane person」，引用的正是本期下面 Thariq 那条 software factories 的帖子（310 赞、4 转发、4 回复）。「Be like jori」是另一条引用推文（40 赞、1 回复）。两条都是一句话反应，第二个被引用目标 feed 没有收录。</p>
+<div class="urls">
+<a href="https://x.com/thenanyu/status/2122371754731708883" target="_blank">https://x.com/thenanyu/status/2122371754731708883</a>
+<a href="https://x.com/thenanyu/status/2122438864791110126" target="_blank">https://x.com/thenanyu/status/2122438864791110126</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thariq</span>
+<span class="builder-role">formerly Claude Code, Anthropic</span>
+</div>
+<p class="summary-en">Thariq, formerly on Claude Code at Anthropic, posts two tweets one second apart. The first says software factories feel like a temporary problem because the models will learn to build them for you, and that the more interesting question is how to build a workspace where agents can collaborate with you (4,841 likes, 200 reposts, 374 replies). It leads all three engagement fields and is the only post above 4,000 likes. The second shows him working with agents on a new character for his game (1,329 likes, 34 reposts, 69 replies), fourth in likes. Nan Yu quotes the first post with &#39;look, a sane person&#39; in this same feed.</p>
+<p class="summary-zh zh">Thariq 此前在 Anthropic 做 Claude Code，本期两条相隔 1 秒。第一条说 software factories 像是个暂时的问题，因为模型会学会替你搭；更有意思的问题是怎么做一个能让 agent 和你一起协作的 workspace（4,841 赞、200 转发、374 回复）。这条包揽三项互动第一，也是全窗口唯一破 4,000 赞的。第二条是他用 agent 给自己的游戏做一个新角色的示例（1,329 赞、34 转发、69 回复），赞数第四。Nan Yu 在本期 feed 里引用了第一条，配文「look, a sane person」。</p>
+<div class="urls">
+<a href="https://x.com/trq212/status/2122438326431154210" target="_blank">https://x.com/trq212/status/2122438326431154210</a>
+<a href="https://x.com/trq212/status/2122438328079524159" target="_blank">https://x.com/trq212/status/2122438328079524159</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Google Labs</span>
+<span class="builder-role">Google&#39;s AI tools and experiments</span>
+</div>
+<p class="summary-en">Google Labs, whose bio describes it as Google&#39;s home for the latest AI tools and experiments, welcomes Howie to Google Labs, saying the @Howie_ai team has spent years on scheduling and calendar management and that they will build intuitive AI tools for small businesses together (502 likes, 38 reposts, 15 replies). The post is a quote; the feed has no text for its linked target. Josh Woodward quotes this post with &#39;Welcome! Welcome!&#39; in this same feed.</p>
+<p class="summary-zh zh">Google Labs 的 bio 写的是 Google 展示最新 AI 工具与实验的地方。它发帖欢迎 Howie 加入，说 @Howie_ai 团队多年一直在做日程与日历管理，接下来要一起为小企业做更顺手的 AI 工具（502 赞、38 转发、15 回复）。这条是引用推文，被引用目标 feed 没有收录。Josh Woodward 在本期 feed 里用「Welcome! Welcome!」引用了这条。</p>
+<div class="urls">
+<a href="https://x.com/GoogleLabs/status/2122461899178820069" target="_blank">https://x.com/GoogleLabs/status/2122461899178820069</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Amjad Masad</span>
+<span class="builder-role">CEO, Replit</span>
+</div>
+<p class="summary-en">Replit CEO Amjad Masad posts two quote tweets. &#39;Deranged cult&#39; with a link draws 3,212 likes, 149 reposts and 62 replies, third in likes and second in reposts; a flexed-biceps emoji with a link draws 85 likes, 5 reposts and 10 replies. Neither target is in the feed, so no subject is attributed to either.</p>
+<p class="summary-zh zh">Replit CEO Amjad Masad 发了两条引用推文。「Deranged cult」加一个链接，3,212 赞、149 转发、62 回复，赞数第三、转发第二；一个 flexed-biceps emoji 加链接，85 赞、5 转发、10 回复。两个被引用目标都不在 feed 里，这里不替它们补主题。</p>
+<div class="urls">
+<a href="https://x.com/amasad/status/2122422367557464548" target="_blank">https://x.com/amasad/status/2122422367557464548</a>
+<a href="https://x.com/amasad/status/2122463916114813249" target="_blank">https://x.com/amasad/status/2122463916114813249</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Guillermo Rauch</span>
+<span class="builder-role">CEO, Vercel</span>
+</div>
+<p class="summary-en">Vercel CEO Guillermo Rauch posts three quote tweets. &#39;A new era of software is upon us. Personalized, fully owned, open source. And higher quality than what it replaces.&#39; draws 3,933 likes, 142 reposts and 141 replies, second in likes and third in both reposts and replies. &#39;The old way: users are human, you run user interviews... The new way: users are agents, you run evals, evals inform the software engineering loop.&#39; links to a read on how Vercel does evals (585 likes, 23 reposts, 89 replies). &#39;Own your intelligence roadmap&#39; lists four steps: open SDKs and harnesses, model choice with Gateways, owning traces and data with ZDR, and private inference (273 likes, 10 reposts, 60 replies). All three are quote posts; the feed has no text for their targets and no second source for the evals writeup.</p>
+<p class="summary-zh zh">Vercel CEO Guillermo Rauch 发了三条引用推文。「A new era of software is upon us. Personalized, fully owned, open source. And higher quality than what it replaces.」拿到 3,933 赞、142 转发、141 回复，赞数第二，转发和回复都是第三。「The old way: users are human, you run user interviews... The new way: users are agents, you run evals, evals inform the software engineering loop.」附了 Vercel 怎么做 evals 的阅读链接（585 赞、23 转发、89 回复）。「Own your intelligence roadmap」列了四步：用开放的 SDK 和 harnesses、用 Gateways 自己掌握模型选择、自己掌握 traces 和数据并落实 ZDR、用私有推理掌握自己的模型（273 赞、10 转发、60 回复）。三条都是引用推文，被引用内容 feed 没有收录，evals 那篇也没有第二信源。</p>
+<div class="urls">
+<a href="https://x.com/rauchg/status/2122396034186014919" target="_blank">https://x.com/rauchg/status/2122396034186014919</a>
+<a href="https://x.com/rauchg/status/2122415506451841215" target="_blank">https://x.com/rauchg/status/2122415506451841215</a>
+<a href="https://x.com/rauchg/status/2122458782294847807" target="_blank">https://x.com/rauchg/status/2122458782294847807</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aaron Levie</span>
+<span class="builder-role">CEO, Box</span>
+</div>
+<p class="summary-en">Box CEO Aaron Levie writes the window&#39;s longest argument (192 likes, 18 reposts, 57 replies): the chart of token spend per employee has no ceiling in sight; this summer and fall&#39;s model releases kept pushing the state of the art; for most productive uses the models are only now starting to work; coding was &#39;basically trash&#39; even 12 months ago; tool and computer use now open finance, life sciences and cyber to agents; and agent swarms and background agents will consume vastly more tokens, so &#39;tokens are only going up from here&#39;. The post is a quote; the feed has no text for its target and no second source for the claims.</p>
+<p class="summary-zh zh">Box CEO Aaron Levie 写了本期窗口里最长的一段论证（192 赞、18 转发、57 回复）：人均 token 花费的曲线还看不到顶；今夏今秋的模型发布一直在把上限往前推；对多数生产性用途来说，模型到最近才开始真正能用；回看 12 个月前，coding 基本还是「trash」；现在 coding 真能用了，工具使用和 computer use 又把金融、生命科学、网络安全这些领域开放给 agent；接下来 agent swarms 和后台 agent 会吃掉远超想象的 token，所以「tokens are only going up from here」。这条是引用推文，被引用目标 feed 没有收录，这些说法也没有第二信源。</p>
+<div class="urls">
+<a href="https://x.com/levie/status/2122508098351038532" target="_blank">https://x.com/levie/status/2122508098351038532</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Garry Tan</span>
+<span class="builder-role">President &amp; CEO, Y Combinator</span>
+</div>
+<p class="summary-en">Garry Tan, president and CEO of Y Combinator, posts three items about GBrain. A &#39;fun project for GBrain coming in the next few weeks&#39; uses Vorflux as his software factory: a GBrain backend engine written in Rust to replace postgres+pgvector or pglite as the backing store for vector search, graph search, embeddings, RAG and HNSW (12 likes, 2 replies). GBrain&#39;s Hosted option supports individual employee brains rolling up into team brains and then a company brain, with &#39;memory works the way you want it to&#39; (317 likes, 18 reposts, 51 replies). A third quote post says true drone autonomy is now here on top of almost any other flight platform, with Degla already working with mission-critical government agencies on search and rescue (93 likes, 4 reposts, 26 replies). The feed has no second source for any of the three.</p>
+<p class="summary-zh zh">Y Combinator 总裁兼 CEO Garry Tan 发了三条和 GBrain 有关的帖子。「未来几周 GBrain 有个好玩的项目」：拿 Vorflux 当 software factory，用 Rust 写一个 GBrain 后端引擎，替掉 postgres+pgvector 或 pglite，作为向量检索、图检索、embeddings、RAG 和 HNSW 的底层存储（12 赞、2 回复）。GBrain 的 Hosted 版本原生支持把每个员工的 brain 汇总成团队 brain、再汇总成公司 brain，说「memory works the way you want it to」（317 赞、18 转发、51 回复）。第三条引用推文说，在几乎任何飞行平台上实现真正的无人机自主已经落地，Degla 已经在和承担关键任务的政府机构做搜救（93 赞、4 转发、26 回复）。三条在 feed 里都没有第二信源。</p>
+<div class="urls">
+<a href="https://x.com/garrytan/status/2122487869780742304" target="_blank">https://x.com/garrytan/status/2122487869780742304</a>
+<a href="https://x.com/garrytan/status/2122517681740124271" target="_blank">https://x.com/garrytan/status/2122517681740124271</a>
+<a href="https://x.com/garrytan/status/2122576951080792543" target="_blank">https://x.com/garrytan/status/2122576951080792543</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nikunj Kothari</span>
+<span class="builder-role">Partner, FPV Ventures</span>
+</div>
+<p class="summary-en">FPV Ventures partner Nikunj Kothari posts a quarter-by-quarter sketch of &#39;2026 infra wars&#39;: vibe coding in Q1, harnesses in Q2, sandboxes in Q3, agentic CI in Q4, more providers than he can keep track of, and asks what comes next (109 likes, 59 replies). &#39;Like a phoenix, we&#39;re going to see the entire internet burn down to emerge stronger on the other side. Hugops to every single infra company&#39; is a quote post (4 likes, 0 reposts, 0 replies). &#39;Make your own here:&#39; is a bare link (0 likes, 0 reposts, 0 replies). The feed has no text for any linked target.</p>
+<p class="summary-zh zh">FPV Ventures 合伙人 Nikunj Kothari 用季度画了一张「2026 infra wars」：Q1 vibe coding、Q2 harnesses、Q3 sandboxes、Q4 agentic CI，provider 多到数不过来，最后问接下来是什么（109 赞、59 回复）。「Like a phoenix... Hugops to every single infra company」是一条引用推文，说整个互联网会烧一遍再更强地回来（4 赞、0 转发、0 回复）。「Make your own here:」只有一个裸链接（0 赞、0 转发、0 回复）。这些链接目标 feed 都没有收录内容。</p>
+<div class="urls">
+<a href="https://x.com/nikunj/status/2122412013251162592" target="_blank">https://x.com/nikunj/status/2122412013251162592</a>
+<a href="https://x.com/nikunj/status/2122490852497125485" target="_blank">https://x.com/nikunj/status/2122490852497125485</a>
+<a href="https://x.com/nikunj/status/2122543500814336281" target="_blank">https://x.com/nikunj/status/2122543500814336281</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Steinberger</span>
+<span class="builder-role">OpenClaw, OpenAI</span>
+</div>
+<p class="summary-en">Peter Steinberger, whose bio lists OpenClaw and OpenAI, posts a two-line joke: people ask Apple to reduce permission alerts so agents can work on macOS without constant babysitting, and Apple answers with &#39;here&#39;s some new scary alerts&#39; (1,089 likes, 42 reposts, 143 replies, second in replies). It is a quote post; the feed has no text for the linked target.</p>
+<p class="summary-zh zh">Peter Steinberger 的 bio 列着 OpenClaw 和 OpenAI。他发了个两行玩笑：大家请 Apple 少弹点权限提示，好让 agent 在 macOS 上不用一直有人盯着；Apple 回的是「here&#39;s some new scary alerts」（1,089 赞、42 转发、143 回复，回复第二）。这条是引用推文，被引用目标 feed 没有收录。</p>
+<div class="urls">
+<a href="https://x.com/steipete/status/2122463466304971068" target="_blank">https://x.com/steipete/status/2122463466304971068</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Dan Shipper</span>
+<span class="builder-role">CEO, Every</span>
+</div>
+<p class="summary-en">Every CEO Dan Shipper muses that the best way to rank a feed in the AI age might be proof of work: let agents report how many tokens they used based on a piece of content and use that to rank it on a feed that humans and agents read (13 likes, 14 replies). He adds two links; the feed has no text for either target and no second source for the idea.</p>
+<p class="summary-zh zh">Every CEO Dan Shipper 提了个想法：AI 时代排 feed 最好的办法可能是 proof of work，让 agent 上报自己因为某条内容用掉了多少 token，再用这个数给人和 agent 共读的 feed 排序（13 赞、14 回复）。他附了两个链接，feed 没有收录这两个目标的内容，这个想法也没有第二信源。</p>
+<div class="urls">
+<a href="https://x.com/danshipper/status/2122541401804054826" target="_blank">https://x.com/danshipper/status/2122541401804054826</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aditya Agarwal</span>
+<span class="builder-role">General Partner, SPC</span>
+</div>
+<p class="summary-en">Aditya Agarwal, general partner at SPC and co-founder of Bevel Health, posts three quote tweets. One says embedding AI as close to the silicon as possible will be critical for hardtech, that semiconductors can be built in India, and that SPC is leading @BharatSemi_&#39;s $24M seed round with Redstart Ventures and IndusBridge (81 likes, 5 reposts, 4 replies). Another says the goal of an interpretability effort was to develop enough confidence in its methods to apply them to leading frontier models, and that day is here (41 likes, 2 reposts, 2 replies). The third is a bare link (5 likes, 1 repost, 0 replies). The feed has no text for any linked target.</p>
+<p class="summary-zh zh">SPC 普通合伙人、Bevel Health 联合创始人 Aditya Agarwal 发了三条引用推文。一条说把 AI 尽量贴近硅片对很多硬科技很关键，印度也能造半导体，并宣布 SPC 领投 @BharatSemi_ 的 2,400 万美元种子轮，跟投的是 Redstart Ventures 和 IndusBridge（81 赞、5 转发、4 回复）。另一条说做 interpretability 时的目标就是把方法的可信度做到能用在前沿模型上，现在这一天到了（41 赞、2 转发、2 回复）。第三条只有一个裸链接（5 赞、1 转发、0 回复）。这些链接目标 feed 都没有收录内容。</p>
+<div class="urls">
+<a href="https://x.com/adityaag/status/2122367547312119843" target="_blank">https://x.com/adityaag/status/2122367547312119843</a>
+<a href="https://x.com/adityaag/status/2122386958101959118" target="_blank">https://x.com/adityaag/status/2122386958101959118</a>
+<a href="https://x.com/adityaag/status/2122386960862056629" target="_blank">https://x.com/adityaag/status/2122386960862056629</a>
+</div>
+</article>
+</section>
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128161;</span>
+<h2 class="section-title">The Takeaway</h2>
+<span class="section-meta">No Podcast Today &middot; 2026-11-18</span>
+</div>
+<div class="takeaway">
+<div class="takeaway-label">The Takeaway</div>
+<p>Engagement concentrates on two posts one second apart. Thariq&#39;s &#39;software factories feel like a temporary problem&#39; leads likes (4,841), reposts (200) and replies (374), and his game-character example is fourth in likes (1,329). Five posts pass 1,000 likes, none pass 10,000; three pass 100 reposts and three pass 100 replies. Window totals: 17,631 likes, 740 reposts, 1,260 replies.</p>
+<p>The product reasoning runs along three lines. Guillermo Rauch&#39;s three quote posts argue for a &#39;new era of software&#39; that is personalized, fully owned and open source (3,933 likes), for treating agents as users with evals instead of user interviews, and for an &#39;own your intelligence roadmap&#39; of open SDKs, Gateways, ZDR and private inference. Garry Tan describes a Rust GBrain backend engine built with Vorflux as his software factory, replacing postgres+pgvector or pglite. Nikunj Kothari maps the year as vibe coding, harnesses, sandboxes and agentic CI by quarter. Thariq pushes back on software factories as a temporary problem and asks instead for a workspace where agents collaborate with you; Nan Yu quotes that post with &#39;look, a sane person&#39; in this same feed. None of these has a second source.</p>
+<p>Peter Yang&#39;s five takeaways from @nateparrott repeat the design-bias advice (serif text, off-white backgrounds, card-edge bars) recorded in the 11-17 issue; the feed does not say whether it is the same interview, and his other post calls a linked response &#39;AI slop&#39; and asks whether Megaspeed violated laws, with no text for the target. Aaron Levie&#39;s long argument says token spend per employee has no ceiling, that coding was &#39;basically trash&#39; 12 months ago and that agent swarms will push tokens only up; Dan Shipper proposes ranking a feed by proof of work measured in the tokens an agent spends. Neither has a second source in the feed.</p>
+<p>Much of the window is reactions and bare links. Amjad Masad&#39;s &#39;Deranged cult&#39; (3,212 likes, third in the window) and a flexed-biceps emoji, Swyx&#39;s three one-liners, Nan Yu&#39;s &#39;Be like jori&#39;, Nikunj Kothari&#39;s phoenix line and bare link, Aditya Agarwal&#39;s bare link, Josh Woodward&#39;s &#39;Welcome! Welcome!&#39; and Peter Yang&#39;s Megaspeed question all carry no argument in their own text. Peter Steinberger&#39;s Apple permission-alert joke (1,089 likes, 143 replies, second in replies) is a two-line observation. Their links are kept; no subject or position is added for the ones whose targets the feed does not include.</p>
+<p>The Podcast slot is 0 and the Blog slot is 0, with different causes. The podcasts array is not empty: it holds the Latent Space &#39;One Million AI Engineer Special&#39; with Mihail Eric, identical in title, publishedAt and transcript anchors to the 11-10 issue, where it was the Podcast item, so it is deduplicated and listed under Already Covered. This is the third consecutive issue with a deduplicated podcast, and each repeated a different episode: 11-16 the 11-07 one, 11-17 the 11-09 one, and today the 11-10 one. The blogs array is empty for the twenty-fourth consecutive issue. Neither zero means the feed failed to refresh.</p>
+<p>Quote structure and coverage: 19 of the 29 posts are quote tweets pointing at 19 distinct IDs, 2 of them inside this feed (Thariq&#39;s software-factories post quoted by Nan Yu, and the Google Labs Howie post quoted by Josh Woodward), 17 outside, with no self-quotes and no shared target. All 29 posts fall on Pacific 11-16, from 07:15:02 to 22:25:55, a 15h10m53s window closing 3m09s before the snapshot; the gap from the previous issue&#39;s close is 9h19m13s. Pacific 10-29 and 10-30 remain missing from the series.</p>
+<p>Fourteen accounts have posts; 8 are on the 24-name tracking list (Swyx, Peter Yang, Amjad Masad, Guillermo Rauch, Garry Tan, Nikunj Kothari, Peter Steinberger, Aditya Agarwal) and 6 are not (Josh Woodward, Nan Yu, Thariq, Google Labs, Aaron Levie, Dan Shipper). Sam Altman does not appear for the thirteenth consecutive issue.</p>
+</div>
+<div class="takeaway zh">
+<div class="takeaway-label">核心结论</div>
+<p>互动集中在相隔 1 秒的两条上。Thariq 的「software factories feel like a temporary problem」拿赞数（4,841）、转发（200）、回复（374）三项第一，他那条游戏角色示例赞数第四（1,329）。破千赞 5 条、破万赞 0 条、转发过百 3 条、回复过百 3 条。全窗口合计 17,631 赞、740 转发、1,260 回复。</p>
+<p>产品推理分三条线。Guillermo Rauch 三条引用推文主张一个「personalized、fully owned、open source」的软件新时代（3,933 赞），主张把 agent 当用户、用 evals 替代用户访谈，并给出 open SDKs、Gateways、ZDR、私有推理四步的「own your intelligence roadmap」。Garry Tan 说用 Vorflux 当 software factory，写一个 Rust 版 GBrain 后端引擎，替掉 postgres+pgvector 或 pglite。Nikunj Kothari 按季度把这一年画成 vibe coding、harnesses、sandboxes、agentic CI。Thariq 反过来认为 software factories 只是暂时问题，真正该问的是怎么做一个 agent 能和人协作的 workspace；Nan Yu 在本期 feed 里用「look, a sane person」引用了这条。这些都没有第二信源。</p>
+<p>Peter Yang 从 @nateparrott 整理的五条 takeaways，重复了 11-17 期记过的模型设计偏好（衬线字、米白底、卡片边缘的条）；feed 没说是不是同一场访谈。他另一条把某个被引用回应称作「AI slop」，追问 Megaspeed 到底有没有违法，被引用内容 feed 没有收录。Aaron Levie 的长论证说人均 token 花费看不到顶、12 个月前 coding 还是「trash」、agent swarms 会把 token 继续往上推；Dan Shipper 提出按 agent 花掉的 token 做 proof of work 来给 feed 排序。两处在 feed 里都没有第二信源。</p>
+<p>窗口里不少是反应和裸链接。Amjad Masad 的「Deranged cult」（3,212 赞，全窗口第三）和一个 emoji、Swyx 三条一句话、Nan Yu 的「Be like jori」、Nikunj Kothari 的 phoenix 与裸链接、Aditya Agarwal 的裸链接、Josh Woodward 的「Welcome! Welcome!」、Peter Yang 的 Megaspeed 反问，文字里都没有展开观点。Peter Steinberger 关于 Apple 权限弹窗的玩笑（1,089 赞、143 回复，回复第二）是两行观察。链接都照留，被引用目标没收录的那些不补主题、不补立场。</p>
+<p>Podcast 是 0，Blog 也是 0，成因不同。podcasts 数组并不为空，装的是 Latent Space 那集 Mihail Eric 的「One Million AI Engineer Special」，标题、publishedAt、转写锚点都与 11-10 期一致，那一期它正是 Podcast 主角，按去重规则剔除，只在「已收录」里列出。这是连续第三期播客判重，且三集各不相同：11-16 重复 11-07、11-17 重复 11-09、本期重复 11-10。blogs 数组连续第二十四期为空。两个 0 都不意味着 feed 没刷新。</p>
+<p>引用结构与覆盖：29 条里 19 条是引用推文，指向 19 个不同 ID，其中 2 个在本期 feed 内（Nan Yu 引 Thariq 的 software factories 帖、Josh Woodward 引 Google Labs 的 Howie 帖），17 个在 feed 外，没有自引，也没有同组。29 条全部落在太平洋 11-16，07:15:02 到 22:25:55，窗口 15h10m53s，在快照前 3m09s 收口；距上一期收口 9h19m13s。太平洋 10-29、10-30 在本系列仍缺失。</p>
+<p>有内容的账号 14 个，其中 8 位在 24 位追踪名单上（Swyx、Peter Yang、Amjad Masad、Guillermo Rauch、Garry Tan、Nikunj Kothari、Peter Steinberger、Aditya Agarwal），6 位不在（Josh Woodward、Nan Yu、Thariq、Google Labs、Aaron Levie、Dan Shipper）。Sam Altman 连续第十三期未出现。</p>
+</div>
+</section>
+<!-- ============== ALREADY COVERED ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128257;</span>
+<h2 class="section-title">&#24050;&#25910;&#24405; / Already Covered</h2>
+<span class="section-meta">1 Item &middot; Deduped</span>
+</div>
+<div class="dedup">
+<p>Latent Space &middot; &ldquo;[One Million AI Engineer Special] How Stanford Teaches AI-Native Engineering &mdash; Mihail Eric, Monaco&rdquo; &middot; publishedAt 2026-11-08T21:23:29Z (Pacific 11-08 13:23:29). Already covered as the Podcast item in the <a href="https://clean-online.github.io/ai-digest/2026/11/10/AI_Builders_Digest_2026-11-10.html">2026-11-10 issue</a>. Judged the same episode on four things: the identical title, the identical publication timestamp, the same Latent Space channel <a href="https://www.youtube.com/@LatentSpacePod">https://www.youtube.com/@LatentSpacePod</a>, and the same transcript anchors (Mihail Eric introduced as a Stanford adjunct professor and head of AI at Monaco, CS 146S the Modern Software Developer, the one-million-subscriber special, Chip Hieatt, and the week-11 advice to make benchmarks and evals). The 11-10 issue has a specific video URL (https://www.youtube.com/watch?v=dpY7YzZo4kE) while today&#39;s feed carries only the channel page, so there is nothing new to backfill. The episode is 185h51m33s before the first post, 201h02m26s before the last and 201h05m35s before the snapshot, entirely outside the window. This is the third consecutive deduplicated podcast, but the other two repeated different episodes (11-07 and 11-09). It is listed here but not counted in the Podcast stat.</p>
+<p class="zh">Latent Space &middot;《[One Million AI Engineer Special] How Stanford Teaches AI-Native Engineering &mdash; Mihail Eric, Monaco》&middot; 发布时间 2026-11-08T21:23:29Z（太平洋 11-08 13:23:29）。已在 <a href="https://clean-online.github.io/ai-digest/2026/11/10/AI_Builders_Digest_2026-11-10.html">2026-11-10 那期</a>作为 Podcast 收录。判为同一集靠四件事：标题完全一致、发布时间戳一致、同属 Latent Space 频道 <a href="https://www.youtube.com/@LatentSpacePod">https://www.youtube.com/@LatentSpacePod</a>、转写锚点一致（Mihail Eric 被介绍为 Stanford 兼职教授、Monaco 的 Head of AI，CS 146S《Modern Software Developer》，百万订阅特别节目，Chip Hieatt，以及第 11 周去做 benchmark 和 eval 的建议）。11-10 期记的是具体视频地址（https://www.youtube.com/watch?v=dpY7YzZo4kE），本期 feed 只有频道页，没有新东西可补记。这一集比首条推文早 185h51m33s、比末条早 201h02m26s、比快照早 201h05m35s，完全在窗口之外。这是连续第三期播客判重，但另外两期重复的是不同的两集（11-07 与 11-09）。这一集只在此列出，不计入 Podcast 统计。</p>
+</div>
+</section>
+<!-- ============== NOTES ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128221;</span>
+<h2 class="section-title">记录 / Notes &amp; Dedup</h2>
+<span class="section-meta">29 Zero &middot; 1 Deduped &middot; 0 Blog</span>
+</div>
+<div class="dedup">
+<p style="margin-top:12px">
+<strong>Tweet check</strong> &mdash; All 29 tweet IDs have zero hits across the 129 historical digest HTML files under 2026/ (excluding the 11/18 output directory). 19 of the 29 are quote posts with 19 distinct quoted IDs: 2 are inside this feed (Thariq&#39;s software-factories post quoted by Nan Yu, the Google Labs Howie post quoted by Josh Woodward) and 17 are outside. There are no self-quotes and no shared target.</p>
+<p style="margin-top:12px">
+<strong>Podcast check</strong> &mdash; The slot is 0 by dedup, not by an empty array. The single episode is Latent Space with Mihail Eric, publishedAt 2026-11-08T21:23:29Z (Pacific 11-08 13:23:29), 185h51m33s before the first post, 201h02m26s before the last and 201h05m35s before the snapshot. Its full title, publishedAt and transcript anchors all match the 11-10 issue, where it was the Podcast item; both point to the Latent Space channel. The 11-10 issue has a specific video URL while today&#39;s feed has only the channel page, so there is no link to backfill. The episode is listed under Already Covered and not counted. 11-16 repeated the 11-07 episode and 11-17 the 11-09 one, so the three consecutive deduplications are three different episodes.</p>
+<p style="margin-top:12px">
+<strong>Blog check</strong> &mdash; The slot is 0 because the blogs array is empty for the twenty-fourth consecutive issue; no blog entry is created. This zero has a different cause from the Podcast zero.</p>
+<p style="margin-top:12px">
+<strong>Transcript</strong> &mdash; 159,456 characters over 1,721 lines, with no speaker labels and no timestamps; the host is named only as Swyx inside the dialogue. The cold open stitches together the one-million-subscriber celebration, Mihail Eric as Stanford teacher and Monaco head of AI, and the themes of fighting slop and major rewrites. ASR spellings are reproduced as-is rather than silently corrected: AIU Code before the host restates it as AI Engineer, Cloud Code for Claude Code, Monica for Monaco, Anthopic for Anthropic and C- Sweet Bench for SWE-Bench. Because the episode is deduplicated, no podcast card is rendered and the transcript is used only to confirm it is the same recording.</p>
+<p style="margin-top:12px">
+<strong>Same names</strong> &mdash; Case-sensitive whole-word zero hits after stripping style and script blocks: Vorflux, HNSW, pgvector, pglite, Howie, Howie_ai, Megaspeed, Degla, BharatSemi, Redstart, IndusBridge, jori, megkernels, Hugops, Agentic CI, periodic table, permission alerts, design.md, wireframes, Deranged cult. Earlier hits are not called firsts: GBrain (55), GStack (51), ZDR (11), Gateway (65), Gateways (1), sandboxes (30), software factories (3), Gemini_Notebook (2), nateparrott (2), AI slop (7), CS 146S (20), Mihail Eric (15), One Million AI Engineer (9), Modern Software Developer (8), Monaco (19), token spend (5), agent swarms (26), vibe coding (36), Vibe coding (1), harnesses (30), agentic CI (2) and proof of work (1). Capitalisation is kept separate: &#39;Agentic CI&#39; has zero hits while &#39;agentic CI&#39; has two, and &#39;Vibe coding&#39; one while &#39;vibe coding&#39; has 36.</p>
+<p style="margin-top:12px">
+<strong>Thin posts</strong> &mdash; 12 of the 29 posts are short reactions or bare links with no argument of their own: Swyx&#39;s three (the megkernels quote, the current-affairs line and the gmail/gcal line), Josh Woodward&#39;s &#39;Welcome! Welcome!&#39;, Peter Yang&#39;s Megaspeed question, Nan Yu&#39;s &#39;look, a sane person&#39; and &#39;Be like jori&#39;, Amjad Masad&#39;s &#39;Deranged cult&#39; and emoji, Nikunj Kothari&#39;s phoenix line and bare link, and Aditya Agarwal&#39;s bare link. Their links are kept; no event name, position or subject is added for them.</p>
+<p style="margin-top:12px">
+<strong>Coverage</strong> &mdash; Three timestamps: snapshot 2026-11-17T06:29:04.786Z (Pacific 11-16 22:29:04), first post Pacific 11-16 07:15:02, last post Pacific 11-16 22:25:55. Window 15h10m53s, closing 3m09s before the snapshot; 9h19m13s after the previous issue&#39;s close (Pacific 11-15 21:55:49); previous snapshot was 23h46m49s earlier. All 29 posts fall on Pacific 11-16; Pacific 10-29 and 10-30 remain missing from the series.</p>
+<p style="margin-top:12px">
+<strong>Engagement fields</strong> &mdash; Likes, reposts and replies are taken as-is from the feed; this window has no quotes field. Five posts pass 1,000 likes, none pass 10,000, three pass 100 reposts and three pass 100 replies; totals are 17,631 / 740 / 1,260. Every rank statement is checked against the full-window sorted list.</p>
+<p style="margin-top:12px">
+<strong>Not resolved</strong> &mdash; Specs or a launch date for the Rust GBrain engine and Vorflux; what Howie joining Google Labs means for small-business tools; a second source for the @BharatSemi_ $24M seed round and for Degla&#39;s drone autonomy; what Megaspeed did or did not violate; the subject of Amjad Masad&#39;s &#39;Deranged cult&#39;; what Thariq&#39;s game character belongs to; a second source for Rauch&#39;s Vercel evals writeup, Aaron Levie&#39;s token-spend curve and Dan Shipper&#39;s proof-of-work ranking; what comes after agentic CI in Nikunj Kothari&#39;s sketch; whether Peter Yang&#39;s five takeaways are the same interview quoted on 11-17; and the standing items carried from earlier issues (Day 29 / 3/x, dot, jev, Particle-1, HackerTube, Grok Bot, Legora, the data-market figure, Claude Whiteboards, Box interop, interactive connectors, the AIE keynote, MCP tool counts, Stand with Jensen, Opal and the 11-27 book date).</p>
+</div>
+<div class="dedup zh" style="margin-top:14px">
+<p style="margin-top:12px">
+<strong>推文核对</strong> &mdash; 29 个推文 ID 对 2026/ 下 129 个历史 HTML 零命中（排除 11/18 输出目录），没有和往期重复的推文。29 条里 19 条是引用推文，共 19 个不同的被引用 ID：2 个在本期 feed 内（Nan Yu 引 Thariq 的 software factories 帖、Josh Woodward 引 Google Labs 的 Howie 帖），17 个在 feed 外；没有自引，也没有同组。</p>
+<p style="margin-top:12px">
+<strong>播客核对</strong> &mdash; 这一格是 0，成因是判重，不是数组为空。唯一一集是 Latent Space 的 Mihail Eric，publishedAt 为 2026-11-08T21:23:29Z（太平洋 11-08 13:23:29），比首条推文早 185h51m33s、比末条早 201h02m26s、比快照早 201h05m35s。完整标题、publishedAt、转写锚点都与 11-10 期一致，那一期它正是 Podcast 主角；两者都指向 Latent Space 频道。11-10 期记的是具体视频地址，本期 feed 只有频道页，没有链接可补记。这一集只在「已收录」里列出，不计入统计。11-16 重复的是 11-07 那集、11-17 重复的是 11-09 那集，所以连续三次判重对应的是三集不同的节目。</p>
+<p style="margin-top:12px">
+<strong>博客核对</strong> &mdash; 这一格是 0，因为 blogs 数组连续第二十四期为空，不生成博客条目。这个 0 与 Podcast 的 0 成因不同。</p>
+<p style="margin-top:12px">
+<strong>转写</strong> &mdash; 159,456 字符、1,721 行，没有 speaker 标签、没有时间戳，主持人只在对话里被称为 Swyx。开头的 cold open 把庆祝百万订阅、把 Mihail Eric 介绍为 Stanford 教师与 Monaco 的 Head of AI、以及对抗 slop 和大规模重写这几个主题拼在一起。ASR 拼写按原样照录、不静默修正：频道先读作 AIU Code、主持人随后改口 AI Engineer；Claude Code 作 Cloud Code，Monaco 作 Monica，Anthropic 作 Anthopic，SWE-Bench 作 C- Sweet Bench。因为这一集被判重，本期不渲染播客卡，转写只用来确认是同一段录音。</p>
+<p style="margin-top:12px">
+<strong>同名</strong> &mdash; 剥掉 style 与 script 块后，按大小写敏感的整词匹配，零命中的有：Vorflux、HNSW、pgvector、pglite、Howie、Howie_ai、Megaspeed、Degla、BharatSemi、Redstart、IndusBridge、jori、megkernels、Hugops、Agentic CI、periodic table、permission alerts、design.md、wireframes、Deranged cult。有旧命中的不写「首次」：GBrain（55）、GStack（51）、ZDR（11）、Gateway（65）、Gateways（1）、sandboxes（30）、software factories（3）、Gemini_Notebook（2）、nateparrott（2）、AI slop（7）、CS 146S（20）、Mihail Eric（15）、One Million AI Engineer（9）、Modern Software Developer（8）、Monaco（19）、token spend（5）、agent swarms（26）、vibe coding（36）、Vibe coding（1）、harnesses（30）、agentic CI（2）、proof of work（1）。大小写分开算：「Agentic CI」零命中而「agentic CI」有 2 次，「Vibe coding」1 次而「vibe coding」36 次。</p>
+<p style="margin-top:12px">
+<strong>薄内容</strong> &mdash; 29 条里有 12 条是一句话反应或裸链接、文字里没有展开观点：Swyx 三条（megkernels 引用、时事那句、gmail/gcal 那句）、Josh Woodward 的「Welcome! Welcome!」、Peter Yang 的 Megaspeed 反问、Nan Yu 的「look, a sane person」与「Be like jori」、Amjad Masad 的「Deranged cult」与 emoji、Nikunj Kothari 的 phoenix 与裸链接、Aditya Agarwal 的裸链接。链接照留，不替它们补活动名、立场或主题。</p>
+<p style="margin-top:12px">
+<strong>覆盖</strong> &mdash; 三个时间戳：快照 2026-11-17T06:29:04.786Z（太平洋 11-16 22:29:04）、首条太平洋 11-16 07:15:02、末条太平洋 11-16 22:25:55。窗口 15h10m53s，在快照前 3m09s 收口；距上一期收口（太平洋 11-15 21:55:49）9h19m13s；上一份快照相隔 23h46m49s。29 条全在太平洋 11-16；太平洋 10-29、10-30 在本系列仍缺失。</p>
+<p style="margin-top:12px">
+<strong>互动字段</strong> &mdash; likes、reposts、replies 按 feed 原值取，本期没有 quotes 字段。破千赞 5 条、破万赞 0 条、转发过百 3 条、回复过百 3 条；合计 17,631 / 740 / 1,260。所有名次说法都按全窗口排序逐条回查。</p>
+<p style="margin-top:12px">
+<strong>未闭环</strong> &mdash; Rust 版 GBrain 引擎与 Vorflux 的规格或上线时间；Howie 加入 Google Labs 对小企业工具意味着什么；@BharatSemi_ 的 2,400 万美元种子轮与 Degla 无人机自主平台的第二信源；Megaspeed 到底有没有违规；Amjad Masad「Deranged cult」指向什么；Thariq 的游戏角色属于什么；Rauch 的 Vercel evals 文章、Aaron Levie 的 token 花费曲线、Dan Shipper 的 proof-of-work 排序有没有第二信源；Nikunj Kothari 的季度表里 agentic CI 之后是什么；Peter Yang 五条 takeaways 是不是 11-17 期引的同一场访谈；以及从往期带来的长期项（Day 29 / 3/x、dot、jev、Particle-1、HackerTube、Grok Bot、Legora、数据市场规模、Claude Whiteboards、Box 互通、interactive connectors、AIE keynote、MCP 工具数、Stand with Jensen、Opal，以及 11 月 27 日的出版日期）。</p>
+</div>
+</section>
+<footer class="footer">
+<div class="next-issue">&#128236; &#19979;&#19968;&#26399;&#65306;&#26126;&#22825; 10:00&#65288;&#21271;&#20140;&#26102;&#38388;&#65289;</div>
+<div class="signature"><a href="#top" style="border:none;color:var(--ink-muted)">&#22238;&#21040;&#39030;&#37096; / Back to top</a></div>
+<div class="signature">by chloevchen</div>
+</footer>
+</body>
+</html>
+<!-- by chloevchen -->
