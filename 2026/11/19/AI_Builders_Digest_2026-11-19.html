@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Builders Digest &middot; 2026-11-19</title>
+<style>
+
+
+
+
+
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 28px 30px; margin-bottom: 24px; }
+  .podcast-source { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
+  .podcast-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; margin-bottom: 18px; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; }
+
+
+</style>
+</head>
+<body id="top">
+<header class="topbar">
+<div class="topbar-inner">
+<a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders &middot; AI Builders Digest</a>
+<span>双语 &middot; Bilingual</span>
+</div>
+</header>
+<section class="header">
+<div class="eyebrow">Daily Digest &middot; 2026-11-19</div>
+<h1>AI Builders Digest</h1>
+</section>
+<div class="stats">
+<div class="stat">
+<div class="stat-num">13</div>
+<div class="stat-label">Builders</div>
+</div>
+<div class="stat">
+<div class="stat-num">33</div>
+<div class="stat-label">Tweets</div>
+</div>
+<div class="stat">
+<div class="stat-num">1</div>
+<div class="stat-label">Podcast</div>
+</div>
+<div class="stat">
+<div class="stat-num">0</div>
+<div class="stat-label">Blog</div>
+</div>
+</div>
+<p class="note-line">Thirteen builders, 33 posts, all on Pacific 11-17. Sam Altman&#39;s two posts one second apart take all three engagement leads: 6.2 Sol and Astra are out draws 7,670 likes, 336 reposts and 739 replies, and the follow-up on making the models nice to work with draws 2,990 likes. 6.2 appears in 7 posts from 5 accounts, Astra in 6 and Sol in 7. The Podcast slot is 1 with a new Latent Space episode on Black Forest Labs; the Blog slot is 0 because the blogs array is empty.</p>
+<p class="note-line zh">13 位 builder、33 条推文，全部落在太平洋 11-17。Sam Altman 相隔 1 秒的两条包揽三项互动第一：「6.2 Sol and Astra are out」拿到 7,670 赞、336 转发、739 回复，紧接着那条讲「让模型好用」的拿到 2,990 赞。6.2 出现在 7 条推文里、来自 5 个账号，Astra 6 条、Sol 7 条。Podcast 这一格是 1，是一集讲 Black Forest Labs 的全新 Latent Space；Blog 这一格是 0，因为 blogs 数组为空。</p>
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128036;</span>
+<h2 class="section-title">X / Twitter</h2>
+<span class="section-meta">13 Builders &middot; 33 Tweets</span>
+</div>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Swyx</span>
+<span class="builder-role">smol_ai, Cognition, Latent Space</span>
+</div>
+<p class="summary-en">Swyx, whose bio lists smol_ai, Cognition, Temporal, AI Engineer and Latent Space, writes the window&#39;s longest post (1,641 characters, 292 likes, 20 reposts, 110 replies) on devin bots as multi-agent teams done right: always on and proactive, owning outcomes rather than tasks, managing subagents and reviewing itself, available everywhere, and reporting through interactive artifacts he calls devinapps. He calls it the preview Walden Yan gave at AIE, says a week of trials let him hand over AEO, QA, cross-platform porting, personal admin and video editing, and lists /goal, ultracode, loop engineering, agent to agent, agent swarms and AI employees as the concepts it replaces. His aha is that there is no AGI yet and AI Employees will fail on overpromising; what works is agent managers that own outcomes, one level above single tasks. He closes with Devin for Startups offering 65k in credits. A second quote post carries technical details on inter-session context surfaced by default and bots with their own long-lived identity and memory bank (4 likes, 4 replies). A third quotes a post to criticise that nobody with decisionmaking power vetoed the 6.2 astra ad, while calling the model a solid minor version improvement, world leading on efficiency as one of the three most important RL objectives, and his daily driver for workflow automation; he says the content publishing pipeline it runs for Latent Space and AI Engineer is why a bootstrapped business can have revenue efficiency above 1m per employee (237 likes, 46 replies). All three are quote posts; the feed has no text for their targets.</p>
+<p class="summary-zh zh">Swyx 的 bio 列了 smol_ai、Cognition、Temporal、AI Engineer 和 Latent Space。他写了本期窗口最长的一条（1,641 字符，292 赞、20 转发、110 回复），讲 devin bots 是把多 agent 团队做对的样子：常在线、主动但按投产比调过、拥有结果而不是任务、管理 subagent 并会自查、各处都能用、用他称作 devinapps 的交互式产出汇报而不是长对话。他说这是 Walden Yan 在 AIE 上预览的东西，试了一周后把 AEO、QA、跨平台移植、个人事务自动化和视频编辑都交了出去；/goal、ultracode、loop engineering、agent to agent、agent swarms、AI employees 这些概念都被它替掉。他的关键判断是现在还没有 AGI，AI Employees 会因为承诺过头而失败，真正可行的是比单个任务高一层、对结果负责的 agent managers。末尾提了 Devin for Startups 提供 65k 额度。第二条引用推文贴的是技术细节：inter-session context 默认可见，每个 bot 有自己长期的身份和记忆库（4 赞、4 回复）。第三条引用推文批评没一个有决策权的人提前否决 6.2 astra 广告，同时又说模型本身是扎实的 minor version improvement，效率作为当前三大 RL 目标之一是世界领先，也是他每天在用的 workflow automation 模型；他说 Latent Space 和 AI Engineer 的内容发布流程跑在它上面，一家自筹业务能有人均超过 100 万美元的营收效率离不开它（237 赞、46 回复）。三条都是引用推文，被引用目标 feed 没有收录。</p>
+<div class="urls">
+<a href="https://x.com/swyx/status/2122746401482592549" target="_blank">https://x.com/swyx/status/2122746401482592549</a>
+<a href="https://x.com/swyx/status/2122818291144229075" target="_blank">https://x.com/swyx/status/2122818291144229075</a>
+<a href="https://x.com/swyx/status/2122862646265520150" target="_blank">https://x.com/swyx/status/2122862646265520150</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Josh Woodward</span>
+<span class="builder-role">VP, Google Labs &amp; Gemini</span>
+</div>
+<p class="summary-en">Josh Woodward, VP at Google for Google Labs, the Gemini app and AI Studio, announces in the window&#39;s second-longest post (1,164 characters, 599 likes, 60 reposts, 69 replies) that Gemini can now do tasks free of charge in six countries, the US, Japan, Korea, Canada, Australia and India, running on Gemini 4 Hydrogen. He lists features rolling out first in the US: calling local businesses through Google Duplex, paying and checking out through Google Pay, texting Gemini on Android or iOS through RCS, forwarding emails through Gmail, and signing into sites without sharing passwords outside Google through Google Password Manager. He also calls this the biggest update yet for the Gemini and Google Workspace integration, with more reliable tool triggers and the ability to draft or send emails, create and edit Docs or Sheets, and add several Calendar events at once without leaving Gemini. A second post the same second asks people to reply with tasks Gemini did for them (41 likes, 14 replies). The feed has no second source for the feature list.</p>
+<p class="summary-zh zh">Josh Woodward 在 Google 负责 Google Labs、Gemini app 和 AI Studio，VP。他用本期第二长的一条（1,164 字符，599 赞、60 转发、69 回复）宣布 Gemini 现在可以免费替人做任务，覆盖美国、日本、韩国、加拿大、澳大利亚、印度六国，跑在 Gemini 4 Hydrogen 上。他列了先在美国上线的一批功能：用 Google Duplex 给本地商家打电话、用 Google Pay 支付结账、在 Android 或 iOS 上通过 RCS 给 Gemini 发消息、把邮件转发给 Gemini（Gmail）、用 Google Password Manager 在不把密码交出 Google 的前提下登录网站。他还说这是 Gemini 与 Google Workspace 集成至今最大的一次更新，工具触发更可靠，不离开 Gemini 就能起草或发邮件、创建编辑 Docs 和 Sheets、一次加多个 Calendar 事件。同一秒的另一条请大家回复 Gemini 帮自己做过什么任务（41 赞、14 回复）。这份功能清单在 feed 里没有第二信源。</p>
+<div class="urls">
+<a href="https://x.com/joshwoodward/status/2122737427970425171" target="_blank">https://x.com/joshwoodward/status/2122737427970425171</a>
+<a href="https://x.com/joshwoodward/status/2122737429476253889" target="_blank">https://x.com/joshwoodward/status/2122737429476253889</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thibault Sottiaux</span>
+<span class="builder-role">Codex &amp; ChatGPT, OpenAI</span>
+</div>
+<p class="summary-en">Thibault Sottiaux, whose bio lists Codex and ChatGPT at OpenAI, posts three times. He first says the models are extremely efficient, felt in speed to complete tasks, cost and how far usage goes (2,360 likes, 78 reposts, 329 replies). His second explains one reason for the difference in vibes between influencers and the crowd on 6.2 Sol/Astra: a few people got access a while ago, the team made a lot of changes in the last 3-4 days and he is fairly sure no re-testing was done in those days, with the videos produced last week. He adds that the models are a hefty jump over their GPT predecessors but by no means perfect, that the teams want to improve taste and niceness of use, and that the feedback is heard (3,467 likes, 138 reposts, 706 replies). His third recommends 6.2 Sol ultrafast to Pro 200/500 subscribers as a completely different feel and says he wants to bring those speeds to more users over time (609 likes, 13 reposts, 184 replies). The vibes post is second in likes and replies and third in reposts.</p>
+<p class="summary-zh zh">Thibault Sottiaux 的 bio 列着 OpenAI 的 Codex 和 ChatGPT，本期三条。第一条说这批模型效率极高，体现在完成任务的速度、成本和用量能撑更久（2,360 赞、78 转发、329 回复）。第二条解释 influencer 和大众对 6.2 Sol/Astra 观感不同的一个原因：早先给过少数人访问权，团队最近 3-4 天又改了很多，他基本确定那几天没有重新测过，而视频是上周做的。他补充说模型相比 GPT 前代是很大一跳，但远不完美，团队在 taste 和上手顺不顺上还有想改进的地方，也听到了所有反馈（3,467 赞、138 转发、706 回复）。第三条向 Pro 200/500 订户推荐 6.2 Sol ultrafast，说手感完全不同，也希望以后把这种速度带给更多用户（609 赞、13 转发、184 回复）。那条讲 vibes 差异的拿到赞数第二、回复第二、转发第三。</p>
+<div class="urls">
+<a href="https://x.com/thsottiaux/status/2122754551187132438" target="_blank">https://x.com/thsottiaux/status/2122754551187132438</a>
+<a href="https://x.com/thsottiaux/status/2122929634916679820" target="_blank">https://x.com/thsottiaux/status/2122929634916679820</a>
+<a href="https://x.com/thsottiaux/status/2122929829863735594" target="_blank">https://x.com/thsottiaux/status/2122929829863735594</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Yang</span>
+<span class="builder-role">Practical AI tutorials</span>
+</div>
+<p class="summary-en">Peter Yang, who writes practical AI tutorials, posts three times. He argues that models, except Opus 5.5 and a select few special ones, are basically software with the shortest shelf life, that everyone moves on after a few weeks, that there is no point getting emotional about it and that the more important thing is making your skills work across any new model (27 likes, 15 replies). A quote post says he has been testing and dares to say Astra 6.2 is better than Fable at website design, promising an unbiased review the next day with a signup link (16 likes, 9 replies). A third jokes that since he did not get early access to GPT-6.2 Astra he paid off all the other influencers to leave negative reviews, calls it a big conspiracy and insists you must eat his brisket (38 likes, 13 replies). The feed has no text for the quoted target and no second source for the design comparison.</p>
+<p class="summary-zh zh">写实用 AI 教程的 Peter Yang 本期三条。他说模型（除 Opus 5.5 和少数几个特别的之外）基本是货架期最短的软件，几周之后大家就换下一个，没必要为它投入感情，更要紧的是让自己的技能在新模型上都能用（27 赞、15 回复）。一条引用推文说他测了一阵，敢讲 Astra 6.2 做网站设计比 Fable 好，预告第二天发一份中立评测，附了注册链接（16 赞、9 回复）。第三条开玩笑说自己没拿到 GPT-6.2 Astra 的 early access，就出钱让其他 influencer 都留负评，说这确实是个大阴谋，还非要大家吃他的 brisket（38 赞、13 回复）。被引用目标 feed 没有收录，设计对比也没有第二信源。</p>
+<div class="urls">
+<a href="https://x.com/petergyang/status/2122839368444661870" target="_blank">https://x.com/petergyang/status/2122839368444661870</a>
+<a href="https://x.com/petergyang/status/2122869524773179771" target="_blank">https://x.com/petergyang/status/2122869524773179771</a>
+<a href="https://x.com/petergyang/status/2122883865643720927" target="_blank">https://x.com/petergyang/status/2122883865643720927</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Amjad Masad</span>
+<span class="builder-role">CEO, Replit</span>
+</div>
+<p class="summary-en">Replit CEO Amjad Masad posts three quote tweets. He says he did not think iOS-quality gestures were possible on the web (135 likes, 7 reposts, 14 replies). In the longest of the three (748 characters, 108 likes, 11 reposts, 50 replies) he calls agent swarms the next scaling frontier for AI: intelligence has been scaled by training larger models and giving them more time to think, and another dimension is running many agents in parallel that explore different approaches, challenge each other and reach solutions no single agent would find. He says OpenAI has already shown the potential in mathematics, that experimenting with swarms used to need complicated orchestration infrastructure, and that starting today on Replit spinning up a swarm is one prompt away. A third post links to how scaling agent swarms can optimise software performance (72 likes, 5 reposts, 13 replies). None of the three targets is in the feed.</p>
+<p class="summary-zh zh">Replit CEO Amjad Masad 发了三条引用推文。一条说他没想到 web 上能做出 iOS 质感的 gestures（135 赞、7 转发、14 回复）。三条里最长的一条（748 字符，108 赞、11 转发、50 回复）把 agent swarms 称作 AI 的下一个 scaling frontier：过去靠训更大的模型、给更多思考时间来 scale，另一个维度是并行跑很多 agent，各自探索不同路径、互相挑战，合起来解出单个 agent 不容易发现的东西。他说 OpenAI 已经在数学上展示过这种潜力，以前自己试 swarm 得搭复杂的编排基础设施，而从今天起在 Replit 起一个 swarm 只是一句 prompt。第三条附了讲 scaling agent swarms 怎么优化软件性能的链接（72 赞、5 转发、13 回复）。三个被引用目标都不在 feed 里。</p>
+<div class="urls">
+<a href="https://x.com/amasad/status/2122805977187549558" target="_blank">https://x.com/amasad/status/2122805977187549558</a>
+<a href="https://x.com/amasad/status/2122809964649459861" target="_blank">https://x.com/amasad/status/2122809964649459861</a>
+<a href="https://x.com/amasad/status/2122817367679901830" target="_blank">https://x.com/amasad/status/2122817367679901830</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Guillermo Rauch</span>
+<span class="builder-role">CEO, Vercel</span>
+</div>
+<p class="summary-en">Vercel CEO Guillermo Rauch posts three times. He says OpenAI just put out the most cybersecurity-capable models in the world, calls the timing excellent, and says Vercel&#39;s DeepsecBench is a stealth cyber benchmark that no lab has had the codebases to train on, with two links (269 likes, 12 reposts, 41 replies). A quote post calls agent-browser vitals a huge deal for web performance and says self-optimizing software is here (494 likes, 20 reposts, 45 replies); the phrase is written in mathematical italic characters in the feed and is transcribed here in plain letters. A third says fx is beautiful and links to it (158 likes, 4 reposts, 21 replies). The feed has no text for the quoted target and no second source for the benchmark or the web-performance claim.</p>
+<p class="summary-zh zh">Vercel CEO Guillermo Rauch 本期三条。他说 OpenAI 刚发布了世界上网络安全能力最强的模型，称时机很好，并说 Vercel 的 DeepsecBench 是一个 stealth cyber benchmark，没有哪家 lab 拿到过代码库来训练，附了两个链接（269 赞、12 转发、41 回复）。一条引用推文说 agent-browser vitals 对 web performance 是件大事，self-optimizing software 已经来了（494 赞、20 转发、45 回复）；这个词组在 feed 里是用数学斜体字符写的，这里按普通字母照录。第三条说 fx 很漂亮，附了链接（158 赞、4 转发、21 回复）。被引用目标 feed 没有收录，benchmark 和 web performance 的说法也没有第二信源。</p>
+<div class="urls">
+<a href="https://x.com/rauchg/status/2122812237169426606" target="_blank">https://x.com/rauchg/status/2122812237169426606</a>
+<a href="https://x.com/rauchg/status/2122830064152899991" target="_blank">https://x.com/rauchg/status/2122830064152899991</a>
+<a href="https://x.com/rauchg/status/2122846434177531945" target="_blank">https://x.com/rauchg/status/2122846434177531945</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Ryo Lu</span>
+<span class="builder-role">Designed Cursor, Notion, Stripe</span>
+</div>
+<p class="summary-en">Ryo Lu, whose bio says he designed Cursor, Notion and Stripe, posts one quote tweet: crazy ideas are now possible, but it takes just as much care and effort, with a link (87 likes, 3 reposts, 3 replies). The feed has no text for the linked target, so no subject is added.</p>
+<p class="summary-zh zh">Ryo Lu 的 bio 写他设计过 Cursor、Notion 和 Stripe，本期只发了一条引用推文：crazy ideas 现在能做了，但要花的细心和功夫一点没少，附一个链接（87 赞、3 转发、3 回复）。被引用目标 feed 没有收录，这里不替它补主题。</p>
+<div class="urls">
+<a href="https://x.com/ryolu_/status/2122929249967554583" target="_blank">https://x.com/ryolu_/status/2122929249967554583</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Garry Tan</span>
+<span class="builder-role">President &amp; CEO, Y Combinator</span>
+</div>
+<p class="summary-en">Garry Tan, president and CEO of Y Combinator, posts three quote tweets. &#39;Only three people to remove from the board? Easy work&#39; with &#39;15% shareholder vote coming&#39; draws 2,691 likes, 148 reposts and 92 replies, fourth in likes and second in reposts. &#39;How fast can they do this?&#39; draws 94 likes, 6 reposts and 3 replies. &#39;If you&#39;re a shareholder, employee or former employee your voice is needed here&#39; draws 205 likes, 21 reposts and 7 replies. All three carry links; the feed has no text for any target, so no board, company or campaign is named here.</p>
+<p class="summary-zh zh">Y Combinator 总裁兼 CEO Garry Tan 发了三条引用推文。「Only three people to remove from the board? Easy work」加一句「15% shareholder vote coming」拿到 2,691 赞、148 转发、92 回复，赞数第四、转发第二。「How fast can they do this?」94 赞、6 转发、3 回复。「If you&#39;re a shareholder, employee or former employee your voice is needed here」205 赞、21 转发、7 回复。三条都带链接，被引用内容 feed 一条都没收录，所以这里不写董事会属于哪家公司、也不补活动名称。</p>
+<div class="urls">
+<a href="https://x.com/garrytan/status/2122910329537728747" target="_blank">https://x.com/garrytan/status/2122910329537728747</a>
+<a href="https://x.com/garrytan/status/2122912201300427198" target="_blank">https://x.com/garrytan/status/2122912201300427198</a>
+<a href="https://x.com/garrytan/status/2122913046603649325" target="_blank">https://x.com/garrytan/status/2122913046603649325</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Matt Turck</span>
+<span class="builder-role">VC, FirstMark Capital; MAD Podcast</span>
+</div>
+<p class="summary-en">Matt Turck, a VC at FirstMark Capital and host of the MAD Podcast, announces an investment in remanencelabs alongside plcedoz, hparams and Axel Moyal, a $30M seed round co-led with eqt, on continual learning, with a link to the thesis (42 likes, 9 reposts, 8 replies). A second quote post says Daytona is the first to provide macOS sandboxes for computer-use agents on Macs and for building and testing Apple apps (28 likes, 3 reposts, 9 replies). The feed has no text for either quoted target.</p>
+<p class="summary-zh zh">FirstMark Capital 投资人、MAD Podcast 主持人 Matt Turck 宣布投资 remanencelabs，与 plcedoz、hparams 和 Axel Moyal 合作，是一笔由 eqt 共同领投的 3,000 万美元种子轮，主题是 continual learning，附了投资逻辑的链接（42 赞、9 转发、8 回复）。另一条引用推文说 Daytona 首个提供 macOS sandboxes，给 Mac 上的 computer-use agents 以及构建和测试 Apple 应用用（28 赞、3 转发、9 回复）。两个被引用目标 feed 都没有收录。</p>
+<div class="urls">
+<a href="https://x.com/mattturck/status/2122717441461739571" target="_blank">https://x.com/mattturck/status/2122717441461739571</a>
+<a href="https://x.com/mattturck/status/2122726760185741673" target="_blank">https://x.com/mattturck/status/2122726760185741673</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Zara Zhang</span>
+<span class="builder-role">Builder</span>
+</div>
+<p class="summary-en">Zara Zhang, whose bio says Builder, posts three short items: &#39;So pretty&#39; with a link (180 likes, 2 reposts, 15 replies), &#39;This was one-shotted. DM me if you want the prompt&#39; (6 likes), and a quote post saying she loves old commercials with a link (16 likes). None carries an argument in its own text; the feed has no text for any linked target, so no subject is added.</p>
+<p class="summary-zh zh">Zara Zhang 的 bio 写的是 Builder，本期三条短内容：「So pretty」加一个链接（180 赞、2 转发、15 回复）、「This was one-shotted. DM me if you want the prompt」（6 赞）、以及一条说喜欢老广告的引用推文加链接（16 赞）。文字里都没有展开观点，链接目标 feed 没有收录，这里不替它们补主题。</p>
+<div class="urls">
+<a href="https://x.com/zarazhangrui/status/2122743151127667145" target="_blank">https://x.com/zarazhangrui/status/2122743151127667145</a>
+<a href="https://x.com/zarazhangrui/status/2122744253302653222" target="_blank">https://x.com/zarazhangrui/status/2122744253302653222</a>
+<a href="https://x.com/zarazhangrui/status/2122787795634987498" target="_blank">https://x.com/zarazhangrui/status/2122787795634987498</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nikunj Kothari</span>
+<span class="builder-role">Partner, FPV Ventures</span>
+</div>
+<p class="summary-en">FPV Ventures partner Nikunj Kothari says the model vibes yo-yo on X is wild: for the last few months OpenAI seemed to hold the mantle, now Anthropic with its 5.5 release and Gemini with Carbon are getting the accolades, and he calls on grok to surprise everyone (13 likes, 4 replies). His other post is a birthday note thanking family, friends and founders or coworkers, saying life has been just work, computer, family and some sleep, and setting next year&#39;s goal as doing all of those, getting fit, being present and funmaxxing, then asking for tips (123 likes, 18 replies).</p>
+<p class="summary-zh zh">FPV Ventures 合伙人 Nikunj Kothari 说 X 上模型口碑像 yo-yo：过去几个月像 OpenAI 占着上风，现在 Anthropic 的 5.5 和 Gemini 的 Carbon 拿走了称赞，他喊 grok 也来点惊喜（13 赞、4 回复）。另一条是生日感慨，感谢家人朋友和一起做事的人，说生活被工作、电脑、家庭和一点睡眠占满，明年的目标是把这些兼顾好、健身、在场、多找点乐子，顺带求建议（123 赞、18 回复）。</p>
+<div class="urls">
+<a href="https://x.com/nikunj/status/2122833396787495317" target="_blank">https://x.com/nikunj/status/2122833396787495317</a>
+<a href="https://x.com/nikunj/status/2122889175053832557" target="_blank">https://x.com/nikunj/status/2122889175053832557</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Dan Shipper</span>
+<span class="builder-role">CEO, Every</span>
+</div>
+<p class="summary-en">Every CEO Dan Shipper posts three times. A quote post says a team that is not generating videos like the linked one instead of decks to explain new product direction is ngmi (109 likes, 5 reposts, 12 replies). A second quote post introduces the inverse roon bench from Every (33 likes, 4 replies). A third shares the Every team&#39;s full ratings for Astra and Sol 6.2, saying it is hard to remember a frontier model release like this and that opus 5 is the closest comparison, with two links (125 likes, 4 reposts, 15 replies). The feed has no text for any linked target.</p>
+<p class="summary-zh zh">Every CEO Dan Shipper 本期三条。一条引用推文说，团队如果还在用 deck 而不是像链接里那样用视频讲新产品方向，就 ngmi（109 赞、5 转发、12 回复）。第二条引用推文推出 Every 的 inverse roon bench（33 赞、4 回复）。第三条给出 Every 团队对 Astra 和 Sol 6.2 的完整评分，说很难想起有哪次前沿模型发布像这样，最接近的参照是 opus 5，附了两个链接（125 赞、4 转发、15 回复）。这些链接目标 feed 都没有收录。</p>
+<div class="urls">
+<a href="https://x.com/danshipper/status/2122827759932051751" target="_blank">https://x.com/danshipper/status/2122827759932051751</a>
+<a href="https://x.com/danshipper/status/2122852558007894417" target="_blank">https://x.com/danshipper/status/2122852558007894417</a>
+<a href="https://x.com/danshipper/status/2122858139989012510" target="_blank">https://x.com/danshipper/status/2122858139989012510</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Sam Altman</span>
+<span class="builder-role">OpenAI</span>
+</div>
+<p class="summary-en">OpenAI&#39;s Sam Altman posts twice in the same second, ending a run of thirteen consecutive issues with no post from him (recorded through the 11-18 issue). &#39;6.2 Sol and Astra are out.&#39; says the models can do amazing things and are very token-efficient, points to 6.2 Sol ultrafast as something people will really enjoy, and links out (7,670 likes, 336 reposts, 739 replies). It leads all three engagement fields and is the only post above 4,000 likes. The second says that although the new models are very smart, more work is ahead on making them nice to work with and that will be prioritised for upcoming releases, while the intelligence and capability are extraordinary even if they take a little extra work (2,990 likes, 91 reposts, 274 replies), third in likes, fourth in reposts and fourth in replies. The first is a quote post; the feed has no text for its target.</p>
+<p class="summary-zh zh">OpenAI 的 Sam Altman 在同一秒发了两条，结束了连续十三期没有他内容的记录（这段缺席一直记到 11-18 期）。「6.2 Sol and Astra are out.」说这批模型能做惊人的事、非常 token-efficient，特别点出 6.2 Sol ultrafast 会觉得好用，附了链接（7,670 赞、336 转发、739 回复）。这条包揽赞数、转发、回复三项第一，也是全窗口唯一破 4,000 赞的。第二条说新模型很聪明，但在「让模型好用」上还有工作要做，会在后续版本优先处理；即便要多花点力气，intelligence 和 capability 依旧非凡（2,990 赞、91 转发、274 回复），赞数第三、转发第四、回复第四。第一条是引用推文，被引用目标 feed 没有收录。</p>
+<div class="urls">
+<a href="https://x.com/sama/status/2122798039899263456" target="_blank">https://x.com/sama/status/2122798039899263456</a>
+<a href="https://x.com/sama/status/2122798042734633452" target="_blank">https://x.com/sama/status/2122798042734633452</a>
+</div>
+</article>
+</section>
+<!-- ============== PODCAST ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#127911;</span>
+<h2 class="section-title">Podcast</h2>
+<span class="section-meta">1 Episode &middot; New to the Series</span>
+</div>
+<div class="podcast">
+<div class="podcast-source">Latent Space</div>
+<div class="podcast-title">Building Visual Intelligence &mdash; Andreas Blattmann &amp; Dustin Podell, Black Forest Labs</div>
+<p class="summary-en">The Takeaway: a lab that became famous for image generation says it was never really an image generation lab. Andreas Blattmann and Dustin Podell of Black Forest Labs describe visual intelligence as the intuitive, pre-verbal grasp of physics that lets a person catch a ball or grab a bottle, and argue that learning from natural signals (images, video, audio and actions) is what turns diffusion models into something closer to a robot brain than a picture tool. The cold open puts it as BFL was not founded to be an image generation lab, and Blattmann says video modeling is actually the central means to understanding how our world basically works.</p>
+<p class="summary-en">Blattmann is a co-inventor of latent diffusion, the technique scaled up into Stable Diffusion at Stability AI, and a co-founder who has been working on diffusion models for about seven years. Podell came in from freelance web development, became a model and research lead at Stability AI and is credited with SDXL, Control LoRA, post-training on SD3, Flux Ultra, Flux.1 and Flux Context. The name Black Forest comes from the German region around Freiburg where the founders grew up: they could pick where to start the lab and chose home. The host says the launch of Stable Diffusion made him quit his job and start Latent Space, and Podell says the original release made him quit his own job too.</p>
+<p class="summary-en">The technical spine is FLUX 3, described as one model learning multimodally from images, videos, audio and actions, able to act as a robot brain in real manufacturing workflows. Blattmann frames the goal through Daniel Kahneman&#39;s system one, fast and intuitive, versus the system two of language modeling, and says the two should eventually be combined. Podell&#39;s account of Flux Context is the most concrete: a tiny set of photographs labeled only with spatial relations such as the hat is on top of the dog, a training run he describes as maybe six hours or four hours, and an immediate sense of generality that let a logo be placed on a shirt. He calls it mostly a data set project, with distillation work by Axel to speed it up, and says the point was to get away from the slot machine of prompting again and again. Other figures in the conversation are self-reported: $450 million raised so far, $100 million in revenue last published in December and since crossed, Flux.2 handling 10 reference images, and 1K fine-tuning steps on 3D data turning a video model into a 3D one.</p>
+<p class="summary-en">The host says Flux Context could in the limit replace Canva and Photoshop for everyday edits while not replacing the top end of the market, and that when many frontier labs lean the same direction you are probably six to 12 months out from a big breakthrough; at the close he places robotics in 2027. An unexpected use case the guests liked was image restoration, bringing old family photos back. Sponsor reads for Supabase and Deepgram and the cold open are not treated as arguments. Every number and name here comes from the transcript and none is independently verified by the feed.</p>
+<p class="summary-zh zh">核心结论：一家因为图像生成而成名的实验室说，它本来就不是做图像生成的。Black Forest Labs 的 Andreas Blattmann 和 Dustin Podell 把 visual intelligence 讲成人接球、抓瓶子那种不用先说出物理公式就有的直觉理解，认为从自然信号（图像、视频、音频、动作）里学习，才让 diffusion 模型更像一个 robot brain，而不只是一个出图工具。开头的 cold open 原话是 BFL was not founded to be an image generation lab，Blattmann 也说 video modeling 才是理解这个世界怎么运转的中心手段。</p>
+<p class="summary-zh zh">Blattmann 是 latent diffusion 的共同发明人，这项技术后来在 Stability AI 被放大成 Stable Diffusion；他是联合创始人，做 diffusion 模型大约七年。Podell 从自由接单的 web 开发转过来，做到 Stability AI 的 model and research lead，参与 SDXL、Control LoRA、SD3 的 post-training，以及 Flux Ultra、Flux.1、Flux Context。Black Forest 这个名字来自创始人长大的德国弗莱堡一带：当年可以自己选在哪里建实验室，他们选了家乡。主持人说 Stable Diffusion 发布让他辞职、办了 Latent Space，Podell 也说原版发布让自己辞了职。</p>
+<p class="summary-zh zh">技术主线是 FLUX 3，被描述成一个同时从图像、视频、音频和动作里学的多模态模型，能在真实制造流程里当 robot brain。Blattmann 用 Daniel Kahneman 的 system one（快速、直觉）对照语言建模的 system two，说最终要把两者合起来。Podell 讲 Flux Context 最具体：一个很小的照片集，标注只写图片里的空间关系，比如 the hat is on top of the dog；训练时长他给了「maybe like six hours」「four hours of training」两种说法；随后立刻看到一种清楚的 generality，能把 logo 放到衬衫上。他说这主要是一个 data set project，Axel 做了 distillation 来提速，出发点是不想再靠一遍遍抽卡的 slot machine。对话里其他数字都是自述：迄今融资 4.5 亿美元、去年 12 月公布过 1 亿美元收入且后来已经超过、Flux.2 当时能处理 10 张参考图、在一个 video model 上用 1K 步 3D 数据微调得到 3D model。</p>
+<p class="summary-zh zh">主持人说 Flux Context 在极限上可以替掉 Canva 和 Photoshop 的日常编辑，但不会替掉高端市场；还说当一批前沿实验室都往同一个方向倾斜时，大概距某种大突破还有六到十二个月，结尾把 robotics 放到 2027。两位提到一个没预料到的用法是老照片修复上色。Supabase、Deepgram 的广告口播和 cold open 都不当作独立论点。这里每个数字和名字都来自转写，feed 没有独立核实。</p>
+<div class="urls">
+<a href="https://www.youtube.com/watch?v=8cGfJOU3AlQ" target="_blank">https://www.youtube.com/watch?v=8cGfJOU3AlQ</a>
+</div>
+</div>
+</section>
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128161;</span>
+<h2 class="section-title">The Takeaway</h2>
+<span class="section-meta">1 Podcast &middot; 2026-11-19</span>
+</div>
+<div class="takeaway">
+<div class="takeaway-label">The Takeaway</div>
+<p>Engagement concentrates on one announcement. Sam Altman&#39;s two posts one second apart lead all three fields: 6.2 Sol and Astra are out takes 7,670 likes, 336 reposts and 739 replies, and is the only post above 4,000 likes; the same-second follow-up takes 2,990 likes, third in the window, 91 reposts and 274 replies. Thibault Sottiaux&#39;s vibes post is second in likes (3,467) and replies (706) and third in reposts (138), his efficiency post is fifth in likes (2,360) and third in replies (329), and Garry Tan&#39;s board post is fourth in likes (2,691) and second in reposts (148). Five posts pass 1,000 likes, none pass 10,000, three pass 100 reposts and six pass 100 replies; totals are 23,338 likes, 1,002 reposts and 2,886 replies. The window&#39;s longest post, Swyx&#39;s 1,641-character devin bots argument, draws 292 likes.</p>
+<p>The release is the main line but the feed carries no spec sheet, benchmark or second source for it. 7 posts from 5 accounts name 6.2, 6 name Astra and 7 name Sol. Sam Altman says the models are very token-efficient and points to 6.2 Sol ultrafast; Sottiaux explains the influencer-versus-crowd split as early access followed by 3-4 days of changes with no re-testing and videos made the previous week, while conceding the models are a hefty jump but not perfect on taste and niceness of use. Swyx criticises the 6.2 astra ad yet calls the model a solid minor version improvement and his daily driver. Peter Yang jokes about paying influencers for negative reviews after missing early access and says Astra 6.2 may beat Fable at website design; Dan Shipper says he cannot remember a frontier release like this, with opus 5 as the closest comparison; Nikunj Kothari reads the vibes as a yo-yo between OpenAI, Anthropic 5.5, Gemini Carbon and grok. None of these is backed by an independent report in the feed.</p>
+<p>The product items stay specific and unverified. Josh Woodward lists six countries, Gemini 4 Hydrogen, Duplex calls, Google Pay checkout, RCS, Gmail forwarding, Password Manager sign-in and a Workspace update. Amjad Masad says Replit can now spin up an agent swarm with one prompt. Guillermo Rauch points to agent-browser vitals, self-optimizing software and a stealth cyber benchmark called DeepsecBench. Swyx describes devin bots with persistent identity and memory, Matt Turck a $30M seed in remanencelabs co-led with eqt and Daytona macOS sandboxes, and Dan Shipper the inverse roon bench. Garry Tan&#39;s three quote posts about a board and a 15% shareholder vote have no linked text in the feed, so no board, company or campaign is named for them.</p>
+<p>The Podcast slot is 1 and it is new to the series, not a repeat. Latent Space published Building Visual Intelligence with Andreas Blattmann and Dustin Podell of Black Forest Labs at 2026-11-16T21:27:06.000Z, Pacific 11-16 13:27:06, 18h17m04s before the first post, 1 day 8h21m02s before the last and 1 day 9h01m31s before the snapshot, entirely outside the window. Its title, both guests, Black Forest Labs, the specific video URL and the publication timestamp all return zero hits across the 130 historical pages, so it is counted even though it arrives late. This ends three consecutive issues whose podcast was deduplicated against an earlier episode. Unlike those issues, the feed gives a specific video URL and the digest links to it rather than to a channel page.</p>
+<p>Quote structure and coverage: 17 of the 33 posts are quote tweets pointing at 17 distinct IDs, all outside this feed, with no self-quotes and no shared target. All 33 tweet IDs return zero hits against the 130 historical digest pages. All 33 posts fall on Pacific 11-17, from 07:44:10 to 21:48:08, a 14h03m58s window closing 40m29s before the snapshot; the gap from the previous issue&#39;s close is 9h18m15s and the previous snapshot was 23h59m33s earlier. Pacific 10-29 and 10-30 remain missing from the series.</p>
+<p>Thirteen accounts posted: 8 are on the 24-name tracking list (Swyx, Peter Yang, Amjad Masad, Guillermo Rauch, Garry Tan, Matt Turck, Nikunj Kothari, Sam Altman) and 5 are not (Josh Woodward, Thibault Sottiaux, Ryo Lu, Zara Zhang, Dan Shipper). Sam Altman appears after thirteen consecutive issues with no post from him, a run recorded through the 11-18 issue. The blogs array is empty for the twenty-fifth consecutive issue.</p>
+</div>
+<div class="takeaway zh">
+<div class="takeaway-label">核心结论</div>
+<p>互动集中在一次发布上。Sam Altman 相隔 1 秒的两条包揽三项第一：「6.2 Sol and Astra are out」拿 7,670 赞、336 转发、739 回复，也是全窗口唯一破 4,000 赞的；同一秒那条后续拿 2,990 赞排第三、91 转发、274 回复。Thibault Sottiaux 讲 vibes 差异那条赞数第二（3,467）、回复第二（706）、转发第三（138），讲效率那条赞数第五（2,360）、回复第三（329）；Garry Tan 讲董事会那条赞数第四（2,691）、转发第二（148）。破千赞 5 条、破万赞 0 条、转发过百 3 条、回复过百 6 条；合计 23,338 赞、1,002 转发、2,886 回复。窗口最长的是 Swyx 1,641 字符的 devin bots 长推，292 赞。</p>
+<p>发布是主线，但 feed 里没有规格、基准或第二信源。7 条推文来自 5 个账号点名 6.2，6 条点名 Astra，7 条点名 Sol。Sam Altman 说模型非常 token-efficient，特别提 6.2 Sol ultrafast；Sottiaux 把 influencer 和大众的观感差解释为提前给访问权、之后 3-4 天又改了不少且估计没重测、视频是上周做的，同时承认模型比前代跨了一大步但在 taste 和上手手感上还不完美。Swyx 批评 6.2 astra 广告，却又说模型是扎实的 minor version improvement、是他每天在用的。Peter Yang 拿没拿到 early access 开玩笑说收买 influencer 留负评，又说 Astra 6.2 做网站设计可能胜过 Fable；Dan Shipper 说想不起有哪次前沿发布像这样，最接近的是 opus 5；Nikunj Kothari 把口碑看成 OpenAI、Anthropic 5.5、Gemini Carbon 和 grok 之间的 yo-yo。这些在 feed 里都没有独立报道支撑。</p>
+<p>产品消息具体，但都未核实。Josh Woodward 列了六国、Gemini 4 Hydrogen、Duplex 打电话、Google Pay 结账、RCS、Gmail 转发、Password Manager 登录，以及一次 Workspace 更新。Amjad Masad 说 Replit 现在一句 prompt 就能起 agent swarm。Guillermo Rauch 提到 agent-browser vitals、self-optimizing software，以及叫 DeepsecBench 的 stealth cyber benchmark。Swyx 讲有长期身份和记忆的 devin bots，Matt Turck 讲与 eqt 共同领投 remanencelabs 的 3,000 万美元种子轮和 Daytona 的 macOS sandboxes，Dan Shipper 讲 inverse roon bench。Garry Tan 那三条关于董事会和 15% 股东投票的引用推文，feed 没有收录被引用内容，所以这里不写董事会属于哪家公司，也不补活动名称。</p>
+<p>Podcast 这一格是 1，而且对本系列是新的，不是重复。Latent Space 的 Building Visual Intelligence，嘉宾是 Black Forest Labs 的 Andreas Blattmann 与 Dustin Podell，发布于 2026-11-16T21:27:06.000Z，即太平洋 11-16 13:27:06，比首条推文早 18h17m04s、比末条早 1 天 8h21m02s、比快照早 1 天 9h01m31s，完全在窗口之外。标题、两位嘉宾、Black Forest Labs、具体视频地址、发布时间戳，对 130 个历史页面全部零命中，所以虽然迟到仍计入。这结束了连续三期播客被判重回吐到旧一集的局面。与那几期不同，本期 feed 给的是具体视频地址，页面也直接链到它，而不是频道页。</p>
+<p>引用结构与覆盖：33 条里 17 条是引用推文，指向 17 个不同 ID，全部在本期 feed 之外，没有自引，也没有同组。33 个推文 ID 对 130 个历史页面零命中。33 条全部落在太平洋 11-17，07:44:10 到 21:48:08，窗口 14h03m58s，在快照前 40m29s 收口；距上一期收口 9h18m15s，上一份快照相隔 23h59m33s。太平洋 10-29、10-30 在本系列仍缺失。</p>
+<p>有内容的账号 13 个，其中 8 位在 24 位追踪名单上（Swyx、Peter Yang、Amjad Masad、Guillermo Rauch、Garry Tan、Matt Turck、Nikunj Kothari、Sam Altman），5 位不在（Josh Woodward、Thibault Sottiaux、Ryo Lu、Zara Zhang、Dan Shipper）。Sam Altman 在连续十三期没有内容之后出现，这段缺席记录一直写到 11-18 期。blogs 数组连续第二十五期为空。</p>
+</div>
+</section>
+<!-- ============== NOTES ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128221;</span>
+<h2 class="section-title">记录 / Notes &amp; Dedup</h2>
+<span class="section-meta">33 Zero &middot; 1 New &middot; 0 Blog</span>
+</div>
+<div class="dedup">
+<p style="margin-top:12px">
+<strong>Tweet check</strong> &mdash; All 33 tweet IDs have zero hits across the 130 historical digest HTML files under 2026/ (excluding today&#39;s output directory). 17 of the 33 are quote posts with 17 distinct quoted IDs, all outside this feed, with no self-quotes and no shared target. The feed gives the text of none of the outside posts.</p>
+<p style="margin-top:12px">
+<strong>Podcast check</strong> &mdash; The slot is 1 and it is new, not a dedup. The episode is Latent Space, Building Visual Intelligence with Andreas Blattmann and Dustin Podell of Black Forest Labs, publishedAt 2026-11-16T21:27:06.000Z (Pacific 11-16 13:27:06), 18h17m04s before the first post, 1 day 8h21m02s before the last and 1 day 9h01m31s before the snapshot, entirely outside the window. Its full title, both guest names, Black Forest Labs, the specific video URL https://www.youtube.com/watch?v=8cGfJOU3AlQ, the guid and the timestamp all return zero hits across the 130 historical pages. The three previous issues each deduplicated against an older episode (11-16 to 11-07, 11-17 to 11-09, 11-18 to 11-10); this one does not. It is counted and gets a podcast card.</p>
+<p style="margin-top:12px">
+<strong>Blog check</strong> &mdash; The slot is 0 because the blogs array is empty for the twenty-fifth consecutive issue; no blog entry is created. This zero has a different cause from the Podcast value of 1.</p>
+<p style="margin-top:12px">
+<strong>Transcript</strong> &mdash; 124,960 characters over 1,361 lines, with no speaker labels and no timestamps; the host is named only through the story he tells. The cold open and the Supabase and Deepgram sponsor reads are not treated as arguments. ASR spellings are reproduced as-is rather than silently corrected: Andi for Andreas, Anj, Vibhu, Kahneman Slow, Squa- Twitch, Clanker, entrance distillation, Stable Japan, PFO, Gondola, WhisperFlow, NanoBanana and MicroDucks. Numbers are self-reported in conversation and not independently verified by the feed: $450 million raised, $100 million in revenue published in December and since crossed, 10 reference images for Flux.2, 1K fine-tuning steps on 3D data, and a training run described both as maybe six hours and as four hours. The six-to-12-month breakthrough remark and robotics in 2027 belong to the host.</p>
+<p style="margin-top:12px">
+<strong>Same names</strong> &mdash; Case-sensitive whole-word zero hits after stripping style and script blocks and inline style attributes: 6.2 Sol, Astra 6.2, devin bots, agent-browser, six countries, Andreas Blattmann, Dustin Podell, Black Forest Labs, FLUX, latent diffusion, Stable Diffusion, Stability AI, Andi, visual intelligence, 15% shareholder and DeepsecBench. Earlier hits are not called firsts: Astra (31), Sol (39), Thibault Sottiaux (96), Zara Zhang (82), Ryo Lu (23), GBrain (18), ultrafast (7), Sol ultrafast (5), Pro 200 (1), Pro 500 (3), board (20), Jensen (12), Stand with Jensen (4) and Megaspeed (1).</p>
+<p style="margin-top:12px">
+<strong>Thin posts</strong> &mdash; 17 of the 33 posts are short reactions, jokes or bare links with no argument of their own: Josh Woodward&#39;s reply-back request, Swyx&#39;s technical-details quote, Peter Yang&#39;s conspiracy joke and Astra-versus-Fable line, Amjad Masad&#39;s iOS-gestures line and swarm-performance link, Guillermo Rauch&#39;s fx line, Ryo Lu&#39;s one line, Garry Tan&#39;s three board quotes, Zara Zhang&#39;s three, Nikunj Kothari&#39;s birthday note, and Dan Shipper&#39;s videos-versus-decks and inverse roon bench quotes. Their links are kept; no event name, position or subject is added for them.</p>
+<p style="margin-top:12px">
+<strong>Coverage</strong> &mdash; Three timestamps: snapshot 2026-11-18T06:28:37.829Z (Pacific 11-17 22:28:37), first post Pacific 11-17 07:44:10 (Matt Turck), last post Pacific 11-17 21:48:08 (Thibault Sottiaux). Window 14h03m58s, closing 40m29s before the snapshot; 9h18m15s after the previous issue&#39;s close (Pacific 11-16 22:25:55); previous snapshot was 23h59m33s earlier. All 33 posts fall on Pacific 11-17; Pacific 10-29 and 10-30 remain missing from the series.</p>
+<p style="margin-top:12px">
+<strong>Engagement fields</strong> &mdash; Likes, reposts and replies are taken as-is from the feed; this window has no quotes field. Five posts pass 1,000 likes, none pass 10,000, three pass 100 reposts and six pass 100 replies; totals are 23,338 / 1,002 / 2,886. Every rank statement is checked against the full-window sorted list, and every &#39;N posts name X&#39; count is checked against the post texts.</p>
+<p style="margin-top:12px">
+<strong>Not resolved</strong> &mdash; Specs, benchmarks or an official writeup for 6.2 Sol and Astra; a second source for Gemini&#39;s six-country rollout and the Duplex, Pay, RCS, Gmail and Password Manager list; what Replit&#39;s one-prompt swarm ships with; what DeepsecBench measures; the board, company and 15% shareholder vote behind Garry Tan&#39;s three quotes; the subject of Ryo Lu&#39;s link; a second source for the $30M remanencelabs round and Daytona macOS sandboxes; specs for devin bots and the 65k startup credits; whether Peter Yang&#39;s promised unbiased review appeared; the inverse roon bench; and the standing items carried from earlier issues (Day 29 / 3/x, dot, jev, Particle-1, HackerTube, Grok Bot, Legora, the data-market figure, Claude Whiteboards, Box interop, interactive connectors, the AIE keynote, MCP tool counts, Stand with Jensen, Opal and the 11-27 book date).</p>
+</div>
+<div class="dedup zh" style="margin-top:14px">
+<p style="margin-top:12px">
+<strong>推文核对</strong> &mdash; 33 个推文 ID 对 2026/ 下 130 个历史 HTML 零命中（排除今日输出目录）。33 条里 17 条是引用推文，共 17 个不同的被引用 ID，全部在本期 feed 之外，没有自引，也没有同组。这些外部推文的内容 feed 一条都没有给出。</p>
+<p style="margin-top:12px">
+<strong>播客核对</strong> &mdash; 这一格是 1，而且是新收录，不是判重。这一集是 Latent Space 的 Building Visual Intelligence，嘉宾为 Black Forest Labs 的 Andreas Blattmann 与 Dustin Podell，publishedAt 为 2026-11-16T21:27:06.000Z（太平洋 11-16 13:27:06），比首条推文早 18h17m04s、比末条早 1 天 8h21m02s、比快照早 1 天 9h01m31s，完全在窗口之外。完整标题、两位嘉宾、Black Forest Labs、具体视频地址 https://www.youtube.com/watch?v=8cGfJOU3AlQ、guid 和时间戳，对 130 个历史页面全部零命中。前三期各自是把播客判重到更早的一集（11-16 对 11-07、11-17 对 11-09、11-18 对 11-10），本期不是。它计入统计并渲染播客卡。</p>
+<p style="margin-top:12px">
+<strong>博客核对</strong> &mdash; 这一格是 0，因为 blogs 数组连续第二十五期为空，不生成博客条目。这个 0 与 Podcast 的 1 成因不同。</p>
+<p style="margin-top:12px">
+<strong>转写</strong> &mdash; 124,960 字符、1,361 行，没有 speaker 标签、没有时间戳，主持人只通过自己讲的故事被认出来。cold open 和 Supabase、Deepgram 的广告口播都不当作独立论点。ASR 拼写按原样照录、不静默修正：Andi（Andreas）、Anj、Vibhu、Kahneman Slow、Squa- Twitch、Clanker、entrance distillation、Stable Japan、PFO、Gondola、WhisperFlow、NanoBanana、MicroDucks。对话里的数字都是自述、feed 未独立核实：融资 4.5 亿美元、去年 12 月公布过 1 亿美元收入且后来已超过、Flux.2 的 10 张参考图、3D 数据上 1K 步微调，以及同一段训练既说 maybe six hours 又说 four hours。「六到十二个月会有大突破」和 2027 年的 robotics 都是主持人的说法。</p>
+<p style="margin-top:12px">
+<strong>同名</strong> &mdash; 剥掉 style 块、script 块和 inline style 属性后，按大小写敏感的整词匹配，零命中的有：6.2 Sol、Astra 6.2、devin bots、agent-browser、six countries、Andreas Blattmann、Dustin Podell、Black Forest Labs、FLUX、latent diffusion、Stable Diffusion、Stability AI、Andi、visual intelligence、15% shareholder、DeepsecBench。有旧命中的不写「首次」：Astra（31）、Sol（39）、Thibault Sottiaux（96）、Zara Zhang（82）、Ryo Lu（23）、GBrain（18）、ultrafast（7）、Sol ultrafast（5）、Pro 200（1）、Pro 500（3）、board（20）、Jensen（12）、Stand with Jensen（4）、Megaspeed（1）。</p>
+<p style="margin-top:12px">
+<strong>薄内容</strong> &mdash; 33 条里有 17 条是一句话反应、玩笑或裸链接、文字里没有展开观点：Josh Woodward 征集回复那条、Swyx 的 technical details 引用、Peter Yang 的阴谋玩笑和 Astra 对比 Fable 那条、Amjad Masad 的 iOS gestures 和 swarm 性能链接、Guillermo Rauch 的 fx 那句、Ryo Lu 的一条、Garry Tan 三条董事会引用、Zara Zhang 三条、Nikunj Kothari 的生日感慨、Dan Shipper 的视频替代 deck 与 inverse roon bench 引用。链接照留，不替它们补活动名、立场或主题。</p>
+<p style="margin-top:12px">
+<strong>覆盖</strong> &mdash; 三个时间戳：快照 2026-11-18T06:28:37.829Z（太平洋 11-17 22:28:37）、首条太平洋 11-17 07:44:10（Matt Turck）、末条太平洋 11-17 21:48:08（Thibault Sottiaux）。窗口 14h03m58s，在快照前 40m29s 收口；距上一期收口（太平洋 11-16 22:25:55）9h18m15s；上一份快照相隔 23h59m33s。33 条全在太平洋 11-17；太平洋 10-29、10-30 在本系列仍缺失。</p>
+<p style="margin-top:12px">
+<strong>互动字段</strong> &mdash; likes、reposts、replies 按 feed 原值取，本期没有 quotes 字段。破千赞 5 条、破万赞 0 条、转发过百 3 条、回复过百 6 条；合计 23,338 / 1,002 / 2,886。所有名次说法都按全窗口排序逐条回查，所有「N 条点名 X」也按推文原文计数回查。</p>
+<p style="margin-top:12px">
+<strong>未闭环</strong> &mdash; 6.2 Sol 与 Astra 的规格、基准或官方说明；Gemini 六国上线以及 Duplex、Pay、RCS、Gmail、Password Manager 清单的第二信源；Replit 一句 prompt 起 swarm 具体交付了什么；DeepsecBench 测什么；Garry Tan 三条引用背后的董事会、公司和 15% 股东投票；Ryo Lu 链接指向什么；3,000 万美元 remanencelabs 轮次与 Daytona macOS sandboxes 的第二信源；devin bots 与 65k 创业额度的规格；Peter Yang 预告的 unbiased review 有没有发出；inverse roon bench；以及从往期带来的长期项（Day 29 / 3/x、dot、jev、Particle-1、HackerTube、Grok Bot、Legora、数据市场规模、Claude Whiteboards、Box 互通、interactive connectors、AIE keynote、MCP 工具数、Stand with Jensen、Opal，以及 11 月 27 日的出版日期）。</p>
+</div>
+</section>
+<footer class="footer">
+<div class="next-issue">&#128236; &#19979;&#19968;&#26399;&#65306;&#26126;&#22825; 10:00&#65288;&#21271;&#20140;&#26102;&#38388;&#65289;</div>
+<div class="signature"><a href="#top" style="border:none;color:var(--ink-muted)">&#22238;&#21040;&#39030;&#37096; / Back to top</a></div>
+<div class="signature">by chloevchen</div>
+</footer>
+</body>
+</html>
+<!-- by chloevchen -->
