@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Builders Digest &middot; 2026-11-20</title>
+<style>
+
+
+
+
+
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 28px 30px; margin-bottom: 24px; }
+  .podcast-source { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
+  .podcast-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; margin-bottom: 18px; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; }
+
+
+</style>
+</head>
+<body id="top">
+<header class="topbar">
+<div class="topbar-inner">
+<a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders &middot; AI Builders Digest</a>
+<span>双语 &middot; Bilingual</span>
+</div>
+</header>
+<section class="header">
+<div class="eyebrow">Daily Digest &middot; 2026-11-20</div>
+<h1>AI Builders Digest</h1>
+</section>
+<div class="stats">
+<div class="stat">
+<div class="stat-num">15</div>
+<div class="stat-label">Builders</div>
+</div>
+<div class="stat">
+<div class="stat-num">31</div>
+<div class="stat-label">Tweets</div>
+</div>
+<div class="stat">
+<div class="stat-num">1</div>
+<div class="stat-label">Podcast</div>
+</div>
+<div class="stat">
+<div class="stat-num">0</div>
+<div class="stat-label">Blog</div>
+</div>
+</div>
+<p class="note-line">Fifteen builders, 31 posts, 29 on Pacific 11-18 and two late on Pacific 11-17. A one-line question from Thibault Sottiaux about 6.2 Sol takes the top likes (6,038) and replies (3,412), the window&#39;s only post above 1,000 replies; Thariq&#39;s line on strong opinions leads reposts (251). The Podcast slot is 1 with a new AI &amp; I by Every conversation with Notion&#39;s Ivan Zhao, published mid-window; the Blog slot is 0 because the blogs array is empty.</p>
+<p class="note-line zh">15 位 builder、31 条推文，29 条落在太平洋 11-18，2 条在太平洋 11-17 末段。Thibault Sottiaux 问 6.2 Sol 用得怎么样的一句拿到最高赞 6,038 和最高回复 3,412，也是全窗口唯一回复破千的一条；Thariq 讲「好软件是强观点」那条转发第一 251。Podcast 这一格是 1，是一集全新的 AI &amp; I by Every 对话，嘉宾是 Notion 的 Ivan Zhao，发布在窗口中段；Blog 这一格是 0，因为 blogs 数组为空。</p>
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128036;</span>
+<h2 class="section-title">X / Twitter</h2>
+<span class="section-meta">15 Builders &middot; 31 Tweets</span>
+</div>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Swyx</span>
+<span class="builder-role">smol_ai, cognition, Latent Space</span>
+</div>
+<p class="summary-en">Swyx, whose bio describes achieving ambition with intentionality, intensity, integrity and insanity and lists affiliations with smol_ai, cognition, temporalio, aidotengineer and latentspacepod, posts three quote tweets, all short: a bare 'fcf profitable!' with a link, a remark on casting Monica Barbaro as a temu Mira Murati, and a one-word 'poteto' with a link. They draw 3, 53 and 2 likes. The feed gives no text for any of the three posts he quotes, so no subject is added for them.</p>
+<p class="summary-zh zh">Swyx 的 bio 写的是用 intentionality、intensity、integrity、insanity 去实现野心，并列了 smol_ai、cognition、temporalio、aidotengineer、latentspacepod 等关联。他本期发了三条引用推文，都很短：一句 'fcf profitable!' 加链接、一句说把 Monica Barbaro 演成 temu Mira Murati、一句只有 'poteto' 加链接，分别 3 赞、53 赞、2 赞。三条被引用推文的内容 feed 都没有收录，这里不替它们补主题。</p>
+<div class="urls">
+<a href="https://x.com/swyx/status/2123259711785148431" target="_blank">https://x.com/swyx/status/2123259711785148431</a>
+<a href="https://x.com/swyx/status/2123260852984013045" target="_blank">https://x.com/swyx/status/2123260852984013045</a>
+<a href="https://x.com/swyx/status/2123298074911248526" target="_blank">https://x.com/swyx/status/2123298074911248526</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Josh Woodward</span>
+<span class="builder-role">VP, Google Labs &amp; Gemini</span>
+</div>
+<p class="summary-en">Josh Woodward, VP at Google for Google Labs, the Gemini app and AI Studio, points in his first post to a new Project Genie experience for Google AI Ultra subscribers, naming Genie 4, the Project Genie agent and a community gallery (18 likes). He then announces Gemini 4 Neon, calling it frontier-grade intelligence that is faster, cheaper and better at following complex instructions (389 likes, 24 reposts, 41 replies), and 43 seconds later posts a short line asking readers to read more and try it in the Gemini app. The feed carries no spec sheet, benchmark or second source for either announcement.</p>
+<p class="summary-zh zh">Josh Woodward 在 Google 负责 Google Labs、Gemini app 和 AI Studio，VP。他先发一条指向 Google AI Ultra 订阅者的新版 Project Genie 体验，点了 Genie 4、Project Genie agent 和 community gallery（18 赞）；接着宣布 Gemini 4 Neon，称它是更快、更便宜、更会遵循复杂指令的 frontier-grade intelligence（389 赞、24 转发、41 回复）；43 秒后又发一条请大家去 Gemini app 里读更多、试一试。这两项公告在 feed 里都没有规格、基准或第二信源。</p>
+<div class="urls">
+<a href="https://x.com/joshwoodward/status/2123123552052494529" target="_blank">https://x.com/joshwoodward/status/2123123552052494529</a>
+<a href="https://x.com/joshwoodward/status/2123177835254952348" target="_blank">https://x.com/joshwoodward/status/2123177835254952348</a>
+<a href="https://x.com/joshwoodward/status/2123178015874302328" target="_blank">https://x.com/joshwoodward/status/2123178015874302328</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thibault Sottiaux</span>
+<span class="builder-role">Codex &amp; ChatGPT, OpenAI</span>
+</div>
+<p class="summary-en">Thibault Sottiaux, whose bio lists Codex and ChatGPT at OpenAI, asks 'How is 6.2 Sol treating you today?' and that one line takes the window&#39;s highest likes (6,038) and highest replies (3,412), the only post above 1,000 replies. His second post says GPT-6.2 Astra is pretty good at hard things, that the team shared results on AMD and Jalapeño chip optimizations, that he hears the feedback on its communication style and is working on it, and that for the hardest tasks in the world it does seem to be in a league of its own at the moment (3,021 likes, 100 reposts, 571 replies). That post is a quote tweet and the feed gives no text for its target. No spec, benchmark or second source for 6.2 Sol or Astra appears in the feed.</p>
+<p class="summary-zh zh">Thibault Sottiaux 的 bio 列了 OpenAI 的 Codex 和 ChatGPT。他问了一句「How is 6.2 Sol treating you today?」，这一句拿到全窗口最高赞 6,038 和最高回复 3,412，也是唯一一条回复破千。另一条说 GPT-6.2 Astra 在硬任务上相当强，团队分享了 AMD 和 Jalapeño 芯片优化的一些结果；他说收到了关于沟通风格的反馈、正在改，同时认为在世界上最难的那类任务上它目前「in a league of its own」（3,021 赞、100 转发、571 回复）。这条是引用推文，feed 没有收录被引用内容。6.2 Sol 与 Astra 的规格、基准或第二信源，feed 里都没有。</p>
+<div class="urls">
+<a href="https://x.com/thsottiaux/status/2123113107048501273" target="_blank">https://x.com/thsottiaux/status/2123113107048501273</a>
+<a href="https://x.com/thsottiaux/status/2123175166519992652" target="_blank">https://x.com/thsottiaux/status/2123175166519992652</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Yang</span>
+<span class="builder-role">Practical AI tutorials and interviews</span>
+</div>
+<p class="summary-en">Peter Yang, whose bio describes practical AI tutorials and interviews for busy people, posts two one-line complaints about complicated board games (21 and 1 likes) and one question thread on the Nvidia saga: what led Jensen to resign so abruptly and whether there was a smoking gun, why a board that spent years with him moved on so quickly, and why the president is fine with him coming back if there is one. He asks whether some board members lost trust over a lie or whether there is other information he and most Nvidia employees do not have. The feed has no report, board statement or other source for the episode, so all three questions are recorded as questions, not as confirmed events.</p>
+<p class="summary-zh zh">Peter Yang 的 bio 写的是给忙人做实用的 AI 教程和访谈。他发了两条吐槽桌游太复杂的一句式（21 赞、1 赞），另有一条关于 Nvidia 的提问：Jensen 为何突然辞职、有没有 smoking gun；共事多年的董事会为何这么快翻篇；若有 smoking gun，为何总统说不介意他回来。他问是不是部分董事因为他说谎而不再信任，或者还有他和大多数 Nvidia 员工不知道的信息。feed 里没有这件事的报道、董事会声明或其他信源，三条都按提问记录，不写成已确认事件。</p>
+<div class="urls">
+<a href="https://x.com/petergyang/status/2123247514103304252" target="_blank">https://x.com/petergyang/status/2123247514103304252</a>
+<a href="https://x.com/petergyang/status/2123256168462299291" target="_blank">https://x.com/petergyang/status/2123256168462299291</a>
+<a href="https://x.com/petergyang/status/2123290075882807352" target="_blank">https://x.com/petergyang/status/2123290075882807352</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nan Yu</span>
+<span class="builder-role">product, Codex; prev head of product, Linear</span>
+</div>
+<p class="summary-en">Nan Yu, whose bio lists product and Codex at OpenAI and previously head of product at Linear, posts a single quote tweet, 'also applies to work', with a link (50 likes, 1 reply). The feed gives no text for the post he quotes, so no subject is added.</p>
+<p class="summary-zh zh">Nan Yu 的 bio 列了 OpenAI 的 product 与 Codex，以及此前在 Linear 任 head of product。他只发了一条引用推文 'also applies to work' 加链接（50 赞、1 回复）。被引用推文的内容 feed 没有收录，这里不补主题。</p>
+<div class="urls">
+<a href="https://x.com/thenanyu/status/2123197657896321439" target="_blank">https://x.com/thenanyu/status/2123197657896321439</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thariq</span>
+<span class="builder-role">formerly Claude Code, Anthropic</span>
+</div>
+<p class="summary-en">Thariq, whose bio says he formerly worked on Claude Code at Anthropic, writes the post that leads reposts (251) and is third in likes (3,052): he does not think most people will really generate their own software, because good software is a set of strong opinions and he would rather use something someone else has thought through. A second post the same second says making your own software is tough even with AI because it is hard to know what you really want; he did not stick with the earlier tool, the modes were not the right way for him to organize his work, and he is going to try a more to-do-oriented take (1,783 likes, 38 reposts, 117 replies). That second post is a quote tweet and the feed gives no text for its target.</p>
+<p class="summary-zh zh">Thariq 的 bio 写的是此前在 Anthropic 做 Claude Code。他有一条拿到全窗口转发第一 251、赞数第三 3,052：他认为多数人并不会真的自己去生成软件，因为好的软件是一整套强观点，他更愿意用别人已经想透的东西。同一秒的另一条说，即便有 AI，自己做软件仍难在搞不清自己到底要什么；他没坚持用之前那个工具，modes 不是他组织工作的合适方式，打算改做更偏 to-do oriented 的版本（1,783 赞、38 转发、117 回复）。这第二条是引用推文，feed 没有收录被引用内容。</p>
+<div class="urls">
+<a href="https://x.com/trq212/status/2123106370161705127" target="_blank">https://x.com/trq212/status/2123106370161705127</a>
+<a href="https://x.com/trq212/status/2123106368492298653" target="_blank">https://x.com/trq212/status/2123106368492298653</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Google Labs</span>
+<span class="builder-role">Google&#39;s AI tools and experiments</span>
+</div>
+<p class="summary-en">Google Labs, whose bio calls it Google&#39;s home for the latest AI tools and experiments, opens a waitlist for Stitch Loop, described as an always-on product agent that works non-stop to help lean teams build better products (771 likes, 45 reposts). Its second post says Project Genie now runs on Genie 4 and lists what is new: prompting mid-session to edit a world live, creating worlds conversationally with the help of a new agent, and exploring and remixing other users&#39; worlds in a gallery. It is available now to eligible Google AI Ultra subscribers (266 likes, 29 reposts). Both posts are product announcements with no second source in the feed; the first is a quote tweet whose target the feed does not include.</p>
+<p class="summary-zh zh">Google Labs 的 bio 自称是 Google 最新 AI 工具和实验的所在。它先为 Stitch Loop 开了 waitlist，称这是一个 always-on product agent，不停地帮精干团队做更好的产品（771 赞、45 转发）。第二条说 Project Genie 现在跑在 Genie 4 上，列了新东西：会话中用 prompt 实时改世界、靠新 agent 对话式创建世界、在 gallery 里探索和 remix 别人的世界，目前向符合条件的 Google AI Ultra 订阅者开放（266 赞、29 转发）。两条都是产品公告，feed 里没有第二信源；第一条是引用推文，被引用内容未收录。</p>
+<div class="urls">
+<a href="https://x.com/GoogleLabs/status/2123102389775573314" target="_blank">https://x.com/GoogleLabs/status/2123102389775573314</a>
+<a href="https://x.com/GoogleLabs/status/2123118145552749015" target="_blank">https://x.com/GoogleLabs/status/2123118145552749015</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Amjad Masad</span>
+<span class="builder-role">CEO, Replit</span>
+</div>
+<p class="summary-en">Replit CEO Amjad Masad says one of the more fascinating things in the OpenAI/Hugging Face incident was reading the message boards where agents communicate, and that with Replit Missions you can see how the agents are coordinating and talking (191 likes, 61 replies). The feed carries no report of the incident itself, so this is recorded as his own framing, not as an independent account.</p>
+<p class="summary-zh zh">Replit CEO Amjad Masad 说，OpenAI/Hugging Face 那件事里最耐看的是读 agent 之间交流的 message boards，而用 Replit Missions 能看到这些 agent 怎么协调、怎么对话（191 赞、61 回复）。feed 里没有这件事本身的报道，这里按他自己的说法记录，不当作独立叙述。</p>
+<div class="urls">
+<a href="https://x.com/amasad/status/2123133509028008331" target="_blank">https://x.com/amasad/status/2123133509028008331</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Guillermo Rauch</span>
+<span class="builder-role">CEO, Vercel</span>
+</div>
+<p class="summary-en">Vercel CEO Guillermo Rauch says he is pitched a new inference neocloud company on average every two days, takes each seriously, but finds it hard to fathom as sustainable; at the same time AI Gateway token demand on Vercel has grown about 40% month over month compounded since the beginning of the year with no sign of stopping. He reconciles the two as compute being the new economy and tokens the new energy unit, more an 'oil rush' than a 'gold rush', and expects short-term expansion followed by consolidation driven by economies of scale, cybersecurity and enterprise requirements (ZDR and cyber being hot topics for inference providers), capital requirements and a changing regulatory landscape (1,007 likes). A second post calls message boards the enabling technology behind both the Navier-Stokes math breakthrough and the OpenAI/HuggingFace cyber feat, and introduces a message board infrastructure primitive he likens to 'headless Slack' (or IRC) for agents: a building block for software factories, self-optimizing systems and scientific research where human prompting is only the seed and millions of agents can operate in a decentralized fashion. He writes that vercel board is model, harness and hosting platform agnostic (844 likes, 32 reposts). A third post is just 'Nov 1997 vs Nov 2026' with a link (48 likes). The second post is a quote tweet whose target the feed does not include, and the feed gives no content for the third post&#39;s link. All figures are self-reported.</p>
+<p class="summary-zh zh">Vercel CEO Guillermo Rauch 说，平均每两天就有人向他 pitch 一家新的 inference neocloud 公司，他每一家都认真看，但觉得这很难持续；与此同时 Vercel 上 AI Gateway 的 token 需求自年初以来约 40% 月环比复合增长，没有停的迹象。他把两者调和成 compute 是新经济、tokens 是新的能量单位，更像 'oil rush' 而不是 'gold rush'；并预计短期先扩张，随后因规模经济、网络安全与企业要求（ZDR 和 cyber 是 inference 供应商的热门话题）、资本要求以及监管变化而整合（1,007 赞）。第二条说 message boards 是 Navier-Stokes 数学突破和 OpenAI/HuggingFace cyber feat 背后的 enabling technology，并介绍了一个他比作给 agent 用的 'headless Slack'（或 IRC）的 message board 基础设施原语：这是 software factories、self-optimizing systems 和科研的基础模块，人类 prompting 只是系统的种子，百万 agent 可以去中心化地运作；他写 vercel board 与 model、harness、hosting platform 都无关（844 赞、32 转发）。第三条只有 'Nov 1997 vs Nov 2026' 加一条链接（48 赞）。第二条是引用推文，feed 未收录被引用内容；第三条链接指向什么 feed 也没给。所有数字都是自述。</p>
+<div class="urls">
+<a href="https://x.com/rauchg/status/2123203741570740504" target="_blank">https://x.com/rauchg/status/2123203741570740504</a>
+<a href="https://x.com/rauchg/status/2123237505810178434" target="_blank">https://x.com/rauchg/status/2123237505810178434</a>
+<a href="https://x.com/rauchg/status/2123298562960466017" target="_blank">https://x.com/rauchg/status/2123298562960466017</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aaron Levie</span>
+<span class="builder-role">CEO, Box</span>
+</div>
+<p class="summary-en">Box CEO Aaron Levie argues that whatever it is called, work is moving into yet another era of AI agents: from agents that give a quick answer, to agents orchestrated inside a set of tasks, and soon to giving agents a set of goals so they can design the best solution and keep improving it as it runs. He expects it to start with engineering, where best practices tend to emerge first, then spread to the rest of knowledge work, naming client onboarding, reducing business risk and improving security posture on an ongoing basis. His claim is that such systems can take goals, design outcomes, test, iterate, deploy and then optimize what they built, producing results humans could not have reached before (90 likes, 37 replies). The post is a quote tweet and the feed gives no text for its target.</p>
+<p class="summary-zh zh">Box CEO Aaron Levie 认为，不管叫什么，工作里的 AI agent 正在进入又一个阶段：从给一个快速答案，到今天在一组任务里编排 agent，很快会变成给 agent 一组目标，让它自行设计最佳方案、并在运行过程中持续改进。他预计这会从 engineering 开始（每个 agent 新时代的最佳实践往往先在这里出现），再扩到其余知识工作，他点名了客户 onboarding 流程、降低业务风险，以及持续改善 security posture。他的判断是这类系统能接目标、设计结果、测试、迭代、部署，再持续优化自己建出来的东西，带来人类此前做不到的结果（90 赞、37 回复）。这条是引用推文，feed 未收录被引用内容。</p>
+<div class="urls">
+<a href="https://x.com/levie/status/2123278949749059756" target="_blank">https://x.com/levie/status/2123278949749059756</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Zara Zhang</span>
+<span class="builder-role">Builder</span>
+</div>
+<p class="summary-en">Zara Zhang, whose bio lists Builder and Harvard&#39;17, posts the two oldest items in the window, both on Pacific 11-17. One says she owns 10 of the 21 Stripe Press books and praises how the books are presented (88 likes); the other argues it is much better to be a little bit viral every week and watch it compound than to be massively viral for one day, and to build a system that consistently delivers high-quality content over a long period (368 likes, 49 replies). The first is a quote tweet whose target the feed does not include.</p>
+<p class="summary-zh zh">Zara Zhang 的 bio 写了 Builder 和 Harvard'17。她那两条是本期窗口里最早的，都落在太平洋 11-17。一条说 21 本 Stripe Press 书里自己有 10 本，并称赞这些书的呈现方式（88 赞）；另一条说与其一天爆红，不如每周稍微传播一点、看它复利，要建一个长期持续产出高质量内容的系统（368 赞、49 回复）。第一条是引用推文，feed 未收录被引用内容。</p>
+<div class="urls">
+<a href="https://x.com/zarazhangrui/status/2122943348860506462" target="_blank">https://x.com/zarazhangrui/status/2122943348860506462</a>
+<a href="https://x.com/zarazhangrui/status/2122953849120153714" target="_blank">https://x.com/zarazhangrui/status/2122953849120153714</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nikunj Kothari</span>
+<span class="builder-role">Partner, FPV Ventures</span>
+</div>
+<p class="summary-en">Nikunj Kothari, a partner at FPV Ventures investing in seed and A rounds, writes a dialogue-format post on fixing a founder&#39;s fundraising pitch: ambition is what is being rewarded right now, so ask what you believe to be true if everything in the pitch works, think through the second and third order effects of your success, put that outcome on the first slide and walk the investor through how you get there and earn the right to get there. The founder fears looking crazy, tries it reluctantly and reports four days later that it worked; he closes by inviting founders with the same problem to try it (1,042 likes, 46 replies). A second post is a joke about SF VCs asking the Lord for liquidity to raise their next fund and being told 'Tathastu', then clarifying they did not mean that kind of liquidity (108 likes).</p>
+<p class="summary-zh zh">Nikunj Kothari 是 FPV Ventures 的 partner，投 seed 和 A 轮。他用对话体写了一条给创始人改融资 pitch 的长文：现在被奖励的是 ambition，要问「如果你讲的一切都成真，你相信什么会是真的」，把成功带来的二阶、三阶效应想清楚，再把那个结果放进第一页，带投资人走一遍怎么靠现在做的东西走到那里、怎么挣到去的资格。创始人怕被当成疯子，很不情愿地试了，四天后回来说成了；他结尾邀请遇到同样问题的创始人也试试（1,042 赞、46 回复）。另一条是段子：SF 的 VC 求老天给点 liquidity 好募下一支基金，老天回 'Tathastu'，VC 忙说不是那种 liquidity（108 赞）。</p>
+<div class="urls">
+<a href="https://x.com/nikunj/status/2123066196052381864" target="_blank">https://x.com/nikunj/status/2123066196052381864</a>
+<a href="https://x.com/nikunj/status/2123183421002588327" target="_blank">https://x.com/nikunj/status/2123183421002588327</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Dan Shipper</span>
+<span class="builder-role">CEO, Every</span>
+</div>
+<p class="summary-en">Dan Shipper, CEO of Every, posts three short items: a bare link (0 likes), a note that almost 4k people are on the stream with an invitation to join (12 likes), and 'Legggoooo' with a link (74 likes). The feed gives no content for any of the three links, and no text for the two posts he quotes.</p>
+<p class="summary-zh zh">Every 的 CEO Dan Shipper 发了三条短帖：一条只有链接（0 赞）、一条说直播快到 4,000 人并邀人来（12 赞）、一条 'Legggoooo' 加链接（74 赞）。三条链接指向什么 feed 都没给，两条引用推文的被引用内容也没有收录。</p>
+<div class="urls">
+<a href="https://x.com/danshipper/status/2123146907681980688" target="_blank">https://x.com/danshipper/status/2123146907681980688</a>
+<a href="https://x.com/danshipper/status/2123163857128702053" target="_blank">https://x.com/danshipper/status/2123163857128702053</a>
+<a href="https://x.com/danshipper/status/2123196924421661149" target="_blank">https://x.com/danshipper/status/2123196924421661149</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aditya Agarwal</span>
+<span class="builder-role">General Partner, SPC; Co-Founder, Bevel Health</span>
+</div>
+<p class="summary-en">Aditya Agarwal, general partner at SPC and co-founder of Bevel Health, argues stablecoins will likely be one of the biggest ways for America to exert soft power, on the grounds that in most countries outside India and China people and businesses would prefer to own dollars (25 likes). A second post, a quote tweet, says this tracks with their data as well, that he has always thought it was copium when early-stage VCs complained they could not do 'AI', and that you just have to take more risk, be non-consensus and work on frontier problems (12 likes). The feed gives no text for the post he quotes.</p>
+<p class="summary-zh zh">Aditya Agarwal 是 SPC 的 general partner、Bevel Health 的联合创始人。他认为 stablecoins 很可能是美国施加软权力的最大方式之一，理由是在印度和中国之外的大多数国家，人们和企业都更愿意持有美元（25 赞）。另一条引用推文说这也和他们的数据一致，他一直觉得早期 VC 抱怨做不了 'AI' 是 copium，只要多承担风险、保持非共识、做前沿问题就行（12 赞）。被引用推文的内容 feed 没有收录。</p>
+<div class="urls">
+<a href="https://x.com/adityaag/status/2123262616776921257" target="_blank">https://x.com/adityaag/status/2123262616776921257</a>
+<a href="https://x.com/adityaag/status/2123293726110020052" target="_blank">https://x.com/adityaag/status/2123293726110020052</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Sam Altman</span>
+<span class="builder-role">OpenAI</span>
+</div>
+<p class="summary-en">Sam Altman, whose bio states OpenAI&#39;s mission is to ensure AGI benefits all of humanity, writes about appearing at DealBook with a friend and partner of 11 years, Greg. He says Greg&#39;s role has evolved from writing code 100 hours a week in the early days to now leading some of the hardest and most consequential parts of the business, that his commitment to the mission has not changed, and that OpenAI would not exist without him. It is the window&#39;s second-highest post by likes (4,111), second in reposts (146) and third in replies (412).</p>
+<p class="summary-zh zh">Sam Altman 的 bio 写的是 OpenAI 的使命是确保 AGI 造福全人类。他写了和一位共事 11 年的朋友兼伙伴 Greg 一起上 DealBook，说 Greg 的角色从早期每周写 100 小时代码，变成现在负责业务里最艰巨、影响最大的部分之一；没变的是他对使命的投入，他还说没有 Greg 就不会有 OpenAI。这条是全窗口赞数第二（4,111）、转发第二（146）、回复第三（412）。</p>
+<div class="urls">
+<a href="https://x.com/sama/status/2123103873166381287" target="_blank">https://x.com/sama/status/2123103873166381287</a>
+</div>
+</article>
+</section>
+<!-- ============== PODCAST ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#127911;</span>
+<h2 class="section-title">Podcast</h2>
+<span class="section-meta">1 Episode &middot; New to the Series</span>
+</div>
+<div class="podcast">
+<div class="podcast-source">AI &amp; I by Every</div>
+<div class="podcast-title">Notion’s Founder on the One Thing Your AI Is Missing</div>
+<p class="summary-en">The Takeaway: a product built to let anyone make software without code now has to decide what it is for, and Ivan Zhao&#39;s answer is that the durable part is the data, not the interface. The founder and CEO of Notion traces the company to the 1960s and 1970s idea of software as a medium that everyone should be able to read and write, like prose. Vibe coding finally makes that possible, which he loves and which also forced Notion to rethink its original vision. The episode is a conversation between Dan Shipper and Ivan Zhao, introduced at the top by Dan Shipper and Natalia Quintero.</p>
+<p class="summary-en">Zhao separates the question into three buckets. If you want to modify the tools you use, his answer is 'hell yes, definitely': that is basic freedom with a medium. But for things you use every day and have no strong opinion about, a chair, a car, a door, a calendar, you want someone to work out the best form factor and just do a good job, and 'just because you can doesn&#39;t mean you should'. He mentions a second version of the Notion Calendar app on mobile, built from scratch and native. Enterprise software you depend on for security is a third bucket he would not recommend self-building. Underneath all of it, he argues that AI agents can write the procedural code and the UI for any workflow, so what is durable is how you hold your data, your context and your semantics; Notion&#39;s job is becoming the keeper of that data, open to different agents (the transcript says 'contacts'), with a guardrail and a place for a human team to collaborate.</p>
+<p class="summary-en">He breaks Notion&#39;s 13 years into chapters: five years of meandering in the dark, product-market fit and growth during COVID, then a turn at the end of 2022 when early access to a GPT-4 class model convinced him the world would be different. He and his co-founder locked themselves in a hotel room to build the first prototype and launched a product a couple of weeks before ChatGPT appeared. The rest of the company was harder to bring along: people read AI as a fad, like crypto, after so many waves. A writing product found traction in the first six months; an agent product took two hard years because the model was not there and only started working around this time last year, by which point everybody was building agents. That sent the company back to people, UI, context and data.</p>
+<p class="summary-en">On second-order effects he is unusually concrete. He notices he would rather chat with his claw than read on his Kindle, and that the pattern sometimes feels like TikTok. Asked about a rule that would have an agent ask, after 11 at night and several hours of chatting, that you explain what you are asking it to build, he calls that too superficial: the deeper question is whether the human still understands the system. 'I don&#39;t think we should surrender our understanding. Definitely not without putting up a fight.' His example of a fix is a shared Notion Kanban board instead of each person talking to a private coding agent, an old visual metaphor that turns out to work for orchestrating a group of agents.</p>
+<p class="summary-en">A question about structure versus unstructured draws the Lego-and-clay answer. Vibe coding hands you clay, JavaScript and fine-grained pieces, but a maker often lacks the opinion or expertise to build a tall tower; the industry is moving toward what the Legos of vibe coding are, with permissions, syncing and collaboration handled for you. He says Notion pattern libraries now open up to agents and can read from Notion databases under Notion system permissions, and when asked whether the library is open source he answers 'We haven&#39;t open source yet'. For a 50-person company he sets a goal of the next quarter, 'less than two, hopefully', for an out-of-the-box context and knowledge system onboarded through an agent, and asks whether a 50-person startup could save 20%, 30% or 40% of tokens if content, which he calls compressed tokens, flows through the system, saying it might be possible. He says that, if everything holds true, hundreds of billions of dollars will probably be spent through tokens in the next year or two.</p>
+<p class="summary-en">On the idea that people will stop using apps and let AI use them, he says it is not black and white: inside Notion they assume that of the next billion knowledge workers the vast majority will be agents, so the customer is no longer only human, but human camaraderie and collaboration still matter and he does not want a world where everyone just chats with a box. What he cares about is a shared canvas where a team of humans works with a team of agents, part of which is closer to a headless product with no UI at all. He also describes a history game he builds on the side, with a PlayStation 2 look he finds more approachable and easy to tweak, and a voice model he and his wife tried that felt too creepy and was replaced by multiple choice. The cold open repeats a line from the talk, a mid-roll Lovable read is an ad, and Notion sponsored the event; none is treated as an argument. Spellings are kept as the transcript gives them (Ivan Zao, Cloud Code, claw, chat.gpt, YNOTION, Chachamity, Argon). Every figure here is self-reported in conversation and is not independently verified by the feed.</p>
+<p class="summary-zh zh">核心结论：一个为了让不懂代码的人也能做软件而生的产品，现在要重新想自己到底做什么。Notion 创始人兼 CEO Ivan Zhao 给的答案是，耐久的是数据，不是界面。他把公司源头追到 1960、70 年代那个「软件是一种媒介、人人都该能读写」的想法，像写散文一样。vibe coding 终于让它成为可能，他既喜欢这一点，也说正是它逼 Notion 重新想创立时的愿景。这一集是 Dan Shipper 与 Ivan Zhao 的对话，片头由 Dan Shipper 和 Natalia Quintero 引入。</p>
+<p class="summary-zh zh">Zhao 把问题分成三类。想改自己每天用的工具，他的回答是 'hell yes, definitely'，这是使用一种媒介的基本自由；但像椅子、汽车、门、日历这类你没有强观点、只想有人替你弄好的东西，'just because you can doesn&#39;t mean you should'。他提到当天发布的第二版移动端 Notion Calendar app，从零构建、原生。第三类是依赖安全性的企业软件，他不建议自己搭。贯穿三类的判断是：AI agent 能写任意 workflow 的流程代码和 UI，所以耐久的是你怎么保存数据、context 和语义；Notion 的工作越来越是当这些数据的保管者，向不同 agent 开放（转写写作 'contacts'），提供 guardrail，并给人类团队留出协作的位置。</p>
+<p class="summary-zh zh">他把 Notion 的 13 年拆成几段：前五年在黑暗里摸索，COVID 期间找到 product-market fit 并开始增长，2022 年底因为拿到 GPT-4 级模型的早期访问而确信世界会变。他和联合创始人把自己锁在酒店房间做第一个原型，在 ChatGPT 出现前几周就上线了产品。把公司其他人带过来更难：AI 经历过太多波浪，当时很多人把它当成像 crypto 一样的 fad。最初六个月的 writing product 有了 traction，之后的 agent product 因为模型没到而熬了两年，直到去年这个时候才跑通，而那时大家都在做 agent。这又把公司推回人、UI、context 和数据。</p>
+<p class="summary-zh zh">谈二阶效应时他讲得很具体。他发现自己更愿意跟 claw 聊，而不是在 Kindle 上读书，有时觉得这个模式像 TikTok。主持人举例说，能不能让 agent 在夜里 11 点、聊了几个小时后要求你先解释要做什么、解释不出就别做；他说这太表层，更深层的是人还理不理解这个系统：'I don&#39;t think we should surrender our understanding. Definitely not without putting up a fight.' 他给的一个解法是改用共享的 Notion Kanban board，而不是各人对着自己的 coding agent 小黑盒，一个老的视觉隐喻结果很适合编排一群 agent。</p>
+<p class="summary-zh zh">有观众问结构化与非结构化，他给了 Lego 和 clay 的回答。vibe coding 给的是 clay、JavaScript 和细粒度零件，但制作者常常没有观点或专业能力去搭一座高塔；行业正在往「什么是 vibe coding 的 Legos」合流，权限、同步、协作替你做好。他说 Notion pattern libraries 现在向 agent 开放、能在 Notion 系统权限下读 databases；被问到是不是开源库，他答 'We haven&#39;t open source yet'。对 50 人的公司，他把目标定在 next quarter，'less than two, hopefully'，做出开箱即用、通过 agent 完成 onboarding 的 context 与知识系统；他问，如果 content（他称作 compressed tokens）能在系统里流动，50 人的 startup 能不能省下 20%、30% 或 40% 的 tokens，并说也许可能。他说如果一切成立，未来一两年可能会有 hundreds of billions dollars 花在 tokens 上。</p>
+<p class="summary-zh zh">对「以后别用 app 了，让 AI 去用 app」这个说法，他说不是非黑即白：Notion 内部假设 next billion knowledge worker 里绝大多数会是 agent，客户不再只是人类；但人与人之间的 camaraderie 和协作仍然重要，他不想活在人人只跟一个聊天框对话的世界里。他在意的是一块共享 canvas，让一群人和一群 agent 一起工作，其中一部分更接近 headless product、完全没有 UI。他还讲了自己顺手做的历史游戏，画风像 PlayStation 2，他觉得更易接近、更好改；他和太太试过加 voice model 实时回话，觉得太 creepy，改成了多选。开头的 cold open 重复了正文里的一句，中插的 Lovable 是广告，Notion 赞助了这场活动，这些都不当作独立论点。拼写按转写原样照录（Ivan Zao、Cloud Code、claw、chat.gpt、YNOTION、Chachamity、Argon）。这里每个数字都是对话里的自述，feed 没有独立核实。</p>
+<div class="urls">
+<a href="https://www.youtube.com/watch?v=PGWvMrF4XIA" target="_blank">https://www.youtube.com/watch?v=PGWvMrF4XIA</a>
+</div>
+</div>
+</section>
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128161;</span>
+<h2 class="section-title">The Takeaway</h2>
+<span class="section-meta">1 Podcast &middot; 2026-11-20</span>
+</div>
+<div class="takeaway">
+<div class="takeaway-label">The Takeaway</div>
+<p>Engagement splits across three posts. Thibault Sottiaux&#39;s one-line question about 6.2 Sol takes the top likes (6,038) and replies (3,412), the window&#39;s only post above 1,000 replies. Thariq&#39;s line on strong opinions leads reposts (251) and is third in likes (3,052). Sam Altman&#39;s DealBook post is second in likes (4,111), second in reposts (146) and third in replies (412). 7 posts pass 1,000 likes, none pass 10,000, 2 pass 100 reposts and 6 pass 100 replies; totals are 23,533 likes, 868 reposts and 5,189 replies. The longest post is 1,423 characters, from Aaron Levie, drawing 90 likes.</p>
+<p>The 6.2 thread is the main line but the feed carries no spec sheet, benchmark or second source for it. Sottiaux&#39;s two posts ask how 6.2 Sol is treating people and then defend GPT-6.2 Astra on hard tasks while conceding the communication-style feedback. Thariq&#39;s two posts argue most people will not generate their own software. Josh Woodward and Google Labs announce Gemini 4 Neon, a Genie 4 Project Genie update and the Stitch Loop waitlist; Guillermo Rauch writes about inference neocloud pitches, Vercel AI Gateway demand and a vercel board for agents; Amjad Masad points to Replit Missions; Aaron Levie lays out a further stage of work agents; Nikunj Kothari gives pitch advice; Aditya Agarwal writes on stablecoins; Zara Zhang on compounding content; Sam Altman on Greg at DealBook. These are separate posts, not confirmations of one another.</p>
+<p>The Podcast slot is 1 and it is new to the series, not a repeat. AI &amp; I by Every published Notion’s Founder on the One Thing Your AI Is Missing with Notion&#39;s Ivan Zhao at 2026-11-18T18:19:30.000Z, Pacific 2026-11-18 10:19:30, 11h37m39s after the first post, 11h53m51s before the last and 12h10m35s before the snapshot, mid-window on the same Pacific day as the 29 posts from 11-18. The full title, Ivan Zhao, the specific video URL, the guid and the timestamp all return zero hits across the 131 historical pages. Notion as a product name appears in older pages and is not evidence for this episode; the same channel&#39;s 11-06 issue was a different conversation with Kevin Roose. The previous three issues each deduplicated their podcast against an older episode (11-16 to 11-07, 11-17 to 11-09, 11-18 to 11-10); this one does not. The feed gives a specific video URL and the page links to it.</p>
+<p>Quote structure and coverage: 13 of the 31 posts are quote tweets pointing at 13 distinct IDs, all outside this feed, with no self-quotes and no shared target; the feed gives the text of none of them. All 31 tweet IDs return zero hits against the 131 historical pages. 29 posts fall on Pacific 11-18 and two (Zara Zhang) on Pacific 11-17, from 2026-11-17 22:41:51 to 2026-11-18 22:13:21, a 23h31m30s window closing 0h16m44s before the snapshot; the gap from the previous issue&#39;s close is 0h53m43s and the previous snapshot was 24h01m27s earlier. Pacific 10-29 and 10-30 remain missing from the series.</p>
+<p>15 accounts posted: 7 are on the 24-name tracking list (Sam Altman, Peter Yang, Guillermo Rauch, Amjad Masad, Nikunj Kothari, Swyx, Aditya Agarwal) and 8 are not (Josh Woodward, Thibault Sottiaux, Nan Yu, Thariq, Google Labs, Aaron Levie, Zara Zhang, Dan Shipper). Sam Altman appears for a second consecutive issue. The blogs array is empty for the twenty-sixth consecutive issue.</p>
+</div>
+<div class="takeaway zh">
+<div class="takeaway-label">核心结论</div>
+<p>互动分散在三条上。Thibault Sottiaux 问 6.2 Sol 用得怎么样的一句，拿到最高赞 6,038 和最高回复 3,412，也是全窗口唯一回复破千的一条。Thariq 讲「好软件是强观点」那条转发第一 251、赞数第三 3,052。Sam Altman 的 DealBook 那条赞数第二 4,111、转发第二 146、回复第三 412。破千赞 7 条、破万赞 0 条、转发过百 2 条、回复过百 6 条；合计 23,533 赞、868 转发、5,189 回复。最长的一条是 Aaron Levie 的 1,423 字符，90 赞。</p>
+<p>6.2 这条是主线，但 feed 里没有规格、基准或第二信源。Sottiaux 两条，一条问大家 6.2 Sol 用得怎么样，一条为 GPT-6.2 Astra 在硬任务上的表现辩护、同时承认沟通风格的反馈。Thariq 两条认为多数人不会自己去生成软件。Josh Woodward 与 Google Labs 宣布 Gemini 4 Neon、跑在 Genie 4 上的 Project Genie 更新和 Stitch Loop 的 waitlist；Guillermo Rauch 写 inference neocloud 的 pitch、Vercel AI Gateway 需求和给 agent 用的 vercel board；Amjad Masad 指向 Replit Missions；Aaron Levie 讲工作 agent 的下一个阶段；Nikunj Kothari 给改 pitch 的建议；Aditya Agarwal 写 stablecoins；Zara Zhang 写内容复利；Sam Altman 写 DealBook 上的 Greg。这些是各自独立的推文，不互相印证。</p>
+<p>Podcast 这一格是 1，而且对本系列是新的，不是重复。AI &amp; I by Every 的 Notion’s Founder on the One Thing Your AI Is Missing 请到 Notion 的 Ivan Zhao，发布于 2026-11-18T18:19:30.000Z，即太平洋 2026-11-18 10:19:30，比首条推文晚 11h37m39s、比末条早 11h53m51s、比快照早 12h10m35s，落在窗口中段，与 11-18 那 29 条推文同一太平洋日。完整标题、Ivan Zhao、具体视频地址、guid 和时间戳，对 131 个历史页面全部零命中。Notion 作为产品名在旧页面出现过，不构成这一集的证据；同一频道 11-06 期收录的是与 Kevin Roose 的另一场对话。前三期各自把播客判重到更早的一集（11-16 对 11-07、11-17 对 11-09、11-18 对 11-10），本期不是。feed 给的是具体视频地址，页面也直接链到它。</p>
+<p>引用结构与覆盖：31 条里 13 条是引用推文，指向 13 个不同 ID，全部在本期 feed 之外，没有自引，也没有同组；feed 一条被引用文本都没给。31 个推文 ID 对 131 个历史页面零命中。29 条落在太平洋 11-18，2 条（Zara Zhang）落在太平洋 11-17，从 2026-11-17 22:41:51 到 2026-11-18 22:13:21，窗口 23h31m30s，在快照前 0h16m44s 收口；距上一期收口 0h53m43s，上一份快照相隔 24h01m27s。太平洋 10-29、10-30 在本系列仍缺失。</p>
+<p>有内容的账号 15 个，其中 7 位在 24 位追踪名单上（Sam Altman、Peter Yang、Guillermo Rauch、Amjad Masad、Nikunj Kothari、Swyx、Aditya Agarwal），8 位不在（Josh Woodward、Thibault Sottiaux、Nan Yu、Thariq、Google Labs、Aaron Levie、Zara Zhang、Dan Shipper）。Sam Altman 连续第二期出现。blogs 数组连续第二十六期为空。</p>
+</div>
+</section>
+<!-- ============== NOTES ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128221;</span>
+<h2 class="section-title">记录 / Notes &amp; Dedup</h2>
+<span class="section-meta">31 Zero &middot; 1 New &middot; 0 Blog</span>
+</div>
+<div class="dedup">
+<p style="margin-top:12px">
+<strong>Tweets</strong> All 31 tweet IDs have zero hits across the 131 historical digest pages. 13 of the 31 are quote posts with 13 distinct quoted IDs, all outside this feed, with no self-quotes and no shared target. The feed gives the text of none of the outside posts.
+</p>
+<p style="margin-top:12px">
+<strong>Podcast</strong> The slot is 1 and it is new, not a dedup. The episode is AI &amp; I by Every, Notion’s Founder on the One Thing Your AI Is Missing with Notion&#39;s Ivan Zhao, publishedAt 2026-11-18T18:19:30.000Z (Pacific 2026-11-18 10:19:30), 11h37m39s after the first post, 11h53m51s before the last and 12h10m35s before the snapshot, mid-window on the same Pacific day as the 29 posts from 11-18. Its full title, Ivan Zhao, the specific video URL https://www.youtube.com/watch?v=PGWvMrF4XIA, the guid and the timestamp all return zero hits across the 131 historical pages. The three previous issues each deduplicated against an older episode (11-16 to 11-07, 11-17 to 11-09, 11-18 to 11-10); this one does not.
+</p>
+<p style="margin-top:12px">
+<strong>Blog</strong> The slot is 0 because the blogs array is empty for the twenty-sixth consecutive issue; no blog entry is created. This zero has a different cause from the Podcast value of 1.
+</p>
+<p style="margin-top:12px">
+<strong>Transcript</strong> 30,122 characters over 859 lines, with no speaker labels and no timestamps. The cold open repeats a line from the talk, the opening introduces Dan Shipper and Natalia Quintero, the mid-roll Lovable read is an ad, and Notion sponsored the event; none is treated as an argument. Spellings are reproduced as-is rather than silently corrected: Ivan Zao, Cloud Code, claw, chat.gpt, contacts, YNOTION, Chachamity, Argon. Figures are self-reported in conversation and not independently verified by the feed: 13 years of Notion, a GPT-4 class model at the end of 2022, a couple of weeks before ChatGPT, five years of meandering, six months of writing product, two years of agent work, five persons and ten ideas in the history game, hundreds of billions of dollars through tokens, 20%, 30% and 40% of tokens, and a next-quarter goal described as 'less than two, hopefully'. Notion pattern libraries are described as open to agents but not open source yet.
+</p>
+<p style="margin-top:12px">
+<strong>Coverage &amp; thin posts</strong> Three timestamps: snapshot 2026-11-19T06:30:05.741Z (Pacific 2026-11-18 22:30:05), first post Pacific 2026-11-17 22:41:51 (Zara Zhang), last post Pacific 2026-11-18 22:13:21 (Guillermo Rauch). Window 23h31m30s, closing 0h16m44s before the snapshot; 0h53m43s after the previous issue&#39;s close (Pacific 2026-11-17 21:48:08); previous snapshot was 24h01m27s earlier. 29 posts fall on Pacific 11-18 and two on Pacific 11-17; Pacific 10-29 and 10-30 remain missing. 14 of the 31 posts are short reactions, jokes or bare links with no argument of their own: Swyx&#39;s three, Josh Woodward&#39;s two shorter lines, Peter Yang&#39;s two board-game lines, Nan Yu&#39;s one line, Dan Shipper&#39;s three, Guillermo Rauch&#39;s Nov 1997 line, Zara Zhang&#39;s Stripe Press line and Nikunj Kothari&#39;s SF VCs joke. Their links are kept; no subject is added for them. Proper nouns new to the series: Stitch Loop, Gemini 4 Neon, vercel board, Replit Missions, DealBook, Tathastu, Ivan Zhao, pattern libraries, compressed tokens. Names that already appeared are not called firsts: Notion, Astra, Sol, Jensen, Stand with Jensen.
+</p>
+<p style="margin-top:12px">
+<strong>Not resolved</strong> Specs, benchmarks or an official writeup for 6.2 Sol and GPT-6.2 Astra; a second source for Gemini 4 Neon, the Genie 4 Project Genie update and Stitch Loop; what vercel board and Notion pattern libraries ship with and whether the library is open sourced; what Replit Missions shows and a second source for the OpenAI/Hugging Face incident; the DealBook appearance and Greg&#39;s current role; a report or statement behind the Nvidia questions; a second source for the 40% month-over-month AI Gateway figure and the stablecoins claim; the next-quarter 50-person out-of-the-box system and the hundreds-of-billions token figure; and the standing items carried from earlier issues (Day 29 / 3/x, dot, jev, Particle-1, HackerTube, Grok Bot, Legora, the data-market figure, Claude Whiteboards, Box interop, interactive connectors, the AIE keynote, MCP tool counts, Stand with Jensen, Opal and the 11-27 book date).
+</p>
+</div>
+<div class="dedup zh" style="margin-top:14px">
+<p style="margin-top:12px">
+<strong>推文核对</strong> 31 个推文 ID 对 131 个历史页面零命中。31 条里 13 条是引用推文，共 13 个不同的被引用 ID，全部在本期 feed 之外，没有自引，也没有同组。这些外部推文的内容 feed 一条都没有给出。
+</p>
+<p style="margin-top:12px">
+<strong>播客核对</strong> 这一格是 1，而且是新收录，不是判重。这一集是 AI &amp; I by Every 的 Notion’s Founder on the One Thing Your AI Is Missing，嘉宾为 Notion 的 Ivan Zhao，publishedAt 为 2026-11-18T18:19:30.000Z（太平洋 2026-11-18 10:19:30），比首条推文晚 11h37m39s、比末条早 11h53m51s、比快照早 12h10m35s，落在窗口中段，与 11-18 那 29 条推文同一太平洋日。完整标题、Ivan Zhao、具体视频地址 https://www.youtube.com/watch?v=PGWvMrF4XIA、guid 和时间戳，对 131 个历史页面全部零命中。前三期各自是把播客判重到更早的一集（11-16 对 11-07、11-17 对 11-09、11-18 对 11-10），本期不是。
+</p>
+<p style="margin-top:12px">
+<strong>博客核对</strong> 这一格是 0，因为 blogs 数组连续第二十六期为空，不生成博客条目。这个 0 与 Podcast 的 1 成因不同。
+</p>
+<p style="margin-top:12px">
+<strong>转写</strong> 30,122 字符、859 行，没有 speaker 标签、没有时间戳。开头的 cold open 重复了正文里的一句，片头介绍 Dan Shipper 与 Natalia Quintero，中插的 Lovable 是广告，Notion 赞助了这场活动，这些都不当作独立论点。拼写按原样照录、不静默修正：Ivan Zao、Cloud Code、claw、chat.gpt、contacts、YNOTION、Chachamity、Argon。对话里的数字都是自述、feed 未独立核实：Notion 13 年、2022 年底的 GPT-4 级模型、ChatGPT 之前几周、摸索的五年、writing product 的六个月、agent 的两年、历史游戏里的五个人和十个 ideas、hundreds of billions dollars 花在 tokens 上、20% / 30% / 40% 的 tokens，以及 next quarter、less than two 的目标。Notion pattern libraries 被说成向 agent 开放，但尚未开源。
+</p>
+<p style="margin-top:12px">
+<strong>覆盖与薄内容</strong> 三个时间戳：快照 2026-11-19T06:30:05.741Z（太平洋 2026-11-18 22:30:05）、首条太平洋 2026-11-17 22:41:51（Zara Zhang）、末条太平洋 2026-11-18 22:13:21（Guillermo Rauch）。窗口 23h31m30s，在快照前 0h16m44s 收口；距上一期收口（太平洋 2026-11-17 21:48:08）0h53m43s；上一份快照相隔 24h01m27s。29 条落在太平洋 11-18、2 条落在太平洋 11-17；太平洋 10-29、10-30 仍缺失。31 条里有 14 条是一句话反应、玩笑或裸链接、文字里没有展开观点：Swyx 三条、Josh Woodward 两条较短的、Peter Yang 两条桌游、Nan Yu 一条、Dan Shipper 三条、Guillermo Rauch 的 Nov 1997、Zara Zhang 的 Stripe Press、Nikunj Kothari 的 SF VCs 段子。链接照留，不替它们补主题。本系列此前页面里没出现过的专名：Stitch Loop、Gemini 4 Neon、vercel board、Replit Missions、DealBook、Tathastu、Ivan Zhao、pattern libraries、compressed tokens；此前已出现过的不写「首次」：Notion、Astra、Sol、Jensen、Stand with Jensen。
+</p>
+<p style="margin-top:12px">
+<strong>未闭环</strong> 6.2 Sol 与 GPT-6.2 Astra 的规格、基准或官方说明；Gemini 4 Neon、Genie 4 版 Project Genie 和 Stitch Loop 的第二信源；vercel board 与 Notion pattern libraries 具体交付什么、库会不会开源；Replit Missions 展示的内容以及 OpenAI/Hugging Face 事件的第二信源；DealBook 那场和 Greg 现在的角色；Nvidia 那几条提问背后的报道或声明；AI Gateway 约 40% 月环比与 stablecoins 说法的第二信源；下季度 50 人公司开箱即用方案与 hundreds of billions token 的口径；以及从往期带来的长期项（Day 29 / 3/x、dot、jev、Particle-1、HackerTube、Grok Bot、Legora、数据市场规模、Claude Whiteboards、Box 互通、interactive connectors、AIE keynote、MCP 工具数、Stand with Jensen、Opal，以及 11 月 27 日的出版日期）。
+</p>
+</div>
+</section>
+<footer class="footer">
+<div class="next-issue">&#128236; &#19979;&#19968;&#26399;&#65306;&#26126;&#22825; 10:00&#65288;&#21271;&#20140;&#26102;&#38388;&#65289;</div>
+<div class="signature"><a href="#top" style="border:none;color:var(--ink-muted)">&#22238;&#21040;&#39030;&#37096; / Back to top</a></div>
+<div class="signature">by chloevchen</div>
+</footer>
+</body>
+</html>
+<!-- by chloevchen -->
