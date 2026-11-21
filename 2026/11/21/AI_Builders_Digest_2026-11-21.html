@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Builders Digest &middot; 2026-11-21</title>
+<style>
+
+
+
+
+
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 28px 30px; margin-bottom: 24px; }
+  .podcast-source { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
+  .podcast-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; margin-bottom: 18px; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; }
+
+
+</style>
+</head>
+<body id="top">
+<header class="topbar">
+<div class="topbar-inner">
+<a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders &middot; AI Builders Digest</a>
+<span>双语 &middot; Bilingual</span>
+</div>
+</header>
+<section class="header">
+<div class="eyebrow">Daily Digest &middot; 2026-11-21</div>
+<h1>AI Builders Digest</h1>
+</section>
+<div class="stats">
+<div class="stat">
+<div class="stat-num">14</div>
+<div class="stat-label">Builders</div>
+</div>
+<div class="stat">
+<div class="stat-num">33</div>
+<div class="stat-label">Tweets</div>
+</div>
+<div class="stat">
+<div class="stat-num">1</div>
+<div class="stat-label">Podcast</div>
+</div>
+<div class="stat">
+<div class="stat-num">0</div>
+<div class="stat-label">Blog</div>
+</div>
+</div>
+<p class="note-line">Fourteen builders, 33 posts, all on Pacific 11-19. A link-only post from Thariq takes the top likes (10,013) and reposts (640), the window&#39;s only post above 10,000 likes; Thibault Sottiaux&#39;s note on a new mobile experience for ChatGPT leads replies (720) and is second in likes (5,244). The Podcast slot is 1 with a new No Priors conversation with Arda&#39;s Bob McGrew, published before the first post on the same Pacific day; the Blog slot is 0 because the blogs array is empty.</p>
+<p class="note-line zh">14 位 builder、33 条推文，全部落在太平洋 11-19。Thariq 一条只有链接的推文拿到最高赞 10,013 和最高转发 640，也是全窗口唯一破万赞的一条；Thibault Sottiaux 讲 ChatGPT 新移动体验那条回复第一 720、赞数第二 5,244。Podcast 这一格是 1，是一集全新的 No Priors 对话，嘉宾是 Arda 的 Bob McGrew，发布在首条推文之前、同一太平洋日；Blog 这一格是 0，因为 blogs 数组为空。</p>
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128036;</span>
+<h2 class="section-title">X / Twitter</h2>
+<span class="section-meta">14 Builders &middot; 33 Tweets</span>
+</div>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Swyx</span>
+<span class="builder-role">smol_ai, cognition, Latent Space</span>
+</div>
+<p class="summary-en">Swyx, whose bio describes achieving ambition with intentionality, intensity, integrity and insanity and lists affiliations with smol_ai, cognition, temporalio, aidotengineer and latentspacepod, makes one argument worth keeping: you can write that the odds of reaching SOTA have dropped to zero, get many likes, post an apology three months later when SOTA is reached, get even more likes, and watch the subject print it out and thank you for the motivation. He says there are no consequences for inaccuracy and every incentive for hyperbole, and that the X algorithm is tuned for it. His other two posts are one-line reactions, &#39;fuuuuuuck&#39; and &#39;you cant be serious&#39; (4 and 0 likes); the feed gives no text for the posts he quotes, so no subject is added for them.</p>
+<p class="summary-zh zh">Swyx 的 bio 写的是用 intentionality、intensity、integrity、insanity 去实现野心，并列了 smol_ai、cognition、temporalio、aidotengineer、latentspacepod 等关联。他本期有一条值得留的判断：你可以写「达到 SOTA 的概率降到零」拿到很多赞，三个月后人家真到了 SOTA，你再发一份道歉声明拿到更多赞，被你写的对象还把它打印出来谢谢你给的动力。他说不准确没有代价、夸张有全部激励，而 X 的算法就是朝这个方向调的。另两条是短反应，&#39;fuuuuuuck&#39; 和 &#39;you cant be serious&#39;（4 赞、0 赞）；他引用的推文 feed 没给文本，这里不替它们补主题。</p>
+<div class="urls">
+<a href="https://x.com/swyx/status/2123552457649492023" target="_blank">https://x.com/swyx/status/2123552457649492023</a>
+<a href="https://x.com/swyx/status/2123591875349422435" target="_blank">https://x.com/swyx/status/2123591875349422435</a>
+<a href="https://x.com/swyx/status/2123659761887625602" target="_blank">https://x.com/swyx/status/2123659761887625602</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Josh Woodward</span>
+<span class="builder-role">VP, Google Labs &amp; Gemini</span>
+</div>
+<p class="summary-en">Josh Woodward, VP at Google for Google Labs, the Gemini app and AI Studio, says the Gemini app on Mac can now do tasks on your computer, calling it a top feature request (876 likes, 72 replies). The feed gives no version number, rollout scope or second source for the announcement.</p>
+<p class="summary-zh zh">Josh Woodward 在 Google 负责 Google Labs、Gemini app 和 AI Studio，VP。他说 Mac 上的 Gemini app 现在能在电脑上替你做事，并称这是被点名最多的功能请求（876 赞、72 回复）。feed 里没有版本号、开放范围，也没有第二信源。</p>
+<div class="urls">
+<a href="https://x.com/joshwoodward/status/2123534862569324703" target="_blank">https://x.com/joshwoodward/status/2123534862569324703</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thibault Sottiaux</span>
+<span class="builder-role">Codex &amp; ChatGPT, OpenAI</span>
+</div>
+<p class="summary-en">Thibault Sottiaux, who works on Codex and ChatGPT at OpenAI, announces a new mobile experience for ChatGPT: easier access to favorite features, a dedicated tab for the dot, and the ability to pin Codex, Projects and Images to the tab bar. It starts with Pro users who have a dot or are eligible to create one, can be switched on or off under Settings &gt; New ChatGPT Design, and some users will see it by default (5,244 likes, 720 replies, the window&#39;s top replies count). He follows with &#39;Le ChatGPT 2.0&#39; quoting that same post (1,911 likes, 335 replies), and a line that the team is &#39;crazy enough&#39; to try improving the experience used by 1.2B users in place (491 likes).</p>
+<p class="summary-zh zh">Thibault Sottiaux 在 OpenAI 做 Codex 与 ChatGPT。他宣布 ChatGPT 的新移动体验：常用功能更好找，dot 有自己的 tab，可以把 Codex、Projects、Images 等固定到 tab bar；先给已有 dot 或可创建 dot 的 Pro 用户，可在 Settings &gt; New ChatGPT Design 里随时开关，部分用户会默认看到（5,244 赞、720 回复，全窗口回复第一）。随后他用 &#39;Le ChatGPT 2.0&#39; 引用了这条（1,911 赞、335 回复），又补一句说团队「疯到」想就地改进一个 12 亿用户在用的体验（491 赞）。</p>
+<div class="urls">
+<a href="https://x.com/thsottiaux/status/2123557171321561133" target="_blank">https://x.com/thsottiaux/status/2123557171321561133</a>
+<a href="https://x.com/thsottiaux/status/2123612433923051976" target="_blank">https://x.com/thsottiaux/status/2123612433923051976</a>
+<a href="https://x.com/thsottiaux/status/2123612889416339762" target="_blank">https://x.com/thsottiaux/status/2123612889416339762</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Yang</span>
+<span class="builder-role">Practical AI tutorials &amp; interviews</span>
+</div>
+<p class="summary-en">Peter Yang, who writes practical AI tutorials and interviews for busy people, posts a video comparing Gemini 4 Neon with Opus 5.5, which he calls his favorite model for everyday work (164 likes). His takeaways: Opus is still better at 3D and design in his testing, Neon is on par or better at writing and personality, Google Gemini 4 has 3 models but he would use Neon for 99% of tasks because it is much faster than Carbon with just as good results, and he calls the $100/mo Gemini Ultra subscription a steal for Gemini 4, YouTube Premium Family and 20 TB of storage. Two follow-up quote posts point back to this same video: a Shibuya Crossing at night comparison (21 likes), and a note that Google&#39;s 100,000+ employees are a competitive advantage because they test models before wide release and can run staff-only A/B tests that are stat sig (35 likes).</p>
+<p class="summary-zh zh">Peter Yang 给忙人写实用 AI 教程和访谈。他发了一条把 Gemini 4 Neon 和 Opus 5.5 对比的视频，称 Opus 5.5 是自己日常最爱的模型（164 赞）。他的结论：自己测下来 Opus 在 3D 和设计上仍更好，Neon 在写作和个性上相当或更好；Google Gemini 4 有 3 个模型，但他说 99% 的任务会用 Neon，因为它比 Carbon 快得多、效果一样好；他还称 $100/mo 的 Gemini Ultra 订阅很划算，含 Gemini 4、YouTube Premium Family 和 20 TB 存储。后面两条引用推文都指回同一个视频：一条是涩谷十字路口夜景的对比（21 赞），一条说 Google 十万多名员工是竞争优势，模型在全面发布前先经内部测试，甚至能跑统计显著的员工专属 A/B 测试（35 赞）。</p>
+<div class="urls">
+<a href="https://x.com/petergyang/status/2123540875733315815" target="_blank">https://x.com/petergyang/status/2123540875733315815</a>
+<a href="https://x.com/petergyang/status/2123620968568676457" target="_blank">https://x.com/petergyang/status/2123620968568676457</a>
+<a href="https://x.com/petergyang/status/2123648490844897389" target="_blank">https://x.com/petergyang/status/2123648490844897389</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thariq</span>
+<span class="builder-role">formerly Claude Code, Anthropic</span>
+</div>
+<p class="summary-en">Thariq, whose bio says he is playing WoW forever and was formerly on Claude Code at Anthropic, has the window&#39;s most-liked post: a bare link with no text (10,013 likes, 640 reposts, first in both, the only post above 10,000 likes). A quote post reading &#39;an age of miracles&#39; draws 2,999 likes, and a third post argues that software is both art and utility and AI is both an Industrial Revolution and a Renaissance, saying factories are for utilities and that at AIE Code he talked about how to make better art (793 likes). The feed gives no text for the posts he quotes, and the link-only post carries no caption to summarize.</p>
+<p class="summary-zh zh">Thariq 的 bio 写的是永远在玩 WoW、此前在 Anthropic 做 Claude Code。他有全窗口最高赞的一条：一条没有文字、只有链接的推文（10,013 赞、640 转发，两项都是第一，也是唯一破万赞的一条）。一句 &#39;an age of miracles&#39; 的引用推文拿到 2,999 赞；第三条说软件既是艺术也是工具，AI 既是工业革命也是文艺复兴，工厂负责工具那一半，他在 AIE Code 讲的是怎么做出更好的艺术（793 赞）。他引用的推文 feed 没给文本，那条纯链接推文也没有可概括的文字。</p>
+<div class="urls">
+<a href="https://x.com/trq212/status/2123452888248992024" target="_blank">https://x.com/trq212/status/2123452888248992024</a>
+<a href="https://x.com/trq212/status/2123457177419760100" target="_blank">https://x.com/trq212/status/2123457177419760100</a>
+<a href="https://x.com/trq212/status/2123524052195463568" target="_blank">https://x.com/trq212/status/2123524052195463568</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Amjad Masad</span>
+<span class="builder-role">Replit CEO</span>
+</div>
+<p class="summary-en">Replit CEO Amjad Masad says having a contract with your agent is a paradigm he expects many will copy from Replit (75 likes), and shares a line about building your own Muse-like personal agent with one prompt (393 likes). A third post is a one-word &#39;Sick!&#39; reaction (57 likes). The feed gives no text for the posts he quotes, so no subject is added for them.</p>
+<p class="summary-zh zh">Replit CEO Amjad Masad 说「和你的 agent 签一份 contract」是他预计很多家会照抄 Replit 的做法（75 赞），并分享了一句用一条 prompt 搭出自己的 Muse-like 个人 agent（393 赞）。第三条是一个词 &#39;Sick!&#39; 的反应（57 赞）。他引用的推文 feed 没给文本，这里不替它们补主题。</p>
+<div class="urls">
+<a href="https://x.com/amasad/status/2123433375830561130" target="_blank">https://x.com/amasad/status/2123433375830561130</a>
+<a href="https://x.com/amasad/status/2123535362568134894" target="_blank">https://x.com/amasad/status/2123535362568134894</a>
+<a href="https://x.com/amasad/status/2123535544718418191" target="_blank">https://x.com/amasad/status/2123535544718418191</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Guillermo Rauch</span>
+<span class="builder-role">Vercel CEO</span>
+</div>
+<p class="summary-en">Vercel CEO Guillermo Rauch writes three posts about agents and engineering. He says the vercel board has no heavyweight or opinionated UI, that it is infra not product, likes the &#39;headless Slack&#39; for agents analogy because UI is free now, and compares the board to the Redux state manager of your agents (332 likes). In his &#39;is engineering a valuable pursuit&#39; math, an outcome-oriented creative engineer is now a 1000x engineer, a tabs-vs-spaces-debating one is a -10x engineer and a regular knowledge worker is a 2x engineer; he says the token consumption distribution across Vercel&#39;s startups and enterprise base backs it, that engineers and software factories will consume exponentially more tokens, and that if there is a takeaway from Anthropic&#39;s success it is that coding is the #1 killer app of AI (1,574 likes, 129 replies). A third line says a company&#39;s genesis is the agent that helps you build the company (187 likes).</p>
+<p class="summary-zh zh">Vercel CEO Guillermo Rauch 发了三条讲 agent 与工程的推文。他说 vercel board 没有厚重、带观点的 UI，它是 infra 不是 product；他喜欢把 agent 用的「headless Slack」这个类比，因为 UI 现在免费了，还把 board 比作 agent 的 Redux state manager（332 赞）。在「工程还值不值得做」的算法里，结果导向、有创造力的工程师现在是 1000x engineer，纠结 tabs 还是 spaces、见木不见林的是 -10x engineer，普通知识工作者是 2x engineer；他说 Vercel 的初创与企业客户里 token 消耗的分布印证了这一点，工程师和 software factories 会消耗指数级更多的 token，而要说 Anthropic 的成功有什么启示，就是 coding 是 AI 的头号 killer app（1,574 赞、129 回复）。第三条说一家公司的起点，正是帮你把这家公司建起来的那个 agent（187 赞）。</p>
+<div class="urls">
+<a href="https://x.com/rauchg/status/2123468825538789380" target="_blank">https://x.com/rauchg/status/2123468825538789380</a>
+<a href="https://x.com/rauchg/status/2123505400591106113" target="_blank">https://x.com/rauchg/status/2123505400591106113</a>
+<a href="https://x.com/rauchg/status/2123553975945556144" target="_blank">https://x.com/rauchg/status/2123553975945556144</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Garry Tan</span>
+<span class="builder-role">YC President &amp; CEO</span>
+</div>
+<p class="summary-en">Garry Tan, President and CEO of Y Combinator, quote-posts a line attributed to Bostrom, &#39;if nobody builds it, everyone dies&#39;, and adds &#39;Hard agree&#39; (263 likes, 31 replies). The feed gives no text for the post he quotes, so no subject is added for it.</p>
+<p class="summary-zh zh">Y Combinator 总裁兼 CEO Garry Tan 引用了一句归给 Bostrom 的 &#39;if nobody builds it, everyone dies&#39;，加上一句 &#39;Hard agree&#39;（263 赞、31 回复）。他引用的那条推文 feed 没给文本，这里不替它补主题。</p>
+<div class="urls">
+<a href="https://x.com/garrytan/status/2123496208316694669" target="_blank">https://x.com/garrytan/status/2123496208316694669</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Matt Turck</span>
+<span class="builder-role">VC, FirstMark Capital</span>
+</div>
+<p class="summary-en">Matt Turck, a VC at FirstMark Capital and host of the MAD Podcast, posts three short items: a Slush photo joke about felixrieseberg of AnthropicAI having a really good day (23 likes), a link to his earlier conversation with felixrieseberg (2 likes), and &#39;lol NASDAQ hedging their bets&#39; (58 likes). None expands an argument, so only the links are kept here.</p>
+<p class="summary-zh zh">FirstMark Capital 投资人、MAD Podcast 主持人 Matt Turck 发了三条短内容：一张 Slush 现场照片，调侃 AnthropicAI 的 felixrieseberg 那天过得特别好（23 赞）；一条指向他此前与 felixrieseberg 的对谈（2 赞）；一句 &#39;lol NASDAQ hedging their bets&#39;（58 赞）。三条都没有展开观点，这里只留链接。</p>
+<div class="urls">
+<a href="https://x.com/mattturck/status/2123424351953301526" target="_blank">https://x.com/mattturck/status/2123424351953301526</a>
+<a href="https://x.com/mattturck/status/2123424356286017975" target="_blank">https://x.com/mattturck/status/2123424356286017975</a>
+<a href="https://x.com/mattturck/status/2123465585166295351" target="_blank">https://x.com/mattturck/status/2123465585166295351</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nikunj Kothari</span>
+<span class="builder-role">Partner, FPV Ventures</span>
+</div>
+<p class="summary-en">FPV Ventures partner Nikunj Kothari writes the window&#39;s longest post (1,235 characters, 15 likes), asking who is securing the elderly as network attacks and impersonation attempts happen, and thinking about his parents and grandparents. He lists four layers: a secure browser at the browser level, a Pi-hole-like device or Onavo-like VPN at the network layer, scam-flagging at the payments layer before money leaves, and at the phone level only calls from loved ones getting through, with cloned voices handled by a provider like Reality Defender. He says individual solutions exist but none are neatly packaged, that this could be bundled with insurance covering activity on the OS or phone to align incentives, and that the buyer would be the kids who get alerted. A second post says &#39;Same same, but now it&#39;s PR-maxxing&#39; and asks people to focus on the what, who and why rather than the how (13 likes).</p>
+<p class="summary-zh zh">FPV Ventures 合伙人 Nikunj Kothari 写了全窗口最长的一条（1,235 字符、15 赞）：网络攻击和冒充不断发生，谁来保护老人，他想到自己的父母和祖父母。他列了四层：浏览器层做一个安全浏览器、网络层用类似 Pi-hole 的设备或 Onavo 式的手机 VPN、支付层在钱转出前标记疑似诈骗、手机层只放行亲人的来电，克隆声音交给 Reality Defender 这类服务商处理。他说单点方案今天都有，只是没被整齐打包；可以和覆盖 OS 或手机行为的保险绑在一起，让激励对齐，买家会是收到异常提醒的子女。另一条说 &#39;Same same, but now it&#39;s PR-maxxing&#39;，让大家关注 what、who、why，而不是 how（13 赞）。</p>
+<div class="urls">
+<a href="https://x.com/nikunj/status/2123426647273800172" target="_blank">https://x.com/nikunj/status/2123426647273800172</a>
+<a href="https://x.com/nikunj/status/2123521753381232917" target="_blank">https://x.com/nikunj/status/2123521753381232917</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Steinberger</span>
+<span class="builder-role">OpenClaw, OpenAI</span>
+</div>
+<p class="summary-en">Peter Steinberger, whose bio describes him as the Polyagentmorous ClawFather back from retirement and working with OpenClaw and OpenAI, says he landed a fix in OpenClaw yesterday for the few people using the embedded harness instead of codex, since it is a plugin, and that most harnesses are not updated yet (198 likes, 34 replies). The feed gives no text for the post he quotes.</p>
+<p class="summary-zh zh">Peter Steinberger 的 bio 写的是 Polyagentmorous ClawFather、退休后回来折腾 AI，关联 OpenClaw 和 OpenAI。他说昨天在 OpenClaw 里落地了一个修复，针对少数用 embedded harness 而不是 codex 的人（因为它是个插件），并说大多数 harness 还没更新（198 赞、34 回复）。他引用的推文 feed 没给文本。</p>
+<div class="urls">
+<a href="https://x.com/steipete/status/2123487048250327497" target="_blank">https://x.com/steipete/status/2123487048250327497</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Dan Shipper</span>
+<span class="builder-role">Every CEO</span>
+</div>
+<p class="summary-en">Dan Shipper, CEO of Every, asks who is working on helping stop the infrastructure attacks happening right now and how people in AI can help (65 likes, 14 replies). The post is a question, not an argument, and the feed gives no answer to it.</p>
+<p class="summary-zh zh">Every CEO Dan Shipper 问的是：现在正在发生的基础设施攻击，有谁在帮忙阻止，AI 圈的人能帮上什么（65 赞、14 回复）。这是一条提问，不是论点，feed 里也没有给出回答。</p>
+<div class="urls">
+<a href="https://x.com/danshipper/status/2123435061236404385" target="_blank">https://x.com/danshipper/status/2123435061236404385</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aditya Agarwal</span>
+<span class="builder-role">General Partner, SPC</span>
+</div>
+<p class="summary-en">Aditya Agarwal, General Partner at SPC and co-founder of Bevel Health, writes three posts. He says agents are moving from single tasks to whole jobs and the data has to follow, pointing to RoleCUA from Fig, which maps expert roles across months of real work with every action tied to the task and objective it serves (18 likes). He congratulates the folks at Anthropic and uses the day to explain SPC&#39;s goal, saying two of the people who helped build Anthropic spent significant time at SPC: nottombrown showed up in 2016 with no ML background, worked through papers with other members and co-founded Anthropic; trq212 joined after winding down a gaming company, was working on interpretability when a fellow member asked if he had tried Claude Code, and soon helped build a tool most of us use every day. He closes that if you put ambitious people next to each other it leads to extraordinary things, that sometimes the impact comes years later, and says he is happy for Tom, for Thariq and for his friends at AnthropicAI (95 likes). A third post says he is immensely proud of the industry, that it is not a zero-sum day, and that everyone in computers, Silicon Valley and venture capital should be proud (48 likes). The feed gives no text for the posts he quotes in the first item, and gives no independent account of what happened at Anthropic that day.</p>
+<p class="summary-zh zh">SPC 普通合伙人、Bevel Health 联合创始人 Aditya Agarwal 发了三条。他说 agent 正从单个任务走向整份工作，数据必须跟着走，并点到 Fig 的 RoleCUA：把专家角色映射到数月的真实工作，每个动作都挂在它所服务的任务和目标上（18 赞）。他向 Anthropic 的各位道贺，借这天解释 SPC 的目标不只让人开公司，说有两位参与创建 Anthropic 的人在 SPC 待过相当长时间：nottombrown 2016 年没有 ML 背景来到 SPC，和其他成员一起啃论文，后来联合创办 Anthropic；trq212 关掉自己的游戏公司后加入，在做 interpretability，被同僚问有没有试过 Claude Code，很快就在帮着做一个我们大多数人每天在用的工具。他收在「把有野心的人放在一起，会生出非凡的事」「有时影响要过几年才显出来」，并说为 Tom、为 Thariq、为 AnthropicAI 的朋友们高兴（95 赞）。第三条说他为这个行业感到非常骄傲，这不是零和的一天，计算机、硅谷、风投里的人都该骄傲（48 赞）。第一条里他引用的推文 feed 没给文本，feed 也没有独立说明 Anthropic 当天发生了什么。</p>
+<div class="urls">
+<a href="https://x.com/adityaag/status/2123479646629183631" target="_blank">https://x.com/adityaag/status/2123479646629183631</a>
+<a href="https://x.com/adityaag/status/2123494873919783073" target="_blank">https://x.com/adityaag/status/2123494873919783073</a>
+<a href="https://x.com/adityaag/status/2123579739868959110" target="_blank">https://x.com/adityaag/status/2123579739868959110</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Claude</span>
+<span class="builder-role">Anthropic AI assistant</span>
+</div>
+<p class="summary-en">Claude, the AI assistant built by AnthropicAI, posts three quote tweets within the same second, each containing only a link and no caption (54, 141 and 108 likes). The feed gives no text for any of the three posts it quotes, so no subject is added for them.</p>
+<p class="summary-zh zh">AnthropicAI 做的 AI 助手 Claude 在同一秒内发了三条引用推文，每条只有一个链接、没有文字（54、141、108 赞）。三条被引用推文的内容 feed 都没有收录，这里不替它们补主题。</p>
+<div class="urls">
+<a href="https://x.com/claudeai/status/2123431923678601304" target="_blank">https://x.com/claudeai/status/2123431923678601304</a>
+<a href="https://x.com/claudeai/status/2123431928414273582" target="_blank">https://x.com/claudeai/status/2123431928414273582</a>
+<a href="https://x.com/claudeai/status/2123431925918433403" target="_blank">https://x.com/claudeai/status/2123431925918433403</a>
+</div>
+</article>
+</section>
+<!-- ============== PODCAST ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#127911;</span>
+<h2 class="section-title">Podcast</h2>
+<span class="section-meta">1 Episode &middot; New to the Series</span>
+</div>
+<div class="podcast">
+<div class="podcast-source">No Priors</div>
+<div class="podcast-title">Superintelligence Needs the Physical World with CEO and Co-Founder of Arda Bob McGrew</div>
+<p class="summary-en">The Takeaway: superintelligence will not arrive from automating researchers alone, because the bottleneck is physical, not digital. Bob McGrew, CEO and co-founder of Arda, previously an early executive at Palantir and chief research officer at OpenAI, argues that a decade of ChatGPT and agents has changed our digital lives while leaving &#39;the atoms of our lives&#39; almost untouched. &#39;I don&#39;t think you are actually gonna be able to get to superintelligence without changes in the physical world.&#39; His example is the Waymo: amazing the first time, and by the third time you are complaining about traffic, because the car itself and the physical barriers around it never changed.</p>
+<p class="summary-en">He takes aim at the hard-takeoff argument he says he has heard since 2018: automate 10%, 50%, 90%, 99% of a researcher&#39;s time and you go 2x, 10x, 100x faster into a runaway self-improvement loop. &#39;Researchers are not the bottleneck.&#39; Even when he was chief research officer at OpenAI in 2024, the limit was not how many researchers could be hired but &#39;the amount of GPUs that we had on hand&#39;, whether compute was in the right places and connected by the right networks. Automating researchers is a big one-time gain, comparable to the jump to reasoning models, but it is another S-curve that moves GPUs from roughly 35% toward 90% of optimal; 90% to 99% is not a big difference and does not start a self-improvement cycle. He recalls Ilya listening patiently to a cool new method and asking &#39;so what are the results?&#39;, because deep learning is an experimental science and you have to run the experiments.</p>
+<p class="summary-en">The economic point is that intelligence and the physical layer are complements: labs produce cheap intelligence, so when hypotheses become cheap the scarce part becomes the wet labs and the GPUs, and &#39;you&#39;re just gonna bang harder and harder against the limited number of wet labs that you have&#39;. Better protein simulations cut the number of experiments tenfold, but the digital part is so fast that the gain is eaten up and you are blocked on the physical world again. An O-ring production function means you have to do all the steps: speeding up the digital part of building housing does little when the hard part is permits that &#39;no amount of agents are gonna help you do&#39;. Want more data centers? You need bulldozers; to build a bulldozer factory you must clear the ground; to clear the ground you need more bulldozers.</p>
+<p class="summary-en">Arda targets American manufacturing. The iPhone is designed in California and made in China, and he says each year about 75% of its parts change while only about 25% stay the same, so the stable quarter runs on a highly automated line and the rest is assembled by hand. A car plant can spend a couple of years and $200,000,000 on automation and then build roughly the same car for seven years; an iPhone would need to go from about 25% to about 90% automated to pencil out, and the bespoke machines cannot generalize even to the next generation. Around a million people assemble iPhones or components in Asia alongside about 10,000 manufacturing engineers. Arda&#39;s goal is to let you upload a product design to its cloud and design or reconfigure an automated line in seven days, as easily as retraining a human worker in a day; manufacturers consider seven days to bring a design change into production extremely agile.</p>
+<p class="summary-en">He does not think the answer is a humanoid: &#39;two arms and a camera is enough&#39;, sometimes one arm and a camera, because assembly lines are a closed world with no novelty, unlike cleaning an unfamiliar bedroom. Existing arms can already build about 90% of these products; what blocks them is economics, since the capital equipment has to be redesigned and rebuilt every year. Half the work in a traditional automation cell is calibration, which perception and RL can relax, but a closed world still needs the right device 99 or 99.9% of the time. Arda spent its first year with defense manufacturer Androl building a software and AI platform: access to their systems in January, a first user in April who cut an actuator&#39;s virtual build from a few days to ninety minutes, then deployment across all product divisions from drones to missiles and work on the Fury collaborative combat airplane. Arda does not train its own models; frontier models act as an orchestrator over motion planning and CAD-inspection tools, and the team first had to build the equivalent of an IDE and Git for manufacturing engineers before an agent could add value.</p>
+<p class="summary-en">His route there ran through a Stanford AI lab PhD he left in 2005 believing neural networks would not work, ten years at Palantir, a year and a half trying and failing to start a robotics company, and OpenAI&#39;s robotics team, where a shadow hand spent two years learning to solve a Rubik&#39;s cube, after which he says he is &#39;permanently not a believer in robotic hands&#39;. He credits Palantir&#39;s forward deployed engineering model, noting he would not build a feature without a customer ready to use it, that a single power user such as Sarah Adams carried the product for about a year, and that the approach only has leverage when what the FTEs see is productized rather than left as consulting. On robotics he suspects models like Astra or Fable work because they learn good representations by &#39;predicting the last few significant bits&#39; of real-world data, not because of a flood of robot data, and their slow speed and lack of fine-tuning leave room for specialists. He closes on Dario&#39;s &#39;a country of geniuses in a data center&#39;, arguing that perception and action are what let intelligence leave the data center, that the next ten years bring a profusion of robot forms rather than only humanoids, and that a civilization spreading at light speed explains the Fermi Paradox: &#39;We&#39;re only gonna detect them a little bit before they arrive. Or perhaps we will be the wave.&#39; Figures and spellings here are as the conversation gives them; the feed does not independently verify them.</p>
+<p class="summary-zh zh">核心结论：只靠自动化研究员到不了超级智能，因为瓶颈在物理世界，不在数字世界。Arda 联合创始人兼 CEO Bob McGrew，此前是 Palantir 早期高管、OpenAI 首席研究官。他的判断是，ChatGPT 和 agent 这十年改变了我们的数字生活，却几乎没动到「我们生活里的原子」：&#39;I don&#39;t think you are actually gonna be able to get to superintelligence without changes in the physical world.&#39; 他举的例子是 Waymo：第一次坐觉得神奇，第三次就开始抱怨堵车，因为车本身和周围的物理限制一点没变。</p>
+<p class="summary-zh zh">他反驳的是自己说从 2018 年就听到的硬起飞论证：把研究员 10%、50%、90%、99% 的时间自动化，就能 2 倍、10 倍、100 倍地加速，进入失控的自我改进循环。「研究员不是瓶颈。」即便 2024 年他在 OpenAI 做首席研究官时，限制也不是能招多少研究员，而是「手上有多少 GPU」、算力有没有放在对的位置、有没有用对的网络连起来。自动化研究员是一次性大收益，堪比当年跃迁到推理模型，但它只是一条把 GPU 从大约 35% 推到 90% 最优的 S 曲线；90% 到 99% 差别不大，也不会启动自我改进循环。他记得 Ilya 耐心听完一个很妙的新方法，只问一句 &#39;so what are the results?&#39;，因为深度学习是实验科学，实验必须真跑。</p>
+<p class="summary-zh zh">经济上的道理是：智能和物理层是互补品。实验室生产的是便宜的智能，所以当假设变便宜，稀缺的就变成湿实验室和 GPU，「你会越来越狠地撞在湿实验室数量有限这堵墙上」。蛋白质模拟做得更好，实验次数能降到十分之一，但数字那一侧太快，这点加速很快被吃掉，又被物理世界卡住。O-ring 生产函数意思是每一步都得做全：把建房的数字部分提速没什么用，难的是拿许可，而「再多的 agent 也帮不了你拿许可」。想多建数据中心？需要推土机；要建推土机工厂，得先清地；要清地，又需要更多推土机。</p>
+<p class="summary-zh zh">Arda 做的是美国制造。iPhone 在加州设计、在中国制造，他说每年约 75% 的零件会换，只有约 25% 不变，所以稳定的那四分之一能上高度自动化的产线，其余靠手工装配。汽车厂可以花两年、2 亿美元上自动化，然后七年里大致造同一款车；iPhone 要想算得过账，得把自动化率从约 25% 提到约 90%，而那些专用机器连下一代 iPhone 都泛化不了。亚洲约 100 万人在组装 iPhone 或零部件，旁边约有 10,000 名制造工程师在定工艺。Arda 的目标是：把产品设计上传到云端，七天内设计或重构一条自动化产线，像一天之内重新培训一个工人那样容易；制造业觉得七天把设计变更推上产线已经算非常敏捷了。</p>
+<p class="summary-zh zh">他认为答案不是人形机器人：「两条机械臂加一个摄像头就够了」，有时一条臂加一个摄像头就够，因为装配线是没有新情况的封闭世界，不像去打扫一间没见过的卧室。现有机械臂已经能造这里约 90% 的产品，卡住的是经济性：这些资本设备每年都要重新设计、重建。传统自动化单元里一半工作在校准，感知和 RL 可以把精度要求放松，但封闭世界仍要求 99% 或 99.9% 的时候都把器件装对。Arda 第一年和国防制造商 Androl 一起做软件与 AI 平台：1 月拿到他们的系统访问权，4 月有了第一个用户，把一个 actuator 的虚拟构建从几天缩到 90 分钟，之后铺到所有产品部门，从无人机到导弹，并在做 Fury 协同作战飞机。Arda 不自己训模型；前沿模型当 orchestrator，调度 motion planning 和检查 CAD 的工具，团队得先给制造工程师造出相当于 IDE 和 Git 的东西，agent 才加得上价值。</p>
+<p class="summary-zh zh">他走到这里的路径是：2005 年从 Stanford AI lab 的博士退学，当时认定神经网络成不了；在 Palantir 十年；花一年半试机器人创业失败；再到 OpenAI 机器人团队，用一只 shadow hand 花两年学会解魔方，之后他说自己「再也不信机器人手了」。他把功劳给 Palantir 的 forward deployed engineering：没有客户准备用，就不做这个功能；像 Sarah Adams 这样的单个重度用户撑了产品约一年；这套打法只有在把 FDE 看到的东西产品化、而不是停在咨询时才有杠杆。谈机器人时，他猜 Astra、Fable 这类模型管用，是因为它们靠「预测真实世界数据里最后几个显著比特」学到了好表征，不是因为灌了大量机器人数据；它们慢、又不能微调，给专门做微调的公司留了空间。结尾他借 Dario 的「数据中心里的一国天才」说：让智能走出数据中心的是感知和行动，未来十年会是各种形态机器人的大量涌现，而不只是人形；以光速扩散的文明也解释了费米悖论：「我们只会在它们到达前一小会儿探测到。又或许，我们就是那道波。」这里的数字和拼写都按对话原样照录，feed 没有独立核实。</p>
+<div class="urls">
+<a href="https://www.youtube.com/watch?v=_wLzJINt9iQ" target="_blank">https://www.youtube.com/watch?v=_wLzJINt9iQ</a>
+</div>
+</div>
+</section>
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128161;</span>
+<h2 class="section-title">The Takeaway</h2>
+<span class="section-meta">1 Podcast &middot; 2026-11-21</span>
+</div>
+<div class="takeaway">
+<div class="takeaway-label">The Takeaway</div>
+<p class="">Engagement concentrates on two posts. Thariq&#39;s link-only post takes the top likes (10,013) and reposts (640), the window&#39;s only post above 10,000 likes and one of the 2 posts above 100 reposts. Thibault Sottiaux&#39;s note on a new mobile experience for ChatGPT leads replies (720) and is second in likes (5,244) and reposts (276). Guillermo Rauch&#39;s 1000x engineer math draws 1,574 likes and is third in reposts (94) and replies (129). 5 posts pass 1,000 likes, 1 passes 10,000, 2 pass 100 reposts, 4 pass 100 replies and none pass 1,000 replies; totals are 26,531 likes, 1,340 reposts and 1,994 replies. The longest post is 1,235 characters, from Nikunj Kothari, drawing 15 likes.</p>
+<p class="">Several posts react to the same day without the feed naming an event: Aditya Agarwal congratulates the folks at Anthropic and calls it not a zero-sum day, Matt Turck jokes about felixrieseberg of AnthropicAI having a good day and about NASDAQ hedging its bets, Garry Tan quotes Bostrom, Swyx writes that the odds of reaching SOTA have dropped to zero, and Guillermo Rauch says coding is the #1 killer app of AI if there is a takeaway from Anthropic&#39;s success. The feed carries no independent report or statement behind any of these, so they are recorded as reactions, not confirmations. Parallel lines that do stand on their own: Sottiaux&#39;s three posts on a new ChatGPT mobile experience, Peter Yang&#39;s three on comparing Gemini 4 Neon with Opus 5.5, Josh Woodward&#39;s Gemini app on Mac, and separate posts on agents and engineering from Rauch, Amjad Masad, Thariq, Peter Steinberger and Nikunj Kothari.</p>
+<p class="">The Podcast slot is 1 and it is new to the series, not a repeat. No Priors published Superintelligence Needs the Physical World with CEO and Co-Founder of Arda Bob McGrew at 2026-11-19T11:44:00.000Z (Pacific 2026-11-19 03:44:00), 2h49m11s before the first post, 18h24m37s before the last and 18h45m26s before the snapshot, on the same Pacific day as all 33 posts. The full title, Bob McGrew, Arda, the specific video URL https://www.youtube.com/watch?v=_wLzJINt9iQ, the guid and the timestamp all return zero hits across the 132 historical pages. The three issues from 11-16 to 11-18 each deduplicated their podcast against an older episode; 11-19, 11-20 and this issue are each a new episode. The feed gives a specific video URL and the page links to it.</p>
+<p class="">Quote structure and coverage: 21 of the 33 posts are quote tweets pointing at 20 distinct IDs. 3 of those quotes point at 2 IDs inside this feed, Sottiaux&#39;s Le ChatGPT 2.0 quoting his own mobile-experience post and two Peter Yang follow-ups quoting his own comparison video; the other 18 point at 18 IDs outside the feed, whose text the feed does not give. There are no self-quotes and one shared target. All 33 tweet IDs return zero hits against the 132 historical pages. All 33 posts fall on Pacific 11-19, from 06:33:11 to 22:08:37, a 15h35m26s window closing 0h20m49s before the snapshot; the gap from the previous issue&#39;s close is 8h19m50s and the previous snapshot was 23h59m20s earlier. Pacific 10-29 and 10-30 remain missing from the series.</p>
+<p class="">14 accounts posted: 9 are on the 24-name tracking list (Swyx, Peter Yang, Amjad Masad, Guillermo Rauch, Garry Tan, Matt Turck, Nikunj Kothari, Peter Steinberger, Aditya Agarwal) and 5 are not (Josh Woodward, Thibault Sottiaux, Thariq, Dan Shipper, Claude). Sam Altman does not appear, after showing up in the two previous issues. The blogs array is empty for the twenty-seventh consecutive issue.</p>
+</div>
+<div class="takeaway zh">
+<div class="takeaway-label">核心结论</div>
+<p class="">互动集中在两条上。Thariq 那条只有链接的推文拿到最高赞 10,013 和最高转发 640，是全窗口唯一破万赞、也是 2 条转发过百里的一条。Thibault Sottiaux 讲 ChatGPT 新移动体验那条回复第一 720、赞数第二 5,244、转发第二 276。Guillermo Rauch 的 1000x engineer 算法有 1,574 赞，转发第三 94、回复第三 129。破千赞 5 条、破万 1 条、转发过百 2 条、回复过百 4 条，回复破千 0 条；合计 26,531 赞、1,340 转发、1,994 回复。最长的一条是 Nikunj Kothari 的 1,235 字符，15 赞。</p>
+<p class="">有几条推文在回应同一天，但 feed 没有点名出了什么事：Aditya Agarwal 向 Anthropic 的各位道贺、说这不是零和的一天，Matt Turck 调侃 AnthropicAI 的 felixrieseberg 那天过得很好、又调侃 NASDAQ 两头下注，Garry Tan 引 Bostrom，Swyx 写「达到 SOTA 的概率降到零」，Guillermo Rauch 说要说 Anthropic 的成功有什么启示，就是 coding 是 AI 的头号 killer app。feed 里没有独立报道或声明支撑其中任何一条，所以都按反应记录，不当作互相印证。能独立成立的并行线索是：Sottiaux 三条讲 ChatGPT 新移动体验、Peter Yang 三条对比 Gemini 4 Neon 与 Opus 5.5、Josh Woodward 的 Mac 版 Gemini app，以及 Rauch、Amjad Masad、Thariq、Peter Steinberger、Nikunj Kothari 各自讲 agent 与工程的推文。</p>
+<p class="">Podcast 这一格是 1，而且对本系列是新的，不是重复。No Priors 的 Superintelligence Needs the Physical World with CEO and Co-Founder of Arda Bob McGrew 发布于 2026-11-19T11:44:00.000Z（太平洋 2026-11-19 03:44:00），比首条推文早 2h49m11s、比末条早 18h24m37s、比快照早 18h45m26s，与全部 33 条推文同一太平洋日。完整标题、Bob McGrew、Arda、具体视频地址 https://www.youtube.com/watch?v=_wLzJINt9iQ、guid 和时间戳，对 132 个历史页面全部零命中。11-16 到 11-18 三期各自把播客判重到更早的一集；11-19、11-20 和本期各是一集新收录。feed 给的是具体视频地址，页面也直接链到它。</p>
+<p class="">引用结构与覆盖：33 条里 21 条是引用推文，指向 20 个不同 ID。其中 3 条落在 2 个 feed 内 ID：Sottiaux 用 Le ChatGPT 2.0 引用自己那条移动体验，Peter Yang 两条后续引用自己的对比视频；其余 18 条指向 18 个 feed 外 ID，feed 没有给出它们的文本。没有自引，有一组同组。33 个推文 ID 对 132 个历史页面零命中。33 条全落在太平洋 11-19，从 06:33:11 到 22:08:37，窗口 15h35m26s，在快照前 0h20m49s 收口；距上一期收口 8h19m50s，上一份快照相隔 23h59m20s。太平洋 10-29、10-30 在本系列仍缺失。</p>
+<p class="">有内容的账号 14 个，其中 9 位在 24 位追踪名单上（Swyx、Peter Yang、Amjad Masad、Guillermo Rauch、Garry Tan、Matt Turck、Nikunj Kothari、Peter Steinberger、Aditya Agarwal），5 位不在（Josh Woodward、Thibault Sottiaux、Thariq、Dan Shipper、Claude）。Sam Altman 本期未出现，此前 11-19、11-20 连续两期出现过。blogs 数组连续第二十七期为空。</p>
+</div>
+</section>
+<!-- ============== NOTES ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128221;</span>
+<h2 class="section-title">记录 / Notes &amp; Dedup</h2>
+<span class="section-meta">33 Zero &middot; 1 New &middot; 0 Blog</span>
+</div>
+<div class="dedup">
+<p style="margin-top:12px">
+<strong>Tweets</strong> All 33 tweet IDs have zero hits across the 132 historical digest pages. 21 of the 33 are quote posts pointing at 20 distinct IDs: 3 quotes land on 2 IDs inside this feed, 18 on 18 outside it, with no self-quotes and one shared target. The feed gives the text of none of the outside posts.
+</p>
+<p style="margin-top:12px">
+<strong>Podcast</strong> The slot is 1 and it is new, not a dedup. No Priors, Superintelligence Needs the Physical World with CEO and Co-Founder of Arda Bob McGrew, publishedAt 2026-11-19T11:44:00.000Z (Pacific 2026-11-19 03:44:00), 2h49m11s before the first post, 18h24m37s before the last and 18h45m26s before the snapshot, on the same Pacific day as all 33 posts. Its full title, Bob McGrew, Arda, the specific video URL https://www.youtube.com/watch?v=_wLzJINt9iQ, the guid and the timestamp all return zero hits across the 132 historical pages. The three issues from 11-16 to 11-18 each deduplicated against an older episode; 11-19, 11-20 and this issue are each new.
+</p>
+<p style="margin-top:12px">
+<strong>Blog</strong> The slot is 0 because the blogs array is empty for the twenty-seventh consecutive issue; no blog entry is created. This zero has a different cause from the Podcast value of 1.
+</p>
+<p style="margin-top:12px">
+<strong>Transcript</strong> 72,822 characters over 785 lines, with speaker labels and timestamps. The cold open repeats a line from the talk, the opening introduces the hosts and guest, and the closing subscription read is a promo; none is treated as an argument. Spellings are kept as the transcript gives them (GPD four o, o three, GPD4, GBD4, Androl, Andoril, Andrew, Wojciech Sarembo, Andrei Kapathi, shadow hand, PIE, Astra, Fable, Luna, Fury). Figures are self-reported in conversation and not independently verified by the feed: 10/50/90/99% of researcher time and 2x/10x/100x, GPUs at 35% toward 90% of optimal, 75%/25% of iPhone parts, $200,000,000 and seven years for a car line, one million assemblers and 10,000 manufacturing engineers, seven days, ninety minutes, one day of retraining, 99 or 99.9% success, a $300,000,000,000 Palantir and the next ten years. Numbers in the posts are separate: $100/mo, 20 TB, 100,000+ employees, 1.2B users, 3 models, 99% of tasks and 5 use cases.
+</p>
+<p style="margin-top:12px">
+<strong>Coverage &amp; thin posts</strong> Three timestamps: snapshot 2026-11-20T06:29:26.095Z (Pacific 2026-11-19 22:29:26), first post Pacific 2026-11-19 06:33:11 (Matt Turck), last post Pacific 2026-11-19 22:08:37 (Swyx). Window 15h35m26s, closing 0h20m49s before the snapshot; 8h19m50s after the previous issue&#39;s close (Pacific 2026-11-18 22:13:21); previous snapshot was 23h59m20s earlier. All 33 posts fall on Pacific 11-19; Pacific 10-29 and 10-30 remain missing. 10 of the 33 posts are one-line reactions, jokes or bare links whose text, once URLs are stripped, is shorter than 40 characters: Claude&#39;s three bare links, Amjad Masad&#39;s Sick!, Thariq&#39;s an age of miracles and the link-only post, Matt Turck&#39;s NASDAQ line, Swyx&#39;s fuuuuuuck and you cant be serious, and Thibault Sottiaux&#39;s Le ChatGPT 2.0. Their links are kept; no subject is added for them.
+</p>
+<p style="margin-top:12px">
+<strong>Not resolved</strong> A spec, rollout scope or official writeup for the new ChatGPT mobile experience and the dot; specs, benchmarks or a second source for Gemini 4 Neon, the Gemini app on Mac and the $100/mo Gemini Ultra bundle; an independent account of what happened at Anthropic that day; what vercel board, RoleCUA, the Muse-like personal agent and a contract with your agent ship with; the text of the quoted posts that the feed leaves blank; the AIE Code talk; the Arda and Androl work and the Fury program; and the standing items carried from earlier issues (Day 29 / 3/x, dot, jev, Particle-1, HackerTube, Grok Bot, Legora, the data-market figure, Claude Whiteboards, Box interop, interactive connectors, the AIE keynote, MCP tool counts, Stand with Jensen, Opal and the 11-27 book date).
+</p>
+</div>
+<div class="dedup zh" style="margin-top:14px">
+<p style="margin-top:12px">
+<strong>推文核对</strong> 33 个推文 ID 对 132 个历史页面零命中。33 条里 21 条是引用推文，共 20 个不同 ID：3 条落在 2 个 feed 内 ID，18 条落在 18 个 feed 外 ID，没有自引，有一组同组。这些外部推文的内容 feed 一条都没有给出。
+</p>
+<p style="margin-top:12px">
+<strong>播客核对</strong> 这一格是 1，而且是新收录，不是判重。No Priors 的 Superintelligence Needs the Physical World with CEO and Co-Founder of Arda Bob McGrew，publishedAt 为 2026-11-19T11:44:00.000Z（太平洋 2026-11-19 03:44:00），比首条推文早 2h49m11s、比末条早 18h24m37s、比快照早 18h45m26s，与全部 33 条推文同一太平洋日。完整标题、Bob McGrew、Arda、具体视频地址 https://www.youtube.com/watch?v=_wLzJINt9iQ、guid 和时间戳，对 132 个历史页面全部零命中。11-16 到 11-18 三期各自把播客判重到更早的一集；11-19、11-20 和本期各是新收录。
+</p>
+<p style="margin-top:12px">
+<strong>博客核对</strong> 这一格是 0，因为 blogs 数组连续第二十七期为空，不生成博客条目。这个 0 与 Podcast 的 1 成因不同。
+</p>
+<p style="margin-top:12px">
+<strong>转写</strong> 72,822 字符、785 行，带 speaker 标签与时间戳。开头的 cold open 重复了正文里的一句，片头介绍主持人与嘉宾，结尾的订阅口播是推广，这些都不当作独立论点。拼写按原样照录、不静默修正：GPD four o、o three、GPD4、GBD4、Androl、Andoril、Andrew、Wojciech Sarembo、Andrei Kapathi、shadow hand、PIE、Astra、Fable、Luna、Fury。对话里的数字都是自述、feed 未独立核实：研究员 10/50/90/99% 的时间与 2x/10x/100x、GPU 从 35% 到 90% 最优、iPhone 零件的 75%/25%、汽车产线 2 亿美元与七年、100 万组装工与 10,000 名制造工程师、七天、90 分钟、一天再培训、99 或 99.9% 成功率、3,000 亿美元的 Palantir，以及未来十年。推文里的数字另算：$100/mo、20 TB、十万多名员工、12 亿用户、3 个模型、99% 的任务和 5 个用例。
+</p>
+<p style="margin-top:12px">
+<strong>覆盖与薄内容</strong> 三个时间戳：快照 2026-11-20T06:29:26.095Z（太平洋 2026-11-19 22:29:26）、首条太平洋 2026-11-19 06:33:11（Matt Turck）、末条太平洋 2026-11-19 22:08:37（Swyx）。窗口 15h35m26s，在快照前 0h20m49s 收口；距上一期收口（太平洋 2026-11-18 22:13:21）8h19m50s；上一份快照相隔 23h59m20s。33 条全落在太平洋 11-19；太平洋 10-29、10-30 仍缺失。33 条里 10 条是一句话反应、玩笑或裸链接，去掉 URL 后文字不足 40 字符：Claude 三条裸链接、Amjad Masad 的 Sick!、Thariq 的 an age of miracles 与那条纯链接、Matt Turck 的 NASDAQ、Swyx 的 fuuuuuuck 与 you cant be serious、Thibault Sottiaux 的 Le ChatGPT 2.0。链接照留，不替它们补主题。
+</p>
+<p style="margin-top:12px">
+<strong>未闭环</strong> ChatGPT 新移动体验与 dot 的规格、开放范围或官方说明；Gemini 4 Neon、Mac 版 Gemini app 和 $100/mo Gemini Ultra 套餐的规格、基准或第二信源；Anthropic 当天发生了什么的独立说明；vercel board、RoleCUA、Muse-like 个人 agent 与「和 agent 签 contract」具体交付什么；feed 留空的那些被引用推文写了什么；AIE Code 那场演讲；Arda 与 Androl 的合作以及 Fury 项目；以及从往期带来的长期项（Day 29 / 3/x、dot、jev、Particle-1、HackerTube、Grok Bot、Legora、数据市场规模、Claude Whiteboards、Box 互通、interactive connectors、AIE keynote、MCP 工具数、Stand with Jensen、Opal，以及 11 月 27 日的出版日期）。
+</p>
+</div>
+</section>
+<footer class="footer">
+<div class="next-issue">&#128236; &#19979;&#19968;&#26399;&#65306;&#26126;&#22825; 10:00&#65288;&#21271;&#20140;&#26102;&#38388;&#65289;</div>
+<div class="signature"><a href="#top" style="border:none;color:var(--ink-muted)">&#22238;&#21040;&#39030;&#37096; / Back to top</a></div>
+<div class="signature">by chloevchen</div>
+</footer>
+</body>
+</html>
+<!-- by chloevchen -->
