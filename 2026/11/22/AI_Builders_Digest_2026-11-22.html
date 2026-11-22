@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Builders Digest &middot; 2026-11-22</title>
+<style>
+
+
+
+
+
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 28px 30px; margin-bottom: 24px; }
+  .podcast-source { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
+  .podcast-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; margin-bottom: 18px; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; }
+
+
+</style>
+</head>
+<body id="top">
+<header class="topbar">
+<div class="topbar-inner">
+<a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders &middot; AI Builders Digest</a>
+<span>双语 &middot; Bilingual</span>
+</div>
+</header>
+<section class="header">
+<div class="eyebrow">Daily Digest &middot; 2026-11-22</div>
+<h1>AI Builders Digest</h1>
+</section>
+<div class="stats">
+<div class="stat">
+<div class="stat-num">15</div>
+<div class="stat-label">Builders</div>
+</div>
+<div class="stat">
+<div class="stat-num">31</div>
+<div class="stat-label">Tweets</div>
+</div>
+<div class="stat">
+<div class="stat-num">1</div>
+<div class="stat-label">Podcast</div>
+</div>
+<div class="stat">
+<div class="stat-num">0</div>
+<div class="stat-label">Blog</div>
+</div>
+</div><p class="note-line">Fifteen builders, 31 posts, 30 on Pacific 11-20 and one just before midnight on 11-19. Aaron Levie's 'Going to be a big day in math' takes the top likes (3,344) and reposts (195); Thibault Sottiaux's note about an internal experience being too fun leads replies (656) and is second in likes (3,281), and his three posts hold the top three reply counts. The Podcast slot is 1 with a new Latent Space conversation with Linear COO Cristina Cordova, published on the same Pacific day as the first post but more than eight hours before it; the Blog slot is 0 because the blogs array is empty.</p><p class="note-line zh">15 位 builder、31 条推文，30 条落在太平洋 11-20，1 条在 11-19 临近午夜。Aaron Levie 的 'Going to be a big day in math' 拿到最高赞 3,344 和最高转发 195；Thibault Sottiaux 讲内部做出一个太好玩的体验那条回复第一 656、赞数第二 3,281，他的三条包揽回复前三。Podcast 这一格是 1，是一集全新的 Latent Space 对话，嘉宾是 Linear COO Cristina Cordova，发布于首条推文同一太平洋日、但比它早八个多小时；Blog 这一格是 0，因为 blogs 数组为空。</p><!-- ============== X / TWITTER ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128036;</span>
+<h2 class="section-title">X / Twitter</h2>
+<span class="section-meta">15 Builders &middot; 31 Tweets</span>
+</div><article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aaron Levie</span>
+<span class="builder-role">Box CEO</span>
+</div>
+<p class="summary-en">Box CEO Aaron Levie writes the window's longest post (1,041 characters, 407 likes, 164 replies), arguing that model capability has jumped to the point where it is better to give agents goals and enough freedom than to spell out the how. A year ago you had to describe precisely how to design and develop a product idea or there was almost no chance of success; now an agent can connect the dots across a far greater solution space and land on a better implementation than you would have thought of. He expects the same in finance, legal, life sciences, cyber and other domains where no person can hold all the relevant industry knowledge, and says this reshapes our relationship with AI and how we deploy agents at work. His other post is a single line, 'Going to be a big day in math', with two links, the window's top likes (3,344) and reposts (195). The feed gives no text for either post he quotes and no independent account of what the math day refers to.</p>
+<p class="summary-zh zh">Box CEO Aaron Levie 写了全窗口最长的一条（1,041 字符、407 赞、164 回复）：模型能力已经跃迁到这一步，与其把「怎么做」讲清楚，不如给 agent 目标和足够自由度。一年前你得把产品想法怎么设计、怎么开发说得很细，否则几乎不可能成；现在 agent 能在大得多的解空间里把点连起来，给出比你自己想得到的更好的实现。他说金融、法律、生命科学、网络安全等领域也会这样，因为没有人能装下全部相关行业知识，而这会重塑我们与 AI 的关系、以及在工作里怎么部署 agent。另一条只有一行：'Going to be a big day in math' 加两个链接，是全窗口最高赞 3,344、最高转发 195。他引用的两条推文 feed 都没给文本，也没有独立说明这个「数学大日子」指的是什么。</p>
+<div class="urls">
+<a href="https://x.com/levie/status/2123686350410912145" target="_blank">https://x.com/levie/status/2123686350410912145</a>
+<a href="https://x.com/levie/status/2123792233535332448" target="_blank">https://x.com/levie/status/2123792233535332448</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Swyx</span>
+<span class="builder-role">smol_ai, cognition, Latent Space</span>
+</div>
+<p class="summary-en">Swyx, whose bio describes achieving ambition with intentionality, intensity, integrity and insanity and lists affiliations with smol_ai, cognition, temporalio, aidotengineer and latentspacepod, posts three quote tweets. He asks whatever happened to @cursor_ai origin, whether anyone has used this thing in anger yet and whether it has actions/ci/cd yet (122 likes, 86 replies). He teases a piece on why @j_schottenstein left @getdbt for @LangChain to build it into a $3B startup, adding that they now have to reinvent the content, context (knowledge) and software factory from scratch (94 likes, 44 replies). The third is a one-word 'broooo' with two links (2 likes). The feed gives no text for any of the three posts he quotes, so no subject is added for them; the $3B figure and the framing are as the post gives them and are not independently verified.</p>
+<p class="summary-zh zh">Swyx 的 bio 写的是用 intentionality、intensity、integrity、insanity 去实现野心，并列了 smol_ai、cognition、temporalio、aidotengineer、latentspacepod 等关联。他发了三条引用推文：一条问 @cursor_ai origin 后来怎么样了、有没有人真的拿它干过活、有没有 actions/ci/cd（122 赞、86 回复）；一条预告 @j_schottenstein 为什么离开 @getdbt 去 @LangChain 把它做成一家 30 亿美元的公司，并说他们现在要把 content、context（knowledge）和 software factory 从头重做一遍（94 赞、44 回复）；第三条只有一个词 'broooo' 加两个链接（2 赞）。三条被引用推文 feed 都没给文本，这里不替它们补主题；30 亿美元这个数字和说法按原帖照录，feed 未独立核实。</p>
+<div class="urls">
+<a href="https://x.com/swyx/status/2123690305736396925" target="_blank">https://x.com/swyx/status/2123690305736396925</a>
+<a href="https://x.com/swyx/status/2123843282082132335" target="_blank">https://x.com/swyx/status/2123843282082132335</a>
+<a href="https://x.com/swyx/status/2123856303974121851" target="_blank">https://x.com/swyx/status/2123856303974121851</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Zara Zhang</span>
+<span class="builder-role">Builder, Harvard'17</span>
+</div>
+<p class="summary-en">Zara Zhang, whose bio says Builder and Harvard'17, writes two short lines: 'If you curate, you should create' (117 likes, 13 replies), and 'Do not send your clients Claude Artifacts/ChatGPT sites', because it makes them feel like 'Well I could have just prompted Claude/Codex myself' (360 likes, 65 replies). Neither expands an argument, so both are kept as posted with their links.</p>
+<p class="summary-zh zh">Zara Zhang 的 bio 写的是 Builder、Harvard'17。她发了两句短内容：'If you curate, you should create'（117 赞、13 回复），以及 'Do not send your clients Claude Artifacts/ChatGPT sites'，理由是这会让对方觉得「那我自己 prompt 一下 Claude/Codex 不就行了」（360 赞、65 回复）。两条都没有展开论证，按原帖保留文字和链接。</p>
+<div class="urls">
+<a href="https://x.com/zarazhangrui/status/2123692630655873269" target="_blank">https://x.com/zarazhangrui/status/2123692630655873269</a>
+<a href="https://x.com/zarazhangrui/status/2123813583339532321" target="_blank">https://x.com/zarazhangrui/status/2123813583339532321</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Matt Turck</span>
+<span class="builder-role">VC, FirstMark Capital</span>
+</div>
+<p class="summary-en">Matt Turck, a VC at FirstMark Capital, host of the MAD Podcast, organizer of Data Driven NYC and author of the MAD Landscape, tells a story about automated agentic emailing versus the real world (135 likes, 37 replies): a guy emails twice to meet at a conference (Slush), he replies once, then three more emails arrive in rapid succession; later that day he bumps into him, says 'well, was meant to be', the guy reads his name tag twice with a blank face, says 'oh hi' and walks away. The post is a story, not an argument.</p>
+<p class="summary-zh zh">FirstMark Capital 投资人、MAD Podcast 主持人、Data Driven NYC 组织者、MAD Landscape 作者 Matt Turck 讲了个「自动化 agent 发邮件 vs 真实世界」的小故事（135 赞、37 回复）：有人两次发邮件约他在 Slush 见面，他回了一次，对方紧接着又连发三封；当天晚些时候两人撞见，他说「看来是命中注定」，对方把他的名牌看了两遍，一脸茫然，说了句 'oh hi' 就走了。这是一条叙事，不是论点。</p>
+<div class="urls">
+<a href="https://x.com/mattturck/status/2123777488786538982" target="_blank">https://x.com/mattturck/status/2123777488786538982</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Dan Shipper</span>
+<span class="builder-role">Every CEO</span>
+</div>
+<p class="summary-en">Every CEO Dan Shipper posts one quote tweet containing only the line 'one dawn across science of something far greater' and a link (31 likes, 2 reposts, 4 replies). The feed gives no text for the post he quotes, so no subject is added for it.</p>
+<p class="summary-zh zh">Every CEO Dan Shipper 发了一条引用推文，正文只有 'one dawn across science of something far greater' 一句和一个链接（31 赞、2 转发、4 回复）。他引用的那条推文 feed 没给文本，这里不替它补主题。</p>
+<div class="urls">
+<a href="https://x.com/danshipper/status/2123795694557315556" target="_blank">https://x.com/danshipper/status/2123795694557315556</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Garry Tan</span>
+<span class="builder-role">YC President &amp; CEO</span>
+</div>
+<p class="summary-en">Garry Tan, President and CEO of Y Combinator, whose bio also lists GStack, GBrain, helping founders and accelerating the boom loop, argues against an asset seizure tax: what is needed is to encourage building new ideas and startups in California, and then a government that spends it wisely on things that help the people, and he says the ivory tower academics and the SEIU-HNW union bosses have it wrong (875 likes, 66 reposts, 48 replies). The feed gives no text for the post he quotes.</p>
+<p class="summary-zh zh">Y Combinator 总裁兼 CEO Garry Tan 的 bio 还列了 GStack、GBrain、帮创始人、accelerating the boom loop。他反对资产没收税：需要的是鼓励在加州创造新想法、新公司，然后是一个把钱明智地花在帮人身上的政府；他说象牙塔里的学者和 SEIU-HNW 工会头头搞错了（875 赞、66 转发、48 回复）。他引用的推文 feed 没给文本。</p>
+<div class="urls">
+<a href="https://x.com/garrytan/status/2123796297836896292" target="_blank">https://x.com/garrytan/status/2123796297836896292</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aditya Agarwal</span>
+<span class="builder-role">General Partner, SPC</span>
+</div>
+<p class="summary-en">Aditya Agarwal, General Partner at SPC and co-founder of Bevel Health, previously an early engineer at Facebook, CTO at Dropbox and a Flipkart board member, posts three times. He says @theRealTrishaK started @unit21inc at @spc in 2018 and it has since caught $14B+ in financial crime, that Kavitha Iyer Rodrigues started @zumutor in 2013 believing new cancer drugs would be discovered in India, and invites people to @spc_india on Nov 25th (11 likes). A second line reads 'Request a spot' with a link (0 likes). A third says 'We are solving Riemann and also crushing pancreatic cancer with a pill. But sure, let's debate whether the "AI trade" is good lol.' (3 likes). The feed gives no text for the post he quotes in the first item and no independent account behind the Riemann line; figures and claims are kept as the posts give them.</p>
+<p class="summary-zh zh">SPC 普通合伙人、Bevel Health 联合创始人 Aditya Agarwal，此前是 Facebook 早期工程师、Dropbox CTO、Flipkart 董事，本期发了三条。他说 @theRealTrishaK 2018 年在 @spc 创办 @unit21inc，此后拦截了 140 亿美元以上的金融犯罪；Kavitha Iyer Rodrigues 2013 年创办 @zumutor，相信新抗癌药会在印度被发现；并邀大家 11 月 25 日参加 @spc_india（11 赞）。第二条是 'Request a spot' 加链接（0 赞）。第三条说 'We are solving Riemann and also crushing pancreatic cancer with a pill. But sure, let's debate whether the "AI trade" is good lol.'（3 赞）。第一条里被引用推文 feed 没给文本，Riemann 那句背后也没有独立说明；数字和说法按原帖照录。</p>
+<div class="urls">
+<a href="https://x.com/adityaag/status/2123800766163173511" target="_blank">https://x.com/adityaag/status/2123800766163173511</a>
+<a href="https://x.com/adityaag/status/2123800768977551639" target="_blank">https://x.com/adityaag/status/2123800768977551639</a>
+<a href="https://x.com/adityaag/status/2124019178843894078" target="_blank">https://x.com/adityaag/status/2124019178843894078</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thibault Sottiaux</span>
+<span class="builder-role">Codex &amp; ChatGPT, OpenAI</span>
+</div>
+<p class="summary-en">Thibault Sottiaux, who works on Codex and ChatGPT at OpenAI, posts three times and holds the window's top three reply counts. 'Team is locked in, upgrade your desktop app. Faster, simpler and a lot more pleasant to use.' has 2,743 likes, 360 replies and 64 reposts. 'First tweet from Akshay. Be nice to this one, he's special.' has 2,650 likes, 244 replies and 33 reposts. 'We've been messing around a bit and inadvertently created an experience that's a bit too fun internally and now everyone is just having fun instead of working. We might not recover from this.' leads replies (656), is second in likes (3,281) and third in reposts (88). The feed does not say that the three posts describe the same thing, and gives no text for the two posts he quotes, so they are recorded separately.</p>
+<p class="summary-zh zh">Thibault Sottiaux 在 OpenAI 做 Codex 与 ChatGPT，本期三条包揽全窗口回复前三。'Team is locked in, upgrade your desktop app. Faster, simpler and a lot more pleasant to use.' 是 2,743 赞、360 回复、64 转发；'First tweet from Akshay. Be nice to this one, he's special.' 是 2,650 赞、244 回复、33 转发；'We've been messing around a bit and inadvertently created an experience that's a bit too fun internally and now everyone is just having fun instead of working. We might not recover from this.' 回复第一 656、赞数第二 3,281、转发第三 88。feed 没有说这三条讲的是同一件事，两条被引用推文也没给文本，所以按三条分别记录，不合并。</p>
+<div class="urls">
+<a href="https://x.com/thsottiaux/status/2123861214644347122" target="_blank">https://x.com/thsottiaux/status/2123861214644347122</a>
+<a href="https://x.com/thsottiaux/status/2123864112694509995" target="_blank">https://x.com/thsottiaux/status/2123864112694509995</a>
+<a href="https://x.com/thsottiaux/status/2123997735326232775" target="_blank">https://x.com/thsottiaux/status/2123997735326232775</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Guillermo Rauch</span>
+<span class="builder-role">Vercel CEO</span>
+</div>
+<p class="summary-en">Vercel CEO Guillermo Rauch writes two posts. He says ISO 42001:2023 is like the 'SOC2 of AI', the first global, independently audited standard for how companies build, evaluate, monitor and govern AI systems, and that shipping on and using Vercel's AI now means the infra is audited annually by an accredited third party (660 likes, 26 reposts, 51 replies). In a longer post he recalls that a personal shopper agent was his 'hello world' on an internal pre-release of @eve, when it worked but a lot of the infrastructure was missing; now @agentcardhq exists, models are better, iMessage and WhatsApp eve channels are mature and performance is vastly improved without trading off durability and encryption, so he says you can ship a platform of the caliber of Muse / Instinct that you fully control on Vercel's open intelligence stack, and recommends running with the template and making it your own (219 likes, 48 replies). The feed gives no text for either post he quotes.</p>
+<p class="summary-zh zh">Vercel CEO Guillermo Rauch 发了两条。他说 ISO 42001:2023 相当于「AI 界的 SOC2」，是首个全球通用、可独立审计的标准，规定公司怎么构建、评估、监控和治理 AI 系统；在 Vercel 的 AI 上开发和使用，意味着基础设施每年由获认可的第三方审计（660 赞、26 转发、51 回复）。另一条更长：他回忆最早在 @eve 的内部预发布版上跑通一个私人购物 agent 当 'hello world'，当时能用、但缺很多基础设施；现在 @agentcardhq 有了、模型更好了、iMessage 和 WhatsApp 的 eve 通道成熟了、性能大幅提升，而且没有牺牲 durability 和 encryption，于是可以做出 Muse / Instinct 那个水准、完全由自己掌控的平台，跑在 Vercel 的 open intelligence stack 上；他建议直接用那个模板改成自己的（219 赞、48 回复）。两条被引用推文 feed 都没给文本。</p>
+<div class="urls">
+<a href="https://x.com/rauchg/status/2123869175085191298" target="_blank">https://x.com/rauchg/status/2123869175085191298</a>
+<a href="https://x.com/rauchg/status/2123879031049449791" target="_blank">https://x.com/rauchg/status/2123879031049449791</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Amjad Masad</span>
+<span class="builder-role">Replit CEO</span>
+</div>
+<p class="summary-en">Replit CEO Amjad Masad, whose bio reads 'ceo @replit. civilizationist', notes that with two separate Riemann proofs, one AI and one Human, coming out at the same time, and assuming both are correct, it will be interesting to see the difference especially on elegance (1,064 likes, 47 reposts, 51 replies). He also asks 'Is it a bear market?' (30 likes, 29 replies) and posts 'It's phenomenal' with a link (80 likes). The feed gives no text for the two posts he quotes and no independent account of either Riemann proof.</p>
+<p class="summary-zh zh">Replit CEO Amjad Masad 的 bio 写的是 'ceo @replit. civilizationist'。他说两份独立的 Riemann 证明、一份 AI 一份人类，几乎同时出来，假设两份都对，看看两者差别会很有意思，尤其是优雅程度上（1,064 赞、47 转发、51 回复）。另两条：'Is it a bear market?'（30 赞、29 回复），以及 'It's phenomenal' 加链接（80 赞）。两条被引用推文 feed 没给文本，两份 Riemann 证明也没有独立说明。</p>
+<div class="urls">
+<a href="https://x.com/amasad/status/2123874539218010491" target="_blank">https://x.com/amasad/status/2123874539218010491</a>
+<a href="https://x.com/amasad/status/2123876961923613180" target="_blank">https://x.com/amasad/status/2123876961923613180</a>
+<a href="https://x.com/amasad/status/2123877625915375950" target="_blank">https://x.com/amasad/status/2123877625915375950</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Yang</span>
+<span class="builder-role">Practical AI tutorials &amp; interviews</span>
+</div>
+<p class="summary-en">Peter Yang, who writes practical AI tutorials and interviews for busy people, posts three times. He gives a tip for trying @antigravity with Neon: go to the linked page, tap see more then the share button, then Add to Home Screen, after which you can talk to all your Antigravity threads via remote control on mobile; he says Antigravity has no mobile app yet but its remote control is actually better than Claude's because all the threads are available by default (159 likes, 27 replies). 'BREAKING: @JensenHuang Once Tried to Offer Brisket to a Visibly Vegetarian Squirrel' draws 2,983 likes, 154 reposts and 135 replies. A third line says three hours of download are left before he can play this and asks what is going on with the user score (37 likes, 15 replies). The feed gives no text for the post he quotes in the first item. The Breaking line is recorded exactly as posted; the feed carries no independent report behind it.</p>
+<p class="summary-zh zh">Peter Yang 给忙人写实用 AI 教程和访谈，本期三条。他给了一条 @antigravity 配 Neon 的用法：打开链接里的页面，点 see more 再点 share，然后 Add to Home Screen，之后就能在手机上用 remote control 跟所有 Antigravity 线程对话；他说 Antigravity 还没有移动 app，但它的 remote control 其实比 Claude 的好用，因为所有线程默认都在（159 赞、27 回复）。'BREAKING: @JensenHuang Once Tried to Offer Brisket to a Visibly Vegetarian Squirrel' 拿到 2,983 赞、154 转发、135 回复。第三条说还要下载三小时才能玩，顺口问 user score 是怎么回事（37 赞、15 回复）。第一条里被引用推文 feed 没给文本。那条 BREAKING 按原帖照录，feed 里没有独立报道支撑。</p>
+<div class="urls">
+<a href="https://x.com/petergyang/status/2123879309463228445" target="_blank">https://x.com/petergyang/status/2123879309463228445</a>
+<a href="https://x.com/petergyang/status/2123941250902667762" target="_blank">https://x.com/petergyang/status/2123941250902667762</a>
+<a href="https://x.com/petergyang/status/2123944322190254340" target="_blank">https://x.com/petergyang/status/2123944322190254340</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thariq</span>
+<span class="builder-role">formerly Claude Code, Anthropic</span>
+</div>
+<p class="summary-en">Thariq, whose bio says playing WoW forever and formerly Claude Code at AnthropicAI, posts three times. 'I am now even more against handoff' draws 374 likes. He says he thinks he has figured out the gameplay loop: a sports anime game where the sport is elemental bending, fighting in tournaments alongside your squad, and between matches the squad have their own stories you can get into, like in Mass Effect or Dragon Age (537 likes, 50 replies). He adds 'I'm calling it Home Ground.' (21 likes). The feed gives no text for the post he quotes in the gameplay item.</p>
+<p class="summary-zh zh">Thariq 的 bio 写的是永远在玩 WoW、此前在 AnthropicAI 做 Claude Code，本期三条。'I am now even more against handoff' 拿到 374 赞。他说自己大概想明白了 gameplay loop：一款体育番游戏，但比赛项目是元素操控，和队友一起打锦标赛，比赛之间队友各有自己的故事线可以深入，像 Mass Effect 或 Dragon Age（537 赞、50 回复）。补一句 'I'm calling it Home Ground.'（21 赞）。gameplay 那条引用的推文 feed 没给文本。</p>
+<div class="urls">
+<a href="https://x.com/trq212/status/2123895040821071959" target="_blank">https://x.com/trq212/status/2123895040821071959</a>
+<a href="https://x.com/trq212/status/2123909357071159327" target="_blank">https://x.com/trq212/status/2123909357071159327</a>
+<a href="https://x.com/trq212/status/2123909358828539965" target="_blank">https://x.com/trq212/status/2123909358828539965</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Josh Woodward</span>
+<span class="builder-role">VP, Google Labs &amp; Gemini</span>
+</div>
+<p class="summary-en">Josh Woodward, VP at Google for Google Labs, the Gemini app and AI Studio, posts twice within the same second. One is 'Thanks again to @UFO2002616 for the inspiration!' with a link (39 likes). The other says a few of them were having fun with Gemini Neon on the Friday afternoon before the holiday week, loved the post from @UFO2002616 so much that they just built it and threw it into prod, and tells readers to long click on the model picker on the web and enjoy (380 likes, 22 reposts, 44 replies). The feed gives no text for the post he quotes.</p>
+<p class="summary-zh zh">Josh Woodward 在 Google 负责 Google Labs、Gemini app 和 AI Studio，VP；同一秒发了两条。一条是 'Thanks again to @UFO2002616 for the inspiration!' 加链接（39 赞）。另一条说放假周前的周五下午，几个人拿 Gemini Neon 玩得开心，太喜欢 @UFO2002616 那条推文，就直接做出来丢进了生产环境，让大家在网页端长按 model picker 试试（380 赞、22 转发、44 回复）。他引用的推文 feed 没给文本。</p>
+<div class="urls">
+<a href="https://x.com/joshwoodward/status/2123943608516792480" target="_blank">https://x.com/joshwoodward/status/2123943608516792480</a>
+<a href="https://x.com/joshwoodward/status/2123943606906138868" target="_blank">https://x.com/joshwoodward/status/2123943606906138868</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Madhu Guru</span>
+<span class="builder-role">Sr Director, AI at Meta</span>
+</div>
+<p class="summary-en">Madhu Guru, Sr Director of AI at Meta and previously at Google leading product for Gemini, Veo and Nano Banana, asks who the most interesting AI people to meet in Chennai are, saying he will be in town from the end of November to the first week of December, that his schedule is tight but he should be able to squeeze in a few meetings, and giving his own background (112 likes, 6 reposts, 33 replies). It is a request, not an argument.</p>
+<p class="summary-zh zh">Meta 的 AI 高级总监 Madhu Guru，此前在 Google 负责 Gemini、Veo、Nano Banana 的产品。他问金奈有哪些最有意思的 AI 从业者值得见，说自己 11 月底到 12 月第一周在当地，行程很紧但应该能挤出几次会面，并附了自己的背景（112 赞、6 转发、33 回复）。这是一条邀约，不是论点。</p>
+<div class="urls">
+<a href="https://x.com/realmadhuguru/status/2123972492645777629" target="_blank">https://x.com/realmadhuguru/status/2123972492645777629</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nan Yu</span>
+<span class="builder-role">product, codex @openai</span>
+</div>
+<p class="summary-en">Nan Yu, whose bio says product, codex @openai and prev head of product @linear, posts one line about 'big perf and QoL wins for actions you do dozens to hundreds of times a day' with a link (8 likes, 0 reposts, 0 replies). The feed gives no text for the post he quotes, so no subject is added for it.</p>
+<p class="summary-zh zh">Nan Yu 的 bio 写的是 product、codex @openai、此前是 @linear 的 product 负责人。他发了一条带链接的短句：'big perf and QoL wins for actions you do dozens to hundreds of times a day'（8 赞、0 转发、0 回复）。他引用的推文 feed 没给文本，这里不替它补主题。</p>
+<div class="urls">
+<a href="https://x.com/thenanyu/status/2123983081577267264" target="_blank">https://x.com/thenanyu/status/2123983081577267264</a>
+</div>
+</article></section>
+<!-- ============== PODCAST ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#127911;</span>
+<h2 class="section-title">Podcast</h2>
+<span class="section-meta">1 Episode &middot; New to the Series</span>
+</div>
+<div class="podcast"><div class="podcast-source">Latent Space</div><div class="podcast-title">Scaling Linear’s GTM to $100M ARR &mdash; Cristina Cordova, COO</div><p class="summary-en">The Takeaway: scaling a product-led company into enterprise is less about adding a sales playbook than about subtracting the goals you cannot yet resource. Christina Cordova (spelled Cristina Cordova in the episode title) has been COO of Linear for about three and a half years, after leading platform, APIs, partnerships and self-serve growth at Notion and seven and a half years at Stripe across early partnerships, go-to-market and product. She is skeptical of her own job title: when founders ask how to scale the business side after product-market fit, she often cautions against hiring someone like her, because early on what a company usually needs is simply someone who can sell.</p>
+<p class="summary-en">Three weeks after joining, at an offsite in front of 35-40 people, she crossed out one of Linear's three company-level goals, 'move up market to enterprise', with the line 'We have literally one person on sales.' Linear's customers at that point were self-serve signups that grew into larger accounts: Vercel and Ramp, she says, never talked to a human being at Linear. Selling to a company that will not put a lick of data into your service without a contract, a pilot and a survey of what tool the team used before is a different motion entirely. She says the company has at least 10Xed since she joined.</p>
+<p class="summary-en">On winning customers early, her bar is being significantly better, not 20% or 30% better, because switching costs eat small gains; the Linear founders had used the legacy tools at Coinbase, Airbnb and Uber and knew nobody liked them. Marketing was initially just changelog emails, but less than 10% of users subscribed, so the team moved release notes into the product where people already spent their days, plus a company tweet the founders would reshare. When Linear did hire, it optimized for AEs who had sold technical products to designers and engineers, on the logic that you would not have to teach that discernment; it does not do forward deployed engineering, and added solutions engineers later.</p>
+<p class="summary-en">On pricing she is concrete: Linear has 40,000 paying customers and was an entirely seat-based business until June, which makes growing from zero to 100 million overnight much harder than for a business that signs a few 30-to-40-million-dollar ARR deals with defense or gigantic law firms. Some features are now usage-based, but pricing on the outcome you drive is hard outside the Intercom Fin model of a dollar per AI-answered support ticket. What is automatically triaging a bug to the right team worth? Her read on AI companies getting to $100 million of revenue within three months is that they unlocked budget that previously did not exist, from buyers afraid the company will die if it does not experiment; those are one-year deals and pilots, not three-year contracts, and she expects the experimenting to stop in a year or two once buyers work out what actually works.</p>
+<p class="summary-en">The org stays deliberately thin: Linear has no C-suite beyond the founders and her, and at about 170 people wants to remain pretty flat, using head-of titles over wide areas of ownership rather than adding layers. She also invests, and says the useful return is sitting in a board meeting knowing what data, metrics and introductions investors expect. 'closed mouths don't get fed', as she puts it, so you have to ask. The cold open has a Linear blog post declaring issue tracking is dead and customers asking what they are buying; the opening introduces the hosts and guest and the closing read is a subscription promo, none treated as an argument. Names, spellings and figures are kept as the transcript gives them; the feed does not independently verify them.</p><p class="summary-zh zh">核心结论：把一家产品驱动的公司做成企业级生意，关键不在加一套销售打法，而在先把当下根本没资源兑现的目标划掉。转写里写作 Christina Cordova、节目标题里写作 Cristina Cordova，她在 Linear 做 COO 约三年半；此前在 Notion 负责 platform、API、合作与自助增长，再之前在 Stripe 待了七年半，做过早期合作、go-to-market，后来转产品侧。她对自己这个头衔是怀疑的：创始人问「找到产品市场契合之后，业务侧怎么放大」，她常劝别急着招「像我这样的人」，因为早期真正缺的往往只是有人能把东西卖出去。</p>
+<p class="summary-zh zh">加入三周后的公司 offsite，她当着 35 到 40 人的面，把 Linear 三个公司级目标里的「move up market to enterprise」划掉了，理由是 'We have literally one person on sales.' 那时 Linear 的客户基本是自助注册、跟着公司一起长大的，她说 Vercel、Ramp 这类客户从来没跟 Linear 的人说过话；而卖给一家「不先签合同、不做 pilot、不调研团队原来用什么工具，就一条数据都不肯放进来」的公司，是完全不同的动作。她说自己加入以来公司至少 10X。</p>
+<p class="summary-zh zh">早期怎么赢客户，她的标准是「明显更好」，不是好 20%、30%，因为有切换成本，小幅优势会被吃掉；Linear 几位创始人在 Coinbase、Airbnb、Uber 用过那些老工具，知道没人喜欢它们。最初所谓市场动作只是发 changelog 邮件，结果订阅用户不到 10%，于是把更新说明挪进用户每天本来就在的产品里，再加一条公司账号的推文由创始人转发。真开始招人时，Linear 优先招曾把技术产品卖给设计师和工程师的 AE，逻辑是这种判断力不用再教；公司不做 forward deployed engineering，solutions engineers 是后来才加的。</p>
+<p class="summary-zh zh">谈定价她给得很具体：Linear 有 40,000 家付费客户，直到当年 6 月都还是纯 seat-based 生意，想从零一夜做到 1 亿美元，比那种靠几笔 3,000 万到 4,000 万美元 ARR 大单（国防、超大型律所）凑到 1 亿的生意难得多。现在部分功能按用量收费，但「按你带来的结果定价」很难套用：Intercom Fin 那种「AI 回一条工单一美元」很清晰，可「自动把 bug 分给对的团队」值多少钱？她对 AI 公司三个月做到 1 亿美元营收的解释是，它们打开了以前不存在的预算，买家怕不试新工具公司会死；这些是一年合同和 pilot，不是三年合同，她预计一两年后买家搞清什么真有用，试验期就会停。</p>
+<p class="summary-zh zh">组织上刻意保持薄：除创始人和她之外 Linear 没有别的 C-suite，约 170 人时仍想保持扁平，用覆盖大范围的 head of 头衔，而不是加一堆层级。她自己也做投资，说有用的回报是坐在董事会里知道投资人想看什么数据、什么指标、要什么引荐；用她的话说 'closed mouths don't get fed'，不开口要，对方不会给。开头的 cold open 是 Linear 一篇宣布「issue tracking is dead」的博客、客户反问「那我们到底在买什么」，片头介绍主持人与嘉宾，结尾订阅口播是推广，这些都不当作独立论点。人名、拼写与数字按转写原样照录，feed 未独立核实。</p><div class="urls">
+<a href="https://www.youtube.com/watch?v=x0VSm6IjcDQ" target="_blank">https://www.youtube.com/watch?v=x0VSm6IjcDQ</a>
+</div></div>
+</section>
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128161;</span>
+<h2 class="section-title">The Takeaway</h2>
+<span class="section-meta">1 Podcast &middot; 2026-11-22</span>
+</div>
+<div class="takeaway">
+<div class="takeaway-label">The Takeaway</div><p class="">Engagement concentrates on a few posts. Aaron Levie's 'Going to be a big day in math' takes the top likes (3,344) and reposts (195). Thibault Sottiaux's note about an internal experience being too fun leads replies (656), is second in likes (3,281) and third in reposts (88), and his three posts hold the top three reply counts (656, 360, 244). Peter Yang's Breaking line about Jensen Huang and a squirrel is third in likes (2,983) and second in reposts (154). 6 posts pass 1,000 likes, none passes 10,000, 2 pass 100 reposts, 5 pass 100 replies and none passes 1,000 replies; totals are 20,878 likes, 796 reposts and 2,289 replies. The longest post is 1,041 characters, from Aaron Levie, drawing 407 likes.</p>
+<p class="">Several posts react to a day the feed does not name. Aaron Levie writes 'Going to be a big day in math', Amjad Masad writes about two separate Riemann proofs, one AI and one Human, coming out at the same time, Aditya Agarwal writes 'We are solving Riemann and also crushing pancreatic cancer with a pill', and Dan Shipper quotes 'one dawn across science of something far greater'. Peter Yang posts a Breaking-style line about Jensen Huang offering brisket to a squirrel. The feed carries no independent report, statement or result behind any of these, so all are recorded as reactions, not confirmations. Parallel lines that stand on their own: Sottiaux's three posts, Guillermo Rauch on ISO 42001 and @eve, Josh Woodward's Gemini Neon model-picker long click, Peter Yang's Antigravity mobile tip, and Aaron Levie's long post on giving agents goals instead of instructions.</p>
+<p class="">The Podcast slot is 1 and it is new to the series, not a repeat. Latent Space published Scaling Linear’s GTM to $100M ARR &mdash; Cristina Cordova, COO at 2026-11-19T23:38:57.000Z (Pacific 2026-11-19 15:38:57), 8h15m19s before the first post, 30h17m52s before the last and 30h48m17s before the snapshot, on the same Pacific day as the first post, with the other 30 on the following Pacific day. Its full title, the specific video URL https://www.youtube.com/watch?v=x0VSm6IjcDQ, the guid, the publishedAt timestamp and the transcript anchors Christina Cordova and 'issue tracking is dead' all return zero hits across the 133 published pages. 11-19, 11-20, 11-21 and this issue are each a new episode, four in a row. The feed gives a specific video URL and the page links to it.</p>
+<p class="">Quote structure and coverage: 18 of the 31 posts are quote tweets pointing at 18 distinct IDs, all outside this feed, with no self-quotes and no shared target. One of those quoted IDs, 2123540875733315815, appears in the previous issue as Peter Yang's own video post; the feed gives no text for any of the outside posts. The full title of the podcast spells the guest Cristina Cordova while the transcript spells it Christina Cordova, both kept as given. All 31 tweet IDs return zero hits against the 133 published pages. The window runs from Pacific 2026-11-19 23:54:16 (Aaron Levie) to Pacific 2026-11-20 21:56:49 (Aditya Agarwal), a 22h02m33s span closing 0h30m25s before the snapshot; 1 post falls on Pacific 11-19 and 30 on 11-20, 1h45m39s after the previous issue's close, with the previous snapshot 23h57m48s earlier and no gap in coverage. Pacific 10-29 and 10-30 remain missing from the series.</p>
+<p class="">15 accounts posted: 7 are on the 24-name tracking list (Swyx, Matt Turck, Garry Tan, Aditya Agarwal, Guillermo Rauch, Amjad Masad, Peter Yang) and 8 are not (Aaron Levie, Zara Zhang, Dan Shipper, Thibault Sottiaux, Thariq, Josh Woodward, Madhu Guru, Nan Yu). Sam Altman does not appear for the second issue in a row, after 11-19 and 11-20. Nan Yu's bio mentions a previous role as head of product at Linear, and the podcast guest is Linear's COO; the feed states no link between the two. The blogs array is empty for the twenty-eighth consecutive issue.</p></div>
+<div class="takeaway zh">
+<div class="takeaway-label">核心结论</div><p class="">互动集中在少数几条上。Aaron Levie 的 'Going to be a big day in math' 拿到最高赞 3,344 和最高转发 195。Thibault Sottiaux 讲内部做出一个太好玩的体验那条回复第一 656、赞数第二 3,281、转发第三 88，他的三条包揽回复前三（656、360、244）。Peter Yang 那条关于 Jensen Huang 和松鼠的 BREAKING 标题赞数第三 2,983、转发第二 154。破千赞 6 条、破万 0 条、转发过百 2 条、回复过百 5 条、回复破千 0 条；合计 20,878 赞、796 转发、2,289 回复。最长的一条是 Aaron Levie 的 1,041 字符，407 赞。</p>
+<p class="">有几条推文在回应同一天，但 feed 没有点名出了什么事：Aaron Levie 写 'Going to be a big day in math'，Amjad Masad 写两份独立的 Riemann 证明（一份 AI、一份人类）同时出来，Aditya Agarwal 写 'We are solving Riemann and also crushing pancreatic cancer with a pill'，Dan Shipper 引 'one dawn across science of something far greater'，Peter Yang 发了一条 Jensen Huang 拿 brisket 喂松鼠的 BREAKING 式标题。feed 里没有独立报道、声明或结果支撑其中任何一条，所以都按反应记录，不当作互相印证。能独立成立的并行线索是：Sottiaux 三条、Guillermo Rauch 讲 ISO 42001 与 @eve、Josh Woodward 的 Gemini Neon model picker 长按、Peter Yang 的 Antigravity 手机用法，以及 Aaron Levie 那条「给 agent 目标而不是步骤」的长推。</p>
+<p class="">Podcast 这一格是 1，而且对本系列是新的，不是重复。Latent Space 的 Scaling Linear’s GTM to $100M ARR &mdash; Cristina Cordova, COO 发布于 2026-11-19T23:38:57.000Z（太平洋 2026-11-19 15:38:57），比首条推文早 8h15m19s、比末条早 30h17m52s、比快照早 30h48m17s；与首条同一太平洋日，其余 30 条都在次日。完整标题、具体视频地址 https://www.youtube.com/watch?v=x0VSm6IjcDQ、guid、publishedAt 时间戳，以及转写锚点 Christina Cordova 和 'issue tracking is dead'，对 133 个已发布页面全部零命中。11-19、11-20、11-21 与本期各是一集新收录，连续四期。feed 给的是具体视频地址，页面也直接链到它。</p>
+<p class="">引用结构与覆盖：31 条里 18 条是引用推文，指向 18 个不同 ID，全部在 feed 外，没有自引，也没有同组目标。其中一个被引用 ID 2123540875733315815 在上一期出现过，是 Peter Yang 自己那条视频推文；这些外部推文的内容 feed 一条都没有给出。播客完整标题把嘉宾拼作 Cristina Cordova，转写拼作 Christina Cordova，两种写法都按原样保留。31 个推文 ID 对 133 个已发布页面零命中。窗口从太平洋 2026-11-19 23:54:16（Aaron Levie）到太平洋 2026-11-20 21:56:49（Aditya Agarwal），跨度 22h02m33s，在快照前 0h30m25s 收口；1 条落在太平洋 11-19、30 条落在 11-20，距上一期收口 1h45m39s，上一份快照相隔 23h57m48s，覆盖没有缺口。太平洋 10-29、10-30 在本系列仍缺失。</p>
+<p class="">有内容的账号 15 个：7 位在 24 位追踪名单上（Swyx、Matt Turck、Garry Tan、Aditya Agarwal、Guillermo Rauch、Amjad Masad、Peter Yang），8 位不在（Aaron Levie、Zara Zhang、Dan Shipper、Thibault Sottiaux、Thariq、Josh Woodward、Madhu Guru、Nan Yu）。Sam Altman 连续第二期未出现，此前 11-19、11-20 出现过。Nan Yu 的 bio 提到此前在 Linear 做产品负责人，本期播客嘉宾是 Linear 的 COO，feed 没有说明两者有关联。blogs 数组连续第二十八期为空。</p></div>
+</section>
+<!-- ============== NOTES ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128221;</span>
+<h2 class="section-title">记录 / Notes &amp; Dedup</h2>
+<span class="section-meta">31 Zero &middot; 1 New &middot; 0 Blog</span>
+</div>
+<div class="dedup"><p style="margin-top:12px">
+<strong>Tweets</strong> All 31 tweet IDs have zero hits across the 133 published digest pages. 18 of the 31 are quote posts pointing at 18 distinct IDs, every one outside this feed, with no self-quotes and no shared target. One quoted ID, 2123540875733315815, appears twice in the previous issue as Peter Yang's own video post; the feed gives the text of none of the outside posts.
+</p>
+<p style="margin-top:12px">
+<strong>Podcast</strong> The slot is 1 and it is new, not a dedup. Latent Space, Scaling Linear’s GTM to $100M ARR &mdash; Cristina Cordova, COO, publishedAt 2026-11-19T23:38:57.000Z (Pacific 2026-11-19 15:38:57), 8h15m19s before the first post, 30h17m52s before the last and 30h48m17s before the snapshot, on the same Pacific day as the first post and the day before the other 30. Its full title, the specific video URL https://www.youtube.com/watch?v=x0VSm6IjcDQ, the guid 01a1f60c-1b1f-7366-a794-20e0b0bcdc8a, the timestamp and the transcript anchors Christina Cordova and COO of Linear all return zero hits across the 133 published pages. The three issues from 11-16 to 11-18 each deduplicated against an older episode; 11-19 through 11-22 are four new episodes in a row.
+</p>
+<p style="margin-top:12px">
+<strong>Blog</strong> The slot is 0 because the blogs array is empty for the twenty-eighth consecutive issue; no blog entry is created. This zero has a different cause from the Podcast value of 1.
+</p>
+<p style="margin-top:12px">
+<strong>Transcript</strong> 93,524 characters, with speaker labels and timestamps. The cold open repeats a line about issue tracking being dead and customers asking what they are buying, the opening introduces the hosts and guest, and the closing subscription read is a promo; none is treated as an argument. The title spells the guest Cristina Cordova and the transcript spells it Christina Cordova; both are kept as given, with no silent correction. Figures are self-reported in conversation and not independently verified by the feed: three and a half years at Linear, seven and a half at Stripe, 35-40 people at the offsite, one person on sales, at least 10X, less than 10% email subscribers, 20% or 30% better, 40,000 paying customers, seat-based until June, 30 to 40 million dollars in ARR, 100 million in ARR, a dollar per support ticket, three months to 100 million, one-year deals and pilots, about 170 people and the next one to two years. Numbers in the posts are separate: $3B, $14B+, Nov 25th, 3 hours of download and 1,041 characters.
+</p>
+<p style="margin-top:12px">
+<strong>Coverage &amp; thin posts</strong> Three timestamps: snapshot 2026-11-21T06:27:13.995Z (Pacific 2026-11-20 22:27:13), first post Pacific 2026-11-19 23:54:16 (Aaron Levie), last post Pacific 2026-11-20 21:56:49 (Aditya Agarwal). Window 22h02m33s, closing 0h30m25s before the snapshot; 1h45m39s after the previous issue's close (Pacific 2026-11-19 22:08:37); previous snapshot 23h57m48s earlier. 1 post falls on Pacific 11-19 and 30 on Pacific 11-20; Pacific 10-29 and 10-30 remain missing. 8 of the 31 posts are one-line reactions, jokes or bare links whose text, once t.co URLs are stripped, is shorter than 40 characters: Zara Zhang's 'If you curate, you should create', Aaron Levie's 'Going to be a big day in math', Aditya Agarwal's 'Request a spot', Swyx's 'broooo', Amjad Masad's 'Is it a bear market?' and 'It's phenomenal', Thariq's 'I am now even more against handoff' and 'I'm calling it Home Ground.'. Their links are kept; no subject is added for them.
+</p>
+<p style="margin-top:12px">
+<strong>Not resolved</strong> What the math day and the two Riemann proofs refer to, and whether either proof has an independent source; an independent report behind the Breaking line about Jensen Huang; whether Sottiaux's three posts describe the same internal experience and what it is; the text of the 18 quoted posts the feed leaves blank; who Akshay is; the spec or second source for @cursor_ai origin, @antigravity with Neon, @eve, @agentcardhq, Muse / Instinct and the ISO 42001 claim; the @UFO2002616 post that inspired Josh Woodward's team; the Linear blog post declaring issue tracking dead; the two spellings of the podcast guest's name; and the standing items carried from earlier issues (Day 29 / 3/x, dot, jev, Particle-1, HackerTube, Grok Bot, Legora, the data-market figure, Claude Whiteboards, Box interop, interactive connectors, the AIE keynote, MCP tool counts, Stand with Jensen, Opal and the 11-27 book date).
+</p></div>
+<div class="dedup zh" style="margin-top:14px"><p style="margin-top:12px">
+<strong>推文核对</strong> 31 个推文 ID 对 133 个已发布页面零命中。31 条里 18 条是引用推文，共 18 个不同 ID，全部在 feed 外，没有自引，也没有同组目标。其中一个被引用 ID 2123540875733315815 在上一期出现过两次，是 Peter Yang 自己那条视频推文；这些外部推文的内容 feed 一条都没有给出。
+</p>
+<p style="margin-top:12px">
+<strong>播客核对</strong> 这一格是 1，而且是新收录，不是判重。Latent Space 的 Scaling Linear’s GTM to $100M ARR &mdash; Cristina Cordova, COO，publishedAt 为 2026-11-19T23:38:57.000Z（太平洋 2026-11-19 15:38:57），比首条推文早 8h15m19s、比末条早 30h17m52s、比快照早 30h48m17s；与首条同一太平洋日，其余 30 条都在次日。完整标题、具体视频地址 https://www.youtube.com/watch?v=x0VSm6IjcDQ、guid 01a1f60c-1b1f-7366-a794-20e0b0bcdc8a、时间戳，以及转写锚点 Christina Cordova 和 COO of Linear，对 133 个已发布页面全部零命中。11-16 到 11-18 三期各自把播客判重到更早的一集；11-19 到 11-22 连续四期都是新收录。
+</p>
+<p style="margin-top:12px">
+<strong>博客核对</strong> 这一格是 0，因为 blogs 数组连续第二十八期为空，不生成博客条目。这个 0 与 Podcast 的 1 成因不同。
+</p>
+<p style="margin-top:12px">
+<strong>转写</strong> 93,524 字符，带 speaker 标签与时间戳。开头的 cold open 重复了「issue tracking is dead」和客户问「那我们到底在买什么」，片头介绍主持人与嘉宾，结尾订阅口播是推广，这些都不当作独立论点。标题把嘉宾拼作 Cristina Cordova，转写拼作 Christina Cordova，两种写法都按原样保留，不静默修正。对话里的数字都是自述、feed 未独立核实：在 Linear 三年半、在 Stripe 七年半、offsite 时 35 到 40 人、销售只有 1 人、至少 10X、邮件订阅不到 10%、好 20% 或 30%、40,000 家付费客户、到 6 月都是 seat-based、3,000 万到 4,000 万美元 ARR 的单子、1 亿美元 ARR、一条工单一美元、三个月做到 1 亿、一年合同与 pilot、约 170 人、未来一到两年。推文里的数字另算：30 亿美元、140 亿美元以上、11 月 25 日、还要下载 3 小时、1,041 字符。
+</p>
+<p style="margin-top:12px">
+<strong>覆盖与薄内容</strong> 三个时间戳：快照 2026-11-21T06:27:13.995Z（太平洋 2026-11-20 22:27:13）、首条太平洋 2026-11-19 23:54:16（Aaron Levie）、末条太平洋 2026-11-20 21:56:49（Aditya Agarwal）。窗口 22h02m33s，在快照前 0h30m25s 收口；距上一期收口（太平洋 2026-11-19 22:08:37）1h45m39s；上一份快照相隔 23h57m48s。1 条落在太平洋 11-19、30 条落在 11-20；太平洋 10-29、10-30 仍缺失。31 条里 8 条是一句话反应、玩笑或裸链接，去掉 t.co 链接后文字不足 40 字符：Zara Zhang 的 'If you curate, you should create'、Aaron Levie 的 'Going to be a big day in math'、Aditya Agarwal 的 'Request a spot'、Swyx 的 'broooo'、Amjad Masad 的 'Is it a bear market?' 与 'It's phenomenal'、Thariq 的 'I am now even more against handoff' 与 'I'm calling it Home Ground.'。链接照留，不替它们补主题。
+</p>
+<p style="margin-top:12px">
+<strong>未闭环</strong> 「数学大日子」和两份 Riemann 证明到底指什么、有没有独立信源；Jensen Huang 那条 BREAKING 背后的独立报道；Sottiaux 三条是不是同一个内部体验、那个体验是什么；feed 留空的 18 条被引用推文写了什么；Akshay 是谁；@cursor_ai origin、@antigravity 配 Neon、@eve、@agentcardhq、Muse / Instinct 和 ISO 42001 说法的规格或第二信源；Google 照着做出功能的那条 @UFO2002616 推文；Linear 那篇宣布 issue tracking 已死的博客；播客嘉宾姓名的两种拼写；以及从往期带来的长期项（Day 29 / 3/x、dot、jev、Particle-1、HackerTube、Grok Bot、Legora、数据市场规模、Claude Whiteboards、Box 互通、interactive connectors、AIE keynote、MCP 工具数、Stand with Jensen、Opal，以及 11 月 27 日的出版日期）。
+</p></div>
+</section>
+<footer class="footer">
+<div class="next-issue">&#128236; 下一期：明天 10:00（北京时间）</div>
+<div class="signature"><a href="#top" style="border:none;color:var(--ink-muted)">回到顶部 / Back to top</a></div>
+<div class="signature">by chloevchen</div>
+</footer>
+</body>
+</html>
+<!-- by chloevchen -->
