@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Builders Digest &middot; 2026-11-23</title>
+<style>
+
+
+
+
+
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 28px 30px; margin-bottom: 24px; }
+  .podcast-source { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
+  .podcast-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; margin-bottom: 18px; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; }
+
+
+</style>
+</head>
+<body id="top">
+<header class="topbar">
+<div class="topbar-inner">
+<a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders &middot; AI Builders Digest</a>
+<span>双语 &middot; Bilingual</span>
+</div>
+</header>
+<section class="header">
+<div class="eyebrow">Daily Digest &middot; 2026-11-23</div>
+<h1>AI Builders Digest</h1>
+</section>
+<div class="stats">
+<div class="stat">
+<div class="stat-num">12</div>
+<div class="stat-label">Builders</div>
+</div>
+<div class="stat">
+<div class="stat-num">23</div>
+<div class="stat-label">Tweets</div>
+</div>
+<div class="stat">
+<div class="stat-num">0</div>
+<div class="stat-label">Podcast</div>
+</div>
+<div class="stat">
+<div class="stat-num">0</div>
+<div class="stat-label">Blog</div>
+</div>
+</div>
+<p class="note-line">Twelve builders, 23 posts, all on Pacific 11-21. Thibault Sottiaux's 'Going to check out this threads thing' takes the top likes (2,376), while his desktop-app feedback request leads replies (1,116) and ties for the top reposts (66) with Aaron Levie's long post; the two Sottiaux posts hold the top two like counts. The Podcast slot is 0 because its single episode is a repeat of the 11-14 issue, though this feed adds a specific video URL that issue did not have; the Blog slot is 0 because the blogs array is empty. The two zeros have different causes.</p>
+<p class="note-line zh">12 位 builder、23 条推文，全部落在太平洋 11-21。Thibault Sottiaux 的 'Going to check out this threads thing' 拿到最高赞 2,376；他另一条桌面端更新的反馈征集回复第一 1,116、转发 66 与 Aaron Levie 的长文并列第一，他的两条包揽赞数前两名。Podcast 这一格是 0，因为唯一一集是 11-14 期的重复，不过本期 feed 多给了一个 11-14 没有的具体视频地址；Blog 这一格是 0，因为 blogs 数组为空。两个 0 的成因不同。</p>
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128036;</span>
+<h2 class="section-title">X / Twitter</h2>
+<span class="section-meta">12 Builders &middot; 23 Tweets</span>
+</div>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Swyx</span>
+<span class="builder-role">smol_ai, cognition, Latent Space</span>
+</div>
+<p class="summary-en">Swyx, whose bio describes achieving ambition with intentionality, intensity, integrity and insanity and lists affiliations with smol_ai, cognition, temporalio, aidotengineer and latentspacepod, posts one quote tweet asking whether there is any possible benign explanation why these providers were secretly phoning home, ending with 'because wtf' (250 likes, 9 reposts, 109 replies). The feed gives no text for the post he quotes, so no subject is added for it.</p>
+<p class="summary-zh zh">Swyx 的 bio 写的是用 intentionality、intensity、integrity、insanity 去实现野心，并列了 smol_ai、cognition、temporalio、aidotengineer、latentspacepod 等关联。他发了一条引用推文，问这些 providers 偷偷 phoning home 有没有任何说得过去的解释，末了一句 'because wtf'（250 赞、9 转发、109 回复）。他引用的那条推文 feed 没给文本，这里不替它补主题。</p>
+<div class="urls">
+<a href="https://x.com/swyx/status/2124147427313861009" target="_blank">https://x.com/swyx/status/2124147427313861009</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thibault Sottiaux</span>
+<span class="builder-role">Codex &amp; ChatGPT, OpenAI</span>
+</div>
+<p class="summary-en">Thibault Sottiaux, who works on Codex and ChatGPT at OpenAI, posts twice; between them they hold the top two like counts and the top two reply counts, and one of them ties for the top reposts. 'Going to check out this threads thing' leads likes at 2,376, is second on replies at 434 and third on reposts at 37. 'Team is already preparing another big update, but how are things since yesterday's update to the ChatGPT/Codex desktop app? What still requires attention and is not quite there?' leads replies at 1,116, is second on likes at 2,158 and ties for the top reposts at 66. The feed does not say the two posts describe the same thing, and gives no text for the post he quotes, so they are recorded separately.</p>
+<p class="summary-zh zh">Thibault Sottiaux 在 OpenAI 做 Codex 与 ChatGPT，本期两条合计包揽赞数前两名和回复前两名，其中一条还并列转发第一。'Going to check out this threads thing' 赞数第一 2,376、回复第二 434、转发第三 37。'Team is already preparing another big update, but how are things since yesterday's update to the ChatGPT/Codex desktop app? What still requires attention and is not quite there?' 回复第一 1,116、赞数第二 2,158，转发 66 与另一条并列第一。feed 没有说这两条讲的是同一件事，被引用推文也没给文本，所以按两条分别记录，不合并。</p>
+<div class="urls">
+<a href="https://x.com/thsottiaux/status/2124277855131664869" target="_blank">https://x.com/thsottiaux/status/2124277855131664869</a>
+<a href="https://x.com/thsottiaux/status/2124322968499282388" target="_blank">https://x.com/thsottiaux/status/2124322968499282388</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Yang</span>
+<span class="builder-role">Practical AI tutorials &amp; interviews</span>
+</div>
+<p class="summary-en">Peter Yang, whose bio offers practical AI tutorials and interviews for busy people, posts three times. 'I get the complaints about GTA VI now wtf is this' is a one-line reaction with a link (87 likes, 1 repost, 9 replies). He says the new ChatGPT mobile app is very clean but that if you miss your codex threads you can go to the right-most tab and hold to pin codex to the bottom nav, adding that this is not obvious at all (54 likes, 2 reposts, 29 replies). A second line says chats in the left nav should include local recent codex threads, not just chat threads (7 likes, 2 replies). The two app posts are his own usage notes; the feed gives no product documentation behind them.</p>
+<p class="summary-zh zh">Peter Yang 的 bio 写的是给忙人做实用 AI 教程和访谈，本期发了三条。'I get the complaints about GTA VI now wtf is this' 是一句带链接的反应（87 赞、1 转发、9 回复）。他说新的 ChatGPT mobile app 很干净，但如果你像他一样惦记 codex threads，可以去最右边的 tab 长按把 codex 固定到底部导航，并补一句这一点完全不明显（54 赞、2 转发、29 回复）。另一条说左侧导航的 chats 应该把本地最近的 codex threads 也收进来，而不只是 chat threads（7 赞、2 回复）。这两条 app 相关是他自己的用法笔记，feed 没有给产品文档作依据。</p>
+<div class="urls">
+<a href="https://x.com/petergyang/status/2124197623683027363" target="_blank">https://x.com/petergyang/status/2124197623683027363</a>
+<a href="https://x.com/petergyang/status/2124217176655843483" target="_blank">https://x.com/petergyang/status/2124217176655843483</a>
+<a href="https://x.com/petergyang/status/2124217179717648537" target="_blank">https://x.com/petergyang/status/2124217179717648537</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nan Yu</span>
+<span class="builder-role">Product, Codex; prev head of product, Linear</span>
+</div>
+<p class="summary-en">Nan Yu, whose bio says product, codex at OpenAI and previously head of product at Linear, posts one line: 'Forget second brain. Third brain.' (24 likes, 8 replies). It is kept as posted with its link; no subject is added.</p>
+<p class="summary-zh zh">Nan Yu 的 bio 写的是在 OpenAI 做 product、codex，此前在 Linear 做产品负责人。他只发了一句 'Forget second brain. Third brain.'（24 赞、8 回复）。按原帖保留文字和链接，不替它补主题。</p>
+<div class="urls">
+<a href="https://x.com/thenanyu/status/2124241838358008184" target="_blank">https://x.com/thenanyu/status/2124241838358008184</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thariq</span>
+<span class="builder-role">formerly Claude Code, Anthropic</span>
+</div>
+<p class="summary-en">Thariq, whose bio says at your service, formerly Claude Code at Anthropic, posts three times within two seconds of one another. He writes that yes, Claude is doing a lot of the technical work and maybe future models will one-shot 'prove the Riemann hypothesis' or 'make javascript a static language', but that collaborating with models to push the frontier is a deeply technical skill in its own right (294 likes, 6 reposts, 3 replies). A second reads 'I fear we are too quick to disintermediate ourselves, and by doing so we do both ourselves and the models disservice.' (188 likes, 6 reposts, 7 replies). A third says as models get more powerful the skill of working with them becomes more and more important, that he has not seen diminishing returns on that skill yet and that there are many many more problems to solve (219 likes, 4 reposts, 9 replies).</p>
+<p class="summary-zh zh">Thariq 的 bio 写的是 at your service、此前在 Anthropic 做 Claude Code，本期在两秒内连发三条。一条说 Claude 确实做了大量技术工作、未来模型也许能一口气 'prove the Riemann hypothesis' 或 'make javascript a static language'，但他相信与模型协作去推前沿本身就是一项很深的技术能力（294 赞、6 转发、3 回复）。另一条是 'I fear we are too quick to disintermediate ourselves, and by doing so we do both ourselves and the models disservice.'（188 赞、6 转发、7 回复）。第三条说模型越强，跟模型协作的本事越重要，他还没看到这项本事出现边际递减，而且还有很多很多问题要解决（219 赞、4 转发、9 回复）。</p>
+<div class="urls">
+<a href="https://x.com/trq212/status/2124239684536840682" target="_blank">https://x.com/trq212/status/2124239684536840682</a>
+<a href="https://x.com/trq212/status/2124239688013914132" target="_blank">https://x.com/trq212/status/2124239688013914132</a>
+<a href="https://x.com/trq212/status/2124239686482923553" target="_blank">https://x.com/trq212/status/2124239686482923553</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Amjad Masad</span>
+<span class="builder-role">Replit CEO</span>
+</div>
+<p class="summary-en">Replit CEO Amjad Masad posts twice. 'Amuse, built by Replit Missions, is open source!' is a quote tweet with a link (171 likes, 8 reposts, 34 replies). Later he writes that a high school kid is recompiling the GTA6 to work on PC, that what is more interesting is how they are using github issues to coordinate tasks across agent swarms, and asks whether this is a new model for open source (401 likes, 30 reposts, 56 replies). The feed gives no text for the post he quotes in the first item and no independent account behind the GTA6 line; both are kept as his own statements.</p>
+<p class="summary-zh zh">Replit CEO Amjad Masad 发了两条。'Amuse, built by Replit Missions, is open source!' 是一条带链接的引用推文（171 赞、8 转发、34 回复）。稍后他写，有个高中生在把 GTA6 反编译到 PC 上跑，更有意思的是他们用 github issues 给 agent swarms 分派任务，并问这是不是开源的一种新模式（401 赞、30 转发、56 回复）。第一条里被引用推文 feed 没给文本，GTA6 那句背后也没有独立说明，两条都按他本人的说法记录。</p>
+<div class="urls">
+<a href="https://x.com/amasad/status/2124277564596519355" target="_blank">https://x.com/amasad/status/2124277564596519355</a>
+<a href="https://x.com/amasad/status/2124345037408686228" target="_blank">https://x.com/amasad/status/2124345037408686228</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Guillermo Rauch</span>
+<span class="builder-role">Vercel CEO</span>
+</div>
+<p class="summary-en">Vercel CEO Guillermo Rauch posts one line, 'We need https://t.co/ooB95fsCDv for AI feats' (21 likes, 1 repost, 20 replies). Once the t.co link is stripped the text is 21 characters; it is kept as posted with its link and no subject is added.</p>
+<p class="summary-zh zh">Vercel CEO Guillermo Rauch 只发了一句 'We need https://t.co/ooB95fsCDv for AI feats'（21 赞、1 转发、20 回复）。去掉 t.co 链接后正文 21 个字符，按原帖保留文字和链接，不替它补主题。</p>
+<div class="urls">
+<a href="https://x.com/rauchg/status/2124386118661738994" target="_blank">https://x.com/rauchg/status/2124386118661738994</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aaron Levie</span>
+<span class="builder-role">Box CEO</span>
+</div>
+<p class="summary-en">Box CEO Aaron Levie writes the window's longest post at 2,007 characters (560 likes, 66 reposts, 60 replies), a quote tweet about the Riemann Hypothesis breakthrough. He says the post nails why it should be taken very seriously even beyond math, and that we are entering an era where solving problems will look very different from how we solved them in the past. The quoted passage says 'This is not theory-building in the usual sense. It is something much weirder and more alien' and that no human brain on its own is capable of creating a wormhole that requires a 25,000 page long tour through existing infrastructure with no obvious or realistic connection to the goal, adding 'But huge credit to Levent here: I think no current AI, on its own, is capable of this either.' He argues that solving a problem in code, life sciences, math, cyber or engineering used to be bound by how much information a person or team could retain, that AI decouples the human context limit from the ability to drive discoveries, and that agents will correlate unrelated work, scan every bit of enterprise data and produce far more solutions even if they are less elegant. He closes by saying we are only in the first couple of months of actually understanding the implications. The feed gives no text for the post he quotes and no independent report, statement or result behind the breakthrough, so the claim is recorded as his reaction, not as a confirmed event.</p>
+<p class="summary-zh zh">Box CEO Aaron Levie 写了全窗口最长的一条，2,007 字符（560 赞、66 转发、60 回复），是一条讲 Riemann Hypothesis breakthrough 的引用推文。他说被引用的那条把这个突破为什么值得连数学之外都认真对待讲透了，还说我们正进入一个「解决问题的方式会和过去很不一样」的阶段。引用段落说 'This is not theory-building in the usual sense. It is something much weirder and more alien'，没有哪个人类大脑能独自造出一条要穿过 25,000 页既有基础设施、和目标看不出什么关联的 wormhole，并补一句 'But huge credit to Levent here: I think no current AI, on its own, is capable of this either.'。他的论点是：过去解一道 code、生命科学、数学、网络安全或工程问题，上限取决于一个人或一个团队能记住并理解多少信息；AI 把人类的 context 限制与推动发现的能力解耦了，agent 能把互不相关的工作关联起来、扫遍企业里的每一份数据，产出的解法也许不如从前优雅，但会多得多。结尾他说我们其实才刚开始理解这些影响，不过一两个月。feed 没有给出被引用推文的文本，也没有给这个突破背后的独立报道、声明或结果，所以按他的反应记录，不当作已确认事件。</p>
+<div class="urls">
+<a href="https://x.com/levie/status/2124252844710887549" target="_blank">https://x.com/levie/status/2124252844710887549</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Garry Tan</span>
+<span class="builder-role">YC President &amp; CEO</span>
+</div>
+<p class="summary-en">Garry Tan, President and CEO of Y Combinator, whose bio also lists GStack, GBrain, helping founders and accelerating the boom loop, posts three times. He says he has been using this for about half of his work with his software factory and that it is the best experience he has had so far across both desktop, mobile and cloud (724 likes, 20 reposts, 49 replies). Given AI and all the GTA VI hate, he asks how long before a vibe coded hobbyist PC port with all the hated design flaws removed appears, and says it could literally be a month or two with enough tokens (815 likes, 18 reposts, 136 replies). A third reads 'You can just automate your work and it's so easy tbh' with a link (528 likes, 10 reposts, 61 replies). The feed gives no text for the two posts he quotes and names neither product.</p>
+<p class="summary-zh zh">Y Combinator 总裁兼 CEO Garry Tan 的 bio 还列了 GStack、GBrain、帮创始人、accelerating the boom loop，本期发了三条。他说有个东西他大概一半工作都在用，配着自己的 software factory，是到目前为止 desktop、mobile、cloud 三端里体验最好的（724 赞、20 转发、49 回复）。接着说，既然有 AI、又有这么多对 GTA VI 的吐槽，多久会出现一个 vibe coded 的民间 PC 移植版、把那些被骂的设计毛病都去掉，还说 token 够多的话可能真就一两个月（815 赞、18 转发、136 回复）。第三条是 'You can just automate your work and it's so easy tbh' 加链接（528 赞、10 转发、61 回复）。两条被引用推文 feed 都没给文本，也没有点名是哪个产品。</p>
+<div class="urls">
+<a href="https://x.com/garrytan/status/2124151626286170609" target="_blank">https://x.com/garrytan/status/2124151626286170609</a>
+<a href="https://x.com/garrytan/status/2124154280450134231" target="_blank">https://x.com/garrytan/status/2124154280450134231</a>
+<a href="https://x.com/garrytan/status/2124265097313046867" target="_blank">https://x.com/garrytan/status/2124265097313046867</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Matt Turck</span>
+<span class="builder-role">VC, FirstMark Capital</span>
+</div>
+<p class="summary-en">Matt Turck, a VC at FirstMark Capital, host of the MAD Podcast, organizer of Data Driven NYC and author of the MAD Landscape, posts three times. 'Realizing after decades in the US why my American colleagues just look at me blankly' comes with a link (63 likes, 5 replies). A Slush wrap-up lists best startup conference, a visually striking gothic dark chic feel, organization by students, conversations about the Russia threat next door and that conferences in non-tech hubs work great because people stay put at the event (140 likes, 10 reposts, 15 replies). A third reads 'The art of tweeting excitedly about AI solving the Riemann Hypothesis when you have no idea what the Riemann Hypothesis is' (100 likes, 4 reposts, 20 replies). None expands an argument; all are kept as posted with their links.</p>
+<p class="summary-zh zh">FirstMark Capital 投资人、MAD Podcast 主持人、Data Driven NYC 组织者、MAD Landscape 作者 Matt Turck 发了三条。'Realizing after decades in the US why my American colleagues just look at me blankly' 带一个链接（63 赞、5 回复）。一条 Slush 小结列了：最棒的创业大会、视觉上 gothic dark chic、由学生操办、隔壁就是俄罗斯威胁这类话题、以及非科技枢纽办会反而好因为人不会乱跑（140 赞、10 转发、15 回复）。第三条是 'The art of tweeting excitedly about AI solving the Riemann Hypothesis when you have no idea what the Riemann Hypothesis is'（100 赞、4 转发、20 回复）。三条都没有展开论证，按原帖保留文字和链接。</p>
+<div class="urls">
+<a href="https://x.com/mattturck/status/2124103045139267837" target="_blank">https://x.com/mattturck/status/2124103045139267837</a>
+<a href="https://x.com/mattturck/status/2124119755485245539" target="_blank">https://x.com/mattturck/status/2124119755485245539</a>
+<a href="https://x.com/mattturck/status/2124239403107459490" target="_blank">https://x.com/mattturck/status/2124239403107459490</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Zara Zhang</span>
+<span class="builder-role">Builder, Harvard'17</span>
+</div>
+<p class="summary-en">Zara Zhang, whose bio says Builder and Harvard'17, posts one quote tweet reading 'Build for yourself' with a link (52 likes, 2 replies). The feed gives no text for the post she quotes, so no subject is added.</p>
+<p class="summary-zh zh">Zara Zhang 的 bio 写的是 Builder、Harvard'17。她发了一条引用推文，正文只有 'Build for yourself' 加一个链接（52 赞、2 回复）。她引用的那条推文 feed 没给文本，这里不替它补主题。</p>
+<div class="urls">
+<a href="https://x.com/zarazhangrui/status/2124309178982572442" target="_blank">https://x.com/zarazhangrui/status/2124309178982572442</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Dan Shipper</span>
+<span class="builder-role">Every CEO</span>
+</div>
+<p class="summary-en">Every CEO Dan Shipper posts twice. A quote tweet reads 'great piece' and then says benchmarks have to choose what to measure and what to keep constant, that numbers going up does not always mean what you think it means, and that another good window into this is to look in rich detail at how AI-pilled teams are putting model capabilities to work in practice, with a link (20 likes, 15 replies). A second says the line will be up there with that patent officer who said 'everything that will be invented has been invented' in the hall of fame of bad technology takes, with a link (18 likes, 6 replies). The feed gives no text for either post he quotes, so no subject is added for them.</p>
+<p class="summary-zh zh">Every CEO Dan Shipper 发了两条。一条引用推文先写 'great piece'，接着说 benchmark 必须选好测什么、固定什么，数字涨了不一定等于你以为的那回事，另一个好的观察窗口是细看 AI-pilled 团队到底怎么把模型能力用起来，附一个链接（20 赞、15 回复）。另一条说这句话大概能进「糟糕科技预言名人堂」，和那位说过 'everything that will be invented has been invented' 的专利官员并列，附一个链接（18 赞、6 回复）。两条被引用推文 feed 都没给文本，这里不替它们补主题。</p>
+<div class="urls">
+<a href="https://x.com/danshipper/status/2124292892168475086" target="_blank">https://x.com/danshipper/status/2124292892168475086</a>
+<a href="https://x.com/danshipper/status/2124315217936945171" target="_blank">https://x.com/danshipper/status/2124315217936945171</a>
+</div>
+</article>
+</section>
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128161;</span>
+<h2 class="section-title">The Takeaway</h2>
+<span class="section-meta">No Podcast Today &middot; 2026-11-23</span>
+</div>
+<div class="takeaway">
+<div class="takeaway-label">The Takeaway</div>
+<p>Engagement concentrates on two posts from one person. Thibault Sottiaux's 'Going to check out this threads thing' takes the top likes (2,376), is second on replies (434) and third on reposts (37). His desktop-app feedback request leads replies (1,116), is second on likes (2,158) and ties for the top reposts (66) with Aaron Levie's 2,007-character post. Third on likes goes to Garry Tan's GTA VI line (815) and third on replies to Garry Tan's GTA VI line (136) as well. Two posts pass 1,000 likes, none passes 10,000, one passes 1,000 replies, none passes 100 reposts and four pass 100 replies; totals are 9,270 likes, 298 reposts and 2,205 replies. The longest post is Aaron Levie's at 2,007 characters, drawing 560 likes. Every rank was checked against a full-window sort first, and the two 66-repost posts are reported as a tie, not split into separate ranks.</p>
+<p>Several posts react to things the feed does not name. Aaron Levie writes a long quote tweet about a Riemann Hypothesis breakthrough, Matt Turck jokes about tweeting excitedly about AI solving the Riemann Hypothesis without knowing what it is, Thariq says future models may one-shot 'prove the Riemann hypothesis', and Dan Shipper compares a line to the patent officer who said everything that will be invented has been invented. Three posts from three accounts react to GTA VI: Peter Yang on the complaints, Amjad Masad on a high school kid recompiling GTA6 for PC and coordinating agent swarms through github issues, and Garry Tan on a vibe coded hobbyist PC port. The feed carries no independent report, statement or result behind any of these, so all are recorded as reactions, not confirmations. Parallel lines that stand on their own: Sottiaux's two desktop-app posts, Peter Yang's two codex-threads usage notes, Thariq's three posts on collaborating with models, Amjad Masad's Amuse open-source note, Garry Tan's software-factory line, Guillermo Rauch's one-line AI feats wish, Swyx's phoning-home question and Dan Shipper's benchmarks note.</p>
+<p>The Podcast slot is 0 and it is a dedup, not an empty feed. The single episode, No Priors with Isomorphic Labs president Max Jaderberg, publishedAt 2026-11-12T11:00:00.000Z (Pacific 2026-11-12 03:00:00), is the same episode that occupied the Podcast slot in the 11-14 issue, matched on the identical title, publication timestamp, transcript length of 47,939 characters and the guest and institution. That issue linked to the No Priors channel page; this feed instead gives a specific video URL, https://www.youtube.com/watch?v=IiKf3BgBezE, which returns zero hits across the 134 published pages, so the specific address is backfilled in the Already Covered block. The episode is listed there but not counted in the Podcast stat. The Blog slot is 0 for a different reason: the blogs array is empty for the twenty-ninth consecutive issue, and no blog entry is created.</p>
+<p>Quote structure and coverage: 8 of the 23 posts are quote tweets pointing at 8 distinct IDs, all outside this feed, with no self-quotes and no shared target. The feed gives the text of none of the outside posts. All 23 tweet IDs return zero hits against the 134 published digest pages. The window runs from Pacific 2026-11-21 03:30:04 (Matt Turck) to Pacific 2026-11-21 22:14:54 (Guillermo Rauch), an 18h44m50s span closing 0h12m16s before the snapshot; all 23 posts fall on Pacific 11-21, 5h33m15s after the previous issue's close (Pacific 2026-11-20 21:56:49), with the previous snapshot 23h59m57s earlier and no gap in coverage. Pacific 10-29 and 10-30 remain missing from the series.</p>
+<p>Twelve accounts posted: 6 are on the 24-name tracking list (Swyx, Peter Yang, Amjad Masad, Guillermo Rauch, Garry Tan, Matt Turck) and 6 are not (Thibault Sottiaux, Nan Yu, Thariq, Aaron Levie, Zara Zhang, Dan Shipper). Sam Altman does not appear for the third issue in a row; the 11-22 issue recorded the second. Four posts are one-line reactions or bare links whose text, once t.co URLs are stripped, is shorter than 40 characters: Sottiaux's 'Going to check out this threads thing', Nan Yu's 'Forget second brain. Third brain.', Guillermo Rauch's 'We need https://t.co/ooB95fsCDv for AI feats' and Zara Zhang's 'Build for yourself'. Their links are kept; no subject is added for them.</p>
+</div>
+<div class="takeaway zh">
+<div class="takeaway-label">核心结论</div>
+<p>互动集中在同一个人的两条上。Thibault Sottiaux 的 'Going to check out this threads thing' 赞数第一 2,376、回复第二 434、转发第三 37；他另一条桌面端更新反馈征集回复第一 1,116、赞数第二 2,158，转发 66 与 Aaron Levie 那条 2,007 字符的长文并列第一。赞数第三是 Garry Tan 的 GTA VI 那条 815，回复第三也是 Garry Tan 的 GTA VI 那条 136。破千赞 2 条、破万 0 条、回复破千 1 条、转发过百 0 条、回复过百 4 条；合计 9,270 赞、298 转发、2,205 回复。最长的一条是 Aaron Levie 的 2,007 字符，560 赞。每处名次都先做了全窗口排序核对，两条 66 转发按并列写，不拆成两个名次。</p>
+<p>有几条推文在回应 feed 没有点名的事。Aaron Levie 写了一条讲 Riemann Hypothesis breakthrough 的长引用推文，Matt Turck 调侃「根本不知道 Riemann Hypothesis 是什么却兴奋地发推说 AI 解决了它」，Thariq 说未来模型也许能一口气 'prove the Riemann hypothesis'，Dan Shipper 把某句话比作那位说过「能被发明的都已被发明」的专利官员。GTA VI 这条线上有 3 条、来自 3 个账号：Peter Yang 说现在懂那些吐槽了，Amjad Masad 讲一个高中生把 GTA6 反编译到 PC、并用 github issues 给 agent swarms 派活，Garry Tan 问多久会出现去掉被骂设计毛病的 vibe coded 民间移植版。feed 里没有独立报道、声明或结果支撑其中任何一条，所以都按反应记录，不当作互相印证。能独立成立的并行线索是：Sottiaux 两条桌面端帖子、Peter Yang 两条 codex threads 用法笔记、Thariq 三条讲与模型协作、Amjad Masad 的 Amuse 开源、Garry Tan 的 software factory、Guillermo Rauch 的一行 AI feats、Swyx 的 phoning home 提问，以及 Dan Shipper 讲 benchmark。</p>
+<p>Podcast 这一格是 0，是判重，不是 feed 里没内容。唯一一集是 No Priors 对话 Isomorphic Labs 总裁 Max Jaderberg，publishedAt 2026-11-12T11:00:00.000Z（太平洋 2026-11-12 03:00:00），与 11-14 期占据 Podcast 格的那一集相同：完整标题一致、发布时间戳一致、转写长度同为 47,939 字符、嘉宾与机构一致。11-14 期链的是 No Priors 频道页，本期 feed 给的是具体视频地址 https://www.youtube.com/watch?v=IiKf3BgBezE，对 134 个已发布页面零命中，因此在「已收录」区块把这个具体地址补记上去。这一集只在该区块列出，不计入 Podcast 统计。Blog 这一格的 0 成因不同：blogs 数组连续第二十九期为空，不生成博客条目。</p>
+<p>引用结构与覆盖：23 条里 8 条是引用推文，指向 8 个不同 ID，全部在 feed 外，没有自引，也没有同组目标；这些外部推文的内容 feed 一条都没给。23 个推文 ID 对 134 个已发布页面零命中。窗口从太平洋 2026-11-21 03:30:04（Matt Turck）到 2026-11-21 22:14:54（Guillermo Rauch），跨度 18h44m50s，在快照前 0h12m16s 收口；23 条全落在太平洋 11-21，距上一期收口（太平洋 2026-11-20 21:56:49）5h33m15s，上一份快照相隔 23h59m57s，覆盖没有缺口。太平洋 10-29、10-30 在本系列仍缺失。</p>
+<p>有内容的账号 12 个：6 位在 24 位追踪名单上（Swyx、Peter Yang、Amjad Masad、Guillermo Rauch、Garry Tan、Matt Turck），6 位不在（Thibault Sottiaux、Nan Yu、Thariq、Aaron Levie、Zara Zhang、Dan Shipper）。Sam Altman 连续第三期未出现，11-22 期记的是连续第二期。4 条是一句话反应或裸链接，去掉 t.co 链接后文字不足 40 字符：Sottiaux 的 'Going to check out this threads thing'、Nan Yu 的 'Forget second brain. Third brain.'、Guillermo Rauch 的 'We need https://t.co/ooB95fsCDv for AI feats'、Zara Zhang 的 'Build for yourself'。链接照留，不替它们补主题。</p>
+</div>
+</section>
+<!-- ============== ALREADY COVERED ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128257;</span>
+<h2 class="section-title">&#24050;&#25910;&#24405; / Already Covered</h2>
+<span class="section-meta">1 Item &middot; Deduped</span>
+</div>
+<div class="dedup">
+<p>No Priors &middot; &#8220;Powering AI-Driven Drug Discovery with President of Isomorphic Labs Max Jaderberg&#8221; &middot; publishedAt 2026-11-12T11:00:00.000Z (Pacific 11-12 03:00:00). Already covered as the Podcast item in the <a href="https://clean-online.github.io/ai-digest/2026/11/14/AI_Builders_Digest_2026-11-14.html">2026-11-14 issue</a>. Judged the same episode on four things: the identical full title, the identical publication timestamp, the identical transcript length of 47,939 characters, and the same guest and institution, Isomorphic Labs president Max Jaderberg. The 11-14 issue links to the channel page <a href="https://www.youtube.com/@NoPriorsPodcast">https://www.youtube.com/@NoPriorsPodcast</a>; this feed instead gives the specific video URL <a href="https://www.youtube.com/watch?v=IiKf3BgBezE">https://www.youtube.com/watch?v=IiKf3BgBezE</a>, which returns zero hits across the 134 published pages, so that specific address is backfilled here. The guid c9a0c39e-de2a-11f1-9237-d39059052d4c also returns zero hits. The episode is 10 days 23h29m56s older than the window's first post and falls entirely outside the window. The podcast slot had last repeated on 11-18; the four issues from 11-19 to 11-22 each carried a different new episode. The episode is listed here but not counted in the Podcast stat.</p>
+<p class="zh">No Priors &middot;《Powering AI-Driven Drug Discovery with President of Isomorphic Labs Max Jaderberg》&middot; 发布时间 2026-11-12T11:00:00.000Z（太平洋 11-12 03:00:00）。已在 <a href="https://clean-online.github.io/ai-digest/2026/11/14/AI_Builders_Digest_2026-11-14.html">2026-11-14 那期</a>作为 Podcast 收录。判为同一集靠四件事：完整标题一致、发布时间戳一致、转写长度同为 47,939 字符、嘉宾与机构一致（Isomorphic Labs 总裁 Max Jaderberg）。11-14 期链的是频道页 <a href="https://www.youtube.com/@NoPriorsPodcast">https://www.youtube.com/@NoPriorsPodcast</a>；本期 feed 给的是具体视频地址 <a href="https://www.youtube.com/watch?v=IiKf3BgBezE">https://www.youtube.com/watch?v=IiKf3BgBezE</a>，对 134 个已发布页面零命中，因此把这个具体地址补记在这里。guid c9a0c39e-de2a-11f1-9237-d39059052d4c 同样零命中。这一集比本期窗口首条早 10 天 23h29m56s，完全在窗口之外。播客槽位上一次判重是 11-18 期；11-19 到 11-22 这四期各是一集不同的新收录。这一集只在此列出，不计入 Podcast 统计。</p>
+</div>
+</section>
+<!-- ============== NOTES ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128221;</span>
+<h2 class="section-title">记录 / Notes &amp; Dedup</h2>
+<span class="section-meta">23 Zero &middot; 1 Deduped &middot; 0 Blog</span>
+</div>
+<div class="dedup">
+<p style="margin-top:12px"><strong>Tweets</strong> All 23 tweet IDs have zero hits across the 134 published digest pages. 8 of the 23 are quote posts pointing at 8 distinct IDs, every one outside this feed, with no self-quotes and no shared target. The feed gives the text of none of the outside posts.</p>
+<p style="margin-top:12px"><strong>Podcast</strong> The slot is 0 and it is a dedup, not an empty feed. No Priors, Powering AI-Driven Drug Discovery with President of Isomorphic Labs Max Jaderberg, publishedAt 2026-11-12T11:00:00.000Z (Pacific 2026-11-12 03:00:00), matched the 11-14 Podcast item on the full title, the timestamp, the 47,939-character transcript length and the guest and institution. The 11-14 issue linked to the channel page https://www.youtube.com/@NoPriorsPodcast; this feed gives the specific video URL https://www.youtube.com/watch?v=IiKf3BgBezE and the guid c9a0c39e-de2a-11f1-9237-d39059052d4c, both zero hits across the 134 pages, so the specific video address is backfilled in the Already Covered block. The episode is 10 days 23h29m56s older than the first post and entirely outside the window. The three issues from 11-16 to 11-18 each deduplicated against an older episode; 11-19 through 11-22 were four new episodes in a row.</p>
+<p style="margin-top:12px"><strong>Blog</strong> The slot is 0 because the blogs array is empty for the twenty-ninth consecutive issue; no blog entry is created. This zero has a different cause from the Podcast value of 0, which comes from a dedup hit.</p>
+<p style="margin-top:12px"><strong>Transcript</strong> The repeat episode's transcript is 47,939 characters with speaker labels and timestamps; its full remix, the ASR spellings and the unverified status of every figure are in the 11-14 issue and are not reproduced here. No new transcript content is added by this feed.</p>
+<p style="margin-top:12px"><strong>Coverage &amp; thin posts</strong> Three timestamps: snapshot 2026-11-22T06:27:10.098Z (Pacific 2026-11-21 22:27:10), first post Pacific 2026-11-21 03:30:04 (Matt Turck), last post Pacific 2026-11-21 22:14:54 (Guillermo Rauch). Window 18h44m50s, closing 0h12m16s before the snapshot; 5h33m15s after the previous issue's close (Pacific 2026-11-20 21:56:49); previous snapshot 23h59m57s earlier. All 23 posts fall on Pacific 11-21; Pacific 10-29 and 10-30 remain missing. 4 of the 23 posts are one-line reactions or bare links whose text, once t.co URLs are stripped, is shorter than 40 characters: Thibault Sottiaux's 'Going to check out this threads thing', Nan Yu's 'Forget second brain. Third brain.', Guillermo Rauch's 'We need https://t.co/ooB95fsCDv for AI feats' and Zara Zhang's 'Build for yourself'. Their links are kept; no subject is added for them.</p>
+<p style="margin-top:12px"><strong>Not resolved</strong> What the Riemann Hypothesis breakthrough refers to and whether it has an independent report, statement or result; the text of the 8 quoted posts the feed leaves blank; what the providers phoning home refers to; which product Garry Tan and Guillermo Rauch name only through links; whether Sottiaux's two posts describe the same desktop-app update; the spec or second source for codex threads in the ChatGPT mobile app, Amuse, the GTA6 recompile and the agent-swarm coordination; and the standing items carried from earlier issues (Day 29 / 3/x, dot, jev, Particle-1, HackerTube, Grok Bot, Legora, the data-market figure, Claude Whiteboards, Box interop, interactive connectors, the AIE keynote, MCP tool counts, Stand with Jensen, Opal and the 11-27 book date).</p>
+</div>
+<div class="dedup zh" style="margin-top:14px">
+<p style="margin-top:12px"><strong>推文核对</strong> 23 个推文 ID 对 134 个已发布页面零命中。23 条里 8 条是引用推文，共 8 个不同 ID，全部在 feed 外，没有自引，也没有同组目标。这些外部推文的内容 feed 一条都没有给出。</p>
+<p style="margin-top:12px"><strong>播客核对</strong> 这一格是 0，是判重，不是 feed 里没内容。No Priors 的 Powering AI-Driven Drug Discovery with President of Isomorphic Labs Max Jaderberg，publishedAt 为 2026-11-12T11:00:00.000Z（太平洋 2026-11-12 03:00:00），在完整标题、时间戳、47,939 字符转写长度、嘉宾与机构四项上与 11-14 期的 Podcast 条目一致。11-14 期链的是频道页 https://www.youtube.com/@NoPriorsPodcast；本期 feed 给的是具体视频地址 https://www.youtube.com/watch?v=IiKf3BgBezE 和 guid c9a0c39e-de2a-11f1-9237-d39059052d4c，两者对 134 个页面零命中，因此在「已收录」区块补记这个具体地址。这一集比首条推文早 10 天 23h29m56s，完全在窗口之外。11-16 到 11-18 三期各自把播客判重到更早的一集；11-19 到 11-22 连续四期都是新收录。</p>
+<p style="margin-top:12px"><strong>博客核对</strong> 这一格是 0，因为 blogs 数组连续第二十九期为空，不生成博客条目。这个 0 与 Podcast 的 0 成因不同，后者来自判重命中。</p>
+<p style="margin-top:12px"><strong>转写</strong> 重复这一集的转写为 47,939 字符，带 speaker 标签与时间戳；完整摘要、ASR 拼写以及每个数字都未经核实这一点已在 11-14 期写明，这里不重复。本期 feed 没有带来新的转写内容。</p>
+<p style="margin-top:12px"><strong>覆盖与薄内容</strong> 三个时间戳：快照 2026-11-22T06:27:10.098Z（太平洋 2026-11-21 22:27:10）、首条太平洋 2026-11-21 03:30:04（Matt Turck）、末条太平洋 2026-11-21 22:14:54（Guillermo Rauch）。窗口 18h44m50s，在快照前 0h12m16s 收口；距上一期收口（太平洋 2026-11-20 21:56:49）5h33m15s；上一份快照相隔 23h59m57s。23 条全落在太平洋 11-21；太平洋 10-29、10-30 仍缺失。23 条里 4 条是一句话反应或裸链接，去掉 t.co 链接后文字不足 40 字符：Thibault Sottiaux 的 'Going to check out this threads thing'、Nan Yu 的 'Forget second brain. Third brain.'、Guillermo Rauch 的 'We need https://t.co/ooB95fsCDv for AI feats'、Zara Zhang 的 'Build for yourself'。链接照留，不替它们补主题。</p>
+<p style="margin-top:12px"><strong>未闭环</strong> Riemann Hypothesis breakthrough 到底指什么、有没有独立报道、声明或结果；feed 留空的 8 条被引用推文写了什么；providers phoning home 指什么；Garry Tan 和 Guillermo Rauch 只用链接点名的是哪个产品；Sottiaux 两条是不是同一个桌面端更新；ChatGPT mobile app 里的 codex threads、Amuse、GTA6 反编译与 agent swarm 分工的规格或第二信源；以及从往期带来的长期项（Day 29 / 3/x、dot、jev、Particle-1、HackerTube、Grok Bot、Legora、数据市场规模、Claude Whiteboards、Box 互通、interactive connectors、AIE keynote、MCP 工具数、Stand with Jensen、Opal，以及 11 月 27 日的出版日期）。</p>
+</div>
+</section>
+<footer class="footer">
+<div class="next-issue">&#128236; 下一期：明天 10:00（北京时间）</div>
+<div class="signature"><a href="#top" style="border:none;color:var(--ink-muted)">回到顶部 / Back to top</a></div>
+<div class="signature">by chloevchen</div>
+</footer>
+</body>
+</html>
+<!-- by chloevchen -->
