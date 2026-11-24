@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Builders Digest &middot; 2026-11-24</title>
+<style>
+
+
+
+
+
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 28px 30px; margin-bottom: 24px; }
+  .podcast-source { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
+  .podcast-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; margin-bottom: 18px; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; }
+
+
+</style>
+</head>
+<body id="top">
+<header class="topbar">
+<div class="topbar-inner">
+<a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders &middot; AI Builders Digest</a>
+<span>双语 &middot; Bilingual</span>
+</div>
+</header>
+<section class="header">
+<div class="eyebrow">Daily Digest &middot; 2026-11-24</div>
+<h1>AI Builders Digest</h1>
+</section>
+<div class="stats">
+<div class="stat">
+<div class="stat-num">11</div>
+<div class="stat-label">Builders</div>
+</div>
+<div class="stat">
+<div class="stat-num">22</div>
+<div class="stat-label">Tweets</div>
+</div>
+<div class="stat">
+<div class="stat-num">0</div>
+<div class="stat-label">Podcast</div>
+</div>
+<div class="stat">
+<div class="stat-num">0</div>
+<div class="stat-label">Blog</div>
+</div>
+</div>
+<p class="note-line">Eleven builders, 22 posts, all on Pacific 11-22. Sam Altman's three posts take the top three like counts, the top two repost counts and the top reply count, with his shared-norms post leading all three. The Podcast slot is 0 because its single episode repeats the 11-13 issue, though this feed adds a specific video URL that issue did not have; the Blog slot is 0 because the blogs array is empty. The two zeros have different causes.</p>
+<p class="note-line zh">11 位 builder、22 条推文，全部落在太平洋 11-22。Sam Altman 的三条包揽赞数前三、转发前两和回复第一，其中讲共同规范那条三项都第一。Podcast 这一格是 0，因为唯一一集是 11-13 期的重复，不过本期 feed 多给了一个 11-13 没有的具体视频地址；Blog 这一格是 0，因为 blogs 数组为空。两个 0 的成因不同。</p>
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128036;</span>
+<h2 class="section-title">X / Twitter</h2>
+<span class="section-meta">11 Builders &middot; 22 Tweets</span>
+</div>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Ryo Lu</span>
+<span class="builder-role">Cursor / Notion / Stripe designer</span>
+</div>
+<p class="summary-en">Ryo Lu, whose bio says he designed Cursor, Notion and Stripe and wants a world where anyone can make software, posts one line about ryOS Karaoke running native on iOS, almost one-shotted with @airbuild, adding that half folding the iPhone Duo makes it a tiny karaoke machine (230 likes, 7 reposts, 19 replies). The feed gives no further detail about the app or the device; both are kept as his own words.</p>
+<p class="summary-zh zh">Ryo Lu 的 bio 写的是他设计过 Cursor、Notion、Stripe，想做一个人人都能写软件的世界。他发了一句，说 ryOS Karaoke 已在 iOS 原生运行，用 @airbuild 几乎一次成型，还说把 iPhone Duo 对折一下就是一台很小的卡拉 OK 机（230 赞、7 转发、19 回复）。feed 没有给这个应用或这台设备的更多细节，都按他本人的说法记录。</p>
+<div class="urls">
+<a href="https://x.com/ryolu_/status/2124473853858725907" target="_blank">https://x.com/ryolu_/status/2124473853858725907</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Sam Altman</span>
+<span class="builder-role">OpenAI</span>
+</div>
+<p class="summary-en">Sam Altman posts three times, and his posts take the top three like counts, the top two repost counts and the top reply count. The first is a quoted passage saying frontier model developers should jointly set shared norms for evaluating such models and red-team safety cases before first use, including shared transparency standards, and proposing common limits based on perplexity and other measurements that developers commit not to cross until the ability to understand and monitor AI behaviour reaches a concrete milestone such as a successor to CoT monitors (1,570 likes, 86 reposts, 127 replies, the top of all three). The second reads 'i meant "field" ugh' (497 likes, 5 reposts, 74 replies); the feed gives no antecedent, so no subject is added. The third says labs agreed under the White House Accords to establish standards and best practices to improve the safety of their systems, and that a discussion about the use of perplexity can further these goals (966 likes, 34 reposts, 78 replies). The feed carries no text of the accord and no report behind it; the proposal is recorded as his statement.</p>
+<p class="summary-zh zh">Sam Altman 发了三条，这三条包揽赞数前三、转发前两和回复第一。第一条是一段引文，说前沿模型开发者应共同建立发布前评估模型与红队安全测试的共同规范，包括共享的透明度标准，并提出以 perplexity 等指标设定共同上限，在人类理解与监控 AI 行为的能力达到某个具体里程碑（例如 CoT 监控器的后继）之前不越过（1,570 赞、86 转发、127 回复，三项都是第一）。第二条是 'i meant "field" ugh'（497 赞、5 转发、74 回复）；feed 没有给这句话的上下文，这里不替它补主语。第三条说各实验室在 White House Accords 下同意建立标准与最佳实践来提升系统安全，并认为围绕 perplexity 的讨论有助推进这些目标（966 赞、34 转发、78 回复）。feed 里没有这份协议的文本，也没有相关报道，按他的陈述记录。</p>
+<div class="urls">
+<a href="https://x.com/sama/status/2124551883130114403" target="_blank">https://x.com/sama/status/2124551883130114403</a>
+<a href="https://x.com/sama/status/2124555601745441130" target="_blank">https://x.com/sama/status/2124555601745441130</a>
+<a href="https://x.com/sama/status/2124558713646428663" target="_blank">https://x.com/sama/status/2124558713646428663</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Guillermo Rauch</span>
+<span class="builder-role">Vercel CEO</span>
+</div>
+<p class="summary-en">Vercel CEO Guillermo Rauch posts twice. He writes that a tweet offering 'free' inference of a 'stealth model' with 'ZDR' aged extremely well, says he strongly suspects such stealth models are mechanisms of industrial scale data exfiltration to nation state programs and that the Dragos research seems to confirm it, then gives the example of trying a free stealth model and losing secrets, customer data and code to another continent, and says Vercel AI Gateway built real token volume without such shortcuts with more to come on trust, privacy and security (491 likes, 21 reposts, 91 replies, fourth on likes and second on replies). He also writes that rather than art we ought to point AI towards human-understandability and conceptualization, that the Riemann proof should come with a paper, a walkthrough, new concepts and insights, and compares this to the intermediate representation of high-level code being desirable even when an LLM goes straight to CPU instructions (127 likes, 7 reposts, 62 replies). The suspicion and the research reference are his own statements; the feed gives neither the underlying tweet nor the research.</p>
+<p class="summary-zh zh">Vercel CEO Guillermo Rauch 发了两条。他写一条提供 'free' 推理、号称 'ZDR' 的 'stealth model' 的推文 'aged extremely well'，说他强烈怀疑这类 stealth models 是把数据大规模外流给国家项目的机制，Dragos 的研究似乎证实了这一点，还举例说试了一个免费的 stealth model 后，机密、客户数据和代码都去了另一个大洲；他接着说 Vercel AI Gateway 没有走这些捷径也积累了真实 token 量，之后还会讲如何把信任、隐私和安全标准再提高（491 赞、21 转发、91 回复，赞数第四、回复第二）。另一条说与其做艺术，不如把 AI 指向人类可理解性与概念化，Riemann 的证明应该配一篇论文、一份讲解、新概念和洞见，并类比说即便 LLM 直接输出 CPU 指令，高级代码的中间表示仍然可取（127 赞、7 转发、62 回复）。这些怀疑和研究引用都是他本人的说法；feed 既没给那条原始推文，也没给那份研究。</p>
+<div class="urls">
+<a href="https://x.com/rauchg/status/2124595496849445079" target="_blank">https://x.com/rauchg/status/2124595496849445079</a>
+<a href="https://x.com/rauchg/status/2124654108124848350" target="_blank">https://x.com/rauchg/status/2124654108124848350</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Swyx</span>
+<span class="builder-role">smol_ai, cognition, Latent Space</span>
+</div>
+<p class="summary-en">Swyx, whose bio lists affiliations with smol_ai, cognition, temporalio, aidotengineer and latentspacepod, posts three times. He quotes a passage saying OpenAI proposes perplexity as the universal metric for industry self regulation and pacing rather than FLOPS, that compression is the main way surprising capabilities emerge so a perplexity-rooted measure could be a shared benchmark for general intelligence, that further transformative capabilities should be expected in the roughly 0.68 to 0.7 log-perplexity window, and that the chart tells the story of the last four years while post-training debates are the B plot to the A plot of large-scale pretraining (112 likes, 2 reposts, 82 replies, third on replies). He then asks whether by this metric we have really seen more AI progress this year than in 2022 to 2025, saying it does not super feel like it but we could be cooked by the algorithm or the metric may only translate at the frontier math level (7 likes, 1 repost, 6 replies). Late in the window he calls a founder journey breakdown from founding to acquisition, complete with regrets and advice, incredible, says not enough founders document this and asks them to do it (47 likes, 4 reposts, 28 replies). The feed gives no text for either post he quotes, so no subject is added for them.</p>
+<p class="summary-zh zh">Swyx 的 bio 列了 smol_ai、cognition、temporalio、aidotengineer、latentspacepod 等关联，本期发了三条。他引用一段话，说 OpenAI 提议把 perplexity 而不是 FLOPS 作为行业自我监管与节奏控制的通用指标，理由是惊人的能力主要来自压缩上的进展，因此以 perplexity 为根的指标可以成为通用智能的共同基准，并预计进入约 0.68 到 0.7 的 log-perplexity 窗口时会有更多变革性能力；他说这张图是讲过去四年故事最漂亮的方式之一，post-training 的争论相对大规模预训练这条主线只是支线（112 赞、2 转发、82 回复，回复第三）。接着他问按这个指标今年 AI 的进展是否真的超过 2022 到 2025 年，说感觉不太像，但也可能是被算法 cook 了，或者这个指标只在前沿数学层面才转换得过来（7 赞、1 转发、6 回复）。窗口后段他称一份从创立到收购、连同遗憾和建议的创始人历程拆解 'incredible'，说太少创始人把过程记录下来，希望大家去做（47 赞、4 转发、28 回复）。两条被引用推文 feed 都没给文本，这里不替它们补主题。</p>
+<div class="urls">
+<a href="https://x.com/swyx/status/2124583459356373052" target="_blank">https://x.com/swyx/status/2124583459356373052</a>
+<a href="https://x.com/swyx/status/2124590240539259381" target="_blank">https://x.com/swyx/status/2124590240539259381</a>
+<a href="https://x.com/swyx/status/2124730733147390347" target="_blank">https://x.com/swyx/status/2124730733147390347</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aaron Levie</span>
+<span class="builder-role">Box CEO</span>
+</div>
+<p class="summary-en">Box CEO Aaron Levie writes the window's longest post at 1,126 characters (364 likes, 21 reposts, 66 replies), a quote tweet agreeing that as agents take on more long-running project work and swarms of agents parallelize against a goal, the agent harness and orchestration architecture will have to evolve. He says one of the biggest shifts is how those agents collectively share knowledge, keep track of tasks and coordinate with human users, which is technically straightforward in theory but carries a lot of complexity to get access to relevant resources without too much or too little exposure. He draws lessons from how people already work together, sharing files, having computers and gathering in chats and inboxes, while arguing the primitives must enable this at a throughput far above people in a world where agents can more easily become a security risk, and closes by saying it will be fun building the next generation of how agents operate, with room for both horizontal and vertical approaches. The feed gives no text for the post he quotes, so no subject is added for it.</p>
+<p class="summary-zh zh">Box CEO Aaron Levie 写了全窗口最长的一条，1,126 字符（364 赞、21 转发、66 回复），是一条引用推文，表示同意：随着 agent 承担更多长时间的项目工作、成群的 agent 围绕目标并行，agent 的 harness 和编排架构必须演进。他说最大的变化之一是这些 agent 如何共享知识、跟踪任务、与人类用户协调；这在理论上直截了当，但要让 agent 拿到相关资源时既不过度也不不足地暴露，还有很多复杂度要处理。他从人们现有协作方式中找经验，比如共享文件、各有电脑、在聊天和收件箱里聚集，同时主张这些基础能力必须以远高于人的吞吐量支撑协作，而 agent 也更容易成为安全风险。结尾他说构建下一代 agent 运作方式会很有意思，横向和纵向都有机会。feed 没给被引用推文的文本，这里不替它补主题。</p>
+<div class="urls">
+<a href="https://x.com/levie/status/2124658150771188157" target="_blank">https://x.com/levie/status/2124658150771188157</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Amjad Masad</span>
+<span class="builder-role">Replit CEO</span>
+</div>
+<p class="summary-en">Replit CEO Amjad Masad posts twice. He writes that desktop AI apps are generally a security and privacy nightmare, that he worked with Windows to ship a world class security model for Replit Desktop, and that this is why Christie's, described as the world's preeminent custodian of rare art, chose Replit for secure agentic work (201 likes, 11 reposts, 57 replies, the top repost count among his posts). He also posts 'Spectacle' with a link (164 likes, 3 reposts, 15 replies); once the t.co URL is stripped the text is 9 characters, so it is kept as posted with its link and no subject is added. The security model and the Christie's choice are his own claims; the feed gives no independent report behind them.</p>
+<p class="summary-zh zh">Replit CEO Amjad Masad 发了两条。他写桌面 AI 应用通常是一场安全与隐私的噩梦，说他与 Windows 合作给 Replit Desktop 交付了一套世界级安全模型，也说这正是被他称作全球顶尖稀有艺术保管者的 Christie's 选择 Replit 做安全 agent 工作的原因（201 赞、11 转发、57 回复，转发是他两条里最高的）。另一条是 'Spectacle' 加一个链接（164 赞、3 转发、15 回复）；去掉 t.co 链接后正文只有 9 个字符，按原帖保留文字和链接，不替它补主题。安全模型和 Christie's 的选择都是他本人的说法，feed 没有给独立报道支撑。</p>
+<div class="urls">
+<a href="https://x.com/amasad/status/2124604574606795002" target="_blank">https://x.com/amasad/status/2124604574606795002</a>
+<a href="https://x.com/amasad/status/2124671335700091020" target="_blank">https://x.com/amasad/status/2124671335700091020</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Yang</span>
+<span class="builder-role">Practical AI tutorials and interviews</span>
+</div>
+<p class="summary-en">Peter Yang, whose bio offers practical AI tutorials and interviews for busy people, posts three times. He quotes a passage from @clamanna, EVP at Microsoft Copilot, saying agents are very harsh customers: they look for the best performance, price and reliability, what an agent prefers is not always what a person prefers, an agent does not care about ten links with small snippets and a thousand results can be returned, and APIs and user experiences will evolve modes that better support agents (7 likes, 1 repost, 10 replies). He then asks @grok to list all the recommendations by most recommended and write one sentence each on why (3 likes, 1 reply). He closes by saying he played a game with family and highly recommends it for coop games, with a link (0 likes, 0 reposts, 0 replies). The feed gives no text for the post he quotes and names neither the game nor the recommendations.</p>
+<p class="summary-zh zh">Peter Yang 的 bio 写的是给忙人做实用 AI 教程和访谈，本期发了三条。他引用 @clamanna（Microsoft Copilot EVP）的一段话，说 agent 是非常挑剔的客户：它们找最好的性能、价格和可靠性，agent 偏好的未必是人偏好的，人搜索时给十个带小摘要的链接，agent 并不在乎，可以返回一千条结果，API 和用户体验会演化出更适合 agent 的模式（7 赞、1 转发、10 回复）。接着他请 @grok 把所有推荐按被推荐次数列出，并各写一句为什么（3 赞、1 回复）。最后他说和家人玩了一个，强烈推荐作为合作游戏，附一个链接（0 赞、0 转发、0 回复）。feed 没给被引用推文的文本，也没有点名是哪个游戏或哪些推荐。</p>
+<div class="urls">
+<a href="https://x.com/petergyang/status/2124669298191090033" target="_blank">https://x.com/petergyang/status/2124669298191090033</a>
+<a href="https://x.com/petergyang/status/2124695613971603850" target="_blank">https://x.com/petergyang/status/2124695613971603850</a>
+<a href="https://x.com/petergyang/status/2124723140437959022" target="_blank">https://x.com/petergyang/status/2124723140437959022</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Dan Shipper</span>
+<span class="builder-role">Every CEO</span>
+</div>
+<p class="summary-en">Every CEO Dan Shipper writes that he is usually not alarmist but that, assuming this was caused by an AI-assisted cyber attack, it is very bad (41 likes, 2 reposts, 12 replies). He argues that to make the security measures in place since 9/11 against human hijackers irrelevant, all one has to do is interfere with a plane and a pilot's ability to know its own weight, how much fuel is left and where it is, that smaller attacks of this kind would be expected to find edges and what is possible, that most planes have manual overrides but that this is still tricky when visibility is bad, and he asks anyone who knows more about aircraft systems to weigh in. The feed gives no report of an incident and no confirmation of the cause; the whole post is framed as a conditional, which is how it is recorded here.</p>
+<p class="summary-zh zh">Every CEO Dan Shipper 写他通常不是危言耸听的人，但假设这件事是 AI 辅助的网络攻击造成的，那非常糟糕（41 赞、2 转发、12 回复）。他认为要让自 9/11 以来针对人类劫机者的安全措施失效，只要能干扰飞机和飞行员对自身重量、剩余燃油和位置的判断就够；这类更小的攻击预计会去试探边界和可能性；他也说多数飞机有手动覆盖，但能见度差时依然棘手，并请更懂飞机系统的人补充。feed 没有给任何事件报道，也没有确认原因；整条推文本身就是条件句，这里按条件句记录。</p>
+<div class="urls">
+<a href="https://x.com/danshipper/status/2124567533449613819" target="_blank">https://x.com/danshipper/status/2124567533449613819</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nikunj Kothari</span>
+<span class="builder-role">Partner, FPV Ventures</span>
+</div>
+<p class="summary-en">Nikunj Kothari, whose bio says he is a partner at FPV Ventures investing in seed and series A, posts three times. He writes 'On the list now' with a salute, thanking a Tesla friend and saying he is not @-ing to avoid the deluge (2 likes, 0 reposts, 0 replies). He says 2026 Docusign stockholders must be the smuggest people right now, with a link (69 likes, 1 repost, 7 replies). He writes 'The worst cold email does not exi-' with a link (442 likes, 3 reposts, 38 replies, fifth on likes); once the t.co URL is stripped the text is 34 characters, so it is kept as posted. The feed gives no target for any of the three, so no subject is added.</p>
+<p class="summary-zh zh">Nikunj Kothari 的 bio 说他是 FPV Ventures 合伙人，投种子轮和 A 轮，本期发了三条。他写 'On the list now' 加一个敬礼，感谢一位 Tesla 朋友，并说故意不 @ 对方以免引来一大堆回复（2 赞、0 转发、0 回复）。他说 2026 年 Docusign 的股东大概是当下最得意的人，附一个链接（69 赞、1 转发、7 回复）。他写 'The worst cold email does not exi-' 加一个链接（442 赞、3 转发、38 回复，赞数第五）；去掉 t.co 链接后正文 34 个字符，按原帖保留。三条都没有给出针对对象，这里不补主语。</p>
+<div class="urls">
+<a href="https://x.com/nikunj/status/2124585398362128469" target="_blank">https://x.com/nikunj/status/2124585398362128469</a>
+<a href="https://x.com/nikunj/status/2124597844808196252" target="_blank">https://x.com/nikunj/status/2124597844808196252</a>
+<a href="https://x.com/nikunj/status/2124646168428966181" target="_blank">https://x.com/nikunj/status/2124646168428966181</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Matt Turck</span>
+<span class="builder-role">VC, FirstMark Capital</span>
+</div>
+<p class="summary-en">Matt Turck, a VC at FirstMark Capital, host of the MAD Podcast, organizer of Data Driven NYC and author of the MAD Landscape, posts twice. He writes that after being in the US for decades he realizes why his American colleagues just look at him blankly, with a link (64 likes, 1 repost, 16 replies). He also writes a joke that AI has failed to solve the most intractable math problem, and asks how VCs are going to return those huge funds when the entry valuation of their deals is above one billion dollars pre-product (85 likes, 0 reposts, 8 replies). Neither post expands an argument; both are kept as posted with their links. The feed gives no report behind the math problem mentioned in the joke.</p>
+<p class="summary-zh zh">FirstMark Capital 投资人、MAD Podcast 主持人、Data Driven NYC 组织者、MAD Landscape 作者 Matt Turck 发了两条。他写在美国几十年后才明白为什么美国同事只是茫然地看着他，附一个链接（64 赞、1 转发、16 回复）。另一条是个玩笑，说 AI 没能解决最难解的数学问题，并问当投资项目在产品出来前入场估值就超过十亿美元时，VC 要怎么把那些巨额基金还回去（85 赞、0 转发、8 回复）。两条都没有展开论证，按原帖保留文字和链接。feed 没有给这条玩笑里数学问题的任何报道。</p>
+<div class="urls">
+<a href="https://x.com/mattturck/status/2124515224946422095" target="_blank">https://x.com/mattturck/status/2124515224946422095</a>
+<a href="https://x.com/mattturck/status/2124671699245257037" target="_blank">https://x.com/mattturck/status/2124671699245257037</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nan Yu</span>
+<span class="builder-role">Product, Codex; prev head of product, Linear</span>
+</div>
+<p class="summary-en">Nan Yu, whose bio says he works on product and codex at OpenAI and was previously head of product at Linear, posts one line saying he found a secret prompt that makes all vibecoded projects scale and perform better with higher reliability, and that the prompt is 'Use Postgres' (33 likes, 0 reposts, 5 replies). It is a joke in the form of a single claim; the feed gives no evidence behind it and none is added.</p>
+<p class="summary-zh zh">Nan Yu 的 bio 写的是在 OpenAI 做 product 和 codex，此前在 Linear 做产品负责人。他发了一句，说自己找到了一个秘密提示词，能让所有 vibe coded 项目更好地扩展、性能更好、可靠性更高，而这个提示词是 'Use Postgres'（33 赞、0 转发、5 回复）。这是一条单一断言式的玩笑，feed 没有给任何证据，这里也不补。</p>
+<div class="urls">
+<a href="https://x.com/thenanyu/status/2124592238974156861" target="_blank">https://x.com/thenanyu/status/2124592238974156861</a>
+</div>
+</article>
+</section>
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128161;</span>
+<h2 class="section-title">The Takeaway</h2>
+<span class="section-meta">No Podcast Today &middot; 2026-11-24</span>
+</div>
+<div class="takeaway">
+<div class="takeaway-label">The Takeaway</div>
+<p>Engagement concentrates in three posts from one person. Sam Altman's shared-norms post leads likes (1,570), reposts (86) and replies (127), and his other two posts take the second and third like counts (966 and 497) and the second repost count (34). Guillermo Rauch's stealth-model post is fourth on likes (491) and second on replies (91) and ties for third on reposts (21) with Aaron Levie's 1,126-character orchestration post; Swyx's perplexity-metric post is third on replies (82). One post passes 1,000 likes, none passes 10,000, one passes 100 replies, none passes 1,000 replies and none passes 100 reposts. Totals are 5,522 likes, 210 reposts and 802 replies. The longest post is Aaron Levie's at 1,126 characters, with 364 likes. Every rank was checked against a full-window sort first, and the two 21-repost posts are reported as a tie rather than split into separate ranks.</p>
+<p>Recurring lines run through the window. On measurement and safety, Swyx relays a proposal to use perplexity as the universal metric for industry self regulation, Sam Altman posts a quoted passage proposing shared evaluation norms and perplexity-based common limits, and Altman's third post refers to labs agreeing under the White House Accords to improve safety; Altman's middle post is the correction 'i meant "field" ugh' and the feed gives no antecedent for it. On agents, Peter Yang relays a Microsoft Copilot EVP saying agents are harsh customers, Aaron Levie argues that agent harness and orchestration must evolve for swarms and long-running work, and Amjad Masad ties a Replit Desktop security model to agentic work. Security and trust also appear in Guillermo Rauch's suspicion about stealth models and in Dan Shipper's conditional post about an AI-assisted cyber attack. Several posts react to things the feed does not name: the Riemann proof in Rauch's conceptualization argument, the intractable math problem in Matt Turck's VC joke, the accord, the research Rauch cites, the game Peter Yang recommends and the targets of Nikunj Kothari's three lines. All are recorded as reactions or his own statements, not as confirmations. Standalone lines that need no second source: Ryo Lu's karaoke note, Nan Yu's 'Use Postgres' joke and Matt Turck's NYC advertising observation.</p>
+<p>The Podcast slot is 0 and it is a dedup, not an empty feed. The single episode, AI &amp; I by Every with the title A New Vision for Human Work After Automation, publishedAt 2026-11-11T15:30:00.000Z (Pacific 2026-11-11 07:30:00), is the same episode that occupied the Podcast slot in the 11-13 issue, matched on the identical full title, the identical publication timestamp, the same source name and the same transcript anchors: Natalia Quintero introducing the episode, Every's first conference V.C.S.S. in Brooklyn, GDP Val and the aggregate versus intimate framing, all present in the 11-13 issue. That issue linked to a YouTube playlist page; this feed gives a specific video URL, https://www.youtube.com/watch?v=WstNofgQF5Q, which returns zero hits across the 135 published pages, so the specific address is backfilled in the Already Covered block. The episode is 10 days 20h33m32s older than the window's first post and falls entirely outside the window. The podcast slot deduplicated on 11-23 as well; the four issues from 11-19 to 11-22 each carried a different new episode. The Blog slot is 0 for a different reason: the blogs array is empty for the thirtieth consecutive issue, and no blog entry is created.</p>
+<p>Quote structure and coverage: 6 of the 22 posts are quote tweets pointing at 6 distinct IDs, all outside this feed, with no self-quotes and no shared target; the feed gives the text of none of the six outside posts. All 22 tweet IDs return zero hits against the 135 published digest pages. The window runs from Pacific 2026-11-22 04:03:32 (Ryo Lu) to Pacific 2026-11-22 21:04:17 (Swyx), a 17h00m45s span closing 1h34m37s before the snapshot; all 22 posts fall on Pacific 11-22, 5h48m38s after the previous issue's close (Pacific 2026-11-21 22:14:54), with the previous snapshot 24h11m44s earlier and no gap in coverage. Pacific 10-29 and 10-30 remain missing from the series.</p>
+<p>Eleven accounts posted: 7 are on the 24-name tracking list (Sam Altman, Swyx, Amjad Masad, Guillermo Rauch, Matt Turck, Nikunj Kothari, Peter Yang) and 4 are not (Ryo Lu, Aaron Levie, Dan Shipper, Nan Yu). Sam Altman returns after three issues with no post from him, recorded through 11-23. Three posts are one-line reactions or bare links whose text, once t.co URLs are stripped, is shorter than 40 characters: Amjad Masad's 'Spectacle', Nikunj Kothari's 'The worst cold email does not exi-' and Sam Altman's 'i meant "field" ugh'. Their links are kept; no subject is added for them.</p>
+</div>
+<div class="takeaway zh">
+<div class="takeaway-label">核心结论</div>
+<p>互动集中在同一个人的三条上。Sam Altman 讲共同规范那条赞数第一 1,570、转发第一 86、回复第一 127；另两条拿下赞数第二和第三（966 与 497）以及转发第二（34）。Guillermo Rauch 讲 stealth model 那条赞数第四 491、回复第二 91，转发 21 与 Aaron Levie 那条 1,126 字符的编排长文并列第三；Swyx 讲 perplexity 指标那条回复第三 82。破千赞 1 条、破万 0 条、回复破百 1 条、回复破千 0 条、转发过百 0 条；合计 5,522 赞、210 转发、802 回复。最长的一条是 Aaron Levie 的 1,126 字符，364 赞。每处名次都先做了全窗口排序核对，两条 21 转发按并列写，不拆成两个名次。</p>
+<p>本期有几条反复出现的线索。关于度量与安全：Swyx 转述了把 perplexity 作为行业自我监管通用指标的提议，Sam Altman 发了一段讲共同评估规范与基于 perplexity 的共同上限的引文，第三条又提到各实验室在 White House Accords 下同意提升安全；Altman 中间那条是更正 'i meant "field" ugh'，feed 没给它指向什么。关于 agent：Peter Yang 转述一位 Microsoft Copilot EVP 说 agent 是苛刻的客户，Aaron Levie 主张 agent 的 harness 与编排要为成群 agent 和长时间工作演进，Amjad Masad 把 Replit Desktop 的安全模型与 agent 工作联系起来。信任与安全还出现在 Guillermo Rauch 对 stealth models 的怀疑、以及 Dan Shipper 关于 AI 辅助网络攻击的条件句里。有几条在回应 feed 没点名的事：Rauch 概念化论证里的 Riemann 证明、Matt Turck 玩笑里的数学难题、那份协议、Rauch 引用的研究、Peter Yang 推荐的游戏，以及 Nikunj Kothari 三句话的对象。都按反应或他本人的说法记录，不当作确认。不需要第二信源就能独立成立的：Ryo Lu 的卡拉 OK 笔记、Nan Yu 的 'Use Postgres' 玩笑、Matt Turck 对纽约广告的观察。</p>
+<p>Podcast 这一格是 0，是判重，不是 feed 里没内容。唯一一集是 AI &amp; I by Every 的 A New Vision for Human Work After Automation，publishedAt 为 2026-11-11T15:30:00.000Z（太平洋 2026-11-11 07:30:00），与 11-13 期占据 Podcast 格的那一集相同：完整标题一致、发布时间戳一致、来源名一致、转写锚点一致（Natalia Quintero 开场、Every 第一届大会 V.C.S.S. 在布鲁克林、GDP Val、aggregate 与 intimate 的对照，这些都在 11-13 期出现过）。11-13 期链的是一个 YouTube 播放列表页；本期 feed 给的是具体视频地址 https://www.youtube.com/watch?v=WstNofgQF5Q，对 135 个已发布页面零命中，因此在「已收录」区块把这个具体地址补记上去。这一集比本期窗口首条早 10 天 20h33m32s，完全在窗口之外。播客槽位 11-23 期也判过重；11-19 到 11-22 这四期各是一集不同的新收录。Blog 这一格的 0 成因不同：blogs 数组连续第三十期为空，不生成博客条目。</p>
+<p>引用结构与覆盖：22 条里 6 条是引用推文，指向 6 个不同 ID，全部在 feed 外，没有自引，也没有同组目标；这六条外部推文的内容 feed 一条都没给。22 个推文 ID 对 135 个已发布页面零命中。窗口从太平洋 2026-11-22 04:03:32（Ryo Lu）到 2026-11-22 21:04:17（Swyx），跨度 17h00m45s，在快照前 1h34m37s 收口；22 条全落在太平洋 11-22，距上一期收口（太平洋 2026-11-21 22:14:54）5h48m38s，上一份快照相隔 24h11m44s，覆盖没有缺口。太平洋 10-29、10-30 在本系列仍缺失。</p>
+<p>有内容的账号 11 个：7 位在 24 位追踪名单上（Sam Altman、Swyx、Amjad Masad、Guillermo Rauch、Matt Turck、Nikunj Kothari、Peter Yang），4 位不在（Ryo Lu、Aaron Levie、Dan Shipper、Nan Yu）。Sam Altman 在连续三期没有发推之后回归，缺席记录到 11-23 期。3 条是一句话反应或裸链接，去掉 t.co 链接后文字不足 40 字符：Amjad Masad 的 'Spectacle'、Nikunj Kothari 的 'The worst cold email does not exi-'、Sam Altman 的 'i meant "field" ugh'。链接照留，不替它们补主题。</p>
+</div>
+</section>
+<!-- ============== ALREADY COVERED ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128257;</span>
+<h2 class="section-title">&#24050;&#25910;&#24405; / Already Covered</h2>
+<span class="section-meta">1 Item &middot; Deduped</span>
+</div>
+<div class="dedup">
+<p>AI &amp; I by Every &middot; &#8220;A New Vision for Human Work After Automation&#8221; &middot; publishedAt 2026-11-11T15:30:00.000Z (Pacific 2026-11-11 07:30:00), the episode's full transcript is 21,980 characters. Already covered as the Podcast item in the <a href="https://clean-online.github.io/ai-digest/2026/11/13/AI_Builders_Digest_2026-11-13.html">2026-11-13 issue</a>. Judged the same episode on four things: the identical full title, the identical publication timestamp, the same source name AI &amp; I by Every, and the same transcript anchors, Natalia Quintero introducing the episode, Every's first conference V.C.S.S. in Brooklyn, GDP Val and the aggregate versus intimate framing, all of which are present in the 11-13 issue. The 11-13 issue links to the playlist page <a href="https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL">https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL</a>; this feed instead gives the specific video URL <a href="https://www.youtube.com/watch?v=WstNofgQF5Q">https://www.youtube.com/watch?v=WstNofgQF5Q</a>, which returns zero hits across the 135 published pages, so that specific address is backfilled here. The guid flightcast:01M717KBM0K828PAMMP3ZPWV8P also returns zero hits. The episode is 10 days 20h33m32s older than the window's first post and falls entirely outside the window. The podcast slot deduplicated on 11-23 as well; the four issues from 11-19 to 11-22 each carried a different new episode. The episode is listed here but not counted in the Podcast stat.</p>
+<p class="zh">AI &amp; I by Every &middot;《A New Vision for Human Work After Automation》&middot; 发布时间 2026-11-11T15:30:00.000Z（太平洋 2026-11-11 07:30:00），本集完整转写 21,980 字符。已在 <a href="https://clean-online.github.io/ai-digest/2026/11/13/AI_Builders_Digest_2026-11-13.html">2026-11-13 那期</a>作为 Podcast 收录。判为同一集靠四件事：完整标题一致、发布时间戳一致、来源名同为 AI &amp; I by Every、转写锚点一致（Natalia Quintero 开场、Every 第一届大会 V.C.S.S. 在布鲁克林、GDP Val、aggregate 与 intimate 的对照，这些都在 11-13 期出现过）。11-13 期链的是播放列表页 <a href="https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL">https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL</a>；本期 feed 给的是具体视频地址 <a href="https://www.youtube.com/watch?v=WstNofgQF5Q">https://www.youtube.com/watch?v=WstNofgQF5Q</a>，对 135 个已发布页面零命中，因此把这个具体地址补记在这里。guid flightcast:01M717KBM0K828PAMMP3ZPWV8P 同样零命中。这一集比本期窗口首条早 10 天 20h33m32s，完全在窗口之外。播客槽位 11-23 期也判过重；11-19 到 11-22 这四期各是一集不同的新收录。这一集只在此列出，不计入 Podcast 统计。</p>
+</div>
+</section>
+<!-- ============== NOTES ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128221;</span>
+<h2 class="section-title">记录 / Notes &amp; Dedup</h2>
+<span class="section-meta">22 Zero &middot; 1 Deduped &middot; 0 Blog</span>
+</div>
+<div class="dedup">
+<p style="margin-top:12px"><strong>Tweets</strong> All 22 tweet IDs have zero hits across the 135 published digest pages. 6 of the 22 are quote posts pointing at 6 distinct IDs, every one outside this feed, with no self-quotes and no shared target. The feed gives the text of none of the six outside posts.</p>
+<p style="margin-top:12px"><strong>Podcast</strong> The slot is 0 and it is a dedup, not an empty feed. AI &amp; I by Every, A New Vision for Human Work After Automation, publishedAt 2026-11-11T15:30:00.000Z (Pacific 2026-11-11 07:30:00), matched the 11-13 Podcast item on the full title, the timestamp, the source name and the transcript anchors. The 11-13 issue linked to the playlist page https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL; this feed gives the specific video URL https://www.youtube.com/watch?v=WstNofgQF5Q and the guid flightcast:01M717KBM0K828PAMMP3ZPWV8P, both zero hits across the 135 pages, so the specific video address is backfilled in the Already Covered block. The episode is 10 days 20h33m32s older than the first post and entirely outside the window. The slot also deduplicated on 11-23; 11-19 through 11-22 were four new episodes in a row.</p>
+<p style="margin-top:12px"><strong>Blog</strong> The slot is 0 because the blogs array is empty for the thirtieth consecutive issue; no blog entry is created. This zero has a different cause from the Podcast value of 0, which comes from a dedup hit.</p>
+<p style="margin-top:12px"><strong>Transcript</strong> The repeat episode's transcript is 21,980 characters with no speaker labels and no timestamps. Its full remix, the ASR variants and the unverified status of every figure are in the 11-13 issue and are not reproduced here. No new transcript content is added by this feed.</p>
+<p style="margin-top:12px"><strong>Coverage &amp; thin posts</strong> Three timestamps: snapshot 2026-11-23T06:38:54.921Z (Pacific 2026-11-22 22:38:54), first post Pacific 2026-11-22 04:03:32 (Ryo Lu), last post Pacific 2026-11-22 21:04:17 (Swyx). Window 17h00m45s, closing 1h34m37s before the snapshot; 5h48m38s after the previous issue's close (Pacific 2026-11-21 22:14:54); previous snapshot 24h11m44s earlier. All 22 posts fall on Pacific 11-22; Pacific 10-29 and 10-30 remain missing. 3 of the 22 posts are one-line reactions or bare links whose text, once t.co URLs are stripped, is shorter than 40 characters: Amjad Masad's 'Spectacle', Nikunj Kothari's 'The worst cold email does not exi-' and Sam Altman's 'i meant "field" ugh'. Their links are kept; no subject is added for them.</p>
+<p style="margin-top:12px"><strong>Not resolved</strong> What the White House Accords referenced by Sam Altman is and whether there is a text behind it; what 'field' corrects in his middle post; the proposal to use perplexity as a universal metric and whether it has a document; what the stealth models and the Dragos research refer to behind Guillermo Rauch's suspicion; the security model and the Christie's choice behind Amjad Masad's claim; the incident behind Dan Shipper's conditional post; the Riemann proof and the intractable math problem; the game Peter Yang recommends, the target of 'Spectacle' and the targets of Nikunj Kothari's three lines; and the standing items carried from earlier issues (Day 29 / 3/x, dot, jev, Particle-1, HackerTube, Grok Bot, Legora, the data-market figure, Claude Whiteboards, Box interop, interactive connectors, the AIE keynote, MCP tool counts, Stand with Jensen, Opal and the 11-27 book date).</p>
+</div>
+<div class="dedup zh" style="margin-top:14px">
+<p style="margin-top:12px"><strong>推文核对</strong> 22 个推文 ID 对 135 个已发布页面零命中。22 条里 6 条是引用推文，共 6 个不同 ID，全部在 feed 外，没有自引，也没有同组目标。这六条外部推文的内容 feed 一条都没有给出。</p>
+<p style="margin-top:12px"><strong>播客核对</strong> 这一格是 0，是判重，不是 feed 里没内容。AI &amp; I by Every 的 A New Vision for Human Work After Automation，publishedAt 为 2026-11-11T15:30:00.000Z（太平洋 2026-11-11 07:30:00），在完整标题、时间戳、来源名、转写锚点四项上与 11-13 期的 Podcast 条目一致。11-13 期链的是播放列表页 https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL；本期 feed 给的是具体视频地址 https://www.youtube.com/watch?v=WstNofgQF5Q 和 guid flightcast:01M717KBM0K828PAMMP3ZPWV8P，两者对 135 个页面零命中，因此在「已收录」区块补记这个具体地址。这一集比首条推文早 10 天 20h33m32s，完全在窗口之外。播客槽位 11-23 期也判过重；11-19 到 11-22 连续四期都是新收录。</p>
+<p style="margin-top:12px"><strong>博客核对</strong> 这一格是 0，因为 blogs 数组连续第三十期为空，不生成博客条目。这个 0 与 Podcast 的 0 成因不同，后者来自判重命中。</p>
+<p style="margin-top:12px"><strong>转写</strong> 重复这一集的转写为 21,980 字符，没有 speaker 标签，也没有时间戳。完整摘要、ASR 变体以及每个数字都未经核实这一点已在 11-13 期写明，这里不重复。本期 feed 没有带来新的转写内容。</p>
+<p style="margin-top:12px"><strong>覆盖与薄内容</strong> 三个时间戳：快照 2026-11-23T06:38:54.921Z（太平洋 2026-11-22 22:38:54）、首条太平洋 2026-11-22 04:03:32（Ryo Lu）、末条太平洋 2026-11-22 21:04:17（Swyx）。窗口 17h00m45s，在快照前 1h34m37s 收口；距上一期收口（太平洋 2026-11-21 22:14:54）5h48m38s；上一份快照相隔 24h11m44s。22 条全落在太平洋 11-22；太平洋 10-29、10-30 仍缺失。22 条里 3 条是一句话反应或裸链接，去掉 t.co 链接后文字不足 40 字符：Amjad Masad 的 'Spectacle'、Nikunj Kothari 的 'The worst cold email does not exi-'、Sam Altman 的 'i meant "field" ugh'。链接照留，不替它们补主题。</p>
+<p style="margin-top:12px"><strong>未闭环</strong> Sam Altman 提到的 White House Accords 是什么、有没有文本；他中间那条里的 'field' 更正的是哪个词；把 perplexity 用作通用指标的提议有没有正式文件；Guillermo Rauch 怀疑的 stealth models 和 Dragos 研究指什么；Amjad Masad 说的安全模型和 Christie's 选择背后有没有独立来源；Dan Shipper 条件句里的事故；Riemann 证明与那道数学难题；Peter Yang 推荐的游戏、'Spectacle' 指向什么、Nikunj Kothari 三句话的对象；以及从往期带来的长期项（Day 29 / 3/x、dot、jev、Particle-1、HackerTube、Grok Bot、Legora、数据市场规模、Claude Whiteboards、Box 互通、interactive connectors、AIE keynote、MCP 工具数、Stand with Jensen、Opal，以及 11 月 27 日的出版日期）。</p>
+</div>
+</section>
+<footer class="footer">
+<div class="next-issue">&#128236; 下一期：明天 10:00（北京时间）</div>
+<div class="signature"><a href="#top" style="border:none;color:var(--ink-muted)">回到顶部 / Back to top</a></div>
+<div class="signature">by chloevchen</div>
+</footer>
+</body>
+</html>
+<!-- by chloevchen -->
