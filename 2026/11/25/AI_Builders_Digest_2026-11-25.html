@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Builders Digest &middot; 2026-11-25</title>
+<style>
+
+
+
+
+
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 28px 30px; margin-bottom: 24px; }
+  .podcast-source { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
+  .podcast-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; margin-bottom: 18px; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; }
+
+
+</style>
+</head>
+<body id="top">
+<header class="topbar">
+<div class="topbar-inner">
+<a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders &middot; AI Builders Digest</a>
+<span>双语 &middot; Bilingual</span>
+</div>
+</header>
+<section class="header">
+<div class="eyebrow">Daily Digest &middot; 2026-11-25</div>
+<h1>AI Builders Digest</h1>
+</section>
+<div class="stats">
+<div class="stat">
+<div class="stat-num">17</div>
+<div class="stat-label">Builders</div>
+</div>
+<div class="stat">
+<div class="stat-num">41</div>
+<div class="stat-label">Tweets</div>
+</div>
+<div class="stat">
+<div class="stat-num">0</div>
+<div class="stat-label">Podcast</div>
+</div>
+<div class="stat">
+<div class="stat-num">0</div>
+<div class="stat-label">Blog</div>
+</div>
+</div>
+<p class="note-line">Feed snapshot 2026-11-24T06:30:02.996Z (Pacific 11-23 22:30:02). All 41 tweets are rendered: 17 builders, 0 dropped. Both zeros are emptiness this time. The podcasts array and the blogs array both came back empty, so there was nothing to dedup and no Already Covered block. 38 posts fall on Pacific 11-23 and 3 on 11-22. Sam Altman's single word Jensen! leads likes, reposts and replies by a wide margin. Every engagement figure below is the value carried in the feed; none is estimated.</p>
+<p class="note-line zh">feed 快照 2026-11-24T06:30:02.996Z（太平洋 11-23 22:30:02）。41 条推文全部渲染：17 位 builder，一条没删。两个 0 这次都是空数组：podcasts 和 blogs 都返回空，没有东西需要判重，也就没有「已收录」区块。38 条落在太平洋 11-23，3 条落在 11-22。Sam Altman 那句 Jensen! 在赞数、转发、回复三项上都遥遥领先。下面所有互动数字都取自 feed 原值，没有估算。</p>
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128036;</span>
+<h2 class="section-title">X / Twitter</h2>
+<span class="section-meta">17 Builders &middot; 41 Tweets</span>
+</div>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Swyx</span>
+<span class="builder-role">Latent Space / smol ai / Cognition</span>
+</div>
+<p class="summary-en">Swyx posts twice. The earlier one is a link to an FTX SBF quote shared with @theallinpod, with no added comment in the feed (7 likes). The later one says microsoft answers the call and asks whether he has become a @mustafasuleyman stan, then says adding @alexandr_wang would be the tipping point for all labs to unite on the effort (11 likes, 10 replies). Both are quote posts. The feed does not say what the call or the effort refers to, so no subject is supplied.</p>
+<p class="summary-zh zh">Swyx 发了两条。较早一条是转给 @theallinpod 的一条 FTX SBF 引语链接，feed 里没有附评语（7 赞）。较晚一条说 microsoft answers the call，自问是不是成了 @mustafasuleyman 的粉丝，又说加上 @alexandr_wang 才是所有实验室联合起来的临界点（11 赞、10 回复）。两条都是引用推文。feed 没有说明这个 call 和这份努力具体指什么，这里不补主语。</p>
+<div class="urls">
+<a href="https://x.com/swyx/status/2124766474736976240" target="_blank">https://x.com/swyx/status/2124766474736976240</a>
+<a href="https://x.com/swyx/status/2124780264916423021" target="_blank">https://x.com/swyx/status/2124780264916423021</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Boris Cherny</span>
+<span class="builder-role">Claude at Anthropic</span>
+</div>
+<p class="summary-en">Boris Cherny, whose bio places him on Claude at Anthropic, posts three times in the same minute about Claude Ship entering beta for Team and Enterprise. His lead post says Opus 4.5 launched a year ago as the first model to write 100% of his code, that shipping PRs has not caught up, and that he uses Claude Ship daily (5,943 likes, 178 reposts, 242 replies, fourth on likes). A second post says Code Review finds bugs, PR Steward works on fixes and failing checks, and Claude Approvals approves what team policy allows, with the last two still in beta (201 likes). A third says anyone can use /ship, admins can enable it per GitHub repo, and he would start with one repo and run Approvals in observe mode first (175 likes).</p>
+<p class="summary-zh zh">Boris Cherny 的 bio 写的是在 Anthropic 做 Claude。他在同一分钟连发三条，讲 Claude Ship 对 Team 和 Enterprise 开放 beta。第一条说一年前发布的 Opus 4.5 是第一个写出他 100% 代码的模型，但提交 PR 这一步没跟上，所以今天推出 Claude Ship，他自己每天都在用（5,943 赞、178 转发、242 回复，赞数第四）。第二条说 Code Review 找 bug，PR Steward 处理修复和失败的检查，Claude Approvals 按团队策略放行，后两项仍在 beta（201 赞）。第三条说任何人都能用 /ship，管理员可以按 GitHub 仓库开启，他建议先从一个仓库开始、让 Approvals 跑在 observe 模式（175 赞）。</p>
+<div class="urls">
+<a href="https://x.com/bcherny/status/2124961485801836573" target="_blank">https://x.com/bcherny/status/2124961485801836573</a>
+<a href="https://x.com/bcherny/status/2124961488691740941" target="_blank">https://x.com/bcherny/status/2124961488691740941</a>
+<a href="https://x.com/bcherny/status/2124961487454384442" target="_blank">https://x.com/bcherny/status/2124961487454384442</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thibault Sottiaux</span>
+<span class="builder-role">Codex &amp; ChatGPT at OpenAI</span>
+</div>
+<p class="summary-en">Thibault Sottiaux, whose bio says Codex and ChatGPT at OpenAI, posts three times. He says dots are quickly becoming the primary way to get things done inside OpenAI, and that the team has dots building the dots system (2,649 likes, 67 reposts, 769 replies, third on replies). He then says ChatGPT answer quality should jump noticeably once rolled out, together with work to simplify the app, make it faster and merge chat and work, with improvement expected by year end (4,241 likes, 133 reposts, 823 replies, second on replies and sixth on likes). A third post recommends listening to people at OpenAI who obsessively patch flaws in the open source software and infrastructure everyone relies on (1,510 likes). All three are quote posts and the quoted posts are outside this feed.</p>
+<p class="summary-zh zh">Thibault Sottiaux 的 bio 写的是 OpenAI 的 Codex 和 ChatGPT。他发了三条。第一条说在 OpenAI 内部，dots 正在快速成为把事情做掉的主要方式，团队已经让 dots 去搭 dots 系统（2,649 赞、67 转发、769 回复，回复第三）。第二条说 ChatGPT 推送之后答案质量会有明显跃升，同时还在简化应用、提速、把聊天和工作合并，年底前日常体验会有相当改善（4,241 赞、133 转发、823 回复，回复第二、赞数第六）。第三条推荐听一听 OpenAI 内部那些执着修补大家依赖的开源软件和基础设施缺陷的人在想什么（1,510 赞）。三条都是引用推文，被引用的推文都不在本期 feed 内。</p>
+<div class="urls">
+<a href="https://x.com/thsottiaux/status/2124923055072043052" target="_blank">https://x.com/thsottiaux/status/2124923055072043052</a>
+<a href="https://x.com/thsottiaux/status/2124998553856844186" target="_blank">https://x.com/thsottiaux/status/2124998553856844186</a>
+<a href="https://x.com/thsottiaux/status/2125027477877887231" target="_blank">https://x.com/thsottiaux/status/2125027477877887231</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Yang</span>
+<span class="builder-role">AI tutorials and interviews / @petergyang</span>
+</div>
+<p class="summary-en">Peter Yang posts three times, two about daily life and one about a product. He complains that schools have many no-school days while parents still have to work (136 likes), and jokes that he is salty about not being able to play GTA 6 during the day (16 likes). On product, he says @ChatGPT Dots still feels buggy, sends emails without his review and randomly stops responding, and wonders whether he is prompting it wrong (96 likes, 60 replies). The two daily-life posts are recorded as written and no AI angle is added to them.</p>
+<p class="summary-zh zh">Peter Yang 发了三条，两条讲日常，一条讲产品。他吐槽学校不上课的日子太多、整周放假而家长还得上班（136 赞），又开玩笑说白天玩不了 GTA 6 让他有点郁闷（16 赞）。产品那条说 @ChatGPT Dots 还是很难用，会在他没审阅的情况下发邮件，还会毫无征兆地停止响应，他怀疑是不是自己提示词写错了（96 赞、60 回复）。两条日常推文按原文记录，不往上面加 AI 角度。</p>
+<div class="urls">
+<a href="https://x.com/petergyang/status/2125030140577296647" target="_blank">https://x.com/petergyang/status/2125030140577296647</a>
+<a href="https://x.com/petergyang/status/2125034054663999684" target="_blank">https://x.com/petergyang/status/2125034054663999684</a>
+<a href="https://x.com/petergyang/status/2125060785667969399" target="_blank">https://x.com/petergyang/status/2125060785667969399</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Madhu Guru</span>
+<span class="builder-role">Sr Director AI at Meta, formerly Gemini at Google</span>
+</div>
+<p class="summary-en">Madhu Guru, whose bio says he is Sr Director of AI at Meta and previously led Gemini, Veo and Nano Banana at Google, posts twice. The longer one is a quote post arguing that the word data massively undersells what it represents in model development: people outside the field picture data as an inert commodity bought and shoveled into a model like coal, while good data encodes high value knowledge, taste and expertise in structures that did not exist before, making it a fundamental building block of capable intelligence and likely to stay central to the industry (16 likes). The other thanks people for their interest, pointers and DMs about a meetup and says updates will be posted here (1 like).</p>
+<p class="summary-zh zh">Madhu Guru 的 bio 写的是 Meta AI 高级总监，此前在 Google 带过 Gemini、Veo、Nano Banana。他发了两条。较长的一条是引用推文，认为 data 这个词严重低估了它在模型开发里代表的东西：不接近模型开发的人把数据想成一种惰性商品，像煤一样买来铲进模型；好的数据其实编码了高价值的知识、判断力和专业经验，而且用的是过去不存在的结构化方式，是造出更强智能的基础构件之一，也会继续是这门行业的核心（16 赞）。另一条感谢大家对一次线下聚会的关注、指点和私信，说后续更新会发在这里（1 赞）。</p>
+<div class="urls">
+<a href="https://x.com/realmadhuguru/status/2124758161068556756" target="_blank">https://x.com/realmadhuguru/status/2124758161068556756</a>
+<a href="https://x.com/realmadhuguru/status/2125102190196859156" target="_blank">https://x.com/realmadhuguru/status/2125102190196859156</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thariq</span>
+<span class="builder-role">formerly Claude Code at Anthropic</span>
+</div>
+<p class="summary-en">Thariq, whose bio says he is at your service and formerly Claude Code at Anthropic, posts twice. A joke says the scene was cut from The Hitchhiker's Guide to the Galaxy in which the computer follows 42 with 500 million pages of Lean (10,567 likes, 546 reposts, second on both). The other says X payouts are a good model for future software companies: keep a lean core team and pay the users who help it grow, get better through feedback and sell (1,327 likes, 28 reposts, 57 replies). The feed gives no further detail on either.</p>
+<p class="summary-zh zh">Thariq 的 bio 写的是 formerly Claude Code at Anthropic。他发了两条。一条是玩笑，说《银河系漫游指南》里有一段被剪掉了：电脑在 42 后面跟了五亿页 Lean（10,567 赞、546 转发，两项都排第二）。另一条说 X 的付费分成是未来软件公司的一个好模式：核心团队保持精干，把钱付给帮产品成长、靠反馈改进、帮忙销售的用户（1,327 赞、28 转发、57 回复）。feed 没有给这两条更多细节。</p>
+<div class="urls">
+<a href="https://x.com/trq212/status/2124767804247379968" target="_blank">https://x.com/trq212/status/2124767804247379968</a>
+<a href="https://x.com/trq212/status/2124987187406275037" target="_blank">https://x.com/trq212/status/2124987187406275037</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Amjad Masad</span>
+<span class="builder-role">CEO of Replit</span>
+</div>
+<p class="summary-en">Amjad Masad posts three times. He announces Replit research on scaling laws for agent swarms: scaling agent count can yield large gains, but more compute does not necessarily help as it does in traditional scaling laws, and how agents organize matters; in a fixed two hour window Opus 5.5 went from 3.7x speedup on NumPy with one agent to 18.9x with 32 agents; GPT-6.2 Astra was the strongest solo agent but showed negative scaling beyond eight agents; decentralized swarms scaled better than centralized ones; parallelizability predicted swarm performance; and individual model intelligence was a poor predictor of collective intelligence. He says Replit is open sourcing Optimization-Bench (295 likes, 72 replies). Another post is the short line The man is severely underpaid, a quote whose target is outside the feed (1,498 likes). The third reports a Friday meeting with VP @JDVance on American AI leadership, cybersecurity and modernizing software infrastructure, and on American leadership in open weight AI: allies want sovereign AI and are looking to Chinese open models, American startups need a competitive model ecosystem, and America could win the frontier race and still lose the global ecosystem. It ends with being happy to see Jensen back at Nvidia, described as a champion of American open weight AI (1,852 likes, 110 reposts, 130 replies). All figures in the research post are his claims as written in the feed.</p>
+<p class="summary-zh zh">Amjad Masad 发了三条。第一条发布 Replit 关于 agent 集群缩放规律的研究：增加 agent 数量能带来大幅收益，但和传统缩放规律不同，更多算力不一定更好，agent 怎么组织很关键；固定两小时窗口里，Opus 5.5 在 NumPy 上从单 agent 的 3.7 倍加速涨到 32 个 agent 的 18.9 倍；GPT-6.2 Astra 是单体最强的 agent，但超过 8 个之后出现负缩放；去中心化集群比中心化协调的集群扩得更好；问题能不能并行是集群表现的强预测项；单个模型的智能程度对集体智能预测力很差。他说 Replit 会开源 Optimization-Bench（295 赞、72 回复）。第二条是一句短话 The man is severely underpaid，引用对象不在 feed 里（1,498 赞）。第三条说周五和副总统 @JDVance 会面，谈美国 AI 领导力、网络安全和软件基础设施现代化，也谈美国在开放权重 AI 上的领导力：盟友想要主权 AI、越来越多看中国开源模型，美国创业公司需要竞争性的模型生态，美国可能赢了前沿竞赛却丢掉全球生态。末尾说很高兴看到 Jensen 回到 Nvidia，称他是美国开放权重 AI 最重要的支持者之一（1,852 赞、110 转发、130 回复）。研究那条里的数字都按 feed 原文作为他的说法记录。</p>
+<div class="urls">
+<a href="https://x.com/amasad/status/2124969305674748175" target="_blank">https://x.com/amasad/status/2124969305674748175</a>
+<a href="https://x.com/amasad/status/2125001371472871659" target="_blank">https://x.com/amasad/status/2125001371472871659</a>
+<a href="https://x.com/amasad/status/2125008810041610359" target="_blank">https://x.com/amasad/status/2125008810041610359</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Guillermo Rauch</span>
+<span class="builder-role">CEO of Vercel</span>
+</div>
+<p class="summary-en">Guillermo Rauch posts three times. He says he asked Fable to study all of his coding sessions and decide whether Opus or Gemini Neon is better, calling it a personal eval; it picked Neon, and he says Google being so back seems widely and wildly under discussed (1,792 likes, 44 reposts, 200 replies). Another is the short line An actually good board, a quote whose target is outside the feed (393 likes). The third says Vercel is doubling down on Japan (375 likes), also a quote post. The feed gives no detail on what the board or the Japan investment refers to.</p>
+<p class="summary-zh zh">Guillermo Rauch 发了三条。他说让 Fable 研究了他所有的编码记录，判断 Opus 和 Gemini Neon 哪个更好，并把这叫作 personal eval；Fable 选了 Neon，他说 Google 回来了这件事似乎被讨论得太少（1,792 赞、44 转发、200 回复）。第二条是一句 An actually good board，引用对象不在 feed 里（393 赞）。第三条说 Vercel 要加码日本（375 赞），同样是引用推文。feed 没有说明这个 board 和日本投入具体指什么。</p>
+<div class="urls">
+<a href="https://x.com/rauchg/status/2124880074168242369" target="_blank">https://x.com/rauchg/status/2124880074168242369</a>
+<a href="https://x.com/rauchg/status/2124881919506886832" target="_blank">https://x.com/rauchg/status/2124881919506886832</a>
+<a href="https://x.com/rauchg/status/2125057274213507253" target="_blank">https://x.com/rauchg/status/2125057274213507253</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aaron Levie</span>
+<span class="builder-role">CEO of Box</span>
+</div>
+<p class="summary-en">Aaron Levie posts twice. The longer one, a quote post and the longest tweet in this feed at 1,264 characters, argues that services businesses have been held back by delivery: scaling could only come from headcount, demand could not be met with finite talent, and customers always want work faster, cheaper or better. Agents change the calculus because output scales without time going in, one engineer can produce what dozens did and one designer can build a whole design system, but experts are still needed at the front end to ensure the right outcomes. He lists cybersecurity, advertising and marketing, legal, accounting and IT transformation as categories likely to follow, and says it is a good time to start or transform such a business (346 likes). The other says 2026 is waking up each day to news that could only have happened once a decade before 2026 (470 likes, 28 reposts).</p>
+<p class="summary-zh zh">Aaron Levie 发了两条。较长的一条是引用推文，也是本期 feed 最长的一条，1,264 字符：服务业一直受交付能力限制，扩张只能靠加人，需求再大也受制于能找到的人才，而客户总想更快、更便宜或更好。agent 改变了这笔账，因为产出可以和时间脱钩，一个工程师能做到过去几十个人的产出，一个设计师能搭起整套设计系统，但前端仍需要专家确保交付的是对的结果。他点名网络安全、广告营销、法律、会计和 IT 转型是接下来会出现的类别，并说现在正是创办或改造这类公司的好时候（346 赞）。另一条说 2026 年每天醒来都能看到放在以前十年才发生一次的新闻（470 赞、28 转发）。</p>
+<div class="urls">
+<a href="https://x.com/levie/status/2124930801485930564" target="_blank">https://x.com/levie/status/2124930801485930564</a>
+<a href="https://x.com/levie/status/2125089009018040779" target="_blank">https://x.com/levie/status/2125089009018040779</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Garry Tan</span>
+<span class="builder-role">President &amp; CEO of Y Combinator</span>
+</div>
+<p class="summary-en">Garry Tan posts once, a quote post offering a startup self prompt: ask yourself whether you are dying, because asking may surface the thing killing you and let you avert it (462 likes, 16 reposts, 94 replies). The feed gives no further context.</p>
+<p class="summary-zh zh">Garry Tan 发了一条，是引用推文，给出一个创业自检的提示：问自己是不是快死了，因为这一问也许能找出正在杀死你的东西、让你避开它（462 赞、16 转发、94 回复）。feed 没有更多上下文。</p>
+<div class="urls">
+<a href="https://x.com/garrytan/status/2124905972296560973" target="_blank">https://x.com/garrytan/status/2124905972296560973</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Matt Turck</span>
+<span class="builder-role">VC at FirstMark Capital</span>
+</div>
+<p class="summary-en">Matt Turck posts twice. One says people on LinkedIn are going to go wild when they hear about Jensen returning next week (439 likes, 14 reposts). The other is the short line BREAKING: AI JESUS IS RISEN (89 likes). Neither post supplies an independent account of the event, so both are recorded as his reactions.</p>
+<p class="summary-zh zh">Matt Turck 发了两条。一条说等 LinkedIn 上的人听说 Jensen 下周回归，会彻底炸开锅（439 赞、14 转发）。另一条是一句 BREAKING: AI JESUS IS RISEN（89 赞）。两条都没有给出对这件事的独立报道，因此都按他的反应记录。</p>
+<div class="urls">
+<a href="https://x.com/mattturck/status/2124867013684367396" target="_blank">https://x.com/mattturck/status/2124867013684367396</a>
+<a href="https://x.com/mattturck/status/2124908682626613368" target="_blank">https://x.com/mattturck/status/2124908682626613368</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Zara Zhang</span>
+<span class="builder-role">Builder / @zarazhangrui</span>
+</div>
+<p class="summary-en">Zara Zhang posts twice. One argues that posting on social media every day and being a very private person are not contradictory: she posts almost daily but shares probably less than 1 percent of her life and thoughts, and the key is finding the slice that is both interesting to others and comfortable to share (263 likes). The other is a quote post linking a piece on how to prevent AI slop in design without being a designer (103 likes). The feed gives no detail on the linked piece.</p>
+<p class="summary-zh zh">Zara Zhang 发了两条。一条说每天发社交媒体和做一个非常注重隐私的人并不矛盾：她几乎每天都发，但分享的大概不到自己生活和想法的 1%，关键是找到既对别人有意思、自己又愿意公开的那一部分（263 赞）。另一条是引用推文，转了一篇讲不是设计师怎么避免设计里的 AI slop 的文章（103 赞）。feed 没有给这篇文章的内容。</p>
+<div class="urls">
+<a href="https://x.com/zarazhangrui/status/2124905740095885414" target="_blank">https://x.com/zarazhangrui/status/2124905740095885414</a>
+<a href="https://x.com/zarazhangrui/status/2125074988210463019" target="_blank">https://x.com/zarazhangrui/status/2125074988210463019</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nikunj Kothari</span>
+<span class="builder-role">Partner at FPV Ventures</span>
+</div>
+<p class="summary-en">Nikunj Kothari posts three times. One says the Nvidia board took this one personally, a quote post whose target is an earlier post of his that appeared in the 2026-11-24 issue (20 likes). Another says no month like November for AI if you like news and drama (18 likes). The third jokes about 2027 job descriptions, listing Founder as Swarm Overlord, Product Manager as Swarm Rider, Designer as Swarm Choreographer, Systems Engineer as Swarm Architect, Forward Deployed Engineer as Swarm Wrangler, Marketer as Swarm Propagandist and VC as Swarm Speculator (25 likes).</p>
+<p class="summary-zh zh">Nikunj Kothari 发了三条。一条说 Nvidia 董事会把这件事看得很重，是引用推文，引用的是他自己在 2026-11-24 那期里出现过的一条旧推文（20 赞）。另一条说喜欢新闻和戏剧性的话，没有哪个月比得上 11 月的 AI（18 赞）。第三条拿 2027 年的职位描述开玩笑，列出 Founder 是 Swarm Overlord、Product Manager 是 Swarm Rider、Designer 是 Swarm Choreographer、Systems Engineer 是 Swarm Architect、Forward Deployed Engineer 是 Swarm Wrangler、Marketer 是 Swarm Propagandist、VC 是 Swarm Speculator（25 赞）。</p>
+<div class="urls">
+<a href="https://x.com/nikunj/status/2124874329238466842" target="_blank">https://x.com/nikunj/status/2124874329238466842</a>
+<a href="https://x.com/nikunj/status/2124915267864301581" target="_blank">https://x.com/nikunj/status/2124915267864301581</a>
+<a href="https://x.com/nikunj/status/2125033540287131901" target="_blank">https://x.com/nikunj/status/2125033540287131901</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Dan Shipper</span>
+<span class="builder-role">CEO of Every</span>
+</div>
+<p class="summary-en">Dan Shipper posts twice, both on personal benchmarks. One says you need to be personal benchmark maxxing (153 likes, 22 replies) and quotes Guillermo Rauch's post from this same feed. The other links a piece by @hammer_mt on how to make a personal benchmark (6 likes). The feed gives no detail on either linked piece.</p>
+<p class="summary-zh zh">Dan Shipper 发了两条，都和 personal benchmark 有关。一条说你得把 personal benchmark 做到极致（153 赞、22 回复），引用的正是本期 feed 里 Guillermo Rauch 那条推文。另一条转了 @hammer_mt 写的一篇如何做 personal benchmark 的文章（6 赞）。feed 没有给这两篇链接的内容。</p>
+<div class="urls">
+<a href="https://x.com/danshipper/status/2124886826909622653" target="_blank">https://x.com/danshipper/status/2124886826909622653</a>
+<a href="https://x.com/danshipper/status/2124896430783447510" target="_blank">https://x.com/danshipper/status/2124896430783447510</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aditya Agarwal</span>
+<span class="builder-role">General Partner at SPC, co-founder of Bevel Health</span>
+</div>
+<p class="summary-en">Aditya Agarwal posts three times. One calls an unnamed launch an agent you do not have to prompt because it is proactive (23 likes), a quote post whose target is outside the feed. Another argues that travelling abroad shows how inspirational America is to the rest of the world, that people aspire to an entrepreneurial ecosystem and capital markets like America's rather than China's, the UK's or Denmark's, and that while America can and must do better, the most ambitious people everywhere study how it builds (27 likes). The third says good organizations that survive an existential crisis return meaner and out for blood, that he felt this repeatedly at Meta, and that Nvidia is not going to hold back now (2 replies).</p>
+<p class="summary-zh zh">Aditya Agarwal 发了三条。一条把某个没点名的发布称作一个不用你提示的 agent，因为它是主动的（23 赞），是引用推文，引用对象不在 feed 里。另一条说出国一趟才能体会美国对世界其他地方有多鼓舞人心，人们向往的是美国这样的创业生态和资本市场，而不是中国、英国或丹麦的；美国当然能做得更好、也必须做得更好，但各国最有野心的人都在研究美国怎么建设（27 赞）。第三条说挺过生存危机的好组织回来时会更凶狠、势在必得，他在 Meta 反复感受到这一点，而 Nvidia 现在不会收着了（2 回复）。</p>
+<div class="urls">
+<a href="https://x.com/adityaag/status/2124947675913367832" target="_blank">https://x.com/adityaag/status/2124947675913367832</a>
+<a href="https://x.com/adityaag/status/2125096073228439683" target="_blank">https://x.com/adityaag/status/2125096073228439683</a>
+<a href="https://x.com/adityaag/status/2125112140260638905" target="_blank">https://x.com/adityaag/status/2125112140260638905</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Sam Altman</span>
+<span class="builder-role">OpenAI</span>
+</div>
+<p class="summary-en">Sam Altman posts twice. The first is the single word Jensen! and it leads this feed on all three engagement measures, with 84,928 likes, 3,397 reposts and 2,004 replies. The second says This is really really good and links out, a quote post whose target is outside the feed (4,032 likes, 285 reposts, 347 replies). The feed does not say what the linked item is, so no subject is supplied. Multiple builders in this feed reacted to Jensen's return to Nvidia, but none of their posts includes an independent report or an official statement.</p>
+<p class="summary-zh zh">Sam Altman 发了两条。第一条只有一句 Jensen!，三项互动数据都是本期 feed 第一：84,928 赞、3,397 转发、2,004 回复。第二条说 This is really really good 并附了链接，是引用推文，引用对象不在 feed 里（4,032 赞、285 转发、347 回复）。feed 没有说明链接内容，这里不补主语。本期多位 builder 都对 Jensen 回归 Nvidia 作出反应，但没有一条包含独立报道或官方声明。</p>
+<div class="urls">
+<a href="https://x.com/sama/status/2124887162206495228" target="_blank">https://x.com/sama/status/2124887162206495228</a>
+<a href="https://x.com/sama/status/2124894264564092952" target="_blank">https://x.com/sama/status/2124894264564092952</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Claude</span>
+<span class="builder-role">Official account of Claude by Anthropic</span>
+</div>
+<p class="summary-en">The official Claude account posts three times. One says zero data retention with Enterprise Frontier Safeguards is now in public beta for eligible businesses, looks for misuse across many requests while staying compatible with zero data retention, and was developed with over 100 customers (5,070 likes, 278 reposts, 251 replies, fifth on likes). A second lists where EFS is available, the Claude Platform, Claude Platform on AWS, Amazon Bedrock and Claude on Google Cloud, with Microsoft Foundry support coming soon (193 likes). The third says connectors and skills now come together as plugins, live on Free, Pro, Max and Ultra plans with Team and Enterprise coming soon, and that more than 10,000 plugins are available (6,717 likes, 363 reposts, 271 replies, third on likes and reposts).</p>
+<p class="summary-zh zh">Claude 官方账号发了三条。第一条说零数据保留加上 Enterprise Frontier Safeguards 已面向符合条件的企业开放公测，它能跨多个请求识别滥用，同时保持与零数据保留兼容，是与 100 多家客户一起做的（5,070 赞、278 转发、251 回复，赞数第五）。第二条列出 EFS 的可用位置：Claude Platform、Claude Platform on AWS、Amazon Bedrock 和 Claude on Google Cloud，Microsoft Foundry 的支持即将上线（193 赞）。第三条说 connectors 和 skills 现在合并为 plugins，已在 Free、Pro、Max、Ultra 套餐上线，Team 和 Enterprise 即将支持，可选的 plugin 超过 10,000 个（6,717 赞、363 转发、271 回复，赞数和转发都是第三）。</p>
+<div class="urls">
+<a href="https://x.com/claudeai/status/2124929944530587712" target="_blank">https://x.com/claudeai/status/2124929944530587712</a>
+<a href="https://x.com/claudeai/status/2124929946925793294" target="_blank">https://x.com/claudeai/status/2124929946925793294</a>
+<a href="https://x.com/claudeai/status/2124970294523945328" target="_blank">https://x.com/claudeai/status/2124970294523945328</a>
+</div>
+</article>
+</section>
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128161;</span>
+<h2 class="section-title">The Takeaway</h2>
+<span class="section-meta">No Podcast Today &middot; 2026-11-25</span>
+</div>
+<div class="takeaway">
+<div class="takeaway-label">The Takeaway</div>
+<p>Jensen's return to Nvidia is the thread that runs across this feed. Sam Altman's Jensen! alone draws 84,928 likes, 3,397 reposts and 2,004 replies, first on every measure and more than eight times the next like count. Matt Turck jokes about LinkedIn's reaction next week, Amjad Masad closes a meeting readout with a welcome back, Aditya Agarwal says Nvidia will not hold back now, and Nikunj Kothari says the board took it personally. These are reactions from the builders; the feed contains no independent report or official statement, so the digest does not treat the return as a separately verified fact.</p>
+<p>Anthropic shipping is the second line. Boris Cherny announces Claude Ship in beta for Team and Enterprise and describes Code Review, PR Steward and Claude Approvals. The Claude account announces plugins that merge connectors and skills, zero data retention with Enterprise Frontier Safeguards in public beta, and EFS availability across its platform and cloud partners. Together these account for six posts from two accounts.</p>
+<p>Dots form the third line, seen from two sides. Thibault Sottiaux says dots are becoming the primary way to get things done inside OpenAI and that dots are building the dots system, while Peter Yang reports that @ChatGPT Dots sends email without review and stops responding at random. Whether these two descriptions refer to the same product is not stated in the feed. Agent swarms and evals form the fourth line: Amjad Masad publishes Replit scaling results for agent swarms, Guillermo Rauch runs a personal eval with Fable and Dan Shipper argues for personal benchmark maxxing.</p>
+</div>
+<div class="takeaway zh">
+<div class="takeaway-label">核心结论</div>
+<p>Jensen 回归 Nvidia 是贯穿本期 feed 的一条线。Sam Altman 那句 Jensen! 一条就有 84,928 赞、3,397 转发、2,004 回复，三项都是第一，赞数是第二名的八倍多。Matt Turck 拿 LinkedIn 下周的反应开玩笑，Amjad Masad 在会面纪要用一句欢迎收尾，Aditya Agarwal 说 Nvidia 现在不会收着了，Nikunj Kothari 说董事会把这件事看得很重。这些都是 builder 的反应，feed 里没有独立报道或官方声明，所以这里不把回归当成一条另外核实过的事实。</p>
+<p>第二条线是 Anthropic 的密集发布。Boris Cherny 宣布 Claude Ship 对 Team 和 Enterprise 开放 beta，并讲了 Code Review、PR Steward、Claude Approvals。Claude 官方账号宣布 connectors 与 skills 合并为 plugins、零数据保留配合 Enterprise Frontier Safeguards 公测，以及 EFS 在自家平台和云合作方的可用范围。两个账号合计六条。</p>
+<p>第三条线是 dots，从两边出现。Thibault Sottiaux 说 dots 正在成为 OpenAI 内部把事情做掉的主要方式，团队已经让 dots 去搭 dots 系统；Peter Yang 则说 @ChatGPT Dots 会在他没审阅时发邮件、还会随机停止响应。两种说法是否指向同一个产品，feed 没有写明。第四条线是 agent 集群和评测：Amjad Masad 发布 Replit 的 agent 集群缩放结果，Guillermo Rauch 用 Fable 做 personal eval，Dan Shipper 主张把 personal benchmark 做到极致。</p>
+</div>
+</section>
+<!-- ============== NOTES ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128221;</span>
+<h2 class="section-title">记录 / Notes &amp; Dedup</h2>
+<span class="section-meta">41 Zero &middot; 0 Dedup &middot; 2 Empty</span>
+</div>
+<div class="dedup">
+<p style="margin-top:12px"><strong>Tweets</strong> All 41 tweet IDs have zero hits across the 136 published digest pages. 17 of the 41 are quote posts pointing at 17 distinct IDs; one of those targets, in Dan Shipper's post, is inside this feed and points to Guillermo Rauch's post. One other target, quoted by Nikunj Kothari, was a post rendered in the 2026-11-24 issue. The remaining 15 quoted IDs are outside the feed and the feed gives the text of none of them. No author quotes a tweet of their own; the Nikunj Kothari quote points at an earlier post of his that falls in a previous issue.</p>
+<p style="margin-top:12px"><strong>Podcast</strong> The slot is 0 because the podcasts array is empty. There is no dedup in this issue and no Already Covered block.</p>
+<p style="margin-top:12px"><strong>Blog</strong> The slot is 0 because the blogs array is empty. This zero has the same cause as the podcast zero, and both are emptiness rather than a dedup hit.</p>
+<p style="margin-top:12px"><strong>Coverage and thin posts</strong> Three timestamps: snapshot 2026-11-24T06:30:02.996Z (Pacific 11-23 22:30:02), first post Pacific 11-22 22:53:16 (Madhu Guru), last post Pacific 11-23 22:19:51 (Aditya Agarwal). Window 23h26m35s, closing 0h10m12s before the snapshot; 1h48m59s after the previous issue's close (Pacific 11-22 21:04:17); previous snapshot 23h51m08s earlier. Pacific 10-29 and 10-30 remain missing. 7 of the 41 posts are one line reactions whose text, once t.co URLs are stripped, is under 40 characters: Swyx's FTX SBF quote link, Amjad Masad's The man is severely underpaid, Guillermo Rauch's An actually good board, Matt Turck's BREAKING: AI JESUS IS RISEN, Nikunj Kothari's Nvidia board took this one personally, Sam Altman's This is really really good and Jensen!. Their links are kept and no subject is added for them.</p>
+<p style="margin-top:12px"><strong>Engagement</strong> Across all 41 posts: 136,485 likes, 5,712 reposts and 6,052 replies. Sam Altman's Jensen! alone is 84,928 likes, 3,397 reposts and 2,004 replies. 13 posts clear 1,000 likes and 2 clear 10,000; 8 clear 100 reposts and 11 clear 100 replies. The longest post is Aaron Levie's at 1,264 characters. Of the 17 accounts, 9 are on the tracked 24 builder list and 8 are not.</p>
+<p style="margin-top:12px"><strong>Not resolved</strong> What the call in Swyx's Microsoft post refers to, and whether it connects to the labs uniting effort he mentions; what the FTX SBF quote says; what Jensen's return consists of and whether any official statement exists; what the board in Guillermo Rauch's post is and what the Japan investment covers; what the proactive agent in Aditya Agarwal's post is; what Fable is and how the personal eval was run; whether the dots described by Thibault Sottiaux and the @ChatGPT Dots tried by Peter Yang are the same product; where the open model figures in Amjad Masad's Vance readout come from, and the source of the 3.7x and 18.9x numbers in his swarm research; and standing items carried from earlier issues (Day 29 / 3/x, dot and dots, jev, Particle-1, HackerTube, Grok Bot, Legora, the data market figure, Claude Whiteboards, Box interop, interactive connectors, the AIE keynote, MCP tool counts, Opal and the 11-27 book date).</p>
+</div>
+<div class="dedup zh" style="margin-top:14px">
+<p style="margin-top:12px"><strong>推文</strong> 41 个推文 ID 对 136 个已发布页面全部零命中。41 条里有 17 条是引用推文，指向 17 个不同 ID；其中一个目标在 Dan Shipper 那条里，指向本期 feed 内的 Guillermo Rauch。另一个被 Nikunj Kothari 引用的目标，是 2026-11-24 那期渲染过的一条推文。其余 15 个引用 ID 都在 feed 外，feed 没有给出其中任何一条的正文。没有人引用自己本期的一条推文；Nikunj Kothari 引用的是自己落在上一期的一条旧推文。</p>
+<p style="margin-top:12px"><strong>播客</strong> 这一格是 0，因为 podcasts 数组为空。本期没有判重，也没有「已收录」区块。</p>
+<p style="margin-top:12px"><strong>博客</strong> 这一格是 0，因为 blogs 数组为空。这个 0 和播客的 0 成因相同，两个都是空数组，不是判重命中。</p>
+<p style="margin-top:12px"><strong>覆盖与薄内容</strong> 三个时刻：快照 2026-11-24T06:30:02.996Z（太平洋 11-23 22:30:02），首条太平洋 11-22 22:53:16（Madhu Guru），末条太平洋 11-23 22:19:51（Aditya Agarwal）。窗口 23 小时 26 分 35 秒，在快照前 0 小时 10 分 12 秒收口；距上一期收口（太平洋 11-22 21:04:17）1 小时 48 分 59 秒；上一份快照相隔 23 小时 51 分 08 秒。太平洋 10-29、10-30 仍永久缺失。41 条里有 7 条是一句话反应，去掉 t.co 链接后正文不足 40 字符：Swyx 的 FTX SBF 引语链接、Amjad Masad 的 The man is severely underpaid、Guillermo Rauch 的 An actually good board、Matt Turck 的 BREAKING: AI JESUS IS RISEN、Nikunj Kothari 的 Nvidia board took this one personally、Sam Altman 的 This is really really good 和 Jensen!。链接都保留，不补主语。</p>
+<p style="margin-top:12px"><strong>互动数据</strong> 41 条合计 136,485 赞、5,712 转发、6,052 回复。Sam Altman 的 Jensen! 一条就是 84,928 赞、3,397 转发、2,004 回复。13 条赞数过千，2 条过万；8 条转发过百，11 条回复过百。最长一条是 Aaron Levie 的 1,264 字符。17 个账号里 9 位在追踪的 24 人名单内、8 位不在。</p>
+<p style="margin-top:12px"><strong>未解决</strong> Swyx 那条 Microsoft post 里的 call 指什么、是否和他说的实验室联合有关；那条 FTX SBF 引语的内容；Jensen 回归具体是什么、有没有官方声明；Guillermo Rauch 说的 board 是什么、日本投入覆盖什么；Aditya Agarwal 说的那个主动 agent 是哪个产品；Fable 是什么、personal eval 怎么做的；Thibault Sottiaux 讲的 dots 和 Peter Yang 试的 @ChatGPT Dots 是不是同一个产品；Amjad Masad 会面纪要里开放模型数字、以及他集群研究里 3.7 倍和 18.9 倍两个数字的出处；以及往期长期项（Day 29 / 3/x、dot 与 dots、jev、Particle-1、HackerTube、Grok Bot、Legora、数据市场规模、Claude Whiteboards、Box 互通、interactive connectors、AIE keynote、MCP 工具数、Opal 和 11-27 新书日期）。</p>
+</div>
+</section>
+<footer class="footer">
+<div class="next-issue">&#128236; 下一期：明天 10:00（北京时间）</div>
+<div class="signature"><a href="#top" style="border:none;color:var(--ink-muted)">回到顶部 / Back to top</a></div>
+<div class="signature">by chloevchen</div>
+</footer>
+</body>
+</html>
+<!-- by chloevchen -->
