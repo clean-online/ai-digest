@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Builders Digest &middot; 2026-11-26</title>
+<style>
+
+
+
+
+
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 28px 30px; margin-bottom: 24px; }
+  .podcast-source { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
+  .podcast-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; margin-bottom: 18px; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; }
+
+
+</style>
+</head>
+<body id="top">
+<header class="topbar">
+<div class="topbar-inner">
+<a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders &middot; AI Builders Digest</a>
+<span>双语 &middot; Bilingual</span>
+</div>
+</header>
+<section class="header">
+<div class="eyebrow">Daily Digest &middot; 2026-11-26</div>
+<h1>AI Builders Digest</h1>
+</section>
+<div class="stats">
+<div class="stat">
+<div class="stat-num">16</div>
+<div class="stat-label">Builders</div>
+</div>
+<div class="stat">
+<div class="stat-num">34</div>
+<div class="stat-label">Tweets</div>
+</div>
+<div class="stat">
+<div class="stat-num">1</div>
+<div class="stat-label">Podcast</div>
+</div>
+<div class="stat">
+<div class="stat-num">0</div>
+<div class="stat-label">Blog</div>
+</div>
+</div>
+<p class="note-line">Feed snapshot 2026-11-25T06:30:31.369Z (Pacific 11-24 22:30:31). All 34 tweets are rendered: 16 builders, 0 dropped. The podcast slot is 1 and new to the series; the blogs array is empty. 34 posts fall on Pacific 11-24. Thibault Sottiaux leads likes and replies, Boris Cherny leads reposts. Every engagement figure below is the value carried in the feed; none is estimated.</p>
+<p class="note-line zh">feed 快照 2026-11-25T06:30:31.369Z（太平洋 11-24 22:30:31）。34 条推文全部渲染：16 位 builder，一条没删。播客这一格是 1，对本系列是新的一集；blogs 数组为空。34 条全部落在太平洋 11-24。Thibault Sottiaux 赞数和回复第一，Boris Cherny 转发第一。下面所有互动数字都取自 feed 原值，没有估算。</p>
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128036;</span>
+<h2 class="section-title">X / Twitter</h2>
+<span class="section-meta">16 Builders &middot; 34 Tweets</span>
+</div>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Swyx</span>
+<span class="builder-role">Latent Space / smol ai / Cognition</span>
+</div>
+<p class="summary-en">Swyx posts three times late in the window. The earliest shares a list from John covering local-cloud environments and sandboxes, a session versus conversation store, a user approval inbox, stream listeners, artifacts for everyone and dashboard configurations (5 likes, 7 replies). He then asks whether Silicon Valley is okay, with two links and no further text (154 likes, 16 replies). The last says that turning your brain off at that point is a choice not to listen (6 likes, 2 replies). All three are quote posts; the feed gives no text for the linked items, so no subject is supplied.</p>
+<p class="summary-zh zh">Swyx 在窗口后段发了三条。最早一条转了 John 的一份清单，涵盖本地云环境与 sandbox、session 与 conversation 存储的区分、用户审批收件箱、stream listeners、面向所有人的 artifacts，以及各种 dashboard 配置（5 赞、7 回复）。接着他问硅谷还好吗，附两条链接、没有多余文字（154 赞、16 回复）。最后一条说到这个阶段把脑子关掉，等于选择不去听（6 赞、2 回复）。三条都是引用推文，feed 没给链接内容的正文，这里不补主语。</p>
+<div class="urls">
+<a href="https://x.com/swyx/status/2125431392226148670" target="_blank">https://x.com/swyx/status/2125431392226148670</a>
+<a href="https://x.com/swyx/status/2125444028527468699" target="_blank">https://x.com/swyx/status/2125444028527468699</a>
+<a href="https://x.com/swyx/status/2125448165197570547" target="_blank">https://x.com/swyx/status/2125448165197570547</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Boris Cherny</span>
+<span class="builder-role">Claude at Anthropic</span>
+</div>
+<p class="summary-en">Boris Cherny, whose bio places him on Claude at Anthropic, posts once. He says MCP servers can now ship with their own skills, so Claude Code knows how to use them out of the box. The post draws 5,102 likes, 226 replies and 210 reposts, the top repost count in this feed.</p>
+<p class="summary-zh zh">Boris Cherny 的 bio 写的是在 Anthropic 做 Claude。他发了一条，说 MCP server 现在可以自带 skills，Claude Code 开箱就知道怎么用。这条拿到 5,102 赞、226 回复、210 转发，转发数是本期 feed 第一。</p>
+<div class="urls">
+<a href="https://x.com/bcherny/status/2125292098165612585" target="_blank">https://x.com/bcherny/status/2125292098165612585</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thibault Sottiaux</span>
+<span class="builder-role">Codex &amp; ChatGPT at OpenAI</span>
+</div>
+<p class="summary-en">Thibault Sottiaux, whose bio says Codex and ChatGPT at OpenAI, posts three times within a minute. The first tells ChatGPT Business teams there are two small things for them: a banked reset and fast mode at no extra charge through Dec 31 (5,295 likes, 1,064 replies, 154 reposts, first on both likes and replies). A second post is only a link (320 likes, 50 replies) and a third says to sign up for ChatGPT Business (167 likes, 25 replies). All three are quote posts.</p>
+<p class="summary-zh zh">Thibault Sottiaux 的 bio 写的是 OpenAI 的 Codex 和 ChatGPT。他在一分钟内发了三条。第一条告诉 ChatGPT Business 团队有两件小事：一个 banked reset，以及到 12 月 31 日免费提供的 fast mode（5,295 赞、1,064 回复、154 转发，赞数和回复都是第一）。第二条只有一条链接（320 赞、50 回复），第三条说去注册 ChatGPT Business（167 赞、25 回复）。三条都是引用推文。</p>
+<div class="urls">
+<a href="https://x.com/thsottiaux/status/2125299248782778588" target="_blank">https://x.com/thsottiaux/status/2125299248782778588</a>
+<a href="https://x.com/thsottiaux/status/2125299436964479474" target="_blank">https://x.com/thsottiaux/status/2125299436964479474</a>
+<a href="https://x.com/thsottiaux/status/2125299467691987445" target="_blank">https://x.com/thsottiaux/status/2125299467691987445</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Yang</span>
+<span class="builder-role">Practical AI tutorials / interviews</span>
+</div>
+<p class="summary-en">Peter Yang posts three times. He published a free video course on using Gemini 4 Neon with Antigravity and lists three takeaways: the orchestrator and /swarm are useful for planning and building with multiple agents, with 42 agents running at once at one point; /grill-me is a built-in skill that asks clarifying questions before a plan is fleshed out; and remote control is better than Claude Code's because every thread is active by default, with a tip on adding Antigravity to a phone home screen (580 likes, 44 replies). A follow-up points to the designer behind Antigravity and the new reset guy for Gemini (6 likes). A later post promotes his newsletter and says it has over 110,000 subscribers (0 likes).</p>
+<p class="summary-zh zh">Peter Yang 发了三条。他发布了一个免费视频课程，讲怎么把 Gemini 4 Neon 和 Antigravity 搭配使用，并列出三点：orchestrator 和 /swarm 适合用多个 agent 做规划和构建，他一度让 42 个 agent 同时运行；/grill-me 是内置 skill，会在方案成形前追问澄清问题；remote control 比 Claude Code 的好，因为每个 thread 默认都是活跃的，他还演示了怎么把 Antigravity 加到手机主屏（580 赞、44 回复）。一条补充指向 Antigravity 背后的设计师和 Gemini 新来的 reset guy（6 赞）。较晚一条在推广他的 newsletter，说订阅者已超过 11 万（0 赞）。</p>
+<div class="urls">
+<a href="https://x.com/petergyang/status/2125246815884984398" target="_blank">https://x.com/petergyang/status/2125246815884984398</a>
+<a href="https://x.com/petergyang/status/2125246828082057462" target="_blank">https://x.com/petergyang/status/2125246828082057462</a>
+<a href="https://x.com/petergyang/status/2125436963645952307" target="_blank">https://x.com/petergyang/status/2125436963645952307</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nan Yu</span>
+<span class="builder-role">Product, Codex at OpenAI</span>
+</div>
+<p class="summary-en">Nan Yu, whose bio says product at Codex and previously head of product at Linear, posts twice. Both are short lines, DOT SUPREMACY (15 likes, 1 reply) and MOAR DOT SUPREMACY (1 like), each with a link. Both are quote posts and the feed gives no text for the linked items.</p>
+<p class="summary-zh zh">Nan Yu 的 bio 写的是 Codex 产品、此前在 Linear 做产品负责人。她发了两条，都是短句：DOT SUPREMACY（15 赞、1 回复）和 MOAR DOT SUPREMACY（1 赞），各带一条链接。两条都是引用推文，feed 没给链接内容的正文。</p>
+<div class="urls">
+<a href="https://x.com/thenanyu/status/2125388928647880795" target="_blank">https://x.com/thenanyu/status/2125388928647880795</a>
+<a href="https://x.com/thenanyu/status/2125427566647640288" target="_blank">https://x.com/thenanyu/status/2125427566647640288</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Madhu Guru</span>
+<span class="builder-role">Sr Director, AI at Meta</span>
+</div>
+<p class="summary-en">Madhu Guru, Sr Director of AI at Meta and previously lead of Gemini, Veo and Nano Banana at Google, posts once. He argues that predictions around the Jensen saga showed how little correlation there is between confidence and being right: prominent VC, analyst and expert figures spoke with complete confidence, some reversed within days with the same confidence, and the information ecosystem rewards certainty, speed and brashness. He says 'I don't know, let's see how this plays out' does not get attention, and advises treating expert commentary with salt and using the news cycle to calibrate who is consistently loud and wrong (22 likes).</p>
+<p class="summary-zh zh">Madhu Guru 是 Meta AI 高级总监，此前在 Google 带过 Gemini、Veo 和 Nano Banana。他发了一条，认为围绕 Jensen 事件的预测体现了信心与正确率之间几乎没关系：知名 VC、分析师和专家说得极其确定，有人几天内就改口、语气同样确定，而信息生态奖励确定、速度和莽撞。他说「我不知道，先看看怎么发展」这种话没人看，建议对所有专家评论保持怀疑，并借这个新闻周期去校准谁一直声音大又总是错（22 赞）。</p>
+<div class="urls">
+<a href="https://x.com/realmadhuguru/status/2125355549202194801" target="_blank">https://x.com/realmadhuguru/status/2125355549202194801</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thariq</span>
+<span class="builder-role">Formerly Claude Code at Anthropic</span>
+</div>
+<p class="summary-en">Thariq, whose bio says formerly Claude Code at Anthropic, posts once: you have to be bad at it for a while, with a link (2,013 likes, 77 replies, 77 reposts). It is a quote post and the feed gives no text for the linked item.</p>
+<p class="summary-zh zh">Thariq 的 bio 写的是 formerly Claude Code at Anthropic。他发了一条：你得先做得差一段时间，附一条链接（2,013 赞、77 回复、77 转发）。这是引用推文，feed 没给链接内容的正文。</p>
+<div class="urls">
+<a href="https://x.com/trq212/status/2125156290494353663" target="_blank">https://x.com/trq212/status/2125156290494353663</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Amjad Masad</span>
+<span class="builder-role">CEO, Replit</span>
+</div>
+<p class="summary-en">Amjad Masad posts three times. He argues that token demand grows in step functions rather than steadily, as new harnesses put more compute to work for a single user: auto-complete, chat, agent, long-running autonomous agents and swarms, with each harness innovation unlocking an order of magnitude more token consumption and a lag before users work out what to do with it (215 likes, 72 replies). In the longest post in this feed, at 1,299 characters, he argues that America can build the best frontier models and still lose the global AI race, because governments want sovereign AI they can run on their own soil and infrastructure; if American companies do not meet that demand, Chinese companies will, and countries will adopt Chinese models first and then Chinese infrastructure and chips. He points to Huawei's telecom infrastructure as an example of lasting strategic influence and says Jensen's backing of the American open-model ecosystem matters because open models give startups freedom to compete and countries a reason to build on American technology (633 likes, 73 reposts, 53 replies). A third post says 3B local Muse (186 likes, 22 replies). The figures in these posts are his claims as written in the feed.</p>
+<p class="summary-zh zh">Amjad Masad 发了三条。他认为 token 需求不是平稳增长，而是随新的 harness 把更多算力用在单个用户身上而阶跃上升：自动补全、聊天、agent、长时间运行的自主 agent、集群；每一种 harness 创新都解锁一个数量级的 token 消耗潜力，而用户要过一段时间才想明白拿它做什么（215 赞、72 回复）。本期最长的一条推文有 1,299 字符，他写道美国能造出最好的前沿模型，却仍可能输掉全球 AI 竞赛，因为各国想要能在自己国土和基础设施上运行的主权 AI；美国公司若不满足这个需求，中国公司会满足，各国会先采用中国模型，再采用中国的基础设施和芯片。他举华为的电信基础设施为例，说明供给基础设施会带来持久的战略影响，并说 Jensen 支持美国开放模型生态很重要，因为开放模型让创业公司能自由竞争，也让其他国有理由建在美国技术上（633 赞、73 转发、53 回复）。第三条说 3B local Muse（186 赞、22 回复）。这些推文中的数字都是他按 feed 原文给出的说法。</p>
+<div class="urls">
+<a href="https://x.com/amasad/status/2125287538911072753" target="_blank">https://x.com/amasad/status/2125287538911072753</a>
+<a href="https://x.com/amasad/status/2125353849057853876" target="_blank">https://x.com/amasad/status/2125353849057853876</a>
+<a href="https://x.com/amasad/status/2125414100692041797" target="_blank">https://x.com/amasad/status/2125414100692041797</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Guillermo Rauch</span>
+<span class="builder-role">CEO, Vercel</span>
+</div>
+<p class="summary-en">Guillermo Rauch posts three times. He explains that the reason the linked tool is a CLI is that it is a thin wrapper around libfx, and that the goal is the smallest and most intelligent coding agent kernel, embeddable on browsers, servers, mobile, desktop, OS and ADEs (237 likes, 50 replies). A second post, Good stuff, has a link and no other text (248 likes, 11 replies). A third says he open sourced the bg effect builder (34 likes, 5 replies); it quotes his own libfx post from earlier in the same feed. All three are quote posts.</p>
+<p class="summary-zh zh">Guillermo Rauch 发了三条。他解释那条链接指向的工具之所以做成 CLI，是因为它只是 libfx 的一层薄封装；目标是做出最小、最聪明、能嵌到浏览器、服务器、移动端、桌面、操作系统和各种开发环境里的 coding agent 内核（237 赞、50 回复）。第二条只有一句 Good stuff 加一条链接（248 赞、11 回复）。第三条说他开源了 bg effect builder（34 赞、5 回复），这条引用的是他本期早些时候那条 libfx 推文。三条都是引用推文。</p>
+<div class="urls">
+<a href="https://x.com/rauchg/status/2125320020666565096" target="_blank">https://x.com/rauchg/status/2125320020666565096</a>
+<a href="https://x.com/rauchg/status/2125330925324300725" target="_blank">https://x.com/rauchg/status/2125330925324300725</a>
+<a href="https://x.com/rauchg/status/2125426206183239770" target="_blank">https://x.com/rauchg/status/2125426206183239770</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aaron Levie</span>
+<span class="builder-role">CEO, Box</span>
+</div>
+<p class="summary-en">Aaron Levie posts once. He argues that 10X output gains based on the latest AI model and harness progress are becoming reasonable, so teams inside the same company now see very different output levels depending on how they adopted AI. He contrasts this with earlier technology, where adoption was usually measured per firm and the uplift was roughly the same across teams; with AI he sees up to a 10X delta between the lowest and highest adopters inside one company, with teams that redesign their processes to put agents to work seeing up to an order of magnitude gain. He says this is concentrated in coding for now but will spread as more work becomes coding-adjacent (160 likes, 39 replies).</p>
+<p class="summary-zh zh">Aaron Levie 发了一条。他认为基于最新 AI 模型和 harness 进展，10 倍产出提升正变得合理，因此同一家公司内部，团队会因为采用 AI 的程度不同而出现差别很大的产出。他把它和早期技术作对比：过去技术采用通常按公司衡量，各团队的提升大致相同；AI 则会在一家公司内部的最低和最高采用者之间拉开最多 10 倍差距，那些重新设计流程、把 agent 放进工作流的团队，能看到最多一个数量级的提升。他说目前这集中在编程，但随着更多工作变得与编程相邻，会扩散到其他岗位（160 赞、39 回复）。</p>
+<div class="urls">
+<a href="https://x.com/levie/status/2125442246543814686" target="_blank">https://x.com/levie/status/2125442246543814686</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Garry Tan</span>
+<span class="builder-role">President &amp; CEO, Y Combinator</span>
+</div>
+<p class="summary-en">Garry Tan posts three times. The first says the models have reached beyond what some customers need, though he suspects a step function in agency and taste is still available (54 likes, 7 replies). The second says society has hit a limit in its ability to absorb the technology socially, because there are natural brakes on how far a knowledge work or business process can change: people do not like their cheese moved (74 likes, 13 replies). The third says YC is the YC for hard tech, with a link (315 likes, 33 replies).</p>
+<p class="summary-zh zh">Garry Tan 发了三条。第一条说模型已经超出部分客户的需要，不过他怀疑在自主性和品味上还有一次阶跃可用（54 赞、7 回复）。第二条说社会在吸收这项技术的能力上碰到极限，因为知识工作或业务流程能改变多少存在天然的刹车，人们不喜欢自己的奶酪被挪走（74 赞、13 回复）。第三条说 YC 就是 hard tech 的 YC，附一条链接（315 赞、33 回复）。</p>
+<div class="urls">
+<a href="https://x.com/garrytan/status/2125247943540142577" target="_blank">https://x.com/garrytan/status/2125247943540142577</a>
+<a href="https://x.com/garrytan/status/2125247972158193792" target="_blank">https://x.com/garrytan/status/2125247972158193792</a>
+<a href="https://x.com/garrytan/status/2125258221946630432" target="_blank">https://x.com/garrytan/status/2125258221946630432</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Matt Turck</span>
+<span class="builder-role">VC, FirstMark Capital</span>
+</div>
+<p class="summary-en">Matt Turck posts twice. One quotes a line about Anthropic being below IPO price and barely a trillion dollar company after almost six years (39 likes, 7 replies). The other says The man did change, with a link (69 likes, 9 replies). The feed gives no text for either linked item, so both are recorded as written.</p>
+<p class="summary-zh zh">Matt Turck 发了两条。一条引用了一句话，说 Anthropic 低于 IPO 价格，做了将近六年也才勉强算得上万亿美元公司（39 赞、7 回复）。另一条说「这人确实变了」，附一条链接（69 赞、9 回复）。feed 没给这两条链接内容的正文，因此都按原文记录。</p>
+<div class="urls">
+<a href="https://x.com/mattturck/status/2125275072802029631" target="_blank">https://x.com/mattturck/status/2125275072802029631</a>
+<a href="https://x.com/mattturck/status/2125395139581657558" target="_blank">https://x.com/mattturck/status/2125395139581657558</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Zara Zhang</span>
+<span class="builder-role">Builder</span>
+</div>
+<p class="summary-en">Zara Zhang posts twice. One says the clarity of a product's positioning is inversely proportional to the number of words it takes to explain what it is in plain language (92 likes, 13 replies). The other says humans are visual animals, with a link (34 likes, 4 replies). The feed gives no text for the linked item.</p>
+<p class="summary-zh zh">Zara Zhang 发了两条。一条说产品定位的清晰度，与用大白话解释它需要多少个词成反比（92 赞、13 回复）。另一条说人是视觉动物，附一条链接（34 赞、4 回复）。feed 没给链接内容的正文。</p>
+<div class="urls">
+<a href="https://x.com/zarazhangrui/status/2125256097925865639" target="_blank">https://x.com/zarazhangrui/status/2125256097925865639</a>
+<a href="https://x.com/zarazhangrui/status/2125339516496200100" target="_blank">https://x.com/zarazhangrui/status/2125339516496200100</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nikunj Kothari</span>
+<span class="builder-role">Partner, FPV Ventures</span>
+</div>
+<p class="summary-en">Nikunj Kothari posts twice. One quotes the Ratatouille line that not everyone can become a great artist but a great artist can come from anywhere, using it to argue that generational talent cannot be typecast across founders, operators and investors (68 likes, 7 replies). The other is a 2026 pitches in a nutshell list, with one line each for app, harness, inference, model, data, infra, chip and energy companies on who controls the universe (121 likes, 12 replies).</p>
+<p class="summary-zh zh">Nikunj Kothari 发了两条。一条引用《料理鼠王》里那句「不是每个人都能成为伟大的艺术家，但伟大的艺术家可以来自任何地方」，用来说明一代人的天赋无法被定型，创始人、经营者、投资人都是如此（68 赞、7 回复）。另一条是一份「2026 年路演一句话总结」清单，给应用、harness、推理、模型、数据、基础设施、芯片、能源公司各写一行，讲的是谁掌控宇宙（121 赞、12 回复）。</p>
+<div class="urls">
+<a href="https://x.com/nikunj/status/2125270251491520702" target="_blank">https://x.com/nikunj/status/2125270251491520702</a>
+<a href="https://x.com/nikunj/status/2125376105024758112" target="_blank">https://x.com/nikunj/status/2125376105024758112</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Steinberger</span>
+<span class="builder-role">OpenClaw / OpenAI</span>
+</div>
+<p class="summary-en">Peter Steinberger posts once with a year-end reflection. He says OpenClaw is in a good place, found a niche in prosumer and enterprise adoption, and that its multiplayer team feature is best in class. He says shipping reliable free open source is hard and that waking up to user complaints every day is an emotional challenge, though the team now takes on most of the work. He says the focus has been on the boring parts of making things fast, reliable and secure, apart from a new memory system and an OpenClaw ID coming soon (590 likes, 83 replies).</p>
+<p class="summary-zh zh">Peter Steinberger 发了一条年终回顾。他说 OpenClaw 状态不错，在专业消费者和企业采用上找到了合适的定位，多人协作的团队功能是一流的。他说交付可靠又免费的开源产品很难，每天醒来面对大量用户抱怨是情绪上的挑战，好在团队现在接手了大部分工作。他说重心一直放在让产品更快、更可靠、更安全的这些无聊部分，例外是新的记忆系统，以及即将推出的 OpenClaw ID（590 赞、83 回复）。</p>
+<div class="urls">
+<a href="https://x.com/steipete/status/2125422797304549672" target="_blank">https://x.com/steipete/status/2125422797304549672</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Dan Shipper</span>
+<span class="builder-role">CEO, Every</span>
+</div>
+<p class="summary-en">Dan Shipper posts three times, all short lines with links and no added text: read the rest (6 likes), two bare links (13 likes), and my first prompt when we get early access to a new model (26 likes, 3 replies). The feed gives no text for the linked items.</p>
+<p class="summary-zh zh">Dan Shipper 发了三条，都是短句加链接、没有多余文字：「读剩下的部分」（6 赞）、两条裸链接（13 赞），以及「我们拿到新模型早期访问权限时我的第一个提示词」（26 赞、3 回复）。feed 没给这些链接内容的正文。</p>
+<div class="urls">
+<a href="https://x.com/danshipper/status/2125370917719343278" target="_blank">https://x.com/danshipper/status/2125370917719343278</a>
+<a href="https://x.com/danshipper/status/2125379920461533255" target="_blank">https://x.com/danshipper/status/2125379920461533255</a>
+<a href="https://x.com/danshipper/status/2125380245461045492" target="_blank">https://x.com/danshipper/status/2125380245461045492</a>
+</div>
+</article>
+</section>
+<!-- ============== PODCAST ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#127911;</span>
+<h2 class="section-title">Podcast</h2>
+<span class="section-meta">1 Episode &middot; New to the Series</span>
+</div>
+<div class="podcast"><div class="podcast-source">Unsupervised Learning</div><div class="podcast-title">Ep 98: China Expert on Jensen&rsquo;s Return</div>
+<p class="summary-en">The Takeaway: when one side holds a ten to fifteen fold compute advantage, co-designing models with your own chips barely moves the number; the real leverage sits in the manufacturing equipment and materials that decide who can build at scale.</p>
+<p class="summary-en">Jordan Schneider has hosted China Talk for ten years. He joined Jacob Efron, an investor at Redpoint, for an emergency episode on Jensen Huang's return to Nvidia. Much of the conversation is about export controls, compute and manufacturing, with the AI industry tied to industrial policy.</p>
+<p class="summary-en">On compute, Schneider's argument is that the western ecosystem's ten to fifteen times advantage makes model and chip co-development a rounding error. He says the constraint on Huawei is supply, not demand: high-bandwidth memory and the EUV, etch and deposition machines needed to make advanced chips. Controls on those tools, he argues, matter more than controls on finished Nvidia chips.</p>
+<p class="summary-en">On robots, he describes walking the floor at CORAL, a robot machine learning conference in Austin, and finding the humanoids unable to do much. A DeepMind demo could barely pick up a muffin. On that split he says: 'the model thing is 20%, and then it's gonna be all this other stuff,' from actuators to magnets, with many components still sourced from a single place. He puts the odds of new controls on robotics data at about 75 percent.</p>
+<p class="summary-en">On public support, he cites a poll in which only 2 percent of Americans want AI to progress faster, and warns that data centre backlash could turn into state level and eventually national legislation within a few years. Names, figures and spellings follow the transcript; this is an interview and its claims are the speakers'.</p>
+<p class="summary-zh zh">核心结论：当一方握有十到十五倍的算力优势，让模型和自研芯片共同设计几乎改变不了这个数字；真正的杠杆在决定谁能规模化制造的设备和材料上。</p>
+<p class="summary-zh zh">Jordan Schneider 主持 China Talk 已有十年。他做客 Jacob Efron（Redpoint 投资人）的一期临时节目，谈 Jensen Huang 回到 Nvidia。整场对话把 AI 产业和产业政策连在一起看，大部分围绕出口管制、算力和制造。</p>
+<p class="summary-zh zh">算力方面，Schneider 的说法是西方生态十到十五倍的优势，让模型和芯片的共同优化变成一个舍入误差。他说华为的瓶颈在供给而非需求：高带宽内存，以及制造先进芯片需要的 EUV、刻蚀和沉积设备。他认为管制这些设备，比管制成品 Nvidia 芯片更关键。</p>
+<p class="summary-zh zh">机器人方面，他描述在奥斯汀的机器人机器学习会议 CORAL 逛展，看到那些人形机器人基本做不了什么；DeepMind 的演示勉强能拿起一个松饼。谈到两者分工，他说：「模型的部分占 20%，剩下的全是别的东西」，从执行器到磁体，很多部件仍来自单一来源。他给「机器人数据会被加管制」这件事约 75% 的概率。</p>
+<p class="summary-zh zh">公众支持度上，他引用一份民调，说只有 2% 的美国人希望 AI 更快推进，并提醒数据中心的反弹可能在几年内变成州层面、最终是全国层面的立法。人名、数字和拼写按转写原样照录；这是一场访谈，其中的说法都属于说话人本人。</p>
+<div class="urls">
+<a href="https://www.youtube.com/watch?v=gkd5eOQGASU" target="_blank">https://www.youtube.com/watch?v=gkd5eOQGASU</a>
+</div></div>
+</section>
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128161;</span>
+<h2 class="section-title">The Takeaway</h2>
+<span class="section-meta">1 Podcast &middot; 2026-11-26</span>
+</div>
+<div class="takeaway">
+<div class="takeaway-label">The Takeaway</div>
+<p>ChatGPT Business leads engagement. Thibault Sottiaux tells business teams there is a banked reset and fast mode at no extra charge through Dec 31, and the post takes both the top likes (5,295) and top replies (1,064). Boris Cherny's note that MCP servers can now ship with their own skills takes the top reposts (210) and 5,102 likes. Across 34 posts the totals are 16,900 likes, 668 reposts and 1,956 replies; three clear 1,000 likes, none clears 10,000, two clear 100 reposts and two clear 100 replies.</p>
+<p>The Jensen Huang story moves from reaction to analysis in this feed. Madhu Guru uses the prediction cycle to argue that confidence and correctness barely correlate; Amjad Masad argues that America can lead on frontier models and still lose the global race if it does not meet demand for sovereign AI, and ties Jensen's return to American open models; Matt Turck and Garry Tan contribute shorter reactions. The podcast takes the geopolitical angle in depth, with a new episode from Unsupervised Learning.</p>
+<p>Agents and harnesses form the third line. Amjad Masad describes token demand rising in step functions as harnesses move from auto-complete to swarms, Peter Yang reports running 42 agents at once through Antigravity, Aaron Levie describes up to a 10X output gap between adopters inside one company, and Guillermo Rauch describes a coding agent kernel built as a thin wrapper around libfx. Whether the dots mentioned by Nan Yu are the same product discussed in earlier issues remains unresolved.</p>
+<p>The Podcast slot is 1 and it is new, not a repeat. Unsupervised Learning published Ep 98: China Expert on Jensen's Return at 2026-11-24T13:05:03.000Z (Pacific 2026-11-24 05:05:03), 3h49m46s after the first post, 15h30m03s before the last and 17h25m28s before the snapshot, on the same Pacific day as all 34 posts. Its full title, the specific video URL https://www.youtube.com/watch?v=gkd5eOQGASU, the publishedAt timestamp and the transcript anchors Jordan Schneider and China Talk all return zero hits across the 137 published pages. The previous issue had no podcast and no dedup; this issue restores the slot with a new episode, and the page links to the specific video.</p>
+<p>Quote structure and coverage: 17 of the 34 posts are quote posts pointing at 17 distinct IDs. One target is Guillermo Rauch's own libfx post from this same feed, making it a self-quote; the other 16 are outside the feed and the feed gives the text of none of them. No two posts share a target. All 34 tweet IDs return zero hits against the 137 published pages. The window runs from Pacific 2026-11-24 01:15:17 (Thariq) to Pacific 2026-11-24 20:35:06 (Swyx), a 19h19m49s span closing 1h55m25s before the snapshot; all 34 posts fall on Pacific 11-24, 2h55m26s after the previous issue's close, with the previous snapshot 24h00m28s earlier and no gap in coverage. Pacific 10-29 and 10-30 remain missing from the series.</p>
+<p>16 accounts posted: 8 are on the 24-name tracking list (Swyx, Peter Yang, Amjad Masad, Guillermo Rauch, Garry Tan, Matt Turck, Nikunj Kothari, Peter Steinberger) and 8 are not (Boris Cherny, Thibault Sottiaux, Nan Yu, Madhu Guru, Thariq, Aaron Levie, Zara Zhang, Dan Shipper). Sam Altman does not appear in this issue after appearing on 11-25. 13 of the 34 posts are one line reactions whose text, once t.co URLs are stripped, is under 40 characters; their links are kept and no subject is added. The blogs array is empty again this issue.</p>
+</div>
+<div class="takeaway zh">
+<div class="takeaway-label">核心结论</div>
+<p>ChatGPT Business 拿下互动第一。Thibault Sottiaux 告诉商业团队有一个 banked reset，以及到 12 月 31 日免费的 fast mode，这条同时拿到最高赞 5,295 和最高回复 1,064。Boris Cherny 说 MCP server 现在可以自带 skills，拿到最高转发 210 和 5,102 赞。34 条合计 16,900 赞、668 转发、1,956 回复；3 条破千赞，0 条破万，2 条转发过百，2 条回复过百。</p>
+<p>Jensen Huang 回归这件事在本期从反应转成分析。Madhu Guru 用这轮预测说明信心和正确性几乎不相关；Amjad Masad 认为美国可以在前沿模型上领先，却不满足主权 AI 的需求而输掉全球竞赛，并把 Jensen 回归和美国开放模型连在一起；Matt Turck、Garry Tan 给了更短的反应。播客则从地缘角度深入，是一集新的 Unsupervised Learning。</p>
+<p>第三条线是 agent 和 harness。Amjad Masad 描述 token 需求随 harness 从自动补全走向集群而阶跃上升，Peter Yang 说用 Antigravity 一度让 42 个 agent 同时运行，Aaron Levie 说同一公司内部采用者之间有最多 10 倍产出差距，Guillermo Rauch 描述了一个作为 libfx 薄封装的 coding agent 内核。Nan Yu 提到的 dots 和往期讨论的 dots 是否同一个产品，仍未解决。</p>
+<p>Podcast 这一格是 1，而且是新的一集，不是重复。Unsupervised Learning 的 Ep 98: China Expert on Jensen's Return 发布于 2026-11-24T13:05:03.000Z（太平洋 11-24 05:05:03），比首条推文晚 3 小时 49 分 46 秒、比末条早 15 小时 30 分 3 秒、比快照早 17 小时 25 分 28 秒；与全部 34 条推文同一太平洋日。完整标题、具体视频地址 https://www.youtube.com/watch?v=gkd5eOQGASU、publishedAt 时间戳，以及转写锚点 Jordan Schneider 和 China Talk，对 137 个已发布页面全部零命中。上一期没有播客、也没有判重，本期用一集新收录恢复这一格，页面直接链到具体视频。</p>
+<p>引用结构与覆盖：34 条里 17 条是引用推文，指向 17 个不同 ID。其中一个目标是 Guillermo Rauch 本期自己那条 libfx 推文，算自引；其余 16 个在 feed 外，feed 没给其中任何一条的正文。没有两条推文指向同一个目标。34 个推文 ID 对 137 个已发布页面零命中。窗口从太平洋 2026-11-24 01:15:17（Thariq）到太平洋 2026-11-24 20:35:06（Swyx），跨度 19 小时 19 分 49 秒，在快照前 1 小时 55 分 25 秒收口；34 条全部落在太平洋 11-24，距上一期收口 2 小时 55 分 26 秒，上一份快照相隔 24 小时 0 分 28 秒，覆盖没有缺口。太平洋 10-29、10-30 在本系列仍缺失。</p>
+<p>有内容的账号 16 个：8 位在 24 位追踪名单内（Swyx、Peter Yang、Amjad Masad、Guillermo Rauch、Garry Tan、Matt Turck、Nikunj Kothari、Peter Steinberger），8 位不在（Boris Cherny、Thibault Sottiaux、Nan Yu、Madhu Guru、Thariq、Aaron Levie、Zara Zhang、Dan Shipper）。Sam Altman 在 11-25 出现后，本期未出现。34 条里 13 条是一句话反应，去掉 t.co 链接后正文不足 40 字符；链接都保留，不补主语。blogs 数组本期仍为空。</p>
+</div>
+</section>
+<!-- ============== NOTES ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128221;</span>
+<h2 class="section-title">记录 / Notes &amp; Dedup</h2>
+<span class="section-meta">34 Zero &middot; 1 New &middot; 0 Blog</span>
+</div>
+<div class="dedup">
+<p style="margin-top:12px"><strong>Tweets</strong> All 34 tweet IDs have zero hits across the 137 published digest pages. 17 of the 34 are quote posts pointing at 17 distinct IDs. One target, 2125320020666565096, is Guillermo Rauch's own libfx post from this same feed, so it is a self-quote; the other 16 are outside the feed and the feed gives the text of none of them. No two posts share a target.</p>
+<p style="margin-top:12px"><strong>Podcast</strong> The slot is 1 and it is new, not a dedup. Unsupervised Learning, Ep 98: China Expert on Jensen's Return, publishedAt 2026-11-24T13:05:03.000Z (Pacific 2026-11-24 05:05:03), 3h49m46s after the first post, 15h30m03s before the last and 17h25m28s before the snapshot, on the same Pacific day as all 34 posts. Its full title, the specific video URL https://www.youtube.com/watch?v=gkd5eOQGASU, the timestamp and the transcript anchors Jordan Schneider and China Talk all return zero hits across the 137 published pages. The previous issue had an empty podcasts array, so there was no dedup; this issue is a new episode and the page links to the specific video URL.</p>
+<p style="margin-top:12px"><strong>Blog</strong> The slot is 0 because the blogs array is empty. This zero has the same cause as an empty array rather than a dedup hit.</p>
+<p style="margin-top:12px"><strong>Coverage and thin posts</strong> Three timestamps: snapshot 2026-11-25T06:30:31.369Z (Pacific 11-24 22:30:31), first post Pacific 11-24 01:15:17 (Thariq), last post Pacific 11-24 20:35:06 (Swyx). Window 19h19m49s, closing 1h55m25s before the snapshot; 2h55m26s after the previous issue's close (Pacific 11-23 22:19:51); previous snapshot 24h00m28s earlier. All 34 posts fall on Pacific 11-24. Pacific 10-29 and 10-30 remain missing. 13 of the 34 posts are one line reactions whose text, once t.co URLs are stripped, is under 40 characters: Thariq's you have to be bad at it for a while, Garry Tan's YC is the YC for hard tech, Thibault Sottiaux's bare link and sign up line, Guillermo Rauch's Good stuff, Zara Zhang's Humans are visual animals, Dan Shipper's read the rest and bare links, Nan Yu's two DOT SUPREMACY lines, Matt Turck's The man did change, Amjad Masad's 3B local Muse and Swyx's hey is silicon valley okay because wtf. Their links are kept and no subject is added.</p>
+<p style="margin-top:12px"><strong>Engagement</strong> Across all 34 posts: 16,900 likes, 668 reposts and 1,956 replies. Thibault Sottiaux's ChatGPT Business post is 5,295 likes and 1,064 replies, first on both; Boris Cherny's MCP servers with skills post is 210 reposts, first on reposts, and 5,102 likes. 3 posts clear 1,000 likes and none clears 10,000; 2 clear 100 reposts and 2 clear 100 replies. The longest post is Amjad Masad's at 1,299 characters. Of the 16 accounts, 8 are on the tracked 24 builder list and 8 are not.</p>
+<p style="margin-top:12px"><strong>Not resolved</strong> What the John list in Swyx's post points to; what the two Silicon Valley links are; what the sign up link in Thibault Sottiaux's post leads to; what the ChatGPT reset and fast mode refer to beyond the text given; whether the dots mentioned by Nan Yu are the same product discussed in earlier issues; what Muse is and what the 3B local claim rests on; what libfx is and what the bg effect builder does; what the Anthropic IPO price line refers to; which new model Dan Shipper's first prompt is about; and standing items carried from earlier issues (Day 29 / 3/x, dot and dots, jev, Particle-1, HackerTube, Grok Bot, Legora, the data market figure, Claude Whiteboards, Box interop, interactive connectors, the AIE keynote, MCP tool counts, Opal and the 11-27 book date).</p>
+</div>
+<div class="dedup zh" style="margin-top:14px">
+<p style="margin-top:12px"><strong>推文</strong> 34 个推文 ID 对 137 个已发布页面全部零命中。34 条里有 17 条是引用推文，指向 17 个不同 ID。其中一个目标 2125320020666565096 是 Guillermo Rauch 本期自己那条 libfx 推文，算自引；其余 16 个在 feed 外，feed 没给其中任何一条的正文。没有两条推文指向同一个目标。</p>
+<p style="margin-top:12px"><strong>播客</strong> 这一格是 1，而且是新收录，不是判重。Unsupervised Learning 的 Ep 98: China Expert on Jensen's Return 发布于 2026-11-24T13:05:03.000Z（太平洋 11-24 05:05:03），比首条推文晚 3 小时 49 分 46 秒、比末条早 15 小时 30 分 3 秒、比快照早 17 小时 25 分 28 秒；与全部 34 条推文同一太平洋日。完整标题、具体视频地址 https://www.youtube.com/watch?v=gkd5eOQGASU、时间戳，以及转写锚点 Jordan Schneider 和 China Talk，对 137 个已发布页面全部零命中。上一期的 podcasts 数组为空，没有判重；本期是一集新内容，页面直接链到具体视频地址。</p>
+<p style="margin-top:12px"><strong>博客</strong> 这一格是 0，因为 blogs 数组为空。这个 0 是空数组，不是判重命中。</p>
+<p style="margin-top:12px"><strong>覆盖与薄内容</strong> 三个时刻：快照 2026-11-25T06:30:31.369Z（太平洋 11-24 22:30:31），首条太平洋 11-24 01:15:17（Thariq），末条太平洋 11-24 20:35:06（Swyx）。窗口 19 小时 19 分 49 秒，在快照前 1 小时 55 分 25 秒收口；距上一期收口（太平洋 11-23 22:19:51）2 小时 55 分 26 秒；上一份快照相隔 24 小时 0 分 28 秒。34 条全部落在太平洋 11-24。太平洋 10-29、10-30 仍永久缺失。34 条里有 13 条是一句话反应，去掉 t.co 链接后正文不足 40 字符：Thariq 的 you have to be bad at it for a while、Garry Tan 的 YC is the YC for hard tech、Thibault Sottiaux 的裸链接和注册那句、Guillermo Rauch 的 Good stuff、Zara Zhang 的 Humans are visual animals、Dan Shipper 的 read the rest 和两条裸链接、Nan Yu 的两条 DOT SUPREMACY、Matt Turck 的 The man did change、Amjad Masad 的 3B local Muse，以及 Swyx 的 hey is silicon valley okay because wtf。链接都保留，不补主语。</p>
+<p style="margin-top:12px"><strong>互动数据</strong> 34 条合计 16,900 赞、668 转发、1,956 回复。Thibault Sottiaux 那条 ChatGPT Business 是 5,295 赞、1,064 回复，两项都第一；Boris Cherny 那条 MCP servers with skills 是 210 转发、转发第一，另有 5,102 赞。3 条赞数过千，0 条过万；2 条转发过百，2 条回复过百。最长一条是 Amjad Masad 的 1,299 字符。16 个账号里 8 位在追踪的 24 人名单内、8 位不在。</p>
+<p style="margin-top:12px"><strong>未解决</strong> Swyx 那条里 John 的清单指向什么、那两条硅谷链接是什么；Thibault Sottiaux 那条注册链接通向哪里；ChatGPT 的 reset 和 fast mode 除原文外具体指什么；Nan Yu 提到的 dots 和往期讨论的 dots 是不是同一个产品；Muse 是什么、3B local 这个说法依据什么；libfx 是什么、bg effect builder 做什么；那条 Anthropic IPO 价格的说法指什么；Dan Shipper 的第一个提示词是关于哪个新模型；以及往期长期项（Day 29 / 3/x、dot 与 dots、jev、Particle-1、HackerTube、Grok Bot、Legora、数据市场规模、Claude Whiteboards、Box 互通、interactive connectors、AIE keynote、MCP 工具数、Opal 和 11-27 新书日期）。</p>
+</div>
+</section>
+<footer class="footer">
+<div class="next-issue">&#128236; 下一期：明天 10:00（北京时间）</div>
+<div class="signature"><a href="#top" style="border:none;color:var(--ink-muted)">回到顶部 / Back to top</a></div>
+<div class="signature">by chloevchen</div>
+</footer>
+</body>
+</html>
+<!-- by chloevchen -->
