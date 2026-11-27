@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Builders Digest &middot; 2026-11-27</title>
+<style>
+
+
+
+
+
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 28px 30px; margin-bottom: 24px; }
+  .podcast-source { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
+  .podcast-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; margin-bottom: 18px; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; }
+
+
+</style>
+</head>
+<body id="top">
+<header class="topbar">
+<div class="topbar-inner">
+<a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders &middot; AI Builders Digest</a>
+<span>双语 &middot; Bilingual</span>
+</div>
+</header>
+<section class="header">
+<div class="eyebrow">Daily Digest &middot; 2026-11-27</div>
+<h1>AI Builders Digest</h1>
+</section>
+<div class="stats">
+<div class="stat">
+<div class="stat-num">21</div>
+<div class="stat-label">Builders</div>
+</div>
+<div class="stat">
+<div class="stat-num">42</div>
+<div class="stat-label">Tweets</div>
+</div>
+<div class="stat">
+<div class="stat-num">1</div>
+<div class="stat-label">Podcast</div>
+</div>
+<div class="stat">
+<div class="stat-num">0</div>
+<div class="stat-label">Blog</div>
+</div>
+</div>
+<p class="note-line">Feed snapshot 2026-11-26T06:30:27.231Z (Pacific 2026-11-25 22:30:27). All 42 tweets are rendered: 21 builders, none dropped. The podcast slot is 1 and new to the series; the blogs array is empty. Two posts fall on Pacific 11-24 and 40 on 11-25. Thariq&rsquo;s OpenAI announcement leads likes and reposts; Thibault Sottiaux leads replies. Every engagement figure below is the value carried in the feed; none is estimated.</p>
+<p class="note-line zh">feed 快照 2026-11-26T06:30:27.231Z（太平洋 2026-11-25 22:30:27）。42 条推文全部渲染：21 位 builder，一条没删。播客这一格是 1，对本系列是新的一集；blogs 数组为空。2 条落在太平洋 11-24、40 条落在 11-25。Thariq 加入 OpenAI 的公告赞数和转发第一，Thibault Sottiaux 回复第一。下面所有互动数字都取自 feed 原值，没有估算。</p>
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128036;</span>
+<h2 class="section-title">X / Twitter</h2>
+<span class="section-meta">21 Builders &middot; 42 Tweets</span>
+</div>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Andrej Karpathy</span>
+<span class="builder-role"></span>
+</div>
+<p class="summary-en">Karpathy posts once, the longest post in this feed at 1,608 characters. He asked Claude to populate a Civilization-style game map with real US data; Opus 5.5 downloaded and parsed public data and, across seven hours and 45K lines of code, produced a working map. He lists 31 data sources including Census, BEA, BLS, EIA, NOAA, USGS, DoD, NPS, FAA, FEMA and CDC, reconciled onto one 25 km hex grid with real elevation, land cover, GDP, jobs, power plants, mines, ports, airports, bases, parks, universities, freight flows and disasters. Data is translated into game terms: gold yield is GDP, a city's districts are its real industry specializations, and wonders are chosen by published rules such as visitor numbers for national parks and R&amp;D spending for universities. There are 19 lenses, a City View for 524 metros and an Explorer that turns any column for any of 3,100+ counties into a table and scatter plot. He notes Claude skipped a few states and territories, says he built it with Claude Code desktop on Opus 5.5 medium with ultracode on, and says he does not know where it was going but it is fun to browse (9,223 likes, 774 reposts, 582 replies).</p>
+<p class="summary-zh zh">Karpathy 发了一条，是本期最长的一条推文，1,608 字符。他让 Claude 用真实美国数据填充一张文明风格的地图；Opus 5.5 下载并解析公开数据，用七小时和 4.5 万行代码做出了能跑的地图。他列出 31 个数据源，包括 Census、BEA、BLS、EIA、NOAA、USGS、DoD、NPS、FEMA 和 CDC，全部对齐到一张 25 公里六边形网格上，带真实海拔、土地覆盖、GDP、就业、电厂、矿场、港口、机场、基地、公园、大学、货运流和灾害。数据被翻译成游戏语言：金币产量就是 GDP，城市的街区是它真实的产业专长，奇迹按公开规则选，比如国家公园按访客数、大学按研发支出。地图有 19 个视角、覆盖 524 个都市区的 City View，以及一个 Explorer，能把 3,100 多个县任意一列变成表格和散点图并与地图联动。他说 Claude 跳过了几个州和领地，说是在 Claude Code 桌面版上用 Opus 5.5 medium 开 ultracode 做的，也说不知道自己到底想做成什么，但浏览和把玩很有意思（9,223 赞、774 转发、582 回复）。</p>
+<div class="urls">
+<a href="https://x.com/karpathy/status/2125779541952246039" target="_blank">https://x.com/karpathy/status/2125779541952246039</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Swyx</span>
+<span class="builder-role">Latent Space / smol ai / Cognition</span>
+</div>
+<p class="summary-en">Swyx posts three times, all quote posts. The first carries a line that cost per task is a misleading metric because the scarce resource is human attention, not token cost, and warns that Pareto frontier charts can hide bad reliability issues (289 likes, 159 replies). The second is a single line saying it appeared on the Anthropic blog, with a link (1 like). The third says it hurts to be a new media founder while old media dies this quickly, and that the task is to work out what those with 31 years of experience could not do, with two links (53 likes, 26 replies). The feed gives no text for the linked items.</p>
+<p class="summary-zh zh">Swyx 发了三条，都是引用推文。第一条转了一句说法：每条任务的成本是误导性指标，稀缺的是人的注意力而不是 token 成本；他提醒 Pareto 前沿图会掩盖糟糕的可靠性问题（289 赞、159 回复）。第二条只有一行，说这条上了 Anthropic 博客，附一条链接（1 赞）。第三条说做新媒体创始人、眼看旧媒体这么快衰落让人难受，要做的是搞明白有 31 年经验的人做不到什么，附两条链接（53 赞、26 回复）。feed 没给这些链接内容的正文。</p>
+<div class="urls">
+<a href="https://x.com/swyx/status/2125627281230205435" target="_blank">https://x.com/swyx/status/2125627281230205435</a>
+<a href="https://x.com/swyx/status/2125627500487393285" target="_blank">https://x.com/swyx/status/2125627500487393285</a>
+<a href="https://x.com/swyx/status/2125638081848250634" target="_blank">https://x.com/swyx/status/2125638081848250634</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Josh Woodward</span>
+<span class="builder-role">VP, Google / Google Labs / Gemini App</span>
+</div>
+<p class="summary-en">Josh Woodward posts three times. One shows people using Gemini to reach the elusive Inbox Zero (167 likes, 27 replies). A second says Gemini now does local voices and local accents, with 66 more added, and lists flags (482 likes, 45 replies). The third says Gemini has been on a roll and people are putting it to work on all kinds of tasks, and asks followers to share favorites (538 likes, 116 replies).</p>
+<p class="summary-zh zh">Josh Woodward 发了三条。一条展示人们用 Gemini 达成难得的收件箱清零（167 赞、27 回复）。第二条说 Gemini 现在支持本地口音和本地语音，新增了 66 种，并列出一串国旗（482 赞、45 回复）。第三条说 Gemini 最近势头很好，人们正用它完成各种任务，请关注者分享自己最喜欢的应用（538 赞、116 回复）。</p>
+<div class="urls">
+<a href="https://x.com/joshwoodward/status/2125618295844004197" target="_blank">https://x.com/joshwoodward/status/2125618295844004197</a>
+<a href="https://x.com/joshwoodward/status/2125641468421546107" target="_blank">https://x.com/joshwoodward/status/2125641468421546107</a>
+<a href="https://x.com/joshwoodward/status/2125740026915152382" target="_blank">https://x.com/joshwoodward/status/2125740026915152382</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thibault Sottiaux</span>
+<span class="builder-role">Codex &amp; ChatGPT at OpenAI</span>
+</div>
+<p class="summary-en">Sottiaux posts once, and the post takes the top replies in this feed at 3,652, with 9,460 likes, second on likes, and 563 reposts. He says a billing mistake at the launch of GPT-6.2 incorrectly discounted GPT-6.2 Astra and Sol usage for most users. It is now fixed, he writes, so the same work uses more of a plan's allowance: compared with last week, users reach limits 40% faster on Astra and 25% faster on Sol, though these still go further than 6 Astra and 6.1 Sol. Other models were not affected and past usage will not be charged. As an apology he says everyone on Go, Plus, Pro and Business will get one banked reset.</p>
+<p class="summary-zh zh">Sottiaux 发了一条，这条拿到本期最高回复 3,652，另有 9,460 赞（赞数第二）、563 转发。他说 GPT-6.2 上线时的一个计费错误，让大多数用户的 GPT-6.2 Astra 和 Sol 用量被错误打折。他说现在已经修复，因此同样的任务会消耗更多套餐额度：和上周相比，Astra 会提前 40% 触达上限、Sol 提前 25%，不过两者仍比 6 Astra 和 6.1 Sol 更耐用。其他模型没受影响，过去用量不补收费。作为道歉，他说 Go、Plus、Pro 和 Business 的所有用户都会得到一次 banked reset。</p>
+<div class="urls">
+<a href="https://x.com/thsottiaux/status/2125784147889393806" target="_blank">https://x.com/thsottiaux/status/2125784147889393806</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Yang</span>
+<span class="builder-role">Practical AI tutorials / interviews</span>
+</div>
+<p class="summary-en">Peter Yang posts three times. He says one of the biggest challenges of AI products is letting humans keep up with what the AI is doing, and that the ending of Her, where AIs find humans too slow and collectively leave, does not seem far from reality (50 likes, 28 replies). He then says he is building a cozy desktop app to become a less terrible chef, with two links (22 likes). A later one-liner asks whether the new Blade Runner is any good (7 likes, 8 replies).</p>
+<p class="summary-zh zh">Peter Yang 发了三条。他说 AI 产品最大的挑战之一，是让人能跟上 AI 正在做的事；电影《她》结尾 AI 觉得人类太慢、集体离开，这个结局看起来并不遥远（50 赞、28 回复）。接着他说在做一个舒服的桌面应用，帮自己做一个没那么糟的厨子，附两条链接（22 赞）。较晚一条只有一句话，问新版的银翼杀手好不好看（7 赞、8 回复）。</p>
+<div class="urls">
+<a href="https://x.com/petergyang/status/2125750286539272695" target="_blank">https://x.com/petergyang/status/2125750286539272695</a>
+<a href="https://x.com/petergyang/status/2125769667096838548" target="_blank">https://x.com/petergyang/status/2125769667096838548</a>
+<a href="https://x.com/petergyang/status/2125800904628781428" target="_blank">https://x.com/petergyang/status/2125800904628781428</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nan Yu</span>
+<span class="builder-role">Product, Codex at OpenAI; prev Linear</span>
+</div>
+<p class="summary-en">Nan Yu posts three times. One says she wants the Apple that would be willing to ship the iPod shuffle again (12 likes). The second is only two links, and it quotes Thariq's post from this same feed about joining OpenAI (34 likes). The third says whenever someone says chat is not the right interface for AI, she knows they will follow it with hand-waving (191 likes, 27 replies).</p>
+<p class="summary-zh zh">Nan Yu 发了三条。一条说她想要那个愿意再次推出 iPod shuffle 的苹果（12 赞）。第二条只有两条链接，引用的是本期 Thariq 关于加入 OpenAI 的那条推文（34 赞）。第三条说每当有人讲「chat 不是 AI 合适的界面」，她就知道对方接下来要开始含糊其辞（191 赞、27 回复）。</p>
+<div class="urls">
+<a href="https://x.com/thenanyu/status/2125684998250590396" target="_blank">https://x.com/thenanyu/status/2125684998250590396</a>
+<a href="https://x.com/thenanyu/status/2125685928819884378" target="_blank">https://x.com/thenanyu/status/2125685928819884378</a>
+<a href="https://x.com/thenanyu/status/2125718932741120476" target="_blank">https://x.com/thenanyu/status/2125718932741120476</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Madhu Guru</span>
+<span class="builder-role">Sr Director, AI at Meta</span>
+</div>
+<p class="summary-en">Madhu Guru posts once. He argues AI native teams will eventually force the surrounding organization to become AI native too. He says coding velocity is way up thanks to AI while shipped products and business impact are unchanged in most companies, because the surrounding system of experimentation tooling, evaluation, launch processes and go-to-market is outdated. He compares it to putting a Ferrari engine in a sedan and racing it on Indian roads: the engine can rev faster but speed is limited by the system and environment. AI native companies were built for this new way of building and can shed suboptimal processes faster, and market forces will make others adapt or perish. His advice is to map out the product lifecycle and rebuild it ground up, including tooling, team structure and go-to-market (96 likes, 12 reposts, 13 replies).</p>
+<p class="summary-zh zh">Madhu Guru 发了一条。他认为 AI 原生团队最终会倒逼周围的组织也变成 AI 原生。他说因为 AI，写代码的速度大幅提升，但大多数公司实际交付的产品和业务影响没变，原因是配套的实验工具、评估、发布流程和 go-to-market 已经过时。他把它比作把法拉利发动机装进轿车、再放到印度公路上赛跑：发动机能更快轰鸣，但车速被系统和环境限制。AI 原生公司从一开始就为这种新的构建和交付方式而生，也能更快丢掉不合适的流程，市场力量会迫使其他公司适应或出局。他的建议是把产品生命周期画出来，从工具、团队结构到 go-to-market 整体重建（96 赞、12 转发、13 回复）。</p>
+<div class="urls">
+<a href="https://x.com/realmadhuguru/status/2125630707640783322" target="_blank">https://x.com/realmadhuguru/status/2125630707640783322</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thariq</span>
+<span class="builder-role">Now at OpenAI; formerly Claude Code at Anthropic</span>
+</div>
+<p class="summary-en">Thariq posts three times. The first is the most engaged post in this feed, taking first on likes at 25,330 and first on reposts at 946, with the second most replies at 2,000. He announces he has joined OpenAI, says he is proud of his time at Anthropic and will keep rooting for former colleagues, and says he felt he could contribute most to bringing AI to the world at OpenAI. He calls the flow of ideas and people a strength of Silicon Valley, says he is excited to work with people he names at OpenAI, and closes with a return to being at your service. A second post jokes that it is a good time to admit he is level 5 in World of Warcraft (2,948 likes). The third says just like me fr with a link (324 likes). Both are quote posts and the feed gives no text for the linked items.</p>
+<p class="summary-zh zh">Thariq 发了三条。第一条是本期互动最高的推文，赞数第一 25,330、转发第一 946、回复第二 2,000。他宣布自己加入了 OpenAI，说为在 Anthropic 的时光自豪、会继续为前同事加油，也说觉得在 OpenAI 能为把 AI 带给世界贡献最多。他说思想和人员的流动是硅谷的优势，说很期待和他在 OpenAI 点名的那些人一起工作，最后用「再次为您服务」收尾。第二条开玩笑说是时候坦白自己在魔兽世界里是 5 级了（2,948 赞）。第三条说「just like me fr」并附一条链接（324 赞）。后两条都是引用推文，feed 没给链接内容的正文。</p>
+<div class="urls">
+<a href="https://x.com/trq212/status/2125675533761671405" target="_blank">https://x.com/trq212/status/2125675533761671405</a>
+<a href="https://x.com/trq212/status/2125680562677653743" target="_blank">https://x.com/trq212/status/2125680562677653743</a>
+<a href="https://x.com/trq212/status/2125750153609163075" target="_blank">https://x.com/trq212/status/2125750153609163075</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Amjad Masad</span>
+<span class="builder-role">CEO, Replit</span>
+</div>
+<p class="summary-en">Amjad Masad posts once, a quote post. He says large scale software migration is now viable provided the results can be verified, and that this matters especially because of aging software systems running critical infrastructure (548 likes, 43 reposts, 99 replies). The feed gives no text for the linked item.</p>
+<p class="summary-zh zh">Amjad Masad 发了一条，是引用推文。他说大规模软件迁移现在可行了，前提是能验证结果；这一点尤其重要，因为关键基础设施上跑着很多老旧的软件系统（548 赞、43 转发、99 回复）。feed 没给链接内容的正文。</p>
+<div class="urls">
+<a href="https://x.com/amasad/status/2125664998454366305" target="_blank">https://x.com/amasad/status/2125664998454366305</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Guillermo Rauch</span>
+<span class="builder-role">CEO, Vercel</span>
+</div>
+<p class="summary-en">Guillermo Rauch posts three times, all quote posts. The first presents lsx, described as Finder in the terminal, one-shotted with fx and Gemini Neon plus DeepSeek subagents. He says he instructed fx to use the Kitty graphics protocol and build inline and interactive modes, and that it implemented CLI Quick Look on its own. In footnotes he says DeepSeek did the heavy lifting using 1,017 fast subagents at low cost, and that the graphics protocol lets a CLI render essentially anything (709 likes, 32 reposts, 134 replies). The second says as AI gets smarter, implementation details such as permissions, code diffs, commands and tool calls blur away, and that the harness itself blurs into a vehicle for code and command execution and a durable storage engine; he says all of fx still fits in 6mb (206 likes). The third says workflows are 10x faster again, a big deal for harness durability because it cuts latency between turns, and tells users to upgrade to workflow@latest with no code changes (292 likes, 8 reposts).</p>
+<p class="summary-zh zh">Guillermo Rauch 发了三条，都是引用推文。第一条展示 lsx，形容成终端里的 Finder，用 fx 加 Gemini Neon 和 DeepSeek 子 agent 一次做成。他说他让 fx 使用 Kitty 图形协议并做出行内和交互模式，而 fx 自己实现了命令行版的 Quick Look。他在脚注里说 DeepSeek 用 1,017 个快速子 agent 做了大部分重活、成本很低，还说这个图形协议让命令行基本能渲染任何东西（709 赞、32 转发、134 回复）。第二条说随着 AI 变聪明，权限、代码 diff、命令、工具调用这些实现细节会模糊掉，harness 本身也会模糊成一个执行代码和命令、带持久存储的载体；他说整个 fx 仍然只有 6mb（206 赞）。第三条说 workflows 又提速 10 倍，对 harness 的持久性很重要，因为压低了轮次之间的延迟，并让大家升级到 workflow@latest、不需要改代码（292 赞、8 转发）。</p>
+<div class="urls">
+<a href="https://x.com/rauchg/status/2125482861033824410" target="_blank">https://x.com/rauchg/status/2125482861033824410</a>
+<a href="https://x.com/rauchg/status/2125650675665432995" target="_blank">https://x.com/rauchg/status/2125650675665432995</a>
+<a href="https://x.com/rauchg/status/2125685667833520237" target="_blank">https://x.com/rauchg/status/2125685667833520237</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aaron Levie</span>
+<span class="builder-role">CEO, Box</span>
+</div>
+<p class="summary-en">Aaron Levie posts once, a quote post at the end of the window. He argues coding gives a window into what knowledge work will look like: most jobs move from doing research, typing and value creation manually to coordinating the work agents do, then to giving agents goals to optimize as that coordination layer becomes redundant. He says a large share of knowledge work may converge on this form because of the productivity gains, with agents using computers, existing or new tools, and code written on the fly; he names manufacturing, architecture, life sciences, material sciences and cyber. He flags that much of this work is non-verifiable, so humans will be more in the loop than in coding, though the handoff grows as models improve. His summary is to watch coding to see where work is going (12 likes).</p>
+<p class="summary-zh zh">Aaron Levie 在窗口末尾发了一条引用推文。他认为编程让人看到知识工作会变成什么样：大多数工作会从手动做研究、打字和创造价值，转向协调 agent 做这些事；等这个协调层变得多余或拖慢 agent，人们就会给 agent 设定要优化的目标。他说很大一部分知识工作可能因为生产率收益而收敛到这个形态，agent 会用电脑、用现成或新写的工具、即时写代码解决问题；他点名制造、建筑、生命科学、材料科学和网络安全。他提醒其中很多工作不可验证，所以人会比在编程里更深地参与其中，尽管能交给 agent 的部分会随模型进步变大。他的总结是：盯着编程，就能看到工作往哪走（12 赞）。</p>
+<div class="urls">
+<a href="https://x.com/levie/status/2125837181398950233" target="_blank">https://x.com/levie/status/2125837181398950233</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Ryo Lu</span>
+<span class="builder-role">Designed Cursor / Notion / Stripe</span>
+</div>
+<p class="summary-en">Ryo Lu posts twice. One shows a Cursor kitty with a link and calls it his new roommate (366 likes, 33 replies). The second explains that the cat's name is 實實 shíshí, meaning truth, and that it is also a pun on 寶寶 (19 likes, 4 replies).</p>
+<p class="summary-zh zh">Ryo Lu 发了两条。一条展示一只 Cursor 小猫，附链接并称它是自己的新室友（366 赞、33 回复）。第二条解释猫的名字是「實實 shíshí」，意思是真实，同时也是对「寶寶」的谐音双关（19 赞、4 回复）。</p>
+<div class="urls">
+<a href="https://x.com/ryolu_/status/2125626627182985331" target="_blank">https://x.com/ryolu_/status/2125626627182985331</a>
+<a href="https://x.com/ryolu_/status/2125640785588871579" target="_blank">https://x.com/ryolu_/status/2125640785588871579</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Garry Tan</span>
+<span class="builder-role">President &amp; CEO, Y Combinator</span>
+</div>
+<p class="summary-en">Garry Tan posts twice, both quote posts. He calls a clip of Nick Bostrom under-appreciated: it inverts if anyone builds it everyone dies into if nobody builds it everyone dies and posits superintelligence as poised to extend lives to 1,200 to 1,400 years (1,966 likes, 245 reposts, 189 replies). The second says median growth is 10x and asks readers to look at the stat and say AI is not helping new startups grow faster than ever, with two links (399 likes, 24 reposts, 100 replies). The feed gives no text for the linked items.</p>
+<p class="summary-zh zh">Garry Tan 发了两条，都是引用推文。他说 Nick Bostrom 的一段访谈被严重低估：它把「只要有人造出来，所有人都会死」倒转成「如果没人造出来，所有人都会死」，并认为超级智能有望把寿命延长到 1,200 至 1,400 岁（1,966 赞、245 转发、189 回复）。第二条说增长中位数是 10 倍，请读者看着这个数字再说 AI 没有帮助新创业公司比以前更快地增长，附两条链接（399 赞、24 转发、100 回复）。feed 没给这两条链接内容的正文。</p>
+<div class="urls">
+<a href="https://x.com/garrytan/status/2125580632814412155" target="_blank">https://x.com/garrytan/status/2125580632814412155</a>
+<a href="https://x.com/garrytan/status/2125592156027101584" target="_blank">https://x.com/garrytan/status/2125592156027101584</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Matt Turck</span>
+<span class="builder-role">VC, FirstMark Capital</span>
+</div>
+<p class="summary-en">Matt Turck posts once. He says he probably should not be tweeting about it, but putting Jensen in therapy is the funniest thing: a rich and powerful guy succumbs to temptation, the oldest story in the book, not a mental health problem (79 likes, 16 replies). This is a reaction to the Jensen story running through the feed.</p>
+<p class="summary-zh zh">Matt Turck 发了一条。他说自己大概不该发这个，但让 Jensen 去做心理治疗是最搞笑的事：一个有钱有势的人屈服于诱惑，是最古老的故事，不是心理健康问题（79 赞、16 回复）。这是对本期反复出现的 Jensen 话题的一句反应。</p>
+<div class="urls">
+<a href="https://x.com/mattturck/status/2125652799648399603" target="_blank">https://x.com/mattturck/status/2125652799648399603</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Zara Zhang</span>
+<span class="builder-role">Builder</span>
+</div>
+<p class="summary-en">Zara Zhang posts twice, both quote posts. The first is the first post of the window; she says she agrees, and that she made many tools for herself but ended up using most of them for only a couple of weeks and then stopped, and that making high-retention software is a difficult craft even when building for yourself (517 likes, 41 reposts, 42 replies). The second says she is surprised her Frontend Slides skill has kept growing organically to 32k GitHub stars even though she has not talked about it for months, that she thought growing coding agents would make the skill obsolete, and asks why people still use it and why they are unhappy with slides from Claude or Codex as they are (50 likes, 9 replies).</p>
+<p class="summary-zh zh">Zara Zhang 发了两条，都是引用推文。第一条是本窗口最早的一条；她说自己同意对方说法，她给自己做了很多工具，但大多数只用了几周就停了；做高留存软件是门难手艺，即使是为自己做的也一样（517 赞、41 转发、42 回复）。第二条说她惊讶于自己的 Frontend Slides skill 在几个月没宣传的情况下仍在自然增长，GitHub 星标到了 3.2 万；她原以为编码 agent 能力变强会让这个 skill 过时，于是问为什么还有人用它、为什么大家对 Claude 或 Codex 直接产出的幻灯片不满意（50 赞、9 回复）。</p>
+<div class="urls">
+<a href="https://x.com/zarazhangrui/status/2125478799387275571" target="_blank">https://x.com/zarazhangrui/status/2125478799387275571</a>
+<a href="https://x.com/zarazhangrui/status/2125649866902868355" target="_blank">https://x.com/zarazhangrui/status/2125649866902868355</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nikunj Kothari</span>
+<span class="builder-role">Partner, FPV Ventures</span>
+</div>
+<p class="summary-en">Nikunj Kothari posts twice. One announces the next guest in a weekly series, Jeff Weinstein, a product lead at Stripe, on Wednesday December 2 at noon; the session is 60 minutes in person in San Francisco, with 45 minutes of questions to the guest and 15 minutes of questions to the host, off the record under Chatham House rules, open to 15 guests, with registration and a Luma link (14 likes, 8 replies). The second lists his new favorite coffee shop in San Francisco, grading coffee, music, lighting, seating, baristas and outlets all A+, and asks who will rainbolt it (178 likes, 28 replies).</p>
+<p class="summary-zh zh">Nikunj Kothari 发了两条。一条宣布每周系列的下一位嘉宾是 Stripe 的产品负责人 Jeff Weinstein，时间为 12 月 2 日周三中午；活动是在旧金山线下进行 60 分钟，前 45 分钟由主持人向嘉宾提尖锐问题，后 15 分钟嘉宾向主持人提问了解风投，全程不记录、按 Chatham House 规则，开放 15 位听众，附报名和 Luma 链接（14 赞、8 回复）。第二条列出他在旧金山新喜欢的咖啡店，给咖啡、音乐、灯光、座位、咖啡师和插座全部打 A+，并问谁会来 rainbolt 一下（178 赞、28 回复）。</p>
+<div class="urls">
+<a href="https://x.com/nikunj/status/2125612280377442805" target="_blank">https://x.com/nikunj/status/2125612280377442805</a>
+<a href="https://x.com/nikunj/status/2125709379303588068" target="_blank">https://x.com/nikunj/status/2125709379303588068</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Steinberger</span>
+<span class="builder-role">OpenClaw / Polyagentmorous</span>
+</div>
+<p class="summary-en">Peter Steinberger posts once, a quote post. He says Google has finally built an MCP and is now forbidding CLIs like gog unless users pay more, and calls it classy (1,023 likes, 39 reposts, 129 replies).</p>
+<p class="summary-zh zh">Peter Steinberger 发了一条引用推文。他说 Google 终于做了 MCP，却开始禁止像 gog 这样的命令行工具，除非用户付更多钱，并称这很有风度（1,023 赞、39 转发、129 回复）。</p>
+<div class="urls">
+<a href="https://x.com/steipete/status/2125654555262431248" target="_blank">https://x.com/steipete/status/2125654555262431248</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Dan Shipper</span>
+<span class="builder-role">CEO, Every</span>
+</div>
+<p class="summary-en">Dan Shipper posts three times, all short lines with links and no added text: a bare link (184 likes, 9 replies), a line saying if you want to improve how you operate at work there is no better time than now and praising Bran Don Gell for using his dot to become a better leader at Every (112 likes, 6 replies), and you love to see it (129 likes, 12 replies). The feed gives no text for the linked items.</p>
+<p class="summary-zh zh">Dan Shipper 发了三条，都是短句加链接、没有多余文字：一条裸链接（184 赞、9 回复）；一条说想改善工作方式没有比现在更好的时机，并称赞 Bran Don Gell 用自己的 dot 在 Every 成为更好的领导者（112 赞、6 回复）；以及「you love to see it」（129 赞、12 回复）。feed 没给这些链接内容的正文。</p>
+<div class="urls">
+<a href="https://x.com/danshipper/status/2125635204018540754" target="_blank">https://x.com/danshipper/status/2125635204018540754</a>
+<a href="https://x.com/danshipper/status/2125687688066199721" target="_blank">https://x.com/danshipper/status/2125687688066199721</a>
+<a href="https://x.com/danshipper/status/2125725124535927221" target="_blank">https://x.com/danshipper/status/2125725124535927221</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aditya Agarwal</span>
+<span class="builder-role">General Partner, SPC; Co-Founder, Bevel Health</span>
+</div>
+<p class="summary-en">Aditya Agarwal posts once, a bare link with no text (80 likes, 10 reposts, 8 replies). The feed gives no text for the linked item.</p>
+<p class="summary-zh zh">Aditya Agarwal 发了一条，只有一条裸链接、没有文字（80 赞、10 转发、8 回复）。feed 没给链接内容的正文。</p>
+<div class="urls">
+<a href="https://x.com/adityaag/status/2125817213890478282" target="_blank">https://x.com/adityaag/status/2125817213890478282</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Sam Altman</span>
+<span class="builder-role">CEO, OpenAI</span>
+</div>
+<p class="summary-en">Sam Altman posts twice, returning after one issue without content. The first says OpenAI is testing Private Inference with a small group of customers as part of OpenAI Private Intelligence; stronger privacy protections will make frontier AI useful for more work, and he points interested readers to a handle. He adds that ZDR with Private Safety Processing enables automated safety reviews without OpenAI personnel seeing the underlying content (7,997 likes, 420 reposts, 879 replies). The second quote post says he had not heard the word hyperstitioning before and that it is a good one (5,245 likes, 248 reposts, 720 replies).</p>
+<p class="summary-zh zh">Sam Altman 发了两条，在缺席一期后回归。第一条说 OpenAI 正在小范围客户中测试 Private Inference，属于 OpenAI Private Intelligence 的一部分；更强的隐私保护会让前沿 AI 能用于更多工作，他让有兴趣的读者联系某个账号。他补充说，带 Private Safety Processing 的 ZDR 可以在 OpenAI 员工看不到底层内容的情况下完成自动化安全审查（7,997 赞、420 转发、879 回复）。第二条引用推文说以前没听过 hyperstitioning 这个词，觉得它很好（5,245 赞、248 转发、720 回复）。</p>
+<div class="urls">
+<a href="https://x.com/sama/status/2125638790593274259" target="_blank">https://x.com/sama/status/2125638790593274259</a>
+<a href="https://x.com/sama/status/2125639418849714280" target="_blank">https://x.com/sama/status/2125639418849714280</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Claude</span>
+<span class="builder-role">AI assistant at Anthropic</span>
+</div>
+<p class="summary-en">The Claude account posts three times, all short lines with links. One shows origami folded step by step in code (285 likes). One asks what people are exploring with Fable 5.2 (185 likes, 72 replies). One shows a robot arm playing 62 moves of checkers while correcting for its own 7mm sag (264 likes, 4 reposts, 7 replies). The feed gives no text for the linked items.</p>
+<p class="summary-zh zh">Claude 账号发了三条，都是短句加链接。一条展示用代码一步步折出的折纸（285 赞）。一条问大家在 Fable 5.2 上探索什么（185 赞、72 回复）。一条展示一只机械臂下 62 步国际跳棋，同时自我校正 7 毫米的下垂（264 赞、4 转发、7 回复）。feed 没给这些链接内容的正文。</p>
+<div class="urls">
+<a href="https://x.com/claudeai/status/2125616070652555573" target="_blank">https://x.com/claudeai/status/2125616070652555573</a>
+<a href="https://x.com/claudeai/status/2125616074242552180" target="_blank">https://x.com/claudeai/status/2125616074242552180</a>
+<a href="https://x.com/claudeai/status/2125616072543944854" target="_blank">https://x.com/claudeai/status/2125616072543944854</a>
+</div>
+</article>
+</section>
+<!-- ============== PODCAST ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#127911;</span>
+<h2 class="section-title">Podcast</h2>
+<span class="section-meta">1 Episode &middot; New to the Series</span>
+</div>
+<div class="podcast"><div class="podcast-source">Training Data</div><div class="podcast-title">OpenAI&rsquo;s Noam Brown: Why Game Theory Didn&rsquo;t Lead to General Intelligence (Live at No Limit Finals)</div>
+<p class="summary-en">The Takeaway: the path to general intelligence did not run through game theory. Brown says game theory rests on all players being rational and that being common knowledge, and people are not rational; what worked was training on human data, modelling human behaviour, and scaling reasoning through reinforcement learning on chain of thought and longer test-time compute. He calls the current stretch the centaur period, in which human plus AI works best because models are jagged, strong at some things and weak at others.</p>
+<p class="summary-en">This is Training Data, recorded live at the No Limit finals, with OpenAI&rsquo;s Noam Brown. The host walks through a path from poker to game theory and diplomacy to reasoning. Brown says he started on poker AI in grad school in 2012, drawn by game theory and economics and by the idea that poker had a perfect strategy nobody knew. He says he won the MIT PokerBots competition two years in a row, in 2014 and 2015, with a friend at MIT. Asked how he would build a bot now, he says the approaches he took were GTO oriented: self play with CFR, later neural self play, and that training took many hours. He says that for this tournament format an exploitation based approach that reads opponents may be better than GTO, and that recent general models have got good enough at poker that GPT-6 Astra can make money playing online, in his telling.</p>
+<p class="summary-en">On diplomacy he says the aim was a general technique, not one that only works on a narrow domain, because poker bots did not transfer well to chess or Go. Diplomacy was chosen as the hardest case: a natural language game of negotiation, alliances and both cooperation and conflict. He says the game theoretic premise of common knowledge of rationality makes bots misread people, and uses the ultimatum game as an example: the game theoretic move is to offer a penny, but a person offered a penny refuses. His team found their diplomacy bots drifting toward vengeance and fairness behaviours, and concluded that the way to a superhuman diplomacy agent was to train models to imitate people, including their irrationality, and then train the agent against those imitation humans.</p>
+<p class="summary-en">That led to what he calls a crisis of faith around 2022. His whole career had been computational game theory, but the evidence pointed instead to human data, modelling people, and scaled reasoning. He chose to work on what he judged most promising and joined OpenAI, working on what became o1. He recalls that in 2022 many people expected pretraining scale alone to solve the remaining problems, while he argued that reaching competent Go play by scaling would take roughly six orders of magnitude and was not realistic. The decisive idea was to make models think before acting: chain of thought prompting was coarse, but reinforcement learning trained on it produced much better behaviour, and he reports that the longer the model thinks, the better it does. He calls this the key unlock for scaling test time compute beyond games.</p>
+<p class="summary-en">On what humans still add, Brown says models are complements rather than substitutes for now. They are strong at some tasks and poor at others, including long term planning and noticing that they are heading the wrong way; as an example he says a model asked to implement CFR can spend hours perfecting its numerics when CFR is robust to small numerical error. He says 5.5 and 5.6 were the first models he felt were ten to twenty times his own ability to build a poker bot, while Astra can produce an excellent river solver from one prompt but not yet a full scale poker bot. On chain of thought he says it is a somewhat odd way to scale test time compute and may not be the best solution, but it is sufficient, and notes that people sometimes think in images, which chain of thought does not capture.</p>
+<p class="summary-en">On recursive self improvement he says it is real but not new: all of human technological progress is a single RSI loop, from telescopes to punch cards to compilers and LLMs, with people shifting to what the technology is still bad at. What differs now is the generality and speed, and he expects a steep rate of progress over the next year or two; his most controversial remark is that a promising student should drop out and join a lab now, pointing to dropouts he has hired who did well. In the lightning round he says he cannot think of a game that needs a bespoke agent, that games are better used as evaluations for general LLMs, and that current models cannot play real time strategy or Zelda at a superhuman level; asked whether one AI could beat all humans at the World Series of Poker within five years, he says a GTO agent probably could not because of variance, but gives roughly a 20% chance if it can read opponents well enough. Names, figures and spellings follow the transcript; this is an interview and its claims are the speakers&rsquo;.</p>
+<p class="summary-zh zh">核心结论：通向通用智能的路并没有经过博弈论。Brown 说博弈论的前提是所有玩家理性、且这是共同知识，但人并不理性；真正起作用的是在人类数据上训练、建模人的行为，再用强化学习训练思维链、拉长测试时计算来扩展推理。他把当下称为半人马时期，人加 AI 的组合最有效，因为模型能力是参差不齐的：有些事很强，有些事很弱。</p>
+<p class="summary-zh zh">这是 Training Data 在 No Limit 决赛现场录制的一期，嘉宾是 OpenAI 的 Noam Brown。主持人带他回顾了从扑克到博弈论、外交，再到推理的路径。Brown 说 2012 年读研时开始做扑克 AI，吸引他的是博弈论和经济学，以及扑克存在一套没人知道的完美策略这个想法。他说自己和一个 MIT 的朋友连续两年赢得 MIT PokerBots 比赛，是 2014 和 2015 年。被问到现在会怎么做 bot，他说自己过去用的方法以 GTO 为主：用 CFR 自我对弈，后来换成神经网络自我对弈，训练要花很多小时。他说在这种赛制下，靠读对手的利用式打法可能比 GTO 更好；又说近期的通用模型在扑克上已经够强，按他的说法 GPT-6 Astra 现在能在网上扑克赚钱。</p>
+<p class="summary-zh zh">谈到外交，他说目标是找到通用方法，而不是只在一个窄领域有效的技术，因为扑克机器人并不能很好地迁移到国际象棋或围棋。外交被选作最难的例子：一个自然语言游戏，涉及谈判、结盟，既有合作也有对抗。他说博弈论关于理性是共同知识的前提会让机器人误判人，并用最后通牒游戏举例：博弈论的做法是只给一分钱，但真人被给一分钱会拒绝。他的团队发现外交机器人开始出现报复和追求公平的行为，于是结论是，要做超人水平的外交 agent，得先训练模型模仿人、包括人的非理性，再让 agent 和这些模仿人的模型对抗训练。</p>
+<p class="summary-zh zh">这带来他所说的 2022 年前后的信仰危机。他的整个职业生涯都是计算博弈论，但证据指向的却是人类数据、建模人，以及扩展推理。他选择做自己判断最有价值的方向，加入 OpenAI，参与了后来成为 o1 的工作。他回忆 2022 年很多人觉得单靠预训练规模就能解决剩下的问题，而他认为要让模型达到能下围棋的水平，大概需要六个数量级的规模扩张，并不现实。关键思路是让模型在行动前先思考：思维链提示很粗糙，但用强化学习训练这种思维链行为后，效果好得多；他说模型思考得越久，表现越好。他把这称为把测试时计算扩展到游戏之外的关键突破。</p>
+<p class="summary-zh zh">关于人还剩什么价值，Brown 说目前模型是人的补充而不是替代。它们在某些任务上很强，在另一些上很差，包括长期规划，以及意识到自己走错了方向；他举例说，让模型实现 CFR，它可能花几个小时纠结数值精度，而 CFR 对小数值误差本来就很鲁棒。他说 5.5 和 5.6 是他第一次觉得模型把自己做扑克机器人的能力提升了十到二十倍，Astra 单靠一条提示能做出很好的河牌求解器，但还做不出完整规模的扑克机器人。关于思维链，他说这是扩展测试时计算的一种有点奇怪的方式，未必是最好的方案，但已经够用；他也提到人有时用图像思考，而思维链捕捉不到这一点。</p>
+<p class="summary-zh zh">关于递归自我改进，他说这事真实存在但并不新鲜：人类全部技术进步就是一个大的 RSI 循环，从望远镜到打孔卡、编译器和大模型，人不断转向技术还不擅长的部分。现在不同的是通用性和速度，他预计未来一两年进展会很快；他最具争议的一句话是，有前途的学生应该现在就辍学加入实验室，并举了自己招过的、表现很好的辍学生为例。在快问快答里，他说想不出哪个游戏还需要专门做一个 agent，游戏更适合作为通用大模型的评测，而当下的模型还不能在实时战略游戏或塞尔达上达到超人水平。被问到五年内单个 AI 能否在世界扑克大赛上击败所有人类，他说走 GTO 的 agent 大概不行，因为方差太大，但如果能足够好地读对手，他给大约 20% 的胜率。人名、数字和拼写按转写原样照录；这是一场访谈，其中的说法都属于说话人本人。</p>
+<div class="urls">
+<a href="https://www.youtube.com/watch?v=tRaFbDFBl_A" target="_blank">https://www.youtube.com/watch?v=tRaFbDFBl_A</a>
+</div></div>
+</section>
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128161;</span>
+<h2 class="section-title">The Takeaway</h2>
+<span class="section-meta">1 Podcast &middot; 2026-11-27</span>
+</div>
+<div class="takeaway">
+<div class="takeaway-label">The Takeaway</div>
+<p>Thariq&rsquo;s move to OpenAI is the most engaged story in this feed. His announcement takes first on likes (25,330) and first on reposts (946), with the second most replies (2,000), and Nan Yu quotes it from another account. Thibault Sottiaux&rsquo;s correction about a GPT-6.2 billing mistake takes the top replies (3,652) and second on likes (9,460); Sam Altman&rsquo;s Private Inference post is fourth on likes (7,997) and third on replies (879). Across 42 posts the totals are 70,086 likes, 3,514 reposts and 9,419 replies; eight clear 1,000 likes, one clears 10,000, six clear 100 reposts and ten clear 100 replies.</p>
+<p>Two threads run through the engineering posts. One is about making agents do long horizon work: Karpathy&rsquo;s Civilization map built from 31 real data sources in seven hours and 45K lines of code, Guillermo Rauch&rsquo;s lsx terminal Finder and his claim that workflows are 10x faster again, and Amjad Masad&rsquo;s line that large scale software migration is viable if the results can be verified. The other is about what people do alongside agents: Aaron Levie argues knowledge work converges on coding adjacent forms, Madhu Guru argues AI native teams force the surrounding organization to change, and Swyx warns that Pareto frontier charts hide reliability problems.</p>
+<p>The podcast is a new episode and it is late. Training Data published OpenAI&rsquo;s Noam Brown at 2026-11-24T10:00:00.000Z (Pacific 2026-11-24 02:00:00), 21h23m11s before the first post, 45h39m06s before the last and 45h29m33s before the snapshot; it shares the first post&rsquo;s Pacific day but the other 40 posts are on the next day. Its full title, the specific video URL https://www.youtube.com/watch?v=tRaFbDFBl_A, the publishedAt timestamp and the transcript anchors game theory and Noam Brown return zero hits across the 138 published pages. Noam Brown appears once on 06-28, but only as a tweet mention, not as a podcast, so it is not a dedup hit; the previous issue carried a different show, so this issue adds a new one.</p>
+<p>Quote structure and coverage: 20 of the 42 posts are quote posts pointing at 20 distinct IDs. One target is Thariq&rsquo;s announcement from this same feed, quoted by Nan Yu; it is an in feed target, not a self quote, and no two posts share a target. The other 19 are outside the feed and the feed gives the text of none of them. All 42 tweet IDs return zero hits against the 138 published pages. The window runs from Pacific 2026-11-24 22:36:49 (Zara Zhang) to Pacific 2026-11-25 22:20:54 (Aaron Levie), a 23h44m05s span closing 9m33s before the snapshot; two posts fall on Pacific 11-24 and 40 on 11-25, 2h01m43s after the previous issue&rsquo;s close, with the previous snapshot 23h59m56s earlier and no gap in coverage. Pacific 10-29 and 10-30 remain missing from the series.</p>
+<p>21 accounts posted: 11 are on the 24-name tracking list (Karpathy, Swyx, Peter Yang, Amjad Masad, Guillermo Rauch, Garry Tan, Matt Turck, Nikunj Kothari, Peter Steinberger, Aditya Agarwal, Sam Altman) and 10 are not (Josh Woodward, Thibault Sottiaux, Nan Yu, Madhu Guru, Thariq, Aaron Levie, Ryo Lu, Zara Zhang, Dan Shipper, Claude). Sam Altman returns after one issue without content. Ten of the 42 posts are one line reactions whose text, once t.co URLs are stripped, is under 40 characters; their links are kept and no subject is added. The blogs array is empty again this issue, the same cause as an empty array rather than a dedup hit.</p>
+</div>
+<div class="takeaway zh">
+<div class="takeaway-label">核心结论</div>
+<p>Thariq 加入 OpenAI 是本期互动最高的一条。他的公告拿到赞数第一 25,330、转发第一 946，回复 2,000 排第二，Nan Yu 还从另一个账号引用了它。Thibault Sottiaux 关于 GPT-6.2 计费错误的说明拿到回复第一 3,652、赞数第二 9,460；Sam Altman 的 Private Inference 公告是赞数第四 7,997、回复第三 879。42 条合计 70,086 赞、3,514 转发、9,419 回复；8 条破千赞，1 条破万赞，6 条转发过百，10 条回复过百。</p>
+<p>工程类的推文有两条线。一条是让 agent 做长周期的工作：Karpathy 用 31 个真实数据源、七小时和 4.5 万行代码做出文明风格地图，Guillermo Rauch 展示终端里的 Finder lsx 并说 workflows 又提速 10 倍，Amjad Masad 说只要结果可验证，大规模软件迁移就可行。另一条是人在 agent 旁边还做什么：Aaron Levie 认为知识工作会收敛到与编程相邻的形式，Madhu Guru 认为 AI 原生团队会倒逼周围组织改变，Swyx 提醒 Pareto 前沿图会掩盖可靠性问题。</p>
+<p>播客是一集新内容，而且迟到。Training Data 发布的 OpenAI Noam Brown 那集时间为 2026-11-24T10:00:00.000Z（太平洋 11-24 02:00:00），比首条推文早 21 小时 23 分 11 秒、比末条早 45 小时 39 分 6 秒、比快照早 45 小时 29 分 33 秒；与首条推文同一太平洋日，其余 40 条在次日。完整标题、具体视频地址 https://www.youtube.com/watch?v=tRaFbDFBl_A、publishedAt 时间戳，以及转写锚点 game theory 和 Noam Brown，对 138 个已发布页面全部零命中。Noam Brown 在 06-28 期出现过一次，但只是推文里的提及、不是播客，因此不算判重；上一期是另一档节目，本期补进一集新的。</p>
+<p>引用结构与覆盖：42 条里 20 条是引用推文，指向 20 个不同 ID。其中一个目标是本期 Thariq 的那条公告，被 Nan Yu 引用；这是 feed 内目标，不是自引，也没有两条推文指向同一个目标。其余 19 个在 feed 外，feed 没给其中任何一条的正文。42 个推文 ID 对 138 个已发布页面零命中。窗口从太平洋 2026-11-24 22:36:49（Zara Zhang）到太平洋 2026-11-25 22:20:54（Aaron Levie），跨度 23 小时 44 分 5 秒，在快照前 9 分 33 秒收口；2 条落在太平洋 11-24、40 条落在 11-25，距上一期收口 2 小时 1 分 43 秒，上一份快照相隔 23 小时 59 分 56 秒，覆盖没有缺口。太平洋 10-29、10-30 在本系列仍缺失。</p>
+<p>有内容的账号 21 个：11 位在 24 位追踪名单内（Karpathy、Swyx、Peter Yang、Amjad Masad、Guillermo Rauch、Garry Tan、Matt Turck、Nikunj Kothari、Peter Steinberger、Aditya Agarwal、Sam Altman），10 位不在（Josh Woodward、Thibault Sottiaux、Nan Yu、Madhu Guru、Thariq、Aaron Levie、Ryo Lu、Zara Zhang、Dan Shipper、Claude）。Sam Altman 在缺席一期后回归。42 条里 10 条是一句话反应，去掉 t.co 链接后正文不足 40 字符；链接都保留，不补主语。blogs 数组本期仍为空，这个 0 是空数组，不是判重命中。</p>
+</div>
+</section>
+<!-- ============== NOTES ============== -->
+<section class="section">
+<div class="section-head">
+<span class="section-icon">&#128221;</span>
+<h2 class="section-title">记录 / Notes &amp; Dedup</h2>
+<span class="section-meta">42 Zero &middot; 1 New &middot; 0 Blog</span>
+</div>
+<div class="dedup">
+<p style="margin-top:12px"><strong>Tweets</strong> All 42 tweet IDs have zero hits across the 138 published digest pages. 20 of the 42 are quote posts pointing at 20 distinct IDs. One target, 2125675533761671405, is Thariq&rsquo;s announcement from this same feed, quoted by Nan Yu; it is an in feed target and not a self quote. The other 19 are outside the feed and the feed gives the text of none of them. No two posts share a target, and no quoted ID appears in an earlier issue.</p>
+<p style="margin-top:12px"><strong>Podcast</strong> The slot is 1 and it is new, not a dedup. Training Data published OpenAI&rsquo;s Noam Brown: Why Game Theory Didn&rsquo;t Lead to General Intelligence (Live at No Limit Finals), publishedAt 2026-11-24T10:00:00.000Z (Pacific 2026-11-24 02:00:00), 21h23m11s before the first post, 45h39m06s before the last and 45h29m33s before the snapshot, sharing the first post&rsquo;s Pacific day while the other 40 posts are on the next day. Its full title, the specific video URL https://www.youtube.com/watch?v=tRaFbDFBl_A, the timestamp and the transcript anchors game theory and Noam Brown return zero hits across the 138 published pages. Noam Brown is mentioned once on 06-28 as a tweet, not as a podcast, so it is not a dedup hit. The previous issue carried Unsupervised Learning, a different show; this issue adds a new episode and the page links to the specific video URL.</p>
+<p style="margin-top:12px"><strong>Blog</strong> The slot is 0 because the blogs array is empty. This zero has the same cause as an empty array rather than a dedup hit.</p>
+<p style="margin-top:12px"><strong>Coverage and thin posts</strong> Three timestamps: snapshot 2026-11-26T06:30:27.231Z (Pacific 11-25 22:30:27), first post Pacific 11-24 22:36:49 (Zara Zhang), last post Pacific 11-25 22:20:54 (Aaron Levie). Window 23h44m05s, closing 9m33s before the snapshot; 2h01m43s after the previous issue&rsquo;s close (Pacific 11-24 20:35:06); previous snapshot 23h59m56s earlier. Two posts fall on Pacific 11-24 and 40 on 11-25. Pacific 10-29 and 10-30 remain missing. 10 of the 42 posts are one line reactions whose text, once t.co URLs are stripped, is under 40 characters: Swyx&rsquo;s as seen on Anthropic blog, Peter Yang&rsquo;s Blade Runner question, Nan Yu&rsquo;s two links, Thariq&rsquo;s just like me fr, Dan Shipper&rsquo;s bare link and you love to see it, Aditya Agarwal&rsquo;s bare link, and Claude&rsquo;s origami and Fable 5.2 lines. Their links are kept and no subject is added.</p>
+<p style="margin-top:12px"><strong>Engagement</strong> Across all 42 posts: 70,086 likes, 3,514 reposts and 9,419 replies. Thariq&rsquo;s announcement of joining OpenAI is first on likes and reposts at 25,330 and 946, and second on replies at 2,000. Thibault Sottiaux&rsquo;s GPT-6.2 billing correction is top on replies at 3,652 and second on likes at 9,460; Sam Altman&rsquo;s Private Inference post is 7,997 likes and 879 replies, fourth on likes and third on replies. Karpathy&rsquo;s map post is third on likes at 9,223 and second on reposts at 774. Eight posts clear 1,000 likes and one clears 10,000; six clear 100 reposts and ten clear 100 replies. The longest post is Karpathy&rsquo;s at 1,608 characters. Of the 21 accounts, 11 are on the tracked 24 builder list and 10 are not.</p>
+<p style="margin-top:12px"><strong>Not resolved</strong> What the two links in Swyx&rsquo;s Pareto post point to; what the Anthropic blog post is; what Peter Yang&rsquo;s chef app is and what the Blade Runner question refers to; what the two links in Nan Yu&rsquo;s quote are; what fx and lsx are beyond Rauch&rsquo;s description, and what workflow@latest contains; what the linked migration case in Amjad&rsquo;s post is; what the Jensen therapy link in Matt Turck&rsquo;s post points to; what Claude&rsquo;s three linked items are; what the hyperstitioning link in Sam Altman&rsquo;s post says; and standing items carried from earlier issues (Day 29 / 3/x, dot and dots, jev, Particle-1, HackerTube, Grok Bot, Legora, the data market figure, Claude Whiteboards, Box interop, interactive connectors, the AIE keynote, MCP tool counts, Opal and the 11-27 book date).</p>
+</div>
+<div class="dedup zh" style="margin-top:14px">
+<p style="margin-top:12px"><strong>推文</strong> 42 个推文 ID 对 138 个已发布页面全部零命中。42 条里有 20 条是引用推文，指向 20 个不同 ID。其中一个目标 2125675533761671405 是本期 Thariq 那条加入 OpenAI 的公告，被 Nan Yu 引用；这是 feed 内目标，不是自引。其余 19 个在 feed 外，feed 没给其中任何一条的正文。没有两条推文指向同一个目标，也没有任何一个被引用 ID 出现在往期页面里。</p>
+<p style="margin-top:12px"><strong>播客</strong> 这一格是 1，是新收录，不是判重。Training Data 的《OpenAI's Noam Brown: Why Game Theory Didn't Lead to General Intelligence (Live at No Limit Finals)》发布于 2026-11-24T10:00:00.000Z（太平洋 11-24 02:00:00），比首条推文早 21 小时 23 分 11 秒、比末条早 45 小时 39 分 6 秒、比快照早 45 小时 29 分 33 秒；与首条推文同一太平洋日，其余 40 条在次日。完整标题、具体视频地址 https://www.youtube.com/watch?v=tRaFbDFBl_A、时间戳，以及转写锚点 game theory 和 Noam Brown，对 138 个已发布页面全部零命中。Noam Brown 在 06-28 期以一条推文提及过、不是播客，因此不算判重。上一期收录的是 Unsupervised Learning，是另一档节目；本期补进一集新的，页面直接链到具体视频地址。</p>
+<p style="margin-top:12px"><strong>博客</strong> 这一格是 0，因为 blogs 数组为空。这个 0 是空数组，不是判重命中。</p>
+<p style="margin-top:12px"><strong>覆盖与薄内容</strong> 三个时刻：快照 2026-11-26T06:30:27.231Z（太平洋 11-25 22:30:27），首条太平洋 11-24 22:36:49（Zara Zhang），末条太平洋 11-25 22:20:54（Aaron Levie）。窗口 23 小时 44 分 5 秒，在快照前 9 分 33 秒收口；距上一期收口（太平洋 11-24 20:35:06）2 小时 1 分 43 秒；上一份快照相隔 23 小时 59 分 56 秒。2 条落在太平洋 11-24、40 条落在 11-25。太平洋 10-29、10-30 仍永久缺失。42 条里有 10 条是一句话反应，去掉 t.co 链接后正文不足 40 字符：Swyx 的 as seen on Anthropic blog、Peter Yang 的银翼杀手提问、Nan Yu 的两条链接、Thariq 的 just like me fr、Dan Shipper 的裸链接和 you love to see it、Aditya Agarwal 的裸链接，以及 Claude 的折纸和 Fable 5.2 两条。链接都保留，不补主语。</p>
+<p style="margin-top:12px"><strong>互动数据</strong> 42 条合计 70,086 赞、3,514 转发、9,419 回复。Thariq 那条加入 OpenAI 的公告赞数、转发第一：25,330 赞、946 转发，回复 2,000 排第二。Thibault Sottiaux 那条 GPT-6.2 计费说明回复第一 3,652、赞数第二 9,460；Sam Altman 的 Private Inference 公告是 7,997 赞、879 回复，赞数第四、回复第三。Karpathy 的地图推文赞数第三 9,223、转发第二 774。8 条赞数过千，1 条过万；6 条转发过百，10 条回复过百。最长一条是 Karpathy 的 1,608 字符。21 个账号里 11 位在追踪的 24 人名单内、10 位不在。</p>
+<p style="margin-top:12px"><strong>未解决</strong> Swyx 那条 Pareto 推文里的两条链接指向什么；那条 Anthropic 博客文章是什么；Peter Yang 的厨师应用是什么、银翼杀手提问指哪一部；Nan Yu 引用里的两条链接是什么；除 Rauch 的描述外 fx 和 lsx 是什么、workflow@latest 里有什么；Amjad 那条推文里链接的迁移案例是什么；Matt Turck 那条 Jensen 心理治疗链接指向哪里；Claude 三条链接的内容；Sam Altman 那条 hyperstitioning 链接讲了什么；以及往期长期项（Day 29 / 3/x、dot 与 dots、jev、Particle-1、HackerTube、Grok Bot、Legora、数据市场规模、Claude Whiteboards、Box 互通、interactive connectors、AIE keynote、MCP 工具数、Opal 和 11-27 新书日期）。</p>
+</div>
+</section>
+<footer class="footer">
+<div class="next-issue">&#128236; 下一期：明天 10:00（北京时间）</div>
+<div class="signature"><a href="#top" style="border:none;color:var(--ink-muted)">回到顶部 / Back to top</a></div>
+<div class="signature">by chloevchen</div>
+</footer>
+</body>
+</html>
+<!-- by chloevchen -->
