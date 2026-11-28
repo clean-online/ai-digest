@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Builders Digest &middot; 2026-11-28</title>
+<style>
+
+
+
+
+
+  :root { --bg: #faf9f6; --bg-elevated: #ffffff; --ink: #14161a; --ink-soft: #3a3d44; --ink-muted: #6b7079; --line: #e8e6df; --line-soft: #f0eee7; --accent: #c2410c; --accent-soft: #fef3c7; --accent-deep: #92400e; --green: #166534; --green-soft: #dcfce7; --max-w: 760px; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  .zh { font-family: 'Noto Serif SC', 'PingFang SC', serif; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s ease; word-break: break-all; }
+  a:hover { border-bottom-color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; }
+  .topbar-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--ink-muted); }
+  .brand { font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .brand-mark { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; margin-right: 8px; transform: translateY(-1px); }
+  .header { max-width: var(--max-w); margin: 0 auto; padding: 80px 32px 48px; text-align: left; }
+  .eyebrow { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 18px; }
+  .header h1 { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; color: var(--ink); }
+  .stats { max-width: var(--max-w); margin: 36px auto 0; padding: 0 32px; display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .stat { flex: 1; padding: 20px 0; text-align: center; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 28px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+  .note-line { max-width: var(--max-w); margin: 16px auto 0; padding: 0 32px; font-size: 12.5px; color: var(--ink-muted); line-height: 1.7; }
+  .section { max-width: var(--max-w); margin: 0 auto; padding: 56px 32px 0; }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; padding-bottom: 14px; border-bottom: 2px solid var(--ink); }
+  .section-icon { font-size: 22px; }
+  .section-title { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+  .section-meta { margin-left: auto; font-size: 12px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .builder { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px dashed var(--line); }
+  .builder:last-child { border-bottom: none; }
+  .builder-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .builder-name { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+  .builder-role { font-size: 13px; color: var(--ink-muted); background: var(--line-soft); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+  .summary-en { font-size: 16px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 14px; }
+  .summary-zh { font-size: 15.5px; color: var(--ink); line-height: 1.85; background-color: #fbfaf5; border-left: 3px solid var(--accent-soft); border-radius: 0 6px 6px 0; padding: 16px 18px; margin-bottom: 14px; }
+  .urls { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.9; padding: 10px 14px; background: #f5f3ec; border-radius: 6px; }
+  .urls a { display: block; }
+  .podcast { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 28px 30px; margin-bottom: 24px; }
+  .podcast-source { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 8px; }
+  .podcast-title { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.35; margin-bottom: 18px; }
+  .takeaway { background: var(--bg-elevated); border: 1px solid var(--line); border-radius: 10px; padding: 24px 26px; margin-bottom: 18px; }
+  .takeaway-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 12px; }
+  .takeaway p { font-size: 15.5px; color: var(--ink-soft); line-height: 1.8; margin-bottom: 12px; }
+  .takeaway p:last-child { margin-bottom: 0; }
+  .takeaway.zh p { color: var(--ink); }
+  .dedup { background: var(--bg-elevated); border: 1px dashed var(--line); border-radius: 10px; padding: 18px 22px; font-size: 14px; color: var(--ink-muted); line-height: 1.75; }
+  .dedup a { word-break: break-all; }
+  .footer { max-width: var(--max-w); margin: 80px auto 0; padding: 40px 32px; border-top: 1px solid var(--line); text-align: center; color: var(--ink-muted); font-size: 13px; }
+  .next-issue { display: inline-block; background: var(--green-soft); color: var(--green); padding: 6px 14px; border-radius: 16px; font-weight: 500; font-size: 13px; margin-bottom: 18px; }
+  .signature { font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 14px; color: var(--ink-muted); }
+  @media (max-width: 640px) { .header { padding: 56px 24px 36px; } .section { padding: 40px 24px 0; } .header h1 { font-size: 32px; } .stats { padding: 0 24px; } .stat-num { font-size: 22px; } .note-line { padding: 0 24px; } .topbar-inner { padding: 12px 24px; }
+
+
+</style>
+</head>
+<body id="top">
+<header class="topbar">
+<div class="topbar-inner">
+<a href="https://clean-online.github.io/ai-digest/" class="brand" style="border:none;color:var(--ink)"><span class="brand-mark"></span>Follow Builders &middot; AI Builders Digest</a>
+<span>双语 &middot; Bilingual</span>
+</div>
+</header>
+<section class="header">
+<div class="eyebrow">Daily Digest &middot; 2026-11-28</div>
+<h1>AI Builders Digest</h1>
+</section>
+<div class="stats">
+<div class="stat"><div class="stat-num">12</div><div class="stat-label">Builders</div></div>
+<div class="stat"><div class="stat-num">18</div><div class="stat-label">Tweets</div></div>
+<div class="stat"><div class="stat-num">1</div><div class="stat-label">Podcast</div></div>
+<div class="stat"><div class="stat-num">0</div><div class="stat-label">Blog</div></div>
+</div>
+<p class="note-line">Feed snapshot 2026-11-27T06:30:29.812Z (Pacific 2026-11-26 22:30:29). All 18 tweets are rendered: 12 builders, none dropped. The podcast slot is 1 and new to the series; the blogs array is empty. One post falls on Pacific 11-25 and 17 on 11-26. Sam Altman&rsquo;s Thanksgiving family post leads likes and reposts; Sottiaux&rsquo;s one-line banked reset leads replies. Every engagement figure below is the value carried in the feed; none is estimated.</p>
+<p class="note-line zh">feed 快照 2026-11-27T06:30:29.812Z（太平洋 2026-11-26 22:30:29）。18 条推文全部渲染：12 位 builder，一条没删。播客这一格是 1，对本系列是新的一集；blogs 数组为空。1 条落在太平洋 11-25、17 条落在 11-26。Sam Altman 的感恩节家庭帖赞数和转发第一，Sottiaux 那句 banked reset 回复第一。下面所有互动数字都取自 feed 原值，没有估算。</p>
+<!-- ============== X / TWITTER ============== -->
+<section class="section">
+<div class="section-head"><span class="section-icon">&#128036;</span>
+<h2 class="section-title">X / Twitter</h2>
+<span class="section-meta">12 Builders &middot; 18 Tweets</span></div>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Swyx</span>
+<span class="builder-role">Latent Space / smol ai / Cognition / aidotengineer</span>
+</div>
+<p class="summary-en">Swyx posts three times, all quote posts. The first is a one line note that something is beating cursor and t3code on day 0, with two links and one like; the feed gives no text for the linked items. The second says agentic payments is one of the most divisive yet important themes to get right for 2028, with no real in between, either you get in early or you declare it basically never going to happen (81 likes, 81 replies). The third points to a post about refounding in public and lists three good things: critical feedback from people who aren&rsquo;t paid to say yes to you, a human face on an otherwise corporate feel, and turning an incumbent into an underdog story. He adds that twitter isn&rsquo;t real, since 99% of your customers will never see your tweets though 80% of your influencers might, so it is a fairly safe space to think in public as long as you stay inside overton (8 likes, 1 repost, 3 replies).</p>
+<p class="summary-zh zh">Swyx 发了三条，都是引用推文。第一条是一句话，说某个东西在第一天就打败了 cursor 和 t3code，附两条链接、1 赞；feed 没给链接内容的正文。第二条说 agentic payments 是 2028 年前最需要做对、也最有争议的主题之一，没有中间地带，要么早点进场，要么干脆认定它基本不会发生（81 赞、81 回复）。第三条指向一条关于公开重新创业的帖子，列了三点好处：拿到不是拿钱替你说好的人的批评、给原本公司化的感觉加一张人脸、把 incumbent 变成 underdog 故事。他补说 twitter 不是真实世界，99% 的客户根本不会看到你的推文，但 80% 的 influencer 可能看得到，所以只要不越出 overton，这里是公开思考的相当安全的空间（8 赞、1 转发、3 回复）。</p>
+<div class="urls">
+<a href="https://x.com/swyx/status/2126201671026180469" target="_blank">https://x.com/swyx/status/2126201671026180469</a>
+<a href="https://x.com/swyx/status/2126106139582677088" target="_blank">https://x.com/swyx/status/2126106139582677088</a>
+<a href="https://x.com/swyx/status/2126072968761721013" target="_blank">https://x.com/swyx/status/2126072968761721013</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Thibault Sottiaux</span>
+<span class="builder-role">Codex &amp; ChatGPT at OpenAI</span>
+</div>
+<p class="summary-en">Sottiaux posts once, the first post of the window, with one line: Banked reset is online. It takes the top replies in this feed at 1,538, second on likes at 7,984 and third on reposts at 198. The previous issue carried his note that everyone on Go, Plus, Pro and Business would get one banked reset after a GPT-6.2 billing mistake; the feed gives no further detail here.</p>
+<p class="summary-zh zh">Sottiaux 发了一条，是本窗口最早的一条，只有一句：Banked reset is online。它拿到本期最高回复 1,538、赞数第二 7,984、转发第三 198。上一期收录过他的说明：GPT-6.2 计费错误后，Go、Plus、Pro 和 Business 的所有用户都会得到一次 banked reset；本期 feed 没有更多细节。</p>
+<div class="urls">
+<a href="https://x.com/thsottiaux/status/2125853628250599730" target="_blank">https://x.com/thsottiaux/status/2125853628250599730</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Peter Yang</span>
+<span class="builder-role">Practical AI tutorials / interviews</span>
+</div>
+<p class="summary-en">Peter Yang posts three times. The first is a quote post aimed at his own earlier post from this same feed; he says Elon Musk is giving a SpaceX share to every kid in America and wonders whether the NY Times covered it, with two links (261 likes, 15 reposts, 15 replies). The second thanks Elon Musk for setting up Trump accounts for his kids, says one day he hopes to take them to see a Starship launch, and adds a link (194 likes, 1 repost, 8 replies). The third is a joke list of things to teach your kids during the holidays: reading, math, and how to rob a bank by masking up, going through the backdoor, using a snap gun to pick the locks, removing the security tape and threatening the staff for the safe code, courtesy of GTA VI (41 likes, 12 replies). The feed gives no text for the linked items.</p>
+<p class="summary-zh zh">Peter Yang 发了三条。第一条是引用推文，指向本期他自己稍早发的另一条：他说 Elon Musk 要给美国每个孩子一份 SpaceX 股份，并问 NY Times 有没有报道，附两条链接（261 赞、15 转发、15 回复）。第二条感谢 Elon Musk 帮他的孩子开了 Trump accounts，说希望有一天带他们去看 Starship 发射，附一条链接（194 赞、1 转发、8 回复）。第三条是个玩笑清单，列假期可以教孩子的事：阅读、数学，以及怎么蒙面、走后门、用 snap gun 撬锁、撕掉封条、威胁员工交出保险柜密码，courtesy of GTA VI（41 赞、12 回复）。feed 没给链接内容的正文。</p>
+<div class="urls">
+<a href="https://x.com/petergyang/status/2126046533904896077" target="_blank">https://x.com/petergyang/status/2126046533904896077</a>
+<a href="https://x.com/petergyang/status/2126042318793064914" target="_blank">https://x.com/petergyang/status/2126042318793064914</a>
+<a href="https://x.com/petergyang/status/2126021289102230008" target="_blank">https://x.com/petergyang/status/2126021289102230008</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nan Yu</span>
+<span class="builder-role">Product, Codex at OpenAI; prev Linear</span>
+</div>
+<p class="summary-en">Nan Yu posts once. She says voice chat is chat, sending images into the chat is chat, and issuing instructions and getting a site back is chat, and that you can do all of these things in what the post spells ChstChatGPT right now (3 likes, 2 replies). The spelling is kept as the feed carries it.</p>
+<p class="summary-zh zh">Nan Yu 发了一条。她说语音聊天是 chat、往聊天里发图片是 chat、下指令然后拿回一个网站也是 chat，还说现在在 ChstChatGPT 里就能做所有这些事（3 赞、2 回复）。拼写按 feed 原样照录。</p>
+<div class="urls">
+<a href="https://x.com/thenanyu/status/2126036677642928363" target="_blank">https://x.com/thenanyu/status/2126036677642928363</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Amjad Masad</span>
+<span class="builder-role">CEO, Replit</span>
+</div>
+<p class="summary-en">Amjad Masad posts once, a quote post. He says Google really cooked with Gemini 4 and tells people to take them for a ride on Replit, with a link (448 likes, 12 reposts, 46 replies). The feed gives no text for the linked item; Gemini 4 is his wording.</p>
+<p class="summary-zh zh">Amjad Masad 发了一条，是引用推文。他说 Google 这次把 Gemini 4 做得很到位，让大家去 Replit 上试一试，附一条链接（448 赞、12 转发、46 回复）。feed 没给链接内容的正文；Gemini 4 是他的原话。</p>
+<div class="urls">
+<a href="https://x.com/amasad/status/2126018746884243652" target="_blank">https://x.com/amasad/status/2126018746884243652</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Guillermo Rauch</span>
+<span class="builder-role">CEO, Vercel</span>
+</div>
+<p class="summary-en">Guillermo Rauch posts once, a Thanksgiving note. He says he is thankful for all the optimists, that Americans are profoundly optimistic and that this is something an immigrant comes to appreciate and be drawn to. He argues that defining the future and leading the world requires a positive vision of what is to come, and says many people now speak of a future we must blindly accept and capitulate to; instead, he writes, we must use our agency to build and project the amazing future we want for our grandchildren and loved ones (744 likes, 24 reposts, 53 replies).</p>
+<p class="summary-zh zh">Guillermo Rauch 发了一条，是感恩节感言。他说自己感谢所有乐观的人，说美国人极其乐观，而这是一个移民会格外欣赏、也会被吸引的特质。他认为要定义未来、引领世界，必须对将来抱有正向的想象；他说如今很多人谈起未来，用的说法是我们只能盲目接受、向其让步。他写道，我们应当用自己的能动性去建造并投射那个我们想留给孙辈和所爱之人的美好未来（744 赞、24 转发、53 回复）。</p>
+<div class="urls">
+<a href="https://x.com/rauchg/status/2126037393241424065" target="_blank">https://x.com/rauchg/status/2126037393241424065</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aaron Levie</span>
+<span class="builder-role">CEO, Box</span>
+</div>
+<p class="summary-en">Aaron Levie posts once, a quote post at the start of the window. He argues there is a huge opportunity to build new services firms from the ground up, or transform existing ones, with agents at the center. The expertise services firms should have matters as much as ever because deep domain understanding is still needed to get the most out of agents, but the ability to deliver on projects now has a 10X multiplier; that means happier clients, winning more business, going after smaller customers that were not in the TAM before, or delivering outcomes that were not really conceivable. He says this is happening in advertising, IT transformation, management consulting, finance and other fields historically constrained by the speed of their workforce. He sees a huge opportunity for those starting firms and says existing players that commit to the transformation should not be counted out because customer trust goes a long way, but they have to move quickly (883 likes, 57 reposts, 145 replies). The feed gives no text for the linked item.</p>
+<p class="summary-zh zh">Aaron Levie 发了一条，是引用推文，出现在窗口开头。他认为当下有巨大机会从零建立新的服务公司，或改造现有公司，把 agent 放在中心。服务公司本该具备的专业能力依然重要，因为要充分用好 agent 仍需深厚的领域理解；但交付项目的能力现在有了 10 倍乘数，意味着客户更满意、能争到更多客户、能做以前不在 TAM 里的小客户，或交付此前根本想不到能交付的成果。他说这正在广告、IT 转型、管理咨询、金融，以及其他历史上受人力速度约束的领域发生。他认为对初创者机会很大，也说不该低估承诺转型的现有玩家，因为既有客户信任很值钱，但他们必须快（883 赞、57 转发、145 回复）。feed 没给链接内容的正文。</p>
+<div class="urls">
+<a href="https://x.com/levie/status/2125983542475894821" target="_blank">https://x.com/levie/status/2125983542475894821</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Matt Turck</span>
+<span class="builder-role">VC, FirstMark Capital</span>
+</div>
+<p class="summary-en">Matt Turck posts once, a Thanksgiving joke: a quote thanking VCs for their thought leadership, podcasts and market maps, followed by the note that no founder has said it yet, though it is still early on Thanksgiving day (62 likes, 1 repost, 15 replies).</p>
+<p class="summary-zh zh">Matt Turck 发了一条，是个感恩节玩笑：先引用一句感谢 VC 的 thought leadership、播客和市场地图，接着补一句还没有创始人这么说，不过感恩节当天还早（62 赞、1 转发、15 回复）。</p>
+<div class="urls">
+<a href="https://x.com/mattturck/status/2126068708527198482" target="_blank">https://x.com/mattturck/status/2126068708527198482</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Zara Zhang</span>
+<span class="builder-role">Builder</span>
+</div>
+<p class="summary-en">Zara Zhang posts once, the longest post in this feed at 2,999 characters: 12 tips for people who posted on LinkedIn but now want to post on X. She says she was asked how she grew 80k followers on X in one year. Her tips include treating LinkedIn as a stage and X as a party, finding your crowd and listening before speaking; not expecting to reach the C-suite directly because mass attention has to come first; posting far more than feels reasonable, since she posted three times a day for six months while three to five posts a week is a lot on LinkedIn; making posting a reflex; accepting that it is a numbers game where roughly one in ten posts does well and one in fifty goes viral; making about half of your posts reactions; knowing the difference between a reply, which is like a DM that says notice me, and a quote tweet, which uses someone else&rsquo;s content to grow your own account; fixing your feed first; writing like you are texting an acquaintance and not using AI or bots for replies; posting the things that are obvious to you, such as the top ten questions customers, investors and your team ask; posting what you just said out loud; and showing your face without selling yet, because video stands out on X and people want to know you are a real human rather than AI slop, with the advice not to promote your company until about 1,000 followers and to add your own take rather than PR speak when you later repost company news. She closes with people follow people, not companies (341 likes, 14 reposts, 39 replies).</p>
+<p class="summary-zh zh">Zara Zhang 发了一条，是本期最长的一条，2,999 字符：给已经在 LinkedIn 发帖、现在想转去 X 的人的 12 条建议。她说有人问她怎么在一年内把 X 做到 8 万粉丝。建议包括：把 LinkedIn 当舞台、把 X 当派对，先找到自己的人群、先听再说；不要指望直接触达 C-suite，得先拿到大众注意力；发帖量要远超自己觉得合理的程度，她在六个月里一天发三条，而在 LinkedIn 一周三到五条就算多；把发帖变成条件反射；接受这是概率游戏，大约十条里有一条表现好、五十条里有一条会 viral；让大约一半的帖子是对别人的回应；分清回复和引用推文，回复像一句「看看我」的私信，引用推文是借别人的内容壮大自己的账号；先把自己的 feed 调对；写得像给熟人发消息，别用 AI 或机器人写回复；发那些你觉得理所当然的东西，比如客户、投资人和团队最常问的十个问题；把刚说出口的话发出来；露脸但先别卖，因为 X 是一片文字墙，视频很显眼，人们想知道你是真人而不是 AI slop，她还建议在大约 1,000 粉丝前不要推广公司，之后转公司新闻也要加自己的看法而不是 PR 话术。她最后说，人们关注的是人，不是公司（341 赞、14 转发、39 回复）。</p>
+<div class="urls">
+<a href="https://x.com/zarazhangrui/status/2126055939749118294" target="_blank">https://x.com/zarazhangrui/status/2126055939749118294</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Nikunj Kothari</span>
+<span class="builder-role">Partner, FPV Ventures</span>
+</div>
+<p class="summary-en">Nikunj Kothari posts once, a Thanksgiving note. He says that last Thanksgiving he was mildly paranoid about forgetting to text people he had spent significant time with, and that Claude discovered iMessage and WhatsApp are local databases on your computer. One thing led to another and it turned into a surprisingly helpful project. He says that if you are equally paranoid you can use the local scripts he links, which he describes as no AI and fully local, to text people you have spent time with, and closes with Happy Thanksgiving to one and all (23 likes, 1 repost, 5 replies). The feed gives no text for the linked item.</p>
+<p class="summary-zh zh">Nikunj Kothari 发了一条，是感恩节内容。他说去年感恩节自己有点担心忘了给过去一年花了很多时间相处的人发消息，就在这时 Claude 发现 iMessage 和 WhatsApp 都是你电脑上的本地数据库。事情一路发展，变成了一个出人意料有用的项目。他说如果同样多疑，可以用他链接里的本地脚本，他强调 no AI、fully local，用来给与你共度时光的人发消息，最后祝大家感恩节快乐（23 赞、1 转发、5 回复）。feed 没给链接内容的正文。</p>
+<div class="urls">
+<a href="https://x.com/nikunj/status/2126133563292803100" target="_blank">https://x.com/nikunj/status/2126133563292803100</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Aditya Agarwal</span>
+<span class="builder-role">General Partner, SPC; Co-Founder, Bevel Health</span>
+</div>
+<p class="summary-en">Aditya Agarwal posts once, a quote post with one line: You really cannot make this stuff up, with a link (0 likes, 0 reposts, 0 replies). The feed gives no text for the linked item.</p>
+<p class="summary-zh zh">Aditya Agarwal 发了一条，是引用推文，只有一句：You really cannot make this stuff up，附一条链接（0 赞、0 转发、0 回复）。feed 没给链接内容的正文。</p>
+<div class="urls">
+<a href="https://x.com/adityaag/status/2126201584094748886" target="_blank">https://x.com/adityaag/status/2126201584094748886</a>
+</div>
+</article>
+<article class="builder">
+<div class="builder-head">
+<span class="builder-name">Sam Altman</span>
+<span class="builder-role">CEO, OpenAI</span>
+</div>
+<p class="summary-en">Sam Altman posts three times, all on the same morning and led by a Thanksgiving message. He says he is thankful for a lot of things in life but that his family is the best thing that has ever happened to him; that the two most common things people told him before having kids, that it is better than anyone can explain and that it goes very fast, are both true; and that he loves his family more than there is any way to explain. He adds that he cannot really imagine life without Ollie and that without his unwavering support and great advice he would have gone crazy by now (13,315 likes, 384 reposts, 905 replies). A second post says most good things get a little less satisfying the 100th time you do them, but a quiet evening hanging out with your kids, even doing mundane stuff, is in the rare category of repetitive things that just get better and better (2,123 likes, 40 reposts, 129 replies). The third is a quote post about Ven, who he says was one of the earliest believers that they could use their then-current model to solve millenium prize problems; he says brilliance combined with correctly placed confidence and the courage to keep pushing on something others think is impossible is valuable and fairly rare, and that he is grateful so many people at OpenAI have that combination (6,775 likes, 321 reposts, 435 replies). The feed gives no text for the quoted item.</p>
+<p class="summary-zh zh">Sam Altman 发了三条，都在同一天上午，以一条感恩节内容开头。他说人生中有很多值得感激的事，但家人是发生在他身上最好的事；人们在他有孩子前最常说的两句话，比任何人都解释得更清楚、时间过得飞快，都是真的；他说自己对家人的爱无法用任何方式解释清楚。他补充说无法想象没有 Ollie 的生活，如果没有 Ollie 坚定不移的支持和很好的建议，他现在早就疯了（13,315 赞、384 转发、905 回复）。第二条说大多数好事做到第 100 次时会少一点满足感，但和孩子一起度过安静的夜晚，哪怕只是做些琐碎的事，属于少数反复做反而越来越好的事（2,123 赞、40 转发、129 回复）。第三条是引用推文，讲 Ven：他说 Ven 是最早相信他们能用当时的模型解决 millenium prize problems 的人之一；他说聪明，再加上位置正确的信心和坚持推进别人认为不可能之事的勇气，很宝贵也很少见，他很感激 OpenAI 有这么多具备这种组合的人（6,775 赞、321 转发、435 回复）。feed 没给被引用内容的正文。</p>
+<div class="urls">
+<a href="https://x.com/sama/status/2125990371897557278" target="_blank">https://x.com/sama/status/2125990371897557278</a>
+<a href="https://x.com/sama/status/2125984053119836399" target="_blank">https://x.com/sama/status/2125984053119836399</a>
+<a href="https://x.com/sama/status/2125983591389974980" target="_blank">https://x.com/sama/status/2125983591389974980</a>
+</div>
+</article>
+</section>
+<!-- ============== PODCAST ============== -->
+<section class="section">
+<div class="section-head"><span class="section-icon">&#127911;</span>
+<h2 class="section-title">Podcast</h2>
+<span class="section-meta">1 Episode &middot; New to the Series</span></div>
+<div class="podcast"><div class="podcast-source">Latent Space</div><div class="podcast-title">The Revolution vs The Renaissance — Thariq Shihipar, OpenAI</div>
+<p class="summary-en">The Takeaway: AI is both an industrial revolution and a renaissance, the guest argues. The revolution made software cheaper, more reliable and easier to produce at scale, and it also produces a lot of slop; the renaissance is about spending the productivity gain on something personal and on marginal gains in quality, with a human in the loop. His advice is to get the feedback loop back: build ephemeral tools, try them, and let taste come from actually using what you make.</p>
+<p class="summary-en">This is Latent Space, one of a series of episodes recorded at the recent AIE Code Summit and released over the coming week. The host introduces the guest as Tariq Schipkar, most recently of Anthropic, who as of the recording had announced he was joining OpenAI; the episode title carries the spelling Thariq Shihipar. He gave the closing keynote at AIE Code. The episode is sponsored by Jira by Atlassian. Names, figures and spellings follow the transcript, and the claims in this interview are the speakers&rsquo;.</p>
+<p class="summary-en">He opens by listing ways he was wrong over the past year. He says he was early on Claude making videos with code and on the unreasonable effectiveness of HTML, but wrong to be Bash is all you need and React is all you need pilled: as models get more general they work in the ways people work, including using a computer to draw a front end inside Figma. His current interest is the experience of working with the model. Building a game left him disoriented because the model made assumptions he did not know about, so he made a /human folder, a scripting language whose linting rules demand a high density of comments, no single character variable names and limited line length. The files read like specs but are real code he can play with, so the model makes the underlying primitive and he changes the details, such as a character firing three firewalls at the same time, as the transcript spells it. He notes that models are good at defaults, a useful starting point but not the end.</p>
+<p class="summary-en">He describes two game projects. One is a game he calls Avatar, non copyright infringing, for which he plans a WebAssembly engine with a lighter scripting layer on top and automated balance reports. He says a perfectly balanced game is boring and that variance, in the roguelike style of random choices when you level up, is what makes a game interesting. The other is a board and card game called Frontier Lab, with economic, scientific, cultural and other victory conditions; he had Claude run thousands of simulated games and found that economic victory always won. Asked to fix the balance, he says Claude was bad at it, which he treats as an eval of whether a model understands a system played over thousands of turns.</p>
+<p class="summary-en">On what keeps him busy, he says he is not a permanent underclass believer and has not hit the limit on his 200 dollar plan; he is not bottlenecked by tokens or intelligence, but by ambition and by ways of working with the model. He is trying RL and interpretability experiments, such as editing Qwen so that it thinks the Eiffel Tower is in Rome, and talks about DPO, RLVR and an idea he calls Turing test RL, asking where the objective function should come from when a model could simply sound human. He says harnesses underuse decision models, which TypeSafe calls system one models: write out the behaviour in advance but evaluate the game state and decide at run time, as in a support bot. He argues a single forward pass already contains a great deal of information, using Ilya&rsquo;s mystery novel example, and that the open question is how the confidence is calibrated, because a decision model can be confidently wrong.</p>
+<p class="summary-en">He wants his Dot, Duet and Grok bot to talk to each other and says he hooked them all up to a TXT file as a shared scratchpad in about 30 seconds by telling one of them to introduce themselves. He dislikes the trend of everyone copying everyone else because it is hard for a consumer to tell the versions apart. On personal software he says it is hard to know what you actually want, and that cheap prototypes help: he did not keep using an alternative macOS dock that combined the dock and focus states, and is now trying a combination of to do list, screen time manager and go to sleep app. He mentions live widgets, home screen previews, iMessage activities and Shortcuts, including using a shortcut as a proxy for old smart lamps that no longer work with Siri.</p>
+<p class="summary-en">Looking back, he says 2026 was the year AI worked and agents worked, with adoption faster than anything before and a dramatic change in the numbers in Anthropic&rsquo;s public filings, but that software is still hard and there is no 10 percent GDP growth or major labour market effect. He expects gradual change: enterprises cannot become truly AI native, while frontier capabilities in compute, biology, robotics and energy open new revenue. On recursive self improvement he says the field has moved from auto research to optimising inference, and that pre training and post training are next; he thinks compute allocation and which experiments to run should stay with people, using speculative decoding as a thought experiment for the kind of creative leap a model might not make on its own. He describes RSI as turning AI research and fields like biology into knowledge work, with the hard technical work automated and more white collar jobs as a result. He closes on games as a prosthetic for achievement, from WoW guild leadership to IOI and IMO, token spend and AIE talks, noting that school has perfect information while adult life has fog of war.</p>
+<p class="summary-zh zh">核心结论：嘉宾认为 AI 同时是一场工业革命和一次文艺复兴。革命让软件更便宜、更可靠、更容易规模化生产，同时也制造大量 slop；文艺复兴是把生产率收益花在个人的东西上、花在每一分边际质量上，并让人留在回路里。他的建议是把反馈回路拿回来：做一次性的工具，真的去试， taste 来自实际使用自己做出来的东西。</p>
+<p class="summary-zh zh">这是 Latent Space 的一期，属于在不久前的 AIE Code Summit 录制、接下来一周陆续放出的系列节目。主持人介绍嘉宾是 Tariq Schipkar，此前在 Anthropic，录制当时刚宣布加入 OpenAI；节目标题用的是 Thariq Shihipar 这个拼法。他在 AIE Code 做了闭幕演讲。本集由 Jira by Atlassian 赞助。人名、数字和拼写按转写原样照录，访谈中的说法都属于说话人本人。</p>
+<p class="summary-zh zh">他先列了过去一年里自己判断错的地方。他说自己很早就看到 Claude 能用代码做视频、也很早就讲 HTML 不合常理的有效性，但错在曾经认定 Bash is all you need 和 React is all you need：模型越通用，就越能按人工作的方式来工作，比如用电脑在 Figma 里画前端。他现在关心的是和人一起用模型的体验。做游戏时，模型做了一些他不知道的假设，让他很迷惑，于是他做了一个 /human 文件夹，这是一种脚本语言，lint 规则要求大量注释、不用单字符变量名、限制行长度。文件读起来像 spec，但都是真代码，他可以改：模型做底层原语，他调细节，比如让角色一次打出三个 firewalls，按转写原词照录。他说模型很擅长默认值，这是很好的起点，但不是终点。</p>
+<p class="summary-zh zh">他讲了两个游戏项目。一个是他称为 Avatar 的游戏，非版权侵权，计划把引擎写成 WebAssembly，上面加一层更轻的脚本层，并自动出平衡性报告。他说一个完全平衡的游戏很无聊，真正让游戏有意思的是方差，类似 roguelike 升级时给三个随机选项。另一个是叫 Frontier Lab 的桌面卡牌游戏，有经济、科技、文化等胜利条件；他让 Claude 跑了几千局模拟，发现经济胜利总是赢。让 Claude 修平衡性，他说效果很差，他把这当作一个评测：看模型是否理解一个跑几千回合的系统。</p>
+<p class="summary-zh zh">关于现在什么让他忙，他说自己不是永久底层论者，200 美元套餐也没用完额度；他不缺 token，也不太缺智能，缺的是野心和与模型协作的方式。他在试 RL 和可解释性实验，比如改 Qwen 让它以为埃菲尔铁塔在罗马；他谈到 DPO、RLVR，以及一个他称为 Turing test RL 的想法：如果模型只要听起来像人就行，目标函数该从哪里来。他说 harness 对 decision model 用得太少，TypeSafe 把它们叫 system one model：预先写好行为，但在运行时评估游戏状态再做决定，客服机器人就是例子。他认为一次前向传播里已经包含大量信息，举了 Ilya 的推理小说例子，真正的问题是置信度怎么校准，因为 decision model 也可能自信地错。</p>
+<p class="summary-zh zh">他希望自己的 Dot、Duet 和 Grok bot 能互相说话，说他让其中一个先自我介绍，大约 30 秒就把它们全接到了一个 TXT 文件上当共享便签。他不喜欢大家互相抄的趋势，因为消费者很难分清各个版本。关于个人软件，他说很难知道自己到底想要什么，便宜的原型有帮助：他做过一个把 dock 和专注状态结合起来的 macOS 替代 dock，后来没继续用；现在在试待办清单、屏幕时间管理和助眠应用的组合。他提到 live widgets、主屏预览、iMessage activities 和快捷指令，包括用快捷指令给不再支持 Siri 的旧智能灯做代理。</p>
+<p class="summary-zh zh">回看过去，他说 2026 是 AI 真的能用、agent 真的能用的一年，采用速度快过以往任何东西，Anthropic 公开文件里的数字变化很大；但软件依然难做，也没有出现 10% 的 GDP 增长或劳动力市场的重大变化。他预期渐进式变化：企业没法真正 AI native，而计算、生物、机器人、能源这些前沿能力会打开新收入。关于递归自我改进，他说领域已经从 auto research 走到优化推理，接下来是预训练与后训练（pre-training / post-training）；他认为算力分配和跑哪些实验应该留在人手里，并用 speculative decoding 作为思想实验，说明模型自己未必能做出那种创造性跳跃。他把 RSI 描述成把 AI 研究和生物这类领域变成知识工作，难的技术部分被自动化，结果是更多白领工作。他最后谈游戏作为成就的义肢，从魔兽公会会长到 IOI、IMO、token 消耗和 AIE 演讲，并指出学校有完全信息，而成年生活有战争迷雾。</p>
+<div class="urls">
+<a href="https://www.youtube.com/watch?v=Qe9d9dWyED0" target="_blank">https://www.youtube.com/watch?v=Qe9d9dWyED0</a>
+</div></div>
+</section>
+<!-- ============== TAKEAWAY ============== -->
+<section class="section">
+<div class="section-head"><span class="section-icon">&#128161;</span>
+<h2 class="section-title">The Takeaway</h2>
+<span class="section-meta">1 Podcast &middot; 2026-11-28</span></div>
+<div class="takeaway">
+<div class="takeaway-label">The Takeaway</div>
+<p>Sam Altman&rsquo;s Thanksgiving family post is the most engaged item in this feed, first on likes (13,315), first on reposts (384), second on replies (905). Thibault Sottiaux&rsquo;s one-line banked reset takes top replies (1,538), second on likes (7,984) and third on reposts (198). Sam&rsquo;s post about Ven and millenium prize problems is third on likes (6,775), second on reposts (321) and third on replies (435). Across 18 posts the totals are 33,287 likes, 1,069 reposts and 3,431 replies; four clear 1,000 likes, one clears 10,000, three clear 100 reposts and five clear 100 replies.</p>
+<p>Two threads run through the posts. One is Thanksgiving and family: Sam&rsquo;s family and kids posts, Guillermo Rauch&rsquo;s note on optimism and agency, Matt Turck&rsquo;s joke about VCs, and Nikunj Kothari&rsquo;s local scripts for texting people he spent time with. The other is working with agents: Swyx on agentic payments for 2028 and on refounding in public, Aaron Levie on services firms rebuilt around agents with a 10X multiplier on delivery, Amjad Masad urging people to try Gemini 4 on Replit, and Zara Zhang&rsquo;s 12 tips for posting on X after LinkedIn.</p>
+<p>The podcast is new to the series and it is early relative to the tweets. Latent Space published The Revolution vs The Renaissance — Thariq Shihipar, OpenAI at 2026-11-25T22:28:01.000Z (Pacific 2026-11-25 14:28:01), 8h58m15s before the first post, 32h01m14s before the last and 32h02m28s before the snapshot; it shares the first post&rsquo;s Pacific day while the other 17 posts are on the next day. Its full title, the specific video URL https://www.youtube.com/watch?v=Qe9d9dWyED0, the publishedAt timestamp, the guest spelling Thariq Shihipar and the transcript-only phrases system one model and slash human return zero hits across the 139 published pages. The phrase decision model has appeared in four earlier issues, so it is not used as a dedup anchor here. The previous issue carried the announcement of a move to OpenAI, and the transcript introduces the guest as having just made that move.</p>
+<p>Quote structure and coverage: 9 of the 18 posts are quote posts pointing at 9 distinct IDs. One target is Peter Yang&rsquo;s own earlier post from this same feed, which he quotes in his SpaceX share post; it is an in feed self quote. The other 8 are outside the feed and the feed gives the text of none of them. All 18 tweet IDs return zero hits against the 139 published pages. The window runs from Pacific 2026-11-25 23:26:16 (Thibault Sottiaux) to Pacific 2026-11-26 22:29:15 (Swyx), a 23h02m59s span closing 1m14s before the snapshot; one post falls on Pacific 11-25 and 17 on 11-26, 1h05m22s after the previous issue&rsquo;s close, with the previous snapshot 24h00m02s earlier and no gap in coverage. Pacific 10-29 and 10-30 remain missing from the series.</p>
+<p>12 accounts posted: 8 are on the 24-name tracking list (Swyx, Peter Yang, Amjad Masad, Guillermo Rauch, Matt Turck, Nikunj Kothari, Aditya Agarwal, Sam Altman) and 4 are not (Thibault Sottiaux, Nan Yu, Aaron Levie, Zara Zhang). Two posts are one line reactions whose text, once t.co URLs are stripped, is under 40 characters: Sottiaux&rsquo;s banked reset line and Aditya Agarwal&rsquo;s you really cannot make this stuff up. Their links are kept and no subject is added. The longest post is Zara Zhang&rsquo;s 12 tips at 2,999 characters. The blogs array is empty again this issue, the same cause as an empty array rather than a dedup hit.</p>
+</div>
+<div class="takeaway zh">
+<div class="takeaway-label">核心结论</div>
+<p>Sam Altman 的感恩节家庭帖是本期互动最高的一条：赞数第一 13,315、转发第一 384、回复第二 905。Thibault Sottiaux 那句 banked reset 拿到回复第一 1,538、赞数第二 7,984、转发第三 198。Sam 讲 Ven 和 millenium prize problems 的那条是赞数第三 6,775、转发第二 321、回复第三 435。18 条合计 33,287 赞、1,069 转发、3,431 回复；4 条过千赞，1 条过万赞，3 条转发过百，5 条回复过百。</p>
+<p>推文里有两条线。一条是感恩节与家庭：Sam 的家庭帖和孩子帖、Guillermo Rauch 关于乐观与能动性的感言、Matt Turck 拿 VC 开玩笑，以及 Nikunj Kothari 用本地脚本给共度时光的人发消息。另一条是和 agent 一起工作：Swyx 谈 2028 年的 agentic payments 和公开重新创业，Aaron Levie 谈围绕 agent 重建服务公司、交付能力有 10 倍乘数，Amjad Masad 让大家去 Replit 上试 Gemini 4，Zara Zhang 给了从 LinkedIn 转去 X 发帖的 12 条建议。</p>
+<p>播客是一集新内容，而且时间上早于推文。Latent Space 的《The Revolution vs The Renaissance — Thariq Shihipar, OpenAI》发布于 2026-11-25T22:28:01.000Z（太平洋 2026-11-25 14:28:01），比首条推文早 8 小时 58 分 15 秒、比末条早 32 小时 1 分 14 秒、比快照早 32 小时 2 分 28 秒；与首条推文同一太平洋日，其余 17 条在次日。完整标题、具体视频地址 https://www.youtube.com/watch?v=Qe9d9dWyED0、publishedAt 时间戳、嘉宾拼法 Thariq Shihipar，以及只在转写里出现的 system one model 和 slash human，对 139 个已发布页面全部零命中。decision model 这个词在 4 个往期页面出现过（10-03、11-02、11-07、11-16），因此这里不拿它当判重锚点。上一期收录了加入 OpenAI 的公告，转写里也把嘉宾介绍成刚刚完成这次变动的人。</p>
+<p>引用结构与覆盖：18 条里 9 条是引用推文，指向 9 个不同 ID。其中一个目标是 Peter Yang 本期自己稍早发的推文，被他在 SpaceX 股份那条里引用，是 feed 内自引。其余 8 个在 feed 外，feed 没给其中任何一条的正文。18 个推文 ID 对 139 个已发布页面零命中。窗口从太平洋 2026-11-25 23:26:16（Thibault Sottiaux）到太平洋 2026-11-26 22:29:15（Swyx），跨度 23 小时 2 分 59 秒，在快照前 1 分 14 秒收口；1 条落在太平洋 11-25、17 条落在 11-26，距上一期收口 1 小时 5 分 22 秒，上一份快照相隔 24 小时 2 秒，覆盖没有缺口。太平洋 10-29、10-30 在本系列仍缺失。</p>
+<p>有内容的账号 12 个：8 位在 24 位追踪名单内（Swyx、Peter Yang、Amjad Masad、Guillermo Rauch、Matt Turck、Nikunj Kothari、Aditya Agarwal、Sam Altman），4 位不在（Thibault Sottiaux、Nan Yu、Aaron Levie、Zara Zhang）。2 条是一句话反应，去掉 t.co 链接后正文不足 40 字符：Sottiaux 的 banked reset 一句和 Aditya Agarwal 的 You really cannot make this stuff up。链接都保留，不补主语。最长一条是 Zara Zhang 的 12 条建议，2,999 字符。blogs 数组本期仍为空，这个 0 是空数组，不是判重命中。</p>
+</div>
+</section>
+<!-- ============== NOTES ============== -->
+<section class="section">
+<div class="section-head"><span class="section-icon">&#128221;</span>
+<h2 class="section-title">记录 / Notes &amp; Dedup</h2>
+<span class="section-meta">18 Zero &middot; 1 New &middot; 0 Blog</span></div>
+<div class="dedup">
+<p style="margin-top:12px"><strong>Tweets</strong> All 18 tweet IDs have zero hits across the 139 published digest pages. 9 of the 18 are quote posts pointing at 9 distinct IDs. One target, 2126042318793064914, is Peter Yang's own earlier post from this same feed; it is an in feed target and a self quote. The other 8 are outside the feed and the feed gives the text of none of them. No two posts share a target, and no quoted ID appears in an earlier issue.</p>
+<p style="margin-top:12px"><strong>Podcast</strong> The slot is 1 and it is new, not a dedup. Latent Space published The Revolution vs The Renaissance — Thariq Shihipar, OpenAI, publishedAt 2026-11-25T22:28:01.000Z (Pacific 2026-11-25 14:28:01), 8h58m15s before the first post, 32h01m14s before the last and 32h02m28s before the snapshot, sharing the first post's Pacific day while the other 17 posts are on the next day. Its full title, the specific video URL https://www.youtube.com/watch?v=Qe9d9dWyED0, the timestamp, the guest spelling Thariq Shihipar, the transcript spelling Tariq Schipkar, and the phrases system one model and slash human return zero hits across the 139 pages. The lowercase phrase decision model hits 4 earlier pages (10-03, 11-02, 11-07, 11-16), so it is not used as a zero hit anchor. Thariq as a first name hits earlier pages but only as a tweet mention, not as this podcast. The episode is one of a series recorded at AIE Code Summit.</p>
+<p style="margin-top:12px"><strong>Blog</strong> The slot is 0 because the blogs array is empty. This zero has the same cause as an empty array rather than a dedup hit.</p>
+<p style="margin-top:12px"><strong>Coverage and thin posts</strong> Three timestamps: snapshot 2026-11-27T06:30:29.812Z (Pacific 11-26 22:30:29), first post Pacific 11-25 23:26:16 (Thibault Sottiaux), last post Pacific 11-26 22:29:15 (Swyx). Window 23h02m59s, closing 1m14s before the snapshot; 1h05m22s after the previous issue's close (Pacific 11-25 22:20:54); previous snapshot 24h00m02s earlier. One post falls on Pacific 11-25 and 17 on 11-26. Pacific 10-29 and 10-30 remain missing. 2 of the 18 posts are one line reactions whose text, once t.co URLs are stripped, is under 40 characters: Sottiaux's Banked reset is online and Aditya Agarwal's You really cannot make this stuff up. Their links are kept and no subject is added.</p>
+<p style="margin-top:12px"><strong>Engagement</strong> Across all 18 posts: 33,287 likes, 1,069 reposts and 3,431 replies. Sam Altman's family post is first on likes (13,315) and reposts (384) and second on replies (905). Sottiaux's banked reset line is first on replies (1,538), second on likes (7,984) and third on reposts (198). Sam's Ven post is third on likes (6,775), second on reposts (321) and third on replies (435). Four posts clear 1,000 likes and one clears 10,000; three clear 100 reposts and five clear 100 replies. The longest post is Zara Zhang's at 2,999 characters. Of the 12 accounts, 8 are on the tracked 24 builder list and 4 are not.</p>
+<p style="margin-top:12px"><strong>Not resolved</strong> What the two links in Swyx's day 0 post point to, and what t3code is; what his agentic payments and refounding in public links are; what the two links in Peter Yang's SpaceX post and the link in his Trump accounts post are; what Amjad's Replit link shows; what Nikunj's local scripts link contains; what Aditya's link is; what Sam Altman's quoted Ven post says; what the AIE Code Summit series contains beyond this episode; and standing items carried from earlier issues (Day 29 / 3/x, dot and dots, jev, Particle-1, HackerTube, Grok Bot, Legora, the data market figure, Claude Whiteboards, Box interop, interactive connectors, the AIE keynote, MCP tool counts, Opal and the 11-27 book date).</p>
+</div>
+<div class="dedup zh" style="margin-top:14px">
+<p style="margin-top:12px"><strong>推文</strong> 18 个推文 ID 对 139 个已发布页面全部零命中。18 条里 9 条是引用推文，指向 9 个不同 ID。其中一个目标 2126042318793064914 是 Peter Yang 本期自己稍早发的推文，是 feed 内目标，也是自引。其余 8 个在 feed 外，feed 没给其中任何一条的正文。没有两条推文指向同一个目标，也没有任何一个被引用 ID 出现在往期页面里。</p>
+<p style="margin-top:12px"><strong>播客</strong> 这一格是 1，是新收录，不是判重。Latent Space 的《The Revolution vs The Renaissance — Thariq Shihipar, OpenAI》发布于 2026-11-25T22:28:01.000Z（太平洋 2026-11-25 14:28:01），比首条推文早 8 小时 58 分 15 秒、比末条早 32 小时 1 分 14 秒、比快照早 32 小时 2 分 28 秒；与首条推文同一太平洋日，其余 17 条在次日。完整标题、具体视频地址 https://www.youtube.com/watch?v=Qe9d9dWyED0、时间戳、嘉宾拼法 Thariq Shihipar、转写里的拼法 Tariq Schipkar，以及 system one model 和 slash human 这两个说法，对 139 个已发布页面全部零命中。小写 decision model 在 4 个往期页面出现过（10-03、11-02、11-07、11-16），因此不拿它当零命中锚点。Thariq 作为名字在往期有命中，但只作为推文提及，不是这期播客。这一集属于 AIE Code Summit 录制、陆续放出的系列。</p>
+<p style="margin-top:12px"><strong>博客</strong> 这一格是 0，因为 blogs 数组为空。这个 0 是空数组，不是判重命中。</p>
+<p style="margin-top:12px"><strong>覆盖与薄内容</strong> 三个时刻：快照 2026-11-27T06:30:29.812Z（太平洋 11-26 22:30:29），首条太平洋 11-25 23:26:16（Thibault Sottiaux），末条太平洋 11-26 22:29:15（Swyx）。窗口 23 小时 2 分 59 秒，在快照前 1 分 14 秒收口；距上一期收口（太平洋 11-25 22:20:54）1 小时 5 分 22 秒；上一份快照相隔 24 小时 2 秒。1 条落在太平洋 11-25、17 条落在 11-26。太平洋 10-29、10-30 仍永久缺失。18 条里有 2 条是一句话反应，去掉 t.co 链接后正文不足 40 字符：Sottiaux 的 Banked reset is online 和 Aditya Agarwal 的 You really cannot make this stuff up。链接都保留，不补主语。</p>
+<p style="margin-top:12px"><strong>互动数据</strong> 18 条合计 33,287 赞、1,069 转发、3,431 回复。Sam Altman 的家庭帖赞数第一 13,315、转发第一 384、回复第二 905。Sottiaux 的 banked reset 一句回复第一 1,538、赞数第二 7,984、转发第三 198。Sam 的 Ven 那条赞数第三 6,775、转发第二 321、回复第三 435。4 条赞数过千，1 条过万；3 条转发过百，5 条回复过百。最长一条是 Zara Zhang 的 2,999 字符。12 个账号里 8 位在追踪的 24 人名单内、4 位不在。</p>
+<p style="margin-top:12px"><strong>未解决</strong> Swyx 那条 day 0 推文里的两条链接指向什么、t3code 是什么；他谈 agentic payments 和公开重新创业的链接是什么；Peter Yang 的 SpaceX 帖里两条链接和他的 Trump accounts 帖里那条链接是什么；Amjad 的 Replit 链接展示了什么；Nikunj 的本地脚本链接里有什么；Aditya 的链接是什么；Sam Altman 引用的 Ven 那条推文讲了什么；除这一集外 AIE Code Summit 系列还包含什么；以及往期长期项（Day 29 / 3/x、dot 与 dots、jev、Particle-1、HackerTube、Grok Bot、Legora、数据市场规模、Claude Whiteboards、Box 互通、interactive connectors、AIE keynote、MCP 工具数、Opal 和 11-27 新书日期）。</p>
+</div>
+</section>
+<footer class="footer">
+<div class="next-issue">&#128236; 下一期：明天 10:00（北京时间）</div>
+<div class="signature"><a href="#top" style="border:none;color:var(--ink-muted)">回到顶部 / Back to top</a></div>
+<div class="signature">by chloevchen</div>
+</footer>
+</body>
+</html>
+<!-- by chloevchen -->
